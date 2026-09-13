@@ -1,0 +1,2113 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Trenažér chemických výpočtů: úlohu složíte z nabízených veličin a vztahů, aplikace kreslí zlomky za vás a na konci přesně ukáže, kde se výpočet zlomil.">
+<meta name="color-scheme" content="light dark">
+<title>Počítáme spolu — Chemie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<style>
+:root{
+  --paper:#efe8dc; --surface:#faf6ee; --surface-2:#f3ece0; --surface-3:#e8dfd0;
+  --ink:#211b15; --ink-2:#5c5146; --ink-3:#8f8375;
+  --line:#e0d6c6; --line-strong:#c8baa5; --grid:#e6dccb;
+  --accent:#9b3320; --accent-hover:#7e2718; --accent-soft:#f6e6e0; --accent-ink:#fff7f2;
+  --teal:#216f66; --teal-soft:#e1efec;
+  --shadow-1:0 1px 2px rgba(33,27,21,.05), 0 2px 8px rgba(33,27,21,.05);
+  --shadow-3:0 12px 24px rgba(33,27,21,.10), 0 32px 64px rgba(33,27,21,.12);
+  --focus:#9b3320;
+  --f-ui:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-cond:"IBM Plex Sans Condensed","IBM Plex Sans","Segoe UI",sans-serif;
+  --f-body:"Source Serif 4","Georgia",serif;
+  --f-mono:"IBM Plex Mono","Consolas",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#15110d; --surface:#1d1813; --surface-2:#251f19; --surface-3:#302921;
+  --ink:#f0e8dc; --ink-2:#bfb2a1; --ink-3:#8f8376;
+  --line:#332b23; --line-strong:#4a4036; --grid:#241e18;
+  --accent:#e0785c; --accent-hover:#ef8c71; --accent-soft:#33201a; --accent-ink:#1a0f0a;
+  --teal:#6fbfae; --teal-soft:#152b27;
+  --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
+  --shadow-3:0 12px 24px rgba(0,0,0,.55), 0 32px 64px rgba(0,0,0,.6);
+  --focus:#e0785c;
+} }
+:root[data-theme="dark"]{
+  --paper:#15110d; --surface:#1d1813; --surface-2:#251f19; --surface-3:#302921;
+  --ink:#f0e8dc; --ink-2:#bfb2a1; --ink-3:#8f8376;
+  --line:#332b23; --line-strong:#4a4036; --grid:#241e18;
+  --accent:#e0785c; --accent-hover:#ef8c71; --accent-soft:#33201a; --accent-ink:#1a0f0a;
+  --teal:#6fbfae; --teal-soft:#152b27;
+  --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
+  --shadow-3:0 12px 24px rgba(0,0,0,.55), 0 32px 64px rgba(0,0,0,.6);
+  --focus:#e0785c;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important} }
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:17px;line-height:1.7;font-variant-numeric:oldstyle-nums;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-ui);margin:0;line-height:1.12;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.eyebrow{font-family:var(--f-cond);font-weight:600;font-size:.76rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3)}
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem)}
+.skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);
+  padding:.7rem 1rem;border-radius:0 0 8px 0;font-family:var(--f-ui);font-weight:600}
+.skip:focus{left:0}
+
+.bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:.7rem;min-height:62px;
+  max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem)}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--f-ui);
+  font-weight:700;letter-spacing:-.02em;font-size:1.02rem;color:var(--ink)}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:var(--accent);flex:none;
+  display:grid;place-items:center;color:var(--accent-ink);font-size:.78rem;font-weight:700;
+  font-family:var(--f-mono);letter-spacing:0}
+.bar .sp{flex:1}
+.crumb{display:flex;align-items:center;gap:.5rem;font-family:var(--f-ui);font-size:.86rem;color:var(--ink-3);
+  min-width:0;overflow:hidden}
+.crumb a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.crumb a:hover{color:var(--accent)}
+.crumb b{color:var(--ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:760px){ .crumb{display:none} }
+.iconbtn{width:40px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+  transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent}
+.iconbtn:hover{background:var(--surface-2);border-color:var(--ink-3)}
+/* tlačítko Zpátky v horní liště */
+.back{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font-family:var(--f-ui);
+  font-weight:600;font-size:.85rem;padding:0 .85rem 0 .7rem;height:40px;flex:none;border-radius:10px;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+  transition:background .15s,border-color .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.back:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.back svg{flex:none;transition:transform .18s}
+.back:hover svg{transform:translateX(-3px)}
+.bar-in .back{margin-right:.35rem;padding-right:.9rem;border-right:1px solid var(--line-strong)}
+.bar-in .back + .brand{padding-left:.15rem}
+@media (max-width:520px){ .back{padding:0;width:40px;justify-content:center} .back span{display:none} }
+footer.foot{border-top:1px solid var(--line);margin-top:clamp(4rem,9vw,7rem);padding:2.4rem 0 3.4rem;
+  background:var(--surface)}
+.foot-in{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:baseline;
+  max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem);
+  font-family:var(--f-ui);font-size:.86rem;color:var(--ink-3)}
+.foot-in .sp{flex:1;min-width:20px}
+
+.tiles{display:grid;gap:clamp(.85rem,1.6vw,1.15rem);margin-top:1.9rem}
+.tiles.g3{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.tiles.g2{grid-template-columns:repeat(auto-fill,minmax(370px,1fr))}
+.tile{position:relative;display:flex;flex-direction:column;gap:.7rem;
+  padding:clamp(1.25rem,2.2vw,1.75rem);border:1px solid var(--line);border-radius:18px;
+  background:var(--surface);text-decoration:none;color:var(--ink);overflow:hidden;
+  transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,border-color .22s}
+.tile::after{content:"";position:absolute;inset:0;border-radius:18px;pointer-events:none;
+  background:radial-gradient(700px 220px at 12% -30%,var(--accent-soft),transparent 70%);
+  opacity:0;transition:opacity .28s}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-3);border-color:var(--accent)}
+.tile:hover::after{opacity:1}
+.tile > *{position:relative;z-index:1}
+.tile .n{font-family:var(--f-mono);font-size:.8rem;font-weight:600;color:var(--accent);letter-spacing:.06em}
+.tile h3{font-size:1.16rem;font-weight:700;letter-spacing:-.022em;line-height:1.25}
+.tile .desc{font-family:var(--f-ui);font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+.tile .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:auto;padding-top:.65rem}
+.tile .chips span{font-family:var(--f-ui);font-size:.735rem;line-height:1.35;padding:.2rem .5rem;
+  border-radius:6px;background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
+.tile .go{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--f-cond);font-weight:600;
+  font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin-top:.55rem}
+.tile .go svg{transition:transform .18s}
+.tile:hover .go svg{transform:translateX(4px)}
+.tile.soon{cursor:not-allowed;opacity:.62;border-style:dashed}
+.tile.soon:hover{transform:none;box-shadow:none;border-color:var(--line-strong)}
+.tile.soon:hover::after{opacity:0}
+.tile.soon .go{color:var(--ink-3)}
+.badge{position:absolute;top:1rem;right:1rem;z-index:2;font-family:var(--f-cond);font-weight:600;
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .55rem;border-radius:99px;
+  background:var(--surface-3);color:var(--ink-3)}
+/* ---------- dvojice: co spolu souvisí, drží pohromadě ---------- */
+.pairs{display:flex;flex-direction:column;gap:clamp(1.1rem,2vw,1.7rem);margin-top:1.9rem}
+.pair{border:1px solid var(--line);border-radius:22px;background:var(--surface-2);
+  padding:clamp(.75rem,1.4vw,1rem)}
+.pair-head{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;padding:.4rem .7rem .85rem}
+.pair-head .pl{font-family:var(--f-cond);font-weight:600;font-size:.76rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent)}
+.pair-head .pn{font-family:var(--f-ui);font-size:.87rem;color:var(--ink-3);line-height:1.45}
+.pair-grid{display:grid;gap:.85rem;grid-template-columns:minmax(0,1fr);align-items:stretch}
+.pair-conn{display:none}
+@media (min-width:820px){
+  .pair.two .pair-grid{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  .pair.two .pair-conn{display:flex;align-items:center;justify-content:center;color:var(--ink-3);
+    padding:0 .1rem}
+  .pair.two .pair-conn svg{opacity:.65}
+}
+.pair .tile{background:var(--surface)}
+.pair.one .pair-grid{grid-template-columns:minmax(0,1fr)}
+@media (min-width:820px){ .pair.one .pair-grid{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  .pair.one .pair-grid > :nth-child(n+2){visibility:hidden} }
+.tile.big{min-height:236px}
+/* ---- CARD-LIFT: karty zřetelně oddělené od pozadí ---- */
+.tile,.pcard,.tcard{
+  border:2px solid var(--line-strong)!important;
+  border-top:4px solid var(--accent)!important;
+  border-radius:16px!important;
+  box-shadow:0 1px 2px rgba(33,27,21,.07),0 6px 16px rgba(33,27,21,.09);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .tile,
+  :root:not([data-theme="light"]) .pcard, :root:not([data-theme="light"]) .tcard{ box-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38); } }
+:root[data-theme="dark"] .tile, :root[data-theme="dark"] .pcard,
+:root[data-theme="dark"] .tcard{ box-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38); }
+.tile:hover,.pcard:hover,.tcard:hover{ border-color:var(--accent)!important;
+  border-top-color:var(--accent)!important }
+.tile.soon{ border-style:dashed!important;border-top-style:solid!important }
+/* víc vzduchu kolem i uvnitř */
+.tile,.pcard,.tcard{ padding:clamp(1.35rem,2.3vw,1.85rem) clamp(1.4rem,2.4vw,1.9rem) }
+.tiles,.pair-grid,.preset{ gap:clamp(1rem,1.9vw,1.4rem)!important }
+.pair{ padding:clamp(1rem,1.8vw,1.35rem)!important }
+
+.tile.big h3{font-size:clamp(1.22rem,1rem + .8vw,1.5rem);letter-spacing:-.026em}
+.tile.big .desc{font-size:.92rem}
+.tile.big .ic{position:absolute;right:-24px;bottom:-30px;opacity:.09;color:var(--accent);z-index:0}
+.tile.big:hover .ic{opacity:.16}
+
+.hero{position:relative;overflow:hidden;padding:clamp(3.2rem,8vw,6.5rem) 0 clamp(2.4rem,5vw,4rem);
+  border-bottom:1px solid var(--line)}
+.hero.sub{padding:clamp(2.4rem,5.5vw,4.4rem) 0 clamp(2rem,4vw,3.2rem)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(760px 340px at 78% 8%,var(--accent-soft),transparent 68%),
+    radial-gradient(560px 300px at 8% 92%,var(--teal-soft),transparent 70%),
+    repeating-linear-gradient(0deg,transparent 0 31px,var(--grid) 31px 32px),
+    repeating-linear-gradient(90deg,transparent 0 31px,var(--grid) 31px 32px);
+  -webkit-mask-image:radial-gradient(1100px 560px at 50% 26%,#000 40%,transparent 100%);
+  mask-image:radial-gradient(1100px 560px at 50% 26%,#000 40%,transparent 100%)}
+.hero-bg.alt{
+  background:
+    radial-gradient(680px 320px at 82% 16%,var(--teal-soft),transparent 66%),
+    radial-gradient(520px 280px at 4% 88%,var(--accent-soft),transparent 70%),
+    repeating-linear-gradient(60deg,transparent 0 33px,var(--grid) 33px 34px),
+    repeating-linear-gradient(-60deg,transparent 0 33px,var(--grid) 33px 34px)}
+.hero-art{position:absolute;right:clamp(-90px,-4vw,0px);top:50%;transform:translateY(-50%);
+  z-index:0;color:var(--accent);opacity:.16;pointer-events:none}
+.hero-art.alt{color:var(--teal);opacity:.2;right:clamp(-60px,-2vw,10px)}
+@media (max-width:1000px){ .hero-art{display:none} }
+.hero-in{position:relative;z-index:1;max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem)}
+.hero h1{font-size:clamp(2.5rem,1.2rem + 5.4vw,4.9rem);font-weight:700;letter-spacing:-.042em;
+  max-width:17ch;margin:.7rem 0 0}
+.hero.sub h1{font-size:clamp(2.1rem,1.2rem + 3.6vw,3.5rem)}
+.hero .lead{font-size:clamp(1.02rem,.95rem + .45vw,1.24rem);color:var(--ink-2);max-width:58ch;
+  margin-top:1.15rem;text-wrap:pretty}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--f-ui);
+  font-size:.925rem;font-weight:600;padding:.85rem 1.4rem;min-height:50px;border-radius:12px;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);text-decoration:none;
+  cursor:pointer;transition:background .16s,border-color .16s,transform .1s}
+.btn:hover{background:var(--surface-2);border-color:var(--ink-3)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);
+  box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 26%,transparent)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn svg{transition:transform .18s}
+.btn:hover svg{transform:translateX(3px)}
+.sec{padding:clamp(2.6rem,5.5vw,4.2rem) 0 0}
+.sec-head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(1.4rem,1.1rem + 1.3vw,1.95rem);font-weight:700}
+.sec > p.intro{font-family:var(--f-ui);font-size:.98rem;color:var(--ink-2);max-width:62ch;margin-top:.6rem}
+.how{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:1.5rem}
+.how-c{position:relative;border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  padding:1.15rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;overflow:hidden}
+.how-c::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);
+  opacity:.55}
+.how-c .ic{width:32px;height:32px;border-radius:9px;background:var(--accent-soft);color:var(--accent);
+  display:grid;place-items:center;flex:none;font-family:var(--f-mono);font-weight:600;font-size:.9rem}
+.how-c h3{font-size:1.02rem;font-weight:600;letter-spacing:-.015em}
+.how-c p{font-family:var(--f-ui);font-size:.88rem;line-height:1.55;color:var(--ink-2)}
+
+:root{--ok:#3f7a34;--ok-soft:#eaf2e4;--bad:#a62f3b;--bad-soft:#f8e4e6;
+  --warn:#8a6410;--warn-soft:#f7eddb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ok:#7fc08a;--ok-soft:#19291b;--bad:#ee7a90;--bad-soft:#301820;
+  --warn:#dcae5b;--warn-soft:#2b2115}}
+:root[data-theme="dark"]{--ok:#7fc08a;--ok-soft:#19291b;--bad:#ee7a90;--bad-soft:#301820;
+  --warn:#dcae5b;--warn-soft:#2b2115}
+
+.wrap.narrow{max-width:940px}
+.mono{font-family:var(--f-mono)}
+.chem{font-family:var(--f-ui);white-space:nowrap}
+.nowrap{white-space:nowrap}
+.sp{flex:1}
+.lvd{font-family:var(--f-ui);font-size:.87rem;color:var(--ink-3)}
+
+/* ---------- matematika: symboly, zlomky, odmocniny ---------- */
+.math{font-family:var(--f-body);font-size:1.1rem;line-height:1.55}
+.math i{font-style:italic}
+.math sub{font-size:.66em;vertical-align:-.28em}
+.math sup{font-size:.66em;vertical-align:.52em}
+.math .op{padding:0 .2em;color:var(--ink-2)}
+.math .par{color:var(--ink-3);padding:0 .03em}
+.math .nv{font-family:var(--f-mono);font-size:.9em}
+.math .cv{font-style:italic}
+.math .fnm{font-style:normal;padding-right:.05em}
+.frac{display:inline-flex;flex-direction:column;align-items:stretch;vertical-align:middle;
+  margin:0 .22em;text-align:center;font-size:.95em}
+.frac>.fnum{padding:0 .4em .1em}
+.frac>.fden{padding:.13em .4em 0;border-top:1.6px solid currentColor}
+.rt{display:inline-flex;align-items:flex-start;vertical-align:middle;margin:0 .1em}
+.rt>.rs{font-size:1.3em;line-height:.92}
+.rt>.rb{border-top:1.6px solid currentColor;padding:.15em .3em 0 .18em;margin-top:.06em}
+.tok{font:inherit;font-size:1em;color:inherit;background:none;border:0;padding:.05em .14em;
+  border-radius:5px;line-height:inherit}
+button.tok{cursor:pointer;-webkit-tap-highlight-color:transparent}
+button.tok:hover{background:var(--accent-soft);color:var(--accent)}
+button.tok.sel{background:var(--accent);color:var(--accent-ink)}
+.tok.hl{background:var(--warn-soft);box-shadow:0 0 0 2px var(--warn)}
+.subv{font-family:var(--f-mono);font-size:.88em;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:6px;padding:.06em .3em;white-space:nowrap}
+.subv .su{color:var(--ink-3)}
+.subv .miss{color:var(--bad)}
+.subv.mk{border-color:var(--bad);background:var(--bad-soft)}
+.selmark{background:var(--accent);color:var(--accent-ink);padding:.05em .32em;border-radius:5px}
+
+/* ---------- výpočtový list — komponenta .calcsheet převzatá
+   ze stránky „Jak počítat chemii“, aby to byl očividně tentýž list ---------- */
+:root{--endo:var(--teal);--endo-soft:var(--teal-soft)}
+.calcsheet{
+  counter-reset:csb;
+  border:1px solid var(--line-strong);border-radius:14px;background:var(--surface);
+  box-shadow:var(--shadow-1);overflow:hidden;margin:1.35rem 0;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.calcsheet + .calcsheet{margin-top:1.6rem}
+
+/* --- hlavička listu --- */
+.cs-head{
+  display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap;
+  padding:.7rem 1.15rem;background:
+    repeating-linear-gradient(0deg,transparent 0 15px,var(--grid) 15px 16px),
+    repeating-linear-gradient(90deg,transparent 0 15px,var(--grid) 15px 16px),
+    var(--surface-2);
+  border-bottom:2px solid var(--line-strong);
+}
+.cs-head .cs-id{
+  font-family:var(--f-cond);font-weight:700;font-size:.74rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);white-space:nowrap;
+}
+.cs-head .cs-topic{
+  font-family:var(--f-ui);font-size:.94rem;font-weight:600;color:var(--ink);
+  letter-spacing:-.012em;flex:1;min-width:120px;line-height:1.35;
+}
+.cs-head .cs-kind{
+  font-family:var(--f-cond);font-weight:600;font-size:.66rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-strong);
+  border-radius:99px;padding:.16rem .5rem;white-space:nowrap;
+}
+
+/* --- zadání úlohy pod hlavičkou --- */
+.cs-task{
+  padding:.8rem 1.15rem;font-family:var(--f-ui);font-size:.95rem;line-height:1.55;
+  color:var(--ink);background:var(--surface);border-bottom:1px solid var(--line);
+}
+
+/* --- blok --- */
+.cs-block{
+  display:grid;grid-template-columns:6.9rem minmax(0,1fr);gap:.3rem 1.1rem;
+  padding:.8rem 1.15rem;border-top:1px solid var(--line);align-items:start;
+}
+.cs-block:first-child{border-top:0}
+.cs-lbl{
+  font-family:var(--f-cond);font-weight:700;font-size:.7rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);line-height:1.5;
+  display:flex;align-items:baseline;gap:.4rem;padding-top:.12rem;
+}
+.cs-lbl::before{
+  counter-increment:csb;content:counter(csb);
+  font-family:var(--f-mono);font-size:.66rem;font-weight:600;letter-spacing:0;
+  width:1.15rem;height:1.15rem;border-radius:50%;flex:none;
+  background:var(--surface-3);color:var(--ink-3);
+  display:inline-grid;place-items:center;transform:translateY(.1rem);
+}
+.cs-rows{display:flex;flex-direction:column;gap:.26rem;min-width:0}
+
+/* --- řádek: symbol · hodnota · poznámka --- */
+.cs-row{
+  display:grid;grid-template-columns:4.6rem minmax(0,1fr) auto;
+  gap:.1rem .6rem;align-items:baseline;
+}
+.cs-sym{
+  font-family:var(--f-ui);font-style:italic;font-weight:600;font-size:1rem;
+  color:var(--ink);text-align:right;white-space:nowrap;
+}
+.cs-sym sub,.cs-sym sup{font-style:normal}
+.cs-val{
+  font-family:var(--f-mono);font-size:.95rem;color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;line-height:1.6;min-width:0;
+}
+.cs-conv{color:var(--accent);font-weight:500}
+.cs-conv::before{content:"";display:inline-block;width:.15rem}
+.cs-note{
+  font-family:var(--f-ui);font-size:.8rem;color:var(--ink-3);
+  text-align:right;line-height:1.45;font-style:italic;
+}
+
+/* --- celořádkové zápisy (vztahy, odvození, dosazení) --- */
+.cs-line{
+  font-family:var(--f-mono);font-size:.97rem;line-height:1.75;color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;overflow-x:auto;
+  padding:.05rem 0;white-space:nowrap;
+}
+.cs-line b{color:var(--accent);font-weight:600}
+.cs-line em{font-style:italic;color:var(--ink-3);font-family:var(--f-ui);font-size:.86rem;white-space:normal}
+.cs-line.wrap{white-space:normal}
+.cs-line.units{
+  color:var(--endo);font-size:.9rem;background:var(--endo-soft);
+  border-radius:7px;padding:.3rem .6rem;display:block;margin-top:.15rem;
+  white-space:normal;overflow-wrap:anywhere;line-height:1.55;
+}
+.cs-line.units b{color:var(--endo)}
+.cs-hint{
+  font-family:var(--f-ui);font-size:.8rem;color:var(--ink-3);line-height:1.5;
+  margin-top:.18rem;font-style:italic;
+}
+
+/* --- blok „hledáme“ --- */
+.cs-block.find{background:var(--surface-2)}
+.cs-block.find .cs-val{color:var(--accent);font-weight:600}
+
+/* --- blok „odpověď“ --- */
+.cs-block.res{
+  border-top:2px solid var(--line-strong);background:var(--surface-2);
+  padding-top:.95rem;padding-bottom:.95rem;
+}
+.cs-block.res .cs-lbl{color:var(--accent)}
+.cs-block.res .cs-lbl::before{background:var(--accent);color:var(--accent-ink)}
+.cs-ans{
+  font-family:var(--f-ui);font-size:.99rem;line-height:1.6;color:var(--ink);
+}
+.cs-hi{
+  font-family:var(--f-mono);font-size:1.02rem;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border-radius:7px;padding:.1rem .45rem;
+  white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;
+}
+
+/* --- blok „kontrola“ --- */
+.cs-block.chk{background:var(--endo-soft);border-top:1px dashed var(--line-strong)}
+.cs-block.chk .cs-lbl{color:var(--endo)}
+.cs-block.chk .cs-lbl::before{background:var(--endo);color:var(--surface)}
+.cs-chk{font-family:var(--f-ui);font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+
+/* --- varianta „takhle ne“ --- */
+.calcsheet.bad{border-color:var(--bad);background:var(--bad-soft)}
+.calcsheet.bad .cs-head{border-bottom-color:var(--bad);background:var(--bad-soft)}
+.calcsheet.bad .cs-head .cs-id{color:var(--bad)}
+.calcsheet.bad .cs-block{border-top-color:var(--bad);opacity:.96}
+.cs-flaw{
+  font-family:var(--f-ui);font-size:.82rem;line-height:1.5;color:var(--bad);
+  display:flex;gap:.4rem;align-items:flex-start;margin-top:.2rem;
+}
+.cs-flaw::before{content:"✕";font-weight:700;flex:none}
+.cs-good{
+  font-family:var(--f-ui);font-size:.82rem;line-height:1.5;color:var(--ok);
+  display:flex;gap:.4rem;align-items:flex-start;margin-top:.2rem;
+}
+.cs-good::before{content:"✓";font-weight:700;flex:none}
+
+/* --- postupné odkrývání (živý list v hero) --- */
+.cs-block[data-step].is-hidden{display:none}
+
+/* --- kompaktní varianta do dvousloupcových mřížek ---
+   štítek bloku jde nad řádky, aby na formule zbyla celá šířka --- */
+.calcsheet.compact .cs-block,
+.vsgrid .calcsheet .cs-block{grid-template-columns:minmax(0,1fr);gap:.3rem;padding:.65rem .9rem}
+.calcsheet.compact .cs-lbl,
+.vsgrid .calcsheet .cs-lbl{padding-top:0}
+.calcsheet.compact .cs-line,.calcsheet.compact .cs-val{font-size:.86rem}
+.vsgrid .calcsheet .cs-line,.vsgrid .calcsheet .cs-val{font-size:.9rem}
+.calcsheet.compact .cs-head{padding:.55rem .9rem}
+.calcsheet.compact .cs-row,
+.vsgrid .calcsheet .cs-row{grid-template-columns:4rem minmax(0,1fr)}
+.calcsheet.compact .cs-note,
+.vsgrid .calcsheet .cs-note{grid-column:2;text-align:left;margin-top:-.12rem}
+
+/* --- mobil: jeden sloupec --- */
+@media (max-width:700px){
+  .cs-block{grid-template-columns:minmax(0,1fr);gap:.34rem}
+  .cs-lbl{padding-top:0}
+  .cs-row{grid-template-columns:3.6rem minmax(0,1fr)}
+  .cs-note{grid-column:2;text-align:left;margin-top:-.1rem}
+  .cs-line{font-size:.88rem}
+}
+
+/* doplňky trenažéru nad převzatou komponentou */
+.cs-task{font-family:var(--f-body);font-size:1.02rem;line-height:1.68}
+.cs-block.act{background:var(--surface-2)}
+.cs-block.act > .cs-lbl{color:var(--accent)}
+.cs-block.act > .cs-lbl::before{background:var(--accent);color:var(--accent-ink)}
+.cs-block.bad{box-shadow:inset 3px 0 0 var(--bad)}
+.cs-row.bad{background:var(--bad-soft);border-radius:8px;padding:.25rem .4rem;
+  box-shadow:inset 3px 0 0 var(--bad)}
+.cs-val.inputs{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  font-family:var(--f-ui)}
+.cs-ans{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.cs-ans.bad{background:var(--bad-soft);border-radius:8px;padding:.35rem .55rem}
+.cs-line .math{font-family:var(--f-body)}
+.cs-line{padding-bottom:.1rem}
+.dline{padding:.1rem 0}
+.dline.bad{background:var(--bad-soft);border-radius:8px;padding:.3rem .5rem;
+  box-shadow:inset 3px 0 0 var(--bad)}
+.cs-sym.math{font-weight:400;font-style:normal;text-align:right}
+.toolbox{border-top:1px solid var(--line-strong)}
+.gval,.aval{font-family:var(--f-mono);font-size:.95rem;padding:.42rem .55rem;width:7.5rem;
+  min-height:42px;border:1px solid var(--line-strong);border-radius:8px;
+  background:var(--surface);color:var(--ink)}
+.aval{width:9.5rem;font-size:1.05rem}
+.gunit{font-family:var(--f-ui);font-size:.9rem;padding:.42rem .5rem;min-height:42px;
+  border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink)}
+.grm{width:34px;height:34px;flex:none;border-radius:8px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--ink-3);cursor:pointer;font-size:.8rem}
+.grm:hover{border-color:var(--bad);color:var(--bad)}
+.qmark{font-family:var(--f-mono);font-size:1.15rem;color:var(--accent);font-weight:600}
+.qmark{font-family:var(--f-mono);font-size:1.2rem;color:var(--accent)}
+
+.fcard{display:inline-flex;align-items:center;padding:.5rem .8rem;min-height:46px;
+  border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);
+  color:var(--ink);font:inherit;text-align:left}
+button.fcard{cursor:pointer;transition:border-color .15s,background .15s}
+button.fcard:hover{border-color:var(--accent);background:var(--accent-soft)}
+button.fcard.on{border-color:var(--accent);background:var(--accent-soft);
+  box-shadow:inset 0 0 0 1px var(--accent)}
+button.fcard.can{border-color:var(--ok);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--ok) 28%,transparent)}
+.fcard.bad{border-color:var(--bad);background:var(--bad-soft)}
+.rack,.fpicked{display:flex;flex-wrap:wrap;gap:.5rem}
+.substnote{font-family:var(--f-ui);font-size:.8rem;line-height:1.55;color:var(--ink-3);
+  margin-top:.5rem;max-width:62ch}
+
+/* ---------- nářadí pod aktivním řádkem ---------- */
+.toolbox{padding:1.1rem 1.35rem 1.25rem;background:var(--surface-3);
+  border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+.tb-h{font-family:var(--f-ui);font-weight:600;font-size:.95rem;margin-bottom:.65rem;
+  line-height:1.5}
+.tb-h2{font-family:var(--f-cond);font-weight:600;font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin:1rem 0 .45rem}
+.tb-n{font-family:var(--f-ui);font-size:.85rem;line-height:1.58;color:var(--ink-2);
+  margin-top:.75rem}
+.shelf{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .8rem;min-height:44px;
+  border:1px solid var(--line-strong);border-radius:99px;background:var(--surface);
+  color:var(--ink);cursor:pointer;font:inherit}
+.chip .cn{font-family:var(--f-ui);font-size:.78rem;color:var(--ink-3)}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip.on .cn{color:var(--accent-ink);opacity:.85}
+.simps{display:flex;flex-wrap:wrap;gap:.45rem}
+.btn.can{border-color:var(--ok);color:var(--ok)}
+.btn-sm{font-size:.85rem;padding:.55rem .9rem;min-height:42px}
+.tbfoot{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.05rem;
+  padding-top:.9rem;border-top:1px dashed var(--line-strong)}
+.mechnote{display:flex;gap:.6rem;align-items:flex-start;margin-top:.9rem;padding:.7rem .9rem;
+  border:1px solid var(--line-strong);border-left:3px solid var(--ink-3);border-radius:9px;
+  background:var(--surface);font-family:var(--f-ui);font-size:.88rem;line-height:1.58;
+  color:var(--ink-2)}
+.mn-i{flex:none;width:20px;height:20px;border-radius:50%;background:var(--ink-3);
+  color:var(--surface);display:grid;place-items:center;font-family:var(--f-mono);
+  font-size:.7rem;font-weight:600;margin-top:.1rem}
+.coach{padding:.9rem 1.05rem;border:1px solid var(--teal);border-radius:11px;
+  background:var(--teal-soft);font-family:var(--f-ui);font-size:.9rem;line-height:1.62;
+  margin-bottom:1rem}
+
+.ucomp{display:flex;flex-direction:column;gap:.4rem;max-width:480px}
+.uz{display:flex;align-items:center;gap:.6rem;padding:.5rem .7rem;min-height:50px;
+  border:1px dashed var(--line-strong);border-radius:10px;background:var(--surface);
+  cursor:pointer}
+.uz.on{border-style:solid;border-color:var(--accent);background:var(--accent-soft)}
+.uzl{font-family:var(--f-cond);font-weight:600;font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);flex:none;width:6.4rem}
+.uzc{display:flex;flex-wrap:wrap;gap:.3rem}
+.uempty{color:var(--ink-3)}
+.uch{font-family:var(--f-mono);font-size:.88rem;padding:.25rem .55rem;border-radius:6px;
+  border:1px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer}
+.utiles{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.65rem}
+.ut{font-family:var(--f-mono);font-size:.88rem;padding:.4rem .6rem;min-height:40px;
+  min-width:46px;border:1px solid var(--line-strong);border-radius:8px;
+  background:var(--surface);color:var(--ink);cursor:pointer}
+.ut:hover{border-color:var(--accent);color:var(--accent)}
+.subrow{margin-top:1.1rem}
+
+/* ---------- verdikt, diagnostika, vzorové řešení ---------- */
+.verdict{margin-top:1.6rem;border:2px solid var(--line-strong);border-radius:16px;
+  background:var(--surface);padding:1.4rem 1.5rem}
+.verdict.good{border-color:var(--ok)}
+.verdict.bad{border-color:var(--bad)}
+.vhead{display:flex;gap:1rem;align-items:flex-start}
+.vmark{width:54px;height:54px;flex:none;border-radius:14px;display:grid;place-items:center;
+  font-size:1.8rem;font-weight:700}
+.verdict.good .vmark{background:var(--ok-soft);color:var(--ok)}
+.verdict.bad .vmark{background:var(--bad-soft);color:var(--bad)}
+.vhead h2{font-size:1.65rem}
+.vhead p{font-family:var(--f-ui);font-size:.92rem;line-height:1.55;color:var(--ink-2);
+  margin-top:.35rem}
+.vstats{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.1rem;padding:.9rem 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vstats span{display:flex;flex-direction:column;font-family:var(--f-ui);font-size:.78rem;
+  color:var(--ink-3)}
+.vstats b{font-family:var(--f-mono);font-size:1.08rem;color:var(--ink)}
+.vnote{font-family:var(--f-ui);font-size:.86rem;line-height:1.55;color:var(--ink-2);
+  margin-top:.9rem}
+.vacts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.15rem}
+.diag{margin-top:1.2rem;padding:1rem 1.15rem;border-radius:12px;background:var(--surface-2);
+  border:1px solid var(--line);border-left:4px solid var(--warn)}
+.diag h3{font-size:1.06rem;margin-bottom:.45rem}
+.diag p{font-family:var(--f-ui);font-size:.93rem;line-height:1.65;color:var(--ink-2)}
+.outro{margin-top:1.15rem;font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  color:var(--ink-2)}
+.model{border-color:var(--teal)}
+.mhead{padding:1.2rem 1.35rem;background:var(--teal-soft);border-bottom:1px solid var(--line)}
+.mhead h2{font-size:1.3rem;margin-top:.35rem}
+.mhead p{font-family:var(--f-ui);font-size:.88rem;line-height:1.58;color:var(--ink-2);
+  margin-top:.5rem;max-width:70ch}
+.mans{font-size:1.25rem}
+.mout{font-family:var(--f-body);font-size:.98rem;line-height:1.68;color:var(--ink-2);
+  margin-top:.75rem}
+
+/* ---------- trenažér: lišta a kroky ---------- */
+#train{display:none}
+#train.on{display:block}
+.trainbar{position:sticky;top:62px;z-index:40;border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 93%,transparent);backdrop-filter:blur(10px)}
+.tb-in{display:flex;align-items:center;gap:.7rem;max-width:940px;margin:0 auto;
+  padding:.7rem clamp(1.1rem,4vw,3rem) .15rem}
+.tb-t{display:flex;flex-direction:column;min-width:0}
+.tb-t b{font-family:var(--f-ui);font-size:1rem;font-weight:700;letter-spacing:-.02em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tmeta{display:flex;flex-wrap:wrap;gap:.5rem;font-family:var(--f-ui);font-size:.75rem;
+  color:var(--ink-3)}
+.tmeta .lv{font-weight:600}
+.lv1{color:var(--ok)}.lv2{color:var(--warn)}.lv3{color:var(--accent)}
+.steps{display:flex;gap:.3rem;max-width:940px;margin:0 auto;overflow-x:auto;
+  padding:.4rem clamp(1.1rem,4vw,3rem) .6rem;scrollbar-width:thin}
+.stp{display:flex;align-items:center;gap:.4rem;padding:.35rem .65rem;border-radius:99px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-3);
+  font-family:var(--f-ui);font-size:.78rem;cursor:pointer;white-space:nowrap;flex:none}
+.stp b{width:19px;height:19px;border-radius:50%;background:var(--surface-3);color:var(--ink-3);
+  display:grid;place-items:center;font-family:var(--f-mono);font-size:.68rem}
+.stp.ok{color:var(--ink)}
+.stp.ok b{background:var(--teal);color:var(--paper)}
+.stp.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.stp.on b{background:var(--accent);color:var(--accent-ink)}
+.stp:disabled{cursor:default;opacity:.5}
+
+/* ---------- výběr úlohy a pokrok ---------- */
+.tcards{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));
+  margin-top:1.1rem}
+.tcard{position:relative;display:flex;flex-direction:column;gap:.45rem;padding:1.15rem 1.25rem;
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);text-align:left;
+  cursor:pointer;font:inherit;color:var(--ink);
+  transition:transform .18s,border-color .18s,box-shadow .18s}
+/* ---- CARD-LIFT: karty zřetelně oddělené od pozadí ---- */
+.tile,.pcard,.tcard{
+  border:2px solid var(--line-strong)!important;
+  border-top:4px solid var(--accent)!important;
+  border-radius:16px!important;
+  box-shadow:0 1px 2px rgba(33,27,21,.07),0 6px 16px rgba(33,27,21,.09);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .tile,
+  :root:not([data-theme="light"]) .pcard, :root:not([data-theme="light"]) .tcard{ box-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38); } }
+:root[data-theme="dark"] .tile, :root[data-theme="dark"] .pcard,
+:root[data-theme="dark"] .tcard{ box-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38); }
+.tile:hover,.pcard:hover,.tcard:hover{ border-color:var(--accent)!important;
+  border-top-color:var(--accent)!important }
+.tile.soon{ border-style:dashed!important;border-top-style:solid!important }
+/* víc vzduchu kolem i uvnitř */
+.tile,.pcard,.tcard{ padding:clamp(1.35rem,2.3vw,1.85rem) clamp(1.4rem,2.4vw,1.9rem) }
+.tiles,.pair-grid,.preset{ gap:clamp(1rem,1.9vw,1.4rem)!important }
+.pair{ padding:clamp(1rem,1.8vw,1.35rem)!important }
+
+.tcard:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow-3)}
+.tcard .tk{font-family:var(--f-cond);font-weight:600;font-size:.7rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent)}
+.tcard h3{font-size:1.06rem;font-weight:700}
+.tcard p{font-family:var(--f-ui);font-size:.85rem;line-height:1.5;color:var(--ink-2)}
+.tcard .tst{margin-top:auto;padding-top:.65rem;font-family:var(--f-ui);font-size:.76rem;
+  color:var(--ink-3)}
+.tcard.done{border-left:3px solid var(--ok)}
+.tcard.done .tst{color:var(--ok)}
+.tcard.done0{border-left:3px solid var(--ok);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ok) 32%,transparent)}
+.tcard.done0 .tst{color:var(--ok);font-weight:600}
+.tcard.tried{border-left:3px solid var(--warn)}
+.tcard.tried .tst{color:var(--warn)}
+.pgrid{display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+  background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  margin-top:1.1rem}
+.pb{background:var(--surface);padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.15rem}
+.pv{font-family:var(--f-mono);font-size:1.7rem;font-weight:600;letter-spacing:-.03em}
+.pk{font-family:var(--f-ui);font-size:.8rem;color:var(--ink-3)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;
+  background:var(--surface);margin-top:.9rem}
+.brk{width:100%;border-collapse:collapse;font-family:var(--f-ui);font-size:.88rem}
+.brk th{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line-strong);
+  font-family:var(--f-cond);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3)}
+.brk td{padding:.5rem .7rem;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.brk tr:last-child td{border-bottom:0}
+.brk td.n{text-align:right;font-family:var(--f-mono);white-space:nowrap;color:var(--ink)}
+.brk .bar{display:block;height:8px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;min-width:70px}
+.brk .bar i{display:block;height:100%;border-radius:99px}
+.pacts{margin-top:.9rem}
+.warmcard{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
+  padding:1.3rem 1.45rem;border:1px solid var(--teal);border-radius:14px;
+  background:var(--teal-soft);margin-top:1.1rem}
+.warmcard p{font-family:var(--f-ui);font-size:.92rem;line-height:1.62;color:var(--ink-2);
+  max-width:64ch}
+</style>
+</head>
+<body>
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<header class="bar"><div class="bar-in">
+  <a class="back" href="../index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span>Zpátky na úvod</span></a><a class="brand" href="../index.html"><span class="dot">Ch</span><span>Chemie</span></a>
+  <span class="sp"></span>
+  <nav class="crumb" aria-label="Drobečková navigace"><a href="../index.html">Úvod</a><span>/</span><b>Počítáme spolu</b></nav>
+  <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
+</div></header>
+<main id="obsah">
+<div id="pick"><section class="hero sub"><div class="hero-bg alt"></div><svg class="hero-art alt" width="430" height="430" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 9h20"/><path d="M34 9v68a6 6 0 0 0 6 6 6 6 0 0 0 6-6V9"/><path d="M34 24h5M34 33h8M34 42h5M34 51h8M34 60h5M34 69h8"/><path d="M34 55h12" stroke-width="2.2"/><path d="M58 47h30" stroke-width="2.2"/><circle cx="73" cy="31" r="5.2"/><circle cx="65" cy="63" r="5.2"/><circle cx="81" cy="63" r="5.2"/><path d="M12 20l4 4-4 4M12 76l4-4-4-4"/></svg><div class="hero-in"><span class="eyebrow">Trenažér výpočtů · klepáním, ne psaním</span><h1>Počítáme spolu</h1><p class="lead">Úlohu si poskládáte vlastníma rukama: vypíšete zadané veličiny i s převody, vyberete vztahy a klepáním dosadíte jeden do druhého. Zlomky kreslí aplikace, algebru nepíšete. A hlavně — během řešení vám nikdo nekouká přes rameno. Verdikt přijde až po odevzdání, i s tím, kde přesně se to zlomilo.</p><div class="cta"><button class="btn btn-primary" type="button" id="startBtn">Začít počítat <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></button><button class="btn" type="button" id="warmBtn">Nejdřív rozcvička</button></div></div></section>
+<div class="wrap"><section class="sec"><div class="sec-head"><h2>Jak to tady chodí</h2></div><div class="how"><div class="how-c"><span class="ic">1</span><h3>Skládáte, nepíšete</h3><p>Zadané veličiny vyberete z nabídky, vztahy z police karet. Dosazení proběhne klepnutím: nejdřív na veličinu ve výrazu, pak na kartu. Složené zlomky se kreslí samy.</p></div><div class="how-c"><span class="ic">2</span><h3>Nikdo vás během řešení neopravuje</h3><p>Aplikace vám nedá zelenou fajfku ani červený křížek, dokud neodevzdáte odpověď. Zabrání jen krokům, které nejdou provést — a řekne proč. Chybnou cestu si dojdete až na konec.</p></div><div class="how-c"><span class="ic">3</span><h3>Na konci se dozvíte kde, ne jen jestli</h3><p>Po odevzdání se ukáže verdikt a dvě tlačítka: „Kde jsem udělal chybu?“ najde první místo, kde se to rozešlo, a „Ukázat správné řešení“ rozbalí celý vzorový list.</p></div></div></section>
+<section class="sec"><div class="sec-head"><h2>Rozcvička</h2></div><div class="warmcard"><p>Než se pustíte do počítání, projděte si jednu jednoduchou úlohu s vysvětlivkami u každé fáze. Trvá to tři minuty a potom už budete vědět, co která obrazovka chce. Rozcvička se nepočítá do pokroku.</p><button class="btn btn-primary" type="button" id="warmBtn2">Projít rozcvičku</button></div></section>
+<div id="taskList"></div><section class="sec"><div class="sec-head"><h2>Váš pokrok</h2></div><div id="progress"></div></section></div></div>
+<div id="train"><div class="trainbar"><div class="tb-in"><div class="tb-t"><b id="tTitle"></b><span class="tmeta" id="tMeta"></span></div><span class="sp"></span><button class="btn btn-sm" type="button" id="hintBtn">Poradit</button><button class="btn btn-sm" type="button" id="quitBtn">Ukončit</button></div><div class="steps" id="steps"></div></div><div class="wrap narrow"><div class="calcsheet" id="sheet"></div><div id="verdictBox"></div><div id="modelBox" style="display:none"></div></div></div>
+</main>
+<footer class="foot"><div class="foot-in">
+  <span>Chemie — Interaktivní studijní materiály z chemie</span>
+  <span class="sp"></span>
+  <span>Materiály fungují i bez připojení. Pokrok se ukládá ve vašem prohlížeči.</span>
+</div></footer>
+<script>
+var DATA={"atoms":{"one":{"b":"","e":0,"f":1.0,"d":{},"off":0.0},"pct":{"b":"%","e":1,"f":0.01,"d":{},"off":0.0},"g":{"b":"g","e":1,"f":0.001,"d":{"kg":1},"off":0.0},"mg":{"b":"mg","e":1,"f":1e-06,"d":{"kg":1},"off":0.0},"ug":{"b":"µg","e":1,"f":1e-09,"d":{"kg":1},"off":0.0},"kg":{"b":"kg","e":1,"f":1.0,"d":{"kg":1},"off":0.0},"mol":{"b":"mol","e":1,"f":1.0,"d":{"mol":1},"off":0.0},"mmol":{"b":"mmol","e":1,"f":0.001,"d":{"mol":1},"off":0.0},"mol2":{"b":"mol","e":2,"f":1.0,"d":{"mol":2},"off":0.0},"dm3":{"b":"dm","e":3,"f":0.001,"d":{"m":3},"off":0.0},"cm3":{"b":"cm","e":3,"f":1e-06,"d":{"m":3},"off":0.0},"m3":{"b":"m","e":3,"f":1.0,"d":{"m":3},"off":0.0},"dm6":{"b":"dm","e":6,"f":1e-06,"d":{"m":6},"off":0.0},"L":{"b":"l","e":1,"f":0.001,"d":{"m":3},"off":0.0},"mL":{"b":"ml","e":1,"f":1e-06,"d":{"m":3},"off":0.0},"J":{"b":"J","e":1,"f":1.0,"d":{"kg":1,"m":2,"s":-2},"off":0.0},"kJ":{"b":"kJ","e":1,"f":1000.0,"d":{"kg":1,"m":2,"s":-2},"off":0.0},"K":{"b":"K","e":1,"f":1.0,"d":{"K":1},"off":0.0},"degC":{"b":"°C","e":1,"f":1.0,"d":{"K":1},"off":273.15},"s":{"b":"s","e":1,"f":1.0,"d":{"s":1},"off":0.0},"min":{"b":"min","e":1,"f":60.0,"d":{"s":1},"off":0.0},"hod":{"b":"h","e":1,"f":3600.0,"d":{"s":1},"off":0.0},"den":{"b":"d","e":1,"f":86400.0,"d":{"s":1},"off":0.0},"rok":{"b":"r","e":1,"f":31557600.0,"d":{"s":1},"off":0.0},"Pa":{"b":"Pa","e":1,"f":1.0,"d":{"kg":1,"m":-1,"s":-2},"off":0.0},"kPa":{"b":"kPa","e":1,"f":1000.0,"d":{"kg":1,"m":-1,"s":-2},"off":0.0},"MPa":{"b":"MPa","e":1,"f":1000000.0,"d":{"kg":1,"m":-1,"s":-2},"off":0.0},"V":{"b":"V","e":1,"f":1.0,"d":{"kg":1,"m":2,"s":-3,"A":-1},"off":0.0},"A":{"b":"A","e":1,"f":1.0,"d":{"A":1},"off":0.0},"C":{"b":"C","e":1,"f":1.0,"d":{"s":1,"A":1},"off":0.0},"Bq":{"b":"Bq","e":1,"f":1.0,"d":{"s":-1},"off":0.0},"GBq":{"b":"GBq","e":1,"f":1000000000.0,"d":{"s":-1},"off":0.0}},"syms":{"m|":{"disp":"<i>m</i>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"M|":{"disp":"<i>M</i>","name":"Molární hmotnost","canon":"g/mol","units":["g/mol","kg/mol"]},"n|":{"disp":"<i>n</i>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"c|":{"disp":"<i>c</i>","name":"Látková koncentrace","canon":"mol/dm3","units":["mol/dm3","mmol/dm3","mol/m3"]},"V|":{"disp":"<i>V</i>","name":"Objem","canon":"dm3","units":["dm3","cm3","m3","L","mL"]},"N|":{"disp":"<i>N</i>","name":"Počet částic","canon":"one","units":["one"]},"ρ|":{"disp":"<i>ρ</i>","name":"Hustota","canon":"g/dm3","units":["g/dm3","mg/dm3","kg/m3"]},"w|":{"disp":"<i>w</i>","name":"Hmotnostní zlomek","canon":"one","units":["one","pct"]},"m|rozt":{"disp":"<i>m</i><sub>rozt</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"m|gl":{"disp":"<i>m</i><sub>gl</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"m|H₂O":{"disp":"<i>m</i><sub>H₂O</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"w|gl":{"disp":"<i>w</i><sub>gl</sub>","name":"Hmotnostní zlomek","canon":"one","units":["one","pct"]},"c|H₂O":{"disp":"<i>c</i><sub>H₂O</sub>","name":"Měrná tepelná kapacita vody","canon":"J/g*K","units":["J/g*K"]},"T|1":{"disp":"<i>T</i><sub>1</sub>","name":"Termodynamická teplota","canon":"K","units":["K","degC"]},"T|2":{"disp":"<i>T</i><sub>2</sub>","name":"Termodynamická teplota","canon":"K","units":["K","degC"]},"Q|":{"disp":"<i>Q</i>","name":"Teplo","canon":"J","units":["J","kJ"]},"ΔT|":{"disp":"Δ<i>T</i>","name":"Změna teploty","canon":"K","units":["K"]},"Vm|":{"disp":"<i>V</i><sub>m</sub>","name":"Molární objem","canon":"dm3/mol","units":["dm3/mol"]},"T|":{"disp":"<i>T</i>","name":"Termodynamická teplota","canon":"K","units":["K","degC"]},"p|":{"disp":"<i>p</i>","name":"Tlak","canon":"kPa","units":["kPa","Pa","MPa"]},"m|0":{"disp":"<i>m</i><sub>0</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"Tp|":{"disp":"<i>T</i><sub>½</sub>","name":"Poločas přeměny","canon":"s","units":["s","min","hod","den","rok"]},"t|":{"disp":"<i>t</i>","name":"Čas","canon":"s","units":["s","min","hod","den","rok"]},"λ|":{"disp":"<i>λ</i>","name":"Přeměnová konstanta","canon":"one/s","units":["one/s"]},"A|":{"disp":"<i>A</i>","name":"Aktivita zářiče","canon":"Bq","units":["Bq","GBq"]},"c|1":{"disp":"<i>c</i><sub>1</sub>","name":"Látková koncentrace","canon":"mol/dm3","units":["mol/dm3","mmol/dm3","mol/m3"]},"c|2":{"disp":"<i>c</i><sub>2</sub>","name":"Látková koncentrace","canon":"mol/dm3","units":["mol/dm3","mmol/dm3","mol/m3"]},"V|2":{"disp":"<i>V</i><sub>2</sub>","name":"Objem","canon":"dm3","units":["dm3","cm3","m3","L","mL"]},"V|1":{"disp":"<i>V</i><sub>1</sub>","name":"Objem","canon":"dm3","units":["dm3","cm3","m3","L","mL"]},"n|1":{"disp":"<i>n</i><sub>1</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"n|2":{"disp":"<i>n</i><sub>2</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"m|AgNO₃":{"disp":"<i>m</i><sub>AgNO₃</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"M|AgNO₃":{"disp":"<i>M</i><sub>AgNO₃</sub>","name":"Molární hmotnost","canon":"g/mol","units":["g/mol","kg/mol"]},"M|AgCl":{"disp":"<i>M</i><sub>AgCl</sub>","name":"Molární hmotnost","canon":"g/mol","units":["g/mol","kg/mol"]},"m|AgCl":{"disp":"<i>m</i><sub>AgCl</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"n|AgCl":{"disp":"<i>n</i><sub>AgCl</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"n|AgNO₃":{"disp":"<i>n</i><sub>AgNO₃</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"m|CaCO₃":{"disp":"<i>m</i><sub>CaCO₃</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"M|CaCO₃":{"disp":"<i>M</i><sub>CaCO₃</sub>","name":"Molární hmotnost","canon":"g/mol","units":["g/mol","kg/mol"]},"M|CaO":{"disp":"<i>M</i><sub>CaO</sub>","name":"Molární hmotnost","canon":"g/mol","units":["g/mol","kg/mol"]},"η|":{"disp":"<i>η</i>","name":"Výtěžek reakce","canon":"one","units":["one","pct"]},"m|skut":{"disp":"<i>m</i><sub>skut</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"m|teor":{"disp":"<i>m</i><sub>teor</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"n|CaO":{"disp":"<i>n</i><sub>CaO</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"n|CaCO₃":{"disp":"<i>n</i><sub>CaCO₃</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"pH|":{"disp":"pH","name":"Vodíkový exponent","canon":"one","units":["one"]},"Ka|":{"disp":"<i>K</i><sub>a</sub>","name":"Konstanta acidity","canon":"one","units":["one"]},"ΔHf|CH₄":{"disp":"Δ<i>H</i><sub>f</sub><sub>CH₄</sub>","name":"Slučovací enthalpie","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔHf|CO₂":{"disp":"Δ<i>H</i><sub>f</sub><sub>CO₂</sub>","name":"Slučovací enthalpie","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔHf|H₂O":{"disp":"Δ<i>H</i><sub>f</sub><sub>H₂O</sub>","name":"Slučovací enthalpie","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔHr|":{"disp":"Δ<i>H</i><sub>r</sub>","name":"Reakční enthalpie","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔHp|":{"disp":"Δ<i>H</i><sub>prod</sub>","name":"Součet slučovacích enthalpií produktů","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔHv|":{"disp":"Δ<i>H</i><sub>výc</sub>","name":"Součet slučovacích enthalpií výchozích látek","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔS|":{"disp":"Δ<i>S</i>","name":"Reakční entropie","canon":"kJ/K*mol","units":["J/K*mol","kJ/K*mol"]},"ΔH|":{"disp":"Δ<i>H</i>","name":"Reakční enthalpie","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"ΔG|":{"disp":"Δ<i>G</i>","name":"Gibbsova energie","canon":"kJ/mol","units":["kJ/mol","J/mol"]},"Tz|":{"disp":"<i>T</i><sub>z</sub>","name":"Teplota zvratu","canon":"K","units":["K","degC"]},"m|Zn":{"disp":"<i>m</i><sub>Zn</sub>","name":"Hmotnost","canon":"g","units":["g","kg","mg","ug"]},"M|Zn":{"disp":"<i>M</i><sub>Zn</sub>","name":"Molární hmotnost","canon":"g/mol","units":["g/mol","kg/mol"]},"c|HCl":{"disp":"<i>c</i><sub>HCl</sub>","name":"Látková koncentrace","canon":"mol/dm3","units":["mol/dm3","mmol/dm3","mol/m3"]},"V|HCl":{"disp":"<i>V</i><sub>HCl</sub>","name":"Objem","canon":"dm3","units":["dm3","cm3","m3","L","mL"]},"V|H₂":{"disp":"<i>V</i><sub>H₂</sub>","name":"Objem","canon":"dm3","units":["dm3","cm3","m3","L","mL"]},"n|H₂":{"disp":"<i>n</i><sub>H₂</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"n|HCl":{"disp":"<i>n</i><sub>HCl</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"n|Zn":{"disp":"<i>n</i><sub>Zn</sub>","name":"Látkové množství","canon":"mol","units":["mol","mmol"]},"cH|":{"disp":"<i>c</i><sub>H⁺</sub>","name":"Koncentrace oxoniových kationtů","canon":"mol/dm3","units":["mol/dm3","mmol/dm3","mol/m3"]},"Ksp|":{"disp":"<i>K</i><sub>s</sub>","name":"Součin rozpustnosti","canon":"mol2/dm6","units":["mol2/dm6"]},"γ|":{"disp":"<i>γ</i>","name":"Hmotnostní koncentrace","canon":"g/dm3","units":["g/dm3","mg/dm3"]},"s|":{"disp":"<i>s</i>","name":"Rozpustnost","canon":"mol/dm3","units":["mol/dm3","mmol/dm3","mol/m3"]},"E0|":{"disp":"<i>E</i>°","name":"Standardní elektrodový potenciál","canon":"V","units":["V"]},"z|":{"disp":"<i>z</i>","name":"Počet vyměněných elektronů","canon":"one","units":["one"]},"E|":{"disp":"<i>E</i>","name":"Elektrodový potenciál","canon":"V","units":["V"]},"Qel|":{"disp":"<i>Q</i>","name":"Elektrický náboj","canon":"C","units":["C"]},"I|":{"disp":"<i>I</i>","name":"Elektrický proud","canon":"A","units":["A"]}},"consts":{"R":{"disp":"<i>R</i>","v":8.314,"unit":"J/K*mol","name":"Molární plynová konstanta","note":"8,314 J·K⁻¹·mol⁻¹ = 8,314 kPa·dm³·K⁻¹·mol⁻¹"},"N_A":{"disp":"<i>N</i><sub>A</sub>","v":6.022e+23,"unit":"one/mol","name":"Avogadrova konstanta","note":"6,022·10²³ mol⁻¹"},"F":{"disp":"<i>F</i>","v":96485.0,"unit":"C/mol","name":"Faradayova konstanta","note":"96 485 C·mol⁻¹"}},"warm":"n-mgo","tasks":[{"id":"n-mgo","level":1,"topic":"Látkové množství","title":"Látkové množství z hmotnosti","short":"V kelímku je navážka 12,0 g oxidu hořečnatého MgO.","task":"V kelímku je navážka 12,0 g oxidu hořečnatého <span class=\"chem\">MgO</span>. Kolik molů oxidu hořečnatého to je? Molární hmotnost <span class=\"chem\">MgO</span> je 40,30 g·mol⁻¹.","given":[{"sk":"m|","val":12.0,"unit":"g","note":""},{"sk":"M|","val":40.3,"unit":"g/mol","note":"z periodické tabulky"}],"find":{"sk":"n|","unit":"mol"},"shelf":["N|","M|","m|","c|","n|","V|"],"cards":[{"id":"f2","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n/V","ok":false,"why":"Správný vztah, ale pro koncentraci. V téhle úloze žádný objem roztoku nemáte."},{"id":"f4","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"ρ"},"b":{"k":"sym","s":"V"}},"src":"m = ρ*V","ok":false,"why":"Hustota ani objem v zadání nejsou."},{"id":"f0","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","ok":true,"why":""},{"id":"f1","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m*M","ok":false,"why":"Kdybyste hmotnost molární hmotností násobil, vyjdou vám gramy na druhou dělené molem. Látkové množství říká, kolikrát se hmotnost jednoho molu vejde do navážky — tedy dělíme."},{"id":"f3","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"N"},"b":{"k":"const","s":"N_A"}},"src":"n = N/N_A","ok":false,"why":"Také správný vztah, jenže vychází z počtu částic. Ten v zadání není."}],"need":["f0"],"sets":[["f0"]],"optIds":[],"answer":{"val":0.298,"tol":0.003,"sig":3},"hints":["Hledáte látkové množství a v zadání máte hmotnost a molární hmotnost. Existuje jediný vztah, který tyhle tři veličiny spojuje."],"outro":"Tenhle jediný krok je základ skoro každého chemického výpočtu. Kdykoli v zadání vidíte gramy a v otázce moly (nebo naopak), sáhnete po <span class=\"nowrap\"><i>n</i> = <i>m</i>/<i>M</i></span>.","ref":{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"canon":0.29776674937965264,"vals":{"m|":12.0,"M|":40.3,"n|":0.29776674937965264},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","note":"výchozí vztah"}]}},{"id":"c-nacl","level":1,"topic":"Roztoky","title":"Koncentrace roztoku chloridu sodného","short":"V odměrné baňce je rozpuštěno 5,85 g chloridu sodného a roztok je doplněn vodou na 250 cm³.","task":"V odměrné baňce je rozpuštěno 5,85 g chloridu sodného a roztok je doplněn vodou na 250 cm³. Jaká je látková koncentrace tohoto roztoku? M(<span class=\"chem\">NaCl</span>) = 58,44 g·mol⁻¹.","given":[{"sk":"m|","val":5.85,"unit":"g","note":""},{"sk":"V|","val":250,"unit":"cm3","note":"objem roztoku, ne vody!"},{"sk":"M|","val":58.44,"unit":"g/mol","note":"z periodické tabulky"}],"find":{"sk":"c|","unit":"mol/dm3"},"shelf":["ρ|","w|","n|","M|","V|","m|","c|"],"cards":[{"id":"f2","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n*V","ok":false,"why":"Koncentrace je látkové množství <b>na jednotku objemu</b>. Kdyby se násobilo, vycházelo by, že zředěním roztoku koncentrace roste."},{"id":"f1","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","ok":true,"why":""},{"id":"f5","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m*M","ok":false,"why":"Násobení místo dělení — jednotky by nesouhlasily."},{"id":"f0","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n/V","ok":true,"why":""},{"id":"f3","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"V"}},"src":"c = m/V","ok":false,"why":"Tohle je hmotnostní koncentrace <i>γ</i> v g·dm⁻³. Vyjde vám číslo, které vypadá věrohodně, ale má jinou jednotku."},{"id":"f4","key":"w|","lhs":{"k":"sym","s":"w"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"m","sub":"rozt"}},"src":"w = m/m_{rozt}","ok":false,"why":"Hmotnostní zlomek. Hmotnost celého roztoku ale neznáte."}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":0.4,"tol":0.005,"sig":3},"hints":["Koncentrace potřebuje látkové množství a objem. Objem máte, látkové množství musíte teprve z hmotnosti vyrobit."],"outro":"Klasická past téhle úlohy nejsou vzorce, ale jednotky: 250 cm³ je 0,250 dm³, ne 250 dm³. Kdo si objem nepřevede, vyjde mu koncentrace tisíckrát menší.","ref":{"expr":{"k":"op","o":"/","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"sym","s":"V"}},"canon":0.4004106776180698,"vals":{"m|":5.85,"V|":0.25,"M|":58.44,"n|":0.10010266940451745,"c|":0.4004106776180698},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n/V","note":"výchozí vztah"},{"expr":{"k":"op","o":"/","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"sym","s":"V"}},"src":"n = m/M","note":"dosazení za n"}]}},{"id":"w-glukoza","level":1,"topic":"Roztoky","title":"Hmotnostní zlomek glukózy","short":"V 175 g vody rozpustíme 25,0 g glukózy.","task":"V 175 g vody rozpustíme 25,0 g glukózy. Jaký je hmotnostní zlomek glukózy ve vzniklém roztoku? Odpověď vyjádřete v procentech.","given":[{"sk":"m|gl","val":25.0,"unit":"g","note":"rozpuštěná látka"},{"sk":"m|H₂O","val":175.0,"unit":"g","note":"rozpouštědlo"}],"find":{"sk":"w|gl","unit":"pct"},"shelf":["m|gl","n|","m|H₂O","V|","c|","w|gl"],"cards":[{"id":"f4","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n/V","ok":false,"why":"Objem roztoku v zadání není."},{"id":"f5","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"M"}},"src":"n = m_{gl}/M","ok":false,"why":"Molární hmotnost glukózy v zadání není a k hmotnostnímu zlomku ji nepotřebujete."},{"id":"f0","key":"w|gl","lhs":{"k":"sym","s":"w","sub":"gl"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"m","sub":"rozt"}},"src":"w_{gl} = m_{gl}/m_{rozt}","ok":true,"why":""},{"id":"f2","key":"w|gl","lhs":{"k":"sym","s":"w","sub":"gl"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"m","sub":"H₂O"}},"src":"w_{gl} = m_{gl}/m_{H₂O}","ok":false,"why":"Ve jmenovateli musí být hmotnost <b>celého roztoku</b>, tedy i s rozpuštěnou látkou. Tenhle vztah dává poměr látka : rozpouštědlo, ne zlomek."},{"id":"f3","key":"m|rozt","lhs":{"k":"sym","s":"m","sub":"rozt"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"m","sub":"gl"}},"src":"m_{rozt} = m_{H₂O} - m_{gl}","ok":false,"why":"Rozpuštěním se hmotnost roztoku zvětšuje, ne zmenšuje."},{"id":"f1","key":"m|rozt","lhs":{"k":"sym","s":"m","sub":"rozt"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"m","sub":"H₂O"}},"src":"m_{rozt} = m_{gl} + m_{H₂O}","ok":true,"why":""}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":12.5,"tol":0.2,"sig":3},"hints":["Hmotnostní zlomek je podíl hmotnosti látky a hmotnosti roztoku. Hmotnost roztoku v zadání přímo není — musíte ji nejdřív sestavit."],"outro":"Hmotnost roztoku = rozpuštěná látka + rozpouštědlo. Zní to samozřejmě, ale právě na tomhle se u písemek ztrácí nejvíc bodů.","ref":{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"op","o":"+","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"m","sub":"H₂O"}}},"canon":0.125,"vals":{"m|gl":25.0,"m|H₂O":175.0,"m|rozt":200.0,"w|gl":0.125},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"m","sub":"rozt"}},"src":"w_{gl} = m_{gl}/m_{rozt}","note":"výchozí vztah"},{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"op","o":"+","a":{"k":"sym","s":"m","sub":"gl"},"b":{"k":"sym","s":"m","sub":"H₂O"}}},"src":"m_{rozt} = m_{gl} + m_{H₂O}","note":"dosazení za mrozt"}]}},{"id":"q-voda","level":1,"topic":"Termochemie","title":"Teplo potřebné k ohřátí vody","short":"Kolik tepla musíme dodat, abychom 250 g vody ohřáli z 20,0 °C na 80,0 °C?","task":"Kolik tepla musíme dodat, abychom 250 g vody ohřáli z 20,0 °C na 80,0 °C? Měrná tepelná kapacita vody je 4,18 J·g⁻¹·K⁻¹. Odpověď uveďte v kJ.","given":[{"sk":"m|H₂O","val":250.0,"unit":"g","note":""},{"sk":"c|H₂O","val":4.18,"unit":"J/g*K","note":"měrná tepelná kapacita"},{"sk":"T|1","val":20.0,"unit":"degC","note":"počáteční teplota"},{"sk":"T|2","val":80.0,"unit":"degC","note":"konečná teplota"}],"find":{"sk":"Q|","unit":"kJ"},"shelf":["n|","T|1","M|","m|H₂O","ΔT|","Q|","T|2","c|H₂O"],"cards":[{"id":"f1","key":"ΔT|","lhs":{"k":"sym","s":"ΔT"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"T","sub":"2"},"b":{"k":"sym","s":"T","sub":"1"}},"src":"ΔT = T_2 - T_1","ok":true,"why":""},{"id":"f2","key":"ΔT|","lhs":{"k":"sym","s":"ΔT"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"T","sub":"1"},"b":{"k":"sym","s":"T","sub":"2"}},"src":"ΔT = T_1 - T_2","ok":false,"why":"Změna se počítá vždy konec minus začátek. Takhle vám vyjde záporné teplo, tedy že se voda ochlazuje."},{"id":"f4","key":"Q|","lhs":{"k":"sym","s":"Q"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"H₂O"},"b":{"k":"sym","s":"ΔT"}},"src":"Q = c_{H₂O}*ΔT","ok":false,"why":"Bez hmotnosti by na množství vody nezáleželo — hrnec i kapka by potřebovaly stejné teplo."},{"id":"f0","key":"Q|","lhs":{"k":"sym","s":"Q"},"rhs":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"c","sub":"H₂O"}},"b":{"k":"sym","s":"ΔT"}},"src":"Q = m_{H₂O}*c_{H₂O}*ΔT","ok":true,"why":""},{"id":"f5","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"M"}},"src":"n = m_{H₂O}/M","ok":false,"why":"Látkové množství vody tu k ničemu není, měrná tepelná kapacita je vztažená na gram."},{"id":"f3","key":"Q|","lhs":{"k":"sym","s":"Q"},"rhs":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"c","sub":"H₂O"}},"b":{"k":"sym","s":"T","sub":"2"}},"src":"Q = m_{H₂O}*c_{H₂O}*T_2","ok":false,"why":"Do vzorce patří <b>rozdíl</b> teplot, ne konečná teplota. Jinak by na tom, odkud ohříváte, nezáleželo."}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":62.7,"tol":0.5,"sig":3},"hints":["Kalorimetrická rovnice potřebuje hmotnost, měrnou tepelnou kapacitu a změnu teploty. Změna teploty v zadání přímo není."],"outro":"Rozdíl teplot vyjde stejně ve stupních Celsia i v kelvinech — dílek je stejně velký. Absolutní teplotu ale nikdy v Celsiích nedosazujte.","ref":{"expr":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"c","sub":"H₂O"}},"b":{"k":"op","o":"-","a":{"k":"sym","s":"T","sub":"2"},"b":{"k":"sym","s":"T","sub":"1"}}},"canon":62700.0,"vals":{"m|H₂O":250.0,"c|H₂O":4.18,"T|1":293.15,"T|2":353.15,"ΔT|":60.0,"Q|":62700.0},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"c","sub":"H₂O"}},"b":{"k":"sym","s":"ΔT"}},"src":"Q = m_{H₂O}*c_{H₂O}*ΔT","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"H₂O"},"b":{"k":"sym","s":"c","sub":"H₂O"}},"b":{"k":"op","o":"-","a":{"k":"sym","s":"T","sub":"2"},"b":{"k":"sym","s":"T","sub":"1"}}},"src":"ΔT = T_2 - T_1","note":"dosazení za ΔT"}]}},{"id":"v-kyslik","level":1,"topic":"Plyny","title":"Objem plynu za normálních podmínek","short":"Jaký objem zaujme 8,00 g kyslíku O₂ za normálních podmínek (0 °C, 101,325 kPa)?","task":"Jaký objem zaujme 8,00 g kyslíku <span class=\"chem\">O₂</span> za normálních podmínek (0 °C, 101,325 kPa)? Molární objem za normálních podmínek je 22,414 dm³·mol⁻¹, M(<span class=\"chem\">O₂</span>) = 32,00 g·mol⁻¹.","given":[{"sk":"m|","val":8.0,"unit":"g","note":""},{"sk":"M|","val":32.0,"unit":"g/mol","note":""},{"sk":"Vm|","val":22.414,"unit":"dm3/mol","note":"molární objem za normálních podmínek"}],"find":{"sk":"V|","unit":"dm3"},"shelf":["T|","Vm|","V|","M|","m|","p|","n|"],"cards":[{"id":"f0","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"Vm"}},"src":"V = n*Vm","ok":true,"why":""},{"id":"f4","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"p"}},"src":"V = (n*R*T)/p","ok":false,"why":"Správný vztah, jen zbytečný: molární objem za daných podmínek už máte v zadání."},{"id":"f5","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n/V","ok":false,"why":"Koncentraci tu nikdo nechce."},{"id":"f3","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"Vm"}},"src":"V = m*Vm","ok":false,"why":"Molární objem je vztažený na mol, ne na gram."},{"id":"f1","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","ok":true,"why":""},{"id":"f2","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"Vm"}},"src":"V = n/Vm","ok":false,"why":"Jednotky by daly mol²·dm⁻³. Molární objem říká, kolik dm³ připadá na jeden mol — počtem molů se tedy násobí."}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":5.6,"tol":0.05,"sig":3},"hints":["Osm gramů kyslíku je čtvrtina molu. Nejdřív z hmotnosti udělejte moly, pak z molů objem."],"outro":"Číslo 22,4 dm³·mol⁻¹ platí jen za normálních podmínek (0 °C). Při 25 °C je molární objem 24,79 dm³·mol⁻¹ — na to se u přijímaček rádo chytá.","ref":{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"sym","s":"Vm"}},"canon":5.6035,"vals":{"m|":8.0,"M|":32.0,"Vm|":22.414,"n|":0.25,"V|":5.6035},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"Vm"}},"src":"V = n*Vm","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"sym","s":"Vm"}},"src":"n = m/M","note":"dosazení za n"}]}},{"id":"rozpad-jod","level":1,"topic":"Jaderná chemie","title":"Kolik radionuklidu zbude","short":"Vzorek obsahuje 40,0 mg jodu 13153I, jehož poločas přeměny je 8,02 dne.","task":"Vzorek obsahuje 40,0 mg jodu <span class=\"chem\"><sup>131</sup><sub>53</sub>I</span>, jehož poločas přeměny je 8,02 dne. Kolik miligramů jodu ve vzorku zbude po 24,06 dnech?","given":[{"sk":"m|0","val":40.0,"unit":"mg","note":"počáteční hmotnost"},{"sk":"Tp|","val":8.02,"unit":"den","note":"poločas přeměny"},{"sk":"t|","val":24.06,"unit":"den","note":"doba přeměny"}],"find":{"sk":"m|","unit":"mg"},"shelf":["m|0","N|","t|","λ|","m|","A|","Tp|"],"cards":[{"id":"f3","key":"λ|","lhs":{"k":"sym","s":"λ"},"rhs":{"k":"op","o":"/","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"src":"λ = ln(2)/Tp","ok":false,"why":"Správný vztah pro přeměnovou konstantu, tady ho ale nepotřebujete."},{"id":"f1","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"0"},"b":{"k":"op","o":"^","a":{"k":"num","v":2.0},"b":{"k":"op","o":"/","a":{"k":"sym","s":"t"},"b":{"k":"sym","s":"Tp"}}}},"src":"m = m_0*2^(t/Tp)","ok":false,"why":"Takhle by radioaktivního materiálu přibývalo. Po každém poločase zbude polovina, takže se dělí."},{"id":"f0","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"0"},"b":{"k":"op","o":"^","a":{"k":"num","v":2.0},"b":{"k":"op","o":"/","a":{"k":"sym","s":"t"},"b":{"k":"sym","s":"Tp"}}}},"src":"m = m_0/2^(t/Tp)","ok":true,"why":""},{"id":"f4","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"m","sub":"0"},"b":{"k":"op","o":"/","a":{"k":"sym","s":"t"},"b":{"k":"sym","s":"Tp"}}},"src":"m = m_0 - t/Tp","ok":false,"why":"Odečítání času od hmotnosti nedává smysl ani rozměrově."},{"id":"f2","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"0"},"b":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"t"}},"b":{"k":"sym","s":"Tp"}}},"src":"m = m_0/(2*t/Tp)","ok":false,"why":"Pokles není přímo úměrný počtu poločasů, ale exponenciální. Po deseti poločasech nezbude desetina, ale tisícina."}],"need":["f0"],"sets":[["f0"]],"optIds":[],"answer":{"val":5.0,"tol":0.05,"sig":3},"hints":["Spočítejte si, kolik poločasů se do 24,06 dne vejde. Po každém z nich zbude polovina."],"outro":"24,06 dne jsou přesně tři poločasy, takže zbude polovina z poloviny z poloviny, tedy osmina. Kdo tohle vidí, spočítá úlohu z hlavy.","ref":{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"0"},"b":{"k":"op","o":"^","a":{"k":"num","v":2.0},"b":{"k":"op","o":"/","a":{"k":"sym","s":"t"},"b":{"k":"sym","s":"Tp"}}}},"canon":0.004999999999999999,"vals":{"m|0":0.039999999999999994,"Tp|":692928.0,"t|":2078784.0,"m|":0.004999999999999999},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"0"},"b":{"k":"op","o":"^","a":{"k":"num","v":2.0},"b":{"k":"op","o":"/","a":{"k":"sym","s":"t"},"b":{"k":"sym","s":"Tp"}}}},"src":"m = m_0/2^(t/Tp)","note":"výchozí vztah"}]}},{"id":"rideni-hcl","level":2,"topic":"Roztoky","title":"Ředění zásobního roztoku","short":"Máte zásobní roztok kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³.","task":"Máte zásobní roztok kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³. Kolik cm³ tohoto roztoku odměříte, chcete-li připravit 250 cm³ roztoku o koncentraci 0,150 mol·dm⁻³?","given":[{"sk":"c|1","val":2.0,"unit":"mol/dm3","note":"zásobní roztok"},{"sk":"c|2","val":0.15,"unit":"mol/dm3","note":"připravovaný roztok"},{"sk":"V|2","val":250,"unit":"cm3","note":"objem připravovaného roztoku"}],"find":{"sk":"V|1","unit":"cm3"},"shelf":["V|1","n|","c|2","c|1","m|","w|","V|2"],"cards":[{"id":"f1","key":"n|1","lhs":{"k":"sym","s":"n","sub":"1"},"rhs":{"k":"sym","s":"n","sub":"2"},"src":"n_1 = n_2","ok":true,"why":""},{"id":"f0","key":"V|1","lhs":{"k":"sym","s":"V","sub":"1"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"1"},"b":{"k":"sym","s":"c","sub":"1"}},"src":"V_1 = n_1/c_1","ok":true,"why":""},{"id":"f4","key":"V|1","lhs":{"k":"sym","s":"V","sub":"1"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"c","sub":"1"},"b":{"k":"sym","s":"n","sub":"1"}},"src":"V_1 = c_1/n_1","ok":false,"why":"Převrácený zlomek. Vyjde vám dm⁻⁶ na mol²."},{"id":"f5","key":"n|1","lhs":{"k":"sym","s":"n","sub":"1"},"rhs":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"n","sub":"2"}},"src":"n_1 = 2*n_2","ok":false,"why":"Ředěním se látkové množství nemění, jen se rozprostře do většího objemu."},{"id":"f2","key":"n|2","lhs":{"k":"sym","s":"n","sub":"2"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"2"},"b":{"k":"sym","s":"V","sub":"2"}},"src":"n_2 = c_2*V_2","ok":true,"why":""},{"id":"f3","key":"n|2","lhs":{"k":"sym","s":"n","sub":"2"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"c","sub":"2"},"b":{"k":"sym","s":"V","sub":"2"}},"src":"n_2 = c_2/V_2","ok":false,"why":"Látkové množství je koncentrace <b>krát</b> objem. Jinak by v litru roztoku bylo méně látky než v mililitru."},{"id":"f6","key":"V|1","lhs":{"k":"sym","s":"V","sub":"1"},"rhs":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"1"},"b":{"k":"sym","s":"V","sub":"2"}},"b":{"k":"sym","s":"c","sub":"2"}},"src":"V_1 = (c_1*V_2)/c_2","ok":false,"why":"Poměr koncentrací je obrácený. Ze silnějšího roztoku se odebírá <b>méně</b>, ne více."}],"need":["f0","f1","f2"],"sets":[["f0","f1","f2"]],"optIds":[],"answer":{"val":18.8,"tol":0.3,"sig":3},"hints":["Při ředění se přidává jen rozpouštědlo. Látkové množství kyseliny v odměřeném podílu a ve výsledném roztoku je tedy stejné."],"outro":"Celé ředění stojí na jediné myšlence: <i>n</i>₁ = <i>n</i>₂. Odtud plyne i školní vzorec <i>c</i>₁·<i>V</i>₁ = <i>c</i>₂·<i>V</i>₂ — ale je lepší rozumět mu, než si ho pamatovat.","ref":{"expr":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"2"},"b":{"k":"sym","s":"V","sub":"2"}},"b":{"k":"sym","s":"c","sub":"1"}},"canon":0.01875,"vals":{"c|1":2.0,"c|2":0.15,"V|2":0.25,"n|2":0.0375,"n|1":0.0375,"V|1":0.01875},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"1"},"b":{"k":"sym","s":"c","sub":"1"}},"src":"V_1 = n_1/c_1","note":"výchozí vztah"},{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"2"},"b":{"k":"sym","s":"c","sub":"1"}},"src":"n_1 = n_2","note":"dosazení za n1"},{"expr":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"2"},"b":{"k":"sym","s":"V","sub":"2"}},"b":{"k":"sym","s":"c","sub":"1"}},"src":"n_2 = c_2*V_2","note":"dosazení za n2"}]}},{"id":"pv-co2","level":2,"topic":"Plyny","title":"Objem plynu ze stavové rovnice","short":"Jaký objem zaujme 5,00 g oxidu uhličitého CO₂ při teplotě 25 °C a tlaku 101,3 kPa?","task":"Jaký objem zaujme 5,00 g oxidu uhličitého <span class=\"chem\">CO₂</span> při teplotě 25 °C a tlaku 101,3 kPa? M(<span class=\"chem\">CO₂</span>) = 44,01 g·mol⁻¹, R = 8,314 J·K⁻¹·mol⁻¹.","given":[{"sk":"m|","val":5.0,"unit":"g","note":""},{"sk":"M|","val":44.01,"unit":"g/mol","note":""},{"sk":"T|","val":25.0,"unit":"degC","note":""},{"sk":"p|","val":101.3,"unit":"kPa","note":""}],"find":{"sk":"V|","unit":"dm3"},"shelf":["c|","Vm|","M|","m|","V|","T|","n|","p|"],"cards":[{"id":"f0","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"p"}},"src":"V = (n*R*T)/p","ok":true,"why":""},{"id":"f4","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"Vm"}},"src":"V = n*Vm","ok":false,"why":"Molární objem v zadání není a za daných podmínek ho neznáte."},{"id":"f5","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m*M","ok":false,"why":"Násobení místo dělení."},{"id":"f3","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"p"}},"src":"V = n*R*T*p","ok":false,"why":"Objem a tlak jsou nepřímo úměrné — v součinu je nepřímá úměra ztracená."},{"id":"f2","key":"V|","lhs":{"k":"sym","s":"V"},"rhs":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"p"},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"n"}},"src":"V = (p*R*T)/n","ok":false,"why":"Tlak a látkové množství jsou prohozené. Při vyšším tlaku by plyn zabíral větší objem, což je naopak."},{"id":"f1","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","ok":true,"why":""}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":2.78,"tol":0.04,"sig":3},"hints":["Stavová rovnice se počítá s látkovým množstvím, ne s hmotností. Nejdřív tedy gramy na moly."],"outro":"Pozor na teplotu: do stavové rovnice patří kelviny, tedy 298,15 K. S dosazenými 25 se spletete dvanáctkrát. A pokud dosadíte tlak v kPa a objem počítáte v dm³, R má hodnotu 8,314 — jednotky si sednou samy.","ref":{"expr":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"p"}},"canon":2.7800590729962877,"vals":{"m|":5.0,"M|":44.01,"T|":298.15,"p|":101.3,"n|":0.11361054305839582,"V|":2.7800590729962877},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"p"}},"src":"V = (n*R*T)/p","note":"výchozí vztah"},{"expr":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"const","s":"R"}},"b":{"k":"sym","s":"T"}},"b":{"k":"sym","s":"p"}},"src":"n = m/M","note":"dosazení za n"}]}},{"id":"stech-agcl","level":2,"topic":"Stechiometrie","title":"Kolik sraženiny vznikne","short":"K roztoku obsahujícímu 8,50 g dusičnanu stříbrného přidáme nadbytek chloridu sodného.","task":"K roztoku obsahujícímu 8,50 g dusičnanu stříbrného přidáme nadbytek chloridu sodného. Kolik gramů chloridu stříbrného se vysráží? Reakce: <span class=\"chem\">AgNO₃ + NaCl → AgCl + NaNO₃</span>. M(<span class=\"chem\">AgNO₃</span>) = 169,87 g·mol⁻¹, M(<span class=\"chem\">AgCl</span>) = 143,32 g·mol⁻¹.","given":[{"sk":"m|AgNO₃","val":8.5,"unit":"g","note":""},{"sk":"M|AgNO₃","val":169.87,"unit":"g/mol","note":""},{"sk":"M|AgCl","val":143.32,"unit":"g/mol","note":""}],"find":{"sk":"m|AgCl","unit":"g"},"shelf":["V|","M|AgNO₃","c|","n|","M|AgCl","m|AgNO₃","m|AgCl"],"cards":[{"id":"f0","key":"m|AgCl","lhs":{"k":"sym","s":"m","sub":"AgCl"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"AgCl"},"b":{"k":"sym","s":"M","sub":"AgCl"}},"src":"m_{AgCl} = n_{AgCl}*M_{AgCl}","ok":true,"why":""},{"id":"f2","key":"n|AgNO₃","lhs":{"k":"sym","s":"n","sub":"AgNO₃"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"AgNO₃"},"b":{"k":"sym","s":"M","sub":"AgNO₃"}},"src":"n_{AgNO₃} = m_{AgNO₃}/M_{AgNO₃}","ok":true,"why":""},{"id":"f1","key":"n|AgCl","lhs":{"k":"sym","s":"n","sub":"AgCl"},"rhs":{"k":"sym","s":"n","sub":"AgNO₃"},"src":"n_{AgCl} = n_{AgNO₃}","ok":true,"why":""},{"id":"f4","key":"m|AgCl","lhs":{"k":"sym","s":"m","sub":"AgCl"},"rhs":{"k":"sym","s":"m","sub":"AgNO₃"},"src":"m_{AgCl} = m_{AgNO₃}","ok":false,"why":"Hmotnosti se v reakci nepřenášejí, přenášejí se látková množství. Molární hmotnosti obou solí jsou navíc různé."},{"id":"f6","key":"n|AgNO₃","lhs":{"k":"sym","s":"n","sub":"AgNO₃"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"m","sub":"AgNO₃"},"b":{"k":"sym","s":"M","sub":"AgNO₃"}},"src":"n_{AgNO₃} = m_{AgNO₃}*M_{AgNO₃}","ok":false,"why":"Násobení místo dělení."},{"id":"f3","key":"n|AgCl","lhs":{"k":"sym","s":"n","sub":"AgCl"},"rhs":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"n","sub":"AgNO₃"}},"src":"n_{AgCl} = 2*n_{AgNO₃}","ok":false,"why":"Stechiometrické koeficienty jsou 1 : 1. Dvojka by patřila do rovnice typu <span class=\"chem\">2 AgNO₃ + …</span>."},{"id":"f5","key":"m|AgCl","lhs":{"k":"sym","s":"m","sub":"AgCl"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"AgCl"},"b":{"k":"sym","s":"M","sub":"AgCl"}},"src":"m_{AgCl} = n_{AgCl}/M_{AgCl}","ok":false,"why":"Dělení místo násobení — vyšlo by mol² na gram."}],"need":["f0","f1","f2"],"sets":[["f0","f1","f2"]],"optIds":[],"answer":{"val":7.17,"tol":0.06,"sig":3},"hints":["Stechiometrie se vždycky odehrává v molech. Cesta je: gramy → moly → moly druhé látky → gramy."],"outro":"Nadbytek chloridu sodného v zadání znamená jediné: o tom, kolik sraženiny vznikne, rozhoduje výhradně dusičnan stříbrný.","ref":{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"AgNO₃"},"b":{"k":"sym","s":"M","sub":"AgNO₃"}},"b":{"k":"sym","s":"M","sub":"AgCl"}},"canon":7.171484076058162,"vals":{"m|AgNO₃":8.5,"M|AgNO₃":169.87,"M|AgCl":143.32,"n|AgNO₃":0.05003826455524813,"n|AgCl":0.05003826455524813,"m|AgCl":7.171484076058162},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"AgCl"},"b":{"k":"sym","s":"M","sub":"AgCl"}},"src":"m_{AgCl} = n_{AgCl}*M_{AgCl}","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"AgNO₃"},"b":{"k":"sym","s":"M","sub":"AgCl"}},"src":"n_{AgCl} = n_{AgNO₃}","note":"dosazení za nAgCl"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"AgNO₃"},"b":{"k":"sym","s":"M","sub":"AgNO₃"}},"b":{"k":"sym","s":"M","sub":"AgCl"}},"src":"n_{AgNO₃} = m_{AgNO₃}/M_{AgNO₃}","note":"dosazení za nAgNO₃"}]}},{"id":"vytezek-cao","level":2,"topic":"Výtěžek","title":"Skutečný výtěžek žíhání vápence","short":"Žíháním 20,0 g uhličitanu vápenatého (CaCO₃ → CaO + CO₂) jsme získali oxid vápenatý s výtěžkem 85,0 %.","task":"Žíháním 20,0 g uhličitanu vápenatého (<span class=\"chem\">CaCO₃ → CaO + CO₂</span>) jsme získali oxid vápenatý s výtěžkem 85,0 %. Kolik gramů <span class=\"chem\">CaO</span> jsme skutečně získali? M(<span class=\"chem\">CaCO₃</span>) = 100,09 g·mol⁻¹, M(<span class=\"chem\">CaO</span>) = 56,08 g·mol⁻¹.","given":[{"sk":"m|CaCO₃","val":20.0,"unit":"g","note":""},{"sk":"M|CaCO₃","val":100.09,"unit":"g/mol","note":""},{"sk":"M|CaO","val":56.08,"unit":"g/mol","note":""},{"sk":"η|","val":85.0,"unit":"pct","note":"výtěžek reakce"}],"find":{"sk":"m|skut","unit":"g"},"shelf":["M|CaO","V|","n|","m|skut","w|","η|","m|CaCO₃","M|CaCO₃"],"cards":[{"id":"f5","key":"n|CaO","lhs":{"k":"sym","s":"n","sub":"CaO"},"rhs":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"n","sub":"CaCO₃"}},"src":"n_{CaO} = 2*n_{CaCO₃}","ok":false,"why":"Z jednoho uhličitanu vzniká jeden oxid, poměr je 1 : 1."},{"id":"f7","key":"m|skut","lhs":{"k":"sym","s":"m","sub":"skut"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"sym","s":"m","sub":"CaCO₃"}},"src":"m_{skut} = η*m_{CaCO₃}","ok":false,"why":"Výtěžek se vztahuje k teoretickému množství <b>produktu</b>, ne k navážce výchozí látky."},{"id":"f4","key":"m|skut","lhs":{"k":"sym","s":"m","sub":"skut"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"teor"},"b":{"k":"sym","s":"η"}},"src":"m_{skut} = m_{teor}/η","ok":false,"why":"Dělením výtěžkem menším než jedna by skutečný zisk vyšel <b>větší</b> než teoretický. To nejde."},{"id":"f3","key":"n|CaCO₃","lhs":{"k":"sym","s":"n","sub":"CaCO₃"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"CaCO₃"},"b":{"k":"sym","s":"M","sub":"CaCO₃"}},"src":"n_{CaCO₃} = m_{CaCO₃}/M_{CaCO₃}","ok":true,"why":""},{"id":"f2","key":"n|CaO","lhs":{"k":"sym","s":"n","sub":"CaO"},"rhs":{"k":"sym","s":"n","sub":"CaCO₃"},"src":"n_{CaO} = n_{CaCO₃}","ok":true,"why":""},{"id":"f6","key":"m|teor","lhs":{"k":"sym","s":"m","sub":"teor"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"CaO"},"b":{"k":"sym","s":"M","sub":"CaO"}},"src":"m_{teor} = n_{CaO}/M_{CaO}","ok":false,"why":"Dělení místo násobení."},{"id":"f1","key":"m|teor","lhs":{"k":"sym","s":"m","sub":"teor"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"CaO"},"b":{"k":"sym","s":"M","sub":"CaO"}},"src":"m_{teor} = n_{CaO}*M_{CaO}","ok":true,"why":""},{"id":"f0","key":"m|skut","lhs":{"k":"sym","s":"m","sub":"skut"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"sym","s":"m","sub":"teor"}},"src":"m_{skut} = η*m_{teor}","ok":true,"why":""}],"need":["f0","f1","f2","f3"],"sets":[["f0","f1","f2","f3"]],"optIds":[],"answer":{"val":9.53,"tol":0.08,"sig":3},"hints":["Nejdřív spočítejte, kolik oxidu by vzniklo, kdyby reakce proběhla beze zbytku. Teprve to číslo se násobí výtěžkem."],"outro":"Výtěžek je bezrozměrný poměr. Osmdesát pět procent znamená v dosazení 0,850 — kdo dosadí 85, splete se stokrát.","ref":{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"CaCO₃"},"b":{"k":"sym","s":"M","sub":"CaCO₃"}},"b":{"k":"sym","s":"M","sub":"CaO"}}},"canon":9.525027475272255,"vals":{"m|CaCO₃":20.0,"M|CaCO₃":100.09,"M|CaO":56.08,"η|":0.85,"n|CaCO₃":0.1998201618543311,"n|CaO":0.1998201618543311,"m|teor":11.205914676790888,"m|skut":9.525027475272255},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"sym","s":"m","sub":"teor"}},"src":"m_{skut} = η*m_{teor}","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"CaO"},"b":{"k":"sym","s":"M","sub":"CaO"}}},"src":"m_{teor} = n_{CaO}*M_{CaO}","note":"dosazení za mteor"},{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"CaCO₃"},"b":{"k":"sym","s":"M","sub":"CaO"}}},"src":"n_{CaO} = n_{CaCO₃}","note":"dosazení za nCaO"},{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"η"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"CaCO₃"},"b":{"k":"sym","s":"M","sub":"CaCO₃"}},"b":{"k":"sym","s":"M","sub":"CaO"}}},"src":"n_{CaCO₃} = m_{CaCO₃}/M_{CaCO₃}","note":"dosazení za nCaCO₃"}]}},{"id":"ph-hcl","level":2,"topic":"pH","title":"pH roztoku silné kyseliny","short":"V 500 cm³ roztoku je rozpuštěno 0,365 g chlorovodíku.","task":"V 500 cm³ roztoku je rozpuštěno 0,365 g chlorovodíku. Jaké je pH tohoto roztoku? <span class=\"chem\">HCl</span> je silná kyselina, disociuje tedy úplně. M(<span class=\"chem\">HCl</span>) = 36,46 g·mol⁻¹.","given":[{"sk":"m|","val":0.365,"unit":"g","note":""},{"sk":"M|","val":36.46,"unit":"g/mol","note":""},{"sk":"V|","val":500,"unit":"cm3","note":""}],"find":{"sk":"pH|","unit":"one"},"shelf":["m|","Ka|","M|","V|","c|","n|","pH|"],"cards":[{"id":"f0","key":"pH|","lhs":{"k":"sym","s":"pH"},"rhs":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}},"src":"pH = -log(c)","ok":true,"why":""},{"id":"f5","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n*V","ok":false,"why":"Násobení místo dělení."},{"id":"f2","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","ok":true,"why":""},{"id":"f3","key":"pH|","lhs":{"k":"sym","s":"pH"},"rhs":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}},"src":"pH = log(c)","ok":false,"why":"Bez minusu by kyselý roztok měl záporné pH. Logaritmus čísla menšího než jedna je záporný, minus ho otočí."},{"id":"f6","key":"pH|","lhs":{"k":"sym","s":"pH"},"rhs":{"k":"neg","a":{"k":"fn","f":"ln","a":{"k":"sym","s":"c"}}},"src":"pH = -ln(c)","ok":false,"why":"V definici pH je dekadický logaritmus, ne přirozený. Lišily by se 2,303krát."},{"id":"f1","key":"c|","lhs":{"k":"sym","s":"c"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}},"src":"c = n/V","ok":true,"why":""},{"id":"f4","key":"pH|","lhs":{"k":"sym","s":"pH"},"rhs":{"k":"op","o":"-","a":{"k":"num","v":14.0},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}},"src":"pH = 14 - log(c)","ok":false,"why":"Tohle je nakřivo přepsaný vztah pro pOH. Ze zadané koncentrace kyseliny se počítá pH přímo."}],"need":["f0","f1","f2"],"sets":[["f0","f1","f2"]],"optIds":[],"answer":{"val":1.7,"tol":0.03,"sig":3},"hints":["pH se počítá z koncentrace oxoniových kationtů. U silné jednosytné kyseliny je stejná jako koncentrace kyseliny."],"outro":"Desetina molu chlorovodíku v půl litru dává koncentraci 0,0200 mol·dm⁻³. pH kolem 1,7 je tedy zcela v pořádku — silné kyseliny mají pH pod 2.","ref":{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"op","o":"/","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"sym","s":"V"}}}},"canon":1.6984938041985016,"vals":{"m|":0.365,"M|":36.46,"V|":0.5,"n|":0.010010970927043335,"c|":0.02002194185408667,"pH|":1.6984938041985016},"steps":[{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}},"src":"pH = -log(c)","note":"výchozí vztah"},{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"V"}}}},"src":"c = n/V","note":"dosazení za c"},{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"op","o":"/","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"sym","s":"V"}}}},"src":"n = m/M","note":"dosazení za n"}]}},{"id":"hess-ch4","level":2,"topic":"Termochemie","title":"Reakční enthalpie ze slučovacích","short":"Vypočítejte reakční enthalpii spalování methanu CH₄ + 2 O₂ → CO₂ + 2 H₂O(l).","task":"Vypočítejte reakční enthalpii spalování methanu <span class=\"chem\">CH₄ + 2 O₂ → CO₂ + 2 H₂O(l)</span>. Slučovací enthalpie: Δ<i>H</i>°<sub>f</sub>(<span class=\"chem\">CH₄</span>) = −74,6 kJ·mol⁻¹, Δ<i>H</i>°<sub>f</sub>(<span class=\"chem\">CO₂</span>) = −393,5 kJ·mol⁻¹, Δ<i>H</i>°<sub>f</sub>(<span class=\"chem\">H₂O</span>, l) = −285,8 kJ·mol⁻¹. Slučovací enthalpie kyslíku je z definice nulová.","given":[{"sk":"ΔHf|CH₄","val":-74.6,"unit":"kJ/mol","note":""},{"sk":"ΔHf|CO₂","val":-393.5,"unit":"kJ/mol","note":""},{"sk":"ΔHf|H₂O","val":-285.8,"unit":"kJ/mol","note":""}],"find":{"sk":"ΔHr|","unit":"kJ/mol"},"shelf":["ΔHf|H₂O","ΔHp|","ΔHv|","ΔHf|CO₂","ΔS|","ΔHr|","ΔHf|CH₄"],"cards":[{"id":"f3","key":"ΔHr|","lhs":{"k":"sym","s":"ΔHr"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"ΔHv"},"b":{"k":"sym","s":"ΔHp"}},"src":"ΔHr = ΔHv - ΔHp","ok":false,"why":"Obráceně. Hessův zákon zní produkty minus výchozí látky; takhle byste spalování methanu udělal endotermické."},{"id":"f6","key":"ΔHr|","lhs":{"k":"sym","s":"ΔHr"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHp"},"b":{"k":"sym","s":"ΔHv"}},"src":"ΔHr = ΔHp + ΔHv","ok":false,"why":"Součet místo rozdílu."},{"id":"f0","key":"ΔHr|","lhs":{"k":"sym","s":"ΔHr"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"ΔHp"},"b":{"k":"sym","s":"ΔHv"}},"src":"ΔHr = ΔHp - ΔHv","ok":true,"why":""},{"id":"f2","key":"ΔHv|","lhs":{"k":"sym","s":"ΔHv"},"rhs":{"k":"sym","s":"ΔHf","sub":"CH₄"},"src":"ΔHv = ΔHf_{CH₄}","ok":true,"why":""},{"id":"f1","key":"ΔHp|","lhs":{"k":"sym","s":"ΔHp"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHf","sub":"CO₂"},"b":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"ΔHf","sub":"H₂O"}}},"src":"ΔHp = ΔHf_{CO₂} + 2*ΔHf_{H₂O}","ok":true,"why":""},{"id":"f4","key":"ΔHp|","lhs":{"k":"sym","s":"ΔHp"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHf","sub":"CO₂"},"b":{"k":"sym","s":"ΔHf","sub":"H₂O"}},"src":"ΔHp = ΔHf_{CO₂} + ΔHf_{H₂O}","ok":false,"why":"Vody vznikají dvě. Stechiometrickým koeficientem se slučovací enthalpie násobí."},{"id":"f5","key":"ΔHv|","lhs":{"k":"sym","s":"ΔHv"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHf","sub":"CH₄"},"b":{"k":"sym","s":"ΔHf","sub":"CO₂"}},"src":"ΔHv = ΔHf_{CH₄} + ΔHf_{CO₂}","ok":false,"why":"Oxid uhličitý je produkt, ne výchozí látka."}],"need":["f0","f1","f2"],"sets":[["f0","f1","f2"]],"optIds":[],"answer":{"val":-890.5,"tol":1.0,"sig":4},"hints":["Hessův zákon: součet slučovacích enthalpií produktů minus součet slučovacích enthalpií výchozích látek, každá násobená svým koeficientem."],"outro":"Minus 890 kJ·mol⁻¹ je tabulková spalná enthalpie methanu — číslo, které stojí za zapamatování, protože se objevuje v úlohách o zemním plynu.","ref":{"expr":{"k":"op","o":"-","a":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHf","sub":"CO₂"},"b":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"ΔHf","sub":"H₂O"}}},"b":{"k":"sym","s":"ΔHf","sub":"CH₄"}},"canon":-890.5,"vals":{"ΔHf|CH₄":-74.6,"ΔHf|CO₂":-393.5,"ΔHf|H₂O":-285.8,"ΔHp|":-965.1,"ΔHv|":-74.6,"ΔHr|":-890.5},"steps":[{"expr":{"k":"op","o":"-","a":{"k":"sym","s":"ΔHp"},"b":{"k":"sym","s":"ΔHv"}},"src":"ΔHr = ΔHp - ΔHv","note":"výchozí vztah"},{"expr":{"k":"op","o":"-","a":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHf","sub":"CO₂"},"b":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"ΔHf","sub":"H₂O"}}},"b":{"k":"sym","s":"ΔHv"}},"src":"ΔHp = ΔHf_{CO₂} + 2*ΔHf_{H₂O}","note":"dosazení za ΔHprod"},{"expr":{"k":"op","o":"-","a":{"k":"op","o":"+","a":{"k":"sym","s":"ΔHf","sub":"CO₂"},"b":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"ΔHf","sub":"H₂O"}}},"b":{"k":"sym","s":"ΔHf","sub":"CH₄"}},"src":"ΔHv = ΔHf_{CH₄}","note":"dosazení za ΔHvýc"}]}},{"id":"gibbs-dg","level":2,"topic":"Termodynamika","title":"Gibbsova energie rozkladu vápence","short":"Rozklad vápence CaCO₃ → CaO + CO₂ má ΔH° = +178,3 kJ·mol⁻¹ a ΔS° = +160,6 J·K⁻¹·mol⁻¹.","task":"Rozklad vápence <span class=\"chem\">CaCO₃ → CaO + CO₂</span> má Δ<i>H</i>° = +178,3 kJ·mol⁻¹ a Δ<i>S</i>° = +160,6 J·K⁻¹·mol⁻¹. Jaká je Gibbsova energie této reakce při 25 °C? Poběží reakce za těchto podmínek samovolně?","given":[{"sk":"ΔH|","val":178.3,"unit":"kJ/mol","note":""},{"sk":"ΔS|","val":160.6,"unit":"J/K*mol","note":""},{"sk":"T|","val":25.0,"unit":"degC","note":""}],"find":{"sk":"ΔG|","unit":"kJ/mol"},"shelf":["Tz|","Q|","ΔG|","n|","ΔH|","ΔS|","T|"],"cards":[{"id":"f1","key":"ΔG|","lhs":{"k":"sym","s":"ΔG"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}}},"src":"ΔG = ΔH + T*ΔS","ok":false,"why":"Znaménko u entropického členu je záporné. Kdyby bylo plus, rostoucí neuspořádanost by reakci brzdila."},{"id":"f3","key":"ΔG|","lhs":{"k":"sym","s":"ΔG"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"/","a":{"k":"sym","s":"ΔS"},"b":{"k":"sym","s":"T"}}},"src":"ΔG = ΔH - ΔS/T","ok":false,"why":"Entropie se násobí teplotou, nedělí se jí. Jinak by rozměr nevyšel na kJ·mol⁻¹."},{"id":"f4","key":"Tz|","lhs":{"k":"sym","s":"Tz"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"ΔH"},"b":{"k":"sym","s":"ΔS"}},"src":"Tz = ΔH/ΔS","ok":false,"why":"Teplota zvratu — správný vztah, jenže na jinou otázku."},{"id":"f0","key":"ΔG|","lhs":{"k":"sym","s":"ΔG"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}}},"src":"ΔG = ΔH - T*ΔS","ok":true,"why":""},{"id":"f2","key":"ΔG|","lhs":{"k":"sym","s":"ΔG"},"rhs":{"k":"op","o":"-","a":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}},"b":{"k":"sym","s":"ΔH"}},"src":"ΔG = T*ΔS - ΔH","ok":false,"why":"Celý výraz s obráceným znaménkem."}],"need":["f0"],"sets":[["f0"]],"optIds":[],"answer":{"val":130.4,"tol":1.0,"sig":4},"hints":["Dosazujete do jediného vztahu. Dejte ale pozor, v jakých jednotkách je entropie oproti enthalpii."],"outro":"Past téhle úlohy je v jednotkách: enthalpie v kilojoulech, entropie v joulech. Kladné Δ<i>G</i> znamená, že za pokojové teploty vápenec sám od sebe nerozloží nic.","ref":{"expr":{"k":"op","o":"-","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}}},"canon":130.41711,"vals":{"ΔH|":178.3,"ΔS|":0.1606,"T|":298.15,"ΔG|":130.41711},"steps":[{"expr":{"k":"op","o":"-","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}}},"src":"ΔG = ΔH - T*ΔS","note":"výchozí vztah"}]}},{"id":"stech-limit","level":3,"topic":"Stechiometrie","title":"Reaktant v nedostatku","short":"K 5,00 g zinku přilijeme 30,0 cm³ kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³.","task":"K 5,00 g zinku přilijeme 30,0 cm³ kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³. Reakce: <span class=\"chem\">Zn + 2 HCl → ZnCl₂ + H₂</span>. Jaký objem vodíku se uvolní, měříme-li při 25 °C a 101,325 kPa (<i>V</i><sub>m</sub> = 24,790 dm³·mol⁻¹)? M(<span class=\"chem\">Zn</span>) = 65,38 g·mol⁻¹. <b>Nejdřív rozmyslete, která látka je v nedostatku.</b>","given":[{"sk":"m|Zn","val":5.0,"unit":"g","note":""},{"sk":"M|Zn","val":65.38,"unit":"g/mol","note":""},{"sk":"c|HCl","val":2.0,"unit":"mol/dm3","note":""},{"sk":"V|HCl","val":30.0,"unit":"cm3","note":""},{"sk":"Vm|","val":24.79,"unit":"dm3/mol","note":"molární objem při 25 °C"}],"find":{"sk":"V|H₂","unit":"dm3"},"shelf":["Vm|","p|","n|","M|Zn","c|HCl","V|HCl","T|","V|H₂","m|Zn"],"cards":[{"id":"f6","key":"n|HCl","lhs":{"k":"sym","s":"n","sub":"HCl"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"c","sub":"HCl"},"b":{"k":"sym","s":"V","sub":"HCl"}},"src":"n_{HCl} = c_{HCl}/V_{HCl}","ok":false,"why":"Látkové množství je koncentrace krát objem."},{"id":"f5","key":"n|H₂","lhs":{"k":"sym","s":"n","sub":"H₂"},"rhs":{"k":"op","o":"*","a":{"k":"num","v":2.0},"b":{"k":"sym","s":"n","sub":"HCl"}},"src":"n_{H₂} = 2*n_{HCl}","ok":false,"why":"Poměr je obrácený: na jednu molekulu vodíku jsou potřeba dvě molekuly kyseliny, takže vodíku vznikne polovina."},{"id":"f1","key":"n|H₂","lhs":{"k":"sym","s":"n","sub":"H₂"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"HCl"},"b":{"k":"num","v":2.0}},"src":"n_{H₂} = n_{HCl}/2","ok":true,"why":""},{"id":"f2","key":"n|HCl","lhs":{"k":"sym","s":"n","sub":"HCl"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"HCl"},"b":{"k":"sym","s":"V","sub":"HCl"}},"src":"n_{HCl} = c_{HCl}*V_{HCl}","ok":true,"why":""},{"id":"f7","key":"V|H₂","lhs":{"k":"sym","s":"V","sub":"H₂"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"H₂"},"b":{"k":"sym","s":"Vm"}},"src":"V_{H₂} = n_{H₂}/Vm","ok":false,"why":"Převrácený zlomek."},{"id":"f0","key":"V|H₂","lhs":{"k":"sym","s":"V","sub":"H₂"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"H₂"},"b":{"k":"sym","s":"Vm"}},"src":"V_{H₂} = n_{H₂}*Vm","ok":true,"why":""},{"id":"f4","key":"n|H₂","lhs":{"k":"sym","s":"n","sub":"H₂"},"rhs":{"k":"sym","s":"n","sub":"Zn"},"src":"n_{H₂} = n_{Zn}","ok":false,"why":"Tenhle vztah platí jen tehdy, když je v nedostatku zinek. Zinku je 0,0765 mol, kyseliny jen 0,0600 mol — a na rozpuštění všeho zinku by bylo potřeba 0,153 mol <span class=\"chem\">HCl</span>. V nedostatku je tedy kyselina."},{"id":"f3","key":"n|Zn","lhs":{"k":"sym","s":"n","sub":"Zn"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m","sub":"Zn"},"b":{"k":"sym","s":"M","sub":"Zn"}},"src":"n_{Zn} = m_{Zn}/M_{Zn}","ok":true,"why":""}],"need":["f0","f1","f2"],"sets":[["f0","f1","f2"]],"optIds":["f3"],"answer":{"val":0.744,"tol":0.01,"sig":3},"hints":["Spočítejte si stranou obě látková množství a porovnejte je s poměrem z rovnice 1 : 2. Ta látka, které je poměrově méně, řídí celou reakci."],"outro":"Zinku je 0,0765 mol, kyseliny 0,0600 mol. Podle rovnice připadají na jeden zinek dvě kyseliny, takže by bylo potřeba 0,153 mol <span class=\"chem\">HCl</span> — kyselina dojde první a zinek zůstane nerozpuštěný.","ref":{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"HCl"},"b":{"k":"sym","s":"V","sub":"HCl"}},"b":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Vm"}},"canon":0.7436999999999998,"vals":{"m|Zn":5.0,"M|Zn":65.38,"c|HCl":2.0,"V|HCl":0.029999999999999995,"Vm|":24.79,"n|HCl":0.05999999999999999,"n|Zn":0.07647598654022637,"n|H₂":0.029999999999999995,"V|H₂":0.7436999999999998},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"n","sub":"H₂"},"b":{"k":"sym","s":"Vm"}},"src":"V_{H₂} = n_{H₂}*Vm","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"n","sub":"HCl"},"b":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Vm"}},"src":"n_{H₂} = n_{HCl}/2","note":"dosazení za nH₂"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"c","sub":"HCl"},"b":{"k":"sym","s":"V","sub":"HCl"}},"b":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Vm"}},"src":"n_{HCl} = c_{HCl}*V_{HCl}","note":"dosazení za nHCl"}]}},{"id":"gibbs-tz","level":3,"topic":"Termodynamika","title":"Teplota zvratu","short":"Od jaké teploty začne být rozklad vápence CaCO₃ → CaO + CO₂ samovolný?","task":"Od jaké teploty začne být rozklad vápence <span class=\"chem\">CaCO₃ → CaO + CO₂</span> samovolný? Δ<i>H</i>° = +178,3 kJ·mol⁻¹, Δ<i>S</i>° = +160,6 J·K⁻¹·mol⁻¹. Teplota zvratu je ta, při které je Δ<i>G</i> = 0. Odpověď v kelvinech.","given":[{"sk":"ΔH|","val":178.3,"unit":"kJ/mol","note":""},{"sk":"ΔS|","val":160.6,"unit":"J/K*mol","note":""}],"find":{"sk":"Tz|","unit":"K"},"shelf":["ΔH|","T|","Q|","ΔG|","ΔS|","Tz|"],"cards":[{"id":"f2","key":"Tz|","lhs":{"k":"sym","s":"Tz"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"ΔS"},"b":{"k":"sym","s":"ΔH"}},"src":"Tz = ΔS/ΔH","ok":false,"why":"Převrácený zlomek — vyjde vám kelvin na mínus prvou."},{"id":"f1","key":"ΔG|","lhs":{"k":"sym","s":"ΔG"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}}},"src":"ΔG = ΔH - T*ΔS","ok":true,"why":""},{"id":"f0","key":"Tz|","lhs":{"k":"sym","s":"Tz"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"ΔH"},"b":{"k":"sym","s":"ΔS"}},"src":"Tz = ΔH/ΔS","ok":true,"why":""},{"id":"f3","key":"Tz|","lhs":{"k":"sym","s":"Tz"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"ΔH"},"b":{"k":"sym","s":"ΔS"}},"src":"Tz = ΔH*ΔS","ok":false,"why":"Součin místo podílu. Z rovnice 0 = Δ<i>H</i> − <i>T</i>·Δ<i>S</i> plyne <i>T</i> = Δ<i>H</i>/Δ<i>S</i>."},{"id":"f5","key":"Tz|","lhs":{"k":"sym","s":"Tz"},"rhs":{"k":"op","o":"+","a":{"k":"num","v":273.15},"b":{"k":"op","o":"/","a":{"k":"sym","s":"ΔH"},"b":{"k":"sym","s":"ΔS"}}},"src":"Tz = 273.15 + ΔH/ΔS","ok":false,"why":"Vztah už dává rovnou kelviny, žádný převod ze stupňů se nekoná."},{"id":"f4","key":"Tz|","lhs":{"k":"sym","s":"Tz"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"ΔH"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"T"},"b":{"k":"sym","s":"ΔS"}}},"src":"Tz = ΔH/(T*ΔS)","ok":false,"why":"Teplota nemůže být zároveň vlevo i vpravo."}],"need":["f0"],"sets":[["f0"]],"optIds":["f1"],"answer":{"val":1110.0,"tol":10.0,"sig":4},"hints":["Položte Δ<i>G</i> = 0 v Gibbsově rovnici a vyjádřete teplotu. Ve vztazích na polici je ten výsledek už hotový."],"outro":"1110 K je asi 837 °C — a skutečně, vápenka pálí vápno kolem 900 °C. Tohle je hezký příklad výpočtu, který se dá ověřit realitou.","ref":{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"ΔH"},"b":{"k":"sym","s":"ΔS"}},"canon":1110.2117061021172,"vals":{"ΔH|":178.3,"ΔS|":0.1606,"Tz|":1110.2117061021172},"steps":[{"expr":{"k":"op","o":"/","a":{"k":"sym","s":"ΔH"},"b":{"k":"sym","s":"ΔS"}},"src":"Tz = ΔH/ΔS","note":"výchozí vztah"}]}},{"id":"ph-slaba","level":3,"topic":"pH","title":"pH slabé kyseliny","short":"Jaké je pH roztoku kyseliny octové o koncentraci 0,100 mol·dm⁻³?","task":"Jaké je pH roztoku kyseliny octové o koncentraci 0,100 mol·dm⁻³? Disociační konstanta <i>K</i><sub>a</sub> = 1,75·10⁻⁵. Použijte přiblížení pro slabé kyseliny, tedy že disociovaný podíl je proti celkové koncentraci zanedbatelný.","given":[{"sk":"c|","val":0.1,"unit":"mol/dm3","note":"analytická koncentrace kyseliny"},{"sk":"Ka|","val":1.75e-05,"unit":"one","note":"pište jako 1,75e-5"}],"find":{"sk":"pH|","unit":"one"},"shelf":["c|","V|","Ka|","cH|","n|","pH|"],"cards":[{"id":"f0","key":"pH|","lhs":{"k":"sym","s":"pH"},"rhs":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"sym","s":"cH"}}},"src":"pH = -log(cH)","ok":true,"why":""},{"id":"f3","key":"cH|","lhs":{"k":"sym","s":"cH"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"Ka"},"b":{"k":"sym","s":"c"}},"src":"cH = Ka*c","ok":false,"why":"Rozměrově i početně mimo — vyšlo by 1,75·10⁻⁶ a pH kolem 5,8, tedy skoro neutrální roztok."},{"id":"f4","key":"cH|","lhs":{"k":"sym","s":"cH"},"rhs":{"k":"fn","f":"sqrt","a":{"k":"op","o":"/","a":{"k":"sym","s":"Ka"},"b":{"k":"sym","s":"c"}}},"src":"cH = sqrt(Ka/c)","ok":false,"why":"Podíl místo součinu. Zředěním by pak kyselost rostla."},{"id":"f5","key":"cH|","lhs":{"k":"sym","s":"cH"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"Ka"},"b":{"k":"sym","s":"c"}},"src":"cH = Ka/c","ok":false,"why":"Převrácená úvaha; vyšlo by 1,75·10⁻⁴."},{"id":"f1","key":"cH|","lhs":{"k":"sym","s":"cH"},"rhs":{"k":"fn","f":"sqrt","a":{"k":"op","o":"*","a":{"k":"sym","s":"Ka"},"b":{"k":"sym","s":"c"}}},"src":"cH = sqrt(Ka*c)","ok":true,"why":""},{"id":"f2","key":"pH|","lhs":{"k":"sym","s":"pH"},"rhs":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}},"src":"pH = -log(c)","ok":false,"why":"Tenhle vztah platí pro silnou kyselinu, která disociuje úplně. Kyselina octová disociuje z necelého procenta."}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":2.88,"tol":0.03,"sig":3},"hints":["U slabé kyseliny se koncentrace oxoniových kationtů nerovná koncentraci kyseliny. Musíte ji nejdřív spočítat z disociační konstanty."],"outro":"Kyselina octová o koncentraci 0,1 mol·dm⁻³ má pH 2,88, zatímco stejně koncentrovaná <span class=\"chem\">HCl</span> má pH 1,00. Skoro dva řády rozdílu v kyselosti — a přitom „stejně koncentrovaná“ kyselina.","ref":{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"fn","f":"sqrt","a":{"k":"op","o":"*","a":{"k":"sym","s":"Ka"},"b":{"k":"sym","s":"c"}}}}},"canon":2.878480975656853,"vals":{"c|":0.1,"Ka|":1.75e-05,"cH|":0.0013228756555322954,"pH|":2.878480975656853},"steps":[{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"sym","s":"cH"}}},"src":"pH = -log(cH)","note":"výchozí vztah"},{"expr":{"k":"neg","a":{"k":"fn","f":"log","a":{"k":"fn","f":"sqrt","a":{"k":"op","o":"*","a":{"k":"sym","s":"Ka"},"b":{"k":"sym","s":"c"}}}}},"src":"cH = sqrt(Ka*c)","note":"dosazení za cH⁺"}]}},{"id":"ksp-agcl","level":3,"topic":"Srážecí rovnováhy","title":"Rozpustnost ze součinu rozpustnosti","short":"Součin rozpustnosti chloridu stříbrného je Ks = 1,77·10⁻¹⁰.","task":"Součin rozpustnosti chloridu stříbrného je <i>K</i><sub>s</sub> = 1,77·10⁻¹⁰. Kolik miligramů <span class=\"chem\">AgCl</span> se rozpustí v jednom litru vody? M(<span class=\"chem\">AgCl</span>) = 143,32 g·mol⁻¹.","given":[{"sk":"Ksp|","val":1.77e-10,"unit":"mol2/dm6","note":"pište jako 1,77e-10"},{"sk":"M|","val":143.32,"unit":"g/mol","note":""}],"find":{"sk":"γ|","unit":"mg/dm3"},"shelf":["Ksp|","M|","s|","n|","γ|","c|"],"cards":[{"id":"f0","key":"γ|","lhs":{"k":"sym","s":"γ"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"s"},"b":{"k":"sym","s":"M"}},"src":"γ = s*M","ok":true,"why":""},{"id":"f1","key":"s|","lhs":{"k":"sym","s":"s"},"rhs":{"k":"fn","f":"sqrt","a":{"k":"sym","s":"Ksp"}},"src":"s = sqrt(Ksp)","ok":true,"why":""},{"id":"f5","key":"s|","lhs":{"k":"sym","s":"s"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"Ksp"},"b":{"k":"sym","s":"M"}},"src":"s = Ksp*M","ok":false,"why":"Míchá dohromady dva různé kroky a rozměrově nedává smysl."},{"id":"f3","key":"s|","lhs":{"k":"sym","s":"s"},"rhs":{"k":"fn","f":"sqrt","a":{"k":"op","o":"/","a":{"k":"sym","s":"Ksp"},"b":{"k":"num","v":4.0}}},"src":"s = sqrt(Ksp/4)","ok":false,"why":"Čtyřka patří do vzorců typu <span class=\"chem\">MX₂</span>, kde jsou dva anionty na jeden kationt. <span class=\"chem\">AgCl</span> je v poměru 1 : 1."},{"id":"f2","key":"s|","lhs":{"k":"sym","s":"s"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"Ksp"},"b":{"k":"num","v":2.0}},"src":"s = Ksp/2","ok":false,"why":"Součin rozpustnosti je součin dvou koncentrací, ne dvojnásobek jedné. Rozpustnost se z něj dostane odmocninou."},{"id":"f4","key":"γ|","lhs":{"k":"sym","s":"γ"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"s"},"b":{"k":"sym","s":"M"}},"src":"γ = s/M","ok":false,"why":"Dělení místo násobení — koncentrace v molech se na gramy převádí násobením molární hmotností."}],"need":["f0","f1"],"sets":[["f0","f1"]],"optIds":[],"answer":{"val":1.91,"tol":0.03,"sig":3},"hints":["Pro sůl typu <span class=\"chem\">AgCl</span> platí <i>K</i><sub>s</sub> = <i>s</i>², protože rozpuštěním vznikne stejně kationtů jako aniontů."],"outro":"Necelé dva miligramy na litr — proto se chlorid stříbrný považuje za nerozpustný. Nerozpustný ale v chemii nikdy neznamená „vůbec žádný“.","ref":{"expr":{"k":"op","o":"*","a":{"k":"fn","f":"sqrt","a":{"k":"sym","s":"Ksp"}},"b":{"k":"sym","s":"M"}},"canon":0.001906748584580568,"vals":{"Ksp|":1.77e-10,"M|":143.32,"s|":1.330413469565007e-05,"γ|":0.001906748584580568},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"s"},"b":{"k":"sym","s":"M"}},"src":"γ = s*M","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"fn","f":"sqrt","a":{"k":"sym","s":"Ksp"}},"b":{"k":"sym","s":"M"}},"src":"s = sqrt(Ksp)","note":"dosazení za s"}]}},{"id":"nernst-cu","level":3,"topic":"Elektrochemie","title":"Nernstova rovnice","short":"Jaký je potenciál měděné elektrody ponořené do roztoku Cu²⁺ o koncentraci 0,0100 mol·dm⁻³ při 25 °C?","task":"Jaký je potenciál měděné elektrody ponořené do roztoku <span class=\"chem\">Cu²⁺</span> o koncentraci 0,0100 mol·dm⁻³ při 25 °C? <i>E</i>°(<span class=\"chem\">Cu²⁺/Cu</span>) = +0,34 V, počet vyměněných elektronů <i>z</i> = 2. Použijte tvar Nernstovy rovnice s dekadickým logaritmem a členem 0,0592 V.","given":[{"sk":"E0|","val":0.34,"unit":"V","note":"standardní potenciál"},{"sk":"c|","val":0.01,"unit":"mol/dm3","note":"koncentrace kationtů"},{"sk":"z|","val":2,"unit":"one","note":"počet vyměněných elektronů"}],"find":{"sk":"E|","unit":"V"},"shelf":["c|","I|","z|","E0|","E|","n|","Qel|"],"cards":[{"id":"f1","key":"E|","lhs":{"k":"sym","s":"E"},"rhs":{"k":"op","o":"-","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"num","v":0.0592},"b":{"k":"sym","s":"z"}},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}}},"src":"E = E0 - (0.0592/z)*log(c)","ok":false,"why":"Znaménko platí pro tvar s logaritmem převrácené zlomku. V téhle podobě, s koncentrací oxidované formy v čitateli, je před členem plus."},{"id":"f4","key":"E|","lhs":{"k":"sym","s":"E"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"num","v":0.0592},"b":{"k":"sym","s":"z"}},"b":{"k":"fn","f":"ln","a":{"k":"sym","s":"c"}}}},"src":"E = E0 + (0.0592/z)*ln(c)","ok":false,"why":"Člen 0,0592 už v sobě má převod na dekadický logaritmus. S přirozeným by tam patřilo 0,0257."},{"id":"f0","key":"E|","lhs":{"k":"sym","s":"E"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"num","v":0.0592},"b":{"k":"sym","s":"z"}},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}}},"src":"E = E0 + (0.0592/z)*log(c)","ok":true,"why":""},{"id":"f2","key":"E|","lhs":{"k":"sym","s":"E"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"op","o":"*","a":{"k":"num","v":0.0592},"b":{"k":"sym","s":"z"}},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}}},"src":"E = E0 + (0.0592*z)*log(c)","ok":false,"why":"Počtem elektronů se dělí, ne násobí — čím víc elektronů, tím menší vliv koncentrace."},{"id":"f3","key":"E|","lhs":{"k":"sym","s":"E"},"rhs":{"k":"op","o":"+","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"num","v":0.0592},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}}},"src":"E = E0 + 0.0592*log(c)","ok":false,"why":"Chybí dělení počtem elektronů; platilo by jen pro <i>z</i> = 1."}],"need":["f0"],"sets":[["f0"]],"optIds":[],"answer":{"val":0.281,"tol":0.005,"sig":3},"hints":["Dosazujete do jediného vztahu. Logaritmus setiny je −2, takže se potenciál oproti standardnímu sníží."],"outro":"Stokrát zředěný roztok posune potenciál o 0,0592/2 · 2 = 0,0592 V dolů. Jeden desítkový řád koncentrace tedy u dvouelektronového děje znamená necelých 30 mV.","ref":{"expr":{"k":"op","o":"+","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"num","v":0.0592},"b":{"k":"sym","s":"z"}},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}}},"canon":0.28080000000000005,"vals":{"E0|":0.34,"c|":0.01,"z|":2.0,"E|":0.28080000000000005},"steps":[{"expr":{"k":"op","o":"+","a":{"k":"sym","s":"E0"},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"num","v":0.0592},"b":{"k":"sym","s":"z"}},"b":{"k":"fn","f":"log","a":{"k":"sym","s":"c"}}}},"src":"E = E0 + (0.0592/z)*log(c)","note":"výchozí vztah"}]}},{"id":"faraday-cu","level":3,"topic":"Elektrochemie","title":"Faradayovy zákony elektrolýzy","short":"Roztokem síranu měďnatého prochází proud 2,00 A po dobu 30,0 minut.","task":"Roztokem síranu měďnatého prochází proud 2,00 A po dobu 30,0 minut. Kolik gramů mědi se vyloučí na katodě? M(<span class=\"chem\">Cu</span>) = 63,55 g·mol⁻¹, <i>z</i> = 2, F = 96 485 C·mol⁻¹.","given":[{"sk":"I|","val":2.0,"unit":"A","note":""},{"sk":"t|","val":30.0,"unit":"min","note":""},{"sk":"M|","val":63.55,"unit":"g/mol","note":""},{"sk":"z|","val":2,"unit":"one","note":"Cu²⁺ + 2 e⁻ → Cu"}],"find":{"sk":"m|","unit":"g"},"shelf":["I|","z|","m|","M|","n|","t|","V|","Qel|"],"cards":[{"id":"f0","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"M"}},"src":"m = n*M","ok":true,"why":""},{"id":"f3","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"z"},"b":{"k":"const","s":"F"}},"b":{"k":"sym","s":"Qel"}},"src":"n = (z*F)/Qel","ok":false,"why":"Převrácený zlomek. Čím větší náboj projde, tím víc látky se vyloučí — v čitateli tedy musí být náboj."},{"id":"f5","key":"m|","lhs":{"k":"sym","s":"m"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"M"}},"src":"m = n/M","ok":false,"why":"Dělení místo násobení."},{"id":"f6","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"Qel"},"b":{"k":"const","s":"F"}},"src":"n = Qel/F","ok":false,"why":"Chybí počet elektronů. Na jeden atom mědi jsou potřeba dva."},{"id":"f1","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"Qel"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"z"},"b":{"k":"const","s":"F"}}},"src":"n = Qel/(z*F)","ok":true,"why":""},{"id":"f2","key":"Qel|","lhs":{"k":"sym","s":"Qel"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"I"},"b":{"k":"sym","s":"t"}},"src":"Qel = I*t","ok":true,"why":""},{"id":"f4","key":"Qel|","lhs":{"k":"sym","s":"Qel"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"I"},"b":{"k":"sym","s":"t"}},"src":"Qel = I/t","ok":false,"why":"Náboj je proud krát čas. Dvojnásobná doba znamená dvojnásobný náboj."}],"need":["f0","f1","f2"],"sets":[["f0","f1","f2"]],"optIds":[],"answer":{"val":1.19,"tol":0.02,"sig":3},"hints":["Postupujte odzadu: hmotnost potřebuje látkové množství, látkové množství potřebuje náboj a náboj se počítá z proudu a času."],"outro":"Pozor na minuty: do vzorce patří sekundy, tedy 1800 s. Kdo dosadí 30, vyjde mu šedesátkrát méně mědi.","ref":{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"I"},"b":{"k":"sym","s":"t"}},"b":{"k":"op","o":"*","a":{"k":"sym","s":"z"},"b":{"k":"const","s":"F"}}},"b":{"k":"sym","s":"M"}},"canon":1.1855728869772504,"vals":{"I|":2.0,"t|":1800.0,"M|":63.55,"z|":2.0,"Qel|":3600.0,"n|":0.01865574959838317,"m|":1.1855728869772504},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"sym","s":"M"}},"src":"m = n*M","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"Qel"},"b":{"k":"op","o":"*","a":{"k":"sym","s":"z"},"b":{"k":"const","s":"F"}}},"b":{"k":"sym","s":"M"}},"src":"n = Qel/(z*F)","note":"dosazení za n"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"op","o":"*","a":{"k":"sym","s":"I"},"b":{"k":"sym","s":"t"}},"b":{"k":"op","o":"*","a":{"k":"sym","s":"z"},"b":{"k":"const","s":"F"}}},"b":{"k":"sym","s":"M"}},"src":"Qel = I*t","note":"dosazení za Q"}]}},{"id":"aktivita-co60","level":3,"topic":"Jaderná chemie","title":"Aktivita radioaktivního zářiče","short":"Jakou aktivitu má 1,00 mg kobaltu 6027Co?","task":"Jakou aktivitu má 1,00 mg kobaltu <span class=\"chem\"><sup>60</sup><sub>27</sub>Co</span>? Poločas přeměny je 5,2712 roku, M(<span class=\"chem\"><sup>60</sup>Co</span>) = 59,93 g·mol⁻¹, N<sub>A</sub> = 6,022·10²³ mol⁻¹. Výsledek uveďte v GBq.","given":[{"sk":"m|","val":1.0,"unit":"mg","note":""},{"sk":"M|","val":59.93,"unit":"g/mol","note":""},{"sk":"Tp|","val":5.2712,"unit":"rok","note":"poločas přeměny"}],"find":{"sk":"A|","unit":"GBq"},"shelf":["N|","Tp|","A|","n|","M|","m|","λ|"],"cards":[{"id":"f0","key":"A|","lhs":{"k":"sym","s":"A"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"λ"},"b":{"k":"sym","s":"N"}},"src":"A = λ*N","ok":true,"why":""},{"id":"f2","key":"N|","lhs":{"k":"sym","s":"N"},"rhs":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"N_A"}},"src":"N = n*N_A","ok":true,"why":""},{"id":"f4","key":"λ|","lhs":{"k":"sym","s":"λ"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"Tp"},"b":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}}},"src":"λ = Tp/ln(2)","ok":false,"why":"Převrácený zlomek. Čím delší poločas, tím <b>menší</b> přeměnová konstanta."},{"id":"f1","key":"λ|","lhs":{"k":"sym","s":"λ"},"rhs":{"k":"op","o":"/","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"src":"λ = ln(2)/Tp","ok":true,"why":""},{"id":"f5","key":"A|","lhs":{"k":"sym","s":"A"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"λ"},"b":{"k":"sym","s":"N"}},"src":"A = λ/N","ok":false,"why":"Aktivita roste s počtem jader, takže se násobí."},{"id":"f6","key":"N|","lhs":{"k":"sym","s":"N"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"N_A"}},"src":"N = n/N_A","ok":false,"why":"Avogadrovou konstantou se moly na částice násobí, ne dělí."},{"id":"f7","key":"λ|","lhs":{"k":"sym","s":"λ"},"rhs":{"k":"op","o":"*","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"src":"λ = ln(2)*Tp","ok":false,"why":"Součin místo podílu."},{"id":"f3","key":"n|","lhs":{"k":"sym","s":"n"},"rhs":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"src":"n = m/M","ok":true,"why":""}],"need":["f0","f1","f2","f3"],"sets":[["f0","f1","f2","f3"]],"optIds":[],"answer":{"val":41.9,"tol":0.4,"sig":3},"hints":["Aktivita je přeměnová konstanta krát počet dosud nepřeměněných jader. Obojí musíte teprve vyrobit ze zadání."],"outro":"Necelých 42 GBq z jednoho miligramu — a to je kobaltový zářič, jaký se používá v radioterapii. Poločas 5,27 roku znamená, že se zdroj musí zhruba jednou za pět let vyměnit.","ref":{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"const","s":"N_A"}}},"canon":41870531412.00293,"vals":{"m|":0.001,"M|":59.93,"Tp|":166346421.12,"λ|":4.166889650483785e-09,"n|":1.668613382279326e-05,"N|":1.0048389788086102e+19,"A|":41870531412.00293},"steps":[{"expr":{"k":"op","o":"*","a":{"k":"sym","s":"λ"},"b":{"k":"sym","s":"N"}},"src":"A = λ*N","note":"výchozí vztah"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"b":{"k":"sym","s":"N"}},"src":"λ = ln(2)/Tp","note":"dosazení za λ"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"b":{"k":"op","o":"*","a":{"k":"sym","s":"n"},"b":{"k":"const","s":"N_A"}}},"src":"N = n*N_A","note":"dosazení za N"},{"expr":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"fn","f":"ln","a":{"k":"num","v":2.0}},"b":{"k":"sym","s":"Tp"}},"b":{"k":"op","o":"*","a":{"k":"op","o":"/","a":{"k":"sym","s":"m"},"b":{"k":"sym","s":"M"}},"b":{"k":"const","s":"N_A"}}},"src":"n = m/M","note":"dosazení za n"}]}}]};
+(function(){
+"use strict";
+
+/* ============================================================ pomocné */
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var ATOMS=DATA.atoms, SYMS=DATA.syms, CONSTS=DATA.consts, TASKS=DATA.tasks;
+
+var store={
+  get:function(k,f){try{var v=localStorage.getItem("spolu."+k);return v===null?f:JSON.parse(v);}
+    catch(e){return f;}},
+  set:function(k,v){try{localStorage.setItem("spolu."+k,JSON.stringify(v));}catch(e){}},
+  del:function(k){try{localStorage.removeItem("spolu."+k);}catch(e){}}
+};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function uniq(a){var o=[];a.forEach(function(x){if(o.indexOf(x)<0)o.push(x);});return o;}
+var SUPCH={"-":"⁻","0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"};
+function supStr(n){return String(n).split("").map(function(c){return SUPCH[c]||c;}).join("");}
+
+/* česká desetinná čárka, rozumný počet platných číslic, mocniny deseti */
+function fmtNum(v,sig){
+  if(v===null||v===undefined||!isFinite(v)) return "—";
+  sig=sig||4;
+  if(v===0) return "0";
+  var a=Math.abs(v), out;
+  if(a>=1e7||a<1e-4){
+    var e=Math.floor(Math.log10(a));
+    var m=v/Math.pow(10,e);
+    m=Number(m.toFixed(sig-1));
+    if(Math.abs(m)>=10){m/=10;e++;}
+    return String(m).replace(".",",")+"·10"+supStr(e);
+  }
+  var dec=Math.max(0,sig-1-Math.floor(Math.log10(a)));
+  out=Number(v.toFixed(Math.min(12,dec)));
+  return String(out).replace(".",",");
+}
+/* číslo na pevný počet platných číslic — koncové nuly se nezahazují */
+function fmtSig(v,sig){
+  if(v===null||v===undefined||!isFinite(v)) return "—";
+  sig=sig||3;
+  if(v===0) return "0";
+  var a=Math.abs(v);
+  if(a>=1e7||a<1e-4){
+    var e=Math.floor(Math.log10(a)), m=v/Math.pow(10,e);
+    if(Math.abs(Number(m.toFixed(sig-1)))>=10){ m/=10; e++; }
+    return m.toFixed(sig-1).replace(".",",")+"·10"+supStr(e);
+  }
+  var dec=Math.max(0,sig-1-Math.floor(Math.log10(a)));
+  return v.toFixed(Math.min(12,dec)).replace(".",",");
+}
+/* čtení čísla od studenta: 5,85 · 1,77e-10 · 1,77·10^-10 */
+function parseVal(s){
+  if(s===null||s===undefined) return null;
+  var t=String(s).trim().replace(/\s| /g,"").replace(/−/g,"-").replace(/,/g,".");
+  t=t.replace(/·10\^?/g,"e").replace(/x10\^?/gi,"e").replace(/\*10\^?/g,"e");
+  t=t.replace(/⁻/g,"-");
+  t=t.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g,function(c){return "0123456789"["⁰¹²³⁴⁵⁶⁷⁸⁹".indexOf(c)];});
+  if(!/^[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?$/.test(t)) return null;
+  var f=parseFloat(t);
+  return isFinite(f)?f:null;
+}
+/* počet platných číslic zapsaného čísla */
+function sigDigits(s){
+  var t=String(s||"").trim().replace(/\s/g,"").replace(/−/g,"-").replace(/,/g,".");
+  t=t.replace(/·10\^?[-+]?\d+/,"").replace(/[eE][-+]?\d+/,"");
+  t=t.replace(/^[-+]/,"");
+  var hasDot=t.indexOf(".")>=0;
+  t=t.replace(".","");
+  t=t.replace(/^0+/,"");
+  if(!hasDot) t=t.replace(/0+$/,"");
+  return Math.max(1,t.length);
+}
+
+/* ============================================================ jednotky */
+function parseUnit(u){
+  u=(u||"one").trim();
+  var i=u.indexOf("/"), a=i<0?u:u.slice(0,i), b=i<0?"":u.slice(i+1);
+  var f=function(s){return s.split("*").filter(function(x){return x;});};
+  return {n:f(a),d:f(b)};
+}
+function unitInfo(u){
+  var p=(typeof u==="string")?parseUnit(u):u, f=1, d={}, parts=[], off=0, i, at;
+  if(p.n.length===1&&!p.d.length) off=ATOMS[p.n[0]].off||0;
+  for(i=0;i<p.n.length;i++){ at=ATOMS[p.n[i]]; if(!at) return null;
+    f*=at.f; for(var k in at.d) d[k]=(d[k]||0)+at.d[k];
+    if(at.e) parts.push(at.b+(at.e!==1?supStr(at.e):"")); }
+  for(i=0;i<p.d.length;i++){ at=ATOMS[p.d[i]]; if(!at) return null;
+    f/=at.f; for(var k2 in at.d) d[k2]=(d[k2]||0)-at.d[k2];
+    parts.push(at.b+supStr(-at.e)); }
+  for(var k3 in d) if(!d[k3]) delete d[k3];
+  return {f:f,d:d,t:parts.length?parts.join("·"):"1",off:off};
+}
+function sameDim(a,b){
+  if(!a||!b) return false;
+  var ka=Object.keys(a.d), kb=Object.keys(b.d);
+  if(ka.length!==kb.length) return false;
+  for(var i=0;i<ka.length;i++) if(Math.abs((a.d[ka[i]]||0)-(b.d[ka[i]]||0))>1e-9) return false;
+  return true;
+}
+function dimText(d){
+  var s=[]; for(var k in d) s.push(k+(d[k]!==1?supStr(d[k]):""));
+  return s.length?s.join("·"):"bezrozměrné";
+}
+/* převod mezi jednotkami (nesouhlasný rozměr → null) */
+function conv(v,from,to){
+  var a=unitInfo(from), b=unitInfo(to);
+  if(!a||!b||!sameDim(a,b)) return null;
+  return ((v*a.f+a.off)-b.off)/b.f;
+}
+function unitText(u){ var i=unitInfo(u); return i?i.t:"?"; }
+/* bezrozměrná jednotka se za číslem nepíše */
+function unitLabel(u){ var t=unitText(u); return (t==="1")?"":t; }
+function withU(v,u){ var t=unitLabel(u); return t?(v+" "+t):v; }
+
+/* ============================================================ výrazy */
+function skey(n){ return n.s+"|"+(n.sub||""); }
+function symDisp(n){
+  var k=skey(n), e=SYMS[k];
+  if(e) return e.disp;
+  e=SYMS[n.s+"|"];
+  if(!e) return "<i>"+esc(n.s)+"</i>";
+  var d=e.disp;
+  return (d.slice(-4)==="</i>")? d.slice(0,-4)+"</i><sub>"+n.sub+"</sub>"
+                               : d+"<sub>"+n.sub+"</sub>";
+}
+function symInfo(k){
+  if(SYMS[k]) return SYMS[k];
+  var base=SYMS[k.split("|")[0]+"|"];
+  if(!base) return null;
+  var o={disp:symDisp({s:k.split("|")[0],sub:k.split("|")[1]}),name:base.name,
+         canon:base.canon,units:base.units};
+  return o;
+}
+function clone(n){ return JSON.parse(JSON.stringify(n)); }
+function symsIn(n,out){
+  out=out||[];
+  if(!n) return out;
+  if(n.k==="sym"){ var k=skey(n); if(out.indexOf(k)<0) out.push(k); }
+  else if(n.k==="op"){ symsIn(n.a,out); symsIn(n.b,out); }
+  else if(n.k==="fn"||n.k==="neg") symsIn(n.a,out);
+  return out;
+}
+function hasSym(n,key){ return symsIn(n).indexOf(key)>=0; }
+function substitute(n,key,rhs){
+  if(!n) return n;
+  if(n.k==="sym") return skey(n)===key?clone(rhs):n;
+  if(n.k==="op") return {k:"op",o:n.o,a:substitute(n.a,key,rhs),b:substitute(n.b,key,rhs)};
+  if(n.k==="fn") return {k:"fn",f:n.f,a:substitute(n.a,key,rhs)};
+  if(n.k==="neg") return {k:"neg",a:substitute(n.a,key,rhs)};
+  return n;
+}
+function evalNode(n,vals){
+  switch(n.k){
+    case "num": return n.v;
+    case "const": return CONSTS[n.s].v;
+    case "sym": {
+      var k=skey(n);
+      if(!(k in vals)) throw new Error("chybí hodnota "+k);
+      return vals[k];
+    }
+    case "neg": return -evalNode(n.a,vals);
+    case "fn": {
+      var x=evalNode(n.a,vals);
+      if(n.f==="sqrt") return Math.sqrt(x);
+      if(n.f==="cbrt") return Math.pow(x,1/3);
+      if(n.f==="log") return Math.log(x)/Math.LN10;
+      if(n.f==="ln") return Math.log(x);
+      if(n.f==="abs") return Math.abs(x);
+      return Math.exp(x);
+    }
+  }
+  var a=evalNode(n.a,vals), b=evalNode(n.b,vals);
+  if(n.o==="+") return a+b;
+  if(n.o==="-") return a-b;
+  if(n.o==="*") return a*b;
+  if(n.o==="/") return a/b;
+  return Math.pow(a,b);
+}
+/* --- POROVNÁVÁNÍ VÝRAZŮ: vždy numericky, nikdy strukturně -------------
+   c·V a V·c, (a·b)·c a a·(b·c), m/(M·V) a (m/M)/V — pro aplikaci totéž. */
+function equivalent(a,b){
+  if(!a||!b) return false;
+  var keys=uniq(symsIn(a).concat(symsIn(b))), good=0, t;
+  for(t=0;t<14&&good<8;t++){
+    var v={},i;
+    for(i=0;i<keys.length;i++) v[keys[i]]=0.6+Math.random()*2.4;
+    var x,y;
+    try{ x=evalNode(a,v); y=evalNode(b,v); }catch(e){ return false; }
+    if(!isFinite(x)||!isFinite(y)) continue;
+    var diff=Math.abs(x-y), scale=Math.max(Math.abs(x),Math.abs(y),1e-9);
+    if(diff/scale>1e-9) return false;
+    good++;
+  }
+  return good>=6;
+}
+function closeTo(a,b,rel){
+  if(a===null||b===null||!isFinite(a)||!isFinite(b)) return false;
+  return Math.abs(a-b)<=Math.max(Math.abs(b),1e-12)*(rel||1e-6);
+}
+/* rozměrová analýza výrazu; vrací {d:…,num:bool} nebo null */
+function dimsOf(n,dm){
+  var a,b;
+  switch(n.k){
+    case "num": return {d:{},num:true};
+    case "const": {
+      var ci=unitInfo(CONSTS[n.s].unit);
+      return ci?{d:ci.d,num:false}:null;
+    }
+    case "sym": {
+      var k=skey(n);
+      return (k in dm)?{d:dm[k],num:false}:null;
+    }
+    case "neg": return dimsOf(n.a,dm);
+    case "fn": {
+      a=dimsOf(n.a,dm);
+      if(!a) return null;
+      if(n.f==="sqrt") return {d:scaleDim(a.d,0.5),num:a.num};
+      if(n.f==="cbrt") return {d:scaleDim(a.d,1/3),num:a.num};
+      if(n.f==="abs") return a;
+      return {d:{},num:a.num};
+    }
+  }
+  a=dimsOf(n.a,dm); b=dimsOf(n.b,dm);
+  if(!a||!b) return null;
+  if(n.o==="*") return {d:addDim(a.d,b.d,1),num:a.num&&b.num};
+  if(n.o==="/") return {d:addDim(a.d,b.d,-1),num:a.num&&b.num};
+  if(n.o==="^"){
+    if(n.b.k==="num") return {d:scaleDim(a.d,n.b.v),num:a.num};
+    return Object.keys(a.d).length?null:{d:{},num:a.num&&b.num};
+  }
+  if(a.num) return b;
+  if(b.num) return a;
+  return dimEq(a.d,b.d)?{d:a.d,num:false}:null;
+}
+function addDim(x,y,s){var o={},k;for(k in x)o[k]=(o[k]||0)+x[k];for(k in y)o[k]=(o[k]||0)+s*y[k];
+  for(k in o) if(Math.abs(o[k])<1e-9) delete o[k]; return o;}
+function scaleDim(x,s){var o={},k;for(k in x){o[k]=x[k]*s;if(Math.abs(o[k])<1e-9)delete o[k];}return o;}
+function dimEq(x,y){var k;for(k in x)if(Math.abs((y[k]||0)-x[k])>1e-9)return false;
+  for(k in y)if(Math.abs((x[k]||0)-y[k])>1e-9)return false;return true;}
+
+/* ============================================================ vykreslení */
+/* priority: atom 9, ^ 8, * 3, +− 2, neg 2; dělení = skutečný zlomek (atom) */
+function rnd(n,prec,o){
+  var h="",p=9;
+  switch(n.k){
+    case "num":
+      h='<span class="nv">'+fmtNum(n.v,6)+'</span>';
+      if(n.v<0) p=2;
+      break;
+    case "const":
+      h='<span class="cv" title="'+esc(CONSTS[n.s].name)+'">'+CONSTS[n.s].disp+'</span>';
+      break;
+    case "sym": {
+      var k=skey(n), d=symDisp(n);
+      if(o.num&&(k in o.num)){
+        h='<span class="subv'+(o.mark&&o.mark===k?" mk":"")+'">'+o.num[k]+'</span>';
+      } else if(o.tap){
+        h='<button type="button" class="tok'+(o.sel===k?" sel":"")+(o.hl===k?" hl":"")+
+          '" data-sk="'+esc(k)+'" title="'+esc((symInfo(k)||{}).name||"")+'">'+d+'</button>';
+      } else {
+        h='<span class="tok'+(o.hl===k?" hl":"")+'">'+d+'</span>';
+      }
+      break;
+    }
+    case "neg": h='<span class="op">−</span>'+rnd(n.a,3,o); p=2; break;
+    case "fn": {
+      var inner=rnd(n.a,0,o);
+      if(n.f==="sqrt"||n.f==="cbrt")
+        h='<span class="rt"><span class="rs">'+(n.f==="sqrt"?"√":"∛")+
+          '</span><span class="rb">'+inner+'</span></span>';
+      else
+        h='<span class="fnm">'+({log:"log",ln:"ln",abs:"abs",exp:"e"}[n.f])+'</span>'+
+          '<span class="par">(</span>'+inner+'<span class="par">)</span>';
+      break;
+    }
+    case "op":
+      if(n.o==="/"){
+        h='<span class="frac"><span class="fnum">'+rnd(n.a,0,o)+'</span>'+
+          '<span class="fden">'+rnd(n.b,0,o)+'</span></span>';
+      } else if(n.o==="*"){
+        h=rnd(n.a,3,o)+'<span class="op">·</span>'+rnd(n.b,3,o); p=3;
+      } else if(n.o==="^"){
+        h=rnd(n.a,4,o)+'<sup>'+rnd(n.b,0,o)+'</sup>'; p=8;
+      } else {
+        h=rnd(n.a,2,o)+'<span class="op">'+(n.o==="+"?"+":"−")+'</span>'+
+          rnd(n.b,n.o==="-"?2.5:2,o); p=2;
+      }
+      break;
+  }
+  if(p<prec) h='<span class="par">(</span>'+h+'<span class="par">)</span>';
+  return h;
+}
+function R(n,o){ return '<span class="math">'+rnd(n,0,o||{})+'</span>'; }
+
+/* ============================================================ zjednodušení */
+function sig(n){
+  switch(n.k){
+    case "num": return "n"+n.v;
+    case "const": return "k"+n.s;
+    case "sym": return "s"+skey(n);
+    case "neg": return "-("+sig(n.a)+")";
+    case "fn": return n.f+"("+sig(n.a)+")";
+  }
+  if(n.o==="*"||n.o==="+"){
+    var f=(n.o==="*"?factors(n):terms(n)).map(sig).sort();
+    return n.o+"["+f.join(",")+"]";
+  }
+  return n.o+"("+sig(n.a)+","+sig(n.b)+")";
+}
+function factors(n,out){ out=out||[];
+  if(n.k==="op"&&n.o==="*"){factors(n.a,out);factors(n.b,out);} else out.push(n); return out;}
+function terms(n,out){ out=out||[];
+  if(n.k==="op"&&n.o==="+"){terms(n.a,out);terms(n.b,out);} else out.push(n); return out;}
+function prod(list){
+  if(!list.length) return {k:"num",v:1};
+  var r=list[0];
+  for(var i=1;i<list.length;i++) r={k:"op",o:"*",a:r,b:list[i]};
+  return r;
+}
+/* projde strom, na prvním uzlu, kde fn vrátí náhradu, ji použije */
+function walk(n,fn){
+  var r=fn(n);
+  if(r) return r;
+  if(n.k==="op"){
+    var a=walk(n.a,fn); if(a) return {k:"op",o:n.o,a:a,b:n.b};
+    var b=walk(n.b,fn); if(b) return {k:"op",o:n.o,a:n.a,b:b};
+  } else if(n.k==="fn"){
+    var x=walk(n.a,fn); if(x) return {k:"fn",f:n.f,a:x};
+  } else if(n.k==="neg"){
+    var y=walk(n.a,fn); if(y) return {k:"neg",a:y};
+  }
+  return null;
+}
+/* (a/b)/c → a/(b·c)   a/(b/c) → (a·c)/b */
+function opFlatten(root){
+  return walk(root,function(n){
+    if(n.k!=="op"||n.o!=="/") return null;
+    if(n.a.k==="op"&&n.a.o==="/")
+      return {k:"op",o:"/",a:n.a.a,b:{k:"op",o:"*",a:n.a.b,b:n.b}};
+    if(n.b.k==="op"&&n.b.o==="/")
+      return {k:"op",o:"/",a:{k:"op",o:"*",a:n.a,b:n.b.b},b:n.b.a};
+    return null;
+  });
+}
+/* vykrácení stejného činitele v čitateli i jmenovateli */
+function opCancel(root){
+  return walk(root,function(n){
+    if(n.k!=="op"||n.o!=="/") return null;
+    var fa=factors(n.a), fb=factors(n.b), i,j;
+    for(i=0;i<fa.length;i++) for(j=0;j<fb.length;j++){
+      if(sig(fa[i])===sig(fb[j])&&fa[i].k!=="num"){
+        var na=fa.slice(); na.splice(i,1);
+        var nb=fb.slice(); nb.splice(j,1);
+        if(!nb.length) return prod(na);
+        return {k:"op",o:"/",a:prod(na),b:prod(nb)};
+      }
+    }
+    return null;
+  });
+}
+/* x·x → x²,  x·x^k → x^(k+1) */
+function opMergePow(root){
+  return walk(root,function(n){
+    if(n.k!=="op"||n.o!=="*") return null;
+    var f=factors(n),i,j;
+    var base=function(x){return (x.k==="op"&&x.o==="^")?x.a:x;};
+    var expo=function(x){return (x.k==="op"&&x.o==="^"&&x.b.k==="num")?x.b.v:1;};
+    for(i=0;i<f.length;i++) for(j=i+1;j<f.length;j++){
+      if(f[i].k==="num"||f[j].k==="num") continue;
+      if(sig(base(f[i]))===sig(base(f[j]))){
+        var e=expo(f[i])+expo(f[j]);
+        var nf=f.slice();
+        nf.splice(j,1);
+        nf[i]={k:"op",o:"^",a:base(f[i]),b:{k:"num",v:e}};
+        return prod(nf);
+      }
+    }
+    return null;
+  });
+}
+var SIMPS=[
+  {id:"flatten",lbl:"Rozvinout složený zlomek",fn:opFlatten,
+   no:"Ve výrazu není zlomek ve zlomku. Rozvinout jde jen podíl, který má zlomek "+
+      "v čitateli nebo ve jmenovateli."},
+  {id:"cancel",lbl:"Vykrátit stejný činitel",fn:opCancel,
+   no:"V žádném zlomku není stejný činitel nahoře i dole. Krátit se dá jen to, "+
+      "co se v čitateli i jmenovateli objevuje jako celý činitel."},
+  {id:"pow",lbl:"Sloučit stejné činitele na mocninu",fn:opMergePow,
+   no:"Ve výrazu se žádný činitel neopakuje dvakrát v součinu, takže není co "+
+      "sloučit na mocninu."}
+];
+
+
+/* ============================================================ stav */
+var TASK=null, S=null, UNDO=[], TOOLS=null;
+var PH=[{id:"given",lbl:"Zadání"},{id:"find",lbl:"Hledáme"},{id:"fml",lbl:"Vztahy"},
+        {id:"der",lbl:"Odvození"},{id:"ans",lbl:"Dosazení a odpověď"}];
+var COACH=[
+ "<b>Fáze 1 — Zadání.</b> Přečtěte si úlohu a vypište z ní veličiny. U každé klepnete na symbol, "+
+ "opíšete číslo a vyberete jednotku, <b>ve které se bude počítat</b>. Právě tady se dělá převod: "+
+ "250 cm³ zapíšete buď jako 250 cm³, nebo jako 0,250 dm³ — obojí je totéž. V nabídce jsou "+
+ "schválně i veličiny, které v zadání nejsou.",
+ "<b>Fáze 2 — Hledáme.</b> Označte veličinu, na kterou se úloha ptá, a jednotku, ve které "+
+ "chcete odpovědět. Tímhle symbolem začne odvození.",
+ "<b>Fáze 3 — Vztahy.</b> Z police vyberte vzorce, které budete potřebovat. Jsou tam i takové, "+
+ "které vypadají věrohodně, ale platí pro něco jiného. Aplikace vám teď neřekne, jestli jste "+
+ "vybral dobře — to poznáte až na konci.",
+ "<b>Fáze 4 — Odvození.</b> Začnete vztahem, který má vlevo hledanou veličinu. Pak klepnete "+
+ "na veličinu ve výrazu, kterou chcete nahradit, a potom na kartu vztahu. Aplikace dosadí "+
+ "za vás. Žádnou algebru nepíšete a <b>žádná čísla se tu neobjeví</b>. Hotovo je, když ve výrazu "+
+ "zůstanou jen veličiny ze zadání a konstanty.",
+ "<b>Fáze 5 — Dosazení a odpověď.</b> Čísla se doplní sama z fáze 1. Vy sestavíte jednotku "+
+ "výsledku z dlaždic, spočítáte hodnotu na kalkulačce a zapíšete ji. Teprve po odevzdání "+
+ "se dozvíte, jak jste dopadl."
+];
+
+function snap(){ try{UNDO.push(JSON.stringify(S));}catch(e){} if(UNDO.length>80) UNDO.shift(); }
+function note(t){ S.note=t; paintNote(); }
+function paintNote(){
+  var el=$("#note");
+  if(!el) return;
+  el.innerHTML=S.note?('<span class="mn-i" aria-hidden="true">i</span><span>'+S.note+"</span>"):"";
+  el.style.display=S.note?"":"none";
+}
+function secs(){ return Math.max(1,Math.round((Date.now()-S.t0)/1000)); }
+function fmtSecs(s){ var m=Math.floor(s/60); return m?(m+" min "+(s%60)+" s"):(s+" s"); }
+
+/* ============================================================ start úlohy */
+function startTask(id,coach){
+  TASK=null;
+  for(var i=0;i<TASKS.length;i++) if(TASKS[i].id===id) TASK=TASKS[i];
+  if(!TASK) return;
+  S={phase:1,max:1,given:[],find:{k:"",unit:""},picked:[],start:null,expr:null,
+     hist:[],sel:null,ansVal:"",un:[],ud:[],uzone:"n",hints:0,hintLvl:0,
+     t0:Date.now(),done:false,verdict:null,note:"",coach:!!coach,mark:null,diag:null};
+  UNDO=[];
+  $("#pick").style.display="none";
+  $("#train").classList.add("on");
+  $("#modelBox").innerHTML=""; $("#modelBox").style.display="none";
+  render();
+  window.scrollTo(0,0);
+}
+function backToPick(){
+  $("#train").classList.remove("on");
+  $("#pick").style.display="";
+  renderPick();
+  window.scrollTo(0,0);
+}
+function gotoPhase(p){
+  if(p<1||p>5) return;
+  snap(); S.phase=p; S.max=Math.max(S.max,p); S.sel=null; S.note=""; S.hintLvl=0;
+  render();
+  var row=$("#row-"+PH[p-1].id);
+  if(row){ var y=row.getBoundingClientRect().top+window.pageYOffset-140;
+           window.scrollTo({top:Math.max(0,y),behavior:"smooth"}); }
+}
+
+/* ============================================================ hodnoty studenta */
+function rowCanon(g){
+  if(!g.k) return null;
+  var v=parseVal(g.val);
+  if(v===null) return null;
+  var info=symInfo(g.k);
+  if(!info) return null;
+  return conv(v,g.unit,info.canon);
+}
+function studentVals(){
+  var v={};
+  S.given.forEach(function(g){
+    var x=rowCanon(g);
+    if(x!==null&&isFinite(x)) v[g.k]=x;
+  });
+  return v;
+}
+function knownKeys(){
+  var ks=[];
+  S.given.forEach(function(g){ if(g.k&&ks.indexOf(g.k)<0) ks.push(g.k); });
+  return ks;
+}
+function exprDone(){
+  if(!S.expr) return false;
+  var kn=knownKeys(), ss=symsIn(S.expr);
+  for(var i=0;i<ss.length;i++) if(kn.indexOf(ss[i])<0) return false;
+  return true;
+}
+function ansUnit(){
+  var n=S.un.length?S.un.join("*"):"one";
+  return n+(S.ud.length?"/"+S.ud.join("*"):"");
+}
+function findInfo(){ return symInfo(S.find.k)||symInfo(TASK.find.sk); }
+
+/* ============================================================ list */
+function render(){
+  renderBar();
+  var idx=0;
+  TASKS.forEach(function(t,i){ if(t.id===TASK.id) idx=i+1; });
+  var h='<div class="cs-head"><span class="cs-id">Úloha '+(idx<10?"0":"")+idx+"</span>"+
+    '<span class="cs-topic">'+esc(TASK.title)+"</span>"+
+    '<span class="cs-kind">'+["","Základ","Střední","Přijímačky"][TASK.level]+" · "+
+    esc(TASK.topic)+"</span></div>";
+  h+='<div class="cs-task">'+TASK.task+"</div>";
+  h+=blk("given","Zadání",bodyGiven());
+  h+=blk("find","Hledáme",bodyFind(),"find");
+  h+=blk("fml","Vztahy",bodyFml());
+  h+=blk("der","Odvození",bodyDer());
+  h+=blk("subst","Dosazení",bodySubst());
+  h+=blk("ans","Odpověď",bodyAns(),"res");
+  $("#sheet").innerHTML=h;
+  var host=$("#row-"+PH[S.phase-1].id);
+  if(host&&!S.done) host.insertAdjacentHTML("afterend",tools());
+  bindSheet();
+  paintNote();
+  renderVerdict();
+}
+function blk(id,lab,body,extra){
+  var act=(!S.done&&PH[S.phase-1].id===id)?" act":"";
+  var mk=(S.mark&&S.mark.row===id)?" bad":"";
+  return '<section class="cs-block'+(extra?" "+extra:"")+act+mk+'" id="row-'+id+
+    '"><h3 class="cs-lbl">'+lab+'</h3><div class="cs-rows">'+body+"</div></section>";
+}
+function ph(i){ return PH[i-1]; }
+
+/* ---------------- řádek: zadané veličiny ---------------- */
+function bodyGiven(){
+  if(!S.given.length) return '<p class="cs-hint">Zatím jste nevypsal žádnou veličinu.</p>';
+  return S.given.map(function(g,i){
+    var info=symInfo(g.k)||{disp:"?",units:["one"],name:""};
+    var mk=(S.mark&&S.mark.row==="given"&&S.mark.idx===i)?" bad":"";
+    var ro=S.done?" disabled":"";
+    return '<div class="cs-row'+mk+'"><span class="cs-sym math">'+info.disp+"</span>"+
+      '<span class="cs-val inputs">'+
+      '<input type="text" class="gval" inputmode="decimal" data-i="'+i+'" value="'+
+        esc(g.val)+'" placeholder="číslo" aria-label="Hodnota: '+esc(info.name)+'"'+ro+">"+
+      '<select class="gunit" data-i="'+i+'" aria-label="Jednotka"'+ro+">"+
+        info.units.map(function(u){
+          return '<option value="'+u+'"'+(u===g.unit?" selected":"")+">"+
+            (unitLabel(u)||"bez jednotky")+"</option>";
+        }).join("")+"</select>"+
+      (S.done?"":'<button type="button" class="grm" data-rm="'+i+
+        '" aria-label="Odebrat řádek">✕</button>')+
+      '</span><span class="cs-note">'+esc(info.name)+"</span></div>";
+  }).join("");
+}
+/* ---------------- řádek: hledáme ---------------- */
+function bodyFind(){
+  if(!S.find.k) return '<p class="cs-hint">Zatím jste neoznačil hledanou veličinu.</p>';
+  var info=symInfo(S.find.k);
+  return '<div class="cs-row"><span class="cs-sym math">'+info.disp+"</span>"+
+    '<span class="cs-val inputs"><span class="qmark">?</span>'+
+    '<select class="gunit" id="findUnit" aria-label="Jednotka výsledku"'+
+      (S.done?" disabled":"")+">"+
+    info.units.map(function(u){
+      return '<option value="'+u+'"'+(u===S.find.unit?" selected":"")+">"+
+        (unitLabel(u)||"bez jednotky")+"</option>";
+    }).join("")+'</select></span><span class="cs-note">'+esc(info.name)+"</span></div>";
+}
+/* ---------------- řádek: vztahy ---------------- */
+function cardById(id){
+  for(var i=0;i<TASK.cards.length;i++) if(TASK.cards[i].id===id) return TASK.cards[i];
+  return null;
+}
+function cardHtml(c,cls,attr){
+  return '<'+(attr?"button":"span")+' class="fcard '+(cls||"")+'"'+
+    (attr?' type="button" '+attr:"")+'>'+
+    '<span class="math">'+rnd(c.lhs,0,{})+'<span class="op">=</span>'+rnd(c.rhs,0,{})+"</span></"+
+    (attr?"button":"span")+">";
+}
+function bodyFml(){
+  if(!S.picked.length) return '<p class="cs-hint">Zatím jste nevybral žádný vztah.</p>';
+  var mk=(S.mark&&S.mark.row==="fml")?S.mark.card:null;
+  return '<div class="fpicked">'+S.picked.map(function(id){
+    var c=cardById(id);
+    return cardHtml(c,mk===id?"bad":"");
+  }).join("")+"</div>";
+}
+/* ---------------- řádek: odvození ---------------- */
+function bodyDer(){
+  if(!S.expr) return '<p class="cs-hint">Odvození zatím nezačalo.</p>';
+  var info=symInfo(S.find.k), out=[];
+  var tap=(!S.done&&S.phase===4);
+  for(var i=0;i<S.hist.length;i++){
+    var st=S.hist[i], last=(i===S.hist.length-1);
+    var o=last?{tap:tap,sel:S.sel}:{};
+    var mk=(S.mark&&S.mark.row==="der"&&S.mark.idx===i)?" bad":"";
+    out.push('<div class="dline'+mk+'"><div class="cs-line"><span class="math">'+
+      (i===0?info.disp+'<span class="op">=</span>':'<span class="op">=</span>')+
+      rnd(st.expr,0,o)+"</span></div>"+
+      '<div class="cs-hint">'+esc(st.note)+"</div></div>");
+  }
+  return out.join("");
+}
+/* ---------------- řádek: dosazení ---------------- */
+function bodySubst(){
+  if(!S.expr||S.max<5) return '<p class="cs-hint">Nejdřív dokončete odvození.</p>';
+  var num={}, prevod=false;
+  S.given.forEach(function(g){
+    if(!g.k) return;
+    var info=symInfo(g.k), cv=rowCanon(g), ul=unitLabel(info.canon);
+    if(cv!==null&&unitText(g.unit)!==unitText(info.canon)) prevod=true;
+    num[g.k]=(cv===null?'<span class="miss">?</span>':fmtNum(cv,6))+
+      (ul?'<span class="su"> '+ul+"</span>":"");
+  });
+  var info2=symInfo(S.find.k);
+  return '<div class="cs-line"><span class="math">'+info2.disp+'<span class="op">=</span>'+
+    rnd(S.expr,0,{num:num,mark:(S.mark&&S.mark.row==="subst")?S.mark.sk:null})+
+    "</span></div>"+
+    '<div class="cs-hint">'+(prevod
+      ? "Čísla jsou přepsaná do jednotek, které jste u veličin zvolil, a sjednocená tak, "+
+        "aby vzorec seděl rozměrově. Takhle to spočítáte na kalkulačce přímo."
+      : "Takhle to zadáte do kalkulačky.")+"</div>";
+}
+/* ---------------- řádek: odpověď ---------------- */
+function bodyAns(){
+  if(S.max<5) return '<p class="cs-hint">Odpověď zapíšete na konci.</p>';
+  var info=symInfo(S.find.k);
+  var mk=(S.mark&&S.mark.row==="ans")?" bad":"";
+  return '<div class="cs-ans'+mk+'"><span class="math">'+info.disp+
+    '<span class="op">=</span></span>'+
+    '<input type="text" id="ansVal" class="aval" inputmode="decimal" value="'+esc(S.ansVal)+
+    '" placeholder="číslo" aria-label="Číselná odpověď"'+(S.done?" disabled":"")+">"+
+    '<span class="cs-hi">'+(unitLabel(ansUnit())||"bez jednotky")+"</span></div>";
+}
+
+/* ============================================================ horní lišta */
+function renderBar(){
+  $("#tTitle").innerHTML=esc(TASK.title);
+  $("#tMeta").innerHTML='<span class="lv lv'+TASK.level+'">'+
+    ["","Základ","Střední","Přijímačky"][TASK.level]+"</span><span>"+esc(TASK.topic)+"</span>"+
+    (S.hints?'<span>nápovědy: '+S.hints+"</span>":"");
+  $("#steps").innerHTML=PH.map(function(p,i){
+    var n=i+1, cls=(n===S.phase?"on":(n<=S.max?"ok":""));
+    return '<button type="button" class="stp '+cls+'" data-go="'+n+'"'+
+      (n<=S.max&&!S.done?"":" disabled")+'><b>'+n+"</b><span>"+p.lbl+"</span></button>";
+  }).join("");
+}
+
+/* ============================================================ nářadí */
+function tools(){
+  var h='<div class="toolbox" id="tools">';
+  if(S.coach) h+='<div class="coach">'+COACH[S.phase-1]+"</div>";
+  if(S.phase===1) h+=tGiven();
+  else if(S.phase===2) h+=tFind();
+  else if(S.phase===3) h+=tFml();
+  else if(S.phase===4) h+=tDer();
+  else h+=tAns();
+  h+='<div class="mechnote" id="note" role="status"></div>';
+  h+='<div class="tbfoot">';
+  if(S.phase>1) h+='<button type="button" class="btn btn-sm" data-go="'+(S.phase-1)+
+    '">← Předchozí fáze</button>';
+  h+='<button type="button" class="btn btn-sm" id="undoBtn">Zpět o krok</button>';
+  h+='<span class="sp"></span>';
+  if(S.phase<5) h+='<button type="button" class="btn btn-primary btn-sm" id="nextBtn">'+
+    "Pokračovat na „"+PH[S.phase].lbl+"“ →</button>";
+  h+="</div></div>";
+  return h;
+}
+function shelfSyms(){
+  return '<div class="shelf">'+TASK.shelf.map(function(k){
+    var info=symInfo(k);
+    var on=(S.phase===1)?(S.given.some(function(g){return g.k===k;})):(S.find.k===k);
+    return '<button type="button" class="chip'+(on?" on":"")+'" data-sym="'+esc(k)+'">'+
+      '<span class="math">'+info.disp+'</span><span class="cn">'+esc(info.name)+"</span></button>";
+  }).join("")+"</div>";
+}
+function tGiven(){
+  return '<p class="tb-h">Vypište ze zadání veličiny, se kterými budete počítat.</p>'+
+    shelfSyms()+
+    '<p class="tb-n">Klepnutím přidáte řádek do výpočtového listu. Do něj opíšete hodnotu '+
+    'a vyberete jednotku, <b>ve které se bude počítat</b> — tím provedete převod. '+
+    'V nabídce jsou i veličiny, které v této úloze nepotřebujete.</p>';
+}
+function tFind(){
+  return '<p class="tb-h">Označte veličinu, na kterou se úloha ptá.</p>'+shelfSyms()+
+    '<p class="tb-n">Jednotku výsledku vyberete v listu u řádku „Hledáme“.</p>';
+}
+function tFml(){
+  var mk=(S.mark&&S.mark.row==="fml")?S.mark.card:null;
+  return '<p class="tb-h">Vyberte z police vztahy, které budete potřebovat.</p>'+
+    '<div class="rack">'+TASK.cards.map(function(c){
+      var on=S.picked.indexOf(c.id)>=0;
+      return cardHtml(c,(on?"on":"")+(mk===c.id?" bad":""),'data-card="'+c.id+
+        '" aria-pressed="'+(on?"true":"false")+'"');
+    }).join("")+"</div>"+
+    '<p class="tb-n">Vybrat můžete i víc vztahů, než nakonec použijete. Některé vzorce '+
+    'na polici platí obecně, ale pro tuhle úlohu se nehodí — a některé neplatí vůbec. '+
+    'Aplikace teď mlčí, hodnotí se až konečná odpověď.</p>';
+}
+function tDer(){
+  var info=symInfo(S.find.k);
+  if(!S.expr){
+    var elig=S.picked.map(cardById).filter(function(c){return c.key===S.find.k;});
+    if(!elig.length)
+      return '<p class="tb-h">Odvození začíná vztahem, jehož levá strana je hledaná veličina '+
+        '<span class="math">'+info.disp+'</span>.</p>'+
+        '<p class="tb-n">Mezi vybranými vztahy takový není. Vraťte se o fázi zpět '+
+        'a vyberte vztah, který má <span class="math">'+info.disp+'</span> vlevo.</p>';
+    return '<p class="tb-h">Začněte vztahem, jehož levá strana je hledaná veličina.</p>'+
+      '<div class="rack">'+elig.map(function(c){
+        return cardHtml(c,"","data-start=\""+c.id+"\"");
+      }).join("")+"</div>";
+  }
+  var h='<p class="tb-h">'+(S.sel
+      ? 'Vybraná veličina: <span class="math selmark">'+symInfo(S.sel).disp+
+        "</span> — teď klepněte na vztah, kterým ji chcete nahradit."
+      : "Klepněte ve výrazu na veličinu, kterou chcete nahradit.")+"</p>";
+  h+='<div class="rack">'+S.picked.map(function(id){
+    var c=cardById(id);
+    var can=(S.sel&&c.key===S.sel);
+    return cardHtml(c,can?"can":"",'data-sub="'+c.id+'"');
+  }).join("")+"</div>";
+  h+='<p class="tb-h2">Úpravy výrazu</p><div class="simps">'+SIMPS.map(function(s){
+    var can=!!s.fn(S.expr);
+    return '<button type="button" class="btn btn-sm'+(can?" can":"")+'" data-simp="'+s.id+'">'+
+      s.lbl+"</button>";
+  }).join("")+"</div>";
+  var kn=knownKeys(), left=symsIn(S.expr).filter(function(k){return kn.indexOf(k)<0;});
+  h+='<p class="tb-n">'+(left.length
+    ? "Ve výrazu jsou ještě veličiny, které nemáte v zadání: "+
+      left.map(function(k){return '<span class="math">'+symInfo(k).disp+"</span>";}).join(", ")+
+      ". Dokud tam jsou, nejde dosadit čísla."
+    : "Ve výrazu jsou už jen veličiny ze zadání a konstanty. Můžete pokračovat na dosazení.")+
+    "</p>";
+  return h;
+}
+var TILES=["g","mg","kg","mol","mmol","dm3","cm3","m3","J","kJ","K","s","min",
+           "V","A","C","Bq","GBq","pct","one"];
+function tAns(){
+  var chips=function(arr,z){
+    return arr.length?arr.map(function(a,i){
+      return '<button type="button" class="uch" data-del="'+z+":"+i+'">'+
+        ATOMS[a].b+(ATOMS[a].e>1?supStr(ATOMS[a].e):"")+"</button>";
+    }).join(""):'<span class="uempty">—</span>';
+  };
+  var h='<p class="tb-h">Sestavte jednotku výsledku a zapište číslo.</p>';
+  h+='<div class="ucomp"><div class="uz'+(S.uzone==="n"?" on":"")+'" data-z="n" tabindex="0" '+
+     'role="button" aria-pressed="'+(S.uzone==="n")+'"><span class="uzl">Čitatel</span>'+
+     '<span class="uzc">'+chips(S.un,"n")+"</span></div>";
+  h+='<div class="uz'+(S.uzone==="d"?" on":"")+'" data-z="d" tabindex="0" role="button" '+
+     'aria-pressed="'+(S.uzone==="d")+'"><span class="uzl">Jmenovatel</span>'+
+     '<span class="uzc">'+chips(S.ud,"d")+"</span></div></div>";
+  h+='<div class="utiles">'+TILES.map(function(a){
+    return '<button type="button" class="ut" data-tile="'+a+'">'+
+      (a==="one"?"1":ATOMS[a].b+(ATOMS[a].e>1?supStr(ATOMS[a].e):""))+"</button>";
+  }).join("")+"</div>";
+  h+='<p class="tb-n">Klepněte na čitatele nebo jmenovatele a pak na dlaždici. Hotová jednotka: '+
+     '<b class="math">'+(ansUnit()==="one"?"bez jednotky":unitText(ansUnit()))+"</b>. "+
+     "Číslo zapište do listu k řádku „Odpověď“ — desetinnou čárkou, mocniny deseti třeba "+
+     "jako <span class=\"mono\">1,77e-10</span>.</p>";
+  h+='<div class="subrow"><button type="button" class="btn btn-primary" id="submitBtn">'+
+     "Odevzdat odpověď</button></div>";
+  return h;
+}
+
+/* ============================================================ obsluha */
+function bindSheet(){
+  $$("#sheet [data-go]").forEach(function(b){
+    b.addEventListener("click",function(){ gotoPhase(+b.dataset.go); });
+  });
+  $$("#steps [data-go]").forEach(function(b){
+    b.addEventListener("click",function(){ gotoPhase(+b.dataset.go); });
+  });
+  $$("#sheet .gval").forEach(function(inp){
+    inp.addEventListener("input",function(){ S.given[+inp.dataset.i].val=inp.value; });
+  });
+  $$("#sheet .gunit").forEach(function(sel){
+    if(sel.id==="findUnit") return;
+    sel.addEventListener("change",function(){
+      snap(); S.given[+sel.dataset.i].unit=sel.value;
+    });
+  });
+  var fu=$("#findUnit");
+  if(fu) fu.addEventListener("change",function(){
+    snap(); S.find.unit=fu.value;
+    S.un=parseUnit(fu.value).n.slice(); S.ud=parseUnit(fu.value).d.slice();
+    render();
+  });
+  $$("#sheet [data-rm]").forEach(function(b){
+    b.addEventListener("click",function(){ snap(); S.given.splice(+b.dataset.rm,1); render(); });
+  });
+  $$("#sheet [data-sym]").forEach(function(b){
+    b.addEventListener("click",function(){ pickSym(b.dataset.sym); });
+  });
+  $$("#sheet [data-card]").forEach(function(b){
+    b.addEventListener("click",function(){ toggleCard(b.dataset.card); });
+  });
+  $$("#sheet [data-start]").forEach(function(b){
+    b.addEventListener("click",function(){ startDeriv(b.dataset.start); });
+  });
+  $$("#sheet .tok[data-sk]").forEach(function(b){
+    b.addEventListener("click",function(){
+      snap(); S.sel=(S.sel===b.dataset.sk)?null:b.dataset.sk; S.note=""; render();
+    });
+  });
+  $$("#sheet [data-sub]").forEach(function(b){
+    b.addEventListener("click",function(){ doSub(b.dataset.sub); });
+  });
+  $$("#sheet [data-simp]").forEach(function(b){
+    b.addEventListener("click",function(){ doSimp(b.dataset.simp); });
+  });
+  $$("#sheet [data-z]").forEach(function(z){
+    var act=function(){ S.uzone=z.dataset.z; render(); };
+    z.addEventListener("click",act);
+    z.addEventListener("keydown",function(e){
+      if(e.key==="Enter"||e.key===" "){ e.preventDefault(); act(); }
+    });
+  });
+  $$("#sheet [data-tile]").forEach(function(b){
+    b.addEventListener("click",function(){
+      snap();
+      (S.uzone==="n"?S.un:S.ud).push(b.dataset.tile);
+      render();
+    });
+  });
+  $$("#sheet [data-del]").forEach(function(b){
+    b.addEventListener("click",function(){
+      snap();
+      var p=b.dataset.del.split(":");
+      (p[0]==="n"?S.un:S.ud).splice(+p[1],1);
+      render();
+    });
+  });
+  var av=$("#ansVal");
+  if(av) av.addEventListener("input",function(){ S.ansVal=av.value; });
+  var nb=$("#nextBtn");
+  if(nb) nb.addEventListener("click",nextPhase);
+  var ub=$("#undoBtn");
+  if(ub) ub.addEventListener("click",function(){
+    if(!UNDO.length){ note("Není co vracet, jste na začátku."); return; }
+    S=JSON.parse(UNDO.pop()); render();
+  });
+  var sb=$("#submitBtn");
+  if(sb) sb.addEventListener("click",submit);
+}
+function pickSym(k){
+  snap();
+  if(S.phase===1){
+    var i=-1;
+    S.given.forEach(function(g,j){ if(g.k===k) i=j; });
+    if(i>=0){ S.given.splice(i,1); }
+    else S.given.push({k:k,val:"",unit:symInfo(k).units[0]});
+  } else {
+    var info=symInfo(k);
+    S.find={k:k,unit:info.units[0]};
+    S.un=parseUnit(info.units[0]).n.slice();
+    S.ud=parseUnit(info.units[0]).d.slice();
+    if(S.expr&&S.hist.length&&cardById(S.hist[0].card).key!==k){
+      S.expr=null; S.hist=[]; S.sel=null;
+      note("Změnou hledané veličiny se odvození vynulovalo — začíná se vztahem, "+
+           "který má vlevo právě ji.");
+    }
+  }
+  render();
+}
+function toggleCard(id){
+  snap();
+  var i=S.picked.indexOf(id);
+  if(i>=0){
+    if(S.expr&&S.hist.some(function(h){return h.card===id;})){
+      note("Tenhle vztah už je v odvození použitý. Nejdřív vraťte krok, ve kterém "+
+           "jste ho dosadil.");
+      UNDO.pop(); return;
+    }
+    S.picked.splice(i,1);
+  } else S.picked.push(id);
+  render();
+}
+function startDeriv(id){
+  var c=cardById(id);
+  snap();
+  S.expr=clone(c.rhs);
+  S.hist=[{expr:clone(c.rhs),card:id,note:"výchozí vztah "+plain(c)}];
+  S.sel=null;
+  render();
+}
+function plain(c){
+  return c.src.replace(/_\{([^}]*)\}/g,"$1").replace(/_/g,"").replace(/\*/g,"·");
+}
+function doSub(id){
+  var c=cardById(id);
+  if(!S.sel){ note("Nejdřív klepněte ve výrazu na veličinu, kterou chcete nahradit."); return; }
+  if(c.key!==S.sel){
+    note("Vztah <b class=\"math\">"+plainHtml(c)+"</b> má vlevo <span class=\"math\">"+
+      symInfo(c.key).disp+"</span>, ne <span class=\"math\">"+symInfo(S.sel).disp+
+      "</span>. Dosadit ho lze jen za <span class=\"math\">"+symInfo(c.key).disp+"</span>.");
+    return;
+  }
+  if(!hasSym(S.expr,S.sel)){
+    note("Tahle veličina už ve výrazu není."); return;
+  }
+  if(hasSym(c.rhs,S.sel)){
+    note("Pravá strana tohoto vztahu obsahuje zase <span class=\"math\">"+
+      symInfo(S.sel).disp+"</span>. Dosazením byste se točil v kruhu.");
+    return;
+  }
+  snap();
+  S.expr=substitute(S.expr,S.sel,c.rhs);
+  S.hist.push({expr:clone(S.expr),card:id,
+               note:"za "+txtSym(S.sel)+" dosazeno "+plain(c)});
+  S.sel=null; S.note="";
+  render();
+}
+function plainHtml(c){ return rnd(c.lhs,0,{})+'<span class="op">=</span>'+rnd(c.rhs,0,{}); }
+function txtSym(k){
+  var d=symInfo(k).disp;
+  return d.replace(/<[^>]+>/g,"");
+}
+function doSimp(id){
+  var s=null;
+  SIMPS.forEach(function(x){ if(x.id===id) s=x; });
+  if(!S.expr){ note("Výraz zatím není."); return; }
+  var r=s.fn(S.expr);
+  if(!r){ note(s.no); return; }
+  snap();
+  S.expr=r;
+  S.hist.push({expr:clone(r),card:null,note:s.lbl.toLowerCase()});
+  S.sel=null; S.note="";
+  render();
+}
+function nextPhase(){
+  if(S.phase===1){
+    var filled=S.given.filter(function(g){ return parseVal(g.val)!==null; });
+    if(!filled.length){ note("Zapište aspoň jednu veličinu i s hodnotou."); return; }
+    var bad=S.given.filter(function(g){ return g.val.trim()!==""&&parseVal(g.val)===null; });
+    if(bad.length){ note("Některou hodnotu neumím přečíst. Číslo pište s desetinnou čárkou, "+
+      "mocniny deseti jako <span class=\"mono\">1,77e-10</span>."); return; }
+  }
+  if(S.phase===2&&!S.find.k){ note("Označte hledanou veličinu."); return; }
+  if(S.phase===3&&!S.picked.length){ note("Vyberte aspoň jeden vztah."); return; }
+  if(S.phase===4){
+    if(!S.expr){ note("Odvození ještě nezačalo."); return; }
+    if(!exprDone()){
+      var kn=knownKeys();
+      var left=symsIn(S.expr).filter(function(k){return kn.indexOf(k)<0;});
+      note("Ve výrazu zůstávají veličiny, které nemáte mezi zadanými: "+
+        left.map(function(k){return txtSym(k);}).join(", ")+
+        ". Za ně čísla dosadit nejde — nahraďte je dalším vztahem, nebo je doplňte "+
+        "do zadaných veličin.");
+      return;
+    }
+  }
+  gotoPhase(S.phase+1);
+}
+
+/* ============================================================ nápověda */
+function hint(){
+  if(S.done) return;
+  S.hintLvl=Math.min(3,S.hintLvl+1);
+  S.hints++;
+  var lvl=S.hintLvl, h="";
+  if(lvl===1){
+    h=TASK.hints[0]||"Projděte si zadání ještě jednou a hledejte, které veličiny v něm jsou.";
+  } else if(lvl===2){
+    h=hint2();
+  } else {
+    h=hint3();
+  }
+  note('<b>Nápověda '+lvl+"/3.</b> "+h);
+  renderBar();
+}
+function refGiven(){ return TASK.given; }
+function hint2(){
+  var i;
+  if(S.phase===1){
+    var miss=refGiven().filter(function(g){
+      return !S.given.some(function(x){return x.k===g.sk;});
+    });
+    return miss.length
+      ? "Ze zadání ještě chybí "+miss.map(function(g){return txtSym(g.sk);}).join(", ")+"."
+      : "Všechny potřebné veličiny už v listu máte. Zkontrolujte jednotky.";
+  }
+  if(S.phase===2) return "Úloha se ptá na veličinu "+txtSym(TASK.find.sk)+".";
+  if(S.phase===3){
+    var need=TASK.sets[0].filter(function(id){ return S.picked.indexOf(id)<0; });
+    return need.length
+      ? "Chybí vztah, který vyjádří "+txtSym(cardById(need[0]).key)+"."
+      : "Potřebné vztahy už vybrané máte.";
+  }
+  if(S.phase===4){
+    var nx=nextStep();
+    if(!nx) return "Výraz je hotový, pokračujte na dosazení.";
+    return "Teď je na řadě "+txtSym(nx.key)+" — nahraďte ji vztahem "+plain(cardById(nx.card))+".";
+  }
+  var u=unitLabel(TASK.find.unit);
+  return u?("Jednotka výsledku je "+u+"."):
+    "Výsledek je bezrozměrný — v dlaždicích použijte 1.";
+}
+function hint3(){
+  var i;
+  if(S.phase===1){
+    for(i=0;i<TASK.given.length;i++){
+      var g=TASK.given[i];
+      var row=null;
+      S.given.forEach(function(x){ if(x.k===g.sk) row=x; });
+      if(!row){ snap(); S.given.push({k:g.sk,val:String(g.val).replace(".",","),unit:g.unit});
+        render(); return "Doplnil jsem řádek "+txtSym(g.sk)+" = "+
+          withU(fmtNum(g.val,6),g.unit)+"."; }
+      if(rowCanon(row)===null||!closeTo(rowCanon(row),TASK.ref.vals[g.sk],2e-3)){
+        snap(); row.val=String(g.val).replace(".",","); row.unit=g.unit; render();
+        return "Opravil jsem řádek "+txtSym(g.sk)+" na "+
+          withU(fmtNum(g.val,6),g.unit)+".";
+      }
+    }
+    return "V zadaných veličinách už není co doplnit.";
+  }
+  if(S.phase===2){
+    snap();
+    S.find={k:TASK.find.sk,unit:TASK.find.unit};
+    S.un=parseUnit(TASK.find.unit).n.slice(); S.ud=parseUnit(TASK.find.unit).d.slice();
+    render();
+    return "Nastavil jsem hledanou veličinu i jednotku.";
+  }
+  if(S.phase===3){
+    var need=TASK.sets[0].filter(function(id){ return S.picked.indexOf(id)<0; });
+    if(!need.length) return "Všechny potřebné vztahy už vybrané jsou.";
+    snap(); S.picked.push(need[0]); render();
+    return "Přidal jsem vztah "+plain(cardById(need[0]))+".";
+  }
+  if(S.phase===4){
+    var nx=nextStep();
+    if(!nx) return "Výraz je hotový.";
+    if(!S.expr){ startDeriv(nx.card); return "Začal jsem vztahem "+plain(cardById(nx.card))+"."; }
+    snap();
+    var c=cardById(nx.card);
+    if(S.picked.indexOf(c.id)<0) S.picked.push(c.id);
+    S.expr=substitute(S.expr,nx.key,c.rhs);
+    S.hist.push({expr:clone(S.expr),card:c.id,note:"za "+txtSym(nx.key)+" dosazeno "+plain(c)});
+    S.sel=null; render();
+    return "Dosadil jsem za "+txtSym(nx.key)+".";
+  }
+  snap();
+  S.un=parseUnit(TASK.find.unit).n.slice(); S.ud=parseUnit(TASK.find.unit).d.slice();
+  render();
+  return "Sestavil jsem jednotku výsledku. Číslo si spočítejte sám.";
+}
+/* další krok podle vzorového řešení */
+function nextStep(){
+  var kn=knownKeys();
+  if(!S.expr){
+    for(var i=0;i<TASK.cards.length;i++)
+      if(TASK.cards[i].ok&&TASK.cards[i].key===TASK.find.sk&&TASK.need.indexOf(TASK.cards[i].id)>=0)
+        return {key:TASK.find.sk,card:TASK.cards[i].id};
+    return null;
+  }
+  var left=symsIn(S.expr).filter(function(k){return kn.indexOf(k)<0;});
+  for(var j=0;j<left.length;j++){
+    for(var m=0;m<TASK.cards.length;m++){
+      var c=TASK.cards[m];
+      if(c.ok&&c.key===left[j]&&TASK.need.indexOf(c.id)>=0) return {key:left[j],card:c.id};
+    }
+  }
+  return null;
+}
+
+/* ============================================================ odevzdání */
+function submit(){
+  var v=parseVal(S.ansVal);
+  if(v===null){ note("Zapište číselnou odpověď do listu k řádku „Odpověď“."); return; }
+  if(!S.un.length&&!S.ud.length){
+    note("Sestavte ještě jednotku výsledku. Pokud je výsledek bezrozměrný, "+
+         "použijte dlaždici <b>1</b>."); return; }
+  var fi=findInfo(), au=ansUnit();
+  var refCanon=TASK.ref.canon;
+  var refU=unitInfo(TASK.find.unit), myU=unitInfo(au);
+  var unitOK=sameDim(myU,refU);
+  var typedCanon=unitOK?conv(v,au,fi.canon):null;
+  var rel=Math.max(Math.abs(TASK.answer.tol/(TASK.answer.val||1)),0.004);
+  var valOK=unitOK&&typedCanon!==null&&closeTo(typedCanon,refCanon,rel);
+  S.done=true;
+  S.secs=secs();
+  S.verdict={ok:!!(valOK&&unitOK),unitOK:unitOK,valOK:valOK,typed:v,unit:au,
+             sig:sigDigits(S.ansVal)};
+  saveProgress(S.verdict.ok);
+  render();
+  var vb=$("#verdictBox");
+  if(vb){ var y=vb.getBoundingClientRect().top+window.pageYOffset-120;
+          window.scrollTo({top:Math.max(0,y),behavior:"smooth"}); }
+}
+function saveProgress(ok){
+  var rec=store.get("done",{}), cur=rec[TASK.id]||{tries:0};
+  cur.tries=(cur.tries||0)+1;
+  if(ok){
+    cur.ok=true;
+    cur.hints=(cur.hints===undefined)?S.hints:Math.min(cur.hints,S.hints);
+    cur.secs=(cur.secs===undefined)?S.secs:Math.min(cur.secs,S.secs);
+  }
+  rec[TASK.id]=cur;
+  store.set("done",rec);
+}
+function renderVerdict(){
+  var box=$("#verdictBox");
+  if(!S.done){ box.innerHTML=""; box.style.display="none"; return; }
+  box.style.display="";
+  var v=S.verdict, fi=findInfo();
+  var h='<div class="verdict '+(v.ok?"good":"bad")+'">';
+  h+='<div class="vhead"><span class="vmark">'+(v.ok?"✓":"✕")+"</span><div>"+
+     "<h2>"+(v.ok?"Správně":"Špatně")+"</h2><p>"+
+     (v.ok?"Vaše odpověď sedí i po stránce jednotek.":
+           "Odpověď neodpovídá tomu, co má vyjít. Kde přesně se to zlomilo, "+
+           "vám aplikace ukáže — stačí říct.")+"</p></div></div>";
+  h+='<div class="vstats"><span><b>'+fmtSecs(S.secs)+"</b>čas</span>"+
+     "<span><b>"+S.hints+"</b>nápověd</span>"+
+     "<span><b>"+withU(fmtNum(v.typed,6),v.unit)+
+     "</b>vaše odpověď</span></div>";
+  if(v.ok&&v.sig!==TASK.answer.sig)
+    h+='<p class="vnote">Poznámka k zápisu: zadání vede na '+TASK.answer.sig+
+       " platné číslice, vy jste zapsal "+v.sig+". Za chybu se to nepočítá, "+
+       "ale u zkoušky se na počet platných číslic hledí.";
+  h+='<div class="vacts">'+
+     '<button type="button" class="btn" id="whyBtn">Kde jsem udělal chybu?</button>'+
+     '<button type="button" class="btn" id="modelBtn">Ukázat správné řešení</button>'+
+     '<button type="button" class="btn" id="retryBtn">Zkusit znovu</button>'+
+     '<button type="button" class="btn" id="nextTaskBtn">Další úloha →</button>'+
+     '<button type="button" class="btn" id="backBtn">Zpátky na výběr</button></div>';
+  if(S.diag) h+='<div class="diag"><h3>'+S.diag.head+"</h3>"+S.diag.body+"</div>";
+  if(v.ok) h+='<div class="outro">'+TASK.outro+"</div>";
+  h+="</div>";
+  box.innerHTML=h;
+  $("#whyBtn").addEventListener("click",function(){ S.diag=diagnose(); render(); });
+  $("#modelBtn").addEventListener("click",showModel);
+  $("#retryBtn").addEventListener("click",function(){ startTask(TASK.id,S.coach); });
+  $("#backBtn").addEventListener("click",backToPick);
+  $("#nextTaskBtn").addEventListener("click",function(){
+    var i=0;
+    TASKS.forEach(function(t,j){ if(t.id===TASK.id) i=j; });
+    startTask(TASKS[(i+1)%TASKS.length].id,false);
+  });
+}
+
+/* ============================================================ diagnostika */
+function evalRef(e){
+  try{ var x=evalNode(e,TASK.ref.vals); return isFinite(x)?x:null; }catch(err){ return null; }
+}
+function exprIsRight(){
+  if(!S.expr) return false;
+  if(equivalent(S.expr,TASK.ref.expr)) return true;
+  var x=evalRef(S.expr);
+  return x!==null&&closeTo(x,TASK.ref.canon,1e-6);
+}
+function diagnose(){
+  S.mark=null;
+  var i,j,g,row,sv,fi=findInfo();
+  /* --- 1. zadané hodnoty a převody --- */
+  for(i=0;i<TASK.given.length;i++){
+    g=TASK.given[i]; row=null;
+    var idx=-1;
+    S.given.forEach(function(x,jj){ if(x.k===g.sk){row=x;idx=jj;} });
+    if(!row){
+      S.mark={row:"given"};
+      return D("Chybí údaj ze zadání",
+        "Ve výpočtovém listu není veličina <b>"+txtSym(g.sk)+"</b>, kterou zadání uvádí ("+
+        fmtNum(g.val,6)+" "+unitText(g.unit)+"). Bez ní se ke správnému výsledku dojít nedá.");
+    }
+    sv=rowCanon(row);
+    if(sv===null){
+      S.mark={row:"given",idx:idx};
+      return D("Nečitelná hodnota",
+        "Hodnotu u veličiny <b>"+txtSym(g.sk)+"</b> neumím přečíst jako číslo.");
+    }
+    if(!closeTo(sv,TASK.ref.vals[g.sk],3e-3)){
+      S.mark={row:"given",idx:idx};
+      return D("Chyba je hned v zadaných hodnotách",
+        "U veličiny <b>"+txtSym(g.sk)+"</b> jste zapsal <b>"+esc(row.val)+" "+
+        unitLabel(row.unit)+"</b>. To je po převodu <b>"+
+        withU(fmtNum(sv,6),symInfo(g.sk).canon)+"</b>, ale ze zadání "+
+        "vychází <b>"+withU(fmtNum(TASK.ref.vals[g.sk],6),symInfo(g.sk).canon)+
+        "</b>. Zadání uvádí "+withU(fmtNum(g.val,6),g.unit)+
+        ". Zkontrolujte převod jednotek — v tom je celá chyba, dál už bylo všechno jedno.");
+    }
+  }
+  /* --- 2. a 3. vztahy a odvození --- */
+  if(!exprIsRight()){
+    var allowed=TASK.need.concat(TASK.optIds);
+    var extra=S.picked.filter(function(id){
+      return allowed.indexOf(id)<0&&usedInDeriv(id);
+    });
+    if(!extra.length) extra=S.picked.filter(function(id){ return allowed.indexOf(id)<0; });
+    if(extra.length){
+      var c=cardById(extra[0]);
+      S.mark={row:"fml",card:c.id};
+      return D("Chyba je ve výběru vztahu",
+        "Vztah <span class=\"math\">"+plainHtml(c)+"</span> v řešení téhle úlohy nemá co "+
+        "dělat. "+(c.why||"Pro tuhle úlohu neplatí.")+
+        (usedInDeriv(c.id)?" Právě jím se odvození rozešlo se správným řešením.":""));
+    }
+    var missing=TASK.need.filter(function(id){ return S.picked.indexOf(id)<0; });
+    if(missing.length&&!S.hist.length){
+      var mc=cardById(missing[0]);
+      S.mark={row:"fml"};
+      return D("Chybí potřebný vztah",
+        "V řešení chybí vztah, kterým se vyjádří <b>"+txtSym(mc.key)+
+        "</b>. Bez něj se výraz nedá dotáhnout jen na zadané veličiny.");
+    }
+    for(i=0;i<S.hist.length;i++){
+      var x=evalRef(S.hist[i].expr);
+      if(x===null||!closeTo(x,TASK.ref.canon,1e-6)){
+        S.mark={row:"der",idx:i};
+        var cc=S.hist[i].card?cardById(S.hist[i].card):null;
+        var lead=(i===0)
+          ? "Rozešlo se to hned na začátku: výchozí vztah "+
+            (cc?"<span class=\"math\">"+plainHtml(cc)+"</span>":"")+" nevede k výsledku."
+          : "Do "+i+". kroku byl výraz v pořádku. Rozešel se se správným řešením až v kroku <b>"+
+            (i+1)+" — "+esc(S.hist[i].note)+"</b>.";
+        return D("Chyba je v odvození",
+          lead+(cc&&cc.why?" "+cc.why:"")+
+          " Ostatní kroky byly v pořádku, opravovat je nemusíte.");
+      }
+    }
+    S.mark={row:"der"};
+    return D("Chyba je v odvození",
+      "Sestavený výraz nedává správný výsledek ani s referenčními hodnotami. "+
+      "Porovnejte ho se vzorovým řešením.");
+  }
+  /* --- 4. jednotka --- */
+  var refU=unitInfo(TASK.find.unit), myU=unitInfo(ansUnit());
+  if(!sameDim(myU,refU)){
+    S.mark={row:"ans"};
+    return D("Chyba je v jednotce výsledku",
+      "Sestavil jste jednotku <b>"+unitText(ansUnit())+"</b> s rozměrem <b>"+
+      dimText(myU.d)+"</b>. Výsledek téhle úlohy má rozměr <b>"+dimText(refU.d)+
+      "</b>, například "+unitText(TASK.find.unit)+
+      ". Číslo přitom může být spočítané správně — chybná jednotka je vlastní druh chyby "+
+      "a u zkoušky stojí bod.");
+  }
+  /* --- 5. číselná odpověď --- */
+  var mine=null;
+  try{ mine=evalNode(S.expr,studentVals()); }catch(e){ mine=null; }
+  var shown=(mine===null)?null:conv(mine,findInfo().canon,ansUnit());
+  if(shown!==null&&!closeTo(parseVal(S.ansVal),shown,0.004)){
+    S.mark={row:"ans"};
+    return D("Chyba je v aritmetice, ne v pochopení",
+      "Váš výraz i zadané hodnoty jsou v pořádku. Kdybyste do svého výrazu dosadil svoje "+
+      "čísla, vyjde <b>"+withU(fmtNum(shown,5),ansUnit())+"</b>, vy jste ale zapsal <b>"+
+      esc(S.ansVal)+"</b>. To je chyba v počítání nebo v zaokrouhlení — postup jste "+
+      "měl správně. To je podstatný rozdíl: rozumíte úloze, jen jste se překlepl.");
+  }
+  return D("Nikde",
+    "Zadané hodnoty, vybrané vztahy, odvození, jednotka i číslo souhlasí."+
+    (S.verdict.ok?"":" Rozdíl je nejspíš jen v zaokrouhlení."));
+}
+function usedInDeriv(id){
+  return S.hist.some(function(h){ return h.card===id; });
+}
+function D(head,body){ return {head:head,body:"<p>"+body+"</p>"}; }
+
+/* ============================================================ vzorové řešení */
+function showModel(){
+  var box=$("#modelBox");
+  if(box.style.display!=="none"&&box.innerHTML){
+    box.style.display="none"; box.innerHTML=""; return;
+  }
+  var r=TASK.ref;
+  var h='<div class="calcsheet model"><div class="cs-head">'+
+    '<span class="cs-id">Vzorové řešení</span>'+
+    '<span class="cs-topic">'+esc(TASK.title)+"</span>"+
+    '<span class="cs-kind">jedna z možných cest</span></div>'+
+    '<div class="cs-task">Pokud jste šel jinudy a došel ke stejnému číslu, je vaše řešení '+
+    "stejně dobré — pořadí činitelů ani způsob uzávorkování na správnosti nic nemění.</div>";
+  h+=mrow("Zadání",TASK.given.map(function(g){
+    var info=symInfo(g.sk), cn=TASK.ref.vals[g.sk];
+    return '<div class="cs-row"><span class="cs-sym math">'+info.disp+"</span>"+
+      '<span class="cs-val">'+withU(fmtNum(g.val,6),g.unit)+
+      (unitText(g.unit)!==unitText(info.canon)
+        ? '<span class="cs-conv"> = '+withU(fmtNum(cn,6),info.canon)+"</span>":"")+
+      '</span><span class="cs-note">'+esc(info.name)+
+      (g.note?" — "+esc(g.note):"")+"</span></div>";
+  }).join(""));
+  h+=mrow("Hledáme",'<div class="cs-row"><span class="cs-sym math">'+
+    symInfo(TASK.find.sk).disp+'</span><span class="cs-val"><span class="qmark">?</span> '+
+    (unitLabel(TASK.find.unit)||"bez jednotky")+"</span></div>","find");
+  h+=mrow("Vztahy",'<div class="fpicked">'+TASK.need.map(function(id){
+    return cardHtml(cardById(id),"");
+  }).join("")+"</div>");
+  h+=mrow("Odvození",r.steps.map(function(st,i){
+    return '<div class="dline"><div class="cs-line"><span class="math">'+
+      (i===0?symInfo(TASK.find.sk).disp+'<span class="op">=</span>':'<span class="op">=</span>')+
+      rnd(st.expr,0,{})+'</span></div><div class="cs-hint">'+esc(st.note)+"</div></div>";
+  }).join(""));
+  var num={};
+  TASK.given.forEach(function(g){
+    var ul2=unitLabel(symInfo(g.sk).canon);
+    num[g.sk]=fmtNum(TASK.ref.vals[g.sk],6)+(ul2?'<span class="su"> '+ul2+"</span>":"");
+  });
+  h+=mrow("Dosazení",'<div class="cs-line"><span class="math">'+
+    symInfo(TASK.find.sk).disp+'<span class="op">=</span>'+
+    rnd(r.expr,0,{num:num})+"</span></div>");
+  var fcan=symInfo(TASK.find.sk).canon, mid="";
+  if(unitText(fcan)!==unitText(TASK.find.unit))
+    mid=withU(fmtNum(TASK.ref.canon,4),fcan)+'<span class="op">=</span>';
+  h+=mrow("Odpověď",'<div class="cs-ans"><span class="math">'+symInfo(TASK.find.sk).disp+
+    '<span class="op">=</span>'+mid+'</span><span class="cs-hi">'+
+    withU(fmtSig(TASK.answer.val,TASK.answer.sig),TASK.find.unit)+"</span></div>"+
+    '<p class="mout">'+TASK.outro+"</p>","res");
+  h+="</div>";
+  box.innerHTML=h;
+  box.style.display="";
+  var y=box.getBoundingClientRect().top+window.pageYOffset-120;
+  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+}
+function mrow(lab,body,extra){
+  return '<section class="cs-block'+(extra?" "+extra:"")+'"><h3 class="cs-lbl">'+lab+
+    '</h3><div class="cs-rows">'+body+"</div></section>";
+}
+
+/* ============================================================ výběr úlohy */
+var LV=[null,{n:"Základ",d:"Jeden až dva kroky. Rozehřátí a jistota v jednotkách."},
+        {n:"Střední",d:"Tři až čtyři kroky, řetěz vztahů, past v jednotkách."},
+        {n:"Přijímačky",d:"Delší odvození, odmocniny a logaritmy, rozhodování navíc."}];
+function renderPick(){
+  var rec=store.get("done",{});
+  var h="";
+  [1,2,3].forEach(function(l){
+    var list=TASKS.filter(function(t){ return t.level===l; });
+    h+='<section class="sec"><div class="sec-head"><h2>'+LV[l].n+"</h2>"+
+       '<p class="lvd">'+LV[l].d+"</p></div><div class=\"tcards\">";
+    h+=list.map(function(t){
+      var st=rec[t.id]||{};
+      var cls=st.ok?(st.hints===0?"done0":"done"):(st.tries?"tried":"");
+      var lbl=st.ok?(st.hints===0?"hotovo bez nápovědy":"hotovo"):
+             (st.tries?"zkoušeno":"nezkoušeno");
+      return '<button type="button" class="tcard '+cls+'" data-task="'+t.id+'">'+
+        '<span class="tk">'+esc(t.topic)+"</span>"+
+        "<h3>"+esc(t.title)+"</h3>"+
+        '<p>'+esc(t.short)+"</p>"+
+        '<span class="tst">'+lbl+"</span></button>";
+    }).join("");
+    h+="</div></section>";
+  });
+  $("#taskList").innerHTML=h;
+  $$("#taskList [data-task]").forEach(function(b){
+    b.addEventListener("click",function(){ startTask(b.dataset.task,false); });
+  });
+  renderProgress(rec);
+}
+function renderProgress(rec){
+  var done=0,clean=0,tried=0,byTopic={};
+  TASKS.forEach(function(t){
+    var s=rec[t.id];
+    var o=byTopic[t.topic]||(byTopic[t.topic]={n:0,ok:0,tries:0,hints:0});
+    o.n++;
+    if(!s) return;
+    tried++;
+    o.tries+=s.tries||0;
+    if(s.ok){ done++; o.ok++; o.hints+=s.hints||0; if(!s.hints) clean++; }
+  });
+  var h='<div class="pgrid">'+
+    '<div class="pb"><span class="pv">'+done+" / "+TASKS.length+'</span><span class="pk">'+
+    "úloh vyřešeno</span></div>"+
+    '<div class="pb"><span class="pv">'+clean+'</span><span class="pk">'+
+    "z toho bez nápovědy</span></div>"+
+    '<div class="pb"><span class="pv">'+tried+'</span><span class="pk">'+
+    "úloh otevřeno</span></div></div>";
+  var rows=Object.keys(byTopic).map(function(k){
+    var o=byTopic[k];
+    return {k:k,o:o,rate:o.n?o.ok/o.n:0};
+  }).sort(function(a,b){ return a.rate-b.rate; });
+  h+='<div class="tablewrap"><table class="brk"><thead><tr><th>Okruh</th>'+
+     '<th class="n">Hotovo</th><th style="width:38%">Stav</th><th>Co s tím</th>'+
+     "</tr></thead><tbody>";
+  h+=rows.map(function(r){
+    var pct=Math.round(r.rate*100);
+    var col=pct>=100?"var(--ok)":pct>0?"var(--warn)":"var(--line-strong)";
+    var rec2=pct>=100?"máte hotovo":(r.o.tries?"vraťte se k tomu":"zatím nezkoušeno");
+    return "<tr><td>"+esc(r.k)+'</td><td class="n">'+r.o.ok+" / "+r.o.n+"</td>"+
+      '<td><span class="bar"><i style="width:'+pct+"%;background:"+col+'"></i></span></td>'+
+      "<td>"+rec2+"</td></tr>";
+  }).join("");
+  h+="</tbody></table></div>";
+  if(done) h+='<div class="pacts"><button type="button" class="btn btn-sm" id="clearBtn">'+
+    "Vynulovat pokrok</button></div>";
+  $("#progress").innerHTML=h;
+  var cb=$("#clearBtn");
+  if(cb) cb.addEventListener("click",function(){
+    if(confirm("Opravdu smazat uložený pokrok?")){ store.del("done"); renderPick(); }
+  });
+}
+
+/* ============================================================ spuštění */
+$("#startBtn").addEventListener("click",function(){
+  var y=$("#taskList").getBoundingClientRect().top+window.pageYOffset-70;
+  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+});
+["warmBtn","warmBtn2"].forEach(function(id){
+  var b=document.getElementById(id);
+  if(b) b.addEventListener("click",function(){ startTask(DATA.warm,true); });
+});
+$("#hintBtn").addEventListener("click",hint);
+$("#quitBtn").addEventListener("click",function(){
+  if(S&&!S.done&&!confirm("Opustit rozpracovanou úlohu?")) return;
+  backToPick();
+});
+renderPick();
+
+})();
+</script>
+<script>
+(function(){
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty"];
+  var SUN="<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4.4\" fill=\"currentColor\"/><g stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7\"/></g></svg>", MOON="<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z\" fill=\"currentColor\"/></svg>";
+  function cur(){var a=document.documentElement.getAttribute("data-theme");
+    if(a)return a;
+    try{var v=localStorage.getItem("site.theme");if(v)return JSON.parse(v);}catch(e){}
+    return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+  function save(t){try{localStorage.setItem("site.theme",JSON.stringify(t));
+    KEYS.forEach(function(k){localStorage.setItem(k+".theme",JSON.stringify(t));});}catch(e){}}
+  function paint(){var d=cur()==="dark";var b=document.getElementById("themeBtn");
+    if(b){b.innerHTML=d?SUN:MOON;
+      b.setAttribute("aria-label",d?"Přepnout na světlý režim":"Přepnout na tmavý režim");}}
+  try{var s=localStorage.getItem("site.theme");
+    if(s) document.documentElement.setAttribute("data-theme",JSON.parse(s));}catch(e){}
+  document.addEventListener("DOMContentLoaded",function(){
+    paint();
+    var b=document.getElementById("themeBtn");
+    if(b) b.addEventListener("click",function(){
+      var n=cur()==="dark"?"light":"dark";
+      document.documentElement.setAttribute("data-theme",n); save(n); paint();
+    });
+  });
+})();
+</script>
+</body>
+</html>

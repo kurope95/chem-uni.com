@@ -1,0 +1,31 @@
+# ------------------------------------------------------------------
+# Studijní podklady třetích stran — NEPATŘÍ do veřejného repozitáře
+# (autorsky chráněné knihy; jeden soubor navíc přesahuje limit GitHubu)
+# ------------------------------------------------------------------
+*.pdf
+
+# Snímky zadání od vyučující — osobní podklad, na web ani do repozitáře nepatří
+*.jpg
+*.jpeg
+*.png
+
+# Klíč se správnými odpověďmi ke všem otázkám — repozitář je veřejný,
+# takže tohle by si studenti mohli otevřít. Zůstává jen lokálně.
+kontrola-otazek/
+
+# Sestavená složka k nasazení — vzniká z ostatních souborů (make_dist.py)
+web/
+
+# Lokální stav nástrojů
+.wrangler/
+node_modules/
+.claude/
+
+# Zálohy a dočasné soubory
+*.bak
+*.tmp
+*~
+
+# Pomocné skripty pro kontrolu, které se nenasazují
+qa.js
+overlap.js

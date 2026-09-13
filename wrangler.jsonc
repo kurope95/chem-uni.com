@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chem-uni",
+  "compatibility_date": "2026-09-11",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./web",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "chem-uni.com", "custom_domain": true },
+    { "pattern": "www.chem-uni.com", "custom_domain": true }
+  ]
+}
