@@ -1,0 +1,235 @@
+
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Nernstova rovnice">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 4</span>
+      <h2>Elektrochemické rovnováhy v&nbsp;roztocích — Nernstova rovnice</h2>
+      <p class="lead">Tabulkové <span class="q">E</span>° platí jen pro koncentrace 1 mol·dm⁻³. Skutečné roztoky takové nejsou — a&nbsp;baterie se navíc vybíjením mění. Nernstova rovnice říká, jak potenciál závisí na koncentracích, a&nbsp;jako bonus vysvětlí pH-metr i&nbsp;to, proč manganistan v&nbsp;neutrálním roztoku „nefunguje“.</p>
+
+      <h3>Odvození — nic nového, jen dvě rovnice z&nbsp;termochemie</h3>
+      <p>Z&nbsp;termochemie víme, že Gibbsova energie reakce závisí na složení směsi přes reakční kvocient <span class="q">Q</span>:</p>
+      <p class="eq">Δ<span class="q">G</span> = Δ<span class="q">G</span>° + <span class="q">RT</span>·ln <span class="q">Q</span></p>
+      <p>A&nbsp;z&nbsp;kapitoly 3 víme, že Gibbsova energie a&nbsp;napětí článku jsou totéž v&nbsp;jiných jednotkách: Δ<span class="q">G</span> = −<span class="q">zFE</span> a&nbsp;Δ<span class="q">G</span>° = −<span class="q">zFE</span>°. Dosadíme a&nbsp;vydělíme −<span class="q">zF</span>:</p>
+      <p class="eq" style="font-size:1.15rem;border-left-width:4px"><span class="q">E</span> = <span class="q">E</span>° − <span class="q">RT</span>/(<span class="q">zF</span>) · ln <span class="q">Q</span> &nbsp;&nbsp;&nbsp;<b>Nernstova rovnice</b></p>
+      <div class="callout def">
+        <span class="eyebrow">Co které písmeno znamená</span>
+        <p><span class="q">E</span> — skutečný potenciál (elektrody nebo článku) ve V; <span class="q">E</span>° — standardní hodnota z&nbsp;tabulky; <span class="q">R</span> = 8,314 J·K⁻¹·mol⁻¹; <span class="q">T</span> — teplota v&nbsp;K; <span class="q">z</span> — počet vyměněných elektronů v&nbsp;zapsané rovnici; <span class="q">F</span> = 96 485 C·mol⁻¹; <span class="q">Q</span> — reakční kvocient: součin aktivit (≈ koncentrací v&nbsp;mol·dm⁻³) produktů dělený součinem aktivit reaktantů, každá umocněná na stechiometrický koeficient. <b>Pevné látky a&nbsp;voda mají aktivitu 1</b>, plyny se dosazují jako <span class="q">p</span>/101,325 kPa.</p>
+      </div>
+
+      <h3>Tvar při 25 °C — ten, co se používá</h3>
+      <p>Při 298,15 K je <span class="q">RT</span>/<span class="q">F</span> = 0,02569 V a&nbsp;po převodu ln na log (× 2,303) dostaneme číslo, které stojí za zapamatování:</p>
+      <p class="eq" style="font-size:1.15rem;border-left-width:4px"><span class="q">E</span> = <span class="q">E</span>° − <b>0,0592</b>/<span class="q">z</span> · log <span class="q">Q</span> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">[V], 25 °C</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Pravidlo 59 mV</span>
+        <p>Každá <b>desetinásobná změna</b> <span class="q">Q</span> posune potenciál o&nbsp;<b>59 mV / <span class="q">z</span></b>. U&nbsp;stříbrné elektrody (<span class="q">z</span> = 1) tedy zředění Ag⁺ na desetinu sníží potenciál o&nbsp;59 mV, u&nbsp;mědi (<span class="q">z</span> = 2) jen o&nbsp;30 mV. Tohle číslo zná každý, kdo kdy kalibroval pH-metr: sklon 59 mV na jednotku pH.</p>
+      </div>
+
+      <h3>Nernstova rovnice pro jednu elektrodu</h3>
+      <p>Pro poloreakci ox + <span class="q">z</span> e⁻ → red je <span class="q">Q</span> = [red]/[ox] (elektrony do <span class="q">Q</span> nepatří):</p>
+      <p class="eq"><span class="q">E</span> = <span class="q">E</span>° − 0,0592/<span class="q">z</span> · log ([red]/[ox]) &nbsp;=&nbsp; <span class="q">E</span>° + 0,0592/<span class="q">z</span> · log ([ox]/[red])</p>
+      <p>Pro kovovou elektrodu je [red] = aktivita kovu = 1, takže <span class="q">E</span>(Ag⁺/Ag) = 0,80 + 0,0592 · log [Ag⁺]. <b>Zředění roztoku iontů potenciál snižuje</b> — elektroda se stává „neušlechtilejší“, protože kov má větší chuť doplňovat chybějící ionty do roztoku.</p>
+      <p>Pro celý článek se dosadí celková rovnice. Daniell: <span class="chem">Zn + Cu²⁺ → Zn²⁺ + Cu</span>, <span class="q">z</span> = 2, <span class="q">Q</span> = [Zn²⁺]/[Cu²⁺]:</p>
+      <p class="eq"><span class="q">E</span> = 1,10 − 0,0296 · log ([Zn²⁺]/[Cu²⁺])</p>
+      <p>Jak se článek vybíjí, Zn²⁺ přibývá a&nbsp;Cu²⁺ ubývá — <span class="q">Q</span> roste, <span class="q">E</span> klesá. Když <span class="q">E</span> dosáhne nuly, je <span class="q">Q</span> = <span class="q">K</span>: článek je v&nbsp;rovnováze, „vybitý“. Odtud znovu log <span class="q">K</span> = <span class="q">zE</span>°/0,0592 z&nbsp;kapitoly 3 — Nernstova rovnice s&nbsp;dosazeným <span class="q">E</span> = 0.</p>
+
+      <h3>Koncentrační článek</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Koncentrační článek</b> má obě elektrody stejné, liší se jen koncentrací iontů v&nbsp;roztocích. <span class="q">E</span>° obou poloreakcí je totéž, takže <span class="q">E</span>°<sub>článku</sub> = 0 a&nbsp;celé napětí pochází z&nbsp;Nernstova členu:</p>
+        <p class="eq" style="margin-top:.3rem"><span class="q">E</span> = 0,0592/<span class="q">z</span> · log (<span class="q">c</span><sub>koncentrovanější</sub> / <span class="q">c</span><sub>zředěnější</sub>)</p>
+      </div>
+      <p>Článek <span class="chem">Ag | Ag⁺ (0,01 M) ‖ Ag⁺ (1 M) | Ag</span> dá 0,0592 · log 100 = <b>0,118 V</b>. Který poločlánek je anoda? Ten <b>zředěnější</b>: systém chce koncentrace vyrovnat, takže ve zředěném roztoku se stříbro rozpouští (oxidace, Ag⁺ přibývá) a&nbsp;v&nbsp;koncentrovaném se vylučuje (redukce, Ag⁺ ubývá). Napětí je malé, ale přesně tenhle mechanismus pohání nervové buňky (K⁺ uvnitř/vně) i&nbsp;důlkovou korozi pod kapkou vody.</p>
+
+      <h3>Potenciály závislé na pH</h3>
+      <p>Kdykoli v&nbsp;poloreakci vystupují H⁺ nebo OH⁻, je potenciál funkcí pH. Nejdůležitější tři případy:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Poloreakce</th><th>Nernst (c ostatních = 1)</th><th class="n">pH 0</th><th class="n">pH 7</th><th class="n">pH 14</th></tr></thead>
+          <tbody>
+            <tr><td class="chem">2 H⁺ + 2 e⁻ → H₂</td><td class="mono"><span class="q">E</span> = 0 − 0,0592·pH</td><td class="n">0,00</td><td class="n">−0,41</td><td class="n">−0,83</td></tr>
+            <tr><td class="chem">O₂ + 4 H⁺ + 4 e⁻ → 2 H₂O</td><td class="mono"><span class="q">E</span> = 1,23 − 0,0592·pH</td><td class="n">1,23</td><td class="n">0,82</td><td class="n">0,40</td></tr>
+            <tr><td class="chem">MnO₄⁻ + 8 H⁺ + 5 e⁻ → Mn²⁺ + 4 H₂O</td><td class="mono"><span class="q">E</span> = 1,51 − (8/5)·0,0592·pH = 1,51 − 0,0947·pH</td><td class="n">1,51</td><td class="n">0,85</td><td class="n">0,18*</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.8rem;font-size:.92rem;color:var(--ink-3)">* formální hodnota; v&nbsp;zásaditém prostředí se manganistan redukuje jinou poloreakcí, na MnO₂ (E° = 0,60 V). Ověřte si hodnoty v&nbsp;modelu níže.</p>
+      <p>Odsud plynou tři důležité věci. <b>Vodíková elektroda měří pH</b>: její potenciál klesá o&nbsp;59 mV na jednotku pH — a&nbsp;přesně tak funguje pH-metr, jen místo nepohodlné vodíkové elektrody používá <span class="term">skleněnou elektrodu</span>, jejíž membrána z&nbsp;tenkého skla dává stejnou závislost 59 mV/pH vůči referenční (argentchloridové) elektrodě. <b>Manganistan je silné oxidační činidlo jen v&nbsp;kyselém prostředí</b>: při pH 0 (1,51 V) zoxiduje i&nbsp;chlorid, při pH 7 (0,85 V) už ne. Proto se manganometrie dělá v&nbsp;H₂SO₄. <b>Oxidační schopnost kyslíku klesá se zásaditostí</b> — jeden z&nbsp;důvodů, proč železo v&nbsp;alkalickém betonu nekoroduje.</p>
+      <p>Hodnoty −0,41 V (H₂O/H₂) a&nbsp;+0,82 V (O₂/H₂O) při pH 7 vymezují <b>okno stability vody</b>: cokoli s&nbsp;<span class="q">E</span>° pod −0,41 V by mělo vodu redukovat (sodík to dělá), cokoli nad +0,82 V ji oxidovat (fluor to dělá). Že to manganistan nedělá, je opět kinetika.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Nernstova rovnice pro Daniellův článek — posuňte koncentrace</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="nrCu">Koncentrace Cu²⁺ (katoda) — <span class="val" id="nrCuV">1 mol·dm⁻³</span></label>
+            <input type="range" id="nrCu" min="-30" max="0" step="1" value="0">
+          </div>
+          <div class="ctl">
+            <label for="nrZn">Koncentrace Zn²⁺ (anoda) — <span class="val" id="nrZnV">1 mol·dm⁻³</span></label>
+            <input type="range" id="nrZn" min="-30" max="0" step="1" value="0">
+          </div>
+        </div>
+        <div class="svgwrap" id="nrWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="nrRo1"></div>
+          <div class="readout" id="nrRo2"></div>
+          <div class="readout" id="nrRo3"></div>
+        </div>
+        <p class="eq" id="nrEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note">Zkuste nastavit Cu²⁺ na 0,001 a&nbsp;Zn²⁺ na 1 mol·dm⁻³ — napětí klesne na 1,01 V. Pak to prohoďte: 1,19 V. Rozdíl je jen ± 0,09 V, protože Daniell má <span class="q">z</span> = 2 a&nbsp;tři řády koncentrace dávají 3 × 30 mV. Bod, kde by přímka protnula nulu, je rovnováha: log <span class="q">Q</span> = log <span class="q">K</span> = 37.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Koncentrační článek — dvě stejné elektrody, dvě různé koncentrace</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="ccMet">Elektroda</label>
+            <select id="ccMet">
+              <option value="Ag">Ag | Ag⁺ (z = 1)</option>
+              <option value="Cu">Cu | Cu²⁺ (z = 2)</option>
+              <option value="Zn">Zn | Zn²⁺ (z = 2)</option>
+              <option value="Al">Al | Al³⁺ (z = 3)</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label for="ccC1">Levý roztok — <span class="val" id="ccC1V">0,01 mol·dm⁻³</span></label>
+            <input type="range" id="ccC1" min="-40" max="0" step="1" value="-20">
+          </div>
+          <div class="ctl">
+            <label for="ccC2">Pravý roztok — <span class="val" id="ccC2V">1 mol·dm⁻³</span></label>
+            <input type="range" id="ccC2" min="-40" max="0" step="1" value="0">
+          </div>
+        </div>
+        <div class="grid3">
+          <div class="readout" id="ccRo1"></div>
+          <div class="readout" id="ccRo2"></div>
+          <div class="readout" id="ccRo3"></div>
+        </div>
+        <p class="eq" id="ccEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="ccNote"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Potenciál v&nbsp;závislosti na pH — vodík, kyslík, manganistan</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="phSl">pH roztoku — <span class="val" id="phV">pH 0</span></label>
+            <input type="range" id="phSl" min="0" max="14" step="0.5" value="0">
+          </div>
+          <div class="ctl">
+            <label>Sledovaná poloreakce</label>
+            <div class="segmented" id="phSys" role="group" aria-label="Poloreakce">
+              <button type="button" data-v="H" aria-pressed="false">2H⁺/H₂</button>
+              <button type="button" data-v="O" aria-pressed="false">O₂/H₂O</button>
+              <button type="button" data-v="Mn" aria-pressed="true">MnO₄⁻/Mn²⁺</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="phWrap" style="min-height:330px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>2 H⁺/H₂: E = −0,0592·pH</span>
+          <span class="li"><span class="sw" style="background:var(--cat3)"></span>O₂/H₂O: E = 1,23 − 0,0592·pH</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>MnO₄⁻/Mn²⁺: E = 1,51 − 0,0947·pH</span>
+          <span class="li"><span class="sw" style="background:var(--ink-3)"></span>Cl₂/Cl⁻ a Br₂/Br⁻ — na pH nezávisí</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="phRo1"></div>
+          <div class="readout" id="phRo2"></div>
+          <div class="readout" id="phRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="phNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · Daniellův článek mimo standardní podmínky</span>
+          <p>Vypočítejte napětí Daniellova článku při 25 °C, je-li <span class="q">c</span>(Cu²⁺) = 0,010 mol·dm⁻³ a&nbsp;<span class="q">c</span>(Zn²⁺) = 1,0 mol·dm⁻³. <span class="q">E</span>° = 1,10 V.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Celková rovnice <span class="chem">Zn + Cu²⁺ → Zn²⁺ + Cu</span>, <span class="q">z</span> = 2. Pevný Zn a&nbsp;Cu mají aktivitu 1.</p>
+              <p class="eq"><span class="q">Q</span> = [Zn²⁺]/[Cu²⁺] = 1,0 / 0,010 = <b>100</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme do tvaru pro 25 °C.</p>
+              <p class="eq"><span class="q">E</span> = 1,10 − (0,0592/2) · log 100 = 1,10 − 0,0296 · 2 = 1,10 − 0,059 = <b>1,041 V</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kontrola smyslu: produkt (Zn²⁺) je v&nbsp;přebytku, reaktant (Cu²⁺) zředěný → hnací síla je menší než standardní, napětí kleslo. Pokles je malý, protože jde jen o&nbsp;dva řády a&nbsp;<span class="q">z</span> = 2.</p>
+              <span class="result"><span class="q">E</span> ≈ 1,04 V</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · koncentrační článek</span>
+          <p>Jaké napětí dá článek <span class="chem">Ag | Ag⁺ (0,010 M) ‖ Ag⁺ (1,0 M) | Ag</span> a&nbsp;která elektroda je anoda?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Obě poloreakce jsou Ag⁺ + e⁻ → Ag, <span class="q">E</span>° se odečtou: <span class="q">E</span>°<sub>článku</sub> = 0. Napětí dává jen Nernstův člen, <span class="q">z</span> = 1.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Potenciály obou elektrod zvlášť:</p>
+              <p class="eq"><span class="q">E</span>(1,0 M) = 0,80 + 0,0592·log 1,0 = 0,800 V<br><span class="q">E</span>(0,010 M) = 0,80 + 0,0592·log 0,010 = 0,80 − 0,118 = 0,682 V</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Vyšší potenciál je katoda (koncentrovaný roztok), nižší anoda (zředěný).</p>
+              <p class="eq"><span class="q">E</span> = 0,800 − 0,682 = <b>0,118 V</b> &nbsp;&nbsp;(= 0,0592 · log(1,0/0,010) = 0,0592 · 2)</p>
+              <span class="result"><span class="q">E</span> = 0,118 V; anoda je elektroda ve zředěném roztoku</span>
+              <p style="color:var(--ink-2);font-size:.94rem">V&nbsp;anodovém prostoru se stříbro rozpouští a&nbsp;Ag⁺ přibývá, v&nbsp;katodovém se vylučuje a&nbsp;Ag⁺ ubývá. Článek pracuje, dokud se koncentrace nevyrovnají — pak <span class="q">E</span> = 0.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.3 · pH a síla manganistanu</span>
+          <p>Zoxiduje manganistan chloridové ionty (<span class="q">E</span>°(Cl₂/Cl⁻) = 1,36 V) (a) v&nbsp;1M kyselině, (b) v&nbsp;neutrálním roztoku o&nbsp;pH 7? Ostatní koncentrace berte jednotkové.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Nernst pro <span class="chem">MnO₄⁻ + 8 H⁺ + 5 e⁻ → Mn²⁺ + 4 H₂O</span>: <span class="q">Q</span> = [Mn²⁺]/([MnO₄⁻]·[H⁺]⁸) = 1/[H⁺]⁸.</p>
+              <p class="eq"><span class="q">E</span> = 1,51 − (0,0592/5)·log(1/[H⁺]⁸) = 1,51 − (0,0592/5)·8·pH = 1,51 − 0,0947·pH</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(a) pH = 0: <span class="q">E</span> = 1,51 V &gt; 1,36 V → Δ<span class="q">E</span> = +0,15 V, <b>chlorid se oxiduje</b> (vzniká Cl₂ — proto se KMnO₄ neokyseluje kyselinou chlorovodíkovou).</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(b) pH = 7: <span class="q">E</span> = 1,51 − 0,0947 · 7 = 1,51 − 0,663 = <b>0,847 V</b> &lt; 1,36 V → Δ<span class="q">E</span> = −0,51 V, <b>chlorid se neoxiduje</b>.</p>
+              <span class="result">v kyselině ano (1,51 V), při pH 7 ne (0,85 V)</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Osm iontů H⁺ v&nbsp;rovnici dělá z&nbsp;manganistanu jedno z&nbsp;nejvíc pH-citlivých činidel: každá jednotka pH ubere skoro 0,1 V.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: Nernstova rovnice"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

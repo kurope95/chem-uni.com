@@ -1,0 +1,138 @@
+
+  <!-- ============ KAPITOLA 8 ============ -->
+  <section class="chapter" id="k8" data-title="Který vzorec použít — ICE formulář a trenažér">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 08 · souhrn všech tří bodů osnovy</span>
+      <h2>Který vzorec použít: rozhodovací strom, ICE formulář a&nbsp;trenažér</h2>
+      <p class="lead">U&nbsp;přijímaček neztrácí body ten, kdo neumí počítat, ale ten, kdo sáhne po špatném vzorci. Zadání „vypočítejte pH roztoku 0,1 mol·dm⁻³“ znamená pro HCl něco úplně jiného než pro CH₃COONa. Tahle kapitola vás naučí přečíst zadání a&nbsp;správně se rozhodnout do deseti vteřin.</p>
+
+      <h3>Rozhodovací strom — pět otázek, které si položíte</h3>
+      <p><b>1. Je to kyselina, zásada, sůl, pufr, sraženina, nebo komplex?</b> Podle toho se vybírá celý blok vzorců.<br>
+      <b>2. U&nbsp;kyseliny a&nbsp;zásady: je silná, nebo slabá?</b> Silných je šest (HCl, HBr, HI, HNO₃, HClO₄, H₂SO₄) a&nbsp;silné zásady jsou hydroxidy s1 a&nbsp;s2 prvků; všechno ostatní je slabé a&nbsp;musí mít v&nbsp;zadání <span class="q">K</span><sub>a</sub> nebo <span class="q">K</span><sub>b</sub>.<br>
+      <b>3. U&nbsp;soli: který iont pochází ze slabého elektrolytu?</b> Ten hydrolyzuje a&nbsp;určuje pH.<br>
+      <b>4. Jsou v&nbsp;roztoku dvě látky současně?</b> Slabá kyselina + její sůl = pufr. Silná + silná = počítá nadbytek. Kation + anion málo rozpustné soli = <span class="q">Q</span> versus <span class="q">K</span><sub>sp</sub>.<br>
+      <b>5. Je v&nbsp;zadání nadbytek ligandu nebo společný iont?</b> Pak se rovnováha posouvá a&nbsp;počítá se z&nbsp;β nebo z&nbsp;<span class="q">K</span><sub>sp</sub> se známou koncentrací jednoho iontu.</p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Poznávací znak v zadání</th><th>Typ úlohy</th><th>Vzorec</th></tr></thead>
+          <tbody>
+            <tr><td>HCl, HNO₃, HClO₄ + koncentrace</td><td>silná kyselina</td><td class="mono">pH = −log <span class="q">c</span></td></tr>
+            <tr><td>NaOH, KOH, Ca(OH)₂ + koncentrace</td><td>silná zásada</td><td class="mono">pOH = −log(<span class="q">n</span>·<span class="q">c</span>); pH = 14 − pOH</td></tr>
+            <tr><td>zadané <span class="q">K</span><sub>a</sub> nebo p<span class="q">K</span><sub>a</sub>, jedna látka</td><td>slabá kyselina</td><td class="mono">[H₃O⁺] = √(<span class="q">K</span><sub>a</sub><span class="q">c</span>); pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>)</td></tr>
+            <tr><td>zadané <span class="q">K</span><sub>b</sub>, amoniak, amin</td><td>slabá zásada</td><td class="mono">[OH⁻] = √(<span class="q">K</span><sub>b</sub><span class="q">c</span>); pH = 14 − pOH</td></tr>
+            <tr><td>název soli „…an sodný“, „…id draselný“</td><td>hydrolýza aniontu</td><td class="mono"><span class="q">K</span><sub>b</sub> = <span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>a</sub>; pH = 7 + ½(p<span class="q">K</span><sub>a</sub> + log <span class="q">c</span>)</td></tr>
+            <tr><td>amonná sůl, „chlorid …amonný“</td><td>hydrolýza kationtu</td><td class="mono"><span class="q">K</span><sub>a</sub> = <span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>b</sub>; pH = 7 − ½(p<span class="q">K</span><sub>b</sub> + log <span class="q">c</span>)</td></tr>
+            <tr><td><b>dvě</b> látky: slabá kyselina + její sůl</td><td>pufr</td><td class="mono">pH = p<span class="q">K</span><sub>a</sub> + log([A⁻]/[HA])</td></tr>
+            <tr><td>„smícháme <span class="q">V</span>₁ … a <span class="q">V</span>₂ …“, obě silné</td><td>nadbytek + zředění</td><td class="mono">Δ<span class="q">n</span> / (<span class="q">V</span>₁ + <span class="q">V</span>₂)</td></tr>
+            <tr><td>nasycený roztok, „rozpustnost“</td><td>součin rozpustnosti</td><td class="mono"><span class="q">K</span><sub>sp</sub> = <span class="q">s</span>², 4<span class="q">s</span>³, 27<span class="q">s</span>⁴ …</td></tr>
+            <tr><td>„vznikne sraženina?“, dva roztoky</td><td><span class="q">Q</span> versus <span class="q">K</span><sub>sp</sub></td><td class="mono"><span class="q">Q</span> = [M]<sup><span class="q">a</span></sup>[X]<sup><span class="q">b</span></sup> po zředění</td></tr>
+            <tr><td>„v roztoku NaCl / KI“ místo ve vodě</td><td>společný iont</td><td class="mono"><span class="q">s</span> = <span class="q">K</span><sub>sp</sub> / [X]<sup><span class="q">b</span></sup></td></tr>
+            <tr><td>zadaná β, nadbytek NH₃ / CN⁻</td><td>komplex</td><td class="mono">[M] = <span class="q">c</span>(M) / (β·[L]<sup><span class="q">n</span></sup>)</td></tr>
+            <tr><td>„rozpustí se sraženina v …“</td><td><span class="q">K</span><sub>sp</sub> + β</td><td class="mono"><span class="q">K</span> = <span class="q">K</span><sub>sp</sub>·β</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Univerzální ICE formulář</h3>
+      <p>Když si nejste jistí, nakreslete ICE tabulku — funguje pro <b>všechny</b> typy úloh v&nbsp;tomto tématu a&nbsp;odhalí, kdy je aproximace v&nbsp;pořádku. Postup je vždy stejný: rovnice → počáteční koncentrace → změna přes <span class="q">x</span> se stechiometrickými koeficienty → rovnovážné koncentrace → dosazení do konstanty.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Typ</th><th>Rovnováha</th><th>Řádek E (rovnováha)</th><th>Rovnice pro <span class="q">x</span></th><th>Aproximace stačí, když</th></tr></thead>
+          <tbody>
+            <tr><td>slabá kyselina</td><td class="mono">HA ⇌ H₃O⁺ + A⁻</td><td class="mono">(<span class="q">c</span>−<span class="q">x</span>), <span class="q">x</span>, <span class="q">x</span></td><td class="mono"><span class="q">K</span><sub>a</sub> = <span class="q">x</span>²/(<span class="q">c</span>−<span class="q">x</span>)</td><td><span class="q">x</span>/<span class="q">c</span> &lt; 5 % (<span class="q">c</span>/<span class="q">K</span><sub>a</sub> &gt; 400)</td></tr>
+            <tr><td>sůl (hydrolýza)</td><td class="mono">A⁻ + H₂O ⇌ HA + OH⁻</td><td class="mono">(<span class="q">c</span>−<span class="q">x</span>), <span class="q">x</span>, <span class="q">x</span></td><td class="mono"><span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>a</sub> = <span class="q">x</span>²/(<span class="q">c</span>−<span class="q">x</span>)</td><td>skoro vždy (<span class="q">K</span><sub>h</sub> je malá)</td></tr>
+            <tr><td>pufr</td><td class="mono">HA ⇌ H₃O⁺ + A⁻</td><td class="mono">(<span class="q">c</span><sub>HA</sub>−<span class="q">x</span>), <span class="q">x</span>, (<span class="q">c</span><sub>A</sub>+<span class="q">x</span>)</td><td class="mono"><span class="q">K</span><sub>a</sub> = <span class="q">x</span>(<span class="q">c</span><sub>A</sub>+<span class="q">x</span>)/(<span class="q">c</span><sub>HA</sub>−<span class="q">x</span>)</td><td>obě složky ≫ <span class="q">x</span> → HH rovnice</td></tr>
+            <tr><td>rozpustnost</td><td class="mono">AB₂(s) ⇌ A²⁺ + 2 B⁻</td><td class="mono"><span class="q">s</span>, 2<span class="q">s</span></td><td class="mono"><span class="q">K</span><sub>sp</sub> = 4<span class="q">s</span>³</td><td>vždy (v čisté vodě)</td></tr>
+            <tr><td>společný iont</td><td class="mono">AB(s) ⇌ A⁺ + B⁻</td><td class="mono"><span class="q">s</span>, (<span class="q">c</span><sub>B</sub>+<span class="q">s</span>)</td><td class="mono"><span class="q">K</span><sub>sp</sub> = <span class="q">s</span>(<span class="q">c</span><sub>B</sub>+<span class="q">s</span>)</td><td><span class="q">c</span><sub>B</sub> ≫ <span class="q">s</span></td></tr>
+            <tr><td>komplex</td><td class="mono">M + <span class="q">n</span>L ⇌ ML<sub><span class="q">n</span></sub></td><td class="mono"><span class="q">x</span>, (<span class="q">c</span><sub>L</sub>−<span class="q">n</span><span class="q">x</span>), (<span class="q">c</span><sub>M</sub>−<span class="q">x</span>)</td><td class="mono">β = (<span class="q">c</span><sub>M</sub>−<span class="q">x</span>)/(<span class="q">x</span>·<span class="q">c</span><sub>L</sub><sup><span class="q">n</span></sup>)</td><td>β obrovská → <span class="q">x</span> ≈ 0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Kontrola výsledku, která zabere pět vteřin</span>
+        <p>Kyselina musí vyjít pod 7 (a&nbsp;slabá výš než stejně koncentrovaná silná). Zásada nad 7. Sůl slabé kyseliny nad 7, amonná sůl pod 7. Pufr blízko p<span class="q">K</span><sub>a</sub>. Rozpustnost málo rozpustné soli mezi 10⁻² a&nbsp;10⁻¹⁰ mol·dm⁻³. Vyjde-li vám pH 15 nebo záporná koncentrace, hledejte chybu v&nbsp;jednotkách nebo v&nbsp;pOH.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Který vzorec použít? Patnáct zadání, čtyři možnosti, skóre</h3>
+      </div>
+      <div class="panel-body">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem">
+          <span class="eyebrow">Zadání <span id="fmI">1</span> z&nbsp;<span id="fmTot">15</span></span>
+          <span class="eyebrow">Skóre: <b style="color:var(--accent)"><span id="fmScore">0</span></b> správně</span>
+        </div>
+        <div class="eq" id="fmTask" style="font-size:1.05rem;padding:1.1rem 1.1rem"></div>
+        <div class="grid2" id="fmOpts" style="margin-top:1rem"></div>
+        <div class="explain" id="fmExplain" style="margin-top:1rem"></div>
+        <div class="quiz-foot"><button class="btn btn-primary" type="button" id="fmNext" disabled>Další zadání →</button><button class="btn" type="button" id="fmReset">Začít znovu</button></div>
+      </div>
+      <div class="panel-note">Nečtěte čísla — čtěte <b>slova</b>. „Octan sodný“ znamená hydrolýzu, „octová kyselina a&nbsp;octan sodný“ pufr, „smícháme“ nadbytek nebo <span class="q">Q</span>, „nasycený“ součin rozpustnosti, „nadbytek amoniaku“ komplex. Deset správných z&nbsp;patnácti označí kapitolu za hotovou.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 8.1 · čtyři zadání, čtyři různé vzorce</span>
+          <p>Určete pH těchto roztoků, všechny o&nbsp;koncentraci 0,10 mol·dm⁻³: (a) HCl, (b) CH₃COOH, (c) CH₃COONa, (d) směs CH₃COOH a&nbsp;CH₃COONa (obojí 0,10). p<span class="q">K</span><sub>a</sub>(CH₃COOH) = 4,76.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) Silná kyselina — disociuje úplně, žádná konstanta.</p>
+              <p class="eq">pH = −log 0,10 = <b>1,00</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) Slabá kyselina — odmocnina ze součinu.</p>
+              <p class="eq">pH = ½(4,76 + 1,00) = <b>2,88</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(c) Sůl slabé kyseliny a&nbsp;silné zásady — hydrolýza aniontu, roztok je zásaditý.</p>
+              <p class="eq">pH = 7 + ½(4,76 + log 0,10) = 7 + ½(3,76) = <b>8,88</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>(d) Dvě látky, konjugovaný pár → pufr, Hendersonova–Hasselbalchova rovnice.</p>
+              <p class="eq">pH = 4,76 + log(0,10/0,10) = <b>4,76</b></p>
+              <span class="result">1,00 · 2,88 · 8,88 · 4,76 — jedna koncentrace, čtyři různá pH</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Tohle je nejlepší cvičení celého tématu. Rozdíl mezi (a) a&nbsp;(b) je skoro dvě jednotky pH, mezi (b) a&nbsp;(c) šest — a&nbsp;přitom je ve všech případech „0,1 mol·dm⁻³“.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 8.2 · souhrnná úloha přes tři kapitoly</span>
+          <p>K&nbsp;100 mL roztoku obsahujícího 0,010 mol·dm⁻³ Mg²⁺ přidáme 100 mL amoniakálního pufru NH₃/NH₄Cl o&nbsp;pH 9,25. Vysráží se Mg(OH)₂ (<span class="q">K</span><sub>sp</sub> = 5,6·10⁻¹²)?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Z&nbsp;pH pufru dostaneme [OH⁻] (pufr pH udrží, i&nbsp;když se trochu OH⁻ spotřebuje).</p>
+              <p class="eq">pOH = 14 − 9,25 = 4,75 → [OH⁻] = 10⁻⁴·⁷⁵ = 1,78·10⁻⁵ mol·dm⁻³</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Nezapomenout na zředění: smícháním 100 + 100 mL klesne koncentrace Mg²⁺ na polovinu.</p>
+              <p class="eq">[Mg²⁺] = 0,010 · 100/200 = 5,0·10⁻³ mol·dm⁻³</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">Q</span> = [Mg²⁺]·[OH⁻]² = 5,0·10⁻³ · (1,78·10⁻⁵)² = 5,0·10⁻³ · 3,17·10⁻¹⁰ = <b>1,6·10⁻¹²</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq"><span class="q">Q</span> = 1,6·10⁻¹² &nbsp;&lt;&nbsp; <span class="q">K</span><sub>sp</sub> = 5,6·10⁻¹² &nbsp;⇒&nbsp; <b>sraženina nevznikne</b></p>
+              <span class="result">Q &lt; Ksp — Mg²⁺ zůstane v roztoku (v čistém 0,01 M amoniaku by se vysrážel)</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Přesně proto se v&nbsp;chelatometrii používá amoniakální pufr: udrží pH kolem 10, ale nedovolí, aby se hořčík vysrážel jako hydroxid dřív, než se stanoví komplexem s&nbsp;EDTA. Úloha spojila pufr (kap. 4), zředění (kap. 1) a&nbsp;<span class="q">Q</span> vs <span class="q">K</span><sub>sp</sub> (kap. 6).</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q8" data-title="Mini‑test: výběr správného postupu"></div>
+    <div class="chapter-done" data-done="k8"></div>
+  </section>

@@ -1,0 +1,283 @@
+  <!-- ============ KAPITOLA 7 ============ -->
+  <section class="chapter" id="k7" data-title="Kyslíkaté kyseliny síry">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, body 8 a 8a</span>
+      <h2>Kyslíkaté kyseliny síry a&nbsp;jejich soli</h2>
+      <p class="lead">Žádný jiný prvek nemá tak bohatou rodinu oxokyselin jako síra. Důvod je jediný a&nbsp;už ho známe: <b>síra se umí řetězit</b>. Když si k&nbsp;tomu přidáte možnost vložit mezi dvě síry kyslíkový nebo peroxidový můstek, dostanete čtyři strukturní rodiny — a&nbsp;podle nich se v&nbsp;téhle změti dá vyznat.</p>
+
+      <h3>Čtyři rodiny podle toho, co spojuje atomy síry</h3>
+      <p>Nesnažte se ty kyseliny učit jako seznam. Roztřiďte si je podle <b>strukturního motivu</b>, a&nbsp;pak si u&nbsp;každé stačí pamatovat, co ji od sousedky odlišuje.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Rodina</th><th>Motiv</th><th>Zástupci</th><th>Co je pro ni typické</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:var(--cat1)">Samostatná</b></td><td>jeden atom síry, S<sup>IV</sup></td><td class="chem">H₂SO₃</td><td>síra má volný pár → <b>redukční</b> účinky; kyselina existuje jen v&nbsp;roztoku</td></tr>
+            <tr><td><b style="color:var(--accent)">Kyseliny sírové</b></td><td>tetraedry spojené <b>kyslíkovým můstkem −O−</b></td><td class="chem">H₂SO₄, H₂S₂O₇</td><td>S<sup>VI</sup>, nejvyšší stav — mohou jen oxidovat; stálé jako látky i&nbsp;jako soli</td></tr>
+            <tr><td><b style="color:var(--cat3)">Kyseliny s&nbsp;vazbou S–S</b></td><td><b>přímá vazba síra–síra</b></td><td class="chem">H₂S₂O₅, H₂S₂O₃, H₂S₂O₄, H₂SₙO₆</td><td>oxidační čísla vycházejí zlomkově a&nbsp;<b>ztrácejí smysl</b>; kyseliny nestálé, soli stálé</td></tr>
+            <tr><td><b style="color:var(--cat4)">Peroxokyseliny</b></td><td>tetraedry s&nbsp;<b>peroxidovým můstkem −O−O−</b></td><td class="chem">H₂SO₅, H₂S₂O₈</td><td>S<sup>VI</sup>, ale <b>velmi silná oxidovadla</b> díky peroxo skupině</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Kdy oxidační čísla přestávají mít smysl</span>
+        <p>U&nbsp;kyselin s&nbsp;vazbou S–S vede formální výpočet ke zlomkům — u&nbsp;tetrathionanu <span class="chem">S₄O₆²⁻</span> vyjde +2,5. To číslo <b>není průměrem dvou různých hodnot</b>, ale výsledkem toho, že vazba S–S se do bilance nezapočítává. Chemicky přesnější je popsat řetězec atom po atomu. Když se vás na oxidační číslo v&nbsp;takové látce zeptají, uveďte průměr <b>a&nbsp;dodejte, že je formální</b>.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník oxokyselin síry — struktury a&nbsp;rodiny</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="oaSel">Kyselina</label>
+            <select id="oaSel"></select>
+          </div>
+          <div class="ctl">
+            <label>Zvýraznit rodinu</label>
+            <div class="segmented" id="oaFam">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="sir" aria-pressed="false">Můstek −O−</button>
+              <button type="button" data-v="ss" aria-pressed="false">Vazba S−S</button>
+              <button type="button" data-v="per" aria-pressed="false">Peroxo −O−O−</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="oaWrap" style="min-height:260px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="oaRo1"></div>
+          <div class="readout" id="oaRo2"></div>
+          <div class="readout" id="oaRo3"></div>
+        </div>
+        <div class="explain" id="oaSay" style="margin-top:1rem;display:flex"></div>
+      </div>
+      <div class="panel-note">Projděte nabídku shora dolů a&nbsp;pokaždé se dívejte, <b>co je uprostřed</b> mezi dvěma sírami — nic (jedna síra), kyslík, další síra, nebo peroxidový můstek. To je celá klasifikace. Pak přepněte filtr rodin a&nbsp;všimněte si, že kyseliny s&nbsp;vazbou S–S mají společné dvě věci: nestálost volné kyseliny a&nbsp;pozoruhodnou stálost jejích solí.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Kyselina siřičitá a&nbsp;siřičitany</h3>
+      <p>Zvláštnost hned na úvod: <b>čistá <span class="chem">H₂SO₃</span> nebyla nikdy izolována</b>. Ve vodném roztoku oxidu siřičitého jsou převážně hydratované molekuly <span class="chem">SO₂·xH₂O</span> a&nbsp;jen malá část z&nbsp;nich skutečně přejde na kyselinu. Bez ohledu na to má roztok kyselou reakci:</p>
+      <p class="eq"><span class="chem">SO₂ + 2 H₂O ⇌ HSO₃⁻ + H₃O⁺</span> &nbsp;&nbsp;pK₁ = 1,85<br>
+      <span class="chem">HSO₃⁻ + H₂O ⇌ SO₃²⁻ + H₃O⁺</span> &nbsp;&nbsp;pK₂ = 7,2</p>
+      <p><b>Struktura.</b> Síra je v&nbsp;<b>+IV</b>, hybridizace sp³ a&nbsp;jeden z&nbsp;hybridních orbitalů nese <b>volný elektronový pár</b>. Siřičitanový anion i&nbsp;molekula kyseliny jsou proto <b>trigonálně pyramidální</b> — odvozené od tetraedru, ale s&nbsp;jedním vrcholem obsazeným volným párem.</p>
+      <div class="callout def">
+        <span class="eyebrow">Proč jsou siřičitany redukční činidla</span>
+        <p>Ten volný pár na síře je <b>rezerva, kterou lze odevzdat</b>. Síra může jít z&nbsp;+IV na +VI a&nbsp;dostat se do stabilnějšího síranu:</p>
+        <p class="eq"><span class="chem">SO₃²⁻ + H₂O → SO₄²⁻ + 2 H⁺ + 2 e⁻</span></p>
+        <p>Proto siřičitany na vzduchu pomalu přecházejí na sírany, odbarvují manganistan a&nbsp;jod a&nbsp;používají se jako bělidla a&nbsp;antioxidanty.</p>
+      </div>
+      <p><b>Soli.</b> Dvě řady: <b>siřičitany</b> (<span class="chem">Na₂SO₃</span>) a&nbsp;<b>hydrogensiřičitany</b> (<span class="chem">NaHSO₃</span>). Vyrábějí se zaváděním SO₂ do roztoku hydroxidu nebo uhličitanu:</p>
+      <p class="eq"><span class="chem">2 SO₂ + Na₂CO₃ + H₂O → 2 NaHSO₃ + CO₂</span> &nbsp;&nbsp;pak &nbsp;<span class="chem">NaHSO₃ + NaOH → Na₂SO₃ + H₂O</span></p>
+      <p>Zahříváním hydrogensiřičitanů vznikají <b>disiřičitany</b> <span class="chem">S₂O₅²⁻</span> s&nbsp;vazbou S–S:</p>
+      <p class="eq"><span class="chem">2 KHSO₃ → K₂S₂O₅ + H₂O</span></p>
+      <p>Disiřičitan sodný a&nbsp;draselný jsou v&nbsp;potravinářství běžné konzervanty (E223, E224) — ve vodě se zase rozpadají na hydrogensiřičitan a&nbsp;působí jako zdroj SO₂. Zahříváním siřičitanů může nastat i&nbsp;<b>disproporcionace</b>:</p>
+      <p class="eq"><span class="chem">4 K₂SO₃ → 3 K₂SO₄ + K₂S</span> &nbsp;&nbsp;<span style="color:var(--ink-3)">síra jde z&nbsp;+IV zároveň na +VI a&nbsp;na −II</span></p>
+
+      <h3>Kyselina sírová a&nbsp;sírany</h3>
+      <p>Nejdůležitější anorganická kyselina vůbec. Bezbarvá olejovitá kapalina, hustota 1,84 g·cm⁻³ (98%), teplota tání 10,3 °C, s&nbsp;vodou tvoří azeotrop o&nbsp;složení 98,3 % vroucí při 338 °C.</p>
+      <p><b>Struktura.</b> Tetraedr se sírou v&nbsp;<b>+VI</b>, žádný volný pár. Dvě vazby vedou ke skupinám OH (délka 154 pm), dvě ke koncovým kyslíkům (142 pm) a&nbsp;jsou zkrácené a&nbsp;zpevněné příspěvkem vazby π. V&nbsp;síranovém anionu <span class="chem">SO₄²⁻</span> jsou po odštěpení obou protonů <b>všechny čtyři vazby rovnocenné</b> — náboj i&nbsp;vazba π jsou delokalizované přes celý tetraedr.</p>
+      <p><b>Kyselost.</b> Dvojsytná: první disociace je prakticky úplná (pK₁ ≈ −3), druhá už jen částečná (pK₂ = 1,92). Proto existují dvě řady solí — <b>sírany</b> a&nbsp;<b>hydrogensírany</b>.</p>
+      <p class="eq"><span class="chem">H₂SO₄ + H₂O → HSO₄⁻ + H₃O⁺</span> &nbsp;·&nbsp; <span class="chem">HSO₄⁻ + H₂O ⇌ SO₄²⁻ + H₃O⁺</span></p>
+      <p>V&nbsp;bezvodé kyselině probíhá <b>autoprotolýza</b> (<span class="chem">2 H₂SO₄ ⇌ H₃SO₄⁺ + HSO₄⁻</span>) a&nbsp;kondenzace na kyselinu disírovou (<span class="chem">2 H₂SO₄ ⇌ H₂S₂O₇ + H₂O</span>), takže bezvodá kyselina sírová je ve skutečnosti složitá směs.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Sůl</th><th>Vzorec</th><th>Triviální název</th><th>Použití</th></tr></thead>
+          <tbody>
+            <tr><td>Síran měďnatý pentahydrát</td><td class="chem">CuSO₄·5H₂O</td><td>modrá skalice</td><td>fungicid (Bordeauxská jícha), galvanika</td></tr>
+            <tr><td>Síran železnatý heptahydrát</td><td class="chem">FeSO₄·7H₂O</td><td>zelená skalice</td><td>úprava vody, hnojiva proti mechu</td></tr>
+            <tr><td>Síran zinečnatý heptahydrát</td><td class="chem">ZnSO₄·7H₂O</td><td>bílá skalice</td><td>galvanické zinkování</td></tr>
+            <tr><td>Síran vápenatý dihydrát</td><td class="chem">CaSO₄·2H₂O</td><td>sádrovec</td><td>výroba sádry (pálí se při 120–160 °C na <span class="chem">CaSO₄·½H₂O</span>)</td></tr>
+            <tr><td>Síran sodný dekahydrát</td><td class="chem">Na₂SO₄·10H₂O</td><td>Glauberova sůl</td><td>sklářství, akumulace tepla</td></tr>
+            <tr><td>Síran hořečnatý heptahydrát</td><td class="chem">MgSO₄·7H₂O</td><td>hořká sůl (epsomská)</td><td>lékařství, koupele</td></tr>
+            <tr><td>Síran barnatý</td><td class="chem">BaSO₄</td><td>baryt, těživec</td><td>kontrastní látka v&nbsp;rentgenu (nerozpustný, tedy netoxický)</td></tr>
+            <tr><td>Kamenec draselno-hlinitý</td><td class="chem">KAl(SO₄)₂·12H₂O</td><td>kamenec</td><td>čiření vody, kosmetika, mořidlo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Důkaz síranů</span>
+        <p>Přidáním roztoku chloridu barnatého vznikne <b>bílá jemná sraženina</b> síranu barnatého, která se <b>nerozpouští ani v&nbsp;kyselinách</b> — to ji odlišuje od uhličitanu barnatého, který se v&nbsp;kyselině rozpustí za šumění.</p>
+        <p class="eq"><span class="chem">Ba²⁺ + SO₄²⁻ → BaSO₄↓</span></p>
+      </div>
+
+      <h3>Thiosíran a&nbsp;kyseliny s&nbsp;vazbou S–S</h3>
+      <p><b>Thiosíran</b> <span class="chem">S₂O₃²⁻</span> je síran, kterému jeden kyslík nahradila <b>thio‑skupina</b>, tedy atom síry v&nbsp;oxidačním stavu −II. Středová síra si drží +VI. Průměrné oxidační číslo +II tedy nepopisuje ani jeden z&nbsp;těch dvou atomů.</p>
+      <p><b>Příprava:</b> varem síry s&nbsp;roztokem siřičitanu (<span class="chem">Na₂SO₃ + S → Na₂S₂O₃</span>). Volná kyselina thiosírová je nestálá.</p>
+      <p><b>Reakce, které musíte znát:</b></p>
+      <p class="eq"><b>1. Se slabým oxidovadlem (jod) → tetrathionan:</b><br>
+      <span class="chem">2 S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2 I⁻</span><br><br>
+      <b>2. Se silným oxidovadlem (chlor) → až na síran:</b><br>
+      <span class="chem">S₂O₃²⁻ + 4 Cl₂ + 10 OH⁻ → 2 SO₄²⁻ + 8 Cl⁻ + 5 H₂O</span><br><br>
+      <b>3. S&nbsp;kyselinou → rozklad na síru a&nbsp;SO₂:</b><br>
+      <span class="chem">S₂O₃²⁻ + 2 H⁺ → S + SO₂ + H₂O</span><br><br>
+      <b>4. Se stříbrnými ionty → rozpustný komplex:</b><br>
+      <span class="chem">Ag⁺ + 2 S₂O₃²⁻ → [Ag(S₂O₃)₂]³⁻</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Kde thiosíran potkáte</span>
+        <p><b>Fotografie:</b> „fixírka“ neboli ustalovač. Nevyvolaný bromid stříbrný se rozpustí na komplex a&nbsp;vypere z&nbsp;filmu, takže snímek už není citlivý na světlo: <span class="chem">AgBr + 2 Na₂S₂O₃ → Na₃[Ag(S₂O₃)₂] + NaBr</span>.<br>
+        <b>Analytika:</b> jodometrické titrace — thiosíran je odměrné činidlo, škrob indikátor.<br>
+        <b>Bazény a&nbsp;prádelny:</b> odstraňování zbytkového chloru.<br>
+        <b>Školní laboratoř:</b> reakce s&nbsp;kyselinou dává postupně houstnoucí zákal síry, na kterém se demonstruje závislost rychlosti reakce na koncentraci a&nbsp;teplotě.</p>
+      </div>
+      <p><b>Dithioničitan</b> <span class="chem">S₂O₄²⁻</span> (síra formálně +III) je <b>mimořádně silné redukční činidlo</b> — bělí buničinu a&nbsp;redukuje kypová barviva. <b>Polythionany</b> <span class="chem">SₙO₆²⁻</span> mají řetězec dvou až šesti atomů síry mezi dvěma skupinami SO₃.</p>
+
+      <h3>Peroxokyseliny síry</h3>
+      <p>Poznávacím znamením je motiv <b>−O−O−</b>. Síra v&nbsp;nich zůstává v&nbsp;+VI, silné oxidační účinky pocházejí z&nbsp;peroxidového můstku.</p>
+      <p><b>Kyselina peroxosírová</b> <span class="chem">H₂SO₅</span> (Carova kyselina) vzniká reakcí peroxidu vodíku s&nbsp;koncentrovanou kyselinou sírovou; ve vodě se zase rozpadá zpět.</p>
+      <p><b>Kyselina peroxodisírová</b> <span class="chem">H₂S₂O₈</span> se vyrábí <b>anodickou oxidací</b> koncentrovaného roztoku hydrogensíranů:</p>
+      <p class="eq"><span class="chem">2 HSO₄⁻ → S₂O₈²⁻ + 2 H⁺ + 2 e⁻</span> &nbsp;&nbsp;(anoda)</p>
+      <p>Peroxodisírany jsou stálé krystalické soli a&nbsp;patří k&nbsp;<b>nejsilnějším dostupným oxidovadlům</b> (<span class="q">E</span>° = +2,01 V). Se stříbrnou solí jako katalyzátorem převedou mangan z&nbsp;+II až na manganistan:</p>
+      <p class="eq"><span class="chem">5 S₂O₈²⁻ + 2 Mn²⁺ + 8 H₂O → 2 MnO₄⁻ + 10 SO₄²⁻ + 16 H⁺</span></p>
+      <p>Používají se v&nbsp;bělicích a&nbsp;pracích prostředcích, při leptání plošných spojů a&nbsp;jako iniciátory polymerace.</p>
+
+      <h3>Koncentrovaná kyselina sírová — tři vlastnosti, které musíte umět</h3>
+      <p>„Koncentrovaná“ znamená v&nbsp;praxi 96 až 98 %. Chová se úplně jinak než zředěná a&nbsp;u&nbsp;maturity se právě ten rozdíl zkouší nejčastěji.</p>
+      <div class="grid3" style="margin:.6rem 0">
+        <div class="callout def">
+          <span class="eyebrow">1 · Dehydratace</span>
+          <p>Kyselina má obrovskou afinitu k&nbsp;vodě a&nbsp;odnímá ji i&nbsp;látkám, které volnou vodu <b>vůbec neobsahují</b> — prostě z&nbsp;nich vytrhne vodík a&nbsp;kyslík v&nbsp;poměru 2 : 1.</p>
+          <p class="eq"><span class="chem">C₁₂H₂₂O₁₁ → 12 C + 11 H₂O</span></p>
+          <p>Z&nbsp;bílého cukru zbude černý porézní uhlík, který unikající pára nadzvedne do „hada“. Stejně zuhelnatí papír, dřevo, bavlna i&nbsp;kůže — proto ta těžká poleptání.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">2 · Oxidační účinky</span>
+          <p>Horká koncentrovaná kyselina oxiduje <b>síranem</b>, ne protonem. Síra klesá ze +VI na +IV, takže <b>nikdy nevzniká vodík, ale SO₂</b>.</p>
+          <p class="eq"><span class="chem">Cu + 2 H₂SO₄ → CuSO₄ + SO₂ + 2 H₂O</span><br>
+          <span class="chem">C + 2 H₂SO₄ → CO₂ + 2 SO₂ + 2 H₂O</span><br>
+          <span class="chem">2 HI + H₂SO₄ → I₂ + SO₂ + 2 H₂O</span></p>
+          <p>Za studena naopak <b>pasivuje</b> železo, hliník a&nbsp;chrom — proto se převáží v&nbsp;ocelových cisternách.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">3 · Ředění</span>
+          <p>Rozpouštěcí entalpie je asi <b>−95 kJ·mol⁻¹</b> — obrovská hodnota. Uvolněné teplo dokáže roztok přivést k&nbsp;varu.</p>
+          <p><b>Vždycky lijeme kyselinu do vody</b>, tenkým pramínkem, za stálého míchání. Velká masa vody teplo pobere a&nbsp;rozvede.</p>
+          <p>Naopak by se tenká vrstvička vody na hladině husté kyseliny okamžitě přehřála nad 100 °C, prudce se odpařila a&nbsp;vystříkla kyselinu ven.</p>
+        </div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Zředěná × koncentrovaná — tabulka, kterou si zapamatujte</span>
+        <p>Rozdíl není v&nbsp;množství, ale v&nbsp;tom, <b>co je v&nbsp;roztoku oxidačním činidlem</b>.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th></th><th>Zředěná H₂SO₄</th><th>Horká koncentrovaná H₂SO₄</th></tr></thead>
+          <tbody>
+            <tr><td>Oxidační činidlo</td><td><span class="chem">H⁺</span> (proton)</td><td><span class="chem">SO₄²⁻</span> (síra +VI)</td></tr>
+            <tr><td>Reakce se Zn</td><td class="chem">Zn + H₂SO₄ → ZnSO₄ + H₂</td><td>vzniká SO₂, při vyšší koncentraci až S nebo H₂S</td></tr>
+            <tr><td>Reakce s&nbsp;Cu</td><td>prakticky neprobíhá</td><td class="chem">Cu + 2 H₂SO₄ → CuSO₄ + SO₂ + 2 H₂O</td></tr>
+            <tr><td>Reakce s&nbsp;Fe, Al</td><td>rozpouští za vývoje H₂</td><td>za studena <b>pasivuje</b></td></tr>
+            <tr><td>Reakce s&nbsp;C, S</td><td>neprobíhá</td><td>oxiduje na CO₂, resp. SO₂</td></tr>
+            <tr><td>Dehydratace cukru</td><td>neprobíhá (jen rozpustí)</td><td><b>zuhelnatí</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem"><b>Výroba a&nbsp;spotřeba.</b> Světová produkce je kolem 260 milionů tun ročně. Zhruba <b>60 % jde na výrobu hnojiv</b> (kyselina fosforečná a&nbsp;superfosfát ze surového fosfátu), zbytek na zpracování rud, rafinaci ropy, výrobu barviv, detergentů, výbušnin, plastů a&nbsp;do olověných akumulátorů (elektrolyt je asi 37% roztok, tedy zhruba 4,8 mol·dm⁻³).</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Trenažér: zředěná, nebo koncentrovaná?</h3>
+      </div>
+      <div class="panel-body">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem">
+          <span class="eyebrow">Situace <span id="saQn">1</span> z&nbsp;<span id="saQtot">10</span></span>
+          <span class="eyebrow">Skóre: <b style="color:var(--accent)"><span id="saScore">0</span></b> správně</span>
+        </div>
+        <div class="eq" id="saTask" style="font-size:1.08rem;text-align:center;padding:1.2rem 1rem"></div>
+        <div class="grid2" id="saOpts" style="margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))"></div>
+        <div class="explain" id="saExplain" style="margin-top:1rem"></div>
+        <div class="quiz-foot"><button class="btn btn-primary" type="button" id="saNext" disabled>Další situace →</button><button class="btn" type="button" id="saReset">Od začátku</button></div>
+      </div>
+      <div class="panel-note">U&nbsp;každé otázky si nejdřív odpovězte na jednu věc: <b>co v&nbsp;tomto roztoku oxiduje?</b> Ve zředěné kyselině proton, v&nbsp;horké koncentrované síran. Z&nbsp;toho už produkt plyne sám. Při 8 a&nbsp;více správných se kapitola označí jako hotová.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.1 · jodometrická titrace</span>
+          <p>Na titraci 25,00 cm³ roztoku jodu se spotřebovalo 20,15 cm³ odměrného roztoku thiosíranu sodného o&nbsp;koncentraci 0,1000 mol·dm⁻³. Jaká je látková koncentrace jodu v&nbsp;analyzovaném roztoku?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Reakce a&nbsp;stechiometrický poměr — tady je jádro úlohy:</p>
+              <p class="eq"><span class="chem">2 S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2 I⁻</span> &nbsp;&nbsp;poměr <b>2 : 1</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(S₂O₃²⁻) = 0,1000 · 0,02015 = <b>2,015·10⁻³ mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(I₂) = 2,015·10⁻³ / 2 = <b>1,0075·10⁻³ mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq"><span class="q">c</span>(I₂) = 1,0075·10⁻³ / 0,02500 = <b>0,04030 mol·dm⁻³</b></p>
+              <p>Konec titrace se pozná podle indikátoru: přidá se škrobový maz, který s&nbsp;jodem tvoří tmavě modrý komplex, a&nbsp;titruje se do prvního odbarvení. Škrob se přidává až těsně před koncem, aby se na sebe nenavázal příliš mnoho jodu.</p>
+              <span class="result">c(I₂) = 0,04030 mol·dm⁻³</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.2 · ředění kyseliny a&nbsp;ohřátí</span>
+          <p>Připravujeme zředěný roztok: do 400 g vody o&nbsp;teplotě 20 °C vléváme po částech 80,0 g koncentrované (96%) kyseliny sírové. Na jakou teplotu se roztok ohřeje, pokud se teplo neztrácí do okolí? Rozpouštěcí entalpie je −95,3 kJ·mol⁻¹, měrná tepelná kapacita výsledného roztoku 3,80 J·g⁻¹·K⁻¹, <span class="q">M</span>(H₂SO₄) = 98,08 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(H₂SO₄) = 80,0 · 0,96 = 76,8 g &nbsp;→&nbsp; <span class="q">n</span> = 76,8 / 98,08 = <b>0,783 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">Q</span> = 0,783 · 95,3 = <b>74,6 kJ</b> uvolněného tepla</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Celková hmotnost roztoku je 400 + 80 = 480 g.</p>
+              <p class="eq">Δ<span class="q">T</span> = <span class="q">Q</span> / (<span class="q">m</span>·<span class="q">c</span>) = 74 600 / (480 · 3,80) = <b>40,9 K</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq">konečná teplota = 20 + 40,9 = <b>61 °C</b></p>
+              <p>Přes šedesát stupňů — a&nbsp;to je jen 80 gramů kyseliny do 400 gramů vody a&nbsp;za předpokladu, že se teplo rovnoměrně rozvede. Kdybychom lili obráceně, teplo by se uvolnilo v&nbsp;tenké vrstvě na hladině, ta by okamžitě překročila 100 °C a&nbsp;směs by vystříkla. <b>Proto kyselinu do vody.</b></p>
+              <span class="result">roztok se ohřeje asi o&nbsp;41 °C, tedy z&nbsp;20 na zhruba 61 °C</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.3 · dehydratace sacharózy</span>
+          <p>Kolik gramů uhlíku a&nbsp;kolik gramů vody teoreticky vznikne dehydratací 20,0 g sacharózy koncentrovanou kyselinou sírovou? <span class="q">M</span>(C₁₂H₂₂O₁₁) = 342,3 g·mol⁻¹, <span class="q">M</span>(C) = 12,01, <span class="q">M</span>(H₂O) = 18,02 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Kyselina odebere z&nbsp;molekuly cukru všechen vodík a&nbsp;kyslík v&nbsp;poměru vody. Sacharóza má 22 vodíků a&nbsp;11 kyslíků — přesně poměr 2 : 1, takže odejde 11 molekul vody a&nbsp;zbude čistý uhlík:</p>
+              <p class="eq"><span class="chem">C₁₂H₂₂O₁₁ → 12 C + 11 H₂O</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(sacharózy) = 20,0 / 342,3 = <b>0,0584 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(C) = 12 · 0,0584 · 12,01 = <b>8,42 g</b><br>
+              <span class="q">m</span>(H₂O) = 11 · 0,0584 · 18,02 = <b>11,58 g</b></p>
+              <p>Kontrola: 8,42 + 11,58 = 20,0 g. Hmotnost se zachovává, kyselina se do produktu nezapočítává (funguje jen jako dehydratační činidlo).</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Uhlíku vznikne 8,4 g, ale jeho objem je mnohem větší než původní hromádka cukru — je totiž porézní a&nbsp;nadzvedne ho unikající vodní pára a&nbsp;trocha SO₂ z&nbsp;vedlejší oxidace. Odtud ten „černý had“, který ze kádinky vyroste.</p>
+              <span class="result">8,42 g uhlíku a&nbsp;11,58 g vody</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: kyseliny síry a koncentrovaná H₂SO₄"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

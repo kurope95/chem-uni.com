@@ -1,0 +1,184 @@
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Slitiny">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · osnova, bod 4</span>
+      <h2>Slitiny — substituční a&nbsp;intersticiální</h2>
+      <p class="lead">Čistý kov je v&nbsp;technice spíš výjimka. Bronz, mosaz, ocel, dural, pájka i&nbsp;drát v&nbsp;troubě jsou slitiny — a&nbsp;jsou tvrdší, pevnější a&nbsp;často tají níž než kovy, ze kterých vznikly. Celý ten efekt způsobí <b>narušení pravidelnosti mřížky</b>. Stačí pochopit dvě geometrické situace a&nbsp;jedno pravidlo o&nbsp;patnácti procentech.</p>
+
+      <h3>Co je slitina</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Slitina</b> je materiál s&nbsp;kovovými vlastnostmi, který vznikl <b>ztuhnutím taveniny</b> dvou nebo více prvků, z&nbsp;nichž alespoň jeden je kov. Nemá stálý stechiometrický poměr — proto se nezapisuje vzorcem, ale rozmezím obsahu složek.</p>
+      </div>
+      <p>Podle toho, co se s&nbsp;atomy stane při tuhnutí, rozlišujeme tři situace: <b>tuhý roztok</b> (cizí atomy jsou rozpuštěné v&nbsp;mřížce hostitele), <b>intermetalická sloučenina</b> (vznikne nová fáze s&nbsp;vlastní mřížkou a&nbsp;pevným poměrem, například <span class="chem">Cu₃Sn</span> nebo <span class="chem">Fe₃C</span>) a&nbsp;<b>heterogenní směs</b> (kovy se nemísí a&nbsp;ztuhnou vedle sebe jako oddělená zrna).</p>
+
+      <h3>Tuhý roztok substituční — cizí atom nahradí hostitele</h3>
+      <p>Atom příměsi <b>obsadí uzlový bod mřížky</b> místo atomu hostitele. Aby to šlo, musí být oba atomy podobné. Podmínky formuloval anglický metalurg <span class="term">Hume‑Rothery</span> a&nbsp;první z&nbsp;nich se ptá na velikost.</p>
+      <div class="callout def">
+        <span class="eyebrow">Hume‑Rotheryho podmínky substituční rozpustnosti</span>
+        <p><b>1. Velikost:</b> atomové poloměry se nesmějí lišit o&nbsp;víc než zhruba <b>15 %</b>.<br>
+        <b>2. Struktura:</b> oba kovy by měly mít <b>stejný typ mřížky</b>.<br>
+        <b>3. Mocenství:</b> podobný počet valenčních elektronů.<br>
+        <b>4. Elektronegativita:</b> podobná — jinak vznikne spíš iontová sloučenina než tuhý roztok.<br>
+        Splnění všech čtyř znamená <b>neomezenou</b> mísitelnost; porušení první podmínky ji vylučuje úplně.</p>
+      </div>
+      <p>Učebnicová dvojice je <b>stříbro a&nbsp;zlato</b>: oba mají poloměr 144&nbsp;pm, oba plošně centrovanou mřížku, oba jeden valenční elektron a&nbsp;podobnou elektronegativitu. Mísí se v&nbsp;jakémkoli poměru. Naproti tomu <b>měď a&nbsp;olovo</b> (128 proti 175&nbsp;pm, rozdíl skoro 37 %) se nemísí vůbec a&nbsp;ztuhnou jako dvě oddělené fáze.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past</span>
+        <p>Pravidlo 15 % je <b>nutná, ne postačující</b> podmínka. Hliník a&nbsp;měď se poloměrem liší jen o&nbsp;10,5 %, a&nbsp;přesto se neomezeně nemísí — brání tomu rozdílné mocenství a&nbsp;vznik intermetalických fází typu <span class="chem">CuAl₂</span>. Když tedy v&nbsp;testu vyjde rozdíl pod 15 %, správná odpověď zní „substituce je <b>možná</b>“, ne „nastane vždy“.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Substituční, nebo intersticiální? Pravidlo 15 % v&nbsp;praxi</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="slHost">Základní kov (hostitel)</label>
+            <select id="slHost"></select>
+          </div>
+          <div class="ctl">
+            <label for="slGuest">Přidávaná složka</label>
+            <select id="slGuest"></select>
+          </div>
+        </div>
+        <div class="svgwrap" id="slWrap" style="min-height:320px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="slRo1"></div>
+          <div class="readout" id="slRo2"></div>
+          <div class="readout" id="slRo3"></div>
+        </div>
+        <p class="eq" id="slVerd" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="slNote">Vyberte měď a&nbsp;zinek — rozdíl poloměrů necelých pět procent, vzniká mosaz. Pak zvolte měď a&nbsp;olovo a&nbsp;podívejte se, proč taková slitina neexistuje. Nakonec zkuste železo a&nbsp;uhlík: rozdíl je obrovský, ale uhlík je natolik malý, že se vejde do dutiny — a&nbsp;vznikne ocel.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Tuhý roztok intersticiální — cizí atom vleze do dutiny</h3>
+      <p>Když je příměs <b>mnohem menší</b> než hostitel (poloměr pod zhruba 0,6 násobku), nemá smysl nahrazovat celý atom. Vejde se do <b>mezery mezi atomy</b>, tedy do oktaedrické nebo tetraedrické dutiny. Takto se do kovů zabudovávají jen malé nekovy: <b>uhlík, dusík, vodík, bor</b>.</p>
+      <p class="eq">poloměry [pm]: H = 37 &nbsp;·&nbsp; N = 75 &nbsp;·&nbsp; C = 77 &nbsp;·&nbsp; B = 88 &nbsp;|&nbsp; Fe = 126 &nbsp;·&nbsp; Cu = 128 &nbsp;·&nbsp; Al = 143<br><span style="color:var(--ink-3)">poměr <span class="q">r</span>(C) / <span class="q">r</span>(Fe) = 0,61 — na hranici, proto se uhlík do železa vtěsná jen s&nbsp;deformací mřížky</span></p>
+      <p>Právě ta deformace je celý vtip: mřížka je kolem vetřelce napjatá a&nbsp;vrstvy se po sobě už tak snadno neposunou. Materiál je proto <b>tvrdší a&nbsp;pevnější, ale méně tvárný</b>. Ocel s&nbsp;0,2 % uhlíku se dá kovat i&nbsp;svařovat, ocel s&nbsp;1,2 % je nástrojová a&nbsp;litina se 4 % je křehká jako sklo.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Typ tuhého roztoku</th><th>Kde příměs sedí</th><th>Podmínka</th><th>Co to udělá s&nbsp;vlastnostmi</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td><b>Substituční</b></td><td>v&nbsp;uzlovém bodě, místo atomu hostitele</td><td>rozdíl poloměrů pod 15 %</td><td>tvrdší, pevnější, hůř vede proud</td><td>mosaz Cu–Zn, bronz Cu–Sn, dural</td></tr>
+            <tr><td><b>Intersticiální</b></td><td>v&nbsp;dutině mezi atomy hostitele</td><td>příměs výrazně menší (nekov)</td><td>výrazně tvrdší a&nbsp;pevnější, křehčí</td><td>ocel Fe–C, nitridované vrstvy Fe–N</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Proč je slitina tvrdší a&nbsp;hůř vede</h3>
+      <p>Obě věci mají tutéž příčinu: <b>narušení pravidelnosti mřížky</b>.</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Tvrdost roste</span>
+          <p>Plastická deformace kovu probíhá pohybem poruch (dislokací) po skluzových rovinách. Cizí atom je překážka: kolem sebe má mřížku napjatou a&nbsp;dislokace se přes něj těžko dostane. Čím víc překážek, tím tvrdší materiál.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Vodivost klesá</span>
+          <p>Elektron se v&nbsp;dokonale pravidelné mřížce pohybuje takřka bez odporu. Každý cizí atom ho rozptýlí. Proto má konstantan (Cu 55 %, Ni 45 %) měrnou vodivost asi 2&nbsp;MS·m⁻¹, tedy třicetkrát menší než čistá měď.</p>
+        </div>
+      </div>
+
+      <h3>Eutektikum — proč slitina taje níž než obě složky</h3>
+      <p>Toto zpočátku působí paradoxně: cín taje při 231,9 °C, olovo při 327,5 °C, ale jejich směs v&nbsp;poměru 62 : 38 taje už při <b>183 °C</b>. Směs, která taje při nejnižší možné teplotě a&nbsp;přitom celá najednou jako čistá látka, se jmenuje <span class="term">eutektikum</span>.</p>
+      <p>Důvod je termodynamický: smísením dvou látek vzroste <b>entropie</b> a&nbsp;tavenina se tím stane výhodnější než dvě oddělené pevné fáze. Rovnováha tání se posune k&nbsp;nižší teplotě. Woodův kov (Bi, Pb, Sn, Cd) dotáhne tenhle efekt do extrému a&nbsp;taje při 70 °C — tedy v&nbsp;horké vodě, přestože nejníže tající složka, kadmium, taje až při 321 °C.</p>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu to je</span>
+        <p>Nízkotající eutektika jsou pájky (Sn–Pb, dnes Sn–Ag–Cu) a&nbsp;tavné pojistky v&nbsp;sprinklerech. Naopak v&nbsp;metalurgii se stejný jev využívá u&nbsp;<b>tavných elektrolýz</b>: přidáním druhé soli do taveniny klesne teplota tání a&nbsp;s&nbsp;ní i&nbsp;tepelné ztráty. Proto se do NaCl přidává CaCl₂ a&nbsp;proto se Al₂O₃ rozpouští v&nbsp;kryolitu.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Přehled slitin, které musíte znát</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="alQ">Hledat název, složku nebo použití</label>
+            <input type="search" id="alQ" placeholder="např. Cu, letadla, pájení">
+          </div>
+          <div class="ctl">
+            <label for="alType">Typ slitiny</label>
+            <select id="alType">
+              <option value="">všechny typy</option>
+              <option value="sub">substituční tuhý roztok</option>
+              <option value="int">intersticiální tuhý roztok</option>
+              <option value="im">s intermetalickou fází</option>
+            </select>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:440px;overflow:auto">
+          <table>
+            <thead><tr><th>Slitina</th><th>Složení</th><th>Typ</th><th class="n">Teplota tání</th><th>Vlastnosti</th><th>Použití</th></tr></thead>
+            <tbody id="alBody"></tbody>
+          </table>
+        </div>
+        <p class="eyebrow" id="alCount" style="margin-top:.7rem"></p>
+      </div>
+      <div class="panel-note">Vyfiltrujte si intersticiální slitiny — zjistíte, že to jsou vždycky slitiny železa s&nbsp;uhlíkem. Jiný nekov se totiž do kovové mřížky tak dobře nevejde a&nbsp;jiný kov je na dutinu příliš velký.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.1 · rozhodněte podle poloměrů</span>
+          <p>Rozhodněte, zda vznikne substituční tuhý roztok: (a) Cu a&nbsp;Zn, (b) Cu a&nbsp;Pb, (c) Fe a&nbsp;Cr. Poloměry [pm]: Cu 128, Zn 134, Pb 175, Fe 126, Cr 128.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Použijeme první Hume‑Rotheryho podmínku: relativní rozdíl poloměrů musí být pod 15 %.</p>
+              <p class="eq">Δ = |<span class="q">r</span>(hostitel) − <span class="q">r</span>(příměs)| / <span class="q">r</span>(hostitel) · 100 %</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>(a) Cu–Zn:</b> Δ = |128 − 134| / 128 = 4,7 % → hluboko pod hranicí. Vzniká <b>mosaz</b>, a&nbsp;to až do zhruba 38 % zinku (nad tuto hranici se objeví další fáze).</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>(b) Cu–Pb:</b> Δ = |128 − 175| / 128 = 36,7 % → daleko nad hranicí. Kovy se v&nbsp;pevném stavu <b>nemísí</b>; ztuhnou jako heterogenní směs zrn olova v&nbsp;mědi. Toho se využívá u&nbsp;ložiskových slitin, kde měkké olovo funguje jako mazivo.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b>(c) Fe–Cr:</b> Δ = |126 − 128| / 126 = 1,6 %, oba mají prostorově centrovanou mřížku a&nbsp;podobnou elektronegativitu → splněny všechny podmínky, <b>neomezená mísitelnost</b>. Přesně proto lze do oceli přidat 18 % chromu a&nbsp;dostat nerez.</p>
+              <span class="result">(a) ano, mosaz · (b) ne, 36,7 % je příliš · (c) ano, neomezeně — nerezavějící ocel</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.2 · složení mosazi</span>
+          <p>Kolik kilogramů zinku a&nbsp;kolik mědi je potřeba na 250&nbsp;kg mosazi typu Ms63 (63 % mědi)? A&nbsp;jakou látkovou koncentraci atomů zinku slitina má? <span class="q">M</span>(Cu) = 63,55, <span class="q">M</span>(Zn) = 65,38&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Hmotnostní zlomky jsou zadané přímo: <span class="q">w</span>(Cu) = 0,63, <span class="q">w</span>(Zn) = 0,37.</p>
+              <p class="eq"><span class="q">m</span>(Cu) = 0,63 · 250 = <b>157,5&nbsp;kg</b> &nbsp;·&nbsp; <span class="q">m</span>(Zn) = 0,37 · 250 = <b>92,5&nbsp;kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Pro atomový poměr převedeme hmotnosti na látková množství. Počítejme na 100&nbsp;g slitiny:</p>
+              <p class="eq"><span class="q">n</span>(Cu) = 63 / 63,55 = 0,991&nbsp;mol &nbsp;·&nbsp; <span class="q">n</span>(Zn) = 37 / 65,38 = 0,566&nbsp;mol</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Atomový (molární) zlomek zinku:</p>
+              <p class="eq"><span class="q">x</span>(Zn) = 0,566 / (0,991 + 0,566) = 0,364 → <b>36,4 % atomů</b></p>
+              <p>Protože jsou molární hmotnosti obou kovů blízké, liší se hmotnostní a&nbsp;atomové procento jen málo. U&nbsp;dvojice s&nbsp;velmi rozdílnými molárními hmotnostmi (třeba Al a&nbsp;W) by rozdíl byl dramatický — proto se u&nbsp;slitin vždy uvádí, o&nbsp;jaká procenta jde.</p>
+              <span class="result">157,5&nbsp;kg Cu a&nbsp;92,5&nbsp;kg Zn; atomový zlomek zinku je 0,364</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: slitiny"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>

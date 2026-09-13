@@ -1,0 +1,81 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Chemická rovnováha</h1>
+      <p class="lead">Většina reakcí neproběhne do konce — zastaví se „v&nbsp;půli cesty“ a&nbsp;navenek se přestane dít cokoli, přestože uvnitř běží obě reakce plnou rychlostí. Tenhle materiál ukáže, <b>kde přesně</b> se reakce zastaví (rovnovážná konstanta), <b>proč</b> zrovna tam (Gibbsova energie i&nbsp;rychlostní konstanty) a&nbsp;<b>jak s&nbsp;tím pohnout</b> (Le Chatelierův princip a&nbsp;chemický průmysl). Buď rychloprůchod na necelou hodinu, nebo sedm kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 55 minut</span>
+        <span class="tag">14 interaktivních modelů</span>
+        <span class="tag">78 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulka průmyslových rovnováh a&nbsp;hodnot <span class="q">K</span></span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">55 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: devět bloků, v každém výklad, rámeček se vzorci, upozornění na častou chybu a řešený příklad s čísly. Projde všech 48 pojmů z osnovy, má vlastní grafy a kontrolní test o 12 otázkách.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">7 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad se čtrnácti interaktivními modely (včetně simulátoru Le Chatelierových zásahů a řešitele ICE tabulek), s dvaceti řešenými příklady krok za krokem a mini‑testem po každé kapitole. Na konci závěrečný test, tahák a slovníček.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Dynamická rovnováha — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroRxn">Reakce</label>
+            <select id="heroRxn"></select>
+          </div>
+          <div class="ctl">
+            <label>Odkud startujeme</label>
+            <div class="segmented" id="heroStart" role="group" aria-label="Počáteční stav">
+              <button type="button" data-v="react" aria-pressed="true">Z výchozích látek</button>
+              <button type="button" data-v="prod" aria-pressed="false">Z produktů</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroK1">Rychlostní konstanta přímé reakce <span class="q">k</span>₁ — <span class="val" id="heroK1V">0,60</span></label>
+            <input type="range" id="heroK1" min="0.1" max="2" step="0.05" value="0.6">
+          </div>
+          <div class="ctl">
+            <label for="heroK2">Rychlostní konstanta zpětné reakce <span class="q">k</span>₋₁ — <span class="val" id="heroK2V">0,20</span></label>
+            <input type="range" id="heroK2" min="0.05" max="2" step="0.05" value="0.2">
+          </div>
+        </div>
+        <div class="svgwrap" id="heroCWrap" style="min-height:300px"></div>
+        <div class="svgwrap" id="heroVWrap" style="min-height:210px;margin-top:.6rem"></div>
+        <div class="legend" id="heroLegend"></div>
+        <div class="grid2" style="margin-top:1rem">
+          <div class="readout" id="heroRoK"><span class="k">K = k₁/k₋₁</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="heroRoEq"><span class="k">Rovnovážné složení</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="heroRoA"><span class="k">Stupeň přeměny α</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="heroRoT"><span class="k">Čas do rovnováhy</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="heroNote">Sledujte spodní graf: rychlost přímé reakce klesá, rychlost zpětné roste, až se protnou. Od té chvíle se koncentrace nemění — ale obě reakce běží dál.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu i&nbsp;svůj blok v&nbsp;rychloprůchodu. Klepněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Dynamická rovnováha v&nbsp;systému zpětných/rovnovážných reakcí.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Zavedení pojmu rovnovážná konstanta z&nbsp;termodynamických dat (vztah mezi rovnovážnou konstantou a&nbsp;Gibbsovou energií) a&nbsp;kinetických dat (vztah mezi rovnovážnou konstantou a&nbsp;rychlostními konstantami elementárních reakcí, Guldbergův-Waageův zákon).</span><span class="go">Kap. 1–2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">3</span><span>Zápis rovnovážné konstanty pro libovolnou reakci pomocí relativních rovnovážných koncentrací reagujících/vznikajících látek.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">4</span><span>Hodnoty rovnovážné konstanty a&nbsp;jejich vliv na stupeň konverze v&nbsp;reakci.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">5</span><span>Vliv teploty a&nbsp;tlaku na hodnotu rovnovážné konstanty reakce.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">6</span><span>Princip akce a&nbsp;reakce (Le Chatelierův princip) a&nbsp;vliv zásahů do chemické reakce na chování rovnovážné reakce.</span><span class="go">Kap. 6</span></a>
+    </div>
+  </header>

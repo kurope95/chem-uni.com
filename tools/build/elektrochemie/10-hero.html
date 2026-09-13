@@ -1,0 +1,80 @@
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Rovnovážná elektrochemie</h1>
+      <p class="lead">Proč zinek v&nbsp;modré skalici zčerná, proč se pozinkovaný plot nepoškrábe k&nbsp;rezu a&nbsp;proč baterie v&nbsp;mobilu dává 3,7 V a&nbsp;ne 1,5 V — to všechno je jedna tabulka čísel a&nbsp;jedno pravidlo o&nbsp;elektronech. Buď rychloprůchod na hodinu, nebo deset kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 60 minut</span>
+        <span class="tag">15 interaktivních modelů</span>
+        <span class="tag">88 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulka <span class="q">E</span>° — 47 poloreakcí</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">60 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: devět bloků, v každém výklad, rámeček se vzorci, upozornění na častou chybu a řešený příklad s čísly. Projde všech 58 pojmů z osnovy, má vlastní schémata a kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">10 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad s patnácti interaktivními modely, devatenácti řešenými příklady krok za krokem a testem po každé kapitole. Na konci je tahák a slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stavitel galvanického článku — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="hcSel1">Poloreakce 1 (vyberte libovolnou dvojici)</label>
+            <select id="hcSel1"></select>
+          </div>
+          <div class="ctl">
+            <label for="hcSel2">Poloreakce 2</label>
+            <select id="hcSel2"></select>
+          </div>
+        </div>
+        <div class="svgwrap" id="hcWrap" style="min-height:340px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>anoda — oxidace, nižší <span class="q">E</span>°, v galvanickém článku záporný pól</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>katoda — redukce, vyšší <span class="q">E</span>°, kladný pól</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>elektrony vnějším obvodem, ionty solným můstkem</span>
+        </div>
+        <div class="grid2" style="margin-top:1.1rem;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <p class="eq" id="hcHalf" style="margin:0"></p>
+            <p class="eq" id="hcEq" style="margin:0;border-left-color:var(--accent)"></p>
+            <p class="eq" id="hcScheme" style="margin:0;border-left-color:var(--endo)"></p>
+          </div>
+          <div class="grid3">
+            <div class="readout" id="hcRo1"></div>
+            <div class="readout" id="hcRo2"></div>
+            <div class="readout" id="hcRo3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note" id="hcNote">Zkuste vybrat Zn²⁺/Zn a&nbsp;Cu²⁺/Cu — dostanete Daniellův článek s&nbsp;1,10 V. Pak zaměňte měď za stříbro nebo za manganistan a&nbsp;sledujte, jak roste napětí i&nbsp;rovnovážná konstanta.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Správné pochopení a&nbsp;používání pojmů oxidace a&nbsp;redukce, oxidační činidlo a&nbsp;redukční činidlo ve vztahu k&nbsp;výměně elektronů a&nbsp;změnám oxidačního stavu látek účastnících se oxidačně redukčních reakcí.</span><span class="go">Kap. 0–1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">2</span><span>Schopnost látek vystupovat jako oxidační/redukční činidlo, síla oxidačních a&nbsp;redukčních činidel a&nbsp;standardní redukční potenciál.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">3</span><span>Odhadování průběhu oxidačně-redukčních reakcí na základě Beketovovy řady kovů nebo hodnoty redukčního potenciálu.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">4</span><span>Elektrochemické rovnováhy v&nbsp;roztocích - Nernstova rovnice.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">5</span><span>Označení elektrod v&nbsp;elektrochemickém článku - správné používání pojmů katoda a&nbsp;anoda.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Rozdíly mezi galvanickým a&nbsp;elektrolytickým článkem, popis poloreakcí na jednotlivých elektrodách, polarita elektrod. Rovnovážné napětí článku jako rozdíl potenciálů na jednotlivých elektrodách.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Průběh elektrolýzy vybraných roztoků a&nbsp;tavenin.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8</span><span>Vztah elektrochemie a&nbsp;koroze.</span><span class="go">Kap. 7</span></a>
+    </div>
+  </header>

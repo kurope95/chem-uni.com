@@ -1,0 +1,193 @@
+
+  <!-- ============ KAPITOLA 5 (část B) ============ -->
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Průzkumník hydridů — hledejte podle vzorce, názvu i&nbsp;použití</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="htSearch">Hledat</label>
+            <input type="search" id="htSearch" placeholder="např. sodný, plyn, sušidlo, redukce, palladium…" autocomplete="off">
+          </div>
+          <div class="ctl">
+            <label>Typ vazby</label>
+            <div class="segmented" id="htFilt" role="group" aria-label="Filtr typu hydridu">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="i" aria-pressed="false">Iontové</button>
+              <button type="button" data-v="k" aria-pressed="false">Kovalentní</button>
+              <button type="button" data-v="m" aria-pressed="false">Kovové</button>
+              <button type="button" data-v="x" aria-pressed="false">Komplexní</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:520px;overflow-y:auto">
+          <table><thead><tr>
+            <th>Vzorec</th><th>Název</th><th>Typ</th><th class="n">ox. č. H</th><th class="n"><span class="q">X</span>(partner)</th><th>Vlastnosti</th><th>S&nbsp;vodou</th><th>K&nbsp;čemu je</th>
+          </tr></thead><tbody id="htBody"></tbody></table>
+        </div>
+        <p style="margin-top:.8rem;color:var(--ink-3);font-size:.9rem" id="htCount"></p>
+      </div>
+      <div class="panel-note">Zkuste do vyhledávání napsat <b>sušidlo</b>, <b>zásobník</b> nebo <b>polovodič</b> — uvidíte, že skupina látek se stejným použitím má vždycky i&nbsp;stejný typ vazby. Filtrem „Kovové“ dostanete jen přechodné kovy, filtrem „Iontové“ jen prvky z&nbsp;první a&nbsp;druhé skupiny.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Hydridové komplexy</h3>
+      <p>Vedle binárních hydridů existuje pestrá a&nbsp;prakticky velmi významná skupina <span class="term">komplexních hydridů</span>. Jsou to <b>koordinační sloučeniny</b>, ve kterých funkci všech nebo části ligandů zastává hydridový aniont <span class="chem">H⁻</span> — přesněji atom vodíku v&nbsp;oxidačním stavu −I.</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Hydridový komplex</b> je sloučenina obsahující ionty H⁻ koordinované na centrální atom kovu. Koordinační vazba má obecně spíš kovalentní charakter, ale je <b>vždy polární</b>, a&nbsp;to tím víc, čím větší je rozdíl elektronegativit centrálního atomu a&nbsp;vodíku. Právě ta polarita rozhoduje o&nbsp;tom, jak silné redukční činidlo komplex je.</p>
+      </div>
+      <p>Nejběžnější jsou hydridové komplexy nepřechodných kovů, především <span class="chem">Li[AlH₄]</span>, <span class="chem">Na[BH₄]</span> a&nbsp;<span class="chem">K[BH₄]</span>. Zapisují se také bez hranatých závorek jako LiAlH₄ a&nbsp;NaBH₄. Existují i&nbsp;<b>smíšené</b> hydridové komplexy s&nbsp;heterogenní koordinační sférou, například <span class="chem">Na[BH(OCH₃)₃]</span>.</p>
+
+      <h3>Struktura a&nbsp;příprava</h3>
+      <p>Aniont <span class="chem">[AlH₄]⁻</span> i&nbsp;<span class="chem">[BH₄]⁻</span> mají <b>tetraedrický tvar</b> (hybridizace <span class="q">sp</span>³ na centrálním atomu, koordinační číslo 4). Připravují se reakcí iontového hydridu s&nbsp;halogenidem nebo esterem centrálního prvku:</p>
+      <p class="eq"><span class="chem">4 LiH + AlCl₃ → LiAlH₄ + 3 LiCl</span><br>
+      <span class="chem">4 NaH + B(OCH₃)₃ → NaBH₄ + 3 NaOCH₃</span></p>
+      <p>Výslovně iontové hydridové komplexy jsou <b>krystalické látky</b>; některé kovalentní jsou kapalné. Pro svou poměrnou stálost slouží jako <b>silná redukční činidla</b> — na rozdíl od samotného LiH nebo CaH₂ se dají rozpustit v&nbsp;organických rozpouštědlech, hlavně v&nbsp;etherech, a&nbsp;pracovat s&nbsp;nimi v&nbsp;homogenním roztoku.</p>
+
+      <h3>Reakce s&nbsp;vodou — a&nbsp;jeden zásadní rozdíl</h3>
+      <p>Obecná rovnice hydrolýzy tetrahydridokomplexu trojmocného kovu:</p>
+      <p class="eq"><span class="chem">4 H₂O + [MH₄]⁻ → 4 H₂ + M(OH)₃ + OH⁻</span></p>
+      <p>Konkrétně pro tetrahydridohlinitan lithný:</p>
+      <p class="eq"><span class="chem">LiAlH₄ + 4 H₂O → LiOH + Al(OH)₃ + 4 H₂</span></p>
+      <p>Reakce je velmi prudká a&nbsp;s&nbsp;okyselenou vodou může mít <b>explozivní charakter</b>. Nejprudčeji reagují a&nbsp;na vzduchu se zapalují především <b>kovalentní</b> hydridové komplexy, například <span class="chem">Al[BH₄]₃</span> nebo <span class="chem">U[BH₄]₄</span>.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč je NaBH₄ výjimka a&nbsp;proč to tak úžasně sedí s&nbsp;elektronegativitou</span>
+        <p>Výrazně <b>iontové</b> hydridové komplexy, jako je <span class="chem">Na[BH₄]</span>, se hydrolyzují jen zvolna. V&nbsp;alkalickém prostředí se jejich hydrolýza dokonce prakticky <b>zastaví</b>, takže se dají připravit <b>vodné roztoky</b> NaBH₄. Důvod je čitelný z&nbsp;elektronegativit: bor má 2,04, vodík 2,20, rozdíl je pouhých <b>0,16</b> — vazba B–H je málo polární, hydridový vodík je málo bazický a&nbsp;s&nbsp;protonem z&nbsp;vody nespěchá. U&nbsp;hliníku je rozdíl 2,20 − 1,61 = <b>0,59</b>, tedy skoro čtyřnásobný, vazba Al–H je mnohem polárnější a&nbsp;LiAlH₄ s&nbsp;vodou reaguje okamžitě.</p>
+      </div>
+
+      <h3>Hydridové komplexy přechodných kovů</h3>
+      <p>Zajímavou a&nbsp;stále aktivně zkoumanou skupinu tvoří hydridové komplexy přechodných kovů. Buď obsahují <b>jediný druh ligandu</b>, jako je rekordní aniont <span class="chem">[ReH₉]²⁻</span> s&nbsp;devíti hydridovými ligandy na jednom atomu rhenia, nebo — a&nbsp;to častěji — jde o&nbsp;<b>smíšené komplexy</b> typu <span class="chem">[FeH(CO)₄]⁻</span> nebo <span class="chem">[Re(C₅H₅)₂H]</span>. Mnohé z&nbsp;nich mají <b>velmi významné katalytické účinky</b> a&nbsp;stojí za dnešní homogenní katalýzou hydrogenací a&nbsp;hydroformylací v&nbsp;průmyslu.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>LiAlH₄ nebo NaBH₄? Rozhodovač podle substrátu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="hkSel">Co chcete zredukovat</label>
+          <select id="hkSel"></select>
+        </div>
+        <div class="svgwrap" id="hkWrap" style="min-height:250px"></div>
+        <div class="grid2" style="margin-top:1.1rem">
+          <div class="readout" id="hkRo1"></div>
+          <div class="readout" id="hkRo2"></div>
+        </div>
+        <p class="eq" id="hkEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="hkNote">Projděte substráty odshora dolů. Uvidíte hranici: <b>NaBH₄ zvládne aldehydy a&nbsp;ketony, ale na ester ani na karboxylovou kyselinu nestačí.</b> LiAlH₄ zvládne skoro všechno — a&nbsp;právě proto se hodí hůř, když chcete v&nbsp;molekule něco zachovat.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Oxidační číslo vodíku a&nbsp;typ hydridu — dvanáct otázek se skóre</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="margin-bottom:1rem">
+          <div class="readout"><span class="k">Otázka</span><span class="v"><span id="drQn">1</span>&thinsp;/&thinsp;<span id="drQtot">12</span></span><span class="h">projděte všechny</span></div>
+          <div class="readout"><span class="k">Správně</span><span class="v" id="drScore">0</span><span class="h">devět a&nbsp;víc znamená, že látku máte</span></div>
+          <div class="readout"><span class="k">Jak to funguje</span><span class="v">rozhodni</span><span class="h">nejdřív si najděte elektronegativitu partnera</span></div>
+        </div>
+        <p class="eq" id="drTask" style="margin-bottom:1rem"></p>
+        <div class="grid2" id="drOpts" style="margin-bottom:1rem"></div>
+        <div class="explain" id="drExplain" style="display:none"></div>
+        <div class="quiz-foot" style="margin-top:1rem">
+          <button class="btn btn-primary" type="button" id="drNext">Další otázka</button>
+          <button class="btn" type="button" id="drReset">Začít znovu</button>
+        </div>
+      </div>
+      <div class="panel-note">Postup je pokaždé stejný: <b>najděte elektronegativitu partnera</b>, porovnejte ji s&nbsp;2,20 pro vodík a&nbsp;podle znaménka rozdílu rozhodněte o&nbsp;oxidačním čísle. Pak se podle polohy prvku v&nbsp;tabulce zeptejte, jestli je vazba iontová, kovalentní, nebo kovová.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.1 · kolik vodíku z&nbsp;hydrolitu</span>
+          <p>Kolik gramů hydridu vápenatého je potřeba k&nbsp;přípravě 10,0 dm³ vodíku za normálních podmínek? Kolik gramů vody se přitom spotřebuje? <span class="q">M</span>(CaH₂) = 42,09 g·mol⁻¹, <span class="q">V</span>ₘ = 22,41 dm³·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Vyčíslená rovnice — pozor na dvojku u&nbsp;vodíku:</p>
+              <p class="eq"><span class="chem">CaH₂ + 2 H₂O → Ca(OH)₂ + 2 H₂</span></p>
+              <p>Z&nbsp;jednoho molu hydridu tedy vzniknou <b>dva moly</b> vodíku, protože dva atomy vodíku dodá hydrid a&nbsp;další dva voda.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(H₂) = 10,0 / 22,41 = <b>0,4462 mol</b></p>
+              <p class="eq"><span class="q">n</span>(CaH₂) = 0,4462 / 2 = <b>0,2231 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(CaH₂) = 0,2231 · 42,09 = <b>9,39 g</b></p>
+              <p class="eq"><span class="q">n</span>(H₂O) = 2 · 0,2231 = 0,4462 mol &nbsp;→&nbsp; <span class="q">m</span>(H₂O) = 0,4462 · 18,02 = <b>8,04 g</b></p>
+              <span class="result">9,39 g CaH₂ a 8,04 g vody dá 10,0 dm³ vodíku</span>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Srovnání pro představu: kdybyste chtěli stejný objem vodíku ze zinku a&nbsp;kyseliny, potřebovali byste 0,446 mol Zn, tedy <b>29,2 g</b> zinku. Hydrid vápenatý je tedy třikrát „vydatnější“ na jednotku hmotnosti — proto se používá v&nbsp;polních podmínkách, kde se každý kilogram počítá.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.2 · předpovězte typ hydridu</span>
+          <p>Rozhodněte, jaký typ hydridu vznikne u&nbsp;prvků <b>Rb</b>, <b>Se</b>, <b>Zr</b> a&nbsp;<b>Ga</b>, a&nbsp;u&nbsp;každého uveďte jednu předpovídanou vlastnost. Elektronegativity: Rb 0,82; Se 2,55; Zr 1,33; Ga 1,81; H 2,20.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Rozhodovací postup ve dvou krocích: <b>(a)</b> kde prvek v&nbsp;tabulce leží, <b>(b)</b> jaký je rozdíl elektronegativit.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Rb</b> — alkalický kov, Δ<span class="q">X</span> = 0,82 − 2,20 = −1,38 → <b>iontový hydrid RbH</b>. Předpověď: bílá krystalická látka, s&nbsp;vodou prudce reaguje za vývoje H₂, na vzduchu se může vznítit.</p>
+              <p><b>Se</b> — nekov 16. skupiny, Δ<span class="q">X</span> = +0,35 → <b>kovalentní molekulový hydrid H₂Se</b>. Předpověď: jedovatý plyn s&nbsp;nízkou teplotou varu, ve vodě slabě kyselá reakce.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>Zr</b> — přechodný kov 4. skupiny → <b>kovový hydrid ZrH₂ s&nbsp;proměnným složením</b>. Předpověď: pevná látka kovového vzhledu, vede proud, s&nbsp;vodou nereaguje.</p>
+              <p><b>Ga</b> — kov 13. skupiny, Δ<span class="q">X</span> = −0,39 → <b>polymerní kovalentní hydrid (gallan Ga₂H₆)</b>. Předpověď: elektronově deficitní molekula s&nbsp;třístředovými vazbami Ga–H–Ga, nízká teplota varu, málo stálý.</p>
+              <span class="result">RbH iontový · H₂Se kovalentní · ZrH₂ kovový · Ga₂H₆ polymerní kovalentní</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.3 · vodík z&nbsp;tetrahydridoboritanu</span>
+          <p>V&nbsp;nouzovém generátoru se rozkládá 5,00 g NaBH₄ okyselenou vodou podle rovnice <span class="chem">NaBH₄ + 2 H₂O → NaBO₂ + 4 H₂</span>. Jaký objem vodíku (za normálních podmínek) vznikne a&nbsp;jaká je hmotnostní výtěžnost vodíku z&nbsp;této látky? <span class="q">M</span>(NaBH₄) = 37,83 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(NaBH₄) = 5,00 / 37,83 = <b>0,1322 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Podle rovnice připadají na jeden mol boritanu <b>čtyři moly</b> vodíku — dva z&nbsp;hydridu a&nbsp;dva z&nbsp;vody:</p>
+              <p class="eq"><span class="q">n</span>(H₂) = 4 · 0,1322 = <b>0,5287 mol</b></p>
+              <p class="eq"><span class="q">V</span>(H₂) = 0,5287 · 22,41 = <b>11,85 dm³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Hmotnost vzniklého vodíku a&nbsp;výtěžnost vztažená na hmotnost NaBH₄:</p>
+              <p class="eq"><span class="q">m</span>(H₂) = 0,5287 · 2,016 = 1,066 g</p>
+              <p class="eq">1,066 / 5,00 = 0,213 = <b>21,3 hmotnostních %</b></p>
+              <span class="result">11,85 dm³ vodíku, tedy 21,3 % hmotnosti použité látky</span>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kdyby se počítal jen vodík obsažený v&nbsp;samotném NaBH₄, vyšlo by 4·1,008/37,83 = 10,7&nbsp;%. Skutečná výtěžnost je dvojnásobná právě proto, že <b>polovina vodíku pochází z&nbsp;vody</b>. Tuhle „půjčku od vody“ hledejte u&nbsp;každého hydridového generátoru — je to jeho hlavní výhoda.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: hydridy a hydridové komplexy"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

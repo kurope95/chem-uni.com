@@ -1,0 +1,409 @@
+  <style>
+/* ============================================================
+   ZLOMKY A ZÁVORKY — pod-modul sekce „Jak počítat chemii“
+   Sazba zlomků je převzatá z hlavní stránky sekce (add_fractions),
+   ať oba dokumenty vypadají úplně stejně.
+   ============================================================ */
+
+/* ---- FRAC-RENDER: dělení jako skutečný zlomek ---- */
+.frac{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  vertical-align:middle;margin:0 .22em;line-height:1.2;text-align:center}
+.frac > .fn{padding:0 .4em .12em}
+.frac > .fd{padding:.14em .4em 0;border-top:1.5px solid currentColor}
+.frac .frac{font-size:.94em;margin:0 .14em}
+.cs-line,.eq{line-height:1.9}
+.eq .frac{line-height:1.15;font-size:1.02em}
+.eq .frac > .fd{border-top-width:1.5px}
+.cs-line .frac{line-height:1.15}
+@media print{ .frac > .fd{border-top:1.5px solid #000} }
+
+/* ---- zvýraznění toho, co zlomková čára uzávorkovala ---- */
+.frac > .fn.hl,.frac > .fd.hl{background:var(--accent-soft);border-radius:6px}
+.frac > .fd.hl{border-top-color:var(--accent)}
+.addb{color:var(--accent);font-weight:700}
+.pth{color:var(--ink-3)}
+.hlop{background:var(--accent-soft);color:var(--accent);border-radius:6px;
+  padding:.06em .28em;font-weight:600}
+.gone{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--bad);
+  text-decoration-thickness:2px}
+.keep{color:var(--ok);font-weight:600}
+
+/* ---- vsazený vzorec v běžném textu ---- */
+.fx{font-family:var(--f-mono);font-variant-numeric:lining-nums tabular-nums;
+  white-space:nowrap;font-size:.97em}
+.fx .frac{font-size:.95em}
+
+/* ---- velký vysázený vzorec na střed ---- */
+.bigeq{
+  display:block;text-align:center;font-family:var(--f-mono);
+  font-variant-numeric:lining-nums tabular-nums;font-size:1.22rem;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:12px;
+  padding:1.05rem .9rem;margin:.2rem 0;overflow-x:auto;line-height:1.35;
+}
+.bigeq b{color:var(--accent);font-weight:600}
+.bigeq .lbl,.bigeq[data-lbl]::before{
+  display:block;font-family:var(--f-cond);font-weight:600;font-size:.7rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.5rem;
+}
+.bigeq[data-lbl]::before{content:attr(data-lbl)}
+
+/* ---- dva zápisy vedle sebe s relací mezi nimi ---- */
+.twoup{
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  gap:.7rem;align-items:center;margin:.2rem 0;
+}
+.tu-cell{
+  border:1px solid var(--line);border-radius:11px;background:var(--surface);
+  padding:.85rem .9rem;min-width:0;overflow-x:auto;text-align:center;
+  font-family:var(--f-mono);font-size:1.04rem;color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.tu-cell .cap{
+  display:block;font-family:var(--f-cond);font-weight:600;font-size:.68rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.45rem;
+}
+.tu-cell.ok{border-color:var(--ok);background:var(--ok-soft)}
+.tu-cell.no{border-color:var(--bad);background:var(--bad-soft)}
+.tu-rel{
+  font-family:var(--f-mono);font-size:1.5rem;font-weight:600;color:var(--ink-3);
+  text-align:center;flex:none;
+}
+.tu-rel.ok{color:var(--ok)} .tu-rel.no{color:var(--bad)}
+@media (max-width:640px){
+  .twoup{grid-template-columns:minmax(0,1fr);gap:.45rem}
+  .tu-rel{font-size:1.15rem}
+}
+
+/* ---- řádek s rovnicí, kterou sazeč zlomků prochází ----
+   Blok s vlastním svislým odsazením: vnořený zlomek je vysoký přes tři
+   řádky, takže by se v textu odděleném jen <br> dotýkal sousedního. */
+/* vsazený zlomek v běžném textu potřebuje svislou vůli, jinak se dva
+   zlomky na sousedních řádcích odstavce dotknou */
+.fx .frac{margin-top:.28em;margin-bottom:.28em}
+
+.fline{display:block;margin:.55em 0;line-height:1.3;
+  font-family:var(--f-mono);font-variant-numeric:lining-nums tabular-nums}
+.bq .fline:first-child{margin-top:0}
+.bq .fline:last-child{margin-bottom:0}
+.bqrow .fline{margin:0}
+
+/* ---- dvojice „tvar na řádku + týž vzorec jako zlomek“ v rámečku ---- */
+.bqrow{display:flex;flex-wrap:wrap;align-items:center;gap:.15rem .6rem;margin:.55em 0}
+.bqrow .bqk{flex:0 0 auto;font-family:var(--f-cond);font-weight:600;font-size:.68rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.bqrow .bqv{min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.12em 0}
+.bqrow .bqe{color:var(--ink-3);font-weight:600}
+.twoup + .twoup{margin-top:.6rem}
+
+/* ---- .eqlin: rovnice, která má zůstat na řádku ----
+   Vypadá jako .eq, ale sazeč zlomků ji neprochází, takže v ní zůstanou
+   vidět závorky. Používá se všude, kde věta mluví o řádkovém zápisu. */
+.eqlin{
+  font-family:var(--f-mono);font-size:1rem;background:var(--surface-2);
+  border:1px solid var(--line);border-left:3px solid var(--ink-3);
+  border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:0;color:var(--ink);
+  overflow-x:auto;font-variant-numeric:lining-nums tabular-nums;line-height:1.65;
+}
+.eqlin b{color:var(--accent);font-weight:600}
+.eqlin + .eq,.eq + .eqlin,.eqlin + .eqlin{margin-top:.55rem}
+.ddcard .eqlin{background:var(--surface);font-size:.95rem;padding:.5rem .7rem}
+
+/* ---- štítek nad rovnicí; ::before nezasahuje do innerHTML, sazeč o něm neví ---- */
+.eq[data-lbl]::before,.eqlin[data-lbl]::before{
+  display:block;font-family:var(--f-cond);font-weight:600;font-size:.68rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin-bottom:.4rem;content:attr(data-lbl);
+}
+
+/* ---- verdikt pod modelem ---- */
+.verd{
+  display:flex;gap:.5rem;align-items:baseline;font-family:var(--f-ui);font-size:.95rem;
+  line-height:1.55;border-left:3px solid var(--line-strong);padding:.5rem .85rem;
+  color:var(--ink-2);min-height:2.6rem;
+}
+.verd.ok{border-left-color:var(--ok);color:var(--ok)}
+.verd.no{border-left-color:var(--bad);color:var(--bad)}
+.verd b{font-weight:600}
+
+/* ---- tabulka dosazených čísel ---- */
+.subtab{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:.88rem;
+  font-variant-numeric:lining-nums tabular-nums}
+.subtab th,.subtab td{padding:.4rem .55rem;border-bottom:1px solid var(--line);text-align:right;
+  white-space:nowrap}
+.subtab th{font-family:var(--f-cond);font-weight:600;font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.subtab th:first-child,.subtab td:first-child{text-align:left}
+.subtab tr.same td{color:var(--ok)}
+.subtab tr.diff td{color:var(--bad)}
+
+/* ---- krokovač ---- */
+.stepbox{display:flex;flex-direction:column;gap:.55rem}
+.stepline{
+  font-family:var(--f-mono);font-size:1.06rem;line-height:1.9;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:10px;
+  padding:.65rem .9rem;overflow-x:auto;white-space:nowrap;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.stepline.old{font-size:.94rem;color:var(--ink-3);background:transparent;border-color:transparent;padding:.1rem .9rem}
+.stepnote{font-family:var(--f-ui);font-size:.88rem;color:var(--ink-2);line-height:1.55}
+
+/* ---- karty „dělejte / nedělejte“ ---- */
+.ddgrid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(310px,100%),1fr));margin-top:1rem}
+.ddcard{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  padding:.95rem 1.05rem;display:flex;flex-direction:column;gap:.55rem;min-width:0}
+.ddcard.no{border-color:var(--bad);background:var(--bad-soft)}
+.ddcard.do{border-color:var(--ok);background:var(--ok-soft)}
+.ddcard .ddh{display:flex;gap:.45rem;align-items:baseline;font-family:var(--f-ui);
+  font-weight:700;font-size:.98rem;line-height:1.35}
+.ddcard.no .ddh{color:var(--bad)} .ddcard.do .ddh{color:var(--ok)}
+.ddcard.no .ddh::before{content:"✕";font-weight:700;flex:none}
+.ddcard.do .ddh::before{content:"✓";font-weight:700;flex:none}
+.ddcard .ddb{font-family:var(--f-ui);font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+.ddcard .eq{background:var(--surface);font-size:.95rem;padding:.5rem .7rem}
+
+/* ---- trenažéry ---- */
+.drill{display:flex;flex-direction:column;gap:.85rem}
+.drill-q{
+  font-family:var(--f-ui);font-size:1.02rem;font-weight:500;line-height:1.5;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:.85rem 1rem;
+}
+.drill-q .big{
+  display:block;font-family:var(--f-mono);font-size:1.2rem;font-weight:600;
+  color:var(--accent);margin-top:.5rem;overflow-x:auto;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.drill-q .big .frac{color:var(--accent)}
+.drill-opts{display:grid;gap:.45rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.drill-opt{
+  font-family:var(--f-mono);font-size:1rem;font-weight:500;padding:.75rem .8rem;min-height:52px;
+  border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);color:var(--ink);
+  cursor:pointer;text-align:center;transition:background .14s,border-color .14s;
+  font-variant-numeric:lining-nums tabular-nums;overflow-x:auto;
+}
+.drill-opt:hover{background:var(--surface-2);border-color:var(--accent)}
+.drill-opt.ok{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:600}
+.drill-opt.no{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);font-weight:600}
+.drill-fb{
+  font-family:var(--f-ui);font-size:.9rem;line-height:1.6;color:var(--ink-2);
+  border-left:3px solid var(--line-strong);padding:.4rem .8rem;min-height:2.4rem;
+}
+.drill-fb.ok{border-left-color:var(--ok)}
+.drill-fb.no{border-left-color:var(--bad)}
+.drill-bar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.drill-score{
+  font-family:var(--f-mono);font-size:.88rem;font-weight:600;padding:.45rem .8rem;
+  border-radius:9px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---- kartičky převodů (jednotky, exponenty) ---- */
+.convgrid{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}
+.convcell{
+  border:1px solid var(--line);border-radius:10px;padding:.6rem .75rem;background:var(--surface-2);
+  display:flex;flex-direction:column;gap:.2rem;min-width:0;
+}
+.convcell .cu{
+  font-family:var(--f-cond);font-weight:600;font-size:.68rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.convcell .cv{
+  font-family:var(--f-mono);font-size:1.05rem;font-weight:500;color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;overflow-x:auto;white-space:nowrap;
+  min-height:1.9rem;display:flex;align-items:center;
+}
+.convcell.hi{background:var(--accent-soft);border-color:var(--accent)}
+.convcell.hi .cv{color:var(--accent);font-weight:600}
+
+/* ---- mřížka „takhle ne / takhle ano“ ---- */
+.vsgrid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));align-items:start}
+.vscol{display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.vshead{display:flex;align-items:center;gap:.5rem;font-family:var(--f-ui);font-weight:700;font-size:1rem}
+.vshead.bad{color:var(--bad)} .vshead.good{color:var(--ok)}
+
+/* ============================================================
+   VÝPOČTOVÝ LIST — stejná komponenta jako na hlavní stránce sekce
+   ============================================================ */
+.calcsheet{
+  counter-reset:csb;
+  border:1px solid var(--line-strong);border-radius:14px;background:var(--surface);
+  box-shadow:var(--shadow-1);overflow:hidden;margin:1.35rem 0;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.cs-head{
+  display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap;
+  padding:.7rem 1.15rem;background:
+    repeating-linear-gradient(0deg,transparent 0 15px,var(--grid) 15px 16px),
+    repeating-linear-gradient(90deg,transparent 0 15px,var(--grid) 15px 16px),
+    var(--surface-2);
+  border-bottom:2px solid var(--line-strong);
+}
+.cs-head .cs-id{
+  font-family:var(--f-cond);font-weight:700;font-size:.74rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);white-space:nowrap;
+}
+.cs-head .cs-topic{
+  font-family:var(--f-ui);font-size:.94rem;font-weight:600;color:var(--ink);
+  letter-spacing:-.012em;flex:1;min-width:120px;line-height:1.35;
+}
+.cs-head .cs-kind{
+  font-family:var(--f-cond);font-weight:600;font-size:.66rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-strong);
+  border-radius:99px;padding:.16rem .5rem;white-space:nowrap;
+}
+.cs-task{
+  padding:.8rem 1.15rem;font-family:var(--f-ui);font-size:.95rem;line-height:1.55;
+  color:var(--ink);background:var(--surface);border-bottom:1px solid var(--line);
+}
+.cs-block{
+  display:grid;grid-template-columns:6.9rem minmax(0,1fr);gap:.3rem 1.1rem;
+  padding:.8rem 1.15rem;border-top:1px solid var(--line);align-items:start;
+}
+.cs-block:first-child{border-top:0}
+.cs-lbl{
+  font-family:var(--f-cond);font-weight:700;font-size:.7rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);line-height:1.5;
+  display:flex;align-items:baseline;gap:.4rem;padding-top:.12rem;
+}
+.cs-lbl::before{
+  counter-increment:csb;content:counter(csb);
+  font-family:var(--f-mono);font-size:.66rem;font-weight:600;letter-spacing:0;
+  width:1.15rem;height:1.15rem;border-radius:50%;flex:none;
+  background:var(--surface-3);color:var(--ink-3);
+  display:inline-grid;place-items:center;transform:translateY(.1rem);
+}
+.cs-rows{display:flex;flex-direction:column;gap:.26rem;min-width:0}
+.cs-row{
+  display:grid;grid-template-columns:4.6rem minmax(0,1fr) auto;
+  gap:.1rem .6rem;align-items:baseline;
+}
+.cs-sym{
+  font-family:var(--f-ui);font-style:italic;font-weight:600;font-size:1rem;
+  color:var(--ink);text-align:right;white-space:nowrap;
+}
+.cs-sym sub,.cs-sym sup{font-style:normal}
+.cs-val{
+  font-family:var(--f-mono);font-size:.95rem;color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;line-height:1.6;min-width:0;
+}
+.cs-conv{color:var(--accent);font-weight:500}
+.cs-note{
+  font-family:var(--f-ui);font-size:.8rem;color:var(--ink-3);
+  text-align:right;line-height:1.45;font-style:italic;
+}
+.cs-line{
+  font-family:var(--f-mono);font-size:.97rem;line-height:1.75;color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;overflow-x:auto;
+  padding:.05rem 0;white-space:nowrap;
+}
+.cs-line b{color:var(--accent);font-weight:600}
+.cs-line.wrap{white-space:normal}
+.cs-line.units{
+  color:var(--endo);font-size:.9rem;background:var(--endo-soft);
+  border-radius:7px;padding:.3rem .6rem;display:block;margin-top:.15rem;
+  white-space:normal;overflow-wrap:anywhere;line-height:1.55;
+}
+.cs-line.units b{color:var(--endo)}
+.cs-hint{
+  font-family:var(--f-ui);font-size:.8rem;color:var(--ink-3);line-height:1.5;
+  margin-top:.18rem;font-style:italic;
+}
+.cs-block.find{background:var(--surface-2)}
+.cs-block.find .cs-val{color:var(--accent);font-weight:600}
+.cs-block.res{
+  border-top:2px solid var(--line-strong);background:var(--surface-2);
+  padding-top:.95rem;padding-bottom:.95rem;
+}
+.cs-block.res .cs-lbl{color:var(--accent)}
+.cs-block.res .cs-lbl::before{background:var(--accent);color:var(--accent-ink)}
+.cs-ans{font-family:var(--f-ui);font-size:.99rem;line-height:1.6;color:var(--ink)}
+.cs-hi{
+  font-family:var(--f-mono);font-size:1.02rem;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border-radius:7px;padding:.1rem .45rem;
+  white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;
+}
+.cs-block.chk{background:var(--endo-soft);border-top:1px dashed var(--line-strong)}
+.cs-block.chk .cs-lbl{color:var(--endo)}
+.cs-block.chk .cs-lbl::before{background:var(--endo);color:var(--surface)}
+.cs-chk{font-family:var(--f-ui);font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+.calcsheet.bad{border-color:var(--bad);background:var(--bad-soft)}
+.calcsheet.bad .cs-head{border-bottom-color:var(--bad);background:var(--bad-soft)}
+.calcsheet.bad .cs-head .cs-id{color:var(--bad)}
+.calcsheet.bad .cs-block{border-top-color:var(--bad);opacity:.96}
+.cs-flaw{
+  font-family:var(--f-ui);font-size:.82rem;line-height:1.5;color:var(--bad);
+  display:flex;gap:.4rem;align-items:flex-start;margin-top:.2rem;
+}
+.cs-flaw::before{content:"✕";font-weight:700;flex:none}
+.cs-good{
+  font-family:var(--f-ui);font-size:.82rem;line-height:1.5;color:var(--ok);
+  display:flex;gap:.4rem;align-items:flex-start;margin-top:.2rem;
+}
+.cs-good::before{content:"✓";font-weight:700;flex:none}
+.vsgrid .calcsheet .cs-block{grid-template-columns:minmax(0,1fr);gap:.3rem;padding:.65rem .9rem}
+.vsgrid .calcsheet .cs-lbl{padding-top:0}
+.vsgrid .calcsheet .cs-line,.vsgrid .calcsheet .cs-val{font-size:.9rem}
+.vsgrid .calcsheet .cs-row{grid-template-columns:4rem minmax(0,1fr)}
+.vsgrid .calcsheet .cs-note{grid-column:2;text-align:left;margin-top:-.12rem}
+@media (max-width:700px){
+  .cs-block{grid-template-columns:minmax(0,1fr);gap:.34rem}
+  .cs-lbl{padding-top:0}
+  .cs-row{grid-template-columns:3.6rem minmax(0,1fr)}
+  .cs-note{grid-column:2;text-align:left;margin-top:-.1rem}
+  .cs-line{font-size:.88rem}
+  .bigeq{font-size:1.05rem;padding:.85rem .6rem}
+  .stepline{font-size:.94rem}
+}
+
+/* ---- vstupní pole převodníku ---- */
+.exin{
+  font-family:var(--f-mono);font-size:1.02rem;padding:.6rem .8rem;min-height:46px;width:100%;
+  border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);color:var(--ink);
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.exin:focus{border-color:var(--accent)}
+.chipbar{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.55rem}
+.chipbar button{
+  font-family:var(--f-mono);font-size:.85rem;padding:.35rem .6rem;min-height:34px;
+  border:1px solid var(--line);border-radius:8px;background:var(--surface-2);color:var(--ink-2);
+  cursor:pointer;
+}
+.chipbar button:hover{border-color:var(--accent);color:var(--ink)}
+.err{color:var(--bad);font-family:var(--f-ui);font-size:.9rem}
+
+/* ---- tisk ---- */
+@media print{
+  .rail,.topbar,.toast,.quiz,.chapter-done,.paths,.timeplan,.skip,.panel .ctl,
+  .panel-note,.drill-bar,.segmented,.btn,.chipbar{display:none!important}
+  .app{display:block}
+  main{padding:0;max-width:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  section.chapter{page-break-before:always;border-top:0;padding:0 0 1.5rem}
+  .worked-steps{display:flex!important}
+  .calcsheet{break-inside:avoid;page-break-inside:avoid;box-shadow:none;
+    border:1.2pt solid #000;background:#fff;border-radius:0;margin:.6rem 0}
+  .cs-head{background:#fff;border-bottom:1pt solid #000}
+  .cs-head .cs-id,.cs-head .cs-topic,.cs-head .cs-kind{color:#000}
+  .cs-block{border-top:.5pt solid #888;background:#fff!important;break-inside:avoid}
+  .cs-lbl,.cs-lbl::before{color:#000;background:#fff;border:0}
+  .cs-lbl::before{border:.5pt solid #000}
+  .cs-sym,.cs-val,.cs-line,.cs-ans,.cs-chk,.cs-note{color:#000}
+  .cs-conv,.cs-line b,.cs-hi{color:#000;background:#fff;font-weight:700;text-decoration:underline}
+  .cs-line{white-space:normal}
+  .bigeq,.tu-cell,.stepline,.eqlin{background:#fff;border:.5pt solid #000;color:#000}
+  .frac > .fn.hl,.frac > .fd.hl{background:#fff}
+  .callout,.tablewrap,.worked,.readout,.ddcard{break-inside:avoid;page-break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+  
+/* Zlomek v otázce je vyšší než řádek, na úzkém displeji proto naráží
+   do zlomku na dalším řádku. Řádek musí být dost vysoký i pro složený zlomek. */
+.qbody{line-height:1.75}
+.qbody .frac{line-height:1.12}
+@media (max-width:760px){
+  .qbody{line-height:3.1}
+  .qbody .frac{font-size:.88em}
+  /* dvojitě vnořený zlomek (zlomek ve zlomku ve zlomku) je nejvyšší případ */
+  .qbody .frac .frac{font-size:.8em}
+  .qbody:has(.frac .frac){line-height:4.1}
+}
+</style>

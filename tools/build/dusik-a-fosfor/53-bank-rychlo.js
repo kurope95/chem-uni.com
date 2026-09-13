@@ -1,0 +1,42 @@
+/* ============================================================
+   28 · BANKA OTÁZEK — kontrolní test rychlokurzu
+   ============================================================ */
+
+BANK.rychlo = [
+ {t:"single", q:"Kolik valenčních elektronů mají prvky skupiny 15 a&nbsp;jak jsou rozděleny?",
+  o:["Pět: dva v orbitalu s a tři nepárové v orbitalech p","Pět: všech pět nepárových v orbitalech p","Tři: všechny nepárové v orbitalech p","Sedm: dva v orbitalu s a pět v orbitalech p"], c:0,
+  e:"Konfigurace ns²np³ znamená zaplněný orbital s a tři nepárové elektrony v orbitalech p. Z toho plynou tři jednoduché vazby a jeden volný elektronový pár — základ celého chování obou prvků."},
+ {t:"single", q:"Jaká je maximální vaznost dusíku a&nbsp;fosforu?",
+  o:["Obojí 3","Dusík 4, fosfor 6","Dusík 5, fosfor 5","Dusík 6, fosfor 4"], c:1,
+  e:"Dusík má valenční sféru jen z orbitalů 2s a 2p, tedy nejvýš čtyři vazebné páry — vaznosti 4 dosáhne například v NH₄⁺. Fosfor je větší a má dostupné orbitaly 3d, takže zvládne PCl₅ (vaznost 5) i [PCl₆]⁻ (vaznost 6)."},
+ {t:"single", q:"Proč je dusík za běžných podmínek netečný?",
+  o:["Protože nemá volné elektrony","Protože jsou jeho reakce nevýhodné","Protože mají jeho reakce vysokou aktivační energii, i když jsou často výhodné","Protože je lehčí než vzduch"], c:2,
+  e:"Netečnost dusíku je kinetická, ne termodynamická. Trojná vazba s energií 945 kJ·mol⁻¹ se musí nejdřív roztrhnout, a to je vysoká bariéra. Katalyzátor ji sníží, aniž by změnil termodynamiku reakce."},
+ {t:"single", q:"Proč tvoří fosfor <span class=\"chem\">P₄</span>, ale dusík <span class=\"chem\">N₂</span>?",
+  o:["Protože je fosfor těžší","Protože fosfor nemá volný elektronový pár","Protože dusík nemá orbitaly d","U fosforu jsou tři jednoduché vazby výhodnější než jedna trojná, u dusíku naopak"], c:3,
+  e:"Tři vazby P—P dají 603 kJ·mol⁻¹ proti 490 kJ·mol⁻¹ u trojné vazby P≡P, takže jednoduché vazby vyhrávají a vzniká tetraedr. U dusíku je poměr obrácený: 489 proti 945 kJ·mol⁻¹, a proto zůstane u dvouatomové molekuly."},
+ {t:"single", q:"Která modifikace fosforu je samozápalná a&nbsp;prudce jedovatá?",
+  o:["Bílý","Červený","Černý","Všechny stejně"], c:0,
+  e:"Bílý fosfor je tvořen molekulami P₄ s vazebným úhlem jen 60°, takže jsou vazby napjaté a molekula sedí energeticky vysoko. Na vzduchu se vznítí už kolem 34 °C. Červený i černý fosfor jsou polymerní, stálé a netoxické."},
+ {t:"single", q:"Jaké podmínky se používají v&nbsp;Haberově procesu?",
+  o:["Pokojová teplota a atmosférický tlak","400 až 500 °C, 15 až 30 MPa, železný katalyzátor","900 °C a atmosférický tlak, platinový katalyzátor","−50 °C a 50 MPa, bez katalyzátoru"], c:1,
+  e:"Reakce je exotermická a zmenšuje počet částic, takže rovnováze prospívá nízká teplota a vysoký tlak. Za nízké teploty ale reakce neběží, proto se volí kompromis kolem 450 °C. Podmínky s platinou při 900 °C patří Ostwaldovu procesu."},
+ {t:"single", q:"Proč vaří fosfan o&nbsp;54 °C níž než amoniak, přestože je skoro dvakrát těžší?",
+  o:["Protože je fosfan iontový","Protože má fosfan menší molekuly","Mezi molekulami amoniaku působí vodíkové vazby, u fosfanu ne","Protože se fosfan rozkládá už při nízké teplotě"], c:2,
+  e:"Dusík je dost elektronegativní na tvorbu vodíkových vazeb, fosfor ne — jeho elektronegativita je téměř stejná jako u vodíku. Kdykoli teplota varu neodpovídá molární hmotnosti, hledejte právě vodíkovou vazbu."},
+ {t:"single", q:"Který oxid dusíku je hnědý a&nbsp;za chladu dimeruje na bezbarvý plyn?",
+  o:["N₂O","NO","N₂O₅","NO₂"], c:3,
+  e:"Oxid dusičitý je hnědý radikál s nepárovým elektronem; ochlazením se dva radikály spárují a vznikne bezbarvý diamagnetický N₂O₄. N₂O i N₂O₅ jsou bezbarvé a NO je sice radikál, ale bezbarvý — hnedne až po oxidaci na NO₂."},
+ {t:"single", q:"Co vzniká reakcí kovu s&nbsp;kyselinou dusičnou?",
+  o:["Vždycky vodík","Podle koncentrace a kovu buď NO₂, NO, N₂O, nebo amonná sůl — nikdy vodík","Vždycky oxid dusný","Vždycky jen sůl a voda"], c:1,
+  e:"Kyselina dusičná oxiduje dusičnanovým aniontem, ne protonem, takže vodík nevzniká nikdy. Koncentrovaná dává NO₂, zředěná NO a velmi zředěná s neušlechtilým kovem až amonnou sůl. Hliník, železo a chrom se v koncentrované kyselině pasivují."},
+ {t:"single", q:"Kolikasytná je kyselina fosforitá <span class=\"chem\">H₃PO₃</span>?",
+  o:["Trojsytná","Jednosytná","Dvojsytná","Čtyřsytná"], c:2,
+  e:"Sytnost se čte ze strukturního vzorce: dva vodíky sedí na kyslících a jeden přímo na fosforu, který se odštěpit nedá. Kyselina je proto dvojsytná a tvoří dvě řady solí. Odpověď „trojsytná“ je nejčastější chyba celého tématu."},
+ {t:"single", q:"Jaká je chemická podstata výroby superfosfátu z&nbsp;apatitu?",
+  o:["Redukce fosforu z +V na 0","Oxidace fosforu z +III na +V","Neutralizace kyseliny fosforečné","Převedení nerozpustného fosforečnanu na rozpustnější dihydrogenfosforečnan"], c:3,
+  e:"Oxidační číslo fosforu se při výrobě vůbec nemění, zůstává +V — nejde tedy o redoxní děj. Mění se jen rozpustnost, aby rostlina fosfor dokázala přijmout: Ca₃(PO₄)₂ + 2 H₂SO₄ → Ca(H₂PO₄)₂ + 2 CaSO₄."},
+ {t:"single", q:"Co je efekt inertního páru a&nbsp;kde se ve skupině 15 projeví nejvíc?",
+  o:["Pár ns² se u těžkých prvků vazby neúčastní; nejvíc u bismutu, kde je stálý stav +III","Volný pár u dusíku nereaguje; projeví se u amoniaku","Elektrony v orbitalech p jsou u lehkých prvků inertní; projeví se u fosforu","Pár elektronů ve vazbě π je inertní; projeví se u NO"], c:0,
+  e:"U těžkých prvků bloku p se pár ns² díky relativistickému smrštění orbitalu s a špatnému stínění drží tak pevně, že se vazby neúčastní. Prvek odevzdá jen tři elektrony z orbitalů p a zůstane v +III. Proto je NaBiO₃ s bismutem v +V tak dravé oxidační činidlo."}
+];

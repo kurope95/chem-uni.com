@@ -1,0 +1,128 @@
+
+  <!-- ============ TAHÁK ============ -->
+  <section class="chapter" id="k10" data-title="Tahák a slovníček">
+    <div class="prose wide">
+      <span class="eyebrow">Příloha A</span>
+      <h2>Tahák — všechny vzorce na jedné obrazovce</h2>
+      <p class="lead" style="max-width:68ch">Tohle si vytiskněte nebo vyfoťte. Je tu každý vzorec, každá podmínka platnosti a&nbsp;každé číslo, které z&nbsp;tohoto celku potřebujete.</p>
+    </div>
+
+    <div class="cheat">
+      <div class="cheat-card">
+        <h4>Základ — pH, pOH, Kw</h4>
+        <p class="eq">pH = −log[H₃O⁺]&nbsp;&nbsp;[H₃O⁺] = 10⁻ᵖᴴ</p>
+        <p class="eq"><span class="q">K</span><sub>w</sub> = [H₃O⁺][OH⁻] = 1,0·10⁻¹⁴</p>
+        <p class="eq"><b>pH + pOH = 14</b> (25 °C)</p>
+        <p class="eq"><span class="q">K</span><sub>a</sub>·<span class="q">K</span><sub>b</sub> = <span class="q">K</span><sub>w</sub>&nbsp;&nbsp;p<span class="q">K</span><sub>a</sub> + p<span class="q">K</span><sub>b</sub> = 14</p>
+        <ul>
+          <li>log 2 = 0,30 · log 3 = 0,48 · log 5 = 0,70</li>
+          <li><span class="q">c</span> = <span class="q">m</span>·10⁻ⁿ → pH = <span class="q">n</span> − log <span class="q">m</span></li>
+          <li>1 jednotka pH = 10× koncentrace</li>
+        </ul>
+      </div>
+
+      <div class="cheat-card">
+        <h4>pH podle typu roztoku — hlavní karta</h4>
+        <p style="font-family:var(--f-ui);font-size:.86rem;color:var(--ink-2)">Silná kyselina / silná zásada:</p>
+        <p class="eq">pH = −log <span class="q">c</span>&nbsp;&nbsp;·&nbsp;&nbsp;pOH = −log(<span class="q">n</span><sub>OH</sub>·<span class="q">c</span>)</p>
+        <p style="font-family:var(--f-ui);font-size:.86rem;color:var(--ink-2)">Slabá kyselina / slabá zásada:</p>
+        <p class="eq">pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>)<br>pH = 14 − ½(p<span class="q">K</span><sub>b</sub> − log <span class="q">c</span>)</p>
+        <p style="font-family:var(--f-ui);font-size:.86rem;color:var(--ink-2)">Soli:</p>
+        <p class="eq">anion slabé kys.: pH = 7 + ½(p<span class="q">K</span><sub>a</sub> + log <span class="q">c</span>)<br>kation slabé zás.: pH = 7 − ½(p<span class="q">K</span><sub>b</sub> + log <span class="q">c</span>)<br>obojí slabé: pH = 7 + ½(p<span class="q">K</span><sub>a</sub> − p<span class="q">K</span><sub>b</sub>)<br>amfolyt: pH = ½(p<span class="q">K</span><sub>a1</sub> + p<span class="q">K</span><sub>a2</sub>)</p>
+        <p style="font-family:var(--f-ui);font-size:.86rem;color:var(--ink-2)">Pufr:</p>
+        <p class="eq"><b>pH = p<span class="q">K</span><sub>a</sub> + log([A⁻]/[HA])</b></p>
+      </div>
+
+      <div class="cheat-card">
+        <h4>Slabé elektrolyty a&nbsp;aproximace</h4>
+        <p class="eq"><span class="q">K</span><sub>a</sub> = <span class="q">x</span>²/(<span class="q">c</span> − <span class="q">x</span>) &nbsp;→&nbsp; <span class="q">x</span> = √(<span class="q">K</span><sub>a</sub>·<span class="q">c</span>)</p>
+        <p class="eq">α = <span class="q">x</span>/<span class="q">c</span> = √(<span class="q">K</span><sub>a</sub>/<span class="q">c</span>)<br><span class="q">K</span><sub>a</sub> = α²<span class="q">c</span>/(1 − α) &nbsp;<span style="color:var(--ink-3)">Ostwald</span></p>
+        <ul>
+          <li><b>5% pravidlo:</b> <span class="q">x</span>/<span class="q">c</span> &lt; 0,05 (tj. <span class="q">c</span>/<span class="q">K</span><sub>a</sub> &gt; 400) → aproximace platí</li>
+          <li>jinak kvadraticky: <span class="q">x</span>² + <span class="q">K</span><sub>a</sub><span class="q">x</span> − <span class="q">K</span><sub>a</sub><span class="q">c</span> = 0</li>
+          <li>zředění zvyšuje α, snižuje [H₃O⁺]</li>
+          <li>pufr: kapacita β ≈ 2,3·<span class="q">c</span><sub>HA</sub><span class="q">c</span><sub>A</sub>/(<span class="q">c</span><sub>HA</sub>+<span class="q">c</span><sub>A</sub>)</li>
+        </ul>
+      </div>
+
+      <div class="cheat-card">
+        <h4>Srážecí rovnováhy</h4>
+        <p class="eq">AB: <span class="q">K</span><sub>sp</sub> = <span class="q">s</span>² → <span class="q">s</span> = √<span class="q">K</span><sub>sp</sub><br>AB₂, A₂B: <span class="q">K</span><sub>sp</sub> = 4<span class="q">s</span>³<br>AB₃: <span class="q">K</span><sub>sp</sub> = 27<span class="q">s</span>⁴<br>A₃B₂: <span class="q">K</span><sub>sp</sub> = 108<span class="q">s</span>⁵</p>
+        <p class="eq"><span class="q">Q</span> &gt; <span class="q">K</span><sub>sp</sub> → <b>sráží se</b><br><span class="q">Q</span> = <span class="q">K</span><sub>sp</sub> → nasyceno<br><span class="q">Q</span> &lt; <span class="q">K</span><sub>sp</sub> → čirý roztok</p>
+        <p class="eq">společný iont: <span class="q">s</span> = <span class="q">K</span><sub>sp</sub>/[X]<sup>b</sup><br>hydroxid: [M<sup>n+</sup>]<sub>max</sub> = <span class="q">K</span><sub>sp</sub>/[OH⁻]<sup>n</sup></p>
+        <ul><li>do <span class="q">Q</span> koncentrace <b>po zředění</b>: <span class="q">c</span><span class="q">V</span>₁/(<span class="q">V</span>₁+<span class="q">V</span>₂)</li><li>porovnávat podle <span class="q">K</span><sub>sp</sub> jen soli téhož typu</li></ul>
+      </div>
+
+      <div class="cheat-card">
+        <h4>Komplexy</h4>
+        <p class="eq">β = [ML<sub>n</sub>] / ([M]·[L]<sup>n</sup>)<br><span class="q">K</span><sub>nest</sub> = 1/β&nbsp;&nbsp;β = <span class="q">K</span><sub>1</sub>·<span class="q">K</span><sub>2</sub>·…·<span class="q">K</span><sub>n</sub></p>
+        <p class="eq"><b>[M] = <span class="q">c</span>(M) / (β·[L]<sup>n</sup>)</b></p>
+        <p class="eq">rozpouštění sraženiny:<br><b><span class="q">K</span> = <span class="q">K</span><sub>sp</sub> · β</b><br><span class="q">s</span> = √<span class="q">K</span>·<span class="q">c</span><sub>L</sub> / (1 + 2√<span class="q">K</span>)</p>
+        <ul>
+          <li>[Ag(NH₃)₂]⁺ β = 1,6·10⁷ · rozpustí AgCl</li>
+          <li>[Ag(S₂O₃)₂]³⁻ β = 2,9·10¹³ · rozpustí AgBr</li>
+          <li>[Ag(CN)₂]⁻ β = 1,0·10²¹ · rozpustí i AgI</li>
+        </ul>
+      </div>
+
+      <div class="cheat-card">
+        <h4>Klíčová čísla k&nbsp;zapamatování</h4>
+        <ul>
+          <li>0,1 M HCl → pH <span class="mono">1,00</span> · 0,05 M NaOH → <span class="mono">12,70</span></li>
+          <li>0,1 M CH₃COOH → <span class="mono">2,88</span> (p<span class="q">K</span><sub>a</sub> 4,76)</li>
+          <li>0,1 M NH₃ → <span class="mono">11,13</span> (p<span class="q">K</span><sub>b</sub> 4,75)</li>
+          <li>0,1 M CH₃COONa → <span class="mono">8,88</span> · 0,1 M NH₄Cl → <span class="mono">5,13</span></li>
+          <li>acetátový pufr 1 : 1 → <span class="mono">4,76</span> · krev <span class="mono">7,40</span> (20 : 1)</li>
+          <li><span class="q">s</span>(AgCl) = <span class="mono">1,34·10⁻⁵</span> · <span class="q">s</span>(Mg(OH)₂) = <span class="mono">1,12·10⁻⁴</span>, pH <span class="mono">10,35</span></li>
+          <li><span class="q">s</span>(PbI₂) = <span class="mono">1,35·10⁻³</span> · Mg(OH)₂ se sráží od pH <span class="mono">9,37</span></li>
+          <li>[Ag⁺] v 0,01 M [Ag(NH₃)₂]⁺ + 1 M NH₃ = <span class="mono">6,3·10⁻¹⁰</span></li>
+        </ul>
+      </div>
+
+      <div class="cheat-card">
+        <h4>Poznávací znaky v&nbsp;zadání</h4>
+        <ul>
+          <li>„HCl, HNO₃, NaOH“ → silný elektrolyt, jen logaritmus</li>
+          <li>zadané <span class="q">K</span><sub>a</sub>/<span class="q">K</span><sub>b</sub>, jedna látka → odmocnina</li>
+          <li>název soli → hydrolýza, nejdřív <span class="q">K</span><sub>w</sub>/<span class="q">K</span></li>
+          <li><b>dvě</b> látky konjugovaného páru → pufr, HH rovnice</li>
+          <li>„smícháme <span class="q">V</span>₁ a <span class="q">V</span>₂“ silných → nadbytek a zředění</li>
+          <li>„nasycený roztok, rozpustnost“ → <span class="q">K</span><sub>sp</sub></li>
+          <li>„vznikne sraženina?“ → <span class="q">Q</span> vs <span class="q">K</span><sub>sp</sub></li>
+          <li>„v roztoku NaCl“ místo ve vodě → společný iont</li>
+          <li>„nadbytek NH₃“, zadané β → komplex</li>
+        </ul>
+      </div>
+
+      <div class="cheat-card">
+        <h4>Nejčastější chyby</h4>
+        <ul>
+          <li>Odevzdat pOH místo pH u&nbsp;zásad</li>
+          <li>Chybějící <b>2</b> u&nbsp;Ca(OH)₂ a&nbsp;Ba(OH)₂ (Δ = 0,30)</li>
+          <li>[H₃O⁺] = <span class="q">c</span> u&nbsp;slabé kyseliny místo √(<span class="q">K</span><sub>a</sub><span class="q">c</span>)</li>
+          <li>Záměna <span class="q">K</span><sub>a</sub> a&nbsp;p<span class="q">K</span><sub>a</sub> ve vzorci</li>
+          <li>U&nbsp;soli dosadit <span class="q">K</span><sub>a</sub> místo <span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>a</sub></li>
+          <li>Zapomenuté zředění při smíchání roztoků</li>
+          <li><span class="q">s</span> = √<span class="q">K</span><sub>sp</sub> u&nbsp;typu AB₂ (chyba o&nbsp;2 řády)</li>
+          <li>Chybějící mocnina u&nbsp;aniontu v&nbsp;<span class="q">Q</span> nebo u&nbsp;ligandu v&nbsp;β</li>
+          <li>Gramy místo molů (dělit <span class="q">M</span>!)</li>
+          <li>Ekvivalence titrace slabé kyseliny „= 7“</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose wide" style="margin-top:3.2rem">
+      <span class="eyebrow">Příloha B</span>
+      <h2>Slovníček pojmů</h2>
+      <p class="lead" style="max-width:68ch">Každý odborný termín, který v&nbsp;materiálu i&nbsp;ve vaší osnově padl. Klepnutím rozbalíte definici.</p>
+    </div>
+    <div class="gloss" id="glossary"></div>
+
+    <div class="prose" style="margin-top:3.2rem">
+      <h3>Kam pokračovat dál</h3>
+      <p>Tímhle tématem se vaše osnova uzavírá — a&nbsp;stojí za to podívat se, jak do sebe všechno zapadá, protože přijímačky téměř nikdy neptají na jedno téma izolovaně. <b>Termochemie</b> dala odpověď na otázku, kolik energie reakce uvolní nebo spotřebuje, a&nbsp;přes Gibbsovu energii i&nbsp;na to, jestli je reakce vůbec možná; <b>kinetika</b> doplnila, jak rychle proběhne a&nbsp;proč katalyzátor mění rychlost, ale ne rovnováhu. <b>Chemická rovnováha</b> obě dvě spojila: rovnovážná konstanta souvisí s&nbsp;Δ<span class="q">G</span>° a&nbsp;Le Chatelierův princip vysvětluje, proč posun koncentrace nebo teploty přesune rovnováhu — a&nbsp;přesně to jste v&nbsp;této kapitole viděli jako efekt společného iontu, vliv pH na srážení nebo rozpouštění sraženiny komplexací. <b>Elektrochemie</b> je rovnováha přepsaná do potenciálů: Nernstova rovnice má stejný logaritmus jako Hendersonova–Hasselbalchova rovnice a&nbsp;pH-metrie skleněnou elektrodou je přímé měření aktivity H₃O⁺. <b>Acidobazické reakce</b> daly pojmový aparát — Brønstedovy páry, konjugace, síla kyselin — a&nbsp;tenhle poslední díl z&nbsp;něj udělal počítání: <span class="q">K</span><sub>a</sub>, <span class="q">K</span><sub>b</sub>, <span class="q">K</span><sub>w</sub>, <span class="q">K</span><sub>sp</sub> a&nbsp;β jsou pořád tatáž rovnovážná konstanta, jen pro jiný typ děje.</p>
+      <p>Co si zopakovat před přijímačkami, jestli máte omezený čas: <b>za prvé</b> tabulku „pH podle typu roztoku“ z&nbsp;taháku, dokud ji nebudete umět odříkat pozpátku — je to nejčastěji testovaná dovednost celé fyzikální chemie. <b>Za druhé</b> práci s&nbsp;logaritmy zpaměti, protože bez kalkulačky se s&nbsp;dobrým vzorcem a&nbsp;špatným logaritmem stejně nedopočítáte. <b>Za třetí</b> vztah <span class="q">K</span><sub>a</sub>·<span class="q">K</span><sub>b</sub> = <span class="q">K</span><sub>w</sub>, ze kterého plynou úplně všechny výpočty solí. <b>Za čtvrté</b> rozdíl mezi <span class="q">Q</span> a&nbsp;<span class="q">K</span> — v&nbsp;rovnováze, ve srážení i&nbsp;v&nbsp;elektrochemii je to tatáž myšlenka. A&nbsp;<b>za páté</b> si projděte typické chytáky: dvojku u&nbsp;Ca(OH)₂, zředění při smíchání, 5% pravidlo, ekvivalenci slabé kyseliny nad sedmičkou a&nbsp;stechiometrii u&nbsp;<span class="q">K</span><sub>sp</sub>. Kdo tohle má v&nbsp;malíčku, uhraje v&nbsp;početní části testu plný počet bodů — a&nbsp;právě tam se rozhoduje o&nbsp;pořadí.</p>
+    </div>
+
+    <div class="chapter-done" data-done="k10"></div>
+  </section>

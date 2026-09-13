@@ -1,0 +1,253 @@
+  <!-- ============ KAPITOLA 7 ============ -->
+  <section class="chapter" id="k7" data-title="Vlastnosti ze struktury: polarita, rozpustnost, mísitelnost">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, bod 5</span>
+      <h2>Posuzování vlastností látek podle struktury</h2>
+      <p class="lead">Tady se všechno spojí do jednoho řetězu: <b>tvar → polarita → mezimolekulové síly → teplota varu, rozpustnost, mísitelnost</b>. Kdo umí tenhle řetěz, předpoví vlastnosti látky, kterou nikdy neviděl. Přesně to chtějí přijímačky.</p>
+
+      <h3>Krok 1: polarita molekuly plyne z&nbsp;tvaru</h3>
+      <p>Polární <em>vazba</em> vzniká mezi atomy s&nbsp;různou elektronegativitou (Δχ ≈ 0,4–1,7). Polární <em>molekula</em> je ale něco jiného: musí mít nenulový <b>výsledný dipólový moment</b>, tedy vektorový součet dipólů všech vazeb. A&nbsp;ten závisí na tvaru:</p>
+      <div class="grid2">
+        <div class="callout" style="border-left:3px solid var(--exo);margin:0">
+          <span class="eyebrow" style="color:var(--exo)">Symetrický tvar → nepolární molekula</span>
+          <p>Stejné ligandy v&nbsp;lineárním, trigonálně planárním, tetraedrickém, trigonálně bipyramidálním, oktaedrickém nebo čtvercově planárním uspořádání: dipóly se vyruší. <span class="chem">CO₂</span>, <span class="chem">BF₃</span>, <span class="chem">CH₄</span>, <span class="chem">CCl₄</span>, <span class="chem">PCl₅</span>, <span class="chem">SF₆</span>, <span class="chem">XeF₄</span>, <span class="chem">XeF₂</span>.</p>
+        </div>
+        <div class="callout" style="border-left:3px solid var(--endo);margin:0">
+          <span class="eyebrow" style="color:var(--endo)">Asymetrický tvar → polární molekula</span>
+          <p>Volné páry (lomený, pyramidální, T-tvar, houpačka) nebo různé ligandy poruší symetrii. <span class="chem">H₂O</span> (1,85 D), <span class="chem">NH₃</span> (1,47 D), <span class="chem">SO₂</span> (1,63 D), <span class="chem">CHCl₃</span> (1,04 D), <span class="chem">CH₃Cl</span> (1,87 D), <span class="chem">HCl</span> (1,08 D), <span class="chem">SF₄</span>.</p>
+        </div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nejčastější chyba</span>
+        <p>„CO₂ má polární vazby, tedy je polární.“ Ne — vazby C=O jsou polární (Δχ = 0,89), ale míří přesně proti sobě a&nbsp;vyruší se. CO₂ je <b>nepolární</b>, proto se ve vodě rozpouští špatně a&nbsp;proto je plyn až do −78 °C. Vždycky nejdřív tvar, pak součet.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Polarita podle tvaru: vektory dipólů vazeb a&nbsp;jejich součet</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="polMol">Molekula</label>
+          <select id="polMol"></select>
+        </div>
+        <div class="svgwrap" id="polWrap" style="min-height:330px"></div>
+        <div class="grid2" style="margin-top:1rem;gap:.6rem">
+          <div class="readout" id="polRo1"></div>
+          <div class="readout" id="polRo2"></div>
+          <div class="readout" id="polRo3"></div>
+          <div class="readout" id="polRo4"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="polNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>Krok 2: polarita určuje mezimolekulové síly a&nbsp;teplotu varu</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Síla</th><th>Mezi kým</th><th class="n">Energie</th><th>Důsledek</th></tr></thead>
+          <tbody>
+            <tr><td><b>disperzní (Londonovy)</b></td><td>všemi molekulami; rostou s&nbsp;počtem elektronů (velikostí) a&nbsp;plochou kontaktu</td><td class="n">0,1–10 kJ·mol⁻¹</td><td>He &lt; Ne &lt; Ar &lt; Kr; F₂ &lt; Cl₂ &lt; Br₂ &lt; I₂; pentan &lt; hexan &lt; heptan; rozvětvení t.v. snižuje</td></tr>
+            <tr><td><b>dipól–dipól</b></td><td>polárními molekulami</td><td class="n">1–10 kJ·mol⁻¹</td><td>při podobné hmotnosti polární vře výš: propan −42 °C, aceton 56 °C</td></tr>
+            <tr><td><b>vodíkové můstky</b></td><td>H vázaný na N, O, F ↔ volný pár N, O, F</td><td class="n">10–40 kJ·mol⁻¹</td><td>anomálně vysoké t.v. H₂O, HF, NH₃; ethanol 78 °C vs dimethylether −25 °C; viskozita glycerolu</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Postup při řazení podle teploty varu: nejdřív se ptejte na <b>vodíkové můstky</b> (jsou tam H–O, H–N, H–F?), pak na <b>polaritu</b>, a&nbsp;teprve nakonec na <b>velikost molekuly</b>. U&nbsp;látek se stejným typem sil rozhoduje hmotnost a&nbsp;tvar (delší, méně větvené řetězce mají větší plochu pro disperzní síly). <span class="term">Viskozita</span> sleduje stejnou logiku: glycerol se třemi skupinami OH teče tisíckrát pomaleji než voda.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Trenažér: seřaďte látky podle teploty varu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="bpSet">Sada</label>
+            <select id="bpSet"></select>
+          </div>
+          <div class="ctl">
+            <label>Vyřešené sady</label>
+            <div class="eq" style="margin:0;padding:.55rem .9rem"><b><span id="bpScore">0</span></b> / <span id="bpTot">8</span> &nbsp;<span style="color:var(--ink-3);font-size:.85rem">— pět správných označí kapitolu</span></div>
+          </div>
+        </div>
+        <p class="eyebrow" id="bpTitle" style="margin-bottom:.5rem"></p>
+        <div id="bpPool" style="display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem"></div>
+        <div id="bpSeq" style="display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;min-height:2.4rem;padding:.6rem .8rem;border:1px dashed var(--line-strong);border-radius:10px"></div>
+        <div class="quiz-foot">
+          <button class="btn btn-primary" type="button" id="bpCheck">Zkontrolovat</button>
+          <button class="btn" type="button" id="bpReset">Zamíchat znovu</button>
+          <span class="score" id="bpVerdict"></span>
+        </div>
+      </div>
+      <div class="panel-note">Klepejte na látky v&nbsp;pořadí od <b>nejnižší</b> teploty varu. Ptejte se: vodíkové můstky? polarita? velikost? Zkuste sadu „Anomálie vody“ a&nbsp;sadu „Stejný vzorec C₂H₆O“ — tam se ztrácí nejvíc bodů.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Krok 3: rozpustnost a&nbsp;mísitelnost — podobné rozpouští podobné</h3>
+      <p>Pravidlo z&nbsp;kapitoly 3 teď použijeme jako rozhodovací nástroj. <b>Polární a&nbsp;iontové látky</b> se rozpouštějí v&nbsp;<b>polárních rozpouštědlech</b> (voda, ethanol, aceton), <b>nepolární</b> v&nbsp;<b>nepolárních</b> (hexan, benzen, CCl₄, oleje). Mezi kapalinami mluvíme o&nbsp;<span class="term">mísitelnosti</span>: voda–ethanol neomezeně (vodíkové můstky), voda–olej vůbec (vrstvy), ethanol–hexan ano (ethylový zbytek se s&nbsp;hexanem snese).</p>
+      <div class="callout tip">
+        <span class="eyebrow">Molekuly se dvěma tvářemi</span>
+        <p><span class="term">Hydrofilní</span> část molekuly má ráda vodu (OH, NH₂, COOH, ionty), <span class="term">hydrofobní</span> ji odpuzuje (uhlovodíkové řetězce). Molekula s&nbsp;obojím je <span class="term">amfifilní</span>: <b>mýdlo</b> (stearan sodný — polární hlava COO⁻Na⁺, ocas C₁₇H₃₅) se ocasy zapíchne do mastnoty a&nbsp;hlavami trčí do vody, vznikne <b>micela</b> a&nbsp;mastnota se odplaví. Totéž dělají <b>tenzidy</b> v&nbsp;pracích prášcích a&nbsp;<b>emulgátory</b> (lecithin v&nbsp;majonéze): stabilizují <span class="term">emulzi</span>, tedy kapičky oleje rozptýlené ve vodě. V&nbsp;delších řetězcích rozhoduje poměr: methanol a&nbsp;ethanol jsou s&nbsp;vodou neomezeně mísitelné, butanol už jen 8 g/100 g, oktanol prakticky ne.</p>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Léčiva: lipofilní versus hydrofilní</span>
+        <p>Buněčná membrána je nepolární (fosfolipidová dvojvrstva). <b>Lipofilní</b> (hydrofobní) léčiva — např. anestetika, steroidy, diazepam — jí snadno projdou, rychle se vstřebávají a&nbsp;pronikají do mozku, ale špatně se rozpouštějí ve vodě, takže se podávají v&nbsp;tabletách či olejových roztocích. <b>Hydrofilní</b> léčiva (penicilin jako sodná sůl, ibuprofen jako sůl, glukóza) se dobře rozpouštějí v&nbsp;krvi a&nbsp;dají se podat v&nbsp;infuzi, ale hůř procházejí do buněk a&nbsp;rychleji se vylučují ledvinami. Farmaceut proto často z&nbsp;kyseliny udělá sůl (aspirin → lysinát), aby zvýšil rozpustnost.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Rozhodovač: co se rozpustí v&nbsp;čem (klepněte na políčko pro vysvětlení)</h3>
+      </div>
+      <div class="panel-body">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Látka</th><th class="n">voda<br><span style="font-weight:400;text-transform:none;letter-spacing:0">polární, H-můstky</span></th><th class="n">hexan<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nepolární</span></th><th class="n">ethanol<br><span style="font-weight:400;text-transform:none;letter-spacing:0">OH + nepolární zbytek</span></th><th class="n">benzen<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nepolární, aromatický</span></th></tr></thead>
+            <tbody id="mixBody"></tbody>
+          </table>
+        </div>
+        <div class="callout" id="mixExplain" style="border-left:3px solid var(--accent);margin-top:1rem"></div>
+      </div>
+      <div class="panel-note">Sledujte sloupec ethanolu: je to obojživelník — polární hlava OH a&nbsp;nepolární ethyl. Proto rozpouští jod i&nbsp;trochu soli a&nbsp;mísí se s&nbsp;vodou i&nbsp;s&nbsp;hexanem. Ale KMnO₄ v&nbsp;něm hned zreaguje.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Trenažér rozpustnosti: rozhodněte bez tabulky</h3>
+      </div>
+      <div class="panel-body">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem">
+          <span class="eyebrow">Dvojice <span id="mixTQn">1</span> z&nbsp;<span id="mixTQtot">12</span></span>
+          <span class="eyebrow">Skóre: <b style="color:var(--accent)"><span id="mixTScore">0</span></b> správně</span>
+        </div>
+        <div class="eq" id="mixTQ" style="font-size:1.05rem;padding:1.1rem 1rem"></div>
+        <div class="grid3" id="mixTBtns" style="margin-top:1rem">
+          <button class="btn" type="button" data-a="y" style="border-color:var(--ok);color:var(--ok)">ano — rozpustí / smísí se</button>
+          <button class="btn" type="button" data-a="p" style="border-color:var(--warn);color:var(--warn)">částečně / omezeně</button>
+          <button class="btn" type="button" data-a="n" style="border-color:var(--bad);color:var(--bad)">ne</button>
+        </div>
+        <div class="explain" id="mixTExplain" style="margin-top:1rem"></div>
+        <div class="quiz-foot"><button class="btn btn-primary" type="button" id="mixTNext" disabled>Další dvojice →</button></div>
+      </div>
+      <div class="panel-note">Otázka je vždy stejná: <b>jaké síly drží látku, jaké nabízí rozpouštědlo, a&nbsp;jsou zhruba stejně silné?</b> Osm správných z&nbsp;dvanácti označí kapitolu.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.1 · polarita čtyř molekul</span>
+          <p>Rozhodněte, které z&nbsp;molekul CO₂, H₂O, CCl₄ a&nbsp;CHCl₃ jsou polární, a&nbsp;předpovězte, která z&nbsp;dvojice CCl₄ / CHCl₃ se lépe rozpouští ve vodě.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Nejdřív tvar podle VSEPR: CO₂ lineární (AX₂), H₂O lomená (AX₂E₂), CCl₄ i&nbsp;CHCl₃ tetraedrické (AX₄).</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Pak vektorový součet. <b>CO₂:</b> dva stejné dipóly C=O proti sobě → nula → <b>nepolární</b>. <b>H₂O:</b> dva dipóly O–H pod úhlem 104,5° → nesečtou se na nulu → <b>polární</b> (1,85 D).</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>CCl₄:</b> čtyři stejné dipóly C–Cl do vrcholů tetraedru → dokonalá symetrie → nula → <b>nepolární</b>. <b>CHCl₃:</b> jeden vodík místo chloru poruší symetrii; tři dipóly C–Cl táhnou na jednu stranu, slabý C–H je nevyrovná → <b>polární</b> (1,04 D).</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Podobné rozpouští podobné: polární chloroform se ve vodě rozpustí lépe (8 g/L) než nepolární tetrachlormethan (0,8 g/L) — desetkrát.</p>
+              <span class="result">polární: H₂O, CHCl₃ · nepolární: CO₂, CCl₄ · CHCl₃ rozpustnější ve vodě</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.2 · pořadí teplot varu se zdůvodněním</span>
+          <p>Seřaďte podle rostoucí teploty varu: (a) CH₄, HCl, H₂O; (b) ethan, dimethylether, ethanol. Zdůvodněte typem mezimolekulových sil.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) Zařadíme síly: CH₄ nepolární (jen disperzní), HCl polární (dipól–dipól), H₂O vodíkové můstky. Hmotnosti jsou podobné (16, 36, 18), takže rozhoduje typ síly.</p>
+              <p class="eq">CH₄ (−161,5 °C) &lt; HCl (−85,1 °C) &lt; H₂O (100 °C)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) Všechny tři mají hmotnost 30–46 g/mol. Ethan: nepolární. Dimethylether CH₃–O–CH₃: polární (lomený u&nbsp;kyslíku), ale <b>nemá H na kyslíku</b> → žádné vodíkové můstky. Ethanol CH₃CH₂–OH: skupina O–H → vodíkové můstky.</p>
+              <p class="eq">ethan (−88,6 °C) &lt; dimethylether (−24,8 °C) &lt; ethanol (78,3 °C)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Dimethylether a&nbsp;ethanol jsou <b>izomery</b> (oba C₂H₆O) — stejná hmotnost, stejné atomy, rozdíl 103 °C. To je nejčistší důkaz síly vodíkových můstků, jaký existuje.</p>
+              <span class="result">(a) CH₄ &lt; HCl &lt; H₂O · (b) ethan &lt; dimethylether &lt; ethanol</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.3 · rozpustnost a mísitelnost bez tabulek</span>
+          <p>Předpovězte: (a) rozpustí se jod lépe ve vodě, nebo v&nbsp;hexanu? (b) Smísí se ethanol s&nbsp;vodou a&nbsp;s&nbsp;hexanem? (c) Proč se benzín s&nbsp;vodou nemísí, ale s&nbsp;olejem ano? (d) Které léčivo projde snáz do mozku: nepolární diazepam, nebo iontová sodná sůl penicilinu?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) I₂ je nepolární dvouatomová molekula, drží ji jen disperzní síly. Hexan nabízí totéž → <b>rozpustí se v&nbsp;hexanu</b> (fialový roztok). Voda by musela rozbít vodíkové můstky a&nbsp;nic za to nedostane → 0,33 g/L.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) Ethanol má polární OH (můstky s&nbsp;vodou) i&nbsp;nepolární ethyl (disperzní síly s&nbsp;hexanem) → <b>mísí se s&nbsp;obojím</b>. Je to amfifilní molekula s&nbsp;krátkým ocasem.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(c) Benzín i&nbsp;olej jsou nepolární uhlovodíky — podobné síly → mísí se. Voda je polární s&nbsp;vodíkovými můstky → <b>nemísí se</b>, benzín (hustota ≈ 0,75 g/cm³) plave nahoře. Proto se hořící benzín nehasí vodou.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>(d) Hematoencefalická bariéra je tvořena membránami — nepolární lipidovou dvojvrstvou. Projde jí <b>lipofilní diazepam</b> (proto působí na mozek během minut); iontový penicilin zůstane v&nbsp;krvi a&nbsp;do mozku pronikne jen minimálně.</p>
+              <span class="result">(a) hexan · (b) s&nbsp;obojím · (c) podobné síly / rozdílné síly · (d) diazepam</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Přehled látek: tvar, mřížka, hybridizace, polarita, b.t., b.v., rozpustnost, vodivost</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="tblSearch">Hledat látku — nalezeno <span class="val" id="tblCount">47</span></label>
+            <input type="search" id="tblSearch" placeholder="např. voda, NaCl, tetraedr, polární, sp²…" autocomplete="off">
+          </div>
+          <div class="ctl">
+            <label>Typ struktury</label>
+            <div class="segmented" id="tblFilter" role="group" aria-label="Filtr tabulky">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="mol" aria-pressed="false">Molekulové</button>
+              <button type="button" data-v="ion" aria-pressed="false">Iontové</button>
+              <button type="button" data-v="atom" aria-pressed="false">Atomové</button>
+              <button type="button" data-v="kov" aria-pressed="false">Kovové</button>
+              <button type="button" data-v="amorf" aria-pressed="false">Amorfní</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:460px;overflow-y:auto">
+          <table>
+            <thead><tr><th>Látka</th><th>Tvar molekuly / mřížka</th><th>Hybridizace</th><th>Polarita</th><th class="n">t. tání °C</th><th class="n">t. varu °C</th><th>Rozpustnost ve vodě</th><th>Vodivost roztoku / taveniny</th></tr></thead>
+            <tbody id="tblBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-note">Hodnoty při 101,3 kPa (CRC Handbook). Zkuste filtr „Molekulové“ a&nbsp;seřaďte si v&nbsp;hlavě teploty varu podle polarity — pak „Iontové“ a&nbsp;všimněte si, že žádná nevře pod 1000 °C.</div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: polarita, rozpustnost, mísitelnost"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

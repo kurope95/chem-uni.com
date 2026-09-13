@@ -1,0 +1,202 @@
+
+    <div class="prose">
+      <h3>Efekt společného iontu</h3>
+      <p>Rozpusťte AgCl ne v&nbsp;čisté vodě, ale v&nbsp;0,1 M NaCl. Roztok už chloridy obsahuje, a&nbsp;podle Le Chatelierova principu se rovnováha <span class="chem">AgCl(s) ⇌ Ag⁺ + Cl⁻</span> posune doleva — <b>rozpustnost klesne</b>. Součin rozpustnosti se přitom nemění, jen ho z&nbsp;větší části „obstará“ přidaný chlorid:</p>
+      <p class="eq" style="font-size:1.05rem">[Ag⁺]·[Cl⁻] = <span class="q">K</span><sub>sp</sub> &nbsp;a&nbsp; [Cl⁻] ≈ 0,10 (přidaný ≫ z rozpuštěného) &nbsp;⇒&nbsp; <span class="q">s</span> = [Ag⁺] = <span class="q">K</span><sub>sp</sub> / [Cl⁻] = 1,8·10⁻¹⁰ / 0,10 = <b>1,8·10⁻⁹ mol·dm⁻³</b><br><span style="color:var(--ink-3)">v čisté vodě: <span class="q">s</span> = √<span class="q">K</span><sub>sp</sub> = 1,3·10⁻⁵ — společný iont snížil rozpustnost 7000×</span></p>
+      <p>U&nbsp;PbI₂ v&nbsp;roztoku KI je efekt ještě prudší, protože jodid je ve výrazu na druhou: <span class="q">s</span> = <span class="q">K</span><sub>sp</sub>/[I⁻]². Prakticky se toho využívá při <b>promývání sraženin</b> (zředěným roztokem srážedla místo čisté vody) a&nbsp;při <b>kvantitativním srážení</b> — nadbytek srážedla stlačí zbytkovou koncentraci pod mez stanovitelnosti.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Efekt společného iontu: rozpustnost soli v&nbsp;závislosti na koncentraci přidaného aniontu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl"><label for="ciSalt">Sůl a společný iont</label><select id="ciSalt"></select></div>
+          <div class="ctl"><label for="ciX">Koncentrace přidaného aniontu — <span class="val" id="ciXV">0,1 mol·dm⁻³</span></label><input type="range" id="ciX" min="-6" max="0" step="0.05" value="-1"></div>
+        </div>
+        <div class="svgwrap" id="ciWrap" style="min-height:320px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>rozpustnost <span class="q">s</span> (přesně)</span>
+          <span class="li"><span class="sw" style="background:var(--ink-3)"></span>rozpustnost v čisté vodě</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>aproximace <span class="q">s</span> = <span class="q">K</span><sub>sp</sub>/[X]ⁿ</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="ciRo1"></div>
+          <div class="readout" id="ciRo2"></div>
+          <div class="readout" id="ciRo3"></div>
+        </div>
+        <div id="ciSteps" style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div class="panel-note" id="ciNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>Vliv pH na rozpustnost hydroxidů a&nbsp;solí slabých kyselin</h3>
+      <p>Hydroxidy kovů mají jako anion OH⁻ — a&nbsp;ten je pevně svázán s&nbsp;pH. Z&nbsp;<span class="q">K</span><sub>sp</sub> = [M<sup>n+</sup>]·[OH⁻]<sup>n</sup> plyne <b>maximální koncentrace kovu, která při daném pH ještě zůstane v&nbsp;roztoku</b>:</p>
+      <p class="eq" style="font-size:1.05rem">[M<sup>n+</sup>]<sub>max</sub> = <span class="q">K</span><sub>sp</sub> / [OH⁻]<sup>n</sup> = <span class="q">K</span><sub>sp</sub> / (10<sup>pH − 14</sup>)<sup>n</sup> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">— každá jednotka pH změní [M²⁺]<sub>max</sub> 100×, [M³⁺]<sub>max</sub> 1000×</span></p>
+      <p>Obráceně: při jakém pH se z&nbsp;0,010 M roztoku Mg²⁺ začne srážet Mg(OH)₂? [OH⁻] = √(<span class="q">K</span><sub>sp</sub>/<span class="q">c</span>) = √(5,6·10⁻¹²/0,010) = 2,4·10⁻⁵ → pOH 4,63 → <b>pH 9,37</b>. Železitý kation se stejným postupem sráží už při pH <b>1,8</b> (<span class="q">K</span><sub>sp</sub> = 2,8·10⁻³⁹). Mezi pH 3 a&nbsp;9 je tedy Fe³⁺ kvantitativně vysrážen a&nbsp;Mg²⁺ zcela v&nbsp;roztoku — tak se <b>dělí kationty pomocí pH</b> v&nbsp;analytice i&nbsp;při čištění vody.</p>
+      <p>Totéž platí pro soli slabých kyselin: CaCO₃, CaF₂, sulfidy, fosforečnany. Kyselina odebírá anion (CO₃²⁻ + H₃O⁺ → HCO₃⁻), rovnováha se posouvá k&nbsp;rozpouštění. Proto <b>kyselý déšť</b> a&nbsp;voda nasycená CO₂ rozpouštějí vápenec (<span class="chem">CaCO₃ + CO₂ + H₂O ⇌ Ca(HCO₃)₂</span>) a&nbsp;v&nbsp;jeskyni, kde CO₂ uniká, se z&nbsp;kapek zase sráží — <b>krápníky</b>. Naopak AgCl nebo BaSO₄ na pH nezávisí: Cl⁻ a&nbsp;SO₄²⁻ jsou anionty silných kyselin a&nbsp;s&nbsp;protonem nereagují. Přesně na tom stojí důkaz síranů: sraženina BaSO₄, která se nerozpustí ani v&nbsp;HCl.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Vliv pH: kolik kovu zůstane v&nbsp;roztoku a&nbsp;kdy se hydroxid začne srážet</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl"><label for="phPH">pH roztoku — <span class="val" id="phPHV">9,00</span></label><input type="range" id="phPH" min="0" max="14" step="0.05" value="9"></div>
+          <div class="ctl"><label for="phSel">Hydroxid</label><select id="phSel"></select></div>
+        </div>
+        <div class="svgwrap" id="phWrap" style="min-height:360px"></div>
+        <div class="legend" id="phLegend"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="phRo1"></div>
+          <div class="readout" id="phRo2"></div>
+          <div class="readout" id="phRo3"></div>
+          <div class="readout" id="phRo4"></div>
+        </div>
+        <div id="phSteps" style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div class="panel-note" id="phNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · rozpustnost z Ksp (typ AB) a zpět</span>
+          <p>(a) Vypočítejte rozpustnost AgCl ve vodě v&nbsp;mol·dm⁻³ a&nbsp;v&nbsp;g·dm⁻³ (<span class="q">K</span><sub>sp</sub> = 1,8·10⁻¹⁰, <span class="q">M</span> = 143,3 g·mol⁻¹). (b) V&nbsp;1 dm³ nasyceného roztoku BaSO₄ je rozpuštěno 2,45 mg soli (<span class="q">M</span> = 233,4). Určete <span class="q">K</span><sub>sp</sub>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) AgCl je typ AB: každá rozpuštěná jednotka dá jeden Ag⁺ a&nbsp;jeden Cl⁻, oba o&nbsp;koncentraci <span class="q">s</span>.</p>
+              <p class="eq"><span class="q">K</span><sub>sp</sub> = <span class="q">s</span>·<span class="q">s</span> = <span class="q">s</span>² &nbsp;⇒&nbsp; <span class="q">s</span> = √(1,8·10⁻¹⁰) = <b>1,34·10⁻⁵ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">s</span> = 1,34·10⁻⁵ · 143,3 = 1,92·10⁻³ g·dm⁻³ = <b>1,9 mg na litr</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(b) Nejdřív gramy na moly — molární rozpustnost.</p>
+              <p class="eq"><span class="q">s</span> = 2,45·10⁻³ g / 233,4 g·mol⁻¹ = 1,05·10⁻⁵ mol·dm⁻³</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>BaSO₄ je také typ AB.</p>
+              <p class="eq"><span class="q">K</span><sub>sp</sub> = <span class="q">s</span>² = (1,05·10⁻⁵)² = <b>1,1·10⁻¹⁰</b></p>
+              <span class="result">(a) <span class="q">s</span>(AgCl) = 1,34·10⁻⁵ mol·dm⁻³ = 1,9 mg·dm⁻³ &nbsp;·&nbsp; (b) <span class="q">K</span><sub>sp</sub>(BaSO₄) = 1,1·10⁻¹⁰</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · typ AB₂: rozpustnost a pH nasyceného roztoku</span>
+          <p>Vypočítejte molární rozpustnost Mg(OH)₂ (<span class="q">K</span><sub>sp</sub> = 5,6·10⁻¹²) a&nbsp;pH jeho nasyceného roztoku. Porovnejte s&nbsp;PbI₂ (<span class="q">K</span><sub>sp</sub> = 9,8·10⁻⁹).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>ICE: rozpustí-li se <span class="q">s</span> molů, vznikne <span class="q">s</span> molů Mg²⁺ a&nbsp;<b>2<span class="q">s</span></b> molů OH⁻.</p>
+              <p class="eq"><span class="chem">Mg(OH)₂(s) ⇌ Mg²⁺ + 2 OH⁻</span> &nbsp;&nbsp;<span class="q">K</span><sub>sp</sub> = <span class="q">s</span>·(2<span class="q">s</span>)² = 4<span class="q">s</span>³</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">s</span> = ∛(<span class="q">K</span><sub>sp</sub>/4) = ∛(1,4·10⁻¹²) = <b>1,12·10⁻⁴ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>pH nasyceného roztoku: hydroxidových aniontů je dvakrát tolik než soli.</p>
+              <p class="eq">[OH⁻] = 2<span class="q">s</span> = 2,24·10⁻⁴ → pOH = 3,65 → pH = <b>10,35</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>PbI₂ je stejný typ, takže lze porovnat přímo — ale spočítejme.</p>
+              <p class="eq"><span class="q">s</span>(PbI₂) = ∛(9,8·10⁻⁹/4) = ∛(2,45·10⁻⁹) = <b>1,35·10⁻³ mol·dm⁻³</b> (0,62 g·dm⁻³)</p>
+              <span class="result"><span class="q">s</span>(Mg(OH)₂) = 1,12·10⁻⁴, pH 10,35 &nbsp;·&nbsp; <span class="q">s</span>(PbI₂) = 1,35·10⁻³ mol·dm⁻³</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Častá chyba: <span class="q">s</span> = √<span class="q">K</span><sub>sp</sub> i&nbsp;pro AB₂ — dalo by 2,4·10⁻⁶, o&nbsp;dva řády mimo. A&nbsp;u&nbsp;pH zapomenutá dvojka dá 10,05 místo 10,35.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.3 · vysráží se? (Q vs Ksp)</span>
+          <p>Smícháme 50 mL AgNO₃ (1,0·10⁻³ M) s&nbsp;50 mL NaCl (1,0·10⁻³ M). Vyloučí se AgCl? A&nbsp;co když smícháme 50 mL Na₂SO₄ (0,010 M) s&nbsp;50 mL CaCl₂ (0,010 M); <span class="q">K</span><sub>sp</sub>(CaSO₄) = 4,9·10⁻⁵?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Koncentrace <b>po smíchání</b> — objem se zdvojnásobil, koncentrace klesly na polovinu.</p>
+              <p class="eq">[Ag⁺] = 1,0·10⁻³ · 50/100 = 5,0·10⁻⁴; &nbsp;[Cl⁻] = 5,0·10⁻⁴ mol·dm⁻³</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">Q</span> = [Ag⁺]·[Cl⁻] = (5,0·10⁻⁴)² = 2,5·10⁻⁷ &nbsp;&gt;&nbsp; <span class="q">K</span><sub>sp</sub> = 1,8·10⁻¹⁰ &nbsp;⇒&nbsp; <b>sráží se</b> (Q je 1400× větší)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Síran vápenatý: po smíchání [Ca²⁺] = [SO₄²⁻] = 0,0050 mol·dm⁻³.</p>
+              <p class="eq"><span class="q">Q</span> = 0,0050 · 0,0050 = 2,5·10⁻⁵ &nbsp;&lt;&nbsp; 4,9·10⁻⁵ &nbsp;⇒&nbsp; <b>nesráží se</b>, roztok je nenasycený</p>
+              <span class="result">AgCl ano (Q ≫ Ksp) · CaSO₄ ne (Q &lt; Ksp) — bez zředění by u CaSO₄ chybně vyšlo 10⁻⁴ &gt; Ksp</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.4 · společný iont</span>
+          <p>Vypočítejte rozpustnost AgCl (<span class="q">K</span><sub>sp</sub> = 1,8·10⁻¹⁰) v&nbsp;0,10 M roztoku NaCl a&nbsp;rozpustnost PbI₂ (<span class="q">K</span><sub>sp</sub> = 9,8·10⁻⁹) v&nbsp;0,10 M KI. Porovnejte s&nbsp;čistou vodou.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>ICE pro AgCl v&nbsp;NaCl: chlorid je už na začátku 0,10; z&nbsp;rozpuštěného AgCl přibude <span class="q">s</span> — zanedbatelně málo proti 0,10.</p>
+              <p class="eq">[Ag⁺] = <span class="q">s</span>, &nbsp;[Cl⁻] = 0,10 + <span class="q">s</span> ≈ 0,10<br><span class="q">s</span> · 0,10 = 1,8·10⁻¹⁰ &nbsp;⇒&nbsp; <span class="q">s</span> = <b>1,8·10⁻⁹ mol·dm⁻³</b> &nbsp;(voda: 1,3·10⁻⁵ — pokles 7400×)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>PbI₂ v&nbsp;KI: jodid je ve výrazu na druhou.</p>
+              <p class="eq">[Pb²⁺] = <span class="q">s</span>, &nbsp;[I⁻] = 0,10 + 2<span class="q">s</span> ≈ 0,10<br><span class="q">s</span> · (0,10)² = 9,8·10⁻⁹ &nbsp;⇒&nbsp; <span class="q">s</span> = <b>9,8·10⁻⁷ mol·dm⁻³</b> &nbsp;(voda: 1,35·10⁻³ — pokles 1400×)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kontrola aproximace: <span class="q">s</span> i&nbsp;2<span class="q">s</span> jsou o&nbsp;mnoho řádů menší než 0,10, zanedbání bylo oprávněné. Kdyby byl přidaný iont jen 10⁻⁶ M, tedy srovnatelný s&nbsp;<span class="q">s</span> ve vodě, museli bychom řešit rovnici (<span class="q">s</span>)(10⁻⁶ + <span class="q">s</span>) = <span class="q">K</span><sub>sp</sub> přesně.</p>
+              <span class="result">AgCl: 1,8·10⁻⁹ &nbsp;·&nbsp; PbI₂: 9,8·10⁻⁷ mol·dm⁻³ — společný iont srazí rozpustnost o řády</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.5 · dělení kationtů pomocí pH</span>
+          <p>Roztok obsahuje Fe³⁺ i&nbsp;Mg²⁺, každý 0,010 mol·dm⁻³. Při jakém pH se začne srážet Fe(OH)₃ (<span class="q">K</span><sub>sp</sub> = 2,8·10⁻³⁹) a&nbsp;při jakém Mg(OH)₂ (5,6·10⁻¹²)? Jaké pH zvolit, aby se Fe³⁺ vysráželo prakticky úplně (zbytek ≤ 10⁻⁶ M) a&nbsp;Mg²⁺ zůstal v&nbsp;roztoku?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Fe(OH)₃ začne vznikat, když [Fe³⁺]·[OH⁻]³ dosáhne <span class="q">K</span><sub>sp</sub>.</p>
+              <p class="eq">[OH⁻] = ∛(<span class="q">K</span><sub>sp</sub>/<span class="q">c</span>) = ∛(2,8·10⁻³⁹ / 0,010) = ∛(2,8·10⁻³⁷) = 6,5·10⁻¹³ → pOH = 12,18 → <b>pH = 1,82</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">Mg(OH)₂: [OH⁻] = √(5,6·10⁻¹² / 0,010) = 2,37·10⁻⁵ → pOH = 4,63 → <b>pH = 9,37</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>„Úplné“ vysrážení železa: zbytková [Fe³⁺] = 10⁻⁶.</p>
+              <p class="eq">[OH⁻] = ∛(2,8·10⁻³⁹ / 10⁻⁶) = ∛(2,8·10⁻³³) = 1,4·10⁻¹¹ → pOH = 10,85 → <b>pH ≈ 3,2</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Pracovní okno je tedy pH ≈ 3,2 až 9,3: železo je kvantitativně vysrážené, hořčík celý v&nbsp;roztoku. V&nbsp;praxi se nastaví pH 5–6 (např. octanovým pufrem) a&nbsp;sraženina Fe(OH)₃ se odfiltruje.</p>
+              <span class="result">Fe(OH)₃ od pH 1,8 (úplně při 3,2) · Mg(OH)₂ až od pH 9,4 → dělit při pH ≈ 5</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: srážecí rovnováhy"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

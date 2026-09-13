@@ -1,0 +1,161 @@
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Zinková skupina">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 7</span>
+      <h2>Zinková skupina a&nbsp;spor, jestli je přechodná</h2>
+      <p class="lead">Zinek, kadmium a&nbsp;rtuť stojí v&nbsp;bloku d, probírají se s&nbsp;přechodnými kovy a&nbsp;v&nbsp;každé učebnici je najdete v&nbsp;téže kapitole. Přesto <b>přechodné kovy nejsou</b>. Je to jediné místo v&nbsp;periodické tabulce, kde se poloha a&nbsp;definice rozcházejí — a&nbsp;proto je to vděčná zkušební otázka.</p>
+
+      <h3>Konfigurace: d¹⁰ pořád a&nbsp;všude</h3>
+      <p class="eq">Zn = <span class="chem">[Ar] 3d¹⁰ 4s²</span> &nbsp;·&nbsp; Cd = <span class="chem">[Kr] 4d¹⁰ 5s²</span> &nbsp;·&nbsp; Hg = <span class="chem">[Xe] 4f¹⁴ 5d¹⁰ 6s²</span></p>
+      <p>Všechny tři prvky mají <b>zcela zaplněnou množinu orbitalů d&nbsp;a&nbsp;nad ní dvojici elektronů s</b>. Jediný způsob, jak se stabilizovat, je odevzdat právě tuhle dvojici a&nbsp;dosáhnout oxidačního čísla <b>II</b>. Orbitaly d&nbsp;přitom zůstanou plné.</p>
+      <div class="callout def">
+        <span class="eyebrow">Proč to znamená „není přechodný kov“</span>
+        <p>Definice žádá neúplně zaplněné orbitaly d&nbsp;<b>v&nbsp;atomu nebo alespoň v&nbsp;jednom běžném kationtu</b>. Zinek má <span class="chem">3d¹⁰</span> v&nbsp;atomu i&nbsp;v&nbsp;<span class="chem">Zn²⁺</span>. Kadmium i&nbsp;rtuť stejně. Ani jeden z&nbsp;nich tedy nikdy neúplné zaplnění nemá — a&nbsp;definici nesplňuje.</p>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Porovnejte s&nbsp;mědí</span>
+        <p>Měď má v&nbsp;atomu taky <span class="chem">3d¹⁰</span>, ale její běžný kation <span class="chem">Cu²⁺</span> má <span class="chem">3d⁹</span>. Proto <b>měď přechodný kov je</b> a&nbsp;zinek není. Otázka „vysvětlete, proč je měď přechodný kov a&nbsp;zinek ne, když mají oba d¹⁰“ patří k&nbsp;nejčastějším u&nbsp;přijímacích testů.</p>
+      </div>
+
+      <h3>Co všechno z&nbsp;plné desítky plyne</h3>
+      <p>Zaplněná množina d&nbsp;není jen formalita — projeví se ve všech čtyřech vlastnostech, které jsme u&nbsp;přechodných kovů popsali jako typické. Zinková skupina je nemá ani jednu:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Typický rys přechodného kovu</th><th>Zinková skupina</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td>proměnlivá oxidační čísla</td><td>jen <b>II</b> (u&nbsp;rtuti navíc formálně I)</td><td>po odevzdání dvojice <span class="chem">ns²</span> už není co odebrat bez rozbití plné desítky</td></tr>
+            <tr><td>barevné sloučeniny</td><td><b>bezbarvé</b></td><td>množina d&nbsp;je plná, přechod d–d nemá kam</td></tr>
+            <tr><td>paramagnetismus</td><td><b>diamagnetické</b></td><td>všechny elektrony d&nbsp;jsou spárované</td></tr>
+            <tr><td>karbonyly a&nbsp;zpětná donace π</td><td><b>netvoří je</b></td><td>plné orbitaly d&nbsp;nemají co dát do protivazebných orbitalů ligandu</td></tr>
+            <tr><td>tvorba komplexů</td><td><b>ano, a&nbsp;ochotně</b></td><td>to je jediná společná vlastnost — kation je malý a&nbsp;nabitý, přijme donory σ</td></tr>
+            <tr><td>vysoká teplota tání</td><td><b>ne</b> — Zn 420 °C, Cd 321 °C, Hg −38,8 °C</td><td>elektrony d&nbsp;se kovové vazby neúčastní, drží ji jen dvojice s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Nejsilnější argument v&nbsp;ústní zkoušce</span>
+        <p>Když máte jednou větou odůvodnit, proč zinek není přechodný kov, nemluvte o&nbsp;definici — mluvte o&nbsp;<b>teplotě tání</b>. Vanad taje při 1910 °C, zinek při 420 °C a&nbsp;rtuť je za pokojové teploty kapalná. Kdyby se elektrony d&nbsp;podílely na kovové vazbě, taková čísla nejsou možná. Barevnost a&nbsp;magnetismus jsou pak jen dvě další potvrzení téhož.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Neúplné, nebo úplné d? Rozhodněte podle konfigurace</h3>
+      </div>
+      <div class="panel-body">
+        <p class="eyebrow" id="drOtazka" style="font-size:1.02rem;color:var(--ink);line-height:1.6"></p>
+        <div class="svgwrap" id="drWrap" style="min-height:190px;margin-top:.8rem"></div>
+        <div class="quiz-foot" style="margin-top:1rem">
+          <button class="btn btn-primary" type="button" id="drAno">Neúplně zaplněné d</button>
+          <button class="btn btn-primary" type="button" id="drNe">Prázdné nebo plné d</button>
+          <button class="btn" type="button" id="drReset">Začít znovu</button>
+          <span class="score show" id="drScore"></span>
+        </div>
+        <div id="drFeed" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note">Postup je vždycky stejný: napište si konfiguraci té <b>konkrétní částice</b>, na kterou se ptám, a&nbsp;spočítejte elektrony v&nbsp;orbitalech d. Jeden až devět je neúplné zaplnění, nula nebo deset úplné. Teprve z&nbsp;toho se odvozuje, jestli je <b>prvek</b> přechodný — tomu totiž stačí, aby podmínku splňoval alespoň jeden jeho běžný stav. U&nbsp;každé odpovědi na to komentář upozorní.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Zinek: amfoterní kov s&nbsp;širokým uplatněním</h3>
+      <p>Zinek je <b>neušlechtilý</b> kov (<span class="q">E</span>° = −0,76&nbsp;V), takže se rozpouští v&nbsp;kyselinách za vývoje vodíku. Navíc je <b>amfoterní</b> — rozpustí se i&nbsp;v&nbsp;roztoku hydroxidu:</p>
+      <p class="eq"><span class="chem">Zn + H₂SO₄ → ZnSO₄ + H₂</span> &nbsp;<span style="color:var(--ink-3)">(zředěná, neoxidující kyselina)</span><br>
+      <span class="chem">Zn + 2 H₂SO₄ → ZnSO₄ + SO₂ + 2 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(koncentrovaná, oxidující)</span><br>
+      <span class="chem">Zn + 2 OH⁻ + 2 H₂O → [Zn(OH)₄]²⁻ + H₂</span> &nbsp;<span style="color:var(--ink-3)">(hydroxid — důkaz amfoterie)</span></p>
+      <p>Amfoterní je i&nbsp;oxid a&nbsp;hydroxid zinečnatý. To je vlastnost, kterou v&nbsp;bloku d&nbsp;jinak potkáte hlavně u&nbsp;chromu III:</p>
+      <p class="eq"><span class="chem">ZnO + 2 H₃O⁺ → Zn²⁺ + 3 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(chová se jako zásaditý oxid)</span><br>
+      <span class="chem">ZnO + 2 OH⁻ + H₂O → [Zn(OH)₄]²⁻</span> &nbsp;<span style="color:var(--ink-3)">(chová se jako kyselý oxid)</span><br>
+      <span class="chem">Zn(OH)₂ + 4 NH₃ → [Zn(NH₃)₄]²⁺ + 2 OH⁻</span> &nbsp;<span style="color:var(--ink-3)">(rozpouští se i&nbsp;v&nbsp;amoniaku)</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu je zinek</span>
+        <p>Největší část vytěženého zinku jde na <b>pozinkování</b> oceli. Funguje to proto, že zinek má nižší potenciál než železo, takže se v&nbsp;korozním článku obětuje a&nbsp;chrání ocel i&nbsp;po poškrábání. Dále se ze zinku dělá mosaz, záporné elektrody článků a&nbsp;<span class="chem">ZnO</span>, který najdete v&nbsp;mastech, opalovacích krémech a&nbsp;jako přísadu do pryže. Zinek je také <b>biogenní prvek</b> — je v&nbsp;aktivním místě řady enzymů, například karbonátdehydratasy.</p>
+      </div>
+
+      <h3>Kadmium</h3>
+      <p>Kadmium se chová jako zinek, jen je <b>méně amfoterní</b> (oxid i&nbsp;hydroxid se v&nbsp;hydroxidech rozpouštějí jen nepatrně) a&nbsp;o&nbsp;něco ušlechtilejší. Zásadní rozdíl je jinde: kadmium je <b>silně toxické</b> a&nbsp;v&nbsp;těle se hromadí v&nbsp;ledvinách.</p>
+      <p>Kadmiové pigmenty (žlutý <span class="chem">CdS</span>, červený <span class="chem">CdSe</span>) a&nbsp;akumulátory Ni–Cd se proto v&nbsp;Evropské unii vytlačují. Zůstává použití v&nbsp;jaderné technice, kde kadmium slouží k&nbsp;pohlcování neutronů v&nbsp;regulačních tyčích.</p>
+
+      <h3>Rtuť: jediný kapalný kov a&nbsp;výjimka s&nbsp;oxidačním číslem I</h3>
+      <p>Rtuť je z&nbsp;trojice <b>ušlechtilá</b> (<span class="q">E</span>° = +0,85&nbsp;V pro <span class="chem">Hg²⁺</span>/Hg), rozpustí se tedy jen v&nbsp;oxidujících kyselinách. A&nbsp;podle toho, kolik kyseliny použijeme, dostaneme jiný produkt:</p>
+      <p class="eq"><span class="chem">Hg + 4 HNO₃ → Hg(NO₃)₂ + 2 NO₂ + 2 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(nadbytek koncentrované kyseliny → rtuťnatá sůl)</span><br>
+      <span class="chem">6 Hg + 8 HNO₃ → 3 Hg₂(NO₃)₂ + 2 NO + 4 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(nadbytek rtuti, zředěná kyselina → rtuťná sůl)</span></p>
+      <div class="callout def">
+        <span class="eyebrow">Kation Hg₂²⁺ — vazba kov–kov</span>
+        <p>Ve „rtuťných“ sloučeninách není samostatný ion <span class="chem">Hg⁺</span>. Vždy jde o&nbsp;<b>dvojici atomů spojenou kovalentní vazbou</b> <span class="chem">Hg–Hg</span> s&nbsp;celkovým nábojem 2+. Každý atom si tedy jeden elektron ponechá na vazbu k&nbsp;sousedovi a&nbsp;jeden odevzdá — formálně vychází oxidační číslo I&nbsp;na atom.</p>
+        <p style="margin-top:.5rem">Je to jediné oxidační číslo I&nbsp;v&nbsp;celé skupině 12 a&nbsp;prakticky se s&nbsp;ním setkáte jen u&nbsp;rtuti (kalomel <span class="chem">Hg₂Cl₂</span>).</p>
+      </div>
+      <p class="eq">rozpad rtuťného kationtu v&nbsp;zásaditém prostředí — disproporcionace:<br>
+      <span class="chem">Hg₂²⁺ + 2 OH⁻ → HgO + Hg + H₂O</span></p>
+      <p class="eq">analytické odlišení rtuťnaté soli od solí přechodných kovů:<br>
+      <span class="chem">HgCl₂ + 2 NH₃ → HgNH₂Cl + NH₄⁺ + Cl⁻</span><br>
+      <span style="color:var(--ink-3)">kationty přechodných kovů dají s&nbsp;amoniakem rozpustný komplex, rtuť se naopak vysráží</span></p>
+      <p class="eq">nerozpustný jodid se v&nbsp;nadbytku jodidu rozpustí na komplex:<br>
+      <span class="chem">HgI₂ + 2 I⁻ → [HgI₄]²⁻</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Rtuť dnes</span>
+        <p>Rtuť je prudce jedovatá v&nbsp;kovové formě (páry), a&nbsp;ještě nebezpečnější jako <b>methylrtuť</b>, která vzniká činností bakterií v&nbsp;sedimentech a&nbsp;hromadí se v&nbsp;potravním řetězci ryb. Podle <b>Minamatské úmluvy</b> z&nbsp;roku 2013 se rtuť postupně vyřazuje ze všech běžných použití — teploměry, tlakoměry, zubní amalgámy i&nbsp;chloralkalická elektrolýza se nahrazují. Zbývá výroba některých luminoforů a&nbsp;laboratorní použití.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · rozhodněte o&nbsp;přechodnosti</span>
+          <p>U&nbsp;částic <span class="chem">Sc³⁺</span>, <span class="chem">Cu⁺</span>, <span class="chem">Zn²⁺</span>, <span class="chem">Mn²⁺</span> a&nbsp;<span class="chem">Cd²⁺</span> rozhodněte, zda mají neúplně zaplněné orbitaly d, a&nbsp;řekněte, který z&nbsp;odpovídajících <b>prvků</b> je přechodný kov.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>U&nbsp;každého iontu napíšeme konfiguraci. Odebíráme nejdřív elektrony s, pak d.</p>
+              <p class="eq">Sc³⁺ = <span class="chem">[Ar] 3d⁰</span> · Cu⁺ = <span class="chem">[Ar] 3d¹⁰</span> · Zn²⁺ = <span class="chem">[Ar] 3d¹⁰</span><br>
+              Mn²⁺ = <span class="chem">[Ar] 3d⁵</span> · Cd²⁺ = <span class="chem">[Kr] 4d¹⁰</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Neúplné zaplnění (1 až 9 elektronů d) má jen <b><span class="chem">Mn²⁺</span></b>. Ostatní čtyři ionty mají d⁰ nebo d¹⁰.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Otázka na <b>prvky</b> je ale jiná — stačí, aby podmínku splňoval alespoň jeden běžný stav:</p>
+              <p class="eq">Sc: v&nbsp;atomu má <span class="chem">3d¹</span> → <b>přechodný</b><br>
+              Cu: kation <span class="chem">Cu²⁺</span> má <span class="chem">3d⁹</span> → <b>přechodný</b><br>
+              Mn: <span class="chem">Mn²⁺</span> má <span class="chem">3d⁵</span> → <b>přechodný</b><br>
+              Zn i&nbsp;Cd: v&nbsp;atomu i&nbsp;v&nbsp;kationtu vždy d¹⁰ → <b>nepřechodné</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kdo přehlédne rozdíl mezi otázkou na <b>ion</b> a&nbsp;na <b>prvek</b>, dostane u&nbsp;skandia a&nbsp;mědi opačný výsledek. Právě proto je definice formulována se slovy „alespoň v&nbsp;jednom oxidačním stavu“.</p>
+              <span class="result">Neúplné d má jen Mn²⁺; přechodné prvky jsou Sc, Cu a&nbsp;Mn, nepřechodné Zn a&nbsp;Cd</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · vodík z&nbsp;amfoterního kovu</span>
+          <p>Kolik decimetrů krychlových vodíku za normálních podmínek (<span class="q">V</span><sub>m</sub> = 22,41&nbsp;dm³·mol⁻¹) vznikne rozpuštěním 6,54&nbsp;g zinku v&nbsp;nadbytku roztoku hydroxidu sodného? <span class="q">M</span>(Zn) = 65,38&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Rovnice rozpouštění amfoterního kovu v&nbsp;hydroxidu:</p>
+              <p class="eq"><span class="chem">Zn + 2 OH⁻ + 2 H₂O → [Zn(OH)₄]²⁻ + H₂</span> — poměr Zn&nbsp;:&nbsp;H₂ = 1&nbsp;:&nbsp;1</p>
+              <p>Kontrola náboje: vlevo −2, vpravo −2. Kontrola vodíku: vlevo 2 + 4 = 6, vpravo 4 + 2 = 6.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Látkové množství zinku:</p>
+              <p class="eq"><span class="q">n</span>(Zn) = 6,54 / 65,38 = 0,1000&nbsp;mol</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Objem vodíku:</p>
+              <p class="eq"><span class="q">V</span>(H₂) = 0,1000 · 22,41 = <b>2,24&nbsp;dm³</b></p>
+              <p>Kdybychom místo hydroxidu použili zředěnou kyselinu sírovou, dostali bychom přesně tolik samé — poměr je i&nbsp;tam 1&nbsp;:&nbsp;1. Zinek totiž v&nbsp;obou případech odevzdá dva elektrony.</p>
+              <span class="result"><span class="q">V</span>(H₂) = 2,24 dm³ za normálních podmínek</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: zinková skupina"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

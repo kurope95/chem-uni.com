@@ -1,0 +1,153 @@
+
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Pufry — Hendersonova–Hasselbalchova rovnice">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 1 — pufry</span>
+      <h2>Pufry a&nbsp;Hendersonova–Hasselbalchova rovnice</h2>
+      <p class="lead">Krev má pH 7,40 a&nbsp;odchylka o&nbsp;0,3 jednotky je smrtelná. Přitom do ní každou minutu přitéká kyselina mléčná ze svalů a&nbsp;oxid uhličitý z&nbsp;dýchání. Že se pH nehne, zařizují pufry — a&nbsp;jejich matematika je nejjednodušší z&nbsp;celého tématu: jeden logaritmus poměru.</p>
+
+      <h3>Co je pufr a&nbsp;proč funguje</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Pufr</b> (tlumivý roztok) je roztok <b>slabé kyseliny a&nbsp;její konjugované zásady</b> (CH₃COOH / CH₃COO⁻) nebo <b>slabé zásady a&nbsp;její konjugované kyseliny</b> (NH₃ / NH₄⁺) ve srovnatelných koncentracích. Po přidání malého množství silné kyseliny nebo zásady mění pH jen nepatrně.</p>
+      </div>
+      <p>Princip: v&nbsp;roztoku je zásoba obou partnerů. Přidaný H₃O⁺ zachytí konjugovaná zásada (<span class="chem">CH₃COO⁻ + H₃O⁺ → CH₃COOH + H₂O</span>), přidaný OH⁻ zneutralizuje kyselina (<span class="chem">CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O</span>). Silný elektrolyt se tak přemění na slabý a&nbsp;pH určuje jen <b>poměr</b> obou složek, který se malým přídavkem změní jen málo.</p>
+
+      <h3>Hendersonova–Hasselbalchova rovnice</h3>
+      <p>Vyjdeme z&nbsp;výrazu pro <span class="q">K</span><sub>a</sub> a&nbsp;zlogaritmujeme ho. Protože obě složky jsou přítomny ve velkém množství, jsou jejich rovnovážné koncentrace prakticky rovny koncentracím navážky:</p>
+      <p class="eq" style="font-size:1.1rem">[H₃O⁺] = <span class="q">K</span><sub>a</sub> · [HA] / [A⁻] &nbsp;&nbsp;⇒&nbsp;&nbsp; <b>pH = p<span class="q">K</span><sub>a</sub> + log ([A⁻] / [HA])</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">= p<span class="q">K</span><sub>a</sub> + log (<span class="q">n</span><sub>zásada</sub> / <span class="q">n</span><sub>kyselina</sub>)</span></p>
+      <p>Tři důsledky, které se ptají pořád: <b>(1)</b> Při poměru 1 : 1 je <b>pH = p<span class="q">K</span><sub>a</sub></b>. <b>(2)</b> Poměr lze psát v&nbsp;látkových množstvích, protože obě složky jsou ve stejném objemu — <b>zředění pufru pH nemění</b>. <b>(3)</b> Poměr 10 : 1 posune pH o&nbsp;+1, poměr 1 : 10 o&nbsp;−1; prakticky použitelný rozsah pufru je proto <b>pH = p<span class="q">K</span><sub>a</sub> ± 1</b>. Pro zásaditý pufr platí totéž s&nbsp;pOH = p<span class="q">K</span><sub>b</sub> + log([BH⁺]/[B]), nebo rovnou pH = p<span class="q">K</span><sub>a</sub>(BH⁺) + log([B]/[BH⁺]), kde p<span class="q">K</span><sub>a</sub>(NH₄⁺) = 14 − 4,75 = 9,25.</p>
+
+      <h3>Výběr pufru pro dané pH</h3>
+      <p>Vyberte konjugovaný pár, jehož p<span class="q">K</span><sub>a</sub> je <b>co nejblíž požadovanému pH</b> — tam je zásoba obou složek vyrovnaná a&nbsp;pufr nejodolnější. Přehled, který stojí za zapamatování:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Pufr</th><th>Kyselina / zásada</th><th class="n">p<span class="q">K</span><sub>a</sub></th><th>Rozsah</th><th>Kde</th></tr></thead>
+          <tbody>
+            <tr><td>mravenčanový</td><td class="mono">HCOOH / HCOO⁻</td><td class="n">3,75</td><td class="n">2,8–4,8</td><td>laboratoř</td></tr>
+            <tr><td>acetátový</td><td class="mono">CH₃COOH / CH₃COO⁻</td><td class="n">4,76</td><td class="n">3,8–5,8</td><td>laboratoř, potraviny</td></tr>
+            <tr><td>hydrogenuhličitanový</td><td class="mono">H₂CO₃ / HCO₃⁻</td><td class="n">6,10</td><td class="n">5,1–7,1 (krev 7,40 — poměr 20 : 1!)</td><td>krevní plazma</td></tr>
+            <tr><td>citrátový (3. st.)</td><td class="mono">HCit²⁻ / Cit³⁻</td><td class="n">6,40</td><td class="n">5,4–7,4</td><td>potraviny, konzervace krve</td></tr>
+            <tr><td>fosfátový</td><td class="mono">H₂PO₄⁻ / HPO₄²⁻</td><td class="n">7,20</td><td class="n">6,2–8,2</td><td>buňky, biochemie (PBS)</td></tr>
+            <tr><td>amoniakální</td><td class="mono">NH₄⁺ / NH₃</td><td class="n">9,25</td><td class="n">8,3–10,3</td><td>analytika (chelatometrie)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Krev — pufr, který pracuje mimo svůj optimální rozsah</span>
+        <p>Hydrogenuhličitanový pufr má p<span class="q">K</span><sub>a</sub> 6,1, a&nbsp;přesto drží krev na 7,40. Poměr [HCO₃⁻]/[H₂CO₃] je totiž 20 : 1 (log 20 = 1,30; 6,1 + 1,3 = 7,4). Funguje to jen díky tomu, že je <b>otevřený</b>: CO₂ se vydýchá a&nbsp;ledviny doplňují HCO₃⁻. Zrychlené dýchání → méně H₂CO₃ → pH stoupá (respirační alkalóza); zadržený CO₂ → acidóza. To je oblíbená otázka lékařských fakult.</p>
+      </div>
+
+      <h3>Přídavek kyseliny nebo zásady a&nbsp;kapacita pufru</h3>
+      <p>Přidaná silná kyselina (<span class="q">n</span> molů) přemění <span class="q">n</span> molů A⁻ na HA. Nový poměr dosadíte do HH rovnice. Kolik pufr vydrží, říká <span class="term">kapacita pufru</span> β — látkové množství silné kyseliny nebo zásady, které změní pH 1 dm³ pufru o&nbsp;jednotku:</p>
+      <p class="eq">po přidání kyseliny: &nbsp;pH = p<span class="q">K</span><sub>a</sub> + log ((<span class="q">n</span><sub>A⁻</sub> − <span class="q">n</span>) / (<span class="q">n</span><sub>HA</sub> + <span class="q">n</span>))<br>kapacita: &nbsp;β ≈ 2,303 · <span class="q">c</span><sub>HA</sub>·<span class="q">c</span><sub>A⁻</sub> / (<span class="q">c</span><sub>HA</sub> + <span class="q">c</span><sub>A⁻</sub>) &nbsp;&nbsp;<span style="color:var(--ink-3)">— největší při poměru 1 : 1, roste s&nbsp;celkovou koncentrací</span></p>
+      <p>Dva pufry se stejným pH se mohou lišit kapacitou desetkrát: 0,01 M acetátový pufr vyčerpá už 0,01 mol kyseliny, 1 M pufr stejnou dávku prakticky nepozná. <b>Zředění nemění pH, ale zmenšuje kapacitu.</b></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Pufr v&nbsp;akci: poměr složek, přídavek silné kyseliny či zásady a&nbsp;srovnání s&nbsp;čistou vodou</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl"><label for="bfSel">Pufr</label><select id="bfSel"></select></div>
+          <div class="ctl"><label for="bfR">Poměr [A⁻] / [HA] — <span class="val" id="bfRV">1,0</span></label><input type="range" id="bfR" min="-1.3" max="1.3" step="0.05" value="0"></div>
+          <div class="ctl"><label for="bfC">Celková koncentrace <span class="q">c</span>(HA) + <span class="q">c</span>(A⁻) — <span class="val" id="bfCV">0,20 mol·dm⁻³</span></label><input type="range" id="bfC" min="0.02" max="1" step="0.02" value="0.2"></div>
+          <div class="ctl"><label for="bfAdd">Přídavek na 1 dm³: silná kyselina (−) / zásada (+) — <span class="val" id="bfAddV">+0,010 mol</span></label><input type="range" id="bfAdd" min="-0.05" max="0.05" step="0.005" value="0.01"></div>
+        </div>
+        <div class="svgwrap" id="bfWrap" style="min-height:300px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>kyselina HA</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>konjugovaná zásada A⁻</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>pH</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="bfRo1"></div>
+          <div class="readout" id="bfRo2"></div>
+          <div class="readout" id="bfRo3"></div>
+          <div class="readout" id="bfRo4"></div>
+        </div>
+        <div id="bfSteps" style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div class="panel-note" id="bfNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · pH pufru</span>
+          <p>Vypočítejte pH acetátového pufru, který obsahuje (a) 0,10 mol CH₃COOH a&nbsp;0,10 mol CH₃COONa v&nbsp;1 dm³; (b) 0,10 mol CH₃COOH a&nbsp;0,20 mol CH₃COONa v&nbsp;1 dm³. p<span class="q">K</span><sub>a</sub> = 4,76.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Octan sodný je zdroj konjugované zásady CH₃COO⁻ (Na⁺ je jen divák). Máme tedy pár HA / A⁻ a&nbsp;použijeme HH rovnici.</p>
+              <p class="eq">(a) pH = p<span class="q">K</span><sub>a</sub> + log(0,10 / 0,10) = 4,76 + log 1 = 4,76 + 0 = <b>4,76</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">(b) pH = 4,76 + log(0,20 / 0,10) = 4,76 + log 2 = 4,76 + 0,30 = <b>5,06</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kontrola smyslu: víc zásadité složky → vyšší pH. A&nbsp;všimněte si, že objem se nikde neobjevil — kdybychom oba roztoky zředili na 10 dm³, pH zůstane stejné.</p>
+              <span class="result">(a) pH = 4,76 = p<span class="q">K</span><sub>a</sub> &nbsp;·&nbsp; (b) pH = 5,06</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · přídavek silné kyseliny — pufr versus voda</span>
+          <p>K&nbsp;1,0 dm³ pufru z&nbsp;příkladu 4.1(a) přidáme 0,010 mol HCl (objem zanedbejte). Jaké bude pH? Jaké by bylo pH, kdybychom stejné množství HCl přidali do 1,0 dm³ čisté vody?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Přidaný H₃O⁺ zreaguje beze zbytku s&nbsp;konjugovanou zásadou — bilance v&nbsp;molech.</p>
+              <p class="eq"><span class="chem">CH₃COO⁻ + H₃O⁺ → CH₃COOH + H₂O</span><br><span class="q">n</span>(A⁻) = 0,10 − 0,010 = 0,090 mol &nbsp;&nbsp;<span class="q">n</span>(HA) = 0,10 + 0,010 = 0,110 mol</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">pH = 4,76 + log(0,090 / 0,110) = 4,76 + log 0,818 = 4,76 − 0,09 = <b>4,67</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Voda bez pufru: HCl je silná, 0,010 mol v&nbsp;1 dm³ dá [H₃O⁺] = 0,010 mol·dm⁻³.</p>
+              <p class="eq">pH = −log 0,010 = <b>2,00</b> &nbsp;&nbsp;(z&nbsp;pH 7 → skok o&nbsp;5 jednotek)</p>
+              <span class="result">pufr: 4,76 → 4,67 (Δ = 0,09) &nbsp;·&nbsp; voda: 7,00 → 2,00 (Δ = 5,00)</span>
+              <p style="color:var(--ink-2);font-size:.94rem">To je celá pointa pufru v&nbsp;jednom čísle: stejná dávka kyseliny, změna 0,09 místo 5 jednotek — tedy stotisíckrát menší změna koncentrace H₃O⁺.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.3 · příprava pufru o daném pH</span>
+          <p>Máte 1,0 dm³ roztoku CH₃COOH o&nbsp;koncentraci 0,10 mol·dm⁻³ a&nbsp;pevný NaOH. Kolik molů (gramů) NaOH je nutné přidat, aby vznikl pufr o&nbsp;pH 5,00? p<span class="q">K</span><sub>a</sub> = 4,76, <span class="q">M</span>(NaOH) = 40,0 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Z&nbsp;požadovaného pH plyne potřebný poměr složek.</p>
+              <p class="eq">log([A⁻]/[HA]) = pH − p<span class="q">K</span><sub>a</sub> = 5,00 − 4,76 = 0,24 &nbsp;⇒&nbsp; [A⁻]/[HA] = 10⁰·²⁴ = <b>1,74</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Každý mol NaOH přemění jeden mol kyseliny na octan: <span class="q">n</span>(A⁻) = <span class="q">n</span>, <span class="q">n</span>(HA) = 0,10 − <span class="q">n</span>.</p>
+              <p class="eq"><span class="q">n</span> / (0,10 − <span class="q">n</span>) = 1,74 &nbsp;⇒&nbsp; <span class="q">n</span> = 0,174 − 1,74<span class="q">n</span> &nbsp;⇒&nbsp; 2,74<span class="q">n</span> = 0,174 &nbsp;⇒&nbsp; <span class="q">n</span> = <b>0,0635 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(NaOH) = 0,0635 · 40,0 = <b>2,54 g</b></p>
+              <p>Kontrola: 0,0635 / 0,0365 = 1,74 ✓; a&nbsp;přidali jsme míň než 0,10 mol, takže kyselina zbyla a&nbsp;pufr opravdu vznikl. Kdybychom přidali celých 0,10 mol, dostali bychom čistý octan sodný s&nbsp;pH 8,88 — to už není pufr.</p>
+              <span class="result">0,0635 mol = 2,54 g NaOH</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: pufry"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

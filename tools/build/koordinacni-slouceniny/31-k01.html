@@ -1,0 +1,170 @@
+  <!-- ============ KAPITOLA 1 ============ -->
+  <section class="chapter" id="k1" data-title="Koordinační číslo, geometrie a druhy ligandů">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · osnova, bod 2</span>
+      <h2>Koordinační číslo a&nbsp;tvar — kolik sousedů a&nbsp;v&nbsp;jakém uspořádání</h2>
+      <p class="lead">Jakmile víte, že centrální atom váže několik ligandů, vyvstane další otázka: kolik jich váže a&nbsp;kde přesně kolem něj sedí. Odpověď rozhoduje o&nbsp;všem, co přijde dál — jestli komplex má izomery, jak se rozštěpí orbitaly&nbsp;d, jakou má barvu i&nbsp;jestli je magnetický.</p>
+
+      <h3>Koordinační číslo</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Koordinační číslo</b> centrálního atomu je <b>počet donor-akceptorových vazeb</b>, které vytvořil se svými ligandy. Není to počet ligandů — jeden ligand jich může vytvořit několik.</p>
+      </div>
+      <p>Dvě hodnoty jsou zdaleka nejběžnější: <b>6</b> a&nbsp;<b>4</b>. Koordinační číslo&nbsp;2 potkáte u&nbsp;iontů s&nbsp;plně zaplněnými orbitaly d (<span class="chem">Ag⁺</span>, <span class="chem">Au⁺</span>, <span class="chem">Hg²⁺</span>), čísla 3, 5, 7 a&nbsp;8 jsou vzácná a&nbsp;větší hodnoty už jsou kuriozita. Co koordinační číslo určuje?</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Faktor 1 — velikost</span>
+          <p>Kolem malého centrálního atomu se prostě nevejde moc ligandů, a&nbsp;objemný ligand zabere víc místa než drobný. Proto dá <span class="chem">Ni²⁺</span> s&nbsp;malými kyanidy koordinační číslo 4, ale s&nbsp;ještě menší vodou 6, kdežto s&nbsp;objemnými chloridy zase 4.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Faktor 2 — náboj a&nbsp;orbitaly</span>
+          <p>Vyšší náboj centrálního atomu ligandy silněji přitáhne, takže se jich vejde víc. A&nbsp;počet vhodně orientovaných prázdných orbitalů dává horní mez: šest orbitalů typu d²sp³ znamená koordinační číslo 6.</p>
+        </div>
+      </div>
+
+      <h3>Koordinační polyedr</h3>
+      <p>Spojíte-li donorové atomy čarami, dostanete mnohostěn — <span class="term">koordinační polyedr</span>. Jeho vrcholy jsou obsazené donorovými atomy a&nbsp;jejich počet se rovná koordinačnímu číslu.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past: jedno číslo, dva tvary</span>
+        <p>Koordinačnímu číslu <b>4</b> odpovídají <b>dva</b> zcela různé polyedry — <b>tetraedr</b> a&nbsp;<b>čtverec</b>. Nejde o&nbsp;detail: tetraedrický komplex nemá geometrické izomery, čtvercový je má; tetraedrický je skoro vždy paramagnetický, čtvercový skoro vždy diamagnetický. Ptá-li se otázka na komplex s&nbsp;koordinačním číslem 4, nikdy neodpovídejte, aniž byste zjistili který ze dvou tvarů.</p>
+      </div>
+      <p>Podobně koordinačnímu číslu 6 odpovídá kromě oktaedru i&nbsp;trigonální antiprizma, ale oktaedr je tak dominantní, že se v&nbsp;praxi bere jako jediný. Reálné polyedry jsou navíc téměř vždy <b>deformované</b> — ideální tvar je model, ne měření.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník koordinačních polyedrů</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Koordinační číslo a&nbsp;tvar</label>
+          <div class="segmented" id="gpSeg" style="flex-wrap:wrap;max-width:100%">
+            <button type="button" data-v="lin" aria-pressed="false">2 · lineární</button>
+            <button type="button" data-v="tri" aria-pressed="false">3 · trigonální</button>
+            <button type="button" data-v="tet" aria-pressed="false">4 · tetraedr</button>
+            <button type="button" data-v="sq" aria-pressed="false">4 · čtverec</button>
+            <button type="button" data-v="bip" aria-pressed="false">5 · bipyramida</button>
+            <button type="button" data-v="okt" aria-pressed="true">6 · oktaedr</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="gpWrap" style="min-height:330px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>M — centrální atom</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>L — donorový atom ligandu</span>
+        </div>
+        <p class="eq" id="gpPrik" style="margin-top:1rem"></p>
+        <div class="explain" id="gpSay" style="margin-top:.6rem;display:flex"></div>
+      </div>
+      <div class="panel-note">Zkuste přepnout mezi <b>4&nbsp;·&nbsp;tetraedr</b> a&nbsp;<b>4&nbsp;·&nbsp;čtverec</b>. Stejný počet ligandů, ale úplně jiné úhly — a&nbsp;z&nbsp;toho plyne, že u&nbsp;tetraedru nelze rozlišit „sousední“ a&nbsp;„protilehlý“ vrchol, kdežto u&nbsp;čtverce ano. Právě proto existuje cisplatina a&nbsp;transplatina, ale žádné cis-tetraedrické izomery.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Denticita — kolik zubů má ligand</h3>
+      <p>Ligand nemusí nabízet jen jeden elektronový pár. Podle počtu donorových atomů, kterými se váže k&nbsp;témuž centru, mluvíme o&nbsp;ligandech jednodonorových, dvoudonorových a&nbsp;vícedonorových. Odborně se tomu říká <span class="term">denticita</span>, od latinského <i>dens</i>, zub.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Denticita</th><th>Kolik vazeb udělá</th><th>Příklady</th><th>Kolik jich obsadí oktaedr</th></tr></thead>
+          <tbody>
+            <tr><td><b>jednodonorový</b></td><td class="n">1</td><td class="chem">H₂O, NH₃, Cl⁻, CN⁻, OH⁻, CO</td><td class="n">šest ligandů</td></tr>
+            <tr><td><b>dvoudonorový</b></td><td class="n">2</td><td class="chem">en, C₂O₄²⁻, CO₃²⁻, dmg⁻</td><td class="n">tři ligandy</td></tr>
+            <tr><td><b>čtyřdonorový</b></td><td class="n">4</td><td>porfyrinový kruh v&nbsp;hemu</td><td class="n">jeden ligand a&nbsp;dvě volná místa</td></tr>
+            <tr><td><b>šestidonorový</b></td><td class="n">6</td><td class="chem">EDTA⁴⁻ (dva N a&nbsp;čtyři O)</td><td class="n">jediný ligand obsadí celý oktaedr</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Chelát</b> je komplexní částice, ve které je <b>vícedonorový ligand navázán několika donorovými atomy k&nbsp;témuž centrálnímu atomu</b>, takže vznikne kruh. Slovo pochází z&nbsp;řeckého <i>chélé</i> — klepeto.</p>
+      </div>
+      <p>Nejstabilnější jsou <b>pětičlenné a&nbsp;šestičlenné</b> kruhy, přesně jako v&nbsp;organické chemii. Ethylendiamin <span class="chem">H₂N–CH₂–CH₂–NH₂</span> uzavře s&nbsp;kovem kruh o&nbsp;pěti atomech (M, N, C, C, N) — proto je tak dobrý chelátor. Kdyby měl v&nbsp;řetězci jen jeden uhlík, kruh by byl čtyřčlenný, napjatý a&nbsp;nestálý.</p>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu to je</span>
+        <p>Chelatace je důvod, proč funguje <b>chelaton v&nbsp;prášku na praní</b> (naváže vápník a&nbsp;hořčík z&nbsp;tvrdé vody), proč se dá léčit <b>otrava olovem</b> a&nbsp;proč <b>hemoglobin</b> udrží železo přesně tam, kde ho tělo potřebuje. Celou kapitolu 7 věnujeme tomu, proč jsou cheláty o&nbsp;tolik stálejší.</p>
+      </div>
+
+      <h3>Koordinační sféra homogenní a&nbsp;heterogenní</h3>
+      <p>Když jsou všechny donorové atomy stejné, je sféra <b>homogenní</b> — <span class="chem">[Fe(CN)₆]⁴⁻</span>, <span class="chem">[Cr(H₂O)₆]³⁺</span>. Když jsou různé, je <b>heterogenní</b> — <span class="chem">[Co(NH₃)₅Cl]²⁺</span>, <span class="chem">[Pt(NH₃)₂Cl₂]</span>. Zapamatujte si to, protože platí jednoduché pravidlo:</p>
+      <p class="eq"><b>Geometrické izomery může mít jen komplex s&nbsp;heterogenní koordinační sférou.</b></p>
+
+      <h3>Můstkové ligandy, vícejaderné částice a&nbsp;klastry</h3>
+      <p>Ligand se může vázat i&nbsp;ke <b>dvěma různým</b> centrálním atomům najednou. Pak se mu říká <span class="term">můstkový</span> a&nbsp;značí se řeckým písmenem <b>μ</b> před jeho názvem. Vzniklá částice je nutně <b>vícejaderná</b> — má víc než jeden centrální atom.</p>
+      <p>Zvláštním případem jsou <span class="term">klastry</span>, ve kterých jsou centrální atomy kovů spojené <b>přímo vazbou kov–kov</b>. Do koordinačního čísla se taková vazba počítá také.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past: hydroxid můstkový a&nbsp;hydroxid koncový</span>
+        <p>Ve vzorci <span class="chem">[Fe₂(OH)₂(H₂O)₈]⁴⁺</span> nejsou dva hydroxidy „navíc“ — každý z&nbsp;nich váže <b>obě</b> železa a&nbsp;drží dvojjadernou částici pohromadě. Koordinační číslo každého železa je přesto šest: čtyři vody a&nbsp;dva můstkové hydroxidy.</p>
+      </div>
+
+      <h3>Nespecifikované donorové atomy</h3>
+      <p>U&nbsp;některých ligandů se nedá říct, kterým atomem se vážou — vazba míří k&nbsp;celé skupině atomů. Molekula ethenu se váže na platinu svou dvojnou vazbou, cyklopentadienylový anion se váže na železo celým pětičlenným kruhem. Značí se to řeckým <b>η</b> (éta) s&nbsp;horním indexem, který říká, kolik atomů se vazby účastní: <span class="chem">η²-C₂H₄</span>, <span class="chem">η⁵-C₅H₅</span>. Ve starších knihách najdete místo η písmeno h.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Historická poznámka</span>
+        <p>Vůbec první známá organokovová sloučenina — Zeisova sůl <span class="chem">K[PtCl₃(η²-C₂H₄)]</span> — vznikla už roku 1830. Její strukturu ale nikdo nedokázal vysvětlit dalších sto dvacet let, protože chyběl pojem <b>zpětné donace π</b>. Vrátíme se k&nbsp;ní v&nbsp;kapitole 4.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Ligandy, které musíte poznat — hledejte a&nbsp;filtrujte</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="lgHled">Hledat ve vzorcích, názvech a&nbsp;poznámkách</label>
+            <input type="search" id="lgHled" placeholder="například kyanido, chelát, dusík…">
+          </div>
+          <div class="ctl">
+            <label>Filtr</label>
+            <div class="segmented" id="lgSeg" style="flex-wrap:wrap;max-width:100%">
+              <button type="button" data-v="vse" aria-pressed="true">Všechny</button>
+              <button type="button" data-v="anion" aria-pressed="false">Aniontové</button>
+              <button type="button" data-v="neutral" aria-pressed="false">Nenabité</button>
+              <button type="button" data-v="chelat" aria-pressed="false">Chelátové</button>
+              <button type="button" data-v="slabe" aria-pressed="false">Slabé pole</button>
+              <button type="button" data-v="silne" aria-pressed="false">Silné pole</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" id="lgTbl"></div>
+      </div>
+      <div class="panel-note">Sloupec <b>síla pole <span class="q">f</span></b> je bezrozměrný faktor, který používáme v&nbsp;kapitole 4; voda má z&nbsp;definice <span class="q">f</span>&nbsp;=&nbsp;1,00. Zkuste zapnout filtr <b>Chelátové</b> a&nbsp;podívejte se na sloupec denticity — právě ten dělá z&nbsp;ligandu klepeto. Pak si vyhledejte slovo <b>izomerie</b> a&nbsp;najdete dva ligandy, které se umějí vázat dvěma různými atomy.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head" style="flex-wrap:wrap">
+          <span class="eyebrow" style="flex:0 1 auto">Příklad 1.1 · koordinační číslo u&nbsp;chelátu</span>
+          <p>Jaké je koordinační číslo kobaltu v&nbsp;kationtu <span class="chem">[Co(en)₃]³⁺</span> a&nbsp;jaký tvar má jeho koordinační polyedr?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal></button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 1 · zjistěte denticitu ligandu</p><p>Ethylendiamin <span class="chem">H₂N–CH₂–CH₂–NH₂</span> má <b>dva</b> dusíky s&nbsp;volným elektronovým párem. Oba se dosáhnou na tentýž kobalt, takže je ligand <b>dvoudonorový</b>.</p></div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 2 · nesčítejte ligandy, sčítejte vazby</p><p class="eq">koordinační číslo = 3 ligandy × 2 donorové atomy = <b>6</b></p></div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 3 · přiřaďte polyedr</p><p>Koordinačnímu číslu 6 odpovídá <b>oktaedr</b>. Tři chelátové kruhy obsadí jeho šest vrcholů po dvojicích sousedních vrcholů.</p></div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 4 · řekněte, co z&nbsp;toho plyne</p><p>Vznikly <b>tři pětičlenné kruhy</b> stočené kolem kobaltu jako lopatky vrtule. Takový útvar nemá rovinu ani střed symetrie, a&nbsp;proto je <span class="result">opticky aktivní</span> — existuje ve dvou zrcadlových formách. To rozebereme v&nbsp;kapitole 3.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head" style="flex-wrap:wrap">
+          <span class="eyebrow" style="flex:0 1 auto">Příklad 1.2 · rozhodněte o&nbsp;tvaru</span>
+          <p>Rozhodněte, zda budou tyto tři komplexy tetraedrické, čtvercové, nebo oktaedrické, a&nbsp;zdůvodněte to: <span class="chem">[Ni(CN)₄]²⁻</span>, <span class="chem">[NiCl₄]²⁻</span>, <span class="chem">[Ni(H₂O)₆]²⁺</span>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal></button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 1 · srovnejte ligandy</p><p>Ve všech třech případech je centrálním atomem tentýž <span class="chem">Ni²⁺</span> s&nbsp;konfigurací d⁸. Liší se jen ligand.</p></div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 2 · kyanid — silné pole, malý ligand</p><p>Kyanid je na samém konci spektrochemické řady. Vytvoří tak silné pole, že se všech osm elektronů d spáruje do čtyř nižších orbitalů, a&nbsp;vznikne <b>čtvercový</b> diamagnetický komplex.</p></div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 3 · chlorid — slabé pole, objemný ligand</p><p>Chlorid je velký a&nbsp;dělá slabé pole. Čtyři objemné anionty se pohodlněji rozmístí do <b>tetraedru</b>, kde jsou od sebe nejdál. Komplex je paramagnetický.</p></div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 4 · voda — malá a&nbsp;nenabitá</p><p>Voda je drobná a&nbsp;nenabitá, takže se jich kolem niklu vejde šest a&nbsp;odpuzování mezi nimi je malé. Vznikne <span class="result">oktaedrický</span> zelený akvakomplex.</p><p>Poučení, které si odneste: <b>tvar komplexu není vlastnost kovu</b>. Tentýž nikelnatý iont dá podle ligandu tři různé polyedry.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: koordinační číslo, polyedry a denticita"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

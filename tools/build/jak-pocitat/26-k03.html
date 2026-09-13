@@ -1,0 +1,193 @@
+  <!-- ============ KAPITOLA 3 — PŘEHLED VELIČIN A VZORCŮ ============ -->
+  <section class="chapter" id="k3" data-title="Přehled veličin a vzorců">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · kartotéka</span>
+      <h2>Všechno, co se v&nbsp;chemii počítá, na jednom místě</h2>
+      <p class="lead">Středoškolská chemie má překvapivě málo vzorců — dohromady jich je kolem padesáti a&nbsp;polovina z&nbsp;nich jsou varianty téhož. Tahle kapitola je referenční: hledejte v&nbsp;ní podle oblasti, podle symbolu i&nbsp;podle názvu. U&nbsp;každého vztahu najdete význam písmen, jednotku, kdy se používá a&nbsp;čeho se u&nbsp;něj vyvarovat.</p>
+
+      <h3>Jak kartotéku číst</h3>
+      <p>Vzorce jsou rozdělené do devíti oblastí, které odpovídají maturitním okruhům. Klikněte na kartu a&nbsp;rozbalí se význam všech symbolů. Vyhledávací pole hledá zároveň v&nbsp;názvu, ve vzorci i&nbsp;v&nbsp;symbolech — takže „<span class="mono">Ka</span>“ najde disociační konstantu i&nbsp;Hendersonovu–Hasselbalchovu rovnici.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Kartotéka</span>
+        <h3>Prohledávatelný přehled vzorců</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:.9rem">
+          <div class="ctl">
+            <label for="fcSearch">Hledat podle názvu, symbolu nebo vzorce</label>
+            <input type="search" id="fcSearch" placeholder="např. Nernst, Ka, pV, poločas…">
+          </div>
+          <div class="ctl">
+            <label>Nalezeno</label>
+            <span class="fcount" id="fcCount">—</span>
+          </div>
+        </div>
+        <div class="ctl" style="margin-bottom:.4rem">
+          <label>Oblast</label>
+          <div class="segmented" id="fcArea" role="group" aria-label="Oblast" style="flex-wrap:wrap">
+            <button type="button" data-v="all" aria-pressed="true">Vše</button>
+            <button type="button" data-v="mol" aria-pressed="false">Látkové množství</button>
+            <button type="button" data-v="roz" aria-pressed="false">Roztoky</button>
+            <button type="button" data-v="ply" aria-pressed="false">Plyny</button>
+            <button type="button" data-v="ter" aria-pressed="false">Termochemie</button>
+            <button type="button" data-v="kin" aria-pressed="false">Kinetika</button>
+            <button type="button" data-v="rov" aria-pressed="false">Rovnováha</button>
+            <button type="button" data-v="ele" aria-pressed="false">Elektrochemie</button>
+            <button type="button" data-v="aci" aria-pressed="false">Acidobazika</button>
+            <button type="button" data-v="jad" aria-pressed="false">Jaderná chemie</button>
+          </div>
+        </div>
+        <div class="fcards" id="fcOut"></div>
+      </div>
+      <div class="panel-note">Zkuste vyhledat <b>„mol“</b> a&nbsp;podívejte se, kolik různých vztahů obsahuje látkové množství. To je návod, jak řešit skoro každou úlohu: <b>všechno vede přes moly</b>. Když nevíte kudy dál, spočítejte látková množství.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Cesta k&nbsp;výsledku — který vztah použít</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="rtFrom">Co máte v&nbsp;zadání</label>
+            <select id="rtFrom">
+              <option value="mM">hmotnost m a&nbsp;molární hmotnost M</option>
+              <option value="cV">koncentrace c a&nbsp;objem V</option>
+              <option value="VVm">objem plynu V a&nbsp;molární objem V<sub>m</sub></option>
+              <option value="pVT">tlak p, objem V a&nbsp;teplota T</option>
+              <option value="N">počet částic N</option>
+              <option value="roVw">hustota ρ, objem V a&nbsp;hmotnostní zlomek w</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label for="rtTo">Co hledáte</label>
+            <select id="rtTo">
+              <option value="n">látkové množství n</option>
+              <option value="m">hmotnost m</option>
+              <option value="c">koncentraci c</option>
+              <option value="V">objem plynu V</option>
+              <option value="N">počet částic N</option>
+            </select>
+          </div>
+        </div>
+        <div id="rtOut"></div>
+      </div>
+      <div class="panel-note">Všimněte si, že <b>uprostřed každé cesty stojí látkové množství</b>. Mol je ústřední nádraží chemie: ať jedete odkudkoli kamkoli, přestupujete v&nbsp;něm. Kdo si tohle jednou uvědomí, přestane u&nbsp;úloh tápat.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Konstanty, které musíte znát</h3>
+      <p>Tyhle hodnoty budete mít u&nbsp;maturity v&nbsp;tabulkách, ale u&nbsp;přijímaček často ne. Prvních pět se vyplatí umět zpaměti.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Konstanta</th><th>Značka</th><th class="n">Hodnota</th><th>Jednotka</th><th>Kde se bere</th></tr></thead>
+          <tbody>
+            <tr><td>Molární plynová konstanta</td><td class="n"><span class="q">R</span></td><td class="n">8,314</td><td class="n">J·K⁻¹·mol⁻¹</td><td>stavová rovnice, Nernst, Arrhenius, Δ<span class="q">G</span>°</td></tr>
+            <tr><td>Avogadrova konstanta</td><td class="n"><span class="q">N</span><sub>A</sub></td><td class="n">6,022·10²³</td><td class="n">mol⁻¹</td><td>počet částic v&nbsp;molu</td></tr>
+            <tr><td>Faradayova konstanta</td><td class="n"><span class="q">F</span></td><td class="n">96 485</td><td class="n">C·mol⁻¹</td><td>elektrolýza, Nernst; <span class="q">F</span> = <span class="q">N</span><sub>A</sub>·<span class="q">e</span></td></tr>
+            <tr><td>Molární objem plynu (0 °C, 101,325 kPa)</td><td class="n"><span class="q">V</span><sub>m</sub></td><td class="n">22,414</td><td class="n">dm³·mol⁻¹</td><td>„normální podmínky“, STP</td></tr>
+            <tr><td>Molární objem plynu (25 °C, 100 kPa)</td><td class="n"><span class="q">V</span><sub>m</sub></td><td class="n">24,790</td><td class="n">dm³·mol⁻¹</td><td>„standardní podmínky“, SATP</td></tr>
+            <tr><td>Boltzmannova konstanta</td><td class="n"><span class="q">k</span><sub>B</sub></td><td class="n">1,381·10⁻²³</td><td class="n">J·K⁻¹</td><td><span class="q">k</span><sub>B</sub> = <span class="q">R</span>/<span class="q">N</span><sub>A</sub>; energie na jednu částici</td></tr>
+            <tr><td>Elementární náboj</td><td class="n"><span class="q">e</span></td><td class="n">1,602·10⁻¹⁹</td><td class="n">C</td><td>náboj elektronu a&nbsp;protonu</td></tr>
+            <tr><td>Planckova konstanta</td><td class="n"><span class="q">h</span></td><td class="n">6,626·10⁻³⁴</td><td class="n">J·s</td><td><span class="q">E</span> = <span class="q">h</span><span class="q">ν</span>; spektra, fotoefekt</td></tr>
+            <tr><td>Rychlost světla ve vakuu</td><td class="n"><span class="q">c</span></td><td class="n">2,998·10⁸</td><td class="n">m·s⁻¹</td><td><span class="q">c</span> = <span class="q">λ</span><span class="q">ν</span>; přesně 299 792 458 m·s⁻¹</td></tr>
+            <tr><td>Atomová hmotnostní jednotka</td><td class="n">u, Da</td><td class="n">1,66054·10⁻²⁷</td><td class="n">kg</td><td>1/12 hmotnosti atomu ¹²C</td></tr>
+            <tr><td>Iontový součin vody (25 °C)</td><td class="n"><span class="q">K</span><sub>w</sub></td><td class="n">1,0·10⁻¹⁴</td><td class="n">—</td><td>pH + pOH = 14</td></tr>
+            <tr><td>Měrná tepelná kapacita vody</td><td class="n"><span class="q">c</span></td><td class="n">4,18</td><td class="n">J·g⁻¹·K⁻¹</td><td>kalorimetrie; = 4,18 kJ·kg⁻¹·K⁻¹</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Dvě hodnoty <span class="q">R</span>, dvě hodnoty <span class="q">V</span><sub>m</sub></span>
+        <p><span class="q">R</span> = 8,314&nbsp;J·K⁻¹·mol⁻¹ platí, když dosazujete tlak v&nbsp;<b>pascalech</b> a&nbsp;objem v&nbsp;<b>m³</b>. Když chcete dosazovat v&nbsp;kPa a&nbsp;dm³, použijte tutéž hodnotu — vyjde to nastejno, protože <span class="mono">kPa·dm³ = J</span>. Nikdy ale nemíchejte kPa s&nbsp;m³.<br>
+        <span class="q">V</span><sub>m</sub> = <b>22,414</b>&nbsp;dm³·mol⁻¹ platí při 0&nbsp;°C a&nbsp;101,325&nbsp;kPa (normální podmínky), <span class="q">V</span><sub>m</sub> = <b>24,790</b>&nbsp;dm³·mol⁻¹ při 25&nbsp;°C a&nbsp;100&nbsp;kPa (standardní podmínky). Rozdíl je 10&nbsp;% a&nbsp;zadání skoro nikdy neřekne, kterou chce — musíte to poznat podle uvedené teploty. Když teplota není uvedena vůbec, míní se normální podmínky, tedy 22,4.</p>
+      </div>
+
+      <h3>Devět oblastí v&nbsp;jedné větě každá</h3>
+      <p><b>Látkové množství a&nbsp;stechiometrie.</b> Čtyři cesty k&nbsp;molu — z&nbsp;hmotnosti (<span class="mono">n = m/M</span>), z&nbsp;objemu plynu (<span class="mono">n = V/V<sub>m</sub></span>), z&nbsp;roztoku (<span class="mono">n = c·V</span>) a&nbsp;z&nbsp;počtu částic (<span class="mono">n = N/N<sub>A</sub></span>). Stechiometrické koeficienty pak převádějí moly jedné látky na moly druhé.</p>
+      <p><b>Roztoky.</b> Tři různé „koncentrace“, které se pravidelně pletou: látková <span class="mono">c</span> [mol·dm⁻³], hmotnostní zlomek <span class="mono">w</span> [1 nebo %] a&nbsp;hmotnostní koncentrace <span class="mono">γ</span> [g·dm⁻³]. Most mezi nimi tvoří hustota.</p>
+      <p><b>Plyny.</b> Stavová rovnice <span class="mono">pV = nRT</span> obsahuje všechny „plynové zákony“ najednou. Když se něco nemění, vypadne to z&nbsp;rovnice a&nbsp;zbyde Boyleův, Charlesův nebo Gay-Lussacův zákon.</p>
+      <p><b>Termochemie.</b> Kalorimetrie <span class="mono">Q = mcΔT</span>, Hessův zákon (Δ<span class="q">H</span> se sčítá po cestě) a&nbsp;Gibbsova energie <span class="mono">ΔG = ΔH − TΔS</span>, která rozhoduje o&nbsp;samovolnosti.</p>
+      <p><b>Kinetika.</b> Rychlost jako změna koncentrace za čas, rychlostní rovnice <span class="mono">v = k·c<sup>a</sup>·c<sup>b</sup></span>, poločas a&nbsp;Arrheniova rovnice pro teplotní závislost.</p>
+      <p><b>Rovnováha.</b> Rovnovážná konstanta <span class="mono">K</span> jako podíl produktů ku reaktantům umocněných na koeficienty, reakční kvocient <span class="mono">Q</span> pro nerovnovážný stav a&nbsp;spojka s&nbsp;termodynamikou <span class="mono">ΔG° = −RT ln K</span>.</p>
+      <p><b>Elektrochemie.</b> Napětí článku jako rozdíl potenciálů, Nernstova rovnice pro nestandardní podmínky a&nbsp;Faradayovy zákony elektrolýzy.</p>
+      <p><b>Acidobazika.</b> pH jako záporný dekadický logaritmus, disociační konstanty <span class="q">K</span><sub>a</sub> a&nbsp;<span class="q">K</span><sub>b</sub>, pufry přes Hendersonovu–Hasselbalchovu rovnici a&nbsp;součin rozpustnosti <span class="q">K</span><sub>sp</sub>.</p>
+      <p><b>Jaderná chemie.</b> Rozpadový zákon a&nbsp;poločas přeměny — matematicky totéž jako kinetika prvního řádu.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 3.1</span>
+        <p>Ukažte rozměrovou analýzou, že plynovou konstantu <span class="q">R</span> lze bez přepočtu dosazovat jako 8,314&nbsp;kPa·dm³·K⁻¹·mol⁻¹, a&nbsp;spočítejte, jaký objem zaujímá 1,00&nbsp;mol ideálního plynu při 0&nbsp;°C a&nbsp;101,325&nbsp;kPa.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 3.1</span>
+              <span class="cs-topic">Odkud se bere hodnota 22,4 dm³·mol⁻¹</span>
+              <span class="cs-kind">Plyny</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">n</span><span class="cs-val">= 1,00 mol</span><span class="cs-note">jeden mol plynu</span></div>
+                <div class="cs-row"><span class="cs-sym">t</span><span class="cs-val">= 0 °C <span class="cs-conv">→ T = 273,15 K</span></span><span class="cs-note">normální podmínky</span></div>
+                <div class="cs-row"><span class="cs-sym">p</span><span class="cs-val">= 101,325 kPa</span><span class="cs-note">= 1 atm</span></div>
+                <div class="cs-row"><span class="cs-sym">R</span><span class="cs-val">= 8,314 J·K⁻¹·mol⁻¹</span><span class="cs-note">plynová konstanta</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">V<sub>m</sub></span><span class="cs-val">= ? dm³·mol⁻¹</span><span class="cs-note">molární objem</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">p · V = n · R · T</div>
+                <div class="cs-line">V<sub>m</sub> = V / n</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">V = n · R · T / p &nbsp;→&nbsp; V<sub>m</sub> = V / n = <b>R · T / p</b></div>
+                <div class="cs-line units">rozměr J: J = N·m = (N·m⁻²)·m³ = Pa·m³ = (10³ Pa)·(10⁻³ m³) = <b>kPa·dm³</b> ✓</div>
+                <p class="cs-hint">Proto je 8,314&nbsp;J·K⁻¹·mol⁻¹ totéž co 8,314&nbsp;kPa·dm³·K⁻¹·mol⁻¹. Dosadíme tedy rovnou kilopascaly a&nbsp;decimetry krychlové.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">V<sub>m</sub> = 8,314 kPa·dm³·K⁻¹·mol⁻¹ · 273,15 K / 101,325 kPa</div>
+                <div class="cs-line units">jednotky: kPa·dm³·K⁻¹·mol⁻¹ · K / kPa = <b>dm³·mol⁻¹</b> ✓</div>
+                <div class="cs-line">V<sub>m</sub> = 2270,97 / 101,325 = 22,4127 dm³·mol⁻¹</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Jeden mol ideálního plynu zaujímá za normálních podmínek objem <b class="cs-hi">V<sub>m</sub> = 22,41 dm³·mol⁻¹</b>. Tohle číslo se v&nbsp;úlohách zaokrouhluje na 22,4.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Vyšla tabulková hodnota, takže odvození i&nbsp;dosazení sedí. Zkuste totéž pro 25&nbsp;°C a&nbsp;100&nbsp;kPa: 8,314·298,15/100 = 24,79&nbsp;dm³·mol⁻¹. Rozdíl 10&nbsp;% oproti 22,4 je přesně ta past, na kterou se u&nbsp;přijímaček chytá nejvíc lidí.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: vzorce, veličiny a konstanty"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>

@@ -1,0 +1,235 @@
+    <div class="prose" style="margin-top:2rem">
+      <h3>Elektrochemie — Faradayovy zákony</h3>
+      <p>Elektrolýza je stechiometrie s&nbsp;elektrony. Náboj, který projde obvodem, je <span class="mono">Q = I·t</span>; jeden mol elektronů nese náboj <span class="q">F</span> = 96&nbsp;485&nbsp;C·mol⁻¹. Zbytek je obyčejný přepočet přes moly, jen s&nbsp;jedním navíc: <b>počet elektronů <span class="q">z</span> na jednu vyloučenou částici</b>. Pro <span class="chem">Cu²⁺ + 2 e⁻ → Cu</span> je <span class="q">z</span> = 2. Elektrodové potenciály a&nbsp;Nernstovu rovnici najdete v&nbsp;okruhu Elektrochemie.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.4 · elektrochemie</span>
+        <p>Předmět pokovujeme mědí v&nbsp;lázni <span class="chem">CuSO₄</span> proudem 1,50&nbsp;A po dobu 30,0&nbsp;minut. Kolik mědi se vyloučí? <span class="chem">M</span>(Cu) = 63,55&nbsp;g·mol⁻¹, <span class="q">F</span> = 96&nbsp;485&nbsp;C·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 7.4</span>
+              <span class="cs-topic">Faradayův zákon elektrolýzy</span>
+              <span class="cs-kind">Elektrochemie</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">I</span><span class="cs-val">= 1,50 A</span><span class="cs-note">proud</span></div>
+                <div class="cs-row"><span class="cs-sym">t</span><span class="cs-val">= 30,0 min <span class="cs-conv">= 1800 s</span></span><span class="cs-note">převod hned — vzorec chce sekundy</span></div>
+                <div class="cs-row"><span class="cs-sym">z</span><span class="cs-val">= 2</span><span class="cs-note">Cu²⁺ + 2 e⁻ → Cu</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 63,55 g·mol⁻¹</span><span class="cs-note">M(Cu)</span></div>
+                <div class="cs-row"><span class="cs-sym">F</span><span class="cs-val">= 96 485 C·mol⁻¹</span><span class="cs-note">Faradayova konstanta</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= ? g</span><span class="cs-note">hmotnost vyloučené mědi</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">Q = I · t &nbsp;&nbsp;<em>(náboj, který prošel)</em></div>
+                <div class="cs-line">n(e⁻) = Q / F</div>
+                <div class="cs-line">n(Cu) = n(e⁻) / z</div>
+                <div class="cs-line">m = n · M</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">n(Cu) = Q / (z · F) = I · t / (z · F)</div>
+                <div class="cs-line">m = n · M = <b>M · I · t / (z · F)</b></div>
+                <p class="cs-hint">Tohle je „malý Faradayův vzorec“, který se běžně uvádí rovnou. Odvození ukazuje, že v&nbsp;něm není nic tajemného — je to jen řetěz čtyř triviálních vztahů.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">m = 63,55 g·mol⁻¹ · 1,50 A · 1800 s / (2 · 96 485 C·mol⁻¹)</div>
+                <div class="cs-line units">jednotky: g·mol⁻¹ · A·s / (C·mol⁻¹) = g·mol⁻¹ · C / (C·mol⁻¹) = <b>g</b> ✓ (A·s = C)</div>
+                <div class="cs-line">Q = 1,50 · 1800 = 2700 C &nbsp;→&nbsp; m = 63,55 · 2700 / 192 970</div>
+                <div class="cs-line">m = 171 585 / 192 970 = 0,8892 g</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Za půl hodiny se vyloučí <b class="cs-hi">m = 0,889 g</b> mědi.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">2700&nbsp;C je zhruba 1/36 Faradaye, tedy asi 0,028&nbsp;mol elektronů, tedy 0,014&nbsp;mol mědi — a&nbsp;to je při 63,55&nbsp;g·mol⁻¹ necelý gram. Sedí. Nejčastější chyba tady: <b>zapomenuté <span class="q">z</span></b>. Bez dvojky by vyšlo 1,78&nbsp;g, tedy dvojnásobek. Druhá nejčastější: minuty místo sekund — pak by vyšlo 0,0148&nbsp;g.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Acidobazika — pH slabé kyseliny</h3>
+      <p>U&nbsp;silné kyseliny je pH triviální: disociuje úplně, takže <span class="mono">[H₃O⁺] = c</span>. U&nbsp;slabé kyseliny disociuje jen zlomek molekul a&nbsp;musíte použít disociační konstantu. Pro běžné případy (<span class="q">c</span>/<span class="q">K</span><sub>a</sub> &gt; 100) platí jednoduché přiblížení <span class="mono">[H₃O⁺] = √(K<sub>a</sub>·c)</span>, protože úbytek nedisociované kyseliny je zanedbatelný. Teorii kyselin a&nbsp;zásad, pufry a&nbsp;titrační křivky najdete v&nbsp;okruhu Acidobazické reakce.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.5 · pH</span>
+        <p>Vypočtěte pH roztoku kyseliny octové o&nbsp;koncentraci 0,100&nbsp;mol·dm⁻³. <span class="q">K</span><sub>a</sub> = 1,75·10⁻⁵. Určete také stupeň disociace v&nbsp;procentech.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 7.5</span>
+              <span class="cs-topic">pH slabé kyseliny a&nbsp;stupeň disociace</span>
+              <span class="cs-kind">Acidobazika</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= 0,100 mol·dm⁻³</span><span class="cs-note">analytická koncentrace kyseliny</span></div>
+                <div class="cs-row"><span class="cs-sym">K<sub>a</sub></span><span class="cs-val">= 1,75·10⁻⁵</span><span class="cs-note">CH₃COOH, 25&nbsp;°C</span></div>
+                <div class="cs-row"><span class="cs-sym">c/K<sub>a</sub></span><span class="cs-val">= 5,7·10³ &gt; 100</span><span class="cs-note">přiblížení je oprávněné</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">pH</span><span class="cs-val">= ? (bezrozměrné)</span><span class="cs-note">a&nbsp;stupeň disociace α v&nbsp;%</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">K<sub>a</sub> = [H₃O⁺]·[A⁻] / [HA]</div>
+                <div class="cs-line">pH = −log [H₃O⁺]</div>
+                <div class="cs-line">α = [H₃O⁺] / c</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">[H₃O⁺] = [A⁻] = x, [HA] = c − x ≈ c &nbsp;&nbsp;<em>(x je proti c zanedbatelné)</em></div>
+                <div class="cs-line">K<sub>a</sub> = x² / c &nbsp;→&nbsp; x = <b>√(K<sub>a</sub> · c)</b></div>
+                <div class="cs-line">pH = −log √(K<sub>a</sub>·c) = <b>½ (pK<sub>a</sub> − log c)</b></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">[H₃O⁺] = √(1,75·10⁻⁵ · 0,100) = √(1,75·10⁻⁶) = 1,3229·10⁻³ mol·dm⁻³</div>
+                <div class="cs-line units">jednotky: √(1 · mol·dm⁻³) — K<sub>a</sub> je bezrozměrná, zbude <b>mol·dm⁻³</b> ✓</div>
+                <div class="cs-line">pH = −log(1,3229·10⁻³) = 2,8785</div>
+                <div class="cs-line">α = 1,3229·10⁻³ / 0,100 = 0,013229 = 1,32 %</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Roztok má <b class="cs-hi">pH = 2,88</b> a&nbsp;kyselina je disociovaná jen z&nbsp;<b class="cs-hi">1,32 %</b>.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Silná kyselina o&nbsp;téže koncentraci by měla pH&nbsp;=&nbsp;1,00. Slabá musí mít pH <b>vyšší</b> — a&nbsp;má, 2,88. Zároveň musí být pod 7, protože jde o&nbsp;kyselinu. Ověření přiblížení: x&nbsp;=&nbsp;0,0013 je proti c&nbsp;=&nbsp;0,100 opravdu zanedbatelné (1,3&nbsp;%), takže jsme směli psát c&nbsp;−&nbsp;x&nbsp;≈&nbsp;c. U&nbsp;velmi zředěných roztoků (c&nbsp;pod 10⁻³) už by se muselo řešit kvadratické rovnice.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Jaderná chemie — rozpadový zákon</h3>
+      <p>Radioaktivní přeměna je matematicky <b>totožná</b> s&nbsp;kinetikou prvního řádu; jen se místo <span class="q">k</span> píše přeměnová konstanta <span class="q">λ</span> a&nbsp;místo koncentrace počet jader nebo aktivita. Kdo umí spočítat poločas reakce, umí spočítat i&nbsp;poločas rozpadu. Nuklidy, typy záření a&nbsp;přeměnové řady patří do okruhu Atomové jádro a&nbsp;radioaktivita.</p>
+      <p class="eq"><span class="q">N</span> = <span class="q">N</span>₀ · e<sup>−<span class="q">λt</span></sup> = <span class="q">N</span>₀ · (½)<sup><span class="q">t</span>/<span class="q">t</span><sub>1/2</sub></sup> &nbsp;&nbsp;·&nbsp;&nbsp; <span class="q">λ</span> = ln&nbsp;2 / <span class="q">t</span><sub>1/2</sub></p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.6 · radioaktivita</span>
+        <p>Jod-131 používaný v&nbsp;nukleární medicíně má poločas přeměny 8,02&nbsp;dne. Kolik procent podané aktivity zbude v&nbsp;těle po 30&nbsp;dnech (nepočítáme vylučování)?</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 7.6</span>
+              <span class="cs-topic">Rozpadový zákon</span>
+              <span class="cs-kind">Jaderná chemie</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">t<sub>1/2</sub></span><span class="cs-val">= 8,02 d</span><span class="cs-note">poločas přeměny ¹³¹I</span></div>
+                <div class="cs-row"><span class="cs-sym">t</span><span class="cs-val">= 30 d</span><span class="cs-note">uplynulá doba, stejná jednotka ✓</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">A/A₀</span><span class="cs-val">= ? % (bezrozměrné)</span><span class="cs-note">zbylý podíl aktivity</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">N = N₀ · (½)<sup>t/t<sub>1/2</sub></sup></div>
+                <div class="cs-line">A = λ · N &nbsp;&nbsp;<em>(aktivita je úměrná počtu jader, takže A/A₀ = N/N₀)</em></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">A / A₀ = N / N₀ = <b>(½)<sup>t/t<sub>1/2</sub></sup></b></div>
+                <p class="cs-hint">Poměr t/t<sub>1/2</sub> je bezrozměrný — proto se dny nemusí převádět na sekundy. Kdyby byl poločas v&nbsp;letech a&nbsp;čas ve dnech, převádět by se muselo.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">t / t<sub>1/2</sub> = 30 d / 8,02 d = 3,7406 &nbsp;&nbsp;<em>(bezrozměrné, počet poločasů)</em></div>
+                <div class="cs-line">A/A₀ = (½)<sup>3,7406</sup> = 2<sup>−3,7406</sup> = e<sup>−3,7406·0,6931</sup> = e<sup>−2,5928</sup></div>
+                <div class="cs-line">A/A₀ = 0,074809 = 7,4809 %</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Po 30&nbsp;dnech zbude <b class="cs-hi">7,48 %</b> původní aktivity, tedy zhruba třináctina.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Uplynulo skoro přesně 3,75 poločasu. Po třech poločasech zbývá 12,5&nbsp;%, po čtyřech 6,25&nbsp;%. Výsledek musí ležet mezi — a&nbsp;7,48&nbsp;% leží. Tenhle „počet poločasů na prstech“ je nejrychlejší kontrola vůbec: 1&nbsp;→&nbsp;50&nbsp;%, 2&nbsp;→&nbsp;25&nbsp;%, 3&nbsp;→&nbsp;12,5&nbsp;%, 4&nbsp;→&nbsp;6,25&nbsp;%, 10&nbsp;→&nbsp;asi 0,1&nbsp;%.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <div class="callout tip">
+        <span class="eyebrow">Co všech šest příkladů spojuje</span>
+        <p>Podívejte se zpětně na bloky <b>vztahy</b> u&nbsp;všech šesti listů. Pokaždé to byly dva až čtyři triviální vzorce. Celá obtížnost byla v&nbsp;tom je <em>správně poskládat</em> — a&nbsp;to je přesně to, co blok <b>odvození</b> dělá viditelným. Kdo píše list, řeší v&nbsp;jednu chvíli vždycky jen jednu jednoduchou věc. Kdo dosazuje průběžně, řeší všechno najednou.</p>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: výpočty napříč okruhy"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

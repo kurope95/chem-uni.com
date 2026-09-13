@@ -1,0 +1,226 @@
+
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Voda — molekula, můstky a anomálie">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 6</span>
+      <h2>Voda: nejběžnější kovalentní hydrid — a&nbsp;nejpodivnější kapalina, jakou známe</h2>
+      <p class="lead">Voda je jen další kovalentní hydrid 16. skupiny, sourozenec sulfanu a&nbsp;selanu. Podle jejich trendu by měla vřít někde kolem −80&nbsp;°C a&nbsp;na Zemi by neexistovala v&nbsp;kapalném stavu. Že vře při sto stupních, led plave a&nbsp;oceány stabilizují podnebí planety, má jedinou příčinu: <b>vodíkový můstek</b>.</p>
+
+      <h3>Vazba v&nbsp;molekule vody</h3>
+      <p>Experimentálně naměřené hodnoty: úhel vazeb <b><span class="q">∡</span>HOH = 104,5°</b>, délka vazby <b>O–H = 96 pm</b>. Existují dva způsoby, jak to vysvětlit, a&nbsp;oba se u&nbsp;maturity hodí.</p>
+      <div class="grid2">
+        <div class="callout def">
+          <span class="eyebrow">Jednodušší výklad — hybridizace</span>
+          <p>Na středovém atomu kyslíku předpokládáme hybridizaci <b><span class="q">sp</span>³</b>: vzniknou čtyři hybridní orbitaly mířící do vrcholů tetraedru. Dva z&nbsp;nich se překryjí s&nbsp;orbitaly 1s obou atomů vodíku a&nbsp;dají <b>dvě vazby σ</b>, zbylé dva nesou <b>volné elektronové páry</b>. Odtud lomený tvar molekuly. Že je úhel 104,5°, a&nbsp;ne tetraedrických 109,5°, se vysvětluje tím, že volné páry zabírají víc prostoru než vazebné a&nbsp;stlačují vazby k&nbsp;sobě.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Přesnější výklad — delokalizované MO</span>
+          <p>Teorie molekulových orbitalů ve své klasické podobě pojem hybridizace vůbec nezavádí. Kombinací šesti výchozích atomových orbitalů (2s a&nbsp;tři 2p kyslíku, dva 1s vodíků) vznikne <b>šest delokalizovaných molekulových orbitalů</b>, z&nbsp;nichž čtyři jsou obsazené. Dva z&nbsp;nich působí vazebně, jeden má jen slabý vazebný charakter a&nbsp;jeden je zřetelně nevazebný — je to prakticky nezměněný orbital 2p kyslíku, který se pro nevhodnou orientaci překryvu neúčastní. Molekula tedy nemá dva „stejné“ volné páry, jak by plynulo z&nbsp;hybridizace.</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem">Který výklad je „správný“? Ten druhý je bližší experimentu (fotoelektronová spektroskopie ukazuje, že oba nevazebné páry mají <b>různou energii</b>), ten první je názornější a&nbsp;pro předpověď tvaru molekuly úplně postačí. Hybridizace je <b>pomůcka</b>, ne fyzikální realita — a&nbsp;je dobré to vědět.</p>
+
+      <h3>Dipól — proč je to tak velký rozdíl</h3>
+      <p>Kyslík má elektronegativitu 3,44, vodík 2,20. Vazby O–H jsou proto silně polární. Kdyby byla molekula <b>lineární</b>, oba dipólové momenty by se navzájem vyrušily. Protože je ale <b>lomená</b>, jejich vektorový součet je nenulový a&nbsp;molekula má značný <b>permanentní dipólový moment</b>.</p>
+      <div class="grid3">
+        <div class="readout"><span class="k">Dipólový moment</span><span class="v">1,85 D</span><span class="h">6,17·10⁻³⁰ C·m — mezi běžnými kapalinami vysoký</span></div>
+        <div class="readout"><span class="k">Relativní permitivita (20 °C)</span><span class="v">80,1</span><span class="h">oslabí elektrostatickou přitažlivost iontů 80×</span></div>
+        <div class="readout"><span class="k">Rozdíl elektronegativit</span><span class="v">1,24</span><span class="h">silně polární, ale pořád kovalentní vazba</span></div>
+      </div>
+      <p style="margin-top:1rem">Z&nbsp;té permitivity plyne, proč je voda tak dobré rozpouštědlo iontových látek. Coulombova síla mezi ionty klesne ve vodě na osmdesátinu původní hodnoty, takže tepelný pohyb mřížku snadno rozebere. Uvolněné ionty pak obalí molekuly vody kladnou stranou k&nbsp;aniontu a&nbsp;zápornou ke kationtu — to je <span class="term">hydratace</span> a&nbsp;energie, která se přitom uvolní, zaplatí zbytek mřížkové energie.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Od jedné molekuly k&nbsp;ledu — jak se skládají vodíkové můstky</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Co ukázat</label>
+          <div class="segmented" id="wmSel" role="group" aria-label="Volba znázornění">
+            <button type="button" data-v="mol" aria-pressed="true">Molekula</button>
+            <button type="button" data-v="dim" aria-pressed="false">Vodíkový můstek</button>
+            <button type="button" data-v="led" aria-pressed="false">Led</button>
+            <button type="button" data-v="kap" aria-pressed="false">Kapalná voda</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="wmWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="wmRo1"></div>
+          <div class="readout" id="wmRo2"></div>
+          <div class="readout" id="wmRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="wmNote">Projděte všechny čtyři obrázky v&nbsp;pořadí. Klíčové je srovnání posledních dvou: v&nbsp;<b>ledu</b> má každá molekula přesně čtyři můstky uspořádané do pravidelného tetraedru, což vyžaduje hodně prázdného místa. V&nbsp;<b>kapalině</b> je můstků v&nbsp;průměru méně (kolem 3,5) a&nbsp;jsou neuspořádané, takže se molekuly srovnají hustěji.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Vodíkový můstek</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Vodíkový můstek</b> je mezimolekulová (nebo vnitromolekulová) interakce, při níž se atom vodíku vázaný na silně elektronegativní atom (F, O, N) přiblíží k&nbsp;<b>volnému elektronovému páru</b> jiného elektronegativního atomu a&nbsp;část jeho elektronové hustoty přijme. Zapisuje se tečkovaně: <span class="chem">O–H···O</span>. Energie jednoho můstku ve vodě je asi <b>20 kJ·mol⁻¹</b> — desetkrát méně než kovalentní vazba O–H (463 kJ·mol⁻¹), ale desetkrát víc než běžná van der Waalsova interakce.</p>
+      </div>
+      <p>Aby vodíkový můstek vznikl, musí být splněné dvě podmínky současně:</p>
+      <p>1. <b>Donor</b> — vodík vázaný na F, O nebo N, tedy dost odhalené jádro s&nbsp;výrazným δ⁺.<br>
+      2. <b>Akceptor</b> — atom s&nbsp;volným elektronovým párem, opět nejlépe F, O nebo N.</p>
+      <p>Molekula vody je v&nbsp;tomhle výjimečná: má <b>dva vodíky</b> (dva donory) a&nbsp;<b>dva volné páry</b> (dva akceptory). Může se tedy zapojit do <b>čtyř</b> můstků najednou — a&nbsp;to je přesně to, co ostatní hydridy neumějí. Amoniak má tři vodíky, ale jen jeden volný pár, takže na molekulu vychází v&nbsp;průměru jen jeden můstek. Fluorovodík má naopak tři volné páry, ale jen jeden vodík.</p>
+
+      <h3>Struktura ledu</h3>
+      <p>V&nbsp;běžném hexagonálním ledu má každý atom kyslíku kolem sebe <b>čtyři další atomy kyslíku v&nbsp;pravidelném tetraedru</b>: úhel O···O···O je 109,5° a&nbsp;vzdálenost O···O je <b>276 pm</b>. Atomy kyslíku ale <b>nejsou spojeny chemickou vazbou</b> — spojují je vodíkové můstky. Atomy vodíku leží na spojnicích a&nbsp;jsou od každého kyslíku ve dvou různých vzdálenostech: dva z&nbsp;jeho čtyř sousedních vodíků jsou blízko (<b>100 pm</b>, to je kovalentní vazba jeho vlastní molekuly) a&nbsp;dva daleko (<b>176 pm</b>, to je můstek k&nbsp;sousedovi).</p>
+      <p>Tahle pravidelná tetraedrická síť je <b>velmi prostorná</b> — obsahuje velké dutiny. Právě proto má led <b>menší hustotu než kapalná voda</b> a&nbsp;plave na ní. Za vysokých tlaků vzniká ještě dalších několik modifikací ledu, jejichž struktura je hexagonální mřížce blízká, jen deformovaná.</p>
+
+      <h3>Struktura kapalné vody</h3>
+      <p>V&nbsp;kapalině pravidelná mřížka neexistuje. Molekuly se pořád snaží zaujmout takovou vzájemnou orientaci, aby počet vodíkových můstků byl co největší, ale tepelný pohyb tu strukturu neustále rozbíjí a&nbsp;znovu skládá. Vzniknou tak <b>krátkodobé asociáty</b> proměnlivé velikosti.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak se pohled na kapalnou vodu změnil</span>
+        <p>Starší učebnice popisovaly kapalnou vodu jako soubor asociátů s&nbsp;konkrétním počtem molekul a&nbsp;konkrétní geometrií. Dnešní pohled je <b>dynamický</b>: mluví se o&nbsp;neustále se přeskupující <b>síti vodíkových můstků</b>, ve které má molekula v&nbsp;průměru <b>3,4 až 3,6 můstku</b> a&nbsp;jednotlivý můstek žije zhruba <b>1 pikosekundu</b>. Žádné stabilní „shluky vody“ s&nbsp;pevným počtem molekul neexistují — na tom stojí i&nbsp;vyvrácení řady pseudovědeckých tvrzení o&nbsp;„paměti vody“.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Anomálie hustoty — proč led plave a&nbsp;jezera zamrzají shora</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="dnT">Teplota <span class="val" id="dnTV">20 °C</span></label>
+          <input type="range" id="dnT" min="-10" max="100" step="1" value="20">
+        </div>
+        <div class="svgwrap" id="dnWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="dnRo1"></div>
+          <div class="readout" id="dnRo2"></div>
+          <div class="readout" id="dnRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="dnNote">Posuňte teplotu na 4&nbsp;°C — tam je hustota vody největší (999,97 kg·m⁻³). Nad touto teplotou hustota klesá jako u&nbsp;každé jiné kapaliny, <b>pod ní ale taky</b>, a&nbsp;to je ta anomálie. Při 0&nbsp;°C skokem přejde na 916,7 kg·m⁻³, tedy o&nbsp;8,3&nbsp;% méně — objem naroste o&nbsp;9,1&nbsp;%.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Anomálie vody — a&nbsp;jejich jediná společná příčina</h3>
+      <p>Všechny „podivnosti“ vody jsou důsledkem téhož: molekuly drží pohromadě vodíkovými můstky, takže se chovají, jako by byly mnohem těžší, než jsou.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Anomálie</th><th class="n">Hodnota</th><th>Čekali bychom</th><th>Důsledek pro život a&nbsp;techniku</th></tr></thead>
+          <tbody>
+            <tr><td>Teplota varu</td><td class="n">100 °C</td><td class="n">asi −70 až −90 °C</td><td>Voda je na Zemi kapalná. Bez toho by planeta byla suchá.</td></tr>
+            <tr><td>Teplota tání</td><td class="n">0 °C</td><td class="n">asi −100 °C</td><td>Led existuje v&nbsp;pozemském rozsahu teplot.</td></tr>
+            <tr><td>Maximum hustoty</td><td class="n">3,98 °C</td><td class="n">při teplotě tuhnutí</td><td>Jezera zamrzají shora, na dně zůstává voda o&nbsp;4&nbsp;°C a&nbsp;ryby přežijí.</td></tr>
+            <tr><td>Hustota ledu</td><td class="n">916,7 kg·m⁻³</td><td class="n">větší než kapalina</td><td>Led plave. Zmrzlá voda trhá potrubí i&nbsp;skálu — hlavní mechanismus mrazového zvětrávání.</td></tr>
+            <tr><td>Měrná tepelná kapacita</td><td class="n">4,18 kJ·kg⁻¹·K⁻¹</td><td class="n">asi 2 kJ·kg⁻¹·K⁻¹</td><td>Oceány tlumí výkyvy podnebí. Voda je nejlepší levné chladicí médium.</td></tr>
+            <tr><td>Výparné teplo</td><td class="n">2257 kJ·kg⁻¹</td><td class="n">asi 500 kJ·kg⁻¹</td><td>Pocení chladí tělo. Přenos tepla párou v&nbsp;energetice.</td></tr>
+            <tr><td>Skupenské teplo tání</td><td class="n">334 kJ·kg⁻¹</td><td class="n">mnohem méně</td><td>Tající sníh drží krajinu dlouho u&nbsp;nuly.</td></tr>
+            <tr><td>Povrchové napětí</td><td class="n">72,8 mN·m⁻¹</td><td class="n">asi 30 mN·m⁻¹</td><td>Kapilární vzlínavost v&nbsp;rostlinách i&nbsp;v&nbsp;půdě, vodoměrky chodí po hladině.</td></tr>
+            <tr><td>Relativní permitivita</td><td class="n">80,1</td><td class="n">kolem 10</td><td>Nejlepší rozpouštědlo iontových látek — a&nbsp;proto prostředí veškerého života.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Proč má maximum hustoty zrovna při 3,98 °C</h3>
+      <p>Ve vodě se perou dva protichůdné jevy:</p>
+      <p>• <b>Rozpad zbytků ledové struktury.</b> Těsně nad bodem tání zůstávají v&nbsp;kapalině místa s&nbsp;tetraedrickým, tedy prostorným uspořádáním. Se zahříváním se rozpadají a&nbsp;molekuly se skládají hustěji — <b>hustota roste</b>.<br>
+      • <b>Tepelná roztažnost.</b> S&nbsp;rostoucí teplotou se molekuly víc kmitají a&nbsp;odtlačují se od sebe — <b>hustota klesá</b>.</p>
+      <p>Do 3,98&nbsp;°C převažuje první jev, nad ní druhý. Průsečík obou trendů je právě to maximum. Kdyby voda vodíkové můstky netvořila, existoval by jen druhý jev a&nbsp;hustota by monotónně klesala jako u&nbsp;každé jiné kapaliny.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč ryby v&nbsp;zimě přežijí</span>
+        <p>Když se rybník na podzim ochlazuje, chladnější povrchová voda je hustší a&nbsp;klesá ke dnu — jezero se promíchává. Jakmile ale povrch klesne <b>pod 4&nbsp;°C</b>, stane se lehčím a&nbsp;zůstane nahoře. Promíchávání se zastaví, na povrchu se vytvoří led (který je ještě lehčí) a&nbsp;ten funguje jako tepelná izolace. Na dně zůstane voda o&nbsp;teplotě právě <b>4&nbsp;°C</b>. Kdyby led klesal ke dnu, každé jezero i&nbsp;moře v&nbsp;mírném pásmu by promrzlo úplně.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kolik energie stojí ohřát a&nbsp;odpařit vodu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="ohM">Hmotnost vody <span class="val" id="ohMV">1,00 kg</span></label>
+            <input type="range" id="ohM" min="1" max="100" step="1" value="10">
+          </div>
+          <div class="ctl">
+            <label for="ohT">Počáteční teplota <span class="val" id="ohTV">20 °C</span></label>
+            <input type="range" id="ohT" min="-20" max="99" step="1" value="20">
+          </div>
+        </div>
+        <div class="svgwrap" id="ohWrap" style="min-height:270px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>ohřev ledu</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>tání</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>ohřev kapaliny</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>var</span>
+        </div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="ohRo1"></div>
+          <div class="readout" id="ohRo2"></div>
+          <div class="readout" id="ohRo3"></div>
+        </div>
+        <p class="eq" id="ohEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="ohNote">Nastavte 1 kg a&nbsp;20&nbsp;°C. Ohřát vodu k&nbsp;varu stojí 334 kJ, ale <b>odpařit</b> ji stojí 2257 kJ — skoro sedmkrát víc. Právě proto se v&nbsp;konvici voda rychle ohřeje, ale vyvařit ji trvá věčnost. A&nbsp;právě proto vás pot chladí tak účinně.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · kolik roztrhne potrubí</span>
+          <p>V&nbsp;úseku vodovodní trubky je 2,50 dm³ vody o&nbsp;teplotě 4&nbsp;°C. O&nbsp;kolik procent naroste její objem, když zamrzne na led o&nbsp;teplotě 0&nbsp;°C? Hustota vody při 4&nbsp;°C je 999,97 kg·m⁻³, hustota ledu 916,7 kg·m⁻³.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Hmotnost se zmrznutím nezmění, mění se jen objem:</p>
+              <p class="eq"><span class="q">m</span> = <span class="q">V</span> · ρ = 2,50 dm³ · 0,99997 kg·dm⁻³ = <b>2,4999 kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Objem ledu o&nbsp;téže hmotnosti:</p>
+              <p class="eq"><span class="q">V</span>(led) = 2,4999 / 0,9167 = <b>2,727 dm³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq">Δ<span class="q">V</span>/<span class="q">V</span> = (2,727 − 2,500) / 2,500 = 0,0908 = <b>9,1 %</b></p>
+              <span class="result">Objem naroste o 9,1 %, tedy o 227 cm³</span>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Devět procent zní málo, ale voda je prakticky nestlačitelná — pokud objem nemá kam expandovat, vznikne tlak řádu <b>desítek MPa</b>. To je víc, než snese litinová trubka. Stejný mechanismus rozláme skálu (mrazové zvětrávání) i&nbsp;beton.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · o&nbsp;kolik zvedly můstky teplotu varu</span>
+          <p>Teploty varu hydridů 16. skupiny: H₂S −60,3&nbsp;°C (<span class="q">M</span> = 34,08), H₂Se −41,3&nbsp;°C (<span class="q">M</span> = 80,98), H₂Te −2,2&nbsp;°C (<span class="q">M</span> = 129,6). Lineární extrapolací z&nbsp;těchto tří hodnot odhadněte, při jaké teplotě by vřela voda (<span class="q">M</span> = 18,02), kdyby netvořila vodíkové můstky, a&nbsp;spočítejte příspěvek můstků.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Použijeme dva krajní body řady a&nbsp;proložíme jimi přímku <span class="q">t</span> = <span class="q">a</span>·<span class="q">M</span> + <span class="q">b</span>:</p>
+              <p class="eq"><span class="q">a</span> = (−2,2 − (−60,3)) / (129,6 − 34,08) = 58,1 / 95,52 = <b>0,6082 °C·mol·g⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Konstantu <span class="q">b</span> dopočítáme z&nbsp;bodu pro H₂S:</p>
+              <p class="eq"><span class="q">b</span> = −60,3 − 0,6082 · 34,08 = −60,3 − 20,73 = <b>−81,03 °C</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Dosadíme molární hmotnost vody:</p>
+              <p class="eq"><span class="q">t</span>(předpověď) = 0,6082 · 18,02 − 81,03 = 10,96 − 81,03 = <b>−70,1 °C</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq">příspěvek vodíkových můstků = 100 − (−70,1) = <b>170 °C</b></p>
+              <span class="result">Bez vodíkových můstků by voda vřela kolem −70 °C — můstky jí přidávají zhruba 170 °C</span>
+              <p>Podle toho, jestli extrapolujete přes molární hmotnost, nebo přes číslo periody, vyjde předpověď <b>−70 až −90&nbsp;°C</b>; příspěvek vodíkových můstků je tedy 170 až 190&nbsp;°C. Graf v&nbsp;kapitole 5 používá druhou variantu.</p>
+              <p>Kontrola smysluplnosti: selan má o&nbsp;19&nbsp;°C vyšší teplotu varu než sulfan, tellan o&nbsp;dalších 39&nbsp;°C. Trend směrem k&nbsp;lehčím molekulám tedy klesá, a&nbsp;voda by měla ležet hluboko pod sulfanem. Že leží o&nbsp;160&nbsp;°C nad ním, není žádná drobná odchylka — je to nejnápadnější anomálie v&nbsp;celé anorganické chemii.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: molekula vody, můstky a anomálie"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

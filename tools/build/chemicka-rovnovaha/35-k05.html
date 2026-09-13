@@ -1,0 +1,246 @@
+  <!-- ============ KAPITOLA 5 ============ -->
+  <section class="chapter" id="k5" data-title="Vliv teploty a tlaku na K">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · osnova, bod 5</span>
+      <h2>Vliv teploty a&nbsp;tlaku na hodnotu rovnovážné konstanty</h2>
+      <p class="lead">Rovnovážná konstanta má v&nbsp;názvu slovo „konstanta“, ale konstantní je jen při stálé teplotě. Tahle kapitola odpoví na dvě otázky, které se v&nbsp;testech pletou dohromady: <em>co mění <span class="q">K</span></em> (jen teplota) a&nbsp;<em>co mění složení rovnovážné směsi, aniž by změnilo <span class="q">K</span></em> (tlak, koncentrace).</p>
+
+      <h3>Teplota — jediný faktor, který mění <span class="q">K</span></h3>
+      <p>Důvod je v&nbsp;kapitole 1: <span class="q">K</span> = e<sup>−Δ<span class="q">G</span>°/<span class="q">RT</span></sup> a&nbsp;Δ<span class="q">G</span>° = Δ<span class="q">H</span>° − <span class="q">T</span>Δ<span class="q">S</span>°. Dosadíme jedno do druhého:</p>
+      <p class="eq">ln <span class="q">K</span> = −Δ<span class="q">G</span>°/<span class="q">RT</span> = <b>−Δ<span class="q">H</span>°/(<span class="q">R</span><span class="q">T</span>) + Δ<span class="q">S</span>°/<span class="q">R</span></b></p>
+      <p>Vpravo je teplota jen v&nbsp;prvním členu, a&nbsp;ten má před sebou <b>reakční enthalpii</b>. Znaménko Δ<span class="q">H</span>° tedy rozhoduje, kterým směrem <span class="q">K</span> s&nbsp;teplotou půjde. Vynesete-li ln&nbsp;<span class="q">K</span> proti 1/<span class="q">T</span>, dostanete <b>přímku se směrnicí −Δ<span class="q">H</span>°/<span class="q">R</span></b> — z&nbsp;jejího sklonu se dá reakční enthalpie změřit bez kalorimetru.</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout" style="border-left:3px solid var(--exo);background:var(--exo-soft)">
+          <span class="eyebrow" style="color:var(--exo)">Exotermická reakce, Δ<span class="q">H</span>° &lt; 0</span>
+          <p>Člen −Δ<span class="q">H</span>°/<span class="q">RT</span> je <b>kladný</b> a&nbsp;se zvyšující teplotou se <b>zmenšuje</b>.<br><b><span class="q">K</span> s&nbsp;teplotou klesá.</b> Zahřátí posune rovnováhu k&nbsp;výchozím látkám.<br><span style="font-size:.92rem;color:var(--ink-2)">Příklady: syntéza NH₃, oxidace SO₂, dimerizace NO₂, shift reakce.</span></p>
+        </div>
+        <div class="callout" style="border-left:3px solid var(--endo);background:var(--endo-soft)">
+          <span class="eyebrow" style="color:var(--endo)">Endotermická reakce, Δ<span class="q">H</span>° &gt; 0</span>
+          <p>Člen −Δ<span class="q">H</span>°/<span class="q">RT</span> je <b>záporný</b> a&nbsp;se zvyšující teplotou se blíží k&nbsp;nule.<br><b><span class="q">K</span> s&nbsp;teplotou roste.</b> Zahřátí posune rovnováhu k&nbsp;produktům.<br><span style="font-size:.92rem;color:var(--ink-2)">Příklady: rozklad CaCO₃, disociace N₂O₄ a&nbsp;PCl₅, autoprotolýza vody.</span></p>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Jak si to pamatovat</span>
+        <p>Teplo si představte jako reaktant nebo produkt. U&nbsp;endotermické reakce je teplo <em>vlevo</em> („teplo + A ⇌ B“): když ho dodáte, soustava ho spotřebuje a&nbsp;jde doprava. U&nbsp;exotermické je teplo <em>vpravo</em> („A ⇌ B + teplo“): když ho dodáte, jde doleva. Jen pozor: na rozdíl od skutečného reaktantu se tady mění <b>i&nbsp;<span class="q">K</span></b>.</p>
+      </div>
+
+      <h3>Van 't Hoffova rovnice</h3>
+      <p>Napíšeme vztah pro ln&nbsp;<span class="q">K</span> při dvou teplotách a&nbsp;odečteme — člen Δ<span class="q">S</span>°/<span class="q">R</span> se vykrátí (za předpokladu, že Δ<span class="q">H</span>° a&nbsp;Δ<span class="q">S</span>° na teplotě nezávisí):</p>
+      <p class="eq" style="font-size:1.2rem;border-left-width:4px">ln (<span class="q">K</span>₂/<span class="q">K</span>₁) = −(Δ<span class="q">H</span>°/<span class="q">R</span>) · (1/<span class="q">T</span>₂ − 1/<span class="q">T</span>₁)</p>
+      <p>kde <span class="q">K</span>₁ je konstanta při teplotě <span class="q">T</span>₁, <span class="q">K</span>₂ při <span class="q">T</span>₂ (obě v&nbsp;kelvinech), Δ<span class="q">H</span>° standardní reakční enthalpie v&nbsp;J·mol⁻¹ a&nbsp;<span class="q">R</span> = 8,314&nbsp;J·K⁻¹·mol⁻¹. Rovnice se používá třemi směry: dopočítat <span class="q">K</span> při jiné teplotě, dopočítat Δ<span class="q">H</span>° ze dvou <span class="q">K</span>, nebo najít teplotu, při níž má <span class="q">K</span> požadovanou hodnotu.</p>
+      <p>Jacobus van 't Hoff ji publikoval v&nbsp;roce 1884 v&nbsp;knize <em>Études de dynamique chimique</em> — v&nbsp;témže roce, kdy Le Chatelier formuloval svůj princip. Za práce o&nbsp;rovnováze a&nbsp;osmotickém tlaku dostal v&nbsp;roce 1901 vůbec první Nobelovu cenu za chemii.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Pasti při dosazování</span>
+        <p>1. Δ<span class="q">H</span>° v&nbsp;<b>joulech</b>, ne kilojoulech. 2. Teploty v&nbsp;<b>kelvinech</b>. 3. Pořadí závorky: (1/<span class="q">T</span>₂ − 1/<span class="q">T</span>₁) — když zahříváte, je závorka záporná; u&nbsp;exotermické reakce se pak celá pravá strana stane zápornou a&nbsp;<span class="q">K</span>₂ &lt; <span class="q">K</span>₁. Vždy si výsledek zkontrolujte tou jednou větou: <em>exo → zahřátí → K klesá</em>.<br>
+        4. Rovnice předpokládá konstantní Δ<span class="q">H</span>°. Přes stovky kelvinů to je jen přiblížení — proto vypočtené <span class="q">K</span> pro Haberův proces při 400&nbsp;°C vyjde 6·10⁻⁴, zatímco přesnější tabulky uvádějí ≈ 1,6·10⁻⁴. Řád sedí, desetinná místa ne.</p>
+      </div>
+
+      <h3>Haberův kompromis — kde termodynamika prohrává s&nbsp;kinetikou</h3>
+      <p>Syntéza amoniaku je exotermická (Δ<span class="q">H</span>° = −92,2&nbsp;kJ·mol⁻¹), takže <span class="q">K</span> s&nbsp;teplotou strmě padá:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="n">Teplota</th><th class="n"><span class="q">K</span> (van 't Hoff z&nbsp;298 K)</th><th>Rovnováha</th><th>Rychlost (Fe katalyzátor)</th></tr></thead>
+          <tbody>
+            <tr><td class="n">25 °C</td><td class="n">5,6·10⁵</td><td>skoro čistý NH₃</td><td>prakticky nulová — N≡N se neštěpí</td></tr>
+            <tr><td class="n">200 °C</td><td class="n">0,6</td><td>ještě výhodná</td><td>stále příliš pomalá</td></tr>
+            <tr><td class="n">300 °C</td><td class="n">1·10⁻²</td><td>vlevo</td><td>použitelná jen s&nbsp;nejlepšími katalyzátory</td></tr>
+            <tr><td class="n" style="font-weight:600">400–450 °C</td><td class="n">≈ 10⁻⁴</td><td>hodně vlevo — proto 200 bar</td><td><b>dostatečná</b> — průmyslový kompromis</td></tr>
+            <tr><td class="n">500 °C</td><td class="n">7·10⁻⁵</td><td>výtěžek už příliš malý</td><td>rychlá</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Nízká teplota by dala vysoký výtěžek, ale reaktor by stál. Vysoká teplota reakci rozběhne, ale rovnováha uteče k&nbsp;dusíku a&nbsp;vodíku. Průmysl volí střed — 400 až 500&nbsp;°C — a&nbsp;ztrátu na výtěžku dohání <b>tlakem</b> (Δ<span class="q">n</span> = −2), <b>odváděním amoniaku</b> zkapalněním a&nbsp;<b>recyklací</b> nezreagovaných plynů. Tohle je nejčastější slohová otázka celého tématu; odpovídejte vždy oběma slovy: <em>termodynamika</em> chce nízkou teplotu, <em>kinetika</em> vysokou.</p>
+
+      <h3>Tlak: <span class="q">K</span><sub>p</sub> se nemění, složení ano</h3>
+      <p>Tlak <b>rovnovážnou konstantu nemění</b> — <span class="q">K</span><sub>p</sub> závisí jen na teplotě. Co se změní, jsou parciální tlaky, a&nbsp;tím reakční kvocient. Stlačíme-li směs na dvojnásobek, zdvojnásobí se každý parciální tlak; v&nbsp;<span class="q">Q</span> se to projeví faktorem 2<sup>Δn</sup>. Když Δ<span class="q">n</span> ≠ 0, přestane platit <span class="q">Q</span> = <span class="q">K</span> a&nbsp;soustava musí zareagovat:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Δ<span class="q">n</span>(g)</th><th>Po zvýšení tlaku</th><th>Rovnováha se posune</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td class="n">&lt; 0</td><td><span class="q">Q</span> klesne pod <span class="q">K</span></td><td><b>doprava</b>, k&nbsp;menšímu počtu molekul plynu</td><td>N₂ + 3 H₂ ⇌ 2 NH₃ (Δn = −2), 2 SO₂ + O₂ ⇌ 2 SO₃ (−1)</td></tr>
+            <tr><td class="n">= 0</td><td><span class="q">Q</span> se nezmění</td><td><b>nikam</b></td><td>H₂ + I₂ ⇌ 2 HI, CO + H₂O ⇌ CO₂ + H₂</td></tr>
+            <tr><td class="n">&gt; 0</td><td><span class="q">Q</span> vzroste nad <span class="q">K</span></td><td><b>doleva</b>, k&nbsp;menšímu počtu molekul plynu</td><td>N₂O₄ ⇌ 2 NO₂ (+1), PCl₅ ⇌ PCl₃ + Cl₂ (+1), CaCO₃ ⇌ CaO + CO₂ (+1)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Pro syntézu amoniaku je to vidět v&nbsp;číslech — rovnovážný podíl NH₃ ve stechiometrické směsi (model ideálního plynu, orientační hodnoty):</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="n">Teplota \ tlak</th><th class="n">10 atm</th><th class="n">50 atm</th><th class="n">100 atm</th><th class="n">200 atm</th><th class="n">300 atm</th><th class="n">600 atm</th></tr></thead>
+          <tbody>
+            <tr><td class="n">300 °C</td><td class="n">14 %</td><td class="n">37 %</td><td class="n">49 %</td><td class="n">60 %</td><td class="n">66 %</td><td class="n">74 %</td></tr>
+            <tr><td class="n">400 °C</td><td class="n">4 %</td><td class="n">16 %</td><td class="n">25 %</td><td class="n" style="font-weight:700;color:var(--accent)">36 %</td><td class="n">43 %</td><td class="n">55 %</td></tr>
+            <tr><td class="n">450 °C</td><td class="n">2 %</td><td class="n">10 %</td><td class="n">17 %</td><td class="n" style="font-weight:700;color:var(--accent)">27 %</td><td class="n">34 %</td><td class="n">45 %</td></tr>
+            <tr><td class="n">500 °C</td><td class="n">2 %</td><td class="n">7 %</td><td class="n">12 %</td><td class="n">20 %</td><td class="n">26 %</td><td class="n">37 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Čtěte tabulku po řádcích i&nbsp;po sloupcích: v&nbsp;řádku roste podíl NH₃ s&nbsp;tlakem (<span class="q">K</span><sub>p</sub> stejné, složení jiné), ve sloupci klesá s&nbsp;teplotou (<span class="q">K</span><sub>p</sub> jiné). Proč se nejede při 1000&nbsp;atm? Kompresory a&nbsp;tlakové nádoby by stály víc, než by přinesl vyšší výtěžek — i&nbsp;ekonomika je součást kompromisu.</p>
+
+      <h3>Inertní plyn a&nbsp;katalyzátor</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Zásah</th><th>Mění <span class="q">K</span>?</th><th>Mění rovnovážné složení?</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td><b>Zvýšení teploty</b></td><td style="color:var(--bad);font-weight:600">ANO</td><td>ano</td><td>ln K = −ΔH°/RT + ΔS°/R; směr podle znaménka ΔH°</td></tr>
+            <tr><td><b>Změna tlaku / objemu</b></td><td style="color:var(--ok);font-weight:600">ne</td><td>ano, pokud Δn(g) ≠ 0</td><td>mění se Q, ne K; soustava se vrací na Q = K</td></tr>
+            <tr><td><b>Změna koncentrace</b> (přidání / odebrání látky)</td><td style="color:var(--ok);font-weight:600">ne</td><td>ano</td><td>totéž — Q se vychýlí, K zůstává</td></tr>
+            <tr><td><b>Inertní plyn při stálém objemu</b></td><td style="color:var(--ok);font-weight:600">ne</td><td><b>ne</b></td><td>parciální tlaky reagujících plynů se nezmění, jen celkový tlak</td></tr>
+            <tr><td><b>Inertní plyn při stálém tlaku</b></td><td style="color:var(--ok);font-weight:600">ne</td><td>ano, pokud Δn(g) ≠ 0</td><td>objem musí vzrůst → zředění → jako snížení tlaku</td></tr>
+            <tr><td><b>Katalyzátor</b></td><td style="color:var(--ok);font-weight:600">ne</td><td><b>ne</b></td><td>zrychlí k₁ i k₋₁ stejně; rovnováha se ustaví dřív, ale ve stejném složení</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Van 't Hoff: ln&nbsp;<span class="q">K</span> proti 1/<span class="q">T</span> je přímka se směrnicí −Δ<span class="q">H</span>°/<span class="q">R</span></h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="vhRxn">Reakce</label>
+            <select id="vhRxn"></select>
+          </div>
+          <div class="ctl">
+            <label for="vhT">Teplota <span class="q">T</span> — <span class="val" id="vhTV">298 K (25 °C)</span></label>
+            <input type="range" id="vhT" min="250" max="1500" step="5" value="298">
+          </div>
+        </div>
+        <div class="svgwrap" id="vhWrap" style="min-height:340px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="vhRoK"><span class="k"><span class="q">K</span> při <span class="q">T</span></span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="vhRoLn"><span class="k">ln <span class="q">K</span></span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="vhRoSlope"><span class="k">Směrnice −Δ<span class="q">H</span>°/<span class="q">R</span></span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="vhNote">Táhněte teplotou a&nbsp;sledujte, jak u&nbsp;exotermické syntézy amoniaku <span class="q">K</span> padá o&nbsp;devět řádů mezi 25 a&nbsp;400&nbsp;°C. Pak přepněte na rozklad vápence: přímka má opačný sklon a&nbsp;<span class="q">K</span> protne jedničku kolem 1110&nbsp;K.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Haberův diagram: podíl NH₃ v&nbsp;rovnováze podle tlaku a&nbsp;teploty</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="hbP">Celkový tlak — <span class="val" id="hbPV">200 atm</span></label>
+            <input type="range" id="hbP" min="10" max="600" step="10" value="200">
+          </div>
+          <div class="ctl">
+            <label for="hbT">Teplota — <span class="val" id="hbTV">400 °C</span></label>
+            <input type="range" id="hbT" min="300" max="550" step="10" value="400">
+          </div>
+        </div>
+        <div class="svgwrap" id="hbWrap" style="min-height:360px"></div>
+        <div class="legend" id="hbLegend"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="hbRoX"><span class="k">Podíl NH₃ v&nbsp;rovnováze</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="hbRoKp"><span class="k"><span class="q">K</span><sub>p</sub> (model)</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="hbRoNote"><span class="k">Co se změnilo</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note">Držte 400&nbsp;°C a&nbsp;táhněte tlakem: podíl amoniaku roste, ale <span class="q">K</span><sub>p</sub> zůstává. Pak držte 200&nbsp;atm a&nbsp;táhněte teplotou: teď se mění obojí. Průmyslový bod je 450&nbsp;°C / 200&nbsp;atm ≈ 27&nbsp;% — a&nbsp;zbytek se vrací do reaktoru. Křivky jsou model ideálního plynu s&nbsp;konstantním Δ<span class="q">H</span>°, ukotvený na tabulkovou hodnotu 36&nbsp;% při 400&nbsp;°C a&nbsp;200&nbsp;atm.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.1 · van 't Hoff: <span class="q">K</span> při jiné teplotě</span>
+          <p>Pro <span class="chem">N₂O₄(g) ⇌ 2 NO₂(g)</span> je <span class="q">K</span><sub>p</sub> = 0,148 při 25&nbsp;°C a&nbsp;Δ<span class="q">H</span>° = +57,2&nbsp;kJ·mol⁻¹. Vypočítejte <span class="q">K</span><sub>p</sub> při 77&nbsp;°C a&nbsp;vysvětlete, co uvidíte, když ampuli ponoříte do horké vody.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Teploty do kelvinů, enthalpii do joulů. <span class="q">T</span>₁ = 298,15&nbsp;K, <span class="q">T</span>₂ = 350,15&nbsp;K, Δ<span class="q">H</span>° = +57 200&nbsp;J·mol⁻¹.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Odhad dopředu: reakce je <b>endotermická</b>, zahříváme → <span class="q">K</span> musí <b>vzrůst</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq">ln(<span class="q">K</span>₂/<span class="q">K</span>₁) = −(57 200/8,314) · (1/350,15 − 1/298,15)<br>= −6880 · (0,002856 − 0,003354) = −6880 · (−0,000498) = <b>+3,42</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq"><span class="q">K</span>₂/<span class="q">K</span>₁ = e<sup>3,42</sup> = 30,6 &nbsp;⟹&nbsp; <span class="q">K</span>₂ = 0,148 · 30,6 = <b>4,5</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">5</span><div class="step-b">
+              <p>Konstanta vzrostla třicetkrát; rovnováha se posunula k&nbsp;hnědému NO₂ — ampule v&nbsp;horké vodě výrazně <b>ztmavne</b>, v&nbsp;ledu naopak zesvětlá. Znaménko odhadu sedí.</p>
+              <span class="result"><span class="q">K</span><sub>p</sub>(77 °C) ≈ 4,5 — endotermická, <span class="q">K</span> roste s&nbsp;teplotou</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.2 · obráceně: Δ<span class="q">H</span>° ze dvou konstant</span>
+          <p>Pro tutéž reakci bylo změřeno <span class="q">K</span><sub>p</sub> = 0,148 při 298&nbsp;K a&nbsp;<span class="q">K</span><sub>p</sub> = 4,5 při 350&nbsp;K. Určete standardní reakční enthalpii.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Z&nbsp;van 't Hoffovy rovnice vyjádříme Δ<span class="q">H</span>°:</p>
+              <p class="eq">Δ<span class="q">H</span>° = −<span class="q">R</span> · ln(<span class="q">K</span>₂/<span class="q">K</span>₁) / (1/<span class="q">T</span>₂ − 1/<span class="q">T</span>₁)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">ln(4,5/0,148) = ln 30,4 = 3,41 &nbsp;&nbsp; 1/350 − 1/298 = 0,002857 − 0,003356 = −0,000499 K⁻¹<br>Δ<span class="q">H</span>° = −8,314 · 3,41 / (−0,000499) = <b>+56 800 J·mol⁻¹ ≈ +57 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kladná enthalpie — endotermická, přesně jak říká chování barvy. Tímhle způsobem se reakční enthalpie skutečně měří tam, kde kalorimetr selhává (pomalé nebo neúplné reakce).</p>
+              <span class="result">Δ<span class="q">H</span>° ≈ +57 kJ·mol⁻¹ (tabulka: +57,2)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.3 · Haber: o&nbsp;kolik řádů klesne <span class="q">K</span></span>
+          <p>Syntéza amoniaku má při 25&nbsp;°C <span class="q">K</span> = 5,6·10⁵ a&nbsp;Δ<span class="q">H</span>° = −92,2&nbsp;kJ·mol⁻¹. Odhadněte <span class="q">K</span> při 400&nbsp;°C.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Odhad: exotermická, zahříváme o&nbsp;375&nbsp;K → <span class="q">K</span> <b>prudce klesne</b>.</p>
+              <p class="eq">ln(<span class="q">K</span>₂/<span class="q">K</span>₁) = −(−92 200/8,314) · (1/673,15 − 1/298,15) = 11 090 · (0,001486 − 0,003354) = 11 090 · (−0,001868) = <b>−20,7</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">K</span>₂ = 5,6·10⁵ · e<sup>−20,7</sup> = 5,6·10⁵ · 1,0·10⁻⁹ = <b>5,6·10⁻⁴</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Pokles o&nbsp;devět řádů. Přesnější tabulky uvádějí 1,6·10⁻⁴ (Δ<span class="q">H</span>° se s&nbsp;teplotou mírně mění), ale řádový závěr je stejný: při provozní teplotě je rovnováha hluboko vlevo, a&nbsp;proto se musí pomáhat tlakem 200&nbsp;bar a&nbsp;odváděním produktu.</p>
+              <span class="result"><span class="q">K</span>(400 °C) ≈ 10⁻⁴ až 10⁻³ — pokles o&nbsp;≈ 9 řádů</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.4 · rozhodněte: co udělá tlak a&nbsp;co teplota</span>
+          <p>U&nbsp;každé reakce rozhodněte, jak se změní <span class="q">K</span> a&nbsp;jak rovnovážné složení, když (i) zdvojnásobíme tlak, (ii) zvýšíme teplotu: (a) <span class="chem">2 SO₂ + O₂ ⇌ 2 SO₃</span>, Δ<span class="q">H</span>° = −198&nbsp;kJ; (b) <span class="chem">H₂ + I₂ ⇌ 2 HI</span>, Δ<span class="q">H</span>° = −9&nbsp;kJ; (c) <span class="chem">CaCO₃(s) ⇌ CaO(s) + CO₂(g)</span>, Δ<span class="q">H</span>° = +178&nbsp;kJ.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>Tlak nikdy nemění <span class="q">K</span>.</b> Složení se změní jen při Δ<span class="q">n</span>(g) ≠ 0: (a) Δ<span class="q">n</span> = −1 → doprava, víc SO₃; (b) Δ<span class="q">n</span> = 0 → beze změny; (c) Δ<span class="q">n</span> = +1 → doleva, CO₂ se váže na CaO.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Teplota mění <span class="q">K</span> vždy</b>, směr podle Δ<span class="q">H</span>°: (a) exotermická → <span class="q">K</span> klesá, doleva; (b) mírně exotermická → <span class="q">K</span> klesá jen málo (z&nbsp;54 na 50 mezi 425 a&nbsp;448&nbsp;°C), lehce doleva; (c) endotermická → <span class="q">K</span> roste, doprava, víc CO₂.</p>
+              <span class="result">Tlak: (a) →, (b) 0, (c) ←; <span class="q">K</span> beze změny. Teplota: (a) K↓ ←, (b) K↓ mírně, (c) K↑ →</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: vliv teploty a tlaku"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

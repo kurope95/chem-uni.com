@@ -1,0 +1,188 @@
+
+  <!-- ============ RYCHLOPRŮCHOD ============ -->
+  <section class="chapter" id="r0" data-title="Rychloprůchod za 55 minut">
+    <div class="prose wide">
+      <span class="eyebrow">Rychloprůchod · celá látka v kostce</span>
+      <h2>Všechny výpočty rovnováh za 55 minut</h2>
+      <p class="lead" style="max-width:70ch">Deset bloků, dohromady necelá hodina. Každý blok má výklad, rámeček <b>Zapamatujte si</b> se vzorci, rámeček <b>Častá chyba</b> a&nbsp;hlavně <b>řešený příklad s&nbsp;čísly</b> — tohle je početní téma, takže se tu počítá v&nbsp;každém bloku. Projde se všech 42 pojmů z&nbsp;osnovy; u&nbsp;každého bloku je máte vypsané pod textem. Když něčemu nerozumíte, klepněte na pojem a&nbsp;skočíte do podrobné kapitoly.</p>
+    </div>
+
+    <div class="timeplan">
+      <a href="#s1"><b>4′</b> pH, pOH, Kw</a>
+      <a href="#s2"><b>5′</b> Silné kyseliny a zásady</a>
+      <a href="#s3"><b>6′</b> Slabé kyseliny a zásady</a>
+      <a href="#s4"><b>5′</b> Soli a hydrolýza</a>
+      <a href="#s5"><b>6′</b> Pufry</a>
+      <a href="#s6"><b>6′</b> Titrační křivky</a>
+      <a href="#s7"><b>6′</b> Ksp a rozpustnost</a>
+      <a href="#s8"><b>5′</b> Q vs Ksp, společný ion</a>
+      <a href="#s9"><b>5′</b> Vliv pH na srážení</a>
+      <a href="#s10"><b>7′</b> Komplexy</a>
+    </div>
+
+    <!-- 1 -->
+    <div class="sblock" id="s1">
+      <div class="sb-head"><span class="sb-min">4 min</span><h3>pH, pOH a&nbsp;iontový součin vody — jazyk celého tématu</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Voda sama nepatrně disociuje: <span class="chem">2 H₂O ⇌ H₃O⁺ + OH⁻</span>. Součin koncentrací obou iontů je při 25 °C konstantní a&nbsp;jmenuje se <b>iontový součin vody</b>: <span class="q">K</span><sub>w</sub> = 10⁻¹⁴. Z&nbsp;toho plyne všechno ostatní.</p>
+          <p>Protože jsou koncentrace mrňavé, používá se logaritmická stupnice: <b>pH = −log[H₃O⁺]</b>. Operátor „p“ znamená prostě „mínus logaritmus“, takže stejně vzniká pOH i&nbsp;p<span class="q">K</span><sub>a</sub>. Zlogaritmováním iontového součinu dostaneme <b>pH + pOH = 14</b>.</p>
+          <p>Jedna jednotka pH je <b>desetinásobek koncentrace</b>. Mezi žaludeční šťávou (pH 1,5) a&nbsp;krví (7,4) je rozdíl skoro šest řádů. U&nbsp;zásad počítejte vždy nejdřív pOH a&nbsp;teprve pak odečtěte od čtrnácti — tohle pořadí je nejčastější zdroj ztracených bodů v&nbsp;celém tématu.</p>
+          <p>A&nbsp;na přijímačky bez kalkulačky si zapamatujte tři čísla: <b>log 2 = 0,30, log 3 = 0,48, log 5 = 0,70</b>. S&nbsp;nimi zlogaritmujete cokoli: koncentraci napíšete jako <span class="q">m</span>·10⁻ⁿ a&nbsp;pH = <span class="q">n</span> − log <span class="q">m</span>.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq"><span class="q">K</span><sub>w</sub> = [H₃O⁺][OH⁻] = 10⁻¹⁴<br>pH = −log[H₃O⁺]<br>[H₃O⁺] = 10⁻ᵖᴴ<br><b>pH + pOH = 14</b><br><br>log 2 = 0,30<br>log 3 = 0,48<br>log 5 = 0,70</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Odevzdat pOH místo pH u&nbsp;zásad. A&nbsp;domněnka, že „pH 7 = neutrální“ platí vždy — platí jen při 25 °C; při 37 °C je neutrální pH 6,81, protože <span class="q">K</span><sub>w</sub> roste s&nbsp;teplotou.</p></div>
+        </div>
+      </div>
+      <div class="svgwrap" id="mScaleWrap" style="min-height:190px;margin-top:1.1rem"></div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · logaritmus bez kalkulačky</span>
+        <p class="task">Roztok má [H₃O⁺] = 3,2·10⁻⁵ mol·dm⁻³. Určete pH, pOH a&nbsp;[OH⁻].</p>
+        <div class="calc">pH = −log(3,2·10⁻⁵) = 5 − log 3,2 = 5 − 0,505 = <b>4,49</b><br>
+&nbsp;&nbsp;<span style="opacity:.6">kontrola: mantisa mezi 3 a 4 → pH mezi 4 a 5 ✓</span><br>
+pOH = 14 − 4,49 = <b>9,51</b><br>
+[OH⁻] = <span class="q">K</span><sub>w</sub>/[H₃O⁺] = 10⁻¹⁴ / 3,2·10⁻⁵ = <b>3,1·10⁻¹⁰ mol·dm⁻³</b></div>
+        <span class="res">pH 4,49 · pOH 9,51 · [OH⁻] = 3,1·10⁻¹⁰</span>
+        <p class="out">Zpětný převod je stejně snadný: pH 9,40 znamená [H₃O⁺] = 10⁻⁹·⁴⁰ = 10⁰·⁶⁰·10⁻¹⁰ = 4,0·10⁻¹⁰ (protože log 4 = 0,60). Rozdělte pH na celé číslo a&nbsp;desetinnou část, desetinnou převeďte na mantisu.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>autoprotolýza vody</span><span>iontový součin Kw</span><span>pH</span><span>pOH</span><span>logaritmus a antilogaritmus</span><span>neutrální roztok</span></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sblock" id="s2">
+      <div class="sb-head"><span class="sb-min">5 min</span><h3>Silné kyseliny a&nbsp;silné zásady — a&nbsp;čtyři pasti</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p><b>Silná</b> kyselina disociuje úplně, takže [H₃O⁺] se rovná koncentraci a&nbsp;<b>pH = −log <span class="q">c</span></b>. Silných kyselin je šest: <span class="chem">HCl, HBr, HI, HNO₃, HClO₄</span> a&nbsp;<span class="chem">H₂SO₄</span> (jen 1. stupeň). Silné zásady jsou hydroxidy alkalických kovů a&nbsp;kovů alkalických zemin.</p>
+          <p>U&nbsp;zásady je postup o&nbsp;krok delší: [OH⁻] → pOH → pH = 14 − pOH. A&nbsp;pozor na <b>počet hydroxidů</b>: <span class="chem">Ca(OH)₂</span> dává dva, takže [OH⁻] = 2<span class="q">c</span>. Zapomenutá dvojka posune výsledek o&nbsp;0,30 jednotky pH — přesně o&nbsp;log 2.</p>
+          <p>Druhá past jsou <b>vícesytné kyseliny</b>. U&nbsp;<span class="chem">H₂SO₄</span> je první stupeň úplný, ale druhý má <span class="q">K</span><sub>a2</sub> = 1,2·10⁻², takže proběhne jen částečně: 0,01 M roztok má pH 1,84, ne 1,70 (oba stupně) ani 2,00 (jen první).</p>
+          <p>Třetí past jsou <b>extrémně zředěné roztoky</b>: 10⁻⁸ M HCl nemá pH 8, ale 6,98 — kyselina nikdy nemůže dát zásaditý roztok, protože se ozve autoprotolýza vody. Čtvrtá past je <b>smíchání</b> kyseliny se zásadou: počítá se nadbytek v&nbsp;molech a&nbsp;dělí se <b>celkovým</b> objemem.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq">silná kyselina:<br>&nbsp;&nbsp;[H₃O⁺] = <span class="q">c</span> → pH = −log <span class="q">c</span><br><br>silná zásada:<br>&nbsp;&nbsp;[OH⁻] = <b><span class="q">n</span></b>·<span class="q">c</span> → pOH → pH<br><br>smíchání:<br>&nbsp;&nbsp;Δ<span class="q">n</span> / (<span class="q">V</span>₁+<span class="q">V</span>₂)</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Chybějící dvojka u&nbsp;<span class="chem">Ca(OH)₂</span> a&nbsp;<span class="chem">Ba(OH)₂</span>. A&nbsp;při smíchání dělit objemem jen jednoho roztoku — zředění se týká obou složek.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · tři výpočty v jednom</span>
+        <p class="task">Určete pH: (a) 0,10 M HCl, (b) 0,010 M Ca(OH)₂, (c) po smíchání 50 mL 0,10 M HCl a&nbsp;40 mL 0,10 M NaOH.</p>
+        <div class="calc">(a) [H₃O⁺] = 0,10 → pH = <b>1,00</b><br><br>
+(b) [OH⁻] = <b>2</b> · 0,010 = 0,020 → pOH = 2 − 0,30 = 1,70 → pH = <b>12,30</b><br><br>
+(c) <span class="q">n</span>(H₃O⁺) = 50 · 0,10 = 5,0 mmol; <span class="q">n</span>(OH⁻) = 40 · 0,10 = 4,0 mmol<br>
+&nbsp;&nbsp;nadbytek = 1,0 mmol H₃O⁺ v <b>90 mL</b> → 1,11·10⁻² mol·dm⁻³ → pH = <b>1,95</b></div>
+        <span class="res">1,00 · 12,30 · 1,95</span>
+        <p class="out">V&nbsp;(b) by bez dvojky vyšlo 12,00, v&nbsp;(c) při dělení 50 mL chybně 1,70. Obojí je „skoro správně“ — a&nbsp;v&nbsp;testu za nula bodů.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>silná kyselina</span><span>silná zásada</span><span>úplná disociace</span><span>vícesytné kyseliny</span><span>zředěné roztoky</span><span>neutralizace</span><span>nadbytek a zředění</span></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sblock" id="s3">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Slabé kyseliny a&nbsp;zásady — odmocnina a&nbsp;5% pravidlo</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Slabá kyselina disociuje jen částečně a&nbsp;rovnováhu popisuje <b>disociační konstanta</b> <span class="q">K</span><sub>a</sub> = [H₃O⁺][A⁻]/[HA]. Z&nbsp;ICE tabulky vyjde <span class="q">K</span><sub>a</sub> = <span class="q">x</span>²/(<span class="q">c</span> − <span class="q">x</span>); zanedbáme-li <span class="q">x</span> proti <span class="q">c</span>, dostaneme <b>[H₃O⁺] = √(<span class="q">K</span><sub>a</sub>·<span class="q">c</span>)</b>, tedy <b>pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>)</b>.</p>
+          <p>U&nbsp;zásady totéž s&nbsp;<span class="q">K</span><sub>b</sub>: [OH⁻] = √(<span class="q">K</span><sub>b</sub>·<span class="q">c</span>), pH = 14 − pOH. Amoniak 0,1 M má pH 11,13, což je přesné zrcadlo kyseliny octové (2,88) — protože p<span class="q">K</span><sub>a</sub>(CH₃COOH) ≈ p<span class="q">K</span><sub>b</sub>(NH₃) ≈ 4,75.</p>
+          <p>Zanedbání smíte použít, když je <b><span class="q">x</span>/<span class="q">c</span> pod 5 %</b>. Selhává to u&nbsp;silnějších slabých kyselin ve zředěných roztocích: HF 0,01 M je disociovaná z&nbsp;22 %, takže tam se musí řešit kvadratická rovnice (pH 2,66 místo 2,60).</p>
+          <p><b>Stupeň disociace</b> α = <span class="q">x</span>/<span class="q">c</span> a&nbsp;<b>Ostwaldův zřeďovací zákon</b> α ≈ √(<span class="q">K</span><sub>a</sub>/<span class="q">c</span>) říkají věc, která zní paradoxně: čím zředěnější roztok, tím <b>větší podíl</b> molekul je rozštěpený — i&nbsp;když absolutní [H₃O⁺] klesá.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq"><b>[H₃O⁺] = √(<span class="q">K</span><sub>a</sub>·<span class="q">c</span>)</b><br>pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>)<br><br><b>[OH⁻] = √(<span class="q">K</span><sub>b</sub>·<span class="q">c</span>)</b><br>pH = 14 − ½(p<span class="q">K</span><sub>b</sub> − log <span class="q">c</span>)<br><br>α = √(<span class="q">K</span><sub>a</sub>/<span class="q">c</span>)<br><span class="q">K</span><sub>a</sub> = α²<span class="q">c</span>/(1−α)</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Dosadit [H₃O⁺] = <span class="q">c</span> jako u&nbsp;silné kyseliny (dalo by pH 1 místo 2,88). A&nbsp;zaměnit <span class="q">K</span><sub>a</sub> s&nbsp;p<span class="q">K</span><sub>a</sub> — do odmocniny patří <span class="q">K</span><sub>a</sub>, do vzorce s&nbsp;polovinou p<span class="q">K</span><sub>a</sub>.</p></div>
+        </div>
+      </div>
+      <div class="exgrid">
+        <div class="exbox">
+          <span class="eyebrow">Příklad A · kyselina octová</span>
+          <p class="task">pH a&nbsp;α roztoku CH₃COOH 0,10 mol·dm⁻³, <span class="q">K</span><sub>a</sub> = 1,75·10⁻⁵.</p>
+          <div class="calc"><span class="q">x</span> = √(1,75·10⁻⁵ · 0,10) = √(1,75·10⁻⁶)<br>
+&nbsp;&nbsp;= <b>1,32·10⁻³ mol·dm⁻³</b><br>
+pH = 3 − log 1,32 = <b>2,88</b><br><br>
+α = 1,32·10⁻³ / 0,10 = <b>1,3 %</b> &lt; 5 % ✓</div>
+          <span class="res">pH = 2,88 · α = 1,3 %</span>
+          <p class="out">Kontrola vzorcem: ½(4,76 + 1,00) = 2,88 ✓. Silná kyselina o&nbsp;téže koncentraci by měla pH 1,00 — rozdíl je skoro dvě jednotky.</p>
+        </div>
+        <div class="exbox">
+          <span class="eyebrow">Příklad B · amoniak</span>
+          <p class="task">pH roztoku NH₃ 0,10 mol·dm⁻³, <span class="q">K</span><sub>b</sub> = 1,78·10⁻⁵.</p>
+          <div class="calc">[OH⁻] = √(1,78·10⁻⁵ · 0,10)<br>
+&nbsp;&nbsp;= <b>1,33·10⁻³ mol·dm⁻³</b><br>
+pOH = 3 − 0,12 = 2,88<br>
+pH = 14 − 2,88 = <b>11,13</b></div>
+          <span class="res">pH = 11,13</span>
+          <p class="out">Nejčastější chyba: odevzdat 2,88. Amoniak je zásada, musí vyjít nad 7 — kontrolujte výsledek selským rozumem.</p>
+        </div>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>slabá kyselina</span><span>slabá zásada</span><span>disociační konstanta Ka</span><span>Kb</span><span>pKa a pKb</span><span>ICE tabulka</span><span>aproximace a 5% pravidlo</span><span>stupeň disociace α</span><span>Ostwaldův zřeďovací zákon</span><span>konjugovaný pár</span></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sblock" id="s4">
+      <div class="sb-head"><span class="sb-min">5 min</span><h3>Soli — hydrolýza podle toho, který rodič byl slabý</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Sůl sama pH nemá; mají ho ionty, na které se rozpadne. Iont pocházející ze <b>slabého</b> elektrolytu je konjugovanou zásadou (nebo kyselinou) a&nbsp;reaguje s&nbsp;vodou — to je <b>hydrolýza</b>. Iont ze silného elektrolytu (Na⁺, K⁺, Cl⁻, NO₃⁻) nedělá nic.</p>
+          <p><b>Sůl slabé kyseliny a&nbsp;silné zásady</b> (octan sodný, kyanid, soda) reaguje <b>zásaditě</b>: <span class="chem">A⁻ + H₂O ⇌ HA + OH⁻</span> s&nbsp;konstantou <span class="q">K</span><sub>b</sub> = <span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>a</sub>. Odtud pH = 7 + ½(p<span class="q">K</span><sub>a</sub> + log <span class="q">c</span>).</p>
+          <p><b>Sůl slabé zásady a&nbsp;silné kyseliny</b> (salmiak, amonné soli) reaguje <b>kysele</b>: <span class="chem">NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺</span>, <span class="q">K</span><sub>a</sub> = <span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>b</sub>, pH = 7 − ½(p<span class="q">K</span><sub>b</sub> + log <span class="q">c</span>).</p>
+          <p>Když jsou slabí <b>oba</b> rodiče, rozhoduje jejich poměr a&nbsp;na koncentraci nezáleží: pH = 7 + ½(p<span class="q">K</span><sub>a</sub> − p<span class="q">K</span><sub>b</sub>). Octan amonný proto vychází přesně 7,00, kyanid amonný 9,23. A&nbsp;sůl silné kyseliny se silnou zásadou (NaCl) má pH 7,00 — to je také důvod, proč bod ekvivalence titrace HCl + NaOH leží na sedmičce.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq"><span class="q">K</span><sub>a</sub>·<span class="q">K</span><sub>b</sub> = <span class="q">K</span><sub>w</sub><br>p<span class="q">K</span><sub>a</sub> + p<span class="q">K</span><sub>b</sub> = 14<br><br>anion slabé kys.:<br>&nbsp;&nbsp;pH = 7 + ½(p<span class="q">K</span><sub>a</sub> + log <span class="q">c</span>)<br>kation slabé zás.:<br>&nbsp;&nbsp;pH = 7 − ½(p<span class="q">K</span><sub>b</sub> + log <span class="q">c</span>)<br>obojí slabé:<br>&nbsp;&nbsp;pH = 7 + ½(p<span class="q">K</span><sub>a</sub> − p<span class="q">K</span><sub>b</sub>)</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Dosadit do odmocniny <span class="q">K</span><sub>a</sub> mateřské kyseliny místo <span class="q">K</span><sub>w</sub>/<span class="q">K</span><sub>a</sub>. A&nbsp;u&nbsp;sody použít <span class="q">K</span><sub>a1</sub>: uhličitan je konjugát <b>hydrogen</b>uhličitanu, takže patří <span class="q">K</span><sub>a2</sub>.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · dvě soli, dvě strany sedmičky</span>
+        <p class="task">Vypočítejte pH roztoků 0,10 mol·dm⁻³: (a) CH₃COONa (<span class="q">K</span><sub>a</sub> = 1,75·10⁻⁵), (b) NH₄Cl (<span class="q">K</span><sub>b</sub> = 1,78·10⁻⁵).</p>
+        <div class="calc">(a) <span class="q">K</span><sub>b</sub> = 10⁻¹⁴ / 1,75·10⁻⁵ = 5,71·10⁻¹⁰<br>
+&nbsp;&nbsp;[OH⁻] = √(5,71·10⁻¹⁰ · 0,10) = 7,56·10⁻⁶<br>
+&nbsp;&nbsp;pOH = 5,12 → pH = <b>8,88</b><br><br>
+(b) <span class="q">K</span><sub>a</sub> = 10⁻¹⁴ / 1,78·10⁻⁵ = 5,62·10⁻¹⁰<br>
+&nbsp;&nbsp;[H₃O⁺] = √(5,62·10⁻¹⁰ · 0,10) = 7,50·10⁻⁶<br>
+&nbsp;&nbsp;pH = <b>5,13</b></div>
+        <span class="res">octan 8,88 (zásaditý) · salmiak 5,13 (kyselý)</span>
+        <p class="out">Obě hodnoty leží skoro stejně daleko od sedmičky, protože kyselina octová a&nbsp;amoniak jsou skoro stejně silné. Hydrolyzováno je přitom jen 0,008 % iontů — hydrolýza je slabá, ale na pH stačí.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>hydrolýza soli</span><span>sůl slabé kyseliny</span><span>sůl slabé zásady</span><span>konstanta hydrolýzy Kh</span><span>amfolyt</span><span>vztah Ka·Kb = Kw</span></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sblock" id="s5">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Pufry — jeden logaritmus poměru</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p><b>Pufr</b> je směs slabé kyseliny a&nbsp;její konjugované zásady (nebo naopak). Přidaný H₃O⁺ zachytí zásaditá složka, přidaný OH⁻ kyselá — silný elektrolyt se přemění na slabý a&nbsp;pH se skoro nehne.</p>
+          <p>Matematika je nejjednodušší v&nbsp;celém tématu, protože obě složky jsou přítomny ve velkém množství a&nbsp;jejich rovnovážné koncentrace se rovnají navážce. <b>Hendersonova–Hasselbalchova rovnice</b>: pH = p<span class="q">K</span><sub>a</sub> + log([A⁻]/[HA]).</p>
+          <p>Tři důsledky: při poměru 1&nbsp;:&nbsp;1 je <b>pH = p<span class="q">K</span><sub>a</sub></b>; poměr 10&nbsp;:&nbsp;1 posune pH o&nbsp;jednotku, takže rozsah pufru je <b>p<span class="q">K</span><sub>a</sub> ± 1</b>; a&nbsp;protože v&nbsp;logaritmu je poměr, <b>zředění pH nemění</b> — mění jen <b>kapacitu</b>, tedy kolik kyseliny pufr snese.</p>
+          <p>Pufr si vybíráme podle toho, čí p<span class="q">K</span><sub>a</sub> je nejblíž požadovanému pH: acetátový 4,76, fosfátový 7,20 (buňky), amoniakální 9,25 (analytika). Krev drží 7,40 hydrogenuhličitanovým pufrem s&nbsp;p<span class="q">K</span><sub>a</sub> 6,1 — funguje jen díky poměru 20&nbsp;:&nbsp;1, který tělo udržuje dýcháním a&nbsp;ledvinami.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq"><b>pH = p<span class="q">K</span><sub>a</sub> + log([A⁻]/[HA])</b><br><br>poměr 1 : 1 → pH = p<span class="q">K</span><sub>a</sub><br>poměr 10 : 1 → +1<br>rozsah: p<span class="q">K</span><sub>a</sub> ± 1<br><br>zředění: pH ne, kapacita ano<br>β ≈ 2,3·<span class="q">c</span><sub>HA</sub><span class="q">c</span><sub>A</sub>/(<span class="q">c</span><sub>HA</sub>+<span class="q">c</span><sub>A</sub>)</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Prohodit čitatel a&nbsp;jmenovatel — nahoře je vždy <b>zásaditá</b> složka (A⁻). A&nbsp;počítat pufr jako slabou kyselinu přes √(<span class="q">K</span><sub>a</sub><span class="q">c</span>); přidaná sůl rovnováhu úplně mění.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · pufr versus voda</span>
+        <p class="task">Acetátový pufr obsahuje 0,10 mol CH₃COOH a&nbsp;0,10 mol CH₃COONa v&nbsp;1 dm³ (p<span class="q">K</span><sub>a</sub> = 4,76). Jaké je jeho pH a&nbsp;jak se změní po přidání 0,010 mol HCl? Porovnejte s&nbsp;čistou vodou.</p>
+        <div class="calc">pH = 4,76 + log(0,10/0,10) = <b>4,76</b><br><br>
+po přídavku 0,010 mol H₃O⁺:<br>
+&nbsp;&nbsp;<span class="chem">CH₃COO⁻ + H₃O⁺ → CH₃COOH</span><br>
+&nbsp;&nbsp;<span class="q">n</span>(A⁻) = 0,090 &nbsp;&nbsp;<span class="q">n</span>(HA) = 0,110<br>
+&nbsp;&nbsp;pH = 4,76 + log(0,090/0,110) = <b>4,67</b><br><br>
+čistá voda: [H₃O⁺] = 0,010 → pH = <b>2,00</b></div>
+        <span class="res">pufr Δ = 0,09 · voda Δ = 5,00 jednotky pH</span>
+        <p class="out">To je celá pointa pufru v&nbsp;jednom čísle. Kdyby krev pufr neměla, stačila by dávka kyseliny z&nbsp;jednoho sprintu ke smrtelné acidóze.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>pufr</span><span>Hendersonova–Hasselbalchova rovnice</span><span>kapacita pufru</span><span>výběr pufru (pKa ± 1)</span><span>přídavek kyseliny nebo zásady</span><span>krevní pufr</span></div>
+    </div>

@@ -1,0 +1,257 @@
+
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Příprava a výroba vodíku">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 4</span>
+      <h2>Odkud vodík bereme — od Kippova přístroje k&nbsp;vodíkovému hospodářství</h2>
+      <p class="lead">Vodík je nejrozšířenější prvek vesmíru, ale na Zemi ho v&nbsp;elementární formě prakticky nenajdete: je příliš lehký na to, aby ho gravitace udržela, a&nbsp;příliš reaktivní na to, aby zůstal nevázaný. Všechen vodík, který používáme, musíme <b>vyrobit z&nbsp;vody nebo z&nbsp;uhlovodíků</b> — a&nbsp;na to musíme dodat energii.</p>
+
+      <h3>Výskyt v&nbsp;přírodě</h3>
+      <p>Nesloučený vodík se vyskytuje jen <b>ve vysokých vrstvách atmosféry</b> (u&nbsp;zemského povrchu je jeho koncentrace zanedbatelná, kolem 0,5 ppm), v&nbsp;<b>plynech provázejících ropu</b> a&nbsp;v&nbsp;plynech <b>okludovaných v&nbsp;horninách</b>. Vázaný je ale všude: ve vodě, v&nbsp;uhlovodících, ve všech organických látkách, v&nbsp;krystalohydrátech, hydroxidech, kyselinách a&nbsp;hydrogensolích. <b>Hmotnostně</b> tvoří vodík jen asi 0,15&nbsp;% zemské kůry, ale protože je tak lehký, <b>počtem atomů</b> je v&nbsp;ní po kyslíku, křemíku a&nbsp;hliníku čtvrtý nejčastější. Ve vesmíru je to prvek úplně nejrozšířenější — kolem 90&nbsp;% všech atomů.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč Země o&nbsp;vodík přišla</span>
+        <p>Úniková rychlost ze Země je 11,2 km·s⁻¹. Střední kvadratická rychlost molekuly H₂ při 300 K je zhruba 1,9 km·s⁻¹, ale rychlostní rozdělení má dlouhý „ocas“ — a&nbsp;protože je vodík ze všech plynů nejrychlejší, největší podíl jeho molekul tuto hranici v&nbsp;horní atmosféře překročí. Za miliardy let tak Země o&nbsp;volný vodík přišla. Jupiter s&nbsp;únikovou rychlostí 59,5 km·s⁻¹ si ho udržel — a&nbsp;proto je z&nbsp;něj z&nbsp;větší části složený.</p>
+      </div>
+
+      <h3>Příprava versus výroba — dvě různé otázky</h3>
+      <p>V&nbsp;chemii se ta slova nepoužívají zaměnitelně. <b>Příprava</b> znamená laboratorní, malokapacitní způsob, kde jde hlavně o&nbsp;to mít látku po ruce. <b>Výroba</b> znamená velkokapacitní průmyslovou technologii, kde rozhoduje cena vstupů a&nbsp;energie. U&nbsp;vodíku se ty dva seznamy skoro nepřekrývají — a&nbsp;u&nbsp;maturity je dobré vědět, který způsob patří kam.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník cest k&nbsp;vodíku — vstupy, rovnice, podmínky, uhlíková stopa</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="vySel">Způsob získání vodíku</label>
+            <select id="vySel"></select>
+          </div>
+          <div class="ctl">
+            <label>Měřítko</label>
+            <div class="segmented" id="vyKat" role="group" aria-label="Filtr měřítka">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="průmysl" aria-pressed="false">Průmyslová výroba</button>
+              <button type="button" data-v="laboratoř" aria-pressed="false">Laboratorní příprava</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="vyWrap" style="min-height:230px"></div>
+        <p class="eq" id="vyEq" style="margin-top:1rem"></p>
+        <p class="eq" id="vySum" style="margin-top:.5rem;border-left-color:var(--accent)"></p>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="vyRo1"></div>
+          <div class="readout" id="vyRo2"></div>
+          <div class="readout" id="vyRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="vyNote">Projděte všech devět cest a&nbsp;porovnejte poslední řádek — uhlíkovou stopu. Uvidíte, proč se dnes tolik mluví o&nbsp;„barvách“ vodíku: chemicky je to pořád tentýž plyn, ale rozdíl mezi 20 a&nbsp;0 kilogramy CO₂ na kilogram vodíku rozhoduje o&nbsp;tom, jestli má smysl ho používat jako palivo.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Laboratorní příprava — čtyři osvědčené způsoby</h3>
+      <p><b>A. Neušlechtilý kov a&nbsp;neoxidující kyselina.</b> Klasika Kippova přístroje:</p>
+      <p class="eq"><span class="chem">Zn + 2 HCl → ZnCl₂ + H₂</span> &nbsp;·&nbsp; <span class="chem">Zn + H₂SO₄ → ZnSO₄ + H₂</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Dvě podmínky, na kterých se dá pohořet</span>
+        <p>• Kov musí mít <b>záporný standardní potenciál</b>, tedy stát v&nbsp;Beketovově řadě nad vodíkem. Měď (+0,34 V) ani stříbro (+0,80 V) vodík z&nbsp;kyseliny nevytěsní.<br>
+        • Kyselina <b>nesmí být oxidující</b>. S&nbsp;kyselinou dusičnou nebo s&nbsp;koncentrovanou sírovou vodík <b>nevzniká nikdy</b> — oxidujícím činidlem je tam dusičnan nebo síran, ne H⁺, a&nbsp;produktem je NO, NO₂ nebo SO₂. Tohle je zdaleka nejčastější chyba v&nbsp;testech.</p>
+      </div>
+      <p>Elektropozitivní kovy reagují přímo s&nbsp;vodou, případně s&nbsp;hydroxidem:</p>
+      <p class="eq"><span class="chem">Ca + 2 H₂O → Ca(OH)₂ + H₂</span> &nbsp;·&nbsp; <span class="chem">3 Fe + 4 H₂O → Fe₃O₄ + 4 H₂</span> (žhavé železo a&nbsp;pára)<br>
+      <span class="chem">Zn + 2 NaOH + 2 H₂O → Na₂[Zn(OH)₄] + H₂</span> &nbsp;·&nbsp; <span class="chem">2 Al + 2 NaOH + 6 H₂O → 2 Na[Al(OH)₄] + 3 H₂</span></p>
+
+      <p><b>B. Elektrolýza vody.</b> Čistá voda vede proud špatně, přidává se proto elektrolyt (KOH, NaOH nebo kyselina sírová):</p>
+      <p class="eq">katoda: <span class="chem">2 H₂O + 2 e⁻ → H₂ + 2 OH⁻</span> &nbsp;·&nbsp; anoda: <span class="chem">4 OH⁻ → O₂ + 2 H₂O + 4 e⁻</span><br>
+      celkově: <span class="chem">2 H₂O → 2 H₂ + O₂</span></p>
+      <p>Vodíku vzniká vždy <b>dvojnásobný objem</b> než kyslíku — a&nbsp;to je nejjednodušší experimentální důkaz vzorce vody.</p>
+
+      <p><b>C. Rozklad iontového hydridu vodou.</b> Nejelegantnější způsob vůbec:</p>
+      <p class="eq"><span class="chem">CaH₂ + 2 H₂O → Ca(OH)₂ + 2 H₂</span> &nbsp;·&nbsp; iontově: <span class="chem">H⁻ + H₃O⁺ → H₂ + H₂O</span></p>
+      <div class="callout def">
+        <span class="eyebrow">Proč je to synproporcionace</span>
+        <p>Podívejte se na oxidační čísla obou atomů vodíku ve vzniklé molekule H₂. Jeden pochází z&nbsp;hydridu a&nbsp;měl <b>−I</b>. Druhý pochází z&nbsp;vody a&nbsp;měl <b>+I</b>. Oba skončí na <b>0</b>. Dvě různá oxidační čísla téhož prvku se sešla na jednom — a&nbsp;přesně to je definice <span class="term">synproporcionace</span> (komproporcionace). Kdo tuhle myšlenku pochopí, nikdy si nesplete, které atomy v&nbsp;produktu odkud přišly.</p>
+      </div>
+
+      <p><b>D. Tepelný rozklad hydridu přechodného kovu.</b> Když je potřeba opravdu čistý vodík:</p>
+      <p class="eq"><span class="chem">2 UH₃ → 2 U + 3 H₂</span> &nbsp;(kolem 300&nbsp;°C) &nbsp;·&nbsp; <span class="chem">TiH₂ → Ti + H₂</span></p>
+      <p>Kov vodík nejdřív pohltí a&nbsp;zahřátím ho zase vydá — děj je <b>vratný</b>, takže hydrid funguje jako opakovaně použitelný zásobník. Na tomtéž principu stojí i&nbsp;metalhydridové nádrže na vodík.</p>
+
+      <h3>Průmyslová výroba — kde se opravdu bere</h3>
+      <p>Světová produkce vodíku je dnes zhruba <b>95 milionů tun ročně</b> a&nbsp;drtivá většina jde z&nbsp;fosilních surovin:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Cesta</th><th class="n">Podíl</th><th class="n">CO₂ na 1 kg H₂</th><th>Poznámka</th></tr></thead>
+          <tbody>
+            <tr><td>Parní reforming zemního plynu</td><td class="n">asi 60 %</td><td class="n">9–12 kg</td><td>Nejlevnější cesta. Se zachytáváním a&nbsp;ukládáním CO₂ se jí říká „modrý“ vodík.</td></tr>
+            <tr><td>Zplyňování uhlí</td><td class="n">asi 19 %</td><td class="n">18–20 kg</td><td>Historicky první velkovýroba; dnes hlavně Čína.</td></tr>
+            <tr><td>Vedlejší produkt rafinérií a&nbsp;chemie</td><td class="n">asi 21 %</td><td class="n">podle procesu</td><td>Chloralkalická elektrolýza, katalytický reforming benzinu, dehydrogenace.</td></tr>
+            <tr><td>Elektrolýza vody</td><td class="n">pod 1 %</td><td class="n">0 (z&nbsp;bezemisní elektřiny)</td><td>„Zelený“ vodík. Podíl rychle roste, ale ze skoro nuly.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Parní reforming krok za krokem</h3>
+      <p>Dominantní technologie má dvě fáze. Nejdřív <b>endotermický reforming</b> metanu s&nbsp;vodní parou na niklovém katalyzátoru:</p>
+      <p class="eq"><span class="chem">CH₄ + H₂O → CO + 3 H₂</span> &nbsp;&nbsp;Δ<span class="q">H</span> = +206 kJ·mol⁻¹, 700–1000&nbsp;°C, 1,5–3 MPa</p>
+      <p>Pak <b>exotermická konverze vodního plynu</b>, která z&nbsp;oxidu uhelnatého vytáhne ještě jednu molekulu vodíku:</p>
+      <p class="eq"><span class="chem">CO + H₂O → CO₂ + H₂</span> &nbsp;&nbsp;Δ<span class="q">H</span> = −41 kJ·mol⁻¹, 200–450&nbsp;°C, katalyzátor Fe₂O₃/Cr₂O₃</p>
+      <p class="eq">celkem: <span class="chem">CH₄ + 2 H₂O → CO₂ + 4 H₂</span> &nbsp;&nbsp;Δ<span class="q">H</span> = +165 kJ·mol⁻¹</p>
+      <p>Potřebné teplo se získává spálením části vstupního zemního plynu — proto je reálná uhlíková stopa vyšší než stechiometrických 5,5 kg CO₂ na kilogram vodíku.</p>
+
+      <h3>Vodní plyn — historická, ale poučná cesta</h3>
+      <p>Přehřátá vodní pára se vede přes rozžhavený koks:</p>
+      <p class="eq"><span class="chem">C + H₂O → CO + H₂</span> &nbsp;&nbsp;Δ<span class="q">H</span> = +131 kJ·mol⁻¹, asi 1000&nbsp;°C</p>
+      <p>Vzniklá směs se jmenuje <span class="term">vodní plyn</span> a&nbsp;obsahuje kolem 50&nbsp;% vodíku. Následnou konverzí se z&nbsp;CO získá další vodík. Historicky se vodní plyn mísil se <b>svítiplynem</b> z&nbsp;karbonizace uhlí a&nbsp;rozváděl do domácností; v&nbsp;Česku bylo rozvádění svítiplynu ukončeno roku 1996. Byl jedovatý právě kvůli oxidu uhelnatému.</p>
+
+      <h3>K&nbsp;čemu se vodík používá</h3>
+      <div class="grid2">
+        <div class="readout"><span class="k">Rafinérie</span><span class="v">asi 40 %</span><span class="h">hydrokrakování a&nbsp;odsiřování paliv</span></div>
+        <div class="readout"><span class="k">Výroba amoniaku</span><span class="v">asi 35 %</span><span class="h">Haberův–Boschův proces → hnojiva</span></div>
+        <div class="readout"><span class="k">Výroba metanolu</span><span class="v">asi 15 %</span><span class="h">ze syntézního plynu CO + 2 H₂</span></div>
+        <div class="readout"><span class="k">Ostatní</span><span class="v">asi 10 %</span><span class="h">metalurgie, ztužování tuků, elektronika, doprava</span></div>
+      </div>
+
+      <h3>Vodík jako palivo a&nbsp;nosič energie — kde jsme dnes</h3>
+      <p>Vodík <b>není zdroj energie</b>, protože se v&nbsp;přírodě volný nevyskytuje. Je to <span class="term">nosič energie</span> (energetický vektor) — něco jako baterie: nejdřív do něj energii uložíte, potom ji z&nbsp;něj dostanete zpátky. Otázka vždycky zní, kolik se toho po cestě ztratí.</p>
+      <p>V&nbsp;<b>palivovém článku</b> běží spalování elektrochemicky, rozdělené na dvě poloreakce:</p>
+      <p class="eq">anoda: <span class="chem">2 H₂ → 4 H⁺ + 4 e⁻</span> &nbsp;·&nbsp; katoda: <span class="chem">O₂ + 4 H⁺ + 4 e⁻ → 2 H₂O</span><br>
+      celkově: <span class="chem">2 H₂ + O₂ → 2 H₂O</span> &nbsp;&nbsp;<span class="q">E</span>° = 1,23 V</p>
+      <p>Účinnost přeměny je 50 až 60&nbsp;%, tedy víc než u&nbsp;spalovacího motoru, a&nbsp;výfukem je čistá voda. Celý řetězec „elektřina → elektrolýza → stlačení → palivový článek → elektřina“ má ale účinnost jen kolem <b>30&nbsp;%</b>, zatímco u&nbsp;akumulátoru je to přes 80&nbsp;%. Proto se dnes o&nbsp;vodíku uvažuje především tam, kde baterie nestačí: v&nbsp;<b>hutnictví</b> (přímá redukce železné rudy místo koksu), v&nbsp;<b>chemii</b>, v&nbsp;<b>lodní a&nbsp;letecké dopravě</b> a&nbsp;pro <b>sezonní ukládání</b> přebytků z&nbsp;obnovitelných zdrojů.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Barva vodíku</th><th>Jak se vyrobí</th><th>Emise CO₂</th></tr></thead>
+          <tbody>
+            <tr><td><b>šedý</b></td><td>parní reforming zemního plynu bez zachytávání CO₂</td><td class="n">9–12 kg·kg⁻¹</td></tr>
+            <tr><td><b>modrý</b></td><td>tentýž reforming, ale s&nbsp;odloučením a&nbsp;uložením CO₂</td><td class="n">1–4 kg·kg⁻¹</td></tr>
+            <tr><td><b>tyrkysový</b></td><td>pyrolýza metanu, uhlík odchází jako pevné saze</td><td class="n">blízko nuly</td></tr>
+            <tr><td><b>zelený</b></td><td>elektrolýza vody z&nbsp;obnovitelné elektřiny</td><td class="n">0</td></tr>
+            <tr><td><b>růžový</b></td><td>elektrolýza vody z&nbsp;jaderné elektřiny</td><td class="n">0</td></tr>
+            <tr><td><b>černý / hnědý</b></td><td>zplyňování černého nebo hnědého uhlí</td><td class="n">18–20 kg·kg⁻¹</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Barvy nejsou chemie, ale <b>účetnictví uhlíku</b>. Molekula H₂ je pokaždé stejná — liší se jen to, co po její výrobě zůstalo v&nbsp;atmosféře.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kalkulačka elektrolýzy — kolik vodíku dostanu za daný proud a&nbsp;čas</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="elI">Proud <span class="val" id="elIV">10,0 A</span></label>
+            <input type="range" id="elI" min="1" max="100" step="1" value="10">
+          </div>
+          <div class="ctl">
+            <label for="elT">Doba elektrolýzy <span class="val" id="elTV">30 min</span></label>
+            <input type="range" id="elT" min="1" max="240" step="1" value="30">
+          </div>
+        </div>
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="elU">Napětí na článku <span class="val" id="elUV">1,90 V</span></label>
+          <input type="range" id="elU" min="123" max="250" step="1" value="190">
+        </div>
+        <div class="svgwrap" id="elWrap" style="min-height:250px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="elRo1"></div>
+          <div class="readout" id="elRo2"></div>
+          <div class="readout" id="elRo3"></div>
+        </div>
+        <p class="eq" id="elEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="elNote">Zkuste napětí stáhnout na 1,23 V — teoretické minimum dané rozkladným napětím vody. Spotřeba energie klesne na 32,7 kWh na kilogram vodíku. Reálné elektrolyzéry jedou na 1,8 až 2,0 V, protože překonávají přepětí na elektrodách a&nbsp;odpor elektrolytu.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Kolik energie je v&nbsp;kilogramu paliva — a&nbsp;kolik v&nbsp;litru</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Vztažná veličina</label>
+          <div class="segmented" id="enMode" role="group" aria-label="Volba vztažné veličiny">
+            <button type="button" data-v="m" aria-pressed="true">Na kilogram</button>
+            <button type="button" data-v="v" aria-pressed="false">Na litr objemu</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="enWrap" style="min-height:280px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="enRo1"></div>
+          <div class="readout" id="enRo2"></div>
+          <div class="readout" id="enRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="enNote">Přepněte mezi oběma měřítky. Na kilogram je vodík nejlepší palivo, jaké existuje. Na litr je i&nbsp;stlačený na 70 MPa pětkrát horší než nafta — a&nbsp;přesně v&nbsp;tomhle rozporu je celý problém vodíkové dopravy.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · Faradayův zákon při elektrolýze vody</span>
+          <p>Elektrolyzérem prochází proud 25,0 A po dobu 2,00 hodiny. Jaký objem vodíku a&nbsp;kyslíku (za normálních podmínek) se vyloučí a&nbsp;jaká je hmotnost vodíku? <span class="q">F</span> = 96 485 C·mol⁻¹, <span class="q">V</span>ₘ = 22,41 dm³·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Prošlý náboj (čas <b>v&nbsp;sekundách</b>, to je nejčastější chyba):</p>
+              <p class="eq"><span class="q">Q</span> = <span class="q">I</span> · <span class="q">t</span> = 25,0 · 7200 = <b>180 000 C</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Katodová poloreakce spotřebuje na jednu molekulu H₂ dva elektrony:</p>
+              <p class="eq"><span class="chem">2 H₂O + 2 e⁻ → H₂ + 2 OH⁻</span> &nbsp;→&nbsp; <span class="q">z</span> = 2</p>
+              <p class="eq"><span class="q">n</span>(H₂) = <span class="q">Q</span> / (<span class="q">z</span>·<span class="q">F</span>) = 180 000 / (2 · 96 485) = <b>0,9328 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Objem a&nbsp;hmotnost vodíku:</p>
+              <p class="eq"><span class="q">V</span>(H₂) = 0,9328 · 22,41 = <b>20,9 dm³</b></p>
+              <p class="eq"><span class="q">m</span>(H₂) = 0,9328 · 2,016 = <b>1,88 g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kyslíku vznikne přesně polovina látkového množství, protože anodová poloreakce potřebuje čtyři elektrony na molekulu:</p>
+              <p class="eq"><span class="q">n</span>(O₂) = 180 000 / (4 · 96 485) = 0,4664 mol &nbsp;→&nbsp; <span class="q">V</span>(O₂) = <b>10,5 dm³</b></p>
+              <span class="result">20,9 dm³ H₂ (1,88 g) a 10,5 dm³ O₂ — poměr objemů přesně 2 : 1</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · uhlíková stopa reformingu</span>
+          <p>Kolik kilogramů oxidu uhličitého vznikne <b>stechiometricky</b> při výrobě 1,00 kg vodíku parním reformingem podle rovnice <span class="chem">CH₄ + 2 H₂O → CO₂ + 4 H₂</span>? Proč je reálná hodnota dvakrát vyšší? <span class="q">M</span>(CO₂) = 44,01 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(H₂) = 1000 / 2,016 = <b>496,0 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Z&nbsp;rovnice připadá na čtyři moly vodíku jeden mol CO₂:</p>
+              <p class="eq"><span class="q">n</span>(CO₂) = 496,0 / 4 = <b>124,0 mol</b></p>
+              <p class="eq"><span class="q">m</span>(CO₂) = 124,0 · 44,01 = 5457 g = <b>5,46 kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Reálně se udává 9 až 12 kg CO₂ na kilogram vodíku. Rozdíl má tři důvody:</p>
+              <p>• reforming je <b>endotermický</b> (+206 kJ·mol⁻¹) a&nbsp;teplo se získává spálením další části zemního plynu;<br>
+              • konverze vodního plynu neproběhne úplně, část CO zůstane;<br>
+              • energie na stlačení, čištění a&nbsp;dopravu plynu.</p>
+              <span class="result">Stechiometricky 5,46 kg CO₂ na kilogram H₂, reálně 9 až 12 kg</span>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Srovnání pro představu: spálením kilogramu vodíku z&nbsp;reformingu se do ovzduší nedostane nic — ale při jeho <em>výrobě</em> tam už 10 kg CO₂ odešlo. Spálením kilogramu benzinu vznikne asi 3,1 kg CO₂. Na jednotku energie (vodík 120 MJ·kg⁻¹, benzin 44 MJ·kg⁻¹) vychází šedý vodík zhruba stejně špatně jako benzin. Proto samotné „přejití na vodík“ nic neřeší, dokud se nezmění způsob jeho výroby.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: příprava, výroba a využití vodíku"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

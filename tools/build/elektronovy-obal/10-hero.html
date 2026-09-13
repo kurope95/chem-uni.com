@@ -1,0 +1,83 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Elektronový obal — elektronová konfigurace, stavba periodické tabulky a&nbsp;vlastnosti prvků</h1>
+      <p class="lead">Proč má sodík jeden valenční elektron a&nbsp;proč ho tak ochotně ztrácí, proč je fluor vždycky jednovazný, zatímco chlor umí být i&nbsp;sedmivazný, a&nbsp;proč periodická tabulka vypadá právě tak, jak vypadá. Všechno plyne z&nbsp;jediné věci — z&nbsp;toho, jak jsou elektrony rozmístěné v&nbsp;obalu. Buď rychloprůchod na jednu hodinu, nebo osm kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 60 minut</span>
+        <span class="tag">15 interaktivních modelů</span>
+        <span class="tag">84 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulka 67 prvků: EN, <span class="q">I</span>₁, EA, poloměry</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">60 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: deset bloků, v každém výklad, rámeček se vzorci a pravidly, upozornění na častou chybu a řešený příklad. Projde všech 53 pojmů z osnovy, má vlastní grafy a kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">8 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad s patnácti interaktivními modely, dvanácti řešenými příklady krok za krokem, trenažérem konfigurací iontů a testem po každé kapitole. Na konci je tahák a slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stavitel elektronové konfigurace — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroZ">Protonové číslo <span class="q">Z</span> — <span class="val" id="heroZV">26 · Fe · železo</span></label>
+            <input type="range" id="heroZ" min="1" max="36" step="1" value="26">
+          </div>
+          <div class="ctl">
+            <label for="heroSel">…nebo těžší prvek ze seznamu</label>
+            <select id="heroSel"></select>
+          </div>
+        </div>
+        <div class="grid2" style="align-items:start">
+          <div class="svgwrap" id="heroSvgWrap" style="min-height:300px"></div>
+          <div style="display:flex;flex-direction:column;gap:.7rem">
+            <p class="eq" id="heroFull" style="margin:0;font-size:.98rem"></p>
+            <p class="eq" id="heroShort" style="margin:0;font-size:1.15rem;border-left-color:var(--accent)"></p>
+            <div class="grid3">
+              <div class="readout" id="heroRoP"><span class="k">Perioda</span><span class="v">4</span><span class="h">= nejvyšší n</span></div>
+              <div class="readout" id="heroRoG"><span class="k">Skupina</span><span class="v">8</span><span class="h">valenční elektrony</span></div>
+              <div class="readout" id="heroRoB"><span class="k">Blok</span><span class="v">d</span><span class="h">poslední plněná podslupka</span></div>
+            </div>
+            <div class="grid2">
+              <div class="readout" id="heroRoV"><span class="k">Valenční elektrony</span><span class="v">8</span><span class="h">4s² 3d⁶</span></div>
+              <div class="readout" id="heroRoU"><span class="k">Nepárové elektrony</span><span class="v">4</span><span class="h">paramagnetický</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--cat1)"></span>blok s</span>
+          <span class="li"><span class="sw" style="background:var(--cat3)"></span>blok p</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>blok d</span>
+          <span class="li"><span class="sw" style="background:var(--cat4)"></span>blok f</span>
+          <span class="li">šipka ↑ = elektron se spinem +½, ↓ = −½</span>
+        </div>
+      </div>
+      <div class="panel-note" id="heroNote">Zkuste přejet posuvníkem od 19 (K) do 30 (Zn) a&nbsp;sledujte, jak se plní 3d <b>až po</b> 4s. Pak nastavte 24 (Cr) a&nbsp;29 (Cu) — u&nbsp;nich se objeví výjimka a&nbsp;její vysvětlení.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Modely atomu a&nbsp;jejich historický vývoj (Thompsonův, Rutherfordův, Bohrův a&nbsp;kvantově-mechanický (QM) model atomu).</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>QM model atomu, pojem orbitalu.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Kvantová čísla charakterizující orbital (hlavní, vedlejší a&nbsp;magnetické orbitalní kvantové číslo) a&nbsp;vztahy mezi nimi.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Spin elektronu.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Elektronová konfigurace atomů a&nbsp;iontů.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Struktura periodické tabulky prvků a&nbsp;souvislost s&nbsp;QM modelem atomu.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Vlastnosti atomů a&nbsp;jejich iontů plynoucí z&nbsp;QM modelu atomu a&nbsp;polohy v&nbsp;periodické tabulce (vaznost, běžné oxidační stavy, ionty, ionizační energie, elektronová afinita a&nbsp;elektronegativita).</span><span class="go">Kap. 6–7</span></a>
+    </div>
+  </header>

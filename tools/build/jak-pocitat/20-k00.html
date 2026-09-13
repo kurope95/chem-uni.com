@@ -1,0 +1,255 @@
+  <!-- ============ KAPITOLA 0 — JAK ZAPSAT VÝPOČET ============ -->
+  <section class="chapter" id="k0" data-title="Jak zapsat výpočet">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · řemeslo</span>
+      <h2>Výpočtový list — šest bloků, které vás nikdy nenechají spadnout</h2>
+      <p class="lead">Většina chyb v&nbsp;chemických výpočtech nevzniká proto, že by student neuměl chemii. Vzniká proto, že si úlohu <b>špatně zapsal</b>. Existuje jeden zápis, který tenhle problém řeší — používá se na technikách a&nbsp;přírodovědeckých fakultách u&nbsp;fyziky i&nbsp;fyzikální chemie a&nbsp;pro středoškolskou chemii je na něm to nejlepší, že se ho naučíte jednou a&nbsp;funguje pak úplně na všechno.</p>
+
+      <h3>Nejdřív si ukažme, co se stane bez něj</h3>
+      <p>Typický zápis, který učitel vidí na písemce: <span class="mono">5,85 : 58,44 = 0,1001 : 250 = 0,0004</span>. Je v&nbsp;tom správná myšlenka i&nbsp;správná čísla. Přesto to není dobrá odpověď: nikde není napsáno, co se počítá, chybí jednotky, výsledek je o&nbsp;tři řády vedle (protože se objem nepřevedl) a&nbsp;když opravující najde chybu, nemá čemu dát dílčí body. <b>Zapsat výpočet je součást úlohy</b>, ne formalita po ní.</p>
+
+      <div class="callout def">
+        <span class="eyebrow">Definice — výpočtový list</span>
+        <p>Výpočtový list je pevná posloupnost šesti bloků, oddělených vodorovnými linkami: <b>zadání</b> (co víme, převedené na počítací jednotky) → <b>hledáme</b> (co chceme, s&nbsp;otazníkem a&nbsp;jednotkou) → <b>vztahy</b> (které vzorce použijeme, čistě symbolicky) → <b>odvození</b> (symbolická úprava na jeden konečný vztah, <em>bez jediného čísla</em>) → <b>dosazení</b> (teprve tady čísla, a&nbsp;vždy i&nbsp;s&nbsp;jednotkami) → <b>odpověď</b> (celá česká věta se správným počtem platných číslic). Volitelný sedmý blok je <b>kontrola</b>: dává ten výsledek vůbec smysl?</p>
+      </div>
+
+      <p>Tady je stejná úloha jako výše, jen napsaná pořádně. Pak si projdeme každý blok zvlášť.</p>
+    </div>
+
+    <div class="calcsheet">
+      <div class="cs-head">
+        <span class="cs-id">Vzorový list</span>
+        <span class="cs-topic">Látková koncentrace roztoku z&nbsp;navážky</span>
+        <span class="cs-kind">Roztoky</span>
+      </div>
+      <p class="cs-task">Navážíme 5,85&nbsp;g chloridu sodného, rozpustíme ho v&nbsp;odměrné baňce a&nbsp;doplníme vodou na 250&nbsp;cm³. Jaká je látková koncentrace vzniklého roztoku?</p>
+      <div class="cs-block">
+        <span class="cs-lbl">Zadání</span>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= 5,85 g</span><span class="cs-note">navážka NaCl</span></div>
+          <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= 250 cm³ <span class="cs-conv">= 0,250 dm³</span></span><span class="cs-note">objem baňky, hned převedeno</span></div>
+          <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 58,44 g·mol⁻¹</span><span class="cs-note">M(NaCl) z&nbsp;tabulek</span></div>
+        </div>
+      </div>
+      <div class="cs-block find">
+        <span class="cs-lbl">Hledáme</span>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= ? mol·dm⁻³</span><span class="cs-note">látková koncentrace</span></div>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Vztahy</span>
+        <div class="cs-rows">
+          <div class="cs-line">c = n / V</div>
+          <div class="cs-line">n = m / M</div>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Odvození</span>
+        <div class="cs-rows">
+          <div class="cs-line">c = n / V = (m / M) / V = <b>m / (M · V)</b></div>
+          <p class="cs-hint">Ani jedno číslo. Konec odvození je jeden vztah, do kterého se bude dosazovat.</p>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Dosazení</span>
+        <div class="cs-rows">
+          <div class="cs-line">c = 5,85 g / (58,44 g·mol⁻¹ · 0,250 dm³)</div>
+          <div class="cs-line units">jednotky: g / (g·mol⁻¹ · dm³) = <b>mol·dm⁻³</b> ✓ sedí s&nbsp;blokem „hledáme“</div>
+          <div class="cs-line">c = 0,40041… mol·dm⁻³</div>
+        </div>
+      </div>
+      <div class="cs-block res">
+        <span class="cs-lbl">Odpověď</span>
+        <div class="cs-rows">
+          <p class="cs-ans">Roztok má látkovou koncentraci <b class="cs-hi">c = 0,400 mol·dm⁻³</b>. (Tři platné číslice, protože nejméně přesný vstup — navážka 5,85&nbsp;g — má tři.)</p>
+        </div>
+      </div>
+      <div class="cs-block chk">
+        <span class="cs-lbl">Kontrola</span>
+        <div class="cs-rows">
+          <p class="cs-chk">5,85&nbsp;g je zhruba desetina molu NaCl, a&nbsp;ta je ve čtvrtlitru. Desetina molu ve čtvrtině litru dává čtyři desetiny molu na litr — řádově sedí. Fyziologický roztok má 0,15&nbsp;mol·dm⁻³, mořská voda asi 0,6&nbsp;mol·dm⁻³; náš roztok leží mezi nimi, což je pro rozpustnou sůl naprosto věrohodné.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Blok 1 — Zadání</h3>
+      <p>Vypište <b>každou známou veličinu na vlastní řádek</b>, ve formátu <span class="mono">symbol = hodnota s&nbsp;jednotkou</span>. Rovnítka pod sebou, jednotky vždy. Do třetího sloupce si můžete připsat, odkud údaj je — jestli byl v&nbsp;zadání, nebo jste ho dohledali v&nbsp;tabulkách.</p>
+      <p>A&nbsp;hlavně: <span class="term">převod na počítací jednotky se dělá hned tady</span>, ne později. Jakmile napíšete <span class="mono">V = 250 cm³ = 0,250 dm³</span>, nemůžete se už o&nbsp;tisíc splést, protože správná hodnota vám stojí přímo před očima. Tohle je jediné nejúčinnější opatření proti chybám v&nbsp;chemických výpočtech vůbec.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Co patří do zadání, i&nbsp;když to v&nbsp;zadání není</span>
+        <p>Molární hmotnosti, hustota vody, molární objem plynu, plynová konstanta, tabelovaná <span class="q">K</span><sub>a</sub> — všechno, co si dohledáte, patří do prvního bloku jako běžný řádek zadání. Opravující tak vidí, s&nbsp;jakými hodnotami jste počítali, a&nbsp;když má tabulky s&nbsp;jinou přesností, nestrhne vám body za „špatný výsledek“.</p>
+      </div>
+
+      <h3>Blok 2 — Hledáme</h3>
+      <p>Jeden řádek, stejný formát jako zadání, jen místo hodnoty je <b>otazník a&nbsp;jednotka</b>: <span class="mono">m = ? kg</span>, <span class="mono">c = ? mol·dm⁻³</span>, <span class="mono">pH = ?</span>. Vypadá to jako zbytečnost. Není. Ten otazník s&nbsp;jednotkou dělá tři věci naráz:</p>
+      <p>• <b>Nutí vás rozhodnout se, co vlastně počítáte</b>, dřív než začnete. Překvapivě mnoho chyb v&nbsp;úlohách s&nbsp;dvěma otázkami vzniká tím, že student spočítá jednu a&nbsp;odpoví na druhou.<br>
+      • <b>Dává vám cíl rozměrové kontroly.</b> Až v&nbsp;bloku dosazení vykrátíte jednotky, musí vyjít přesně tohle. Když nevyjde, chyba je v&nbsp;odvození, ne v&nbsp;kalkulačce.<br>
+      • <b>Určuje jednotku odpovědi.</b> Napsat výsledek bez jednotky je u&nbsp;maturity ztráta bodu; tady si ji píšete ještě dřív, než ji znáte.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Zadavatelova poznámka</span>
+        <p>Otazník píšeme <b>vždycky</b>, i&nbsp;u&nbsp;triviální úlohy, a&nbsp;vždycky s&nbsp;jednotkou: <span class="mono">m = ? kg</span>. Ne <span class="mono">m = ?</span>, ne <span class="mono">hledáme hmotnost</span>. Tenhle jeden řádek je návyk, který se vyplácí přesně ve chvíli, kdy je úloha složitá a&nbsp;člověk se v&nbsp;ní ztrácí.</p>
+      </div>
+
+      <h3>Blok 3 — Vztahy</h3>
+      <p>Vypište vzorce, které budete potřebovat — <b>každý na svém řádku, čistě symbolicky</b>. Nic se nedosazuje, nic se neupravuje. Je to výpis nářadí, které si položíte na stůl, než začnete pracovat.</p>
+      <p>Tenhle blok má velkou bodovou cenu. Když u&nbsp;maturity dojde čas nebo se zaseknete v&nbsp;aritmetice, správně vypsané vztahy dokazují, že úlohu chápete — a&nbsp;to se boduje. Když naopak není zapsané nic než čísla, opravující nemá co ocenit.</p>
+      <p class="eq">Typický obsah bloku: <span class="mono">n = m/M</span> · <span class="mono">c = n/V</span> · <span class="mono">pV = nRT</span> · <span class="mono">Q = mcΔT</span> · <span class="mono">Δ<span class="q">G</span>° = −<span class="q">RT</span> ln <span class="q">K</span></span></p>
+
+      <h3>Blok 4 — Odvození</h3>
+      <p>Nejdůležitější blok celého listu a&nbsp;jediný, který studenti zpravidla nepíšou vůbec. Postupně <b>skládáte vztahy do sebe</b>, dokud nedostanete jediný výraz, ve kterém vlevo stojí hledaná veličina a&nbsp;vpravo jen veličiny ze zadání:</p>
+      <p class="eq"><span class="q">c</span> = <span class="q">n</span> / <span class="q">V</span> = (<span class="q">m</span> / <span class="q">M</span>) / <span class="q">V</span> = <b><span class="q">m</span> / (<span class="q">M</span>·<span class="q">V</span>)</b></p>
+      <p>Pravidlo je jediné a&nbsp;nekompromisní: <span class="term">v&nbsp;odvození nesmí být ani jedno číslo</span>. Ne proto, že by to bylo zakázané, ale protože se tím oddělí dvě úplně různé činnosti — <em>přemýšlení</em> (algebra) a&nbsp;<em>počítání</em> (aritmetika). Když je děláte současně, chybujete v&nbsp;obojím.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč se dosazuje až na konci — čtyři důvody</span>
+        <p><b>1. Méně chyb.</b> Jedno dosazení místo tří. Každé mezidosazení je příležitost k&nbsp;překlepu, každé mezizaokrouhlení kus přesnosti pryč.<br>
+        <b>2. Kontrola jednotek.</b> Rozměrovou zkoušku můžete udělat na jediném výrazu. Vyjde-li z&nbsp;<span class="mono">m/(M·V)</span> jednotka mol·dm⁻³, je vzorec skoro jistě správně.<br>
+        <b>3. Dílčí body.</b> Správné odvození s&nbsp;chybou v&nbsp;aritmetice bývá hodnoceno mnohem líp než správný výsledek bez postupu.<br>
+        <b>4. Znovupoužitelnost.</b> Když se v&nbsp;další části úlohy změní jedno číslo, dosadíte znovu do hotového vztahu místo počítání od začátku.</p>
+      </div>
+
+      <a class="submod" href="zlomky-a-zavorky/index.html">
+        <span class="eyebrow">Samostatný pod-modul</span>
+        <strong>Zlomky a závorky</strong>
+        <p>Odvození výše skončilo u&nbsp;složeného zlomku. Jestli si nejste jistí, kdy zlomková
+        čára nahrazuje závorku, jak přepsat stohovaný zápis na řádek a&nbsp;zpátky, nebo jak si
+        ověřit, že jste přepsali správně, je na to celý samostatný průvodce: devět kapitol,
+        procvičování a&nbsp;závěrečný test.</p>
+        <span class="go">Otevřít Zlomky a závorky →</span>
+      </a>
+
+      <h3>Blok 5 — Dosazení</h3>
+      <p>Teprve tady čísla — a&nbsp;<b>vždy i&nbsp;s&nbsp;jednotkami</b>. Jeden řádek dosazení, pod ním řádek zkrácení jednotek, pod ním výsledek s&nbsp;plnou přesností kalkulačky (zaokrouhlí se až v&nbsp;odpovědi).</p>
+      <p class="eq"><span class="q">c</span> = 5,85 g / (58,44 g·mol⁻¹ · 0,250 dm³) &nbsp;&nbsp;→&nbsp;&nbsp; g / (g·mol⁻¹·dm³) = <b>mol·dm⁻³</b></p>
+      <p>Ten druhý řádek je <span class="term">rozměrová kontrola</span> a&nbsp;je to nejlevnější pojistka, jakou máte. Gramy se vykrátí, <span class="mono">mol⁻¹</span> ve jmenovateli se převrátí na <span class="mono">mol</span> v&nbsp;čitateli, <span class="mono">dm³</span> zůstane ve jmenovateli. Vyjde <span class="mono">mol·dm⁻³</span> — přesně to, co jsme v&nbsp;bloku 2 hledali. Kdyby vyšlo cokoli jiného, víme okamžitě, že je chyba v&nbsp;odvození, a&nbsp;nemusíme počítat vůbec.</p>
+
+      <h3>Blok 6 — Odpověď</h3>
+      <p>Celá česká věta, ne holé číslo. „Roztok má látkovou koncentraci 0,400&nbsp;mol·dm⁻³.“ Číslo v&nbsp;ní je <b>zvýrazněné, zaokrouhlené na správný počet platných číslic a&nbsp;s&nbsp;jednotkou</b>. Když se úloha ptala na dvě věci, odpovězte na obě.</p>
+      <p>Věta má i&nbsp;praktický smysl: nutí vás přečíst si znovu zadání. Docela často se právě v&nbsp;téhle chvíli přijde na to, že se ptali na hmotnost v&nbsp;kilogramech, ne v&nbsp;gramech.</p>
+
+      <h3>Blok 7 (volitelný) — Kontrola</h3>
+      <p>Jedna dvě věty, které odpovídají na otázku „<b>dává to smysl?</b>“. Tři nejužitečnější typy kontroly:</p>
+      <p>• <b>Řádová:</b> hrubý odhad zpaměti. Očekával jsem desetiny, vyšly mi desetiny.<br>
+      • <b>Znaménková:</b> hoření musí být exotermní, <span class="q">K</span> a&nbsp;koncentrace musí být kladné, pH vody nemůže být 15.<br>
+      • <b>Srovnávací:</b> vyšlo mi 0,4&nbsp;mol·dm⁻³, fyziologický roztok má 0,15 — sedí to.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Nejčastější „nesmyslné“ výsledky, které projdou bez povšimnutí</span>
+        <p>Hmotnost produktu <b>větší než hmotnost všech reaktantů</b>. Výtěžek <b>nad 100&nbsp;%</b>. pH <b>záporné nebo nad 14</b> u&nbsp;běžného roztoku. Objem jednoho molu plynu <b>22 400&nbsp;dm³</b> (spletený převod). Poločas rozpadu <b>delší než stáří vesmíru</b> u&nbsp;jodu-131. Kdykoli něco takového uvidíte, chyba je skoro vždy v&nbsp;jednotkách.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Takhle ne / takhle ano — tatáž úloha ve dvou zápisech</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1.1rem">
+          <label>Co zobrazit</label>
+          <div class="segmented" id="bgMode" role="group" aria-label="Volba zobrazení">
+            <button type="button" data-v="both" aria-pressed="true">Vedle sebe</button>
+            <button type="button" data-v="bad" aria-pressed="false">Jen chybný</button>
+            <button type="button" data-v="good" aria-pressed="false">Jen správný</button>
+          </div>
+        </div>
+        <div class="vsgrid" id="bgGrid"></div>
+      </div>
+      <div class="panel-note">Zkuste si přepnout na <b>jen chybný</b> zápis a&nbsp;zkusit v&nbsp;něm najít chybu — je tam jedna skutečná početní chyba (chybí převod objemu) schovaná mezi čtyřmi chybami formálními. To je přesně situace opravujícího: v&nbsp;levém zápisu nelze rozhodnout, jestli student neumí, nebo se jen ukliknul, takže dílčí body dát nemůže.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Poskládejte výpočtový list ve správném pořadí</h3>
+      </div>
+      <div class="panel-body">
+        <p style="font-family:var(--f-ui);font-size:.95rem;color:var(--ink-2);margin-bottom:.9rem" id="sortTask">—</p>
+        <div class="sortlist" id="sortList"></div>
+        <div class="drill-bar" style="margin-top:1rem">
+          <button class="btn btn-primary btn-sm" type="button" id="sortCheck">Zkontrolovat pořadí</button>
+          <button class="btn btn-sm" type="button" id="sortNew">Jiná úloha</button>
+          <span class="drill-score" id="sortScore">0 / 0 správně</span>
+        </div>
+        <p class="drill-fb" id="sortFb">Klikejte na řádky v&nbsp;pořadí, v&nbsp;jakém patří do výpočtového listu. První kliknutí = první řádek listu.</p>
+      </div>
+      <div class="panel-note">Zkuste to nejdřív bez koukání nahoru. Pořadí je vždy stejné, ať je úloha jakákoli: <b>zadání → hledáme → vztahy → odvození → dosazení → odpověď</b>. To je celá pointa — jeden formát na všechno.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 0.1</span>
+        <p>Kolik gramů manganistanu draselného potřebujeme na přípravu 500&nbsp;cm³ odměrného roztoku o&nbsp;látkové koncentraci 0,0200&nbsp;mol·dm⁻³? <span class="chem">M</span>(KMnO₄) = 158,04&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 0.1</span>
+              <span class="cs-topic">Navážka pro odměrný roztok</span>
+              <span class="cs-kind">Roztoky</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= 500 cm³ <span class="cs-conv">= 0,500 dm³</span></span><span class="cs-note">převod hned</span></div>
+                <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= 0,0200 mol·dm⁻³</span><span class="cs-note">požadovaná koncentrace</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 158,04 g·mol⁻¹</span><span class="cs-note">M(KMnO₄)</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= ? g</span><span class="cs-note">navážka</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">c = n / V</div>
+                <div class="cs-line">n = m / M</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">n = c · V &nbsp;&nbsp;a&nbsp;zároveň&nbsp;&nbsp; n = m / M</div>
+                <div class="cs-line">m = n · M = <b>c · V · M</b></div>
+                <p class="cs-hint">Je to týž vztah jako ve vzorovém listu, jen vyjádřený pro jinou veličinu. Odvození se proto liší jen posledním krokem.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">m = 0,0200 mol·dm⁻³ · 0,500 dm³ · 158,04 g·mol⁻¹</div>
+                <div class="cs-line units">jednotky: mol·dm⁻³ · dm³ · g·mol⁻¹ = <b>g</b> ✓</div>
+                <div class="cs-line">m = 1,5804 g</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Navážíme <b class="cs-hi">m = 1,58 g</b> manganistanu draselného, rozpustíme a&nbsp;doplníme na 500&nbsp;cm³.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">0,0200&nbsp;mol·dm⁻³ v&nbsp;půl litru je 0,0100&nbsp;mol, tedy asi setina molu. Setina molu látky s&nbsp;molární hmotností kolem 160&nbsp;g·mol⁻¹ je 1,6&nbsp;g. Sedí. Zároveň je to hodnota, která se dá reálně navážit na laboratorních vahách — kdyby vyšly mikrogramy nebo kilogramy, něco je špatně.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Kdy se list vyplatí zkrátit</h3>
+      <p>U&nbsp;úlohy typu „kolik molů je 36&nbsp;g vody“ je plný list přehnaný a&nbsp;u&nbsp;zkoušky vás bude zdržovat. Zkracujte ale <b>vždycky stejným způsobem</b>: bloky zadání, hledáme a&nbsp;odpověď zůstávají, vztahy a&nbsp;odvození se slijí do jednoho řádku. Nikdy nevynechávejte jednotky a&nbsp;nikdy nedosazujte dřív, než máte vzorec vyjádřený pro hledanou veličinu.</p>
+      <p>Naopak u&nbsp;úloh na tři a&nbsp;víc kroků (limitující reaktant, výtěžek, pak přepočet na objem plynu) list <b>rozšiřte</b>: každý dílčí krok dostane vlastní čtveřici vztah–odvození–dosazení–mezivýsledek, a&nbsp;až úplně dole je jedna společná odpověď.</p>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: struktura výpočtového listu"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

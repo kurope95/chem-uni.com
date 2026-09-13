@@ -1,0 +1,209 @@
+  <!-- ============ KAPITOLA 7 ============ -->
+  <section class="chapter" id="k7" data-title="Katalytické působení">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, bod 8</span>
+      <h2>Katalytické působení přechodných kovů</h2>
+      <p class="lead">Železo vyrábí čpavek, vanad kyselinu sírovou, platina čistí výfukové plyny, nikl ztužuje tuky, titan dělá polyethylen. Skoro každý velký chemický proces má uprostřed přechodný kov. Není to náhoda — plyne to ze dvou vlastností, které jinde v&nbsp;tabulce pohromadě nenajdete.</p>
+
+      <h3>Dvě vlastnosti, které z&nbsp;bloku d&nbsp;dělají katalyzátory</h3>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">1. Proměnlivá oxidační čísla</span>
+          <p>Katalyzátor se během děje střídavě oxiduje a&nbsp;redukuje a&nbsp;na konci cyklu se vrátí do původního stavu. Jednu těžkou reakci tak rozdělí na dvě snadné. Tohle umí jen prvek, který má víc dostupných oxidačních stavů blízko sebe — tedy přechodný kov.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">2. Volné orbitaly d&nbsp;i&nbsp;elektrony v&nbsp;nich</span>
+          <p>Povrch kovu má současně <b>prázdná místa</b>, kam se molekula může navázat, a&nbsp;<b>elektrony</b>, které do ní může vrátit. Tím se v&nbsp;navázané molekule oslabí vazba — a&nbsp;právě to je celý trik heterogenní katalýzy.</p>
+        </div>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Připomenutí</span>
+        <p><span class="term">Katalyzátor</span> je látka, která zvyšuje rychlost reakce tím, že jí otevře cestu s&nbsp;<b>nižší aktivační energií</b>, a&nbsp;po skončení děje se objeví nezměněná. Nemění polohu rovnováhy ani reakční teplo — jen dobu, za kterou se rovnováhy dosáhne.</p>
+        <p style="margin-top:.5rem"><b>Homogenní</b> katalyzátor je ve stejné fázi jako reaktanty (typicky ion v&nbsp;roztoku), <b>heterogenní</b> v&nbsp;jiné fázi (typicky pevný povrch, na němž reagují plyny).</p>
+      </div>
+
+      <h3>Krátký úvod do molekulových orbitalů</h3>
+      <p>Abychom pochopili, jak se povrch kovu chová k&nbsp;navázané molekule, potřebujeme jeden pojem, který v&nbsp;obecné chemii nebyl. Zavedeme si ho od začátku.</p>
+      <div class="callout def">
+        <span class="eyebrow">Vazebný a&nbsp;protivazebný orbital</span>
+        <p>Když se dva atomové orbitaly překryjí, nevznikne jeden nový orbital, ale <b>dva</b>. Jeden má nižší energii než původní orbitaly a&nbsp;elektronovou hustotu <b>mezi jádry</b> — je to <span class="term">vazebný orbital</span> (značí se <span class="chem">σ</span> nebo <span class="chem">π</span>). Druhý má vyšší energii a&nbsp;mezi jádry <b>uzlovou plochu</b>, tedy nulovou hustotu — to je <span class="term">protivazebný orbital</span> (značí se <span class="chem">σ*</span> nebo <span class="chem">π*</span>).</p>
+        <p style="margin-top:.5rem">Elektrony ve vazebném orbitalu vazbu <b>drží</b>, elektrony v&nbsp;protivazebném ji <b>rozvolňují</b>. Počet orbitalů se překryvem nikdy nezmění — z&nbsp;dvou atomových vzniknou dva molekulové.</p>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Řád vazby</span>
+        <p class="eq" style="margin:0">řád vazby = (počet elektronů ve vazebných orbitalech − počet elektronů v&nbsp;protivazebných) / 2</p>
+        <p style="margin-top:.5rem">Řád 1 znamená jednoduchou vazbu, 2 dvojnou, 3 trojnou. Řád může vyjít i&nbsp;jako polovina celého čísla; nulový řád znamená, že molekula nedrží pohromadě.</p>
+      </div>
+      <p class="eq">příklad: molekula <span class="chem">O₂</span> má ve vazebných orbitalech 8 elektronů a&nbsp;v&nbsp;protivazebných 4<br>
+      řád vazby = (8 − 4) / 2 = <b>2</b> &nbsp;·&nbsp; a&nbsp;protože dva z&nbsp;protivazebných sedí v&nbsp;<span class="chem">π*</span> po jednom, je kyslík <b>paramagnetický</b></p>
+      <p>Molekula oxidu uhelnatého má řád vazby 3 — je to jedna z&nbsp;nejpevnějších vazeb vůbec. Přesto se na povrchu kovu ochotně naváže a&nbsp;oslabí. Podívejme se, jak.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Zpětná donace π&nbsp;— proč se karbonyl na kov naváže a&nbsp;přitom zeslábne</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="zdSeg" style="flex-wrap:wrap" role="group" aria-label="Krok">
+          <button type="button" data-zd="volny" aria-pressed="true">Volná molekula CO</button>
+          <button type="button" data-zd="sigma" aria-pressed="false">Krok 1: donace σ</button>
+          <button type="button" data-zd="pi" aria-pressed="false">Krok 2: zpětná donace π</button>
+          <button type="button" data-zd="vysl" aria-pressed="false">Výsledek</button>
+        </div>
+        <div class="svgwrap" id="zdWrap" style="min-height:320px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="zdRo1"></div>
+          <div class="readout" id="zdRo2"></div>
+          <div class="readout" id="zdRo3"></div>
+        </div>
+        <div id="zdList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="zdNote">Projděte kroky po sobě. Nejdřív dá ligand svůj volný elektronový pár do prázdného orbitalu kovu — to je běžná koordinační vazba. Pak přijde ta zajímavá část: kov vrátí elektrony <b>zpátky</b>, ale do <b>protivazebného</b> orbitalu <span class="chem">π*</span> ligandu. Vazba kov–ligand se tím posílí, zato vazba uvnitř ligandu zeslábne. Přesně tohle je princip, na kterém stojí většina heterogenní katalýzy.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Jak zpětná donace vysvětluje katalýzu</h3>
+      <p>Zpětná donace π&nbsp;je jádrem celé věci. Když se molekula naváže na povrch přechodného kovu, kov jí <b>napumpuje elektrony do protivazebných orbitalů</b>. Vazba uvnitř molekuly tím oslábne natolik, že se rozpadne za teploty, při níž by v&nbsp;plynu vydržela.</p>
+      <p class="eq">energie potřebná na rozštěpení volných molekul [kJ·mol⁻¹]:<br>
+      <span class="chem">N≡N</span> = 945 &nbsp;·&nbsp; <span class="chem">H–H</span> = 436 &nbsp;·&nbsp; <span class="chem">C≡O</span> = 1077<br>
+      <span style="color:var(--ink-3)">na povrchu železa se dusík štěpí už kolem 400 °C — bez katalyzátoru by bylo potřeba přes 3000 °C</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Kde ještě zpětnou donaci potkáte</span>
+        <p>Právě zpětnou donací se vysvětluje, proč se <b>oxid uhelnatý váže na hemoglobin dvěstěkrát pevněji než kyslík</b>. A&nbsp;taky proč zinek, kadmium a&nbsp;rtuť žádné karbonyly netvoří: jejich plné orbitaly <span class="chem">d¹⁰</span> nemají elektrony na energeticky vhodné hladině, kterou by mohly do <span class="chem">π*</span> nabídnout.</p>
+      </div>
+
+      <h3>Pravidlo osmnácti elektronů</h3>
+      <div class="callout def">
+        <span class="eyebrow">Pravidlo</span>
+        <p>Stabilní komplex přechodného kovu v&nbsp;nízkém oxidačním stavu má kolem centrálního atomu obvykle <b>18 valenčních elektronů</b> — tolik, kolik jich má nejbližší vzácný plyn ve svých orbitalech <span class="chem">ns</span>, <span class="chem">(n−1)d</span> a&nbsp;<span class="chem">np</span>.</p>
+        <p style="margin-top:.5rem">Počítáme: elektrony d&nbsp;kovu v&nbsp;daném oxidačním stavu + 2 elektrony od každého ligandu typu <span class="chem">CO</span> + 1 za každou vazbu kov–kov.</p>
+      </div>
+      <p>Je to obdoba oktetového pravidla pro blok p, jen s&nbsp;devíti orbitaly místo čtyř. Nefunguje vždycky, ale u&nbsp;karbonylů platí až překvapivě přesně — a&nbsp;dokáže předpovědět <b>vzorec</b> sloučeniny, kterou jste nikdy neviděli.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Spočítejte si osmnáct elektronů</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="okSel">Karbonyl</label>
+          <select id="okSel"></select>
+        </div>
+        <div class="svgwrap" id="okWrap" style="min-height:250px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="okRo1"></div>
+          <div class="readout" id="okRo2"></div>
+          <div class="readout" id="okRo3"></div>
+        </div>
+        <div id="okList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="okNote">Projděte všechny karbonyly a&nbsp;všimněte si vzorce: kovy se sudým počtem elektronů d&nbsp;(Fe, Cr, Ni) vystačí se samotnými karbonyly, kdežto kovy s&nbsp;lichým počtem (Mn, Co) musí navíc vytvořit vazbu kov–kov a&nbsp;tvoří dvoujaderné molekuly. Jediná výjimka v&nbsp;seznamu je hexakarbonyl vanadu — sedmnáct elektronů, a&nbsp;proto je to reaktivní, snadno redukovatelná látka.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Heterogenní katalýza krok za krokem</h3>
+      <p>Pevný katalyzátor pracuje vždycky v&nbsp;pěti krocích. Když je umíte odříkat, umíte vysvětlit každý průmyslový proces.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Krok</th><th>Co se děje</th><th>Na čem to závisí</th></tr></thead>
+          <tbody>
+            <tr><td><b>1. difuze</b></td><td>molekuly se dostanou k&nbsp;povrchu</td><td>na velikosti povrchu — proto se katalyzátor rozptyluje na porézní nosič</td></tr>
+            <tr><td><b>2. adsorpce</b></td><td>molekuly se naváží na aktivní místa</td><td>na síle vazby: musí být dost silná, aby držela, ale ne tak, aby povrch zablokovala</td></tr>
+            <tr><td><b>3. reakce</b></td><td>oslabené vazby se rozpadnou a&nbsp;vzniknou nové</td><td>na tom, jak dobře kov oslabí vazbu zpětnou donací</td></tr>
+            <tr><td><b>4. desorpce</b></td><td>produkt se uvolní z&nbsp;povrchu</td><td>opět na síle vazby — příliš pevná vazba produkt neuvolní</td></tr>
+            <tr><td><b>5. difuze zpět</b></td><td>produkt odejde a&nbsp;uvolní místo</td><td>na proudění a&nbsp;na tom, zda se místo neucpe</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Otrava katalyzátoru</span>
+        <p>Když se na aktivní místo naváže něco, co už nikdy neodejde, je místo nadobro ztraceno. Olovo takhle otráví platinu v&nbsp;autokatalyzátoru — proto se přestal používat olovnatý benzin. Síra otráví železo v&nbsp;Haberově procesu, proto se syntézní plyn pečlivě odsiřuje. Nejde o&nbsp;„opotřebení“, ale o&nbsp;chemickou blokádu.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Osm procesů, u&nbsp;kterých je uprostřed přechodný kov</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="ktSel">Proces</label>
+          <select id="ktSel"></select>
+        </div>
+        <div class="svgwrap" id="ktWrap" style="min-height:250px"></div>
+        <div class="grid2" style="margin-top:1rem">
+          <div class="readout" id="ktRo1"></div>
+          <div class="readout" id="ktRo2"></div>
+        </div>
+        <div id="ktList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="ktNote">Porovnejte kontaktní proces (vanad se střídavě redukuje a&nbsp;oxiduje — homogenní logika na pevném povrchu) s&nbsp;Haberovým procesem (železo mění jen vazbu, ne oxidační číslo). Obojí jsou katalyzátory, ale mechanismus je jiný. A&nbsp;podívejte se na rozklad peroxodisíranu jodidem — tam je katalyzátorem obyčejný ion železa v&nbsp;roztoku.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.1 · doplňte katalytický cyklus</span>
+          <p>Vanad katalyzuje oxidaci oxidu siřičitého. Napište obě dílčí reakce cyklu, sečtěte je a&nbsp;ukažte, že se katalyzátor v&nbsp;součtu neobjeví.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>Krok A&nbsp;— vanad oxiduje oxid siřičitý a&nbsp;sám se zredukuje</b> z&nbsp;V na IV:</p>
+              <p class="eq"><span class="chem">2 V₂O₅ + 2 SO₂ → 2 V₂O₄ + 2 SO₃</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Krok B&nbsp;— vzdušný kyslík vrátí vanad zpět</b> z&nbsp;IV na V:</p>
+              <p class="eq"><span class="chem">2 V₂O₄ + O₂ → 2 V₂O₅</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Sečteme obě rovnice. Na levé straně je <span class="chem">2 V₂O₅ + 2 SO₂ + 2 V₂O₄ + O₂</span>, na pravé <span class="chem">2 V₂O₄ + 2 SO₃ + 2 V₂O₅</span>. Oxidy vanadu se na obou stranách vykrátí:</p>
+              <p class="eq"><span class="chem">2 SO₂ + O₂ → 2 SO₃</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>To je přesně celková rovnice kontaktního procesu. Katalyzátor v&nbsp;ní není — přesně jak má být. Vanad prošel cyklem V&nbsp;→ IV → V&nbsp;a&nbsp;skončil tam, kde začal.</p>
+              <p>Bez katalyzátoru by reakce potřebovala takovou teplotu, při níž by se rovnováha posunula zpět k&nbsp;<span class="chem">SO₂</span> — katalyzátor tedy neposune rovnováhu, ale <b>umožní pracovat při teplotě, kde je rovnováha příznivá</b>.</p>
+              <span class="result">Součet dílčích kroků dá 2 SO₂ + O₂ → 2 SO₃; vanad se v&nbsp;něm nevyskytuje</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.2 · předpovězte vzorec karbonylu</span>
+          <p>Pomocí pravidla osmnácti elektronů předpovězte vzorec karbonylu chromu a&nbsp;karbonylu manganu. Chrom má v&nbsp;oxidačním stavu 0 konfiguraci <span class="chem">d⁶</span>, mangan <span class="chem">d⁷</span>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>Chrom.</b> Kov přinese 6 elektronů, do osmnácti chybí 12. Každý karbonyl dodá 2:</p>
+              <p class="eq">(18 − 6) / 2 = 6 → <span class="chem">[Cr(CO)₆]</span></p>
+              <p>Šest ligandů znamená oktaedrickou koordinaci. A&nbsp;skutečně: hexakarbonyl chromu je bílá krystalická látka, která sublimuje.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Mangan.</b> Kov přinese 7 elektronů, do osmnácti chybí 11. Jenže 11 není dělitelné dvěma — samotnými karbonyly to nevyjde.</p>
+              <p class="eq">(18 − 7) / 2 = 5,5 → celé číslo nevychází</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Chybějící jeden elektron dodá <b>vazba kov–kov</b>. Každý atom manganu tedy nese pět karbonylů a&nbsp;jednu vazbu k&nbsp;sousedovi:</p>
+              <p class="eq">7 (kov) + 5 · 2 (karbonyly) + 1 (vazba Mn–Mn) = <b>18</b> → <span class="chem">[Mn₂(CO)₁₀]</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Obecné pravidlo, které z&nbsp;toho plyne: <b>kovy se sudým počtem elektronů d&nbsp;tvoří jednojaderné karbonyly, kovy s&nbsp;lichým počtem dvoujaderné.</b> Proto existuje <span class="chem">[Fe(CO)₅]</span> i&nbsp;<span class="chem">[Ni(CO)₄]</span>, ale u&nbsp;kobaltu je to <span class="chem">[Co₂(CO)₈]</span>.</p>
+              <span class="result"><span class="chem">[Cr(CO)₆]</span> a&nbsp;<span class="chem">[Mn₂(CO)₁₀]</span> — u&nbsp;manganu je nutná vazba kov–kov</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: katalytické působení"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

@@ -1,0 +1,177 @@
+  <!-- ============ KAPITOLA 8 ============ -->
+  <section class="chapter" id="k8" data-title="Komplexy v praxi — od hemoglobinu po galvaniku">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 08 · osnova, bod 9</span>
+      <h2>Kde komplexy potkáte — v&nbsp;krvi, v&nbsp;listu, v&nbsp;nemocnici i&nbsp;v&nbsp;galvanovně</h2>
+      <p class="lead">Koordinační chemie není školní kuriozita. Bez komplexů byste nedýchali, rostliny by nefotosyntetizovaly, nádorová onemocnění by se léčila hůř, hliník by se nevyráběl a&nbsp;polovina plastů by nevznikala. Tahle kapitola shrne devět míst, kde komplexy pracují — a&nbsp;u&nbsp;každého ukáže, která z&nbsp;předchozích kapitol ho vysvětluje.</p>
+
+      <h3>Hemoglobin — kyslík, který se musí navázat i&nbsp;pustit</h3>
+      <p>V&nbsp;červené krvince sedí bílkovina se čtyřmi <span class="term">hemovými</span> jednotkami. Každý hem je oktaedrický komplex železnatého iontu: <b>čtyři dusíky</b> porfyrinového kruhu tvoří rovinu, <b>pátým ligandem</b> je dusík histidinu z&nbsp;bílkoviny, a&nbsp;<b>šesté místo zůstává volné</b> pro molekulu kyslíku.</p>
+      <p>Klíčová vlastnost není síla vazby, ale její <b>vratnost</b>. V&nbsp;plicích, kde je kyslíku hodně, se naváže; ve tkáni, kde ho je málo, se uvolní. Kdyby se vázal pevněji, krev by ho nepředala.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Proč zabíjí oxid uhelnatý</span>
+        <p>Oxid uhelnatý je na konci spektrochemické řady, protože je <b>silný π-akceptor</b>. Na železo v&nbsp;hemu se váže zhruba <b>dvěstěpadesátkrát</b> pevněji než kyslík — a&nbsp;prakticky nevratně. Vzduch s&nbsp;pár desetinami procenta CO stačí, aby většina hemoglobinu přestala přenášet kyslík. Léčí se to nejlogičtějším možným způsobem: <b>dýcháním čistého kyslíku</b>, který rovnováhu přebije koncentrací.</p>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Kyanid útočí jinam</span>
+        <p>Kyanidový iont je také silný π-akceptor, ale hlavní jed nepůsobí na hemoglobin. Váže se na <b>železité</b> železo v&nbsp;cytochrom c oxidase a&nbsp;zastaví dýchací řetězec v&nbsp;mitochondriích. Antidotem je paradoxně další komplex: dusitan převede část hemoglobinu na methemoglobin se železem III, který kyanid odláká na sebe.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Šesté místo na hemu — kdo ho obsadí</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Ligand na šestém koordinačním místě</label>
+          <div class="segmented" id="hbSeg" style="flex-wrap:wrap;max-width:100%">
+            <button type="button" data-v="prazdne" aria-pressed="false">Volné · deoxyhemoglobin</button>
+            <button type="button" data-v="O2" aria-pressed="true">O₂ · oxyhemoglobin</button>
+            <button type="button" data-v="CO" aria-pressed="false">CO · otrava</button>
+            <button type="button" data-v="CN" aria-pressed="false">CN⁻</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="hbWrap" style="min-height:380px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>Fe²⁺ — centrální atom</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>dusíky porfyrinu</span>
+          <span class="li"><span class="sw" style="background:var(--cat4)"></span>histidin z&nbsp;bílkoviny</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>šesté místo</span>
+        </div>
+        <div class="grid2" style="margin-top:1.1rem">
+          <div class="readout" id="hbRo1"></div>
+          <div class="readout" id="hbRo2"></div>
+        </div>
+        <div class="explain" id="hbSay" style="margin-top:1rem;display:flex"></div>
+      </div>
+      <div class="panel-note">Zkuste přepnout z&nbsp;<b>O₂</b> na <b>CO</b> a&nbsp;přečtěte si dlaždici s&nbsp;pevností vazby. Celá otrava oxidem uhelnatým se dá vysvětlit jedinou větou z&nbsp;kapitoly 4: <b>π-akceptorový ligand vytváří pevnější vazbu, protože si s&nbsp;kovem vyměňuje elektronovou hustotu oběma směry</b>. Chemie krve a&nbsp;spektrochemická řada jsou tedy jedna a&nbsp;táž věc.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Chlorofyl a&nbsp;vitamin B₁₂ — dvě obměny téhož nápadu</h3>
+      <p>Příroda použila stejný trik ještě dvakrát. <b>Chlorofyl</b> má uprostřed chlorinového kruhu <span class="chem">Mg²⁺</span> a&nbsp;pohlcuje červené a&nbsp;modré světlo — proto je list zelený. <b>Vitamin B₁₂</b> má uprostřed korrinového kruhu <span class="chem">Co³⁺</span> a&nbsp;je jedinou známou biologicky nezbytnou sloučeninou kobaltu.</p>
+      <p>Ve všech třech případech je princip totožný: <b>čtyřdonorový makrocyklický ligand</b> drží kov pevně na místě a&nbsp;zbylá koordinační místa nechává volná pro chemii. Bez chelátového efektu z&nbsp;kapitoly 7 by to nefungovalo — kov by se z&nbsp;bílkoviny prostě vypral.</p>
+
+      <h3>Cisplatina — geometrie, na které závisí život</h3>
+      <p>Cisplatina, tedy <span class="chem">cis-[Pt(NH₃)₂Cl₂]</span>, je čtvercový nenabitý komplex platiny&nbsp;II. Právě proto, že je <b>nenabitý</b>, projde buněčnou membránou. Uvnitř buňky, kde je nižší koncentrace chloridů, se oba chloridové ligandy postupně vymění za vodu, a&nbsp;vzniklý reaktivní kation se naváže na <b>dva sousední guaninové zbytky</b> jednoho vlákna DNA. Vlákno se ohne a&nbsp;buňka se nedokáže dělit.</p>
+      <p class="eq">příprava: <span class="chem">K₂[PtCl₄]&nbsp;+&nbsp;2&nbsp;NH₃&nbsp;→&nbsp;cis-[Pt(NH₃)₂Cl₂]&nbsp;+&nbsp;2&nbsp;KCl</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Trans-izomer je neúčinný</span>
+        <p>Transplatina má naprosto stejný vzorec, stejnou molární hmotnost i&nbsp;stejné vazby. Její dvě vazebná místa ale míří <b>na opačné strany</b>, takže na dva sousední guaniny nedosáhne. Nemocnému by nepomohla. Tohle je nejlepší existující argument pro to, proč se izomerie učí — geometrie tady doslova rozhoduje o&nbsp;životě.</p>
+      </div>
+
+      <h3>EDTA a&nbsp;chelatometrie</h3>
+      <p>Chelatometrická titrace je nejběžnější odměrná metoda na stanovení kovů. Do vzorku se přidá indikátor, který s&nbsp;kovem tvoří <b>slabší</b> komplex než EDTA, a&nbsp;titruje se odměrným roztokem EDTA. V&nbsp;bodě ekvivalence si EDTA vezme poslední kov od indikátoru a&nbsp;ten změní barvu.</p>
+      <p class="eq"><span class="chem">Ca²⁺&nbsp;+&nbsp;H₂Y²⁻&nbsp;→&nbsp;[CaY]²⁻&nbsp;+&nbsp;2&nbsp;H⁺</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč se titruje v&nbsp;pufru</span>
+        <p>Všimněte si, že se při reakci uvolňují protony. Kdyby pH kleslo, EDTA by se zpětně protonovala a&nbsp;přestala vázat. Proto se chelatometrie provádí <b>vždy v&nbsp;pufru</b>, obvykle amoniakálním o&nbsp;pH kolem 10. Je to Le Chatelierův princip použitý v&nbsp;praxi.</p>
+      </div>
+
+      <h3>Galvanika a&nbsp;metalurgie</h3>
+      <p><b>Galvanické stříbření a&nbsp;zlacení</b> nikdy nepoužívá roztok jednoduché soli. Z&nbsp;roztoku dusičnanu stříbrného by se stříbro vyloučilo bleskurychle, hrubě a&nbsp;špatně by drželo. V&nbsp;kyanidové lázni je koncentrace volných iontů zhruba o&nbsp;dvacet řádů nižší, kov se vylučuje pomalu, rovnoměrně a&nbsp;s&nbsp;jemným zrnem.</p>
+      <p class="eq">na katodě: <span class="chem">[Ag(CN)₂]⁻&nbsp;+&nbsp;e⁻&nbsp;→&nbsp;Ag&nbsp;+&nbsp;2&nbsp;CN⁻</span></p>
+      <p><b>Kyanidové loužení zlata</b> využívá téhož: kovové zlato je za normálních okolností k&nbsp;nezničení, ale ve zředěném kyanidu se za přístupu vzduchu rozpustí, protože komplex <span class="chem">[Au(CN)₂]⁻</span> je mimořádně stálý.</p>
+      <p class="eq"><span class="chem">4&nbsp;Au&nbsp;+&nbsp;8&nbsp;CN⁻&nbsp;+&nbsp;O₂&nbsp;+&nbsp;2&nbsp;H₂O&nbsp;→&nbsp;4&nbsp;[Au(CN)₂]⁻&nbsp;+&nbsp;4&nbsp;OH⁻</span></p>
+      <p><b>Výroba hliníku</b> stojí na kryolitu <span class="chem">Na₃[AlF₆]</span>. Oxid hlinitý taje až kolem 2 050 °C, což by elektrolýzu prodražilo k&nbsp;nesmyslu; v&nbsp;roztaveném kryolitu se ale rozpustí a&nbsp;pracuje se při zhruba 950 °C.</p>
+
+      <h3>Analytická chemie — komplexy jako důkazy</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Důkaz</th><th>Vzniklý komplex</th><th>Co uvidíte</th><th>Proč to funguje</th></tr></thead>
+          <tbody>
+            <tr><td>železité ionty thiokyanatanem</td><td class="chem">[Fe(SCN)]²⁺</td><td>krvavě červené zbarvení</td><td>přenos náboje dává velmi sytou barvu i&nbsp;při nízké koncentraci</td></tr>
+            <tr><td>měďnaté ionty amoniakem</td><td class="chem">[Cu(NH₃)₄]²⁺</td><td>sytě modrofialový roztok</td><td>silnější pole než voda posune absorpci do viditelné oblasti</td></tr>
+            <tr><td>nikelnaté ionty dimethylglyoximem</td><td class="chem">[Ni(dmgH)₂]</td><td>jasně červená sraženina</td><td>chelát se dvěma pětičlennými kruhy je málo rozpustný</td></tr>
+            <tr><td>aldehydy Tollensovým činidlem</td><td class="chem">[Ag(NH₃)₂]⁺</td><td>stříbrné zrcátko na stěně zkumavky</td><td>komplex drží stříbro v&nbsp;roztoku, dokud ho aldehyd nezredukuje</td></tr>
+            <tr><td>aldehydy Fehlingovým činidlem</td><td class="chem">[Cu(C₄H₄O₆)₂]²⁻</td><td>cihlově červená sraženina <span class="chem">Cu₂O</span></td><td>vinan udrží měď v&nbsp;alkalickém prostředí, kde by se jinak vysrážela</td></tr>
+            <tr><td>železnaté a&nbsp;železité ionty vzájemně</td><td class="chem">Fe₄[Fe(CN)₆]₃</td><td>berlínská modř</td><td>přenos náboje mezi železem II a&nbsp;III</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="eq"><span class="chem">4&nbsp;Fe³⁺&nbsp;+&nbsp;3&nbsp;[Fe(CN)₆]⁴⁻&nbsp;→&nbsp;Fe₄[Fe(CN)₆]₃↓</span></p>
+
+      <h3>Katalýza — komplexy jako pracovní nástroj průmyslu</h3>
+      <p>Většina moderních katalytických výrob na komplexech přímo stojí. Princip je vždy stejný: molekula se <b>koordinuje</b> na kov, tím se aktivuje, zreaguje a&nbsp;produkt se uvolní. Kov se vrátí do původního stavu a&nbsp;cyklus se opakuje.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Proces</th><th>Katalyzátor</th><th>Co se vyrábí</th></tr></thead>
+          <tbody>
+            <tr><td>hydrogenace alkenů</td><td class="chem">komplexy Rh<sup>I</sup> s&nbsp;fosfany</td><td>nasycené uhlovodíky, ztužené tuky, léčiva</td></tr>
+            <tr><td>hydroformylace (oxosyntéza)</td><td class="chem">[Co(CO)₄H], [Rh(CO)H(PPh₃)₃]</td><td>aldehydy a&nbsp;z&nbsp;nich alkoholy pro změkčovadla</td></tr>
+            <tr><td>Wackerův proces</td><td class="chem">[PdCl₄]²⁻ s&nbsp;měďnatou solí</td><td>acetaldehyd z&nbsp;ethenu</td></tr>
+            <tr><td>polymerace alkenů</td><td>titanové a&nbsp;zirkoniové komplexy</td><td>polyethylen a&nbsp;polypropylen</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Kam to směřuje</span>
+        <p>Nejsledovanějším cílem oboru je <b>aktivace dusíku a&nbsp;kyslíku na komplexu kovu</b> za mírných podmínek. Bakterie to umějí při běžné teplotě pomocí enzymu s&nbsp;klastrem železa a&nbsp;molybdenu, kdežto Haberův proces potřebuje stovky stupňů a&nbsp;desítky megapascalů. Kdyby se to podařilo napodobit, ušetřila by se podstatná část světové spotřeby energie.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Komplexy, které opravdu potkáte — hledejte a&nbsp;filtrujte</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="prHled">Hledat ve vzorcích, názvech a&nbsp;popisech</label>
+            <input type="search" id="prHled" placeholder="například kyanid, krev, titrace…">
+          </div>
+          <div class="ctl">
+            <label>Filtr podle oboru</label>
+            <div class="segmented" id="prSeg" style="flex-wrap:wrap;max-width:100%">
+              <button type="button" data-v="vse" aria-pressed="true">Vše</button>
+              <button type="button" data-v="zivot" aria-pressed="false">Život a&nbsp;medicína</button>
+              <button type="button" data-v="analyt" aria-pressed="false">Analytika</button>
+              <button type="button" data-v="tech" aria-pressed="false">Technologie</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" id="prTbl"></div>
+      </div>
+      <div class="panel-note">Zkuste vyhledat slovo <b>kyanid</b> — vyjde vám zlato, stříbro i&nbsp;vitamin B₁₂. Tentýž ligand, který dokáže zabít, je zároveň nástrojem galvaniky a&nbsp;součástí vitaminu. Rozdíl dělá jen to, na jaký kov se naváže a&nbsp;jak pevně. Přesně o&nbsp;tom je celý tenhle okruh.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head" style="flex-wrap:wrap">
+          <span class="eyebrow" style="flex:0 1 auto">Příklad 8.1 · chelatometrické stanovení tvrdosti vody</span>
+          <p>Na titraci 100,0 ml vzorku vody se spotřebovalo 12,40 ml odměrného roztoku EDTA o&nbsp;koncentraci 0,0100 mol·dm⁻³. Vypočítejte látkovou koncentraci vápenatých iontů a&nbsp;přepočítejte ji na miligramy uhličitanu vápenatého v&nbsp;litru. M(<span class="chem">CaCO₃</span>) = 100,09 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal></button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 1 · využijte stechiometrii</p><p>EDTA reaguje s&nbsp;každým dvojmocným kationtem v&nbsp;poměru <b>1&nbsp;:&nbsp;1</b>, protože jediná molekula obsadí celý oktaedr. To je hlavní důvod, proč se chelatometrie tak dobře počítá.</p></div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 2 · spočítejte látkové množství EDTA</p><p class="eq"><span class="q">n</span> = <span class="q">c</span>·<span class="q">V</span> = 0,0100 · 0,01240 = <b>1,240·10⁻⁴ mol</b></p></div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 3 · přepočítejte na koncentraci ve vzorku</p><p class="eq"><span class="q">c</span>(Ca²⁺) = 1,240·10⁻⁴ / 0,1000 = <b>1,240·10⁻³ mol·dm⁻³</b> = 1,240 mmol·dm⁻³</p></div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 4 · vyjádřete jako uhličitan</p><p class="eq"><span class="q">c</span> = 1,240·10⁻³ · 100,09 · 1000 = <span class="result">124 mg·dm⁻³ CaCO₃</span></p><p>Voda s&nbsp;obsahem kolem 120 mg·dm⁻³ se řadí mezi <b>středně tvrdé</b>. Právě takhle se tvrdost vody stanovuje ve vodárnách i&nbsp;ve školní laboratoři.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head" style="flex-wrap:wrap">
+          <span class="eyebrow" style="flex:0 1 auto">Příklad 8.2 · propojte všechny kapitoly</span>
+          <p>O&nbsp;komplexu <span class="chem">[Co(NH₃)₆]³⁺</span> rozhodněte: jaké je koordinační číslo a&nbsp;tvar, jak se jmenuje, kolik má nepárových elektronů, jakou má barvu a&nbsp;proč je tak stálý.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal></button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 1 · geometrie a&nbsp;název</p><p>Šest jednodonorových ligandů → koordinační číslo <b>6</b>, tvar <b>oktaedr</b>. Amoniak je nenabitý, takže kobalt má oxidační číslo III.</p><p class="eq">název: <b>kation hexaamminkobaltitý</b></p></div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 2 · spin a&nbsp;magnetismus</p><p><span class="chem">Co³⁺</span> je d⁶ a&nbsp;jeho párovací energie je asi 21 000 cm⁻¹. Naměřené Δ₀ tohohle komplexu je 22 900 cm⁻¹, tedy <b>větší</b>.</p><p class="eq">nízkospinový: <span class="chem">t₂g⁶</span> → <b>nula nepárových elektronů, diamagnetický</b></p></div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 3 · barva</p><p class="eq">λ = 10⁷ / 22 900 = 437 nm → pohlcena je <b>modrofialová</b></p><p>Vidíme tedy barvu doplňkovou, <b>oranžovožlutou</b>. Sedí to: krystaly hexaamminkobaltitých solí jsou oranžové.</p></div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b"><p class="eyebrow" style="color:var(--accent)">Krok 4 · stálost</p><p>Log β₆ je 35,2, tedy ΔG° = −5,708 · 35,2 = −201 kJ·mol⁻¹. Komplex je navíc <b>kineticky inertní</b>, protože nízkospinová konfigurace d⁶ má nejvyšší možnou stabilizaci krystalovým polem, CFSE = −2,4 Δ₀.</p><p class="eq"><span class="result">oktaedrický, diamagnetický, oranžový, mimořádně stálý i&nbsp;inertní</span></p><p>A&nbsp;přesně proto s&nbsp;kobaltitými amminkomplexy Werner pracoval: daly se izolovat, přečistit a&nbsp;nechat na polici, aniž by se rozpadly.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q8" data-title="Mini‑test: komplexy v praxi"></div>
+    <div class="chapter-done" data-done="k8"></div>
+  </section>

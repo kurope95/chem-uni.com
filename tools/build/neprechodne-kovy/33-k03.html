@@ -1,0 +1,178 @@
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Kovy alkalických zemin — skupina 2">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · osnova, bod 4</span>
+      <h2>Kovy alkalických zemin: skupina 2</h2>
+      <p class="lead">Přidejte alkalickému kovu jeden proton a&nbsp;jeden valenční elektron a&nbsp;dostanete jeho souseda ze skupiny 2. Vypadá to jako drobnost, ale změní se prakticky všechno: kov ztvrdne, teplota tání vyskočí o&nbsp;stovky stupňů, soli přestanou být rozpustné a&nbsp;u&nbsp;nejlehčího prvku se dokonce ztratí i&nbsp;iontová vazba. Tahle kapitola ukazuje, co všechno udělá <b>jeden náboj navíc</b>.</p>
+
+      <h3>Postavení a&nbsp;vazebné možnosti</h3>
+      <p>Skupinu 2 tvoří beryllium, hořčík, vápník, stroncium, baryum a&nbsp;radioaktivní radium. Valenční sféra je <span class="chem">ns²</span>. Odejdou-li oba elektrony, zbude konfigurace nejbližšího vzácného plynu, a&nbsp;proto je oxidační číslo vždycky <b>II</b>. Třetí ionizační energie je u&nbsp;všech propastná — u&nbsp;hořčíku 7733&nbsp;kJ·mol⁻¹ proti 1451 u&nbsp;druhé — takže vyšší oxidační číslo je vyloučené.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Odkud se vzalo to jméno</span>
+        <p>„Zeminy“ je starý alchymistický název pro oxidy, které se nedaly roztavit ani rozpustit. Oxidy vápníku, stroncia a&nbsp;barya jsou takové zeminy a&nbsp;zároveň reagují zásaditě, tedy „alkalicky“. Přísně vzato se za <b>kovy alkalických zemin</b> označují jen vápník, stroncium, baryum a&nbsp;radium; beryllium a&nbsp;hořčík se vydělují, protože se chovají jinak. V&nbsp;maturitních otázkách se ale běžně bere celá skupina.</p>
+      </div>
+      <p>Dvojnásobný náboj kationtu má tři velké důsledky, které se táhnou celou kapitolou:</p>
+      <div class="grid3" style="margin:.5rem 0">
+        <div class="callout def">
+          <span class="eyebrow">1. Pevnější kovová vazba</span>
+          <p>Na atom připadají <b>dva</b> delokalizované elektrony místo jednoho. Kovy skupiny 2 jsou proto tvrdší, hustší a&nbsp;mají výrazně vyšší teplotu tání než jejich sousedi ze skupiny 1.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">2. Nerozpustné soli</span>
+          <p>Ion <span class="chem">Ca²⁺</span> přitahuje anionty čtyřikrát silněji než <span class="chem">K⁺</span> (součin nábojů). Mřížková energie proto přebije hydrataci a&nbsp;soli s&nbsp;vícemocnými anionty se <b>srážejí</b>.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">3. Hydrolýza kationtu</span>
+          <p>Malý a&nbsp;dvojnásobně nabitý kation polarizuje molekuly vody ve své hydratační sféře natolik, že z&nbsp;nich odchází proton. Roztok berylnaté soli je proto <b>kyselý</b>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník skupiny 2 — od beryllia k&nbsp;baryu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="a2Seg" style="flex-wrap:wrap" role="group" aria-label="Prvek skupiny 2">
+          <button type="button" data-a2="Be" aria-pressed="true">Beryllium</button>
+          <button type="button" data-a2="Mg" aria-pressed="false">Hořčík</button>
+          <button type="button" data-a2="Ca" aria-pressed="false">Vápník</button>
+          <button type="button" data-a2="Sr" aria-pressed="false">Stroncium</button>
+          <button type="button" data-a2="Ba" aria-pressed="false">Baryum</button>
+        </div>
+        <div class="ctl" style="margin-top:.9rem">
+          <label for="a2Prop">Vlastnost v&nbsp;grafu trendu</label>
+          <select id="a2Prop" aria-label="Vlastnost pro graf trendu">
+            <option value="i1">první ionizační energie [kJ·mol⁻¹]</option>
+            <option value="i2">druhá ionizační energie [kJ·mol⁻¹]</option>
+            <option value="ra">poloměr atomu [pm]</option>
+            <option value="en">elektronegativita</option>
+            <option value="tt">teplota tání [°C]</option>
+            <option value="E">standardní potenciál [V]</option>
+          </select>
+        </div>
+        <div class="svgwrap" id="a2Wrap" style="min-height:300px;margin-top:.9rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="a2Ro1"></div>
+          <div class="readout" id="a2Ro2"></div>
+          <div class="readout" id="a2Ro3"></div>
+        </div>
+        <div id="a2Text" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="a2Note">Přepněte na <b>teplotu tání</b> a&nbsp;všimněte si, že křivka nejde hladce dolů — beryllium taje při 1287&nbsp;°C, hořčík jen při 650, ale vápník zase při 842. Kovová vazba tady nezávisí jen na poloměru, ale i&nbsp;na typu mřížky. Pak přepněte na <b>elektronegativitu</b> a&nbsp;porovnejte beryllium (1,57) s&nbsp;hliníkem (1,61) — v&nbsp;tom je ten úhlopříčný vztah.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Beryllium: prvek, který se vyloupl z&nbsp;řady</h3>
+      <p>Beryllium má nejmenší atom celé skupiny (poloměr 112&nbsp;pm) a&nbsp;nejvyšší ionizační energie (<span class="q">I</span>₁&nbsp;=&nbsp;899,5 a&nbsp;<span class="q">I</span>₂&nbsp;=&nbsp;1757&nbsp;kJ·mol⁻¹). Kdyby vznikl kation <span class="chem">Be²⁺</span>, měl by tak vysokou hustotu náboje, že by okamžitě strhl elektrony zpátky od partnera. Prostý kation <span class="chem">Be²⁺</span> proto v&nbsp;běžných sloučeninách <b>vůbec nevzniká</b> — vazby jsou polárně kovalentní a&nbsp;beryllium má koordinační číslo 4 s&nbsp;hybridizací <span class="chem">sp³</span>.</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Amfoterní látka</b> je taková, která reaguje jako kyselina se zásadou <b>i</b> jako zásada s&nbsp;kyselinou. U&nbsp;kovů to poznáte tak, že se rozpouštějí v&nbsp;roztoku kyseliny i&nbsp;v&nbsp;roztoku hydroxidu, přičemž v&nbsp;zásadě vzniká <b>hydroxokomplex</b>.</p>
+      </div>
+      <p class="eq"><b>beryllium jako zásada:</b> <span class="chem">Be + 2 HCl → BeCl₂ + H₂</span><br>
+      <b>beryllium jako kyselina:</b> <span class="chem">Be + 2 NaOH + 2 H₂O →</span> <span class="chem">Na₂[Be(OH)₄] + H₂</span><br>
+      <b>oxid v&nbsp;kyselině:</b> <span class="chem">BeO + 2 HCl → BeCl₂ + H₂O</span><br>
+      <b>oxid v&nbsp;zásadě:</b> <span class="chem">BeO + 2 NaOH + H₂O → Na₂[Be(OH)₄]</span></p>
+      <p>Sloučeniny beryllia jsou navíc <span class="term">elektronově deficientní</span> — kolem atomu beryllia je jen málo elektronů na to, kolik má vazebných partnerů. Řeší to <b>polymerací</b>: chlorid berylnatý v&nbsp;tuhé fázi tvoří řetězce, ve kterých každý chlor přemosťuje dva atomy beryllia. Stejný trik uvidíme u&nbsp;chloridu hlinitého.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past, na které se ztrácejí body</span>
+        <p>Beryllium je <b>silně toxické</b> a&nbsp;jeho prach vyvolává nevyléčitelnou plicní berylliózu. V&nbsp;laboratoři se s&nbsp;ním prakticky nepracuje. Pokud dostanete otázku „jak byste dokázali beryllium“, správná odpověď začíná tím, že se s&nbsp;ním nepracuje bez digestoře — u&nbsp;přijímaček na lékařské fakulty se tohle ptá.</p>
+      </div>
+
+      <h3>Úhlopříčný vztah beryllium — hliník</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Vlastnost</th><th>Beryllium</th><th>Hořčík a&nbsp;těžší</th><th>Hliník</th></tr></thead>
+          <tbody>
+            <tr><td>Elektronegativita</td><td class="n"><b>1,57</b></td><td class="n">1,31 až 0,89</td><td class="n"><b>1,61</b></td></tr>
+            <tr><td>Rozpouští se v&nbsp;louhu</td><td><b>ano</b></td><td>ne</td><td><b>ano</b></td></tr>
+            <tr><td>Oxid a&nbsp;hydroxid</td><td><b>amfoterní</b></td><td>zásaditý</td><td><b>amfoterní</b></td></tr>
+            <tr><td>Chování kationtu ve vodě</td><td><b>silně hydrolyzuje</b></td><td>hydrolyzuje slabě až vůbec</td><td><b>silně hydrolyzuje</b></td></tr>
+            <tr><td>Chlorid v&nbsp;tuhé či plynné fázi</td><td><b>polymerní / dimerní</b></td><td>iontová mřížka</td><td><b>dimerní</b> <span class="chem">Al₂Cl₆</span></td></tr>
+            <tr><td>Karbid s&nbsp;vodou dává</td><td><b>methan</b></td><td>acetylen</td><td><b>methan</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Elementární kovy: reaktivita a&nbsp;použití</h3>
+      <p>Reaktivita opět <b>roste dolů skupinou</b>, ale začíná mnohem níž než u&nbsp;skupiny 1. Beryllium je na vzduchu stálé, protože se pasivuje; hořčík se pokrývá tenkou vrstvičkou oxidu, která ho chrání za studena; vápník, stroncium a&nbsp;baryum se na vzduchu rychle matní a&nbsp;musí se skladovat pod olejem.</p>
+      <p>Hořčík si zaslouží samostatnou zmínku, protože hoří <b>oslnivě jasným plamenem</b> a&nbsp;s&nbsp;takovou vervou, že si kyslík vezme i&nbsp;odtamtud, kde už je vázaný:</p>
+      <p class="eq"><span class="chem">2 Mg + O₂ → 2 MgO</span> &nbsp;&nbsp;·&nbsp;&nbsp; <span class="chem">3 Mg + N₂ → Mg₃N₂</span> &nbsp;&nbsp;·&nbsp;&nbsp; <span class="chem">2 Mg + CO₂ → 2 MgO + C</span><br><span style="color:var(--ink-3)">hořčíkový požár se proto nesmí hasit sněhovým ani vodním hasicím přístrojem — jen suchým pískem</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Grignardova činidla — most do organické chemie</span>
+        <p>Hořčík se v&nbsp;bezvodém etheru vloží mezi uhlík a&nbsp;halogen halogenalkanu a&nbsp;vznikne <b>organokovová sloučenina</b> s&nbsp;vazbou uhlík—kov: <span class="chem">R—Y + Mg → R—Mg—Y</span>. Uhlík v&nbsp;ní nese částečný záporný náboj, chová se tedy jako <b>nukleofil</b>, a&nbsp;dokáže se navázat na karbonylovou skupinu. Tím se z&nbsp;něj stal jeden z&nbsp;nejpoužívanějších nástrojů pro tvorbu vazeb uhlík—uhlík. Victor Grignard za to dostal roku 1912 Nobelovu cenu.</p>
+      </div>
+
+      <h3>Barvení plamene a&nbsp;rozpustnost — dvě praktické stránky</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Prvek</th><th>Barva plamene</th><th>Rozpustnost síranu</th><th>Rozpustnost hydroxidu</th><th>Typický nerost</th></tr></thead>
+          <tbody>
+            <tr><td><b>Beryllium</b></td><td>nebarví</td><td>dobrá</td><td>nerozpustný, amfoterní</td><td>beryl</td></tr>
+            <tr><td><b>Hořčík</b></td><td>nebarví</td><td>dobrá (hořká sůl)</td><td>velmi malá</td><td>magnezit, dolomit</td></tr>
+            <tr><td><b>Vápník</b></td><td>cihlově červená</td><td>malá (sádrovec)</td><td>malá</td><td>vápenec, sádrovec, fluorit</td></tr>
+            <tr><td><b>Stroncium</b></td><td>karmínová</td><td>velmi malá</td><td>střední</td><td>celestin, stroncianit</td></tr>
+            <tr><td><b>Baryum</b></td><td>zelená</td><td>prakticky nulová</td><td>dobrá</td><td>baryt, witherit</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Všimněte si dvou <b>opačných</b> trendů v&nbsp;jedné tabulce. Rozpustnost <b>síranů klesá</b> dolů skupinou, kdežto rozpustnost <b>hydroxidů roste</b>. Je to souboj mřížkové a&nbsp;hydratační energie: u&nbsp;velkého aniontu <span class="chem">SO₄²⁻</span> se mřížková energie s&nbsp;rostoucím kationtem mění málo, ale hydratace kationtu prudce klesá — a&nbsp;sůl přestane být rozpustná. U&nbsp;malého aniontu <span class="chem">OH⁻</span> naopak klesá hlavně mřížková energie a&nbsp;rozpustnost tím roste.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.1 · baryum v kontrastu</span>
+          <p>Baryové soli jsou prudce jedovaté, přesto se před rentgenem pije suspenze síranu barnatého. Spočítejte, kolik miligramů barya na litr obsahuje nasycený roztok <span class="chem">BaSO₄</span>, když <span class="q">K</span><sub>s</sub> = 1,08·10⁻¹⁰. <span class="q">M</span>(Ba) = 137,33&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Rozpouštěcí rovnováha a&nbsp;součin rozpustnosti:</p>
+              <p class="eq"><span class="chem">BaSO₄(s) ⇌ Ba²⁺ + SO₄²⁻</span> &nbsp;&nbsp; <span class="q">K</span><sub>s</sub> = [Ba²⁺]·[SO₄²⁻]</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Označíme rozpustnost <span class="q">s</span>. Oba ionty vznikají v&nbsp;poměru 1&nbsp;:&nbsp;1, tedy [Ba²⁺] = [SO₄²⁻] = <span class="q">s</span>.</p>
+              <p class="eq"><span class="q">K</span><sub>s</sub> = <span class="q">s</span>² &nbsp;⇒&nbsp; <span class="q">s</span> = √(1,08·10⁻¹⁰) = <b>1,04·10⁻⁵ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">c</span>(Ba²⁺) = 1,04·10⁻⁵ · 137,33 = 1,43·10⁻³ g·dm⁻³ = <b>1,43 mg·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Smrtelná dávka rozpustné baryové soli se pohybuje kolem 1&nbsp;g barya. Z&nbsp;nasyceného roztoku síranu byste museli vypít stovky litrů — a&nbsp;proto je vyšetření bezpečné. Naopak <b>uhličitan</b> barnatý se v&nbsp;žaludeční kyselině rozpustí a&nbsp;je jedovatý.</p>
+              <span class="result">c(Ba²⁺) = 1,43 mg·dm⁻³ — bezpečné jen díky mimořádně nízkému Ks</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.2 · síla hydroxidů</span>
+          <p>Seřaďte <span class="chem">Be(OH)₂</span>, <span class="chem">Mg(OH)₂</span>, <span class="chem">Ca(OH)₂</span> a&nbsp;<span class="chem">Ba(OH)₂</span> podle rostoucí zásaditosti a&nbsp;zdůvodněte pořadí poměrem náboje k&nbsp;poloměru.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Zásaditost hydroxidu znamená ochotu pustit ion <span class="chem">OH⁻</span>. Rozhoduje tedy to, <b>jak silně ho kation drží</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Náboj je u&nbsp;všech stejný (2+), takže rozhoduje jen poloměr kationtu:</p>
+              <p class="eq">Be²⁺ = 45 pm · Mg²⁺ = 72 pm · Ca²⁺ = 100 pm · Ba²⁺ = 135 pm</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Malý kation soustředí náboj na malé ploše, silně přitáhne hydroxid a&nbsp;ještě polarizuje vazbu <span class="chem">O—H</span> tak, že se z&nbsp;ní může uvolnit proton. Proto je <span class="chem">Be(OH)₂</span> amfoterní a&nbsp;chová se i&nbsp;jako <b>kyselina</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>S&nbsp;rostoucím poloměrem hustota náboje klesá, hydroxid se uvolňuje snáz a&nbsp;zásaditost roste. <span class="chem">Ba(OH)₂</span> je už tak silná zásada, že se svými vlastnostmi blíží hydroxidům alkalických kovů.</p>
+              <span class="result">Be(OH)₂ (amfoterní) &lt; Mg(OH)₂ &lt; Ca(OH)₂ &lt; Ba(OH)₂ (silná zásada)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: kovy alkalických zemin"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>

@@ -1,0 +1,179 @@
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Vliv teploty · Arrheniova rovnice">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 7 (teplota)</span>
+      <h2>Vliv teploty — Arrheniova rovnice</h2>
+      <p class="lead">Teplota je nejmocnější páka kinetiky. Zatímco zdvojnásobení koncentrace zdvojnásobí rychlost (u&nbsp;prvního řádu), zvýšení teploty o&nbsp;pouhých 10 °C ji zdvojnásobí <em>také</em> — a&nbsp;o&nbsp;100 °C ji zvýší tisíckrát. Za to může exponenciála v&nbsp;jedné z&nbsp;nejdůležitějších rovnic chemie.</p>
+
+      <h3>Arrheniova rovnice</h3>
+      <p>Svante Arrhenius v&nbsp;roce 1889 zjistil, že rychlostní konstanta roste s&nbsp;teplotou exponenciálně:</p>
+      <p class="eq" style="font-size:1.3rem;border-left-width:4px;padding:1rem 1.2rem"><span class="q">k</span> = <b><span class="q">A</span> · e<sup>−<span class="q">E</span><sub>a</sub>/<span class="q">RT</span></sup></b></p>
+      <div class="callout def">
+        <span class="eyebrow">Veličiny a jednotky</span>
+        <p><span class="q">k</span> — rychlostní konstanta (jednotka podle řádu)<br>
+        <span class="q">A</span> — <b>předexponenciální (frekvenční) faktor</b>; stejná jednotka jako <span class="q">k</span>; zahrnuje frekvenci srážek a&nbsp;sterický faktor (<span class="q">A</span> = <span class="q">Z</span>·<span class="q">P</span>), na teplotě prakticky nezávisí<br>
+        <span class="q">E</span><sub>a</sub> — <b>aktivační energie</b> v&nbsp;<b>J·mol⁻¹</b> (pozor: tabulky ji uvádějí v&nbsp;kJ·mol⁻¹, před dosazením ×1000)<br>
+        <span class="q">R</span> = 8,314 J·K⁻¹·mol⁻¹, <span class="q">T</span> v&nbsp;<b>kelvinech</b><br>
+        e<sup>−<span class="q">E</span>a/<span class="q">RT</span></sup> — Boltzmannův faktor: podíl srážek s&nbsp;energií ≥ <span class="q">E</span><sub>a</sub></p>
+      </div>
+      <p>Rovnice říká dvě věci naráz. <b>Vyšší teplota → větší <span class="q">k</span></b> (exponent je méně záporný). <b>Větší <span class="q">E</span><sub>a</sub> → menší <span class="q">k</span></b>, ale zároveň <b>citlivější na teplotu</b>: reakce s&nbsp;vysokou bariérou zrychlují zahřátím nejvíc. To je důvod, proč se v&nbsp;kuchyni pečení urychlí zvýšením teploty víc než míchání.</p>
+
+      <h3>Logaritmický tvar — jak se <span class="q">E</span><sub>a</sub> měří</h3>
+      <p>Zlogaritmujeme-li rovnici, dostaneme rovnici přímky:</p>
+      <p class="eq">ln <span class="q">k</span> = ln <span class="q">A</span> − (<span class="q">E</span><sub>a</sub>/<span class="q">R</span>) · (1/<span class="q">T</span>) &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">y = q + m·x, kde x = 1/T a směrnice m = −<span class="q">E</span><sub>a</sub>/<span class="q">R</span></span></p>
+      <p>Změříte <span class="q">k</span> při několika teplotách, vynesete ln <span class="q">k</span> proti 1/<span class="q">T</span> (<span class="term">Arrheniův graf</span>) a&nbsp;dostanete přímku. Její směrnice je −<span class="q">E</span><sub>a</sub>/<span class="q">R</span>: pro <span class="q">E</span><sub>a</sub> = 50 kJ·mol⁻¹ je to −6014 K. Čím strmější přímka, tím vyšší aktivační energie. Průsečík s&nbsp;osou y dá ln <span class="q">A</span>.</p>
+
+      <h3>Dvoubodový tvar — na přijímačky</h3>
+      <p>Když znáte <span class="q">k</span> při dvou teplotách, odečtením dvou logaritmických rovnic zmizí neznámé <span class="q">A</span>:</p>
+      <p class="eq" style="font-size:1.12rem">ln(<span class="q">k</span>₂/<span class="q">k</span>₁) = (<span class="q">E</span><sub>a</sub>/<span class="q">R</span>) · (1/<span class="q">T</span>₁ − 1/<span class="q">T</span>₂)</p>
+      <p>Z&nbsp;této rovnice se počítá buď <span class="q">E</span><sub>a</sub> (známe dvě konstanty), nebo <span class="q">k</span>₂ (známe <span class="q">E</span><sub>a</sub> a&nbsp;jednu konstantu), nebo teplota, při níž bude reakce dvakrát rychlejší. Pozor na pořadí v&nbsp;závorce: 1/<span class="q">T</span>₁ − 1/<span class="q">T</span>₂ — je-li <span class="q">T</span>₂ &gt; <span class="q">T</span>₁, vyjde kladně a&nbsp;<span class="q">k</span>₂ &gt; <span class="q">k</span>₁, jak má.</p>
+
+      <h3>Van 't Hoffovo pravidlo</h3>
+      <div class="callout def">
+        <span class="eyebrow">Empirické pravidlo</span>
+        <p>Zvýšení teploty o&nbsp;<b>10 °C</b> zvýší rychlost reakce zhruba <b>2× až 4×</b>. Násobek se nazývá <b>teplotní koeficient</b> <span class="q">γ</span> (Q₁₀); pro změnu o&nbsp;Δ<span class="q">T</span> stupňů je zrychlení <span class="q">γ</span><sup>Δ<span class="q">T</span>/10</sup>.</p>
+      </div>
+      <p>Je to jen hrubá pomůcka. Z&nbsp;Arrheniovy rovnice plyne, že „2× za 10 °C“ platí přesně pro <span class="q">E</span><sub>a</sub> ≈ 53 kJ·mol⁻¹ kolem pokojové teploty; „3×“ odpovídá <span class="q">E</span><sub>a</sub> ≈ 84 a&nbsp;„4×“ <span class="q">E</span><sub>a</sub> ≈ 106 kJ·mol⁻¹. Reakce s&nbsp;<span class="q">E</span><sub>a</sub> = 20 kJ·mol⁻¹ (difuzí řízené, radikálové) zrychlí jen 1,3×; reakce s&nbsp;<span class="q">E</span><sub>a</sub> = 150 kJ·mol⁻¹ sedmkrát. A&nbsp;při vysokých teplotách je efekt +10 K vždy menší než u&nbsp;pokojové (rozdíl 1/<span class="q">T</span>₁ − 1/<span class="q">T</span>₂ se zmenšuje).</p>
+      <div class="callout tip">
+        <span class="eyebrow">K čemu to je v praxi</span>
+        <p>Lednice (5 °C místo 25 °C): zpomalení 2² = 4× — mléko vydrží čtyřikrát déle. Mrazák (−18 °C): asi 2⁴ ≈ 16× i&nbsp;víc. Horečka 40 °C místo 37 °C: metabolické reakce o&nbsp;≈ 25 % rychlejší. Tlakový hrnec (120 °C místo 100 °C): vaření 4× rychlejší. Sterilizace, sušení, zrání sýrů, koroze — všude tentýž exponent.</p>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Tři pasti při dosazování</span>
+        <p>1. Teplota ve °C místo v&nbsp;K — chyba v&nbsp;řádech.<br>
+        2. <span class="q">E</span><sub>a</sub> v&nbsp;kJ místo v&nbsp;J při <span class="q">R</span> = 8,314 — výsledek tisíckrát mimo.<br>
+        3. Přirozený logaritmus (ln), ne dekadický (log). Používáte-li log, musíte dělit 2,303·<span class="q">R</span>.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Arrheniova rovnice: <span class="q">k</span>(<span class="q">T</span>) a&nbsp;ln <span class="q">k</span> proti 1/<span class="q">T</span></h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="arrEa">Aktivační energie <span class="q">E</span><sub>a</sub> — <span class="val" id="arrEaV">50 kJ·mol⁻¹</span></label>
+            <input type="range" id="arrEa" min="20" max="150" step="5" value="50">
+          </div>
+          <div class="ctl">
+            <label for="arrT">Teplota <span class="q">T</span> — <span class="val" id="arrTV">298 K (25 °C)</span></label>
+            <input type="range" id="arrT" min="250" max="500" step="2" value="298">
+          </div>
+        </div>
+        <div class="svgwrap" id="arrWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="arrRo1"><span class="k">k(T) / k(298 K)</span><span class="v">—</span><span class="h">kolikrát rychlejší než při 25 °C</span></div>
+          <div class="readout" id="arrRo2"><span class="k">Zrychlení za +10 K</span><span class="v">—</span><span class="h">van 't Hoffův koeficient při T</span></div>
+          <div class="readout" id="arrRo3"><span class="k">Směrnice −Eₐ/R</span><span class="v">—</span><span class="h">v Arrheniově grafu</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="arrNote">Zkuste nastavit <span class="q">E</span><sub>a</sub> = 50 kJ·mol⁻¹ a&nbsp;teplotu 308 K: zrychlení proti 298 K je 1,9× — van 't Hoffova dvojka. Přepněte na <span class="q">E</span><sub>a</sub> = 150: stejných 10 K dá 7×. A&nbsp;všimněte si, že přímka vpravo je tím strmější, čím větší je <span class="q">E</span><sub>a</sub>.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kalkulačka dvoubodového tvaru: kolikrát zrychlí reakce mezi dvěma teplotami</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="vhT1">Teplota <span class="q">T</span>₁ — <span class="val" id="vhT1V">25 °C</span></label>
+            <input type="range" id="vhT1" min="-20" max="150" step="1" value="25">
+          </div>
+          <div class="ctl">
+            <label for="vhT2">Teplota <span class="q">T</span>₂ — <span class="val" id="vhT2V">35 °C</span></label>
+            <input type="range" id="vhT2" min="-20" max="150" step="1" value="35">
+          </div>
+          <div class="ctl">
+            <label for="vhEa">Aktivační energie <span class="q">E</span><sub>a</sub> — <span class="val" id="vhEaV">50 kJ·mol⁻¹</span></label>
+            <input type="range" id="vhEa" min="10" max="200" step="5" value="50">
+          </div>
+        </div>
+        <p class="eq" id="vhEq" style="font-size:.98rem"></p>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="vhRo1"><span class="k">k₂ / k₁</span><span class="v">—</span><span class="h">poměr rychlostních konstant</span></div>
+          <div class="readout" id="vhRo2"><span class="k">Doba reakce</span><span class="v">—</span><span class="h">když při T₁ trvá 60 min</span></div>
+          <div class="readout" id="vhRo3"><span class="k">Ekvivalent „na 10 °C“</span><span class="v">—</span><span class="h">van 't Hoffův koeficient</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="vhNote">Zkuste nastavit lednici: <span class="q">T</span>₁ = 25 °C, <span class="q">T</span>₂ = 5 °C, <span class="q">E</span><sub>a</sub> = 50. Poměr vyjde pod 1 — reakce se zpomalí asi 4×. Pak zkuste sterilizaci: 25 → 120 °C.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · aktivační energie ze dvou teplot</span>
+          <p>Rychlostní konstanta reakce je 2,0·10⁻³ s⁻¹ při 25 °C a&nbsp;1,6·10⁻² s⁻¹ při 50 °C. Vypočítejte aktivační energii.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Teploty na kelviny a&nbsp;poměr konstant.</p>
+              <p class="eq"><span class="q">T</span>₁ = 298,15 K, <span class="q">T</span>₂ = 323,15 K<br><span class="q">k</span>₂/<span class="q">k</span>₁ = 1,6·10⁻² / 2,0·10⁻³ = 8,0 → ln 8,0 = <b>2,079</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Rozdíl převrácených teplot — malé číslo, počítejte na 4 platné číslice.</p>
+              <p class="eq">1/298,15 − 1/323,15 = 3,354·10⁻³ − 3,095·10⁻³ = <b>2,594·10⁻⁴ K⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Vyjádříme <span class="q">E</span><sub>a</sub> z&nbsp;dvoubodového tvaru.</p>
+              <p class="eq"><span class="q">E</span><sub>a</sub> = <span class="q">R</span> · ln(<span class="q">k</span>₂/<span class="q">k</span>₁) / (1/<span class="q">T</span>₁ − 1/<span class="q">T</span>₂) = 8,314 · 2,079 / 2,594·10⁻⁴ = 66 600 J·mol⁻¹</p>
+              <span class="result"><span class="q">E</span><sub>a</sub> ≈ 66,6 kJ·mol⁻¹</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Kontrola van 't Hoffem: 25 °C rozdílu = 2,5 „desítky“; 8 = <span class="q">γ</span><sup>2,5</sup> → <span class="q">γ</span> ≈ 2,3. Typická hodnota — sedí s&nbsp;<span class="q">E</span><sub>a</sub> kolem 60–70 kJ·mol⁻¹.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · jak dlouho to potrvá při vyšší teplotě</span>
+          <p>Reakce s&nbsp;<span class="q">E</span><sub>a</sub> = 60 kJ·mol⁻¹ proběhne při 25 °C za 40 minut. Jak dlouho bude trvat při 45 °C?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Poměr rychlostních konstant z&nbsp;dvoubodového tvaru; <span class="q">E</span><sub>a</sub> v&nbsp;joulech.</p>
+              <p class="eq">ln(<span class="q">k</span>₂/<span class="q">k</span>₁) = (60 000/8,314) · (1/298,15 − 1/318,15) = 7217 · 2,109·10⁻⁴ = <b>1,522</b><br><span class="q">k</span>₂/<span class="q">k</span>₁ = e<sup>1,522</sup> = <b>4,58</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Doba reakce je nepřímo úměrná rychlosti (při stejném rozsahu).</p>
+              <p class="eq"><span class="q">t</span>₂ = <span class="q">t</span>₁ / 4,58 = 40 / 4,58 = <b>8,7 min</b></p>
+              <span class="result">Při 45 °C zhruba 8,7 minuty (4,6× rychleji)</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Van 't Hoffův odhad s&nbsp;<span class="q">γ</span> = 2 by dal 2² = 4×, tedy 10 min — hrubě správně. Přesné číslo dá jen Arrhenius.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.3 · van 't Hoffovo pravidlo</span>
+          <p>Teplotní koeficient reakce je <span class="q">γ</span> = 2,5. Kolikrát se reakce zrychlí při zvýšení teploty z&nbsp;20 °C na 50 °C? Kolikrát se zpomalí přesunem z&nbsp;pokojové teploty (22 °C) do lednice (2 °C)?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Změna o&nbsp;30 °C = 3 „desítky“; každá násobí rychlost koeficientem <span class="q">γ</span>.</p>
+              <p class="eq">zrychlení = <span class="q">γ</span><sup>30/10</sup> = 2,5³ = <b>15,6×</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Ochlazení o&nbsp;20 °C = 2 desítky; rychlost klesne <span class="q">γ</span>²krát.</p>
+              <p class="eq">zpomalení = 2,5² = <b>6,25×</b></p>
+              <span class="result">15,6× rychleji · v lednici 6,25× pomaleji</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Pro necelé násobky desítek použijte <span class="q">γ</span><sup>Δ<span class="q">T</span>/10</sup> s&nbsp;kalkulačkou: pro +15 °C je to 2,5<sup>1,5</sup> = 3,95×.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: teplota a Arrheniova rovnice"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

@@ -1,0 +1,241 @@
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Rozpadový zákon a poločas">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 6</span>
+      <h2>Rozpadový zákon a&nbsp;poločas přeměny</h2>
+      <p class="lead">U&nbsp;jednoho jádra nikdy nevíte, kdy se rozpadne. U&nbsp;bilionu jader to víte s&nbsp;přesností na promile. Radioaktivní přeměna je dokonalá statistika — a&nbsp;právě proto se dá na ni spolehnout při datování kostí, plánování léčby i&nbsp;výpočtu, kdy bude vyhořelé palivo bezpečné.</p>
+
+      <h3>Odkud zákon plyne</h3>
+      <p>Každé jádro daného nuklidu má v&nbsp;každé sekundě <b>stejnou pravděpodobnost</b>, že se přemění — nezávisle na tom, jak je staré, jak je teplo a&nbsp;co dělají sousedi. Ta pravděpodobnost za jednotku času je <span class="term">rozpadová (přeměnová) konstanta</span> <span class="q">λ</span>. Když máte <span class="q">N</span> jader, za krátký čas d<span class="q">t</span> se jich rozpadne <span class="q">λ</span>·<span class="q">N</span>·d<span class="q">t</span>. Rychlost úbytku je tedy úměrná tomu, kolik jader ještě zbývá:</p>
+      <p class="eq">d<span class="q">N</span>/d<span class="q">t</span> = −<span class="q">λ</span>·<span class="q">N</span> &nbsp;&nbsp;⟹&nbsp;&nbsp; <b><span class="q">N</span>(<span class="q">t</span>) = <span class="q">N</span>₀ · e<sup>−<span class="q">λt</span></sup></b> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">rozpadový zákon</span></p>
+      <p><span class="q">N</span>₀ je počet jader na začátku, <span class="q">N</span>(<span class="q">t</span>) počet nepřeměněných jader v&nbsp;čase <span class="q">t</span>, <span class="q">λ</span> v&nbsp;s⁻¹ (nebo d⁻¹, rok⁻¹ — jednotka musí sedět s&nbsp;<span class="q">t</span>). Je to stejná matematika jako reakce prvního řádu v&nbsp;kinetice — „samovolná přeměna je reakce prvního řádu bez katalyzátoru a&nbsp;bez teplotní závislosti“.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Analogie</span>
+        <p>Představte si sál plný lidí, kde každý hodí každou minutu mincí a&nbsp;při orlu odejde. Nevíte, kdo odejde, ale víte, že každou minutu odejde <em>polovina</em> přítomných. Za minutu zbude 50&nbsp;%, za dvě 25&nbsp;%, za tři 12,5&nbsp;%. Nikdy neodejdou úplně všichni — jen jich je pořád míň. Poločas toho sálu je jedna minuta.</p>
+      </div>
+
+      <h3>Poločas přeměny <span class="q">t</span><sub>½</sub></h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Poločas přeměny (rozpadu)</b> je doba, za kterou se přemění <b>polovina</b> původního počtu jader — tedy za kterou klesne <span class="q">N</span> (i&nbsp;aktivita) na polovinu. Je pro každý nuklid <b>charakteristická konstanta</b>, od 10⁻²¹ s po 10²⁴ let, a&nbsp;nezávisí na množství látky ani na vnějších podmínkách.</p>
+      </div>
+      <p>Vztah k&nbsp;rozpadové konstantě dostanete dosazením <span class="q">N</span> = <span class="q">N</span>₀/2 do zákona: ½ = e<sup>−<span class="q">λt</span>½</sup>, zlogaritmujeme a&nbsp;vyjde:</p>
+      <p class="eq" style="font-size:1.15rem"><b><span class="q">t</span><sub>½</sub> = ln 2 / <span class="q">λ</span> = 0,693 / <span class="q">λ</span></b> &nbsp;&nbsp;&nbsp;⟺&nbsp;&nbsp;&nbsp; <span class="q">λ</span> = 0,693 / <span class="q">t</span><sub>½</sub></p>
+      <p>Pro počítání zpaměti je nejužitečnější tvar zákona s&nbsp;počtem uplynulých poločasů <span class="q">n</span> = <span class="q">t</span>/<span class="q">t</span><sub>½</sub>:</p>
+      <p class="eq" style="font-size:1.15rem"><b><span class="q">N</span> = <span class="q">N</span>₀ · (½)<sup><span class="q">n</span></sup> = <span class="q">N</span>₀ / 2<sup><span class="q">n</span></sup></b> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)"><span class="q">n</span> = <span class="q">t</span> / <span class="q">t</span><sub>½</sub> — nemusí být celé</span></p>
+      <div class="grid3">
+        <div class="readout"><span class="k">po 1 poločasu</span><span class="v">50 %</span><span class="h">zbývá ½</span></div>
+        <div class="readout"><span class="k">po 2 poločasech</span><span class="v">25 %</span><span class="h">zbývá ¼</span></div>
+        <div class="readout"><span class="k">po 3 poločasech</span><span class="v">12,5 %</span><span class="h">zbývá ⅛</span></div>
+        <div class="readout"><span class="k">po 4 poločasech</span><span class="v">6,25 %</span><span class="h">zbývá 1/16</span></div>
+        <div class="readout"><span class="k">po 7 poločasech</span><span class="v">0,78 %</span><span class="h">pod 1 % — „prakticky pryč“</span></div>
+        <div class="readout"><span class="k">po 10 poločasech</span><span class="v">0,098 %</span><span class="h">zbývá ≈ tisícina</span></div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nejčastější chyba</span>
+        <p>„Po dvou poločasech je všechno pryč.“ <b>Ne</b> — po dvou poločasech zbývá <em>čtvrtina</em>, ne nula. Úbytek není lineární (50 + 50 = 100), je exponenciální (½ · ½ = ¼). Radionuklid nikdy nezmizí úplně, jen se dostane pod mez detekce. Praktické pravidlo: po 10 poločasech zbývá promile.</p>
+      </div>
+
+      <h3>Aktivita <span class="q">A</span></h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Aktivita</b> je počet přeměn za jednotku času, jednotka <b>becquerel</b> (1 Bq = 1 přeměna za sekundu). Je úměrná počtu jader: <span class="q">A</span> = <span class="q">λ</span>·<span class="q">N</span>. Protože <span class="q">N</span> klesá exponenciálně, klesá stejně i&nbsp;aktivita — se stejným poločasem.</p>
+      </div>
+      <p class="eq"><b><span class="q">A</span> = <span class="q">λ</span>·<span class="q">N</span></b> &nbsp;&nbsp;&nbsp;&nbsp; <span class="q">A</span>(<span class="q">t</span>) = <span class="q">A</span>₀·e<sup>−<span class="q">λt</span></sup> = <span class="q">A</span>₀ / 2<sup><span class="q">n</span></sup> &nbsp;&nbsp;&nbsp;&nbsp; <span class="q">N</span> = (<span class="q">m</span>/<span class="q">M</span>)·<span class="q">N</span><sub>A</sub></p>
+      <p>Z&nbsp;<span class="q">A</span> = <span class="q">λN</span> plyne důležitý důsledek: <b>při stejném počtu jader má krátkodobý nuklid mnohem vyšší aktivitu</b>. Gram <span class="chem">²³⁸U</span> (poločas 4,5 miliardy let) má aktivitu 12 400 Bq; gram <span class="chem">²²⁶Ra</span> (1600 let) 3,7·10¹⁰ Bq; gram <span class="chem">²¹⁰Po</span> (138 dní) 1,7·10¹⁴ Bq. Dlouhý poločas = slabý zářič, ale zato zůstane dlouho. Krátký poločas = intenzivní, ale rychle zmizí. Nejhorší pro odpad jsou nuklidy „uprostřed“: ⁹⁰Sr a&nbsp;¹³⁷Cs s&nbsp;30 lety — dost aktivní a&nbsp;zároveň dost trvanlivé.</p>
+
+      <h3>Střední doba života <span class="q">τ</span></h3>
+      <p>Kromě poločasu se používá <span class="term">střední doba života</span> <span class="q">τ</span> = 1/<span class="q">λ</span> — průměrná doba, kterou jedno jádro „přežije“. Je to čas, za který klesne <span class="q">N</span> na 1/e ≈ 36,8&nbsp;%, a&nbsp;je vždy o&nbsp;44&nbsp;% delší než poločas:</p>
+      <p class="eq"><span class="q">τ</span> = 1/<span class="q">λ</span> = <span class="q">t</span><sub>½</sub> / ln 2 = <b>1,443 · <span class="q">t</span><sub>½</sub></b></p>
+      <p>V&nbsp;maturitních úlohách se objevuje zřídka, ale ve fyzice a&nbsp;na přijímačkách ano. Nepleťte si ji s&nbsp;poločasem: <b>poločas je medián, střední doba života je průměr</b> — a&nbsp;u&nbsp;exponenciálního rozdělení je průměr větší než medián, protože pár jader žije velmi dlouho.</p>
+
+      <h3>Řešení úloh — čtyři typy, jeden vzorec</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Ptají se na</th><th>Vzorec</th><th>Postup</th></tr></thead>
+          <tbody>
+            <tr><td><b>kolik zbude</b> po čase <span class="q">t</span></td><td class="mono"><span class="q">N</span>/<span class="q">N</span>₀ = (½)<sup><span class="q">t</span>/<span class="q">t</span>½</sup></td><td>spočítat <span class="q">n</span> = <span class="q">t</span>/<span class="q">t</span><sub>½</sub>, pak ½ⁿ; celé <span class="q">n</span> zpaměti, necelé kalkulačkou</td></tr>
+            <tr><td><b>za jak dlouho</b> klesne na podíl <span class="q">f</span></td><td class="mono"><span class="q">t</span> = <span class="q">t</span><sub>½</sub> · log₂(1/<span class="q">f</span>) = (<span class="q">t</span><sub>½</sub>/ln 2) · ln(<span class="q">N</span>₀/<span class="q">N</span>)</td><td>na 1/8 → 3 poločasy; na 1 % → 6,64 poločasu; na 0,1 % → 9,97</td></tr>
+            <tr><td><b>stáří vzorku</b> (datování)</td><td class="mono"><span class="q">t</span> = (<span class="q">t</span><sub>½</sub>/ln 2) · ln(<span class="q">A</span>₀/<span class="q">A</span>)</td><td>zbylý podíl aktivity → stejný vzorec jako řádek výš</td></tr>
+            <tr><td><b>aktivita</b> vzorku</td><td class="mono"><span class="q">A</span> = <span class="q">λN</span> = (ln 2/<span class="q">t</span><sub>½</sub>) · (<span class="q">m</span>/<span class="q">M</span>)·<span class="q">N</span><sub>A</sub></td><td>poločas převést na <b>sekundy</b>, jinak nevyjdou becquerely</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Radiouhlíkové datování</h3>
+      <p>Kosmické záření udržuje v&nbsp;atmosféře stálý podíl <span class="chem">¹⁴C</span> v&nbsp;CO₂ (≈ 1,2·10⁻¹² všech atomů uhlíku). Živé organismy ho fotosyntézou a&nbsp;potravou přijímají, takže mají stejnou aktivitu jako atmosféra: <b>≈ 0,23 Bq na gram uhlíku</b> (asi 14 přeměn za minutu). <b>Smrtí výměna končí</b> a&nbsp;¹⁴C jen ubývá s&nbsp;poločasem <b>5730 let</b>. Z&nbsp;poměru zbylé aktivity k&nbsp;původní se spočítá, kolik času uplynulo od smrti. Metoda (Libby, Nobelova cena 1960) funguje do ≈ 50 000 let — pak už zbývá pod 0,3&nbsp;% a&nbsp;signál se ztrácí v&nbsp;šumu. Na horniny se používají nuklidy s&nbsp;delším poločasem: <span class="chem">⁴⁰K</span>/<span class="chem">⁴⁰Ar</span> (1,25 miliardy let), <span class="chem">²³⁸U</span>/<span class="chem">²⁰⁶Pb</span> (4,47 miliardy let), <span class="chem">⁸⁷Rb</span>/<span class="chem">⁸⁷Sr</span> (49 miliard let).</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kalkulačka rozpadového zákona — čtyři typy úloh s&nbsp;rozepsaným postupem</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Typ úlohy</label>
+            <div class="segmented" id="dcMode" role="group" aria-label="Typ úlohy">
+              <button type="button" data-v="rem" aria-pressed="true">Kolik zbude</button>
+              <button type="button" data-v="time" aria-pressed="false">Za jak dlouho</button>
+              <button type="button" data-v="date" aria-pressed="false">Datování ¹⁴C</button>
+              <button type="button" data-v="act" aria-pressed="false">Aktivita</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="dcNuc">Nuklid (poločas)</label>
+            <select id="dcNuc"></select>
+          </div>
+        </div>
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl" id="dcCtlT">
+            <label for="dcT">Uplynulý čas — <span class="val" id="dcTV">3 poločasy</span></label>
+            <input type="range" id="dcT" min="0" max="10" step="0.1" value="3">
+          </div>
+          <div class="ctl" id="dcCtlF">
+            <label for="dcF">Zbylý podíl — <span class="val" id="dcFV">25 %</span></label>
+            <input type="range" id="dcF" min="0.1" max="100" step="0.1" value="25">
+          </div>
+          <div class="ctl" id="dcCtlM">
+            <label for="dcM">Hmotnost vzorku — <span class="val" id="dcMV">1 g</span></label>
+            <input type="range" id="dcM" min="-9" max="3" step="1" value="0">
+          </div>
+        </div>
+        <div id="dcSteps" style="display:flex;flex-direction:column;gap:.7rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="dcRo1"></div>
+          <div class="readout" id="dcRo2"></div>
+          <div class="readout" id="dcRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="dcNote"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Kolik zbude po <span class="q">n</span> poločasech — a&nbsp;kolik poločasů je potřeba na daný pokles</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="hlN">Počet uplynulých poločasů <span class="q">n</span> — <span class="val" id="hlNV">3</span></label>
+          <input type="range" id="hlN" min="0" max="20" step="1" value="3">
+        </div>
+        <div class="grid2" style="align-items:start">
+          <div class="svgwrap" id="hlWrap" style="min-height:260px"></div>
+          <div class="tablewrap"><table><thead><tr><th>Pokles na</th><th class="n">potřebný počet poločasů</th><th class="n">pro <span style="text-transform:none">¹³¹I</span> (8,02 d)</th><th class="n">pro <span style="text-transform:none">¹³⁷Cs</span> (30,1 let)</th></tr></thead><tbody id="hlBody"></tbody></table></div>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="hlRo1"></div>
+          <div class="readout" id="hlRo2"></div>
+          <div class="readout" id="hlRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note">Posuňte <span class="q">n</span> na 7 a&nbsp;10: po sedmi poločasech zbývá pod 1&nbsp;%, po deseti tisícina. Tabulka vpravo ukazuje totéž obráceně — proč jodové tablety řeší ¹³¹I za pár měsíců, ale ¹³⁷Cs z&nbsp;Černobylu bude v&nbsp;lesích ještě celé století.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · kolik zbude po celém počtu poločasů</span>
+          <p>Pacient dostal dávku <span class="chem">¹³¹I</span> (<span class="q">t</span><sub>½</sub> = 8,02 dne) o&nbsp;aktivitě 400 MBq. Jaká bude aktivita po 32 dnech? Kolik procent původního množství zbývá?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Spočítáme počet uplynulých poločasů.</p>
+              <p class="eq"><span class="q">n</span> = <span class="q">t</span>/<span class="q">t</span><sub>½</sub> = 32 / 8,02 ≈ <b>4</b> (přesně 3,99)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Čtyřikrát vydělíme dvěma: 400 → 200 → 100 → 50 → 25.</p>
+              <p class="eq"><span class="q">A</span> = <span class="q">A</span>₀ / 2⁴ = 400 / 16 = <b>25 MBq</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Zbylý podíl je 1/16 = 6,25&nbsp;%. Kontrola přesným výpočtem s&nbsp;<span class="q">n</span> = 3,99: (½)<sup>3,99</sup> = 0,0629 → 6,3&nbsp;%, tedy 25,2 MBq. Zaokrouhlení na celé poločasy stačilo.</p>
+              <span class="result"><span class="q">A</span> ≈ 25 MBq, zbývá 6,25 %</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · za jak dlouho klesne aktivita na 1 %</span>
+          <p>Za jak dlouho klesne aktivita <span class="chem">¹³⁷Cs</span> (<span class="q">t</span><sub>½</sub> = 30,1 roku) z&nbsp;kontaminované půdy na 1&nbsp;% původní hodnoty?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Hledáme <span class="q">n</span> takové, že (½)<sup><span class="q">n</span></sup> = 0,01, tedy 2<sup><span class="q">n</span></sup> = 100. Odhad: 2⁶ = 64, 2⁷ = 128 → <span class="q">n</span> je mezi 6 a&nbsp;7.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Přesně logaritmem. Pokud kalkulačka nemá log₂, použijte podíl přirozených logaritmů.</p>
+              <p class="eq"><span class="q">n</span> = log₂ 100 = ln 100 / ln 2 = 4,605 / 0,693 = <b>6,64 poločasu</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Vynásobíme poločasem.</p>
+              <p class="eq"><span class="q">t</span> = 6,64 · 30,1 = <b>200 let</b></p>
+              <span class="result">≈ 200 let — proto je ¹³⁷Cs po Černobylu (1986) stále měřitelné v&nbsp;houbách a&nbsp;zvěřině</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Obecně: <span class="q">t</span> = (<span class="q">t</span><sub>½</sub>/ln 2)·ln(<span class="q">A</span>₀/<span class="q">A</span>) = (30,1/0,693)·ln 100 = 43,4 · 4,605 = 200 let. Číslo 6,64 poločasu na pokles na 1&nbsp;% si zapamatujte — platí pro každý nuklid.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.3 · radiouhlíkové datování</span>
+          <p>V&nbsp;dřevěném trámu byla naměřena aktivita <span class="chem">¹⁴C</span> 0,138 Bq na gram uhlíku; živé dřevo má 0,230 Bq·g⁻¹. Jak starý je trám? (<span class="q">t</span><sub>½</sub> = 5730 let.)</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Zbylý podíl aktivity.</p>
+              <p class="eq"><span class="q">A</span>/<span class="q">A</span>₀ = 0,138 / 0,230 = <b>0,600</b> (60 %)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Odhad: 60&nbsp;% je víc než polovina, takže uplynulo <em>méně</em> než jeden poločas — stáří bude pod 5730 let.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Dosadíme do vzorce pro čas.</p>
+              <p class="eq"><span class="q">t</span> = (<span class="q">t</span><sub>½</sub> / ln 2) · ln(<span class="q">A</span>₀/<span class="q">A</span>) = (5730 / 0,693) · ln(1/0,600)<br>= 8267 · 0,511 = <b>4220 let</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kontrola přes poločasy: <span class="q">n</span> = log₂(1/0,6) = 0,737 poločasu; 0,737 · 5730 = 4220 ✓. Trám pochází zhruba z&nbsp;doby stavby egyptských pyramid.</p>
+              <span class="result">stáří ≈ 4200 let</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.4 · rozpadová konstanta, střední doba života a aktivita</span>
+          <p>Pro <span class="chem">¹⁴C</span> (<span class="q">t</span><sub>½</sub> = 5730 let) vypočítejte rozpadovou konstantu v&nbsp;rok⁻¹ i&nbsp;v&nbsp;s⁻¹, střední dobu života a&nbsp;aktivitu 1,00 g čistého ¹⁴C.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq"><span class="q">λ</span> = ln 2 / <span class="q">t</span><sub>½</sub> = 0,693 / 5730 = <b>1,21·10⁻⁴ rok⁻¹</b><br>= 1,21·10⁻⁴ / 3,156·10⁷ = <b>3,83·10⁻¹² s⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">τ</span> = 1/<span class="q">λ</span> = 5730 / 0,693 = <b>8270 let</b> &nbsp;<span style="color:var(--ink-3)">(= 1,443 · 5730)</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Počet jader v&nbsp;gramu (<span class="q">M</span> = 14 g·mol⁻¹) a&nbsp;aktivita — <span class="q">λ</span> musí být v&nbsp;s⁻¹.</p>
+              <p class="eq"><span class="q">N</span> = (1/14) · 6,022·10²³ = 4,30·10²² jader<br><span class="q">A</span> = <span class="q">λN</span> = 3,83·10⁻¹² · 4,30·10²² = <b>1,65·10¹¹ Bq</b></p>
+              <span class="result"><span class="q">λ</span> = 1,21·10⁻⁴ rok⁻¹ · <span class="q">τ</span> = 8270 let · <span class="q">A</span>(1 g) = 165 GBq</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Srovnejte s&nbsp;přírodním uhlíkem: ten má jen 1,2·10⁻¹² podíl ¹⁴C, takže 1,65·10¹¹ · 1,2·10⁻¹² ≈ 0,2 Bq na gram — přesně hodnota, se kterou pracuje datování.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: rozpadový zákon, poločas, aktivita"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

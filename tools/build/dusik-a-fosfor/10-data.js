@@ -1,0 +1,360 @@
+/* ============================================================
+   1 · DATA — skupina 15, oxidační stavy, sloučeniny
+   Hodnoty: elektronegativita Paulingova, kovalentní poloměry,
+   teploty tání a varu při 101,325 kPa, ionizační energie.
+   ============================================================ */
+
+/* prvky skupiny 15 */
+var G15 = [
+  {s:"N",  z:7,  name:"dusík",  konf:"[He] 2s² 2p³", en:3.04, r:71,  ie:1402, tt:-210.0, tv:-195.8,
+   char:"nekov", ox:"−III, −II, −I, 0, +I, +II, +III, +IV, +V", vazn:"3 (v NH₄⁺ 4) — nikdy víc",
+   ox3:"jen v aniontech a hydridech", oxid:"N₂O₅ silně kyselý", hyd:"NH₃ výrazně zásaditý, t.v. −33,3 °C",
+   pozn:"Jediný prvek skupiny, který tvoří pevnou násobnou vazbu sám se sebou. Nemá orbitaly d, takže se nikdy nedostane přes čtyři vazby."},
+  {s:"P",  z:15, name:"fosfor", konf:"[Ne] 3s² 3p³", en:2.19, r:107, ie:1012, tt:44.15, tv:280.5,
+   char:"nekov", ox:"−III, 0, +I, +III, +IV, +V", vazn:"3, 4, 5 i 6",
+   ox3:"jen ve fosfidech a fosfanu", oxid:"P₄O₁₀ silně kyselý", hyd:"PH₃ prakticky nezásaditý, t.v. −87,7 °C",
+   pozn:"Volné orbitaly 3d (a hlavně větší atom) mu dovolí vaznost 5 a 6. Proto existuje PCl₅, ale NCl₅ ne."},
+  {s:"As", z:33, name:"arsen",  konf:"[Ar] 3d¹⁰ 4s² 4p³", en:2.18, r:119, ie:947, tt:817, tv:614,
+   char:"polokov", ox:"−III, 0, +III, +V", vazn:"3 a 5",
+   ox3:"v arsenidech a arsanu AsH₃", oxid:"As₂O₃ amfoterní, převažuje kyselost", hyd:"AsH₃ jedovatý, nezásaditý, t.v. −62,5 °C",
+   pozn:"Šedý arsen za normálního tlaku sublimuje při 614 °C; taje až pod tlakem (817 °C). Oxidační stav +V už začíná být oxidující."},
+  {s:"Sb", z:51, name:"antimon",konf:"[Kr] 4d¹⁰ 5s² 5p³", en:2.05, r:139, ie:834, tt:630.6, tv:1587,
+   char:"polokov", ox:"−III, 0, +III, +V", vazn:"3 a 5",
+   ox3:"vzácně, ve stibidech", oxid:"Sb₂O₃ amfoterní", hyd:"SbH₃ velmi nestálý, rozkládá se už mírným zahřátím",
+   pozn:"Chová se už převážně kovově: Sb₂O₃ se rozpouští v kyselinách i v zásadách. Stav +III je zřetelně stálejší než +V."},
+  {s:"Bi", z:83, name:"bismut", konf:"[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p³", en:2.02, r:148, ie:703, tt:271.4, tv:1564,
+   char:"kov", ox:"0, +III, (+V)", vazn:"3, výjimečně 5",
+   ox3:"prakticky se nevyskytuje", oxid:"Bi₂O₃ zásaditý", hyd:"BiH₃ existuje jen stopově, rozkládá se pod −45 °C",
+   pozn:"Efekt inertního páru: pár 6s² se vazby neúčastní, takže stálý je +III. Stav +V (NaBiO₃) je tak silně oxidující, že v kyselém prostředí převede Mn²⁺ na manganistan."}
+];
+
+/* žebřík oxidačních stavů — hero */
+var LAD = {
+  N: [
+    {ox:-3, f:"NH₃ · NH₄⁺", nm:"amoniak, amonný kation", role:"jen redukční",
+     txt:"Nejnižší možný stav. Dusík má osmičku elektronů a už nemá co přijmout, takže se odsud může jen oxidovat. Amoniak je zásaditý, amonná sůl je slabě kyselá."},
+    {ox:-2, f:"N₂H₄", nm:"hydrazin", role:"silně redukční",
+     txt:"Homonukleární vazba N—N stáhne oxidační číslo na −II. Hydrazin je mnohem silnější redukovadlo než amoniak — proto slouží jako raketové palivo a jako odkysličovadlo kotelní vody."},
+    {ox:-1, f:"NH₂OH", nm:"hydroxylamin", role:"redukční i oxidační",
+     txt:"Vznikne, když v amoniaku nahradíte jeden vodík skupinou OH. Je nestálý a slabě zásaditý; tvoří hydroxylamonné soli."},
+    {ox:0,  f:"N₂", nm:"elementární dusík", role:"netečný",
+     txt:"Trojná vazba s energií 945 kJ·mol⁻¹. Nejstálejší forma dusíku vůbec — cíl, ke kterému se všechny výbušniny s dusíkem řítí."},
+    {ox:1,  f:"N₂O", nm:"oxid dusný", role:"slabě oxidační",
+     txt:"Lineární molekula N—N—O. Rajský plyn: anestetikum, hnací plyn ve šlehačce — a zároveň silný skleníkový plyn."},
+    {ox:2,  f:"NO", nm:"oxid dusnatý", role:"oxidační i redukční",
+     txt:"Radikál s lichým počtem elektronů, řád vazby 2,5. Na vzduchu se sám okamžitě oxiduje na NO₂. V těle slouží jako signální molekula, která rozšiřuje cévy."},
+    {ox:3,  f:"HNO₂ · NO₂⁻ · N₂O₃", nm:"kyselina dusitá, dusitany", role:"oxidační i redukční",
+     txt:"Prostřední stav, proto obojaký: vůči manganistanu se dusitan oxiduje na dusičnan, vůči jodidu se redukuje na NO. Volná HNO₂ existuje jen ve zředěném studeném roztoku."},
+    {ox:4,  f:"NO₂ · N₂O₄", nm:"oxid dusičitý a jeho dimer", role:"silně oxidační",
+     txt:"Hnědý, jedovatý, paramagnetický radikál; za chladu dimeruje na bezbarvý N₂O₄. S vodou disproporcionuje na kyselinu dusičnou a dusitou."},
+    {ox:5,  f:"HNO₃ · NO₃⁻ · N₂O₅", nm:"kyselina dusičná, dusičnany", role:"jen oxidační",
+     txt:"Nejvyšší stav. Dusík už nemá co odevzdat, takže může jen přijímat elektrony. Koncentrovaná HNO₃ rozpouští i měď a stříbro."}
+  ],
+  P: [
+    {ox:-3, f:"PH₃ · P³⁻", nm:"fosfan, fosfidy", role:"silně redukční",
+     txt:"Fosfan je proti amoniaku úplně jiná látka: prakticky nezásaditý, samozápalný a velmi jedovatý. Fosfidy kovů se vodou rozkládají právě na fosfan."},
+    {ox:0,  f:"P₄ · Pₙ", nm:"bílý, červený a černý fosfor", role:"redukční, disproporcionuje",
+     txt:"Bílý fosfor je tetraedr P₄ s napjatými vazbami — samozápalný. V alkálii disproporcionuje současně na fosfan (−III) a fosfornan (+I)."},
+    {ox:1,  f:"H₃PO₂ · H₂PO₂⁻", nm:"kyselina fosforná, fosfornany", role:"velmi silně redukční",
+     txt:"Jednosytná kyselina, i když má tři vodíky — dva z nich sedí přímo na fosforu. Redukuje stříbrné a niklaté soli až na kov, proto bezproudové pokovování."},
+    {ox:3,  f:"H₃PO₃ · PCl₃ · P₄O₆", nm:"kyselina fosforitá, fosforitany", role:"redukční",
+     txt:"Dvojsytná kyselina (jeden vodík je na fosforu). Zahřátím disproporcionuje na kyselinu fosforečnou a fosfan."},
+    {ox:4,  f:"H₄P₂O₆", nm:"kyselina difosforičitá", role:"okrajová, málo reaktivní",
+     txt:"Čtyřsytná kyselina s vazbou P—P. Kyselou hydrolýzou se vazba P—P štěpí na kyselinu fosforečnou a fosforitou."},
+    {ox:5,  f:"H₃PO₄ · PO₄³⁻ · P₄O₁₀", nm:"kyselina fosforečná, fosforečnany", role:"neoxidující",
+     txt:"Nejvyšší stav, a na rozdíl od dusíku vůbec ne oxidační — H₃PO₄ je stálá, středně silná trojsytná kyselina. Právě tenhle stav najdeme ve všech přírodních minerálech fosforu i v DNA."}
+  ]
+};
+
+/* prohledávatelná tabulka sloučenin */
+var CMP = [
+  {f:"NH₃",      n:"amoniak (azan)",              e:"N", ox:-3, t:"hydrid",  v:"bezbarvý štiplavý plyn, t.v. = −33,3 °C, výborně rozpustný ve vodě, zásaditý", u:"výroba HNO₃ a hnojiv, chladivo, čpavková voda"},
+  {f:"NH₄⁺",     n:"amonný (azaniový) kation",    e:"N", ox:-3, t:"ion",     v:"tetraedrický kation, ve vodě slabě kyselý (pKa = 9,25)", u:"amonné soli — hnojiva, salmiak, kypřicí prášek"},
+  {f:"N₂H₄",     n:"hydrazin (diazan)",           e:"N", ox:-2, t:"hydrid",  v:"bezbarvá kapalina, t.v. = 113,5 °C, slabší zásada než amoniak, silné redukovadlo", u:"raketové palivo, odkysličovadlo kotelní vody, nadouvadla"},
+  {f:"NH₂OH",    n:"hydroxylamin",                e:"N", ox:-1, t:"hydrid",  v:"bílá nestálá krystalická látka, t.t. = 33 °C, slabě zásaditá", u:"výroba polyamidů (kaprolaktam), organická syntéza"},
+  {f:"HN₃",      n:"azoimid (kyselina azidovodíková)", e:"N", ox:-0.33, t:"hydrid", v:"těkavá kapalina, t.v. = 37 °C, velmi slabá kyselina (pKa = 4,7), výbušná", u:"příprava azidů; sama se prakticky nepoužívá"},
+  {f:"NaN₃",     n:"azid sodný",                  e:"N", ox:-0.33, t:"sůl",  v:"bílá iontová sůl, rozkladem dává čistý dusík", u:"náplň airbagů, konzervace laboratorních roztoků"},
+  {f:"Pb(N₃)₂",  n:"azid olovnatý",               e:"N", ox:-0.33, t:"sůl",  v:"kovalentní azid, třaskavý — exploduje nárazem", u:"náplň rozbušek"},
+  {f:"Mg₃N₂",    n:"nitrid hořečnatý",            e:"N", ox:-3, t:"nitrid",  v:"nažloutlá iontová látka, vodou se hydrolyzuje na amoniak", u:"laboratorní zdroj amoniaku, důkaz vzniku nitridu při hoření Mg"},
+  {f:"BN",       n:"nitrid boritý",               e:"N", ox:-3, t:"nitrid",  v:"kovalentní polymer; hexagonální je měkký kluzný, kubický je téměř tak tvrdý jako diamant", u:"vysokoteplotní mazivo, brusiva, keramika"},
+  {f:"N₂",       n:"dusík",                       e:"N", ox:0,  t:"prvek",   v:"bezbarvý plyn, 78,08 % objemu vzduchu, trojná vazba 945 kJ·mol⁻¹, t.v. = −195,8 °C", u:"inertní atmosféra, kapalný dusík jako chladivo, surovina pro amoniak"},
+  {f:"N₂O",      n:"oxid dusný",                  e:"N", ox:1,  t:"oxid",    v:"bezbarvý nasládlý plyn, lineární molekula, netečný k vodě", u:"anestetikum, hnací plyn; pozor — silný skleníkový plyn"},
+  {f:"NO",       n:"oxid dusnatý",                e:"N", ox:2,  t:"oxid",    v:"bezbarvý radikál, řád vazby 2,5, na vzduchu ihned hnedne oxidací", u:"meziprodukt výroby HNO₃; v těle signální molekula rozšiřující cévy"},
+  {f:"N₂O₃",     n:"oxid dusitý",                 e:"N", ox:3,  t:"oxid",    v:"modrá kapalina, stálá jen pod −30 °C, anhydrid kyseliny dusité", u:"laboratorní příprava dusitanů"},
+  {f:"NO₂",      n:"oxid dusičitý",               e:"N", ox:4,  t:"oxid",    v:"hnědý jedovatý radikál, lomená molekula, za chladu dimeruje na bezbarvý N₂O₄", u:"meziprodukt výroby HNO₃, složka smogu; N₂O₄ jako raketové okysličovadlo"},
+  {f:"N₂O₅",     n:"oxid dusičný",                e:"N", ox:5,  t:"oxid",    v:"bezbarvá tuhá látka, v krystalu iontový NO₂⁺NO₃⁻, anhydrid HNO₃", u:"nitrační činidlo v organické syntéze"},
+  {f:"HNO₂",     n:"kyselina dusitá",             e:"N", ox:3,  t:"kyselina",v:"slabá kyselina (pKa = 3,25), existuje jen ve studeném zředěném roztoku, rozkládá se", u:"diazotace při výrobě azobarviv"},
+  {f:"NaNO₂",    n:"dusitan sodný",               e:"N", ox:3,  t:"sůl",     v:"stálá bílá sůl, obojaké redoxní chování, jedovatá", u:"konzervace masa (E250), výroba azobarviv"},
+  {f:"HNO₃",     n:"kyselina dusičná",            e:"N", ox:5,  t:"kyselina",v:"silná kyselina, azeotrop 68 %, dýmavá 98 %, silné oxidační činidlo, planární NO₃⁻", u:"hnojiva, výbušniny, nitrace, leptání kovů"},
+  {f:"NH₄NO₃",   n:"dusičnan amonný",             e:"N", ox:1,  t:"sůl",     v:"velmi dobře rozpustná sůl, 35,0 % dusíku, teplem se rozkládá až explozivně", u:"nejrozšířenější dusíkaté hnojivo, průmyslová trhavina"},
+  {f:"NaNO₃",    n:"dusičnan sodný (chilský ledek)", e:"N", ox:5, t:"sůl",   v:"bílá dobře rozpustná sůl, 16,5 % dusíku, zahřátím dává dusitan a kyslík", u:"hnojivo, konzervant, dříve hlavní zdroj dusíku"},
+  {f:"NOCl",     n:"chlorid nitrosylu",           e:"N", ox:3,  t:"halogenid-oxid", v:"žlutá plynná látka, vzniká v lučavce královské", u:"účinná složka lučavky královské rozpouštějící zlato"},
+  {f:"PH₃",      n:"fosfan (fosfin)",             e:"P", ox:-3, t:"hydrid",  v:"bezbarvý jedovatý plyn zapáchající po česneku, úhel 93,5°, prakticky nezásaditý", u:"fumigace skladů obilí, dopování polovodičů"},
+  {f:"P₂H₄",     n:"difosfan",                    e:"P", ox:-2, t:"hydrid",  v:"kapalina se samozápalnými parami, obdoba hydrazinu", u:"nemá praktické využití; způsobuje samovznícení technického fosfanu"},
+  {f:"Ca₃P₂",    n:"fosfid vápenatý",             e:"P", ox:-3, t:"fosfid",  v:"červenohnědá látka, vodou se rozkládá na fosfan", u:"samozápalné signální bójky, rodenticid"},
+  {f:"P₄",       n:"bílý fosfor",                 e:"P", ox:0,  t:"prvek",   v:"voskovitá látka, t.t. = 44,2 °C, samozápalný, prudce jedovatý, rozpustný v CS₂", u:"výroba P₄O₁₀ a čisté H₃PO₄; zápalné a dýmové munice"},
+  {f:"Pₙ (červený)", n:"červený fosfor",          e:"P", ox:0,  t:"prvek",   v:"polymerní řetězce, nejedovatý, nesamozápalný, nerozpustný v CS₂", u:"třecí plocha zápalkových krabiček, zpomalovače hoření"},
+  {f:"Pₙ (černý)",   n:"černý fosfor",            e:"P", ox:0,  t:"prvek",   v:"vrstevnatá struktura jako grafit, nejstálejší modifikace, polovodič", u:"výzkum dvourozměrných materiálů (fosforen)"},
+  {f:"P₄O₆",     n:"oxid fosforitý",              e:"P", ox:3,  t:"oxid",    v:"bílá voskovitá klec P₄O₆, anhydrid kyseliny fosforité", u:"laboratorní příprava H₃PO₃"},
+  {f:"P₄O₁₀",    n:"oxid fosforečný",             e:"P", ox:5,  t:"oxid",    v:"bílý prášek, sublimuje při 360 °C, extrémní afinita k vodě, anhydrid H₃PO₄", u:"nejúčinnější sušidlo a dehydratační činidlo, výroba termické H₃PO₄"},
+  {f:"PCl₃",     n:"chlorid fosforitý",           e:"P", ox:3,  t:"halogenid",v:"bezbarvá dýmavá kapalina, t.v. = 76 °C, pyramidální molekula, vodou hydrolyzuje", u:"chlorační činidlo, výroba pesticidů a změkčovadel"},
+  {f:"PCl₅",     n:"chlorid fosforečný",          e:"P", ox:5,  t:"halogenid",v:"nažloutlá tuhá látka; v plynu trigonální bipyramida, v krystalu ionty PCl₄⁺ a PCl₆⁻", u:"chlorační činidlo v organické syntéze"},
+  {f:"POCl₃",    n:"chlorid-oxid fosforečný",     e:"P", ox:5,  t:"halogenid-oxid", v:"bezbarvá dýmavá kapalina, tetraedrická molekula s vazbou P=O", u:"výroba esterů kyseliny fosforečné, změkčovadel a retardérů hoření"},
+  {f:"P₄S₁₀",    n:"sulfid fosforečný",           e:"P", ox:5,  t:"sulfid",  v:"žlutá tuhá látka se stejnou klecovou kostrou jako P₄O₁₀", u:"výroba insekticidů a mazacích přísad"},
+  {f:"H₃PO₂",    n:"kyselina fosforná",           e:"P", ox:1,  t:"kyselina",v:"jednosytná (dva vodíky sedí na fosforu), pKa = 1,2, mimořádně silné redukovadlo", u:"bezproudové pokovování niklem, redukční lázně"},
+  {f:"H₃PO₃",    n:"kyselina fosforitá",          e:"P", ox:3,  t:"kyselina",v:"dvojsytná (jeden vodík na fosforu), pKa₁ = 1,3, redukční, zahřátím disproporcionuje", u:"stabilizátory plastů, výroba fosforitanů"},
+  {f:"H₃PO₄",    n:"kyselina fosforečná",         e:"P", ox:5,  t:"kyselina",v:"trojsytná, středně silná (pKa₁ = 2,15), stálá, bez oxidačních účinků", u:"nápoje (E338), odrezovače, hnojiva, povrchová úprava kovů"},
+  {f:"H₄P₂O₇",   n:"kyselina difosforečná",       e:"P", ox:5,  t:"kyselina",v:"čtyřsytná, vzniká dehydratací H₃PO₄, obsahuje můstek P—O—P", u:"difosforečnany jako kypřicí přísady a stabilizátory"},
+  {f:"Ca₃(PO₄)₂",n:"fosforečnan vápenatý",        e:"P", ox:5,  t:"sůl",     v:"nerozpustná bílá látka, hlavní složka apatitů a kostí", u:"surovina pro fosfor, kyselinu fosforečnou a hnojiva"},
+  {f:"Ca(H₂PO₄)₂",n:"dihydrogenfosforečnan vápenatý", e:"P", ox:5, t:"sůl",  v:"rozpustná sůl — účinná složka superfosfátu", u:"fosforečné hnojivo, kypřicí prášek"},
+  {f:"Na₅P₃O₁₀", n:"trifosforečnan sodný",        e:"P", ox:5,  t:"sůl",     v:"polyfosforečnan, váže chelátově Ca²⁺ a Mg²⁺", u:"změkčovadlo vody; v pracích prostředcích omezen kvůli eutrofizaci"},
+  {f:"Ca₅(PO₄)₃F",n:"fluoroapatit",               e:"P", ox:5,  t:"minerál", v:"nerozpustný minerál, jediný průmyslový zdroj fosforu", u:"výroba fosforu, H₃PO₄ a fosforečných hnojiv; zubní sklovina"}
+];
+
+/* trenažér oxidačních čísel a názvosloví */
+var NZQ = [
+  {t:"Jaké oxidační číslo má dusík v&nbsp;<span class=\"chem\">NH₄NO₃</span> na <b>kationtu</b>?", o:["−III","−I","+I","+V"], c:0,
+   e:"V amonném kationtu NH₄⁺ mají čtyři vodíky dohromady +IV a celý ion má +1, takže na dusík zbývá −III. Průměr přes celou sůl je +I, ale to je jen počtářský artefakt — v dusičnanovém aniontu má dusík +V."},
+  {t:"Jaké oxidační číslo má fosfor v&nbsp;<span class=\"chem\">H₃PO₂</span>?", o:["+V","+III","+I","−III"], c:2,
+   e:"Tři vodíky dávají +III, dva kyslíky −IV, součet musí být nula: x = +I. Vodíky vázané přímo na fosfor se do součtu započítávají stejně jako ty na kyslíku — ale <b>na kyselost</b> nemají vliv."},
+  {t:"Kolikasytná je kyselina fosforitá <span class=\"chem\">H₃PO₃</span>?", o:["jednosytná","dvojsytná","trojsytná","čtyřsytná"], c:1,
+   e:"Odštěpit lze jen vodík vázaný na kyslíku, a takové jsou v H₃PO₃ dva; třetí sedí přímo na fosforu. Odpověď „trojsytná“ je nejčastější chyba — počítá se podle vzorce místo podle struktury."},
+  {t:"Jak se česky jmenuje <span class=\"chem\">N₂O</span>?", o:["oxid dusnatý","oxid dusitý","oxid dusný","oxid dusičný"], c:2,
+   e:"Dusík má v N₂O oxidační číslo +I, čemuž odpovídá přípona ‑ný. Oxid dusnatý je NO (+II), dusitý N₂O₃ (+III), dusičný N₂O₅ (+V)."},
+  {t:"Jaký je vzorec oxidu dusičitého?", o:["N₂O₄","NO₂","N₂O₃","NO"], c:1,
+   e:"Přípona ‑ičitý znamená oxidační číslo +IV, tedy NO₂. N₂O₄ je dimer téže látky se stejným oxidačním číslem, ale jiným vzorcem — v názvosloví se mu říká oxid dusičitý dimerní, běžně prostě N₂O₄."},
+  {t:"Jaké oxidační číslo má fosfor v&nbsp;<span class=\"chem\">H₄P₂O₆</span>?", o:["+III","+IV","+V","+VI"], c:1,
+   e:"Čtyři vodíky +IV, šest kyslíků −XII, součet nula: 2x = +8, tedy x = +IV. Kyselina difosforičitá je vzácný příklad fosforu v sudém oxidačním čísle a má vazbu P—P."},
+  {t:"Jak se jmenuje sůl <span class=\"chem\">Na₂HPO₄</span>?", o:["fosforečnan sodný","dihydrogenfosforečnan sodný","hydrogenfosforečnan sodný","fosforitan sodný"], c:2,
+   e:"Anion HPO₄²⁻ nese jeden zbylý vodík, proto hydrogenfosforečnan. Na₃PO₄ je fosforečnan, NaH₂PO₄ dihydrogenfosforečnan a fosforitan by odpovídal aniontu odvozenému od H₃PO₃."},
+  {t:"Jaká je vaznost dusíku v&nbsp;amonném kationtu <span class=\"chem\">NH₄⁺</span>?", o:["3","4","5","2"], c:1,
+   e:"Dusík je v NH₄⁺ vázán čtyřmi vazbami — tři klasické a jedna koordinačně kovalentní z volného elektronového páru. Čtyři je maximum, kterého dusík může dosáhnout, protože nemá orbitaly d."},
+  {t:"Proč existuje <span class=\"chem\">PCl₅</span>, ale <span class=\"chem\">NCl₅</span> ne?", o:["Chlor je pro dusík příliš elektronegativní","Dusík má menší atom a nemá dostupné orbitaly d, takže se nedostane přes vaznost 4","Fosfor je kov, a proto tvoří víc vazeb","NCl₅ existuje, jen je nestálé"], c:1,
+   e:"Vaznost 5 vyžaduje víc než čtyři vazebné páry kolem centrálního atomu. Fosfor je dost velký a má prázdné orbitaly 3d; dusík je malý a valenční sféru má omezenou na 2s a 2p, takže nikdy nepřekročí čtyři vazby."},
+  {t:"Jaké oxidační číslo má dusík v&nbsp;hydrazinu <span class=\"chem\">N₂H₄</span>?", o:["−III","−II","−I","0"], c:1,
+   e:"Čtyři vodíky dávají +IV, molekula je neutrální, na dva atomy dusíku tedy připadá −IV, na jeden −II. Vazba N—N se do oxidačního čísla nezapočítává, protože se elektrony dělí rovným dílem."},
+  {t:"Jak se jmenuje <span class=\"chem\">POCl₃</span>?", o:["chlorid fosforečný","chlorid-oxid fosforečný","chlorid fosforitý","oxid-chlorid fosforitý"], c:1,
+   e:"Fosfor má +V (tři chlory −III, kyslík −II), a protože jsou v molekule dva různé záporné partneři, název je složený: chlorid-oxid fosforečný. Chlorid fosforečný je PCl₅."},
+  {t:"Jaké oxidační číslo má dusík v&nbsp;dusitanovém aniontu <span class=\"chem\">NO₂⁻</span>?", o:["+II","+IV","+III","+V"], c:2,
+   e:"Dva kyslíky dávají −IV, celý ion má náboj −1, takže dusík má +III. Nezaměňujte s oxidem dusičitým NO₂, kde je částice neutrální a dusík má +IV."},
+  {t:"Kolikasytná je kyselina fosforná <span class=\"chem\">H₃PO₂</span>?", o:["jednosytná","dvojsytná","trojsytná","je to zásada"], c:0,
+   e:"Ve struktuře H₃PO₂ sedí dva vodíky přímo na fosforu a jen jeden na kyslíku, takže se dá odštěpit jediný proton. Vzniká jediná řada solí — fosfornany s aniontem H₂PO₂⁻."},
+  {t:"Jaký je vzorec kyseliny difosforečné?", o:["H₃PO₄","H₄P₂O₅","H₄P₂O₇","H₄P₂O₆"], c:2,
+   e:"Vznikne odštěpením jedné molekuly vody ze dvou molekul H₃PO₄: 2 H₃PO₄ → H₄P₂O₇ + H₂O. H₄P₂O₆ je kyselina difosforičitá s vazbou P—P a fosforem v +IV."},
+  {t:"Jaké oxidační číslo má dusík v&nbsp;azoimidu <span class=\"chem\">HN₃</span>?", o:["−III","−1/3 (průměrně)","+I","+V"], c:1,
+   e:"Jeden vodík dává +I, tři atomy dusíku tedy musí mít dohromady −I, na jeden připadá −1/3. Necelé číslo je znamením, že atomy nejsou rovnocenné — v lineárním řetězci N—N—N je každý v jiné situaci."},
+  {t:"Jak se jmenuje <span class=\"chem\">Mg₃N₂</span>?", o:["nitrid hořečnatý","dusičnan hořečnatý","dusitan hořečnatý","azid hořečnatý"], c:0,
+   e:"Anion N³⁻ je nitrid; hořčík má +II, takže vzorec vyjde Mg₃N₂. Dusičnan by byl Mg(NO₃)₂, dusitan Mg(NO₂)₂ a azid Mg(N₃)₂."}
+];
+
+/* modifikace fosforu */
+var MODF = [
+  {k:"bily", nm:"bílý fosfor", stru:"molekuly P₄ — tetraedr, úhel P—P—P jen 60°",
+   tt:"44,2 °C", tv:"280,5 °C", rho:"1,82 g·cm⁻³", cs2:"dobře rozpustný",
+   jed:"prudce jedovatý (smrtelná dávka desítky mg)", reak:"na vzduchu samozápalný (nad ~34 °C), za tmy světélkuje",
+   sk:"skladuje se pod vodou",
+   txt:"Vazebné úhly 60° jsou daleko od tetraedrických 109,5°, na které by se fosfor rád nastavil. Vazby jsou tím pádem napjaté a molekula je energeticky výš než ostatní modifikace — proto ta obrovská reaktivita. Bílý fosfor je také jediná modifikace, která se rozpouští v sirouhlíku."},
+  {k:"cerveny", nm:"červený fosfor", stru:"polymerní řetězce vzniklé otevřením tetraedrů P₄",
+   tt:"neostrý, 580–600 °C", tv:"sublimuje kolem 416 °C", rho:"2,34 g·cm⁻³", cs2:"nerozpustný",
+   jed:"prakticky netoxický", reak:"na vzduchu stálý, zapaluje se až nad 250 °C",
+   sk:"skladuje se běžně na vzduchu",
+   txt:"Vzniká zahříváním bílého fosforu bez přístupu vzduchu asi na 250 °C. Otevřením napjatých vazeb v P₄ a jejich propojením do řetězců se soustava zbaví pnutí — proto je červený fosfor mnohem klidnější. Najdete ho na škrtací plošce zápalkové krabičky."},
+  {k:"cerny", nm:"černý fosfor", stru:"zvlněné vrstvy, každý atom vázán ke třem sousedům",
+   tt:"sublimuje nad 550 °C", tv:"—", rho:"2,69 g·cm⁻³", cs2:"nerozpustný",
+   jed:"netoxický", reak:"nejméně reaktivní, na vzduchu se nemění",
+   sk:"stálý za všech běžných podmínek",
+   txt:"Termodynamicky nejstálejší modifikace. Vzniká z bílého fosforu za vysokého tlaku nebo katalyticky. Struktura připomíná grafit — zvlněné vrstvy držené slabými silami — a stejně jako grafit vede elektrický proud. Jednotlivé vrstvy se dají oddělit; říká se jim fosforen."}
+];
+
+/* oxidy dusíku */
+var NOX = [
+  {f:"N₂O", nm:"oxid dusný", ox:"+I", tvar:"lineární, N—N—O", barva:"bezbarvý", mag:"diamagnetický",
+   tv:"−88,5 °C", vznik:"NH₄NO₃ → N₂O + 2 H₂O (opatrné zahřátí na ~250 °C)",
+   voda:"netečný, nereaguje — není anhydridem žádné kyseliny",
+   redox:"slabé oxidační činidlo: podporuje hoření, žhavá tříska se v něm znovu vznítí",
+   pouziti:"anestetikum a analgetikum, hnací plyn ve šlehačkách; skleníkový plyn s GWP ≈ 273"},
+  {f:"NO", nm:"oxid dusnatý", ox:"+II", tvar:"dvouatomový radikál, řád vazby 2,5", barva:"bezbarvý", mag:"paramagnetický",
+   tv:"−151,7 °C", vznik:"3 Cu + 8 HNO₃(zř.) → 3 Cu(NO₃)₂ + 2 NO + 4 H₂O; průmyslově 4 NH₃ + 5 O₂ → 4 NO + 6 H₂O",
+   voda:"prakticky nerozpustný, s vodou nereaguje",
+   redox:"obojaký — na vzduchu se sám oxiduje: 2 NO + O₂ → 2 NO₂ (okamžité zhnědnutí)",
+   pouziti:"meziprodukt výroby HNO₃; v organismu signální molekula rozšiřující cévy (Nobelova cena 1998)"},
+  {f:"N₂O₃", nm:"oxid dusitý", ox:"+III", tvar:"O=N—N(=O)—O, nesymetrický", barva:"sytě modrý", mag:"diamagnetický",
+   tv:"rozkládá se nad −30 °C", vznik:"NO + NO₂ ⇌ N₂O₃ (za nízké teploty)",
+   voda:"anhydrid kyseliny dusité: N₂O₃ + H₂O → 2 HNO₂",
+   redox:"chová se jako ekvimolární směs NO a NO₂",
+   pouziti:"laboratorní příprava dusitanů: N₂O₃ + 2 NaOH → 2 NaNO₂ + H₂O"},
+  {f:"NO₂ / N₂O₄", nm:"oxid dusičitý a jeho dimer", ox:"+IV", tvar:"NO₂ lomený (134°), N₂O₄ planární s vazbou N—N", barva:"NO₂ hnědý, N₂O₄ bezbarvý", mag:"NO₂ paramagnetický, N₂O₄ diamagnetický",
+   tv:"N₂O₄ 21,2 °C", vznik:"2 NO + O₂ → 2 NO₂; Cu + 4 HNO₃(konc.) → Cu(NO₃)₂ + 2 NO₂ + 2 H₂O",
+   voda:"disproporcionuje: 3 NO₂ + H₂O → 2 HNO₃ + NO",
+   redox:"silné oxidační činidlo, podporuje hoření",
+   pouziti:"meziprodukt výroby HNO₃, okysličovadlo raketových paliv; jedovatá složka smogu"},
+  {f:"N₂O₅", nm:"oxid dusičný", ox:"+V", tvar:"v krystalu iontový NO₂⁺NO₃⁻, v plynu O₂N—O—NO₂", barva:"bezbarvý", mag:"diamagnetický",
+   tv:"sublimuje při 32 °C", vznik:"P₄O₁₀ + 4 HNO₃ → 2 N₂O₅ + 4 HPO₃ (odnětí vody)",
+   voda:"anhydrid kyseliny dusičné: N₂O₅ + H₂O → 2 HNO₃",
+   redox:"silné oxidační činidlo, teplem se rozkládá: 2 N₂O₅ → 4 NO₂ + O₂",
+   pouziti:"nitrační činidlo tam, kde vadí přítomnost vody"}
+];
+
+/* hydridy dusíku a fosforu */
+var HYDS = [
+  {k:"NH3",  nm:"amoniak NH₃",       tvar:"trigonální pyramida", uhel:"106,7°", hyb:"sp³, jeden volný pár",
+   tv:"−33,3 °C", baze:"pKb = 4,74 — výrazná zásada", red:"mírné redukční činidlo",
+   txt:"Volný elektronový pár dělá z amoniaku zásadu i ligand. Vodíkové vazby mezi molekulami zvedají teplotu varu tak vysoko, že se amoniak dá zkapalnit už mírným stlačením — proto se používá jako chladivo."},
+  {k:"PH3",  nm:"fosfan PH₃",        tvar:"trigonální pyramida", uhel:"93,5°", hyb:"vazby téměř čistě p, volný pár v orbitalu s",
+   tv:"−87,7 °C", baze:"pKb ≈ 26 — prakticky žádná zásada", red:"silné redukční činidlo",
+   txt:"Úhel jen 93,5° prozrazuje, že fosfor vazby netvoří hybridními orbitaly, ale skoro čistými orbitaly p. Volný pár zůstává v kulovém orbitalu s, drží se blízko jádra a je pro proton špatně dostupný — proto fosfan skoro nereaguje jako zásada. Chybějí i vodíkové vazby, takže vaří o 54 °C níž než amoniak."},
+  {k:"N2H4", nm:"hydrazin N₂H₄",     tvar:"dvě pyramidy spojené vazbou N—N", uhel:"108° na každém dusíku", hyb:"sp³ na obou atomech",
+   tv:"113,5 °C", baze:"pKb = 6,0 — slabší zásada než amoniak", red:"velmi silné redukční činidlo",
+   txt:"Druhý dusík odsává elektronovou hustotu z volného páru, takže hydrazin je slabší zásada než amoniak, zato mnohem lepší redukovadlo. Umí se protonizovat dvakrát: N₂H₅⁺ a N₂H₆²⁺."},
+  {k:"NH2OH",nm:"hydroxylamin NH₂OH",tvar:"pyramida na dusíku, skupina OH", uhel:"~107°", hyb:"sp³",
+   tv:"rozkládá se, t.t. = 33 °C", baze:"pKb = 8,0 — slabá zásada", red:"obojaké: redukční i mírně oxidační",
+   txt:"Náhrada vodíku skupinou OH ubere zásaditost ještě víc než v hydrazinu. Dusík je v oxidačním čísle −I, tedy mezi amoniakem a elementárním dusíkem — proto může jít oběma směry."},
+  {k:"HN3",  nm:"azoimid HN₃",       tvar:"lineární řetězec tří dusíků", uhel:"úhel H—N—N = 109°", hyb:"—",
+   tv:"37 °C", baze:"není zásada, je to slabá kyselina (pKa = 4,7)", red:"obojaké, výbušný",
+   txt:"Jediný hydrid dusíku, který se chová jako kyselina — je zhruba stejně silná jako kyselina octová. Její soli, azidy, jsou u alkalických kovů stálé, u těžkých kovů třaskavé."}
+];
+
+/* binární sloučeniny fosforu — struktury */
+var PBIN = [
+  {k:"P4",    nm:"P₄ — bílý fosfor",    ox:"0",   koord:"tetraedr, 6 vazeb P—P",
+   txt:"Čtyři atomy fosforu ve vrcholech tetraedru, každý vázán ke třem sousedům a s jedním volným párem. Úhel 60° je zdrojem pnutí a tím i reaktivity."},
+  {k:"P4O6",  nm:"P₄O₆ — oxid fosforitý", ox:"+III", koord:"klec: 4 P, 6 můstkových O",
+   txt:"Vezměte tetraedr P₄ a do každé z šesti hran vsuňte atom kyslíku. Fosfor si ponechá volný pár, proto je P₄O₆ ještě redukovatelný a snadno se oxiduje na P₄O₁₀."},
+  {k:"P4O10", nm:"P₄O₁₀ — oxid fosforečný", ox:"+V", koord:"klec P₄O₆ plus 4 koncové kyslíky",
+   txt:"Ke kostře P₄O₆ přibude na každý fosfor jeden koncový kyslík vázaný násobnou vazbou P=O. Fosfor už nemá volný pár a je v nejvyšším stavu. Hlad po vodě je tak velký, že P₄O₁₀ vytrhne vodu i z kyseliny sírové."},
+  {k:"PCl3",  nm:"PCl₃ — chlorid fosforitý", ox:"+III", koord:"trigonální pyramida, vaznost 3",
+   txt:"Klasická pyramida jako u fosfanu: tři vazby a volný pár. Vodou hydrolyzuje na kyselinu fosforitou a chlorovodík."},
+  {k:"PCl5",  nm:"PCl₅ — chlorid fosforečný", ox:"+V", koord:"trigonální bipyramida, vaznost 5",
+   txt:"Pět vazeb kolem fosforu — dusík by to nedokázal. Tři chlory leží v rovině (rovníkové), dva kolmo k ní (axiální) a jsou o něco delší. V krystalu se molekuly přeuspořádají na ionty PCl₄⁺ a PCl₆⁻."},
+  {k:"POCl3", nm:"POCl₃ — chlorid-oxid fosforečný", ox:"+V", koord:"tetraedr, vaznost 4",
+   txt:"Meziprodukt hydrolýzy PCl₅. Vazba P=O je krátká a velmi pevná — právě ona žene většinu reakcí chloridů fosforu dopředu."}
+];
+
+/* kyseliny fosforu */
+var PACID = [
+  {k:"H3PO2", f:"H₃PO₂", nm:"kyselina fosforná", ox:"+I", oh:1, ph:2, syt:"jednosytná", pka:"pKa = 1,2",
+   sul:"fosfornany, anion H₂PO₂⁻",
+   txt:"Dva vodíky sedí přímo na fosforu, jen jeden na kyslíku — proto jediná řada solí. Fosfor v +I je od nejvyššího stavu vzdálený o čtyři elektrony, takže je to mimořádně silné redukovadlo: sráží stříbro i nikl z roztoků jejich solí."},
+  {k:"H3PO3", f:"H₃PO₃", nm:"kyselina fosforitá", ox:"+III", oh:2, ph:1, syt:"dvojsytná", pka:"pKa₁ = 1,3 · pKa₂ = 6,7",
+   sul:"fosforitany, anionty H₂PO₃⁻ a HPO₃²⁻",
+   txt:"Jeden vodík na fosforu, dva na kyslících. Redukční činidlo; zahřátím disproporcionuje: 4 H₃PO₃ → 3 H₃PO₄ + PH₃."},
+  {k:"H3PO4", f:"H₃PO₄", nm:"kyselina fosforečná", ox:"+V", oh:3, ph:0, syt:"trojsytná", pka:"pKa₁ = 2,15 · pKa₂ = 7,20 · pKa₃ = 12,35",
+   sul:"fosforečnany PO₄³⁻, hydrogenfosforečnany HPO₄²⁻, dihydrogenfosforečnany H₂PO₄⁻",
+   txt:"Všechny tři vodíky jsou na kyslících. Fosfor je v nejvyšším stavu, ale na rozdíl od kyseliny dusičné vůbec neoxiduje — proto se dá pít v kole a leptat s ní rez."},
+  {k:"H4P2O7", f:"H₄P₂O₇", nm:"kyselina difosforečná", ox:"+V", oh:4, ph:0, syt:"čtyřsytná", pka:"pKa₁ = 0,9 · pKa₄ = 9,4",
+   sul:"difosforečnany, anion P₂O₇⁴⁻",
+   txt:"Dva tetraedry PO₄ spojené můstkem P—O—P. Vzniká odnětím vody ze dvou molekul H₃PO₄. V buňce je právě takový můstek nositelem energie v ATP."},
+  {k:"H4P2O6", f:"H₄P₂O₆", nm:"kyselina difosforičitá", ox:"+IV", oh:4, ph:0, syt:"čtyřsytná", pka:"pKa₁ = 2,2",
+   sul:"difosforičitany, anion P₂O₆⁴⁻",
+   txt:"Vzácný sudý oxidační stav. Dva tetraedry spojené přímou vazbou P—P, ne přes kyslík. Kyselou hydrolýzou se vazba P—P štěpí na kyselinu fosforečnou a fosforitou."}
+];
+
+/* rozhodovač: kov + kyselina dusičná (metal → koncentrace) */
+var METM = [
+  {s:"Cu", nm:"měď (ušlechtilá)", ushl:true},
+  {s:"Ag", nm:"stříbro (ušlechtilé)", ushl:true},
+  {s:"Zn", nm:"zinek (neušlechtilý)", ushl:false},
+  {s:"Fe", nm:"železo (neušlechtilé)", ushl:false},
+  {s:"Al", nm:"hliník (neušlechtilý)", ushl:false},
+  {s:"Au", nm:"zlato (nejušlechtilejší)", ushl:true}
+];
+var METQ = {
+  "Cu|konc":  {ox:4,  prod:"NO₂",  eq:"Cu + 4 HNO₃ → Cu(NO₃)₂ + 2 NO₂ + 2 H₂O",
+    txt:"Koncentrovaná kyselina je nejsilnější oxidační činidlo, ale dusík se v ní redukuje jen o jeden stupeň — na hnědý NO₂. Roztok zmodrá měďnatými ionty a nad hladinou se drží hnědý dým."},
+  "Cu|zred":  {ox:2,  prod:"NO",   eq:"3 Cu + 8 HNO₃ → 3 Cu(NO₃)₂ + 2 NO + 4 H₂O",
+    txt:"Zředěním kyselina jako oxidovadlo zeslábne, zato se dusík zredukuje hlouběji — až na +II. Bezbarvý NO na vzduchu okamžitě zhnědne, protože se oxiduje na NO₂."},
+  "Cu|velmi": {ox:1,  prod:"N₂O",  eq:"4 Cu + 10 HNO₃ → 4 Cu(NO₃)₂ + N₂O + 5 H₂O",
+    txt:"Ve velmi zředěné kyselině klesá dusík u mědi až na +I. Hlouběji už měď dusík nedotlačí — na amonnou sůl je potřeba výrazně neušlechtilejší kov."},
+  "Ag|konc":  {ox:4,  prod:"NO₂",  eq:"Ag + 2 HNO₃ → AgNO₃ + NO₂ + H₂O",
+    txt:"Stříbro se v koncentrované kyselině rozpouští stejně jako měď a stejně dává NO₂. Vzniklý dusičnan stříbrný je výchozí látka pro fotografické materiály."},
+  "Ag|zred":  {ox:2,  prod:"NO",   eq:"3 Ag + 4 HNO₃ → 3 AgNO₃ + NO + 2 H₂O",
+    txt:"Zředěná kyselina dusičná rozpouští i stříbro, přestože ve zředěné HCl by se ani nepohnulo. Rozhodující je, že oxidačním činidlem je dusičnanový anion, ne proton."},
+  "Ag|velmi": {ox:2,  prod:"NO",   eq:"3 Ag + 4 HNO₃ → 3 AgNO₃ + NO + 2 H₂O",
+    txt:"U tak ušlechtilého kovu jde dusík i ve velmi zředěné kyselině jen na +II. Hlubší redukce vyžaduje kov, který dodá elektrony mnohem ochotněji."},
+  "Zn|konc":  {ox:4,  prod:"NO₂",  eq:"Zn + 4 HNO₃ → Zn(NO₃)₂ + 2 NO₂ + 2 H₂O",
+    txt:"I neušlechtilý zinek dává v koncentrované kyselině NO₂ — o produktu rozhoduje především koncentrace kyseliny, teprve pak ušlechtilost kovu."},
+  "Zn|zred":  {ox:2,  prod:"NO",   eq:"3 Zn + 8 HNO₃ → 3 Zn(NO₃)₂ + 2 NO + 4 H₂O",
+    txt:"Zředěná kyselina a středně reaktivní kov: typický výsledek je oxid dusnatý. Vodík se neuvolňuje ani tady."},
+  "Zn|velmi": {ox:-3, prod:"NH₄⁺", eq:"4 Zn + 10 HNO₃ → 4 Zn(NO₃)₂ + NH₄NO₃ + 3 H₂O",
+    txt:"Velmi zředěná kyselina a hodně neušlechtilý kov: dusík se zredukuje až na −III, tedy na amonnou sůl. To je nejhlubší možná redukce dusičnanu."},
+  "Fe|konc":  {ox:null, prod:"—",  eq:"Fe + konc. HNO₃ → pasivace, reakce se prakticky zastaví",
+    txt:"Koncentrovaná kyselina okamžitě vytvoří na železe souvislou vrstvičku oxidu, která kov chrání před dalším napadením. Zředěná kyselina železo naopak běžně rozpouští."},
+  "Fe|zred":  {ox:2,  prod:"NO",   eq:"Fe + 4 HNO₃ → Fe(NO₃)₃ + NO + 2 H₂O",
+    txt:"Železo se ve zředěné kyselině oxiduje rovnou na železité ionty — kyselina dusičná je dost silné oxidovadlo na to, aby přeskočila stav +II."},
+  "Fe|velmi": {ox:-3, prod:"NH₄⁺", eq:"8 Fe + 30 HNO₃ → 8 Fe(NO₃)₃ + 3 NH₄NO₃ + 9 H₂O",
+    txt:"Ve velmi zředěné kyselině klesá dusík i u železa až na amonnou sůl. Zkontrolujte si bilanci: osm atomů železa odevzdá 24 elektronů, tři dusíky jich při cestě z +V na −III přijmou právě 24."},
+  "Al|konc":  {ox:null, prod:"—",  eq:"Al + konc. HNO₃ → pasivace, reakce se prakticky zastaví",
+    txt:"Hliník se v koncentrované kyselině dusičné pasivuje ještě dokonaleji než železo. Právě proto se koncentrovaná HNO₃ převáží v hliníkových cisternách."},
+  "Al|zred":  {ox:-3, prod:"NH₄⁺", eq:"8 Al + 30 HNO₃ → 8 Al(NO₃)₃ + 3 NH₄NO₃ + 9 H₂O",
+    txt:"Zředěná kyselina hliník nepasivuje a hliník je tak silné redukovadlo, že dusík srazí rovnou na −III."},
+  "Al|velmi": {ox:-3, prod:"NH₄⁺", eq:"8 Al + 30 HNO₃ → 8 Al(NO₃)₃ + 3 NH₄NO₃ + 9 H₂O",
+    txt:"Čím zředěnější kyselina a čím neušlechtilejší kov, tím hlouběji dusík klesne — u hliníku je to amonná sůl."},
+  "Au|konc":  {ox:null, prod:"—",  eq:"Au + HNO₃ → nereaguje; rozpustí ho až lučavka královská",
+    txt:"Samotná kyselina dusičná na zlato nestačí. Teprve směs s kyselinou chlorovodíkovou v poměru 1 : 3 (lučavka královská) zlato rozpustí: Au + HNO₃ + 4 HCl → H[AuCl₄] + NO + 2 H₂O."},
+  "Au|zred":  {ox:null, prod:"—",  eq:"Au + zř. HNO₃ → nereaguje",
+    txt:"Zlato je natolik ušlechtilé, že žádná samotná kyselina na něj nestačí. Potřebuje současně oxidovadlo a látku, která vzniklý kation odvede do komplexu."},
+  "Au|velmi": {ox:null, prod:"—",  eq:"Au + velmi zř. HNO₃ → nereaguje",
+    txt:"Zředěním se situace jen zhorší. Zlato rozpouští lučavka královská nebo roztok kyanidu za přístupu vzduchu — v obou případech pomáhá tvorba komplexu."}
+};
+
+/* trenažér: předpověz produkt */
+var PRD = [
+  {q:"Co vznikne, když se <b>měď</b> vloží do <b>koncentrované</b> kyseliny dusičné?",
+   o:["vodík H₂","hnědý NO₂","bezbarvý NO","žádná reakce"], c:1,
+   e:"Kyselina dusičná nikdy nedává s kovem vodík — oxiduje dusičnanovým aniontem, ne protonem. V koncentrované kyselině klesne dusík z +V jen na +IV, tedy na hnědý NO₂."},
+  {q:"Co vznikne, když se <b>hliník</b> vloží do <b>koncentrované</b> kyseliny dusičné?",
+   o:["prudká reakce s NO₂","hliník se pasivuje a reakce se zastaví","vodík H₂","amonná sůl"], c:1,
+   e:"Koncentrovaná kyselina hliník okamžitě pokryje souvislou vrstvou oxidu, která ho chrání. Ve zředěné kyselině by se hliník naopak rozpustil až za vzniku amonné soli."},
+  {q:"Jaký plyn se uvolní, když se <b>dusičnan amonný</b> opatrně zahřeje asi na 250 °C?",
+   o:["N₂","NH₃","N₂O","NO₂"], c:2,
+   e:"Amonný kation (−III) a dusičnanový anion (+V) na sebe uvnitř soli zreagují a sejdou se na +I: NH₄NO₃ → N₂O + 2 H₂O. To je synproporcionace a zároveň průmyslová výroba rajského plynu."},
+  {q:"Co vznikne rozkladem <b>dusičnanu měďnatého</b> žíháním?",
+   o:["Cu(NO₂)₂ + O₂","CuO + NO₂ + O₂","Cu + N₂ + O₂","Cu(OH)₂ + N₂O₅"], c:1,
+   e:"Dusičnany kovů středně ušlechtilých se rozkládají na oxid kovu, NO₂ a kyslík: 2 Cu(NO₃)₂ → 2 CuO + 4 NO₂ + O₂. Dusičnany alkalických kovů se přitom zastaví o stupeň dřív, u dusitanu."},
+  {q:"Co vznikne, když se <b>bílý fosfor</b> vaří v roztoku hydroxidu sodného?",
+   o:["fosforečnan a vodík","fosfan a fosfornan","oxid fosforečný","kyselina fosforitá"], c:1,
+   e:"Fosfor disproporcionuje: část jde dolů na fosfan PH₃ (−III), část nahoru na fosfornan H₂PO₂⁻ (+I). Rovnice: P₄ + 3 NaOH + 3 H₂O → PH₃ + 3 NaH₂PO₂."},
+  {q:"Co vznikne, když se <b>PCl₅</b> nechá zreagovat s <b>nadbytkem</b> vody?",
+   o:["H₃PO₃ + HCl","POCl₃ + HCl","H₃PO₄ + HCl","P₄O₁₀ + HCl"], c:2,
+   e:"Halogenidy fosforečné hydrolyzují na kyselinu fosforečnou: PCl₅ + 4 H₂O → H₃PO₄ + 5 HCl. Oxidační číslo fosforu +V se přitom nemění. S nedostatkem vody se hydrolýza zastaví u POCl₃."},
+  {q:"Co vznikne reakcí <b>oxidu fosforitého</b> s vodou?",
+   o:["kyselina fosforečná","kyselina fosforitá","kyselina fosforná","fosfan"], c:1,
+   e:"P₄O₆ je anhydrid kyseliny fosforité: P₄O₆ + 6 H₂O → 4 H₃PO₃. Oxidační číslo fosforu zůstává +III — anhydrid a jeho kyselina mají vždy stejné oxidační číslo."},
+  {q:"Jaký produkt dostanete, když se <b>amoniak spaluje na platinovém katalyzátoru</b> při 900 °C?",
+   o:["N₂ + H₂O","NO + H₂O","NO₂ + H₂O","N₂O + H₂O"], c:1,
+   e:"To je první stupeň Ostwaldova procesu: 4 NH₃ + 5 O₂ → 4 NO + 6 H₂O. Bez katalyzátoru by amoniak shořel jen na dusík a vodu, protože ten je termodynamicky výhodnější — katalyzátor otevírá cestu k NO."},
+  {q:"Co vznikne, když se <b>oxid dusičitý</b> zavede do vody?",
+   o:["jen HNO₃","jen HNO₂","HNO₃ a NO","N₂O₄ a O₂"], c:2,
+   e:"Oxid dusičitý s vodou disproporcionuje: 3 NO₂ + H₂O → 2 HNO₃ + NO. Dusík z +IV jde současně nahoru na +V a dolů na +II. Za studena a v malé koncentraci lze zachytit i vznikající HNO₂, ta se ale hned rozkládá."},
+  {q:"Co se stane s <b>kyselinou fosforitou</b>, když se zahřeje?",
+   o:["dehydratuje na H₄P₂O₅","disproporcionuje na H₃PO₄ a PH₃","rozloží se na P₄O₆ a vodu","nic, je tepelně stálá"], c:1,
+   e:"Fosfor v +III může jít nahoru i dolů, takže při zahřátí disproporcionuje: 4 H₃PO₃ → 3 H₃PO₄ + PH₃. Tři atomy jdou na +V a jeden až na −III."},
+  {q:"Který plyn ucítíte, když se <b>fosfid vápenatý</b> hodí do vody?",
+   o:["fosfan","amoniak","vodík","acetylen"], c:0,
+   e:"Fosfidy elektropozitivních kovů se hydrolyzují: Ca₃P₂ + 6 H₂O → 3 Ca(OH)₂ + 2 PH₃. Technický fosfan páchne po česneku a díky příměsi difosfanu se často sám vznítí. Acetylen by dal karbid vápníku."},
+  {q:"Co dostanete, když se <b>apatit</b> nechá reagovat s <b>kyselinou sírovou</b>?",
+   o:["elementární fosfor","rozpustný dihydrogenfosforečnan a sádrovec","oxid fosforečný","fosfan a síran vápenatý"], c:1,
+   e:"To je výroba superfosfátu: Ca₃(PO₄)₂ + 2 H₂SO₄ → Ca(H₂PO₄)₂ + 2 CaSO₄. Chemická podstata je převedení nerozpustného fosforečnanu na rozpustnější dihydrogenfosforečnan, který už rostlina dokáže přijmout."},
+  {q:"Co vznikne, když se <b>dusitan sodný</b> okyselí a přidá se <b>manganistan</b>?",
+   o:["dusitan se redukuje na NO","dusitan se oxiduje na dusičnan","dusitan se rozloží na N₂","nic, dusitan je netečný"], c:1,
+   e:"Dusík v dusitanu má prostřední oxidační číslo +III, takže může jít oběma směry. Proti silnému oxidovadlu se chová jako redukovadlo: 5 NaNO₂ + 2 KMnO₄ + 3 H₂SO₄ → 5 NaNO₃ + 2 MnSO₄ + K₂SO₄ + 3 H₂O."},
+  {q:"Jak se v laboratoři nejsnáz připraví čistý <b>dusík</b>?",
+   o:["zahřátím dusičnanu amonného","zahřátím dusitanu amonného","rozkladem amoniaku vodou","reakcí dusíkatého hnojiva s kyselinou"], c:1,
+   e:"NH₄NO₂ → N₂ + 2 H₂O. Amonný kation (−III) a dusitanový anion (+III) se sejdou na nule. Dusičnan amonný by dal N₂O, protože anion startuje z +V."},
+  {q:"Co se stane, když se <b>zinek</b> vloží do <b>velmi zředěné</b> kyseliny dusičné?",
+   o:["uvolní se vodík","vznikne NO₂","vznikne amonná sůl","zinek se pasivuje"], c:2,
+   e:"Neušlechtilý kov a velmi zředěná kyselina znamenají nejhlubší možnou redukci: dusík klesne z +V až na −III. Vodík se neuvolní ani tady — kyselina dusičná ho nikdy s kovem nedává."},
+  {q:"Co vznikne, když <b>nadbytek</b> amoniaku zreaguje s chlorem?",
+   o:["N₂ a HCl","N₂ a NH₄Cl","NCl₃","NH₂Cl a HCl"], c:1,
+   e:"Chlor amoniak oxiduje na dusík, a protože je amoniak v nadbytku, zachytí vzniklý chlorovodík jako salmiak: 8 NH₃ + 3 Cl₂ → N₂ + 6 NH₄Cl. Při nadbytku chloru vzniká výbušný chlorid dusitý."}
+];
+
+/* hnojiva */
+var FERT = [
+  {f:"NH₄NO₃",   nm:"dusičnan amonný",     n:35.0, typ:"amonno-dusičnanové", pozn:"Nejrozšířenější tuhé dusíkaté hnojivo. Polovina dusíku je v okamžitě dostupné dusičnanové formě, polovina v pomalejší amonné. Zároveň průmyslová trhavina, proto podléhá přísné regulaci."},
+  {f:"(NH₄)₂SO₄",nm:"síran amonný",        n:21.2, typ:"amonné",             pozn:"Dodává navíc síru, kterou rostliny také potřebují. Půdu okyseluje, protože rostlina odebírá NH₄⁺ a v půdě zůstává síranový anion."},
+  {f:"CO(NH₂)₂", nm:"močovina",            n:46.6, typ:"amidové",            pozn:"Nejvyšší obsah dusíku ze všech tuhých hnojiv. V půdě se enzymem ureasou rozkládá na amoniak a oxid uhličitý; při povrchové aplikaci se část dusíku ztrácí únikem amoniaku."},
+  {f:"NaNO₃",    nm:"dusičnan sodný",      n:16.5, typ:"dusičnanové",        pozn:"Chilský ledek, historicky první velký zdroj dusíku. Dnes okrajový — obsah dusíku je nízký a sodík půdě neprospívá."},
+  {f:"Ca(NO₃)₂", nm:"dusičnan vápenatý",   n:17.1, typ:"dusičnanové",        pozn:"Silně hygroskopický, dodává vápník. Používá se hlavně v hydroponii a k hnojení zeleniny."},
+  {f:"NH₃(l)",   nm:"kapalný amoniak",     n:82.2, typ:"přímá aplikace",     pozn:"Nejlevnější dusík na tunu, ale musí se zapravit přímo do půdy tlakovým aplikátorem. Běžné v USA, v Evropě spíš výjimečně."}
+];

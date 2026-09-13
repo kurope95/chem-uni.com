@@ -1,0 +1,216 @@
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Zápis rovnovážné konstanty">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · osnova, bod 3</span>
+      <h2>Zápis rovnovážné konstanty pro libovolnou reakci</h2>
+      <p class="lead">Napsat správně výraz pro <span class="q">K</span> je řemeslo, které se u&nbsp;maturity zkouší skoro jistě. Má čtyři pravidla a&nbsp;dvě výjimky — a&nbsp;přesně na těch výjimkách (pevné látky, rozpouštědlo) se nejvíc chybuje.</p>
+
+      <h3>Obecný tvar <span class="q">K</span><sub>c</sub></h3>
+      <div class="callout def">
+        <span class="eyebrow">Předpis</span>
+        <p>Pro reakci <span class="chem">a A + b B ⇌ c C + d D</span> v&nbsp;rovnováze platí:</p>
+        <p class="eq" style="margin-top:.3rem;font-size:1.15rem"><span class="q">K</span><sub>c</sub> = <span class="mono">[C]<sup>c</sup> · [D]<sup>d</sup> &nbsp;/&nbsp; [A]<sup>a</sup> · [B]<sup>b</sup></span></p>
+        <p style="margin-top:.3rem">1. V&nbsp;čitateli jsou <b>produkty</b> (pravá strana), ve jmenovateli <b>výchozí látky</b> (levá strana).<br>
+        2. Koncentrace se <b>násobí</b>, ne sčítají.<br>
+        3. <b>Stechiometrické koeficienty jsou exponenty</b>, ne násobitele: pro <span class="chem">2 NH₃</span> píšeme [NH₃]², nikdy 2·[NH₃].<br>
+        4. Hranaté závorky jsou <b>rovnovážné</b> koncentrace v&nbsp;mol·dm⁻³.</p>
+      </div>
+      <p>Příklad, který si zapamatujte jako vzor: pro <span class="chem">N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g)</span> je</p>
+      <p class="eq"><span class="q">K</span><sub>c</sub> = [NH₃]² / ([N₂] · [H₂]³)</p>
+
+      <h3>Relativní (bezrozměrné) koncentrace</h3>
+      <p>Přísně vzato se do výrazu nedosazují koncentrace, ale <span class="term">relativní koncentrace</span> [A]/<span class="q">c</span>°, kde <span class="q">c</span>° = 1&nbsp;mol·dm⁻³ je standardní koncentrace. Číselně se nic nemění — dělíte jedničkou — ale <span class="q">K</span> je díky tomu <b>bezrozměrná</b>, a&nbsp;jen bezrozměrné číslo smí stát v&nbsp;logaritmu ve vztahu Δ<span class="q">G</span>° = −<span class="q">RT</span>&nbsp;ln&nbsp;<span class="q">K</span>. Starší učebnice uvádějí <span class="q">K</span><sub>c</sub> i&nbsp;s&nbsp;jednotkou (mol·dm⁻³)<sup>Δn</sup>; obě konvence dávají totéž číslo, pokud dosazujete v&nbsp;mol·dm⁻³.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak to napsat u&nbsp;zkoušky</span>
+        <p>Napište <span class="q">K</span> s&nbsp;hranatými závorkami a&nbsp;dodejte větu: „<em>koncentrace jsou relativní, vztažené k&nbsp;<span class="q">c</span>° = 1&nbsp;mol·dm⁻³, takže <span class="q">K</span> je bezrozměrná</em>“. Tím máte pokryto obojí.</p>
+      </div>
+
+      <h3><span class="q">K</span><sub>p</sub> pro plynné soustavy</h3>
+      <p>U&nbsp;plynů je pohodlnější měřit parciální tlaky než koncentrace. Výraz má úplně stejný tvar, jen místo relativních koncentrací stojí <b>relativní parciální tlaky</b> <span class="q">p</span><sub>i</sub>/<span class="q">p</span>°, kde <span class="q">p</span>° = 100&nbsp;kPa (1&nbsp;bar; starší tabulky 101,325&nbsp;kPa):</p>
+      <p class="eq"><span class="q">K</span><sub>p</sub> = <span class="mono">(<span class="q">p</span><sub>C</sub>/<span class="q">p</span>°)<sup>c</sup> · (<span class="q">p</span><sub>D</sub>/<span class="q">p</span>°)<sup>d</sup> &nbsp;/&nbsp; (<span class="q">p</span><sub>A</sub>/<span class="q">p</span>°)<sup>a</sup> · (<span class="q">p</span><sub>B</sub>/<span class="q">p</span>°)<sup>b</sup></span></p>
+      <p>Obě konstanty spolu souvisí přes stavovou rovnici ideálního plynu <span class="q">p</span><sub>i</sub> = <span class="q">c</span><sub>i</sub><span class="q">RT</span>:</p>
+      <p class="eq" style="font-size:1.15rem"><b><span class="q">K</span><sub>p</sub> = <span class="q">K</span><sub>c</sub> · (<span class="q">c</span>°<span class="q">RT</span>/<span class="q">p</span>°)<sup>Δn</sup></b> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3);font-size:.85em">Δ<span class="q">n</span> = Σ<span class="q">ν</span>(plynné produkty) − Σ<span class="q">ν</span>(plynné reaktanty)</span></p>
+      <p>Faktor <span class="q">c</span>°<span class="q">RT</span>/<span class="q">p</span>° je bezrozměrný a&nbsp;při 298&nbsp;K má hodnotu 1000&nbsp;mol·m⁻³ · 8,314&nbsp;J·K⁻¹·mol⁻¹ · 298,15&nbsp;K / 10⁵&nbsp;Pa = <b>24,79</b>. V&nbsp;praktičtější podobě: <span class="q">K</span><sub>p</sub> = <span class="q">K</span><sub>c</sub>·(<span class="q">RT</span>)<sup>Δn</sup> s&nbsp;<span class="q">R</span> = 0,08314&nbsp;dm³·bar·K⁻¹·mol⁻¹. Když je <b>Δ<span class="q">n</span> = 0</b>, je <span class="q">K</span><sub>p</sub> = <span class="q">K</span><sub>c</sub> — například u&nbsp;<span class="chem">H₂ + I₂ ⇌ 2 HI</span> nebo u&nbsp;shift reakce.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past: Δ<span class="q">n</span> se počítá jen z&nbsp;plynů</span>
+        <p>Pro <span class="chem">CaCO₃(s) ⇌ CaO(s) + CO₂(g)</span> je Δ<span class="q">n</span> = 1 − 0 = <b>+1</b>, pevné látky se nepočítají. Pro <span class="chem">N₂ + 3 H₂ ⇌ 2 NH₃</span> je Δ<span class="q">n</span> = 2 − 4 = <b>−2</b>. Znaménko Δ<span class="q">n</span> zároveň říká, jak na rovnováhu působí tlak (kapitola 5).</p>
+      </div>
+
+      <h3>Heterogenní rovnováhy: co se do výrazu nepíše</h3>
+      <p><span class="term">Heterogenní rovnováha</span> je taková, kde jsou látky ve více fázích — pevná látka a&nbsp;plyn, sraženina a&nbsp;roztok. Platí pravidlo:</p>
+      <div class="callout def">
+        <span class="eyebrow">Dvě výjimky</span>
+        <p><b>Čisté pevné látky</b> a&nbsp;<b>čisté kapaliny</b> (typicky rozpouštědlo ve velkém nadbytku) se do výrazu pro <span class="q">K</span> <b>nepíší</b>. Jejich „koncentrace“ (hustota dělená molární hmotností) je konstantní, dokud jsou v&nbsp;soustavě přítomny — a&nbsp;konstanta se schová do <span class="q">K</span>. Přesněji: jejich <em>aktivita</em> je rovna jedné.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Reakce</th><th>Správný zápis</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chem">CaCO₃(s) ⇌ CaO(s) + CO₂(g)</span></td><td class="mono"><span class="q">K</span> = [CO₂] &nbsp;resp.&nbsp; <span class="q">K</span><sub>p</sub> = <span class="q">p</span>(CO₂)/<span class="q">p</span>°</td><td>dvě pevné látky vypadnou; rovnováha závisí jen na tlaku CO₂</td></tr>
+            <tr><td><span class="chem">AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)</span></td><td class="mono"><span class="q">K</span><sub>s</sub> = [Ag⁺][Cl⁻]</td><td>sraženina vypadne; zbylý součin je <b>součin rozpustnosti</b></td></tr>
+            <tr><td><span class="chem">NH₃(aq) + H₂O(l) ⇌ NH₄⁺ + OH⁻</span></td><td class="mono"><span class="q">K</span><sub>b</sub> = [NH₄⁺][OH⁻] / [NH₃]</td><td>voda je rozpouštědlo (55,5 mol·dm⁻³, nemění se)</td></tr>
+            <tr><td><span class="chem">CO(g) + H₂O(g) ⇌ CO₂(g) + H₂(g)</span></td><td class="mono"><span class="q">K</span> = [CO₂][H₂] / ([CO][H₂O])</td><td><b>pára se píše</b> — je to reagující plyn, ne rozpouštědlo</td></tr>
+            <tr><td><span class="chem">CH₃COOH + C₂H₅OH ⇌ ester + H₂O</span></td><td class="mono"><span class="q">K</span> = [ester][H₂O] / ([kys.][alk.])</td><td>voda <b>vzniká</b> v&nbsp;bezvodé směsi jako produkt — píše se</td></tr>
+            <tr><td><span class="chem">C(s) + H₂O(g) ⇌ CO(g) + H₂(g)</span></td><td class="mono"><span class="q">K</span> = [CO][H₂] / [H₂O]</td><td>uhlík je pevný, vypadne; pára zůstává</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nejčastější chyba</span>
+        <p>Vynechat vodu automaticky. Voda vypadne <b>jen tehdy, když je rozpouštědlem</b> (reakce ve zředěném vodném roztoku). Když je plynným reaktantem (shift reakce, reforming) nebo produktem v&nbsp;nevodné směsi (esterifikace), do výrazu <b>patří</b>. Vždy se ptejte: <em>mění se její koncentrace během reakce významně?</em></p>
+      </div>
+
+      <h3><span class="q">K</span> závisí na tom, jak rovnici napíšete</h3>
+      <p>Rovnovážná konstanta je vázaná na konkrétní zápis rovnice — stejně jako reakční enthalpie v&nbsp;termochemii. Tři operace, tři pravidla:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Operace s&nbsp;rovnicí</th><th>Nová konstanta</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td><b>Obrátíme</b> směr</td><td class="mono"><span class="q">K</span>′ = 1 / <span class="q">K</span></td><td><span class="chem">2 NH₃ ⇌ N₂ + 3 H₂</span>: 1/(5,6·10⁵) = 1,8·10⁻⁶</td></tr>
+            <tr><td><b>Vynásobíme</b> číslem <span class="q">n</span></td><td class="mono"><span class="q">K</span>′ = <span class="q">K</span><sup>n</sup></td><td><span class="chem">2 N₂ + 6 H₂ ⇌ 4 NH₃</span>: (5,6·10⁵)² = 3,1·10¹¹</td></tr>
+            <tr><td><b>Vydělíme</b> dvěma (½)</td><td class="mono"><span class="q">K</span>′ = √<span class="q">K</span></td><td><span class="chem">½ N₂ + 3/2 H₂ ⇌ NH₃</span>: √(5,6·10⁵) = 7,5·10²</td></tr>
+            <tr><td><b>Sečteme</b> dvě rovnice</td><td class="mono"><span class="q">K</span> = <span class="q">K</span>₁ · <span class="q">K</span>₂</td><td>rovnice se sčítají, konstanty <b>násobí</b> (protože ln K se sčítají — Hessův zákon pro ΔG°)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Důvod je stejný jako u&nbsp;Hessova zákona: obrácení rovnice obrátí znaménko Δ<span class="q">G</span>°, vynásobení ji vynásobí, sečtení sečte. A&nbsp;protože <span class="q">K</span> = e<sup>−Δ<span class="q">G</span>°/<span class="q">RT</span></sup>, mění se sčítání v&nbsp;exponentu na násobení konstant.</p>
+
+      <h3>Jedna rodina konstant</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Značka</th><th>Jméno</th><th>Typ rovnováhy</th><th>Příklad hodnoty (25 °C)</th></tr></thead>
+          <tbody>
+            <tr><td class="mono"><span class="q">K</span><sub>c</sub></td><td>koncentrační</td><td>obecná, roztoky i&nbsp;plyny</td><td>H₂ + I₂ ⇌ 2 HI: 50 (448 °C)</td></tr>
+            <tr><td class="mono"><span class="q">K</span><sub>p</sub></td><td>tlaková</td><td>plyny</td><td>N₂O₄ ⇌ 2 NO₂: 0,15</td></tr>
+            <tr><td class="mono"><span class="q">K</span><sub>a</sub>, <span class="q">K</span><sub>b</sub></td><td>disociační kyseliny / zásady</td><td>slabé kyseliny a&nbsp;zásady ve vodě</td><td>CH₃COOH: 1,8·10⁻⁵; NH₃: 1,8·10⁻⁵</td></tr>
+            <tr><td class="mono"><span class="q">K</span><sub>w</sub></td><td>iontový součin vody</td><td>autoprotolýza</td><td>1,0·10⁻¹⁴</td></tr>
+            <tr><td class="mono"><span class="q">K</span><sub>s</sub></td><td>součin rozpustnosti</td><td>málo rozpustné soli</td><td>AgCl: 1,8·10⁻¹⁰</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stavitel výrazu <span class="q">K</span>: vyberte reakci, výraz se poskládá sám</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="kbRxn">Reakce</label>
+          <select id="kbRxn"></select>
+        </div>
+        <p class="eq" id="kbEq" style="text-align:center;font-size:1.1rem"></p>
+        <div class="grid2" style="align-items:start">
+          <div class="callout def"><span class="eyebrow">Koncentrační konstanta <span class="q">K</span><sub>c</sub></span><p id="kbKc" style="font-size:1.12rem;font-family:var(--f-mono)"></p></div>
+          <div class="callout def"><span class="eyebrow">Tlaková konstanta <span class="q">K</span><sub>p</sub></span><p id="kbKp" style="font-size:1.12rem;font-family:var(--f-mono)"></p></div>
+        </div>
+        <div class="callout" id="kbNotes" style="background:var(--surface-2);margin-top:.4rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="kbRoK"></div>
+          <div class="readout" id="kbRoDn"></div>
+          <div class="readout" id="kbRoType"></div>
+        </div>
+        <div class="tablewrap" style="margin-top:1rem"><table><thead><tr>
+          <th>Úprava rovnice</th><th>Rovnice</th><th class="n">Nové <span class="q">K</span></th>
+        </tr></thead><tbody id="kbTrans"></tbody></table></div>
+      </div>
+      <div class="panel-note" id="kbNote">Zkuste vápenec, chlorid stříbrný a&nbsp;amoniak ve vodě — u&nbsp;všech tří něco z&nbsp;výrazu vypadne. Pak esterifikaci: tam voda zůstává.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Trenažér: napište <span class="q">K</span> — vyberte správný zápis</h3>
+      </div>
+      <div class="panel-body">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem">
+          <span class="eyebrow">Reakce <span id="ktQn">1</span> z&nbsp;<span id="ktQtot">8</span></span>
+          <span class="eyebrow">Skóre: <b style="color:var(--accent)"><span id="ktScore">0</span></b> správně</span>
+        </div>
+        <div class="eq" id="ktRxn" style="font-size:1.12rem;text-align:center;padding:1.2rem 1rem"></div>
+        <div class="grid2" id="ktOpts" style="margin-top:1rem"></div>
+        <div class="explain" id="ktExplain" style="margin-top:1rem"></div>
+        <div class="quiz-foot"><button class="btn btn-primary" type="button" id="ktNext" disabled>Další reakce →</button><button class="btn" type="button" id="ktRestart">Od začátku</button></div>
+      </div>
+      <div class="panel-note">Čtyři kontrolní otázky před každou odpovědí: <b>produkty nahoře?</b> · <b>koeficienty jako exponenty?</b> · <b>vypadly pevné látky a&nbsp;rozpouštědlo?</b> · <b>zůstaly plyny a&nbsp;rozpuštěné látky?</b></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.1 · zapište <span class="q">K</span><sub>c</sub> a&nbsp;<span class="q">K</span><sub>p</sub></span>
+          <p>Napište výrazy pro rovnovážné konstanty reakcí: (a) <span class="chem">2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g)</span>; (b) <span class="chem">C(s) + CO₂(g) ⇌ 2 CO(g)</span>; (c) <span class="chem">Cu²⁺(aq) + 4 NH₃(aq) ⇌ [Cu(NH₃)₄]²⁺(aq)</span>. U&nbsp;plynných reakcí uveďte i&nbsp;Δ<span class="q">n</span>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) Homogenní plynná reakce, všechno se píše, koeficienty do exponentů.</p>
+              <p class="eq"><span class="q">K</span><sub>c</sub> = [SO₃]² / ([SO₂]² · [O₂]) &nbsp;&nbsp; <span class="q">K</span><sub>p</sub> = <span class="q">p</span>(SO₃)² / (<span class="q">p</span>(SO₂)² · <span class="q">p</span>(O₂)) &nbsp;&nbsp; Δ<span class="q">n</span> = 2 − 3 = <b>−1</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) Heterogenní: uhlík je pevný a&nbsp;vypadne (Boudouardova reakce).</p>
+              <p class="eq"><span class="q">K</span><sub>c</sub> = [CO]² / [CO₂] &nbsp;&nbsp; <span class="q">K</span><sub>p</sub> = <span class="q">p</span>(CO)² / <span class="q">p</span>(CO₂) &nbsp;&nbsp; Δ<span class="q">n</span> = 2 − 1 = <b>+1</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(c) Reakce v&nbsp;roztoku: všechny látky jsou rozpuštěné, píší se; voda jako rozpouštědlo v&nbsp;rovnici ani není. <span class="q">K</span><sub>p</sub> nemá smysl (nic není plyn). Koeficient 4 jde do exponentu.</p>
+              <p class="eq"><span class="q">K</span><sub>c</sub> = [Cu(NH₃)₄²⁺] / ([Cu²⁺] · [NH₃]⁴)</p>
+              <span class="result">Tři výrazy; Δ<span class="q">n</span> = −1, +1, — (relativní koncentrace/tlaky → bezrozměrné <span class="q">K</span>)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.2 · přepočet <span class="q">K</span><sub>c</sub> na <span class="q">K</span><sub>p</sub></span>
+          <p>Pro <span class="chem">N₂O₄(g) ⇌ 2 NO₂(g)</span> je při 25&nbsp;°C <span class="q">K</span><sub>c</sub> = 6,0·10⁻³ (relativní koncentrace, <span class="q">c</span>° = 1&nbsp;mol·dm⁻³). Vypočítejte <span class="q">K</span><sub>p</sub> (<span class="q">p</span>° = 100&nbsp;kPa).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Δ<span class="q">n</span> = 2 − 1 = +1 (jen plyny).</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Faktor <span class="q">c</span>°<span class="q">RT</span>/<span class="q">p</span>° při 298,15&nbsp;K:</p>
+              <p class="eq">1000 mol·m⁻³ · 8,314 J·K⁻¹·mol⁻¹ · 298,15 K / 100 000 Pa = <b>24,79</b> &nbsp;(bezrozměrné)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">K</span><sub>p</sub> = <span class="q">K</span><sub>c</sub> · 24,79<sup>+1</sup> = 6,0·10⁻³ · 24,79 = <b>0,149 ≈ 0,15</b></p>
+              <span class="result"><span class="q">K</span><sub>p</sub> ≈ 0,15 — sedí s&nbsp;hodnotou z&nbsp;Δ<span class="q">G</span>° = +4,7 kJ·mol⁻¹</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Kdyby bylo Δ<span class="q">n</span> = −2 (syntéza amoniaku), dělili bychom 24,79² = 615. Kdyby Δ<span class="q">n</span> = 0, byly by obě konstanty totožné.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.3 · <span class="q">K</span> ze součtu reakcí</span>
+          <p>Při 25&nbsp;°C je pro <span class="chem">N₂ + O₂ ⇌ 2 NO</span> <span class="q">K</span>₁ = 2,0·10⁻³¹ a&nbsp;pro <span class="chem">2 NO + O₂ ⇌ 2 NO₂</span> <span class="q">K</span>₂ = 5,2·10¹². Určete <span class="q">K</span> reakce <span class="chem">N₂ + 2 O₂ ⇌ 2 NO₂</span> a&nbsp;<span class="q">K</span> reakce <span class="chem">NO₂ ⇌ ½ N₂ + O₂</span>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Sečteme obě rovnice: NO se vykrátí a&nbsp;dostaneme cílovou rovnici. Konstanty se <b>násobí</b>.</p>
+              <p class="eq"><span class="q">K</span> = <span class="q">K</span>₁ · <span class="q">K</span>₂ = 2,0·10⁻³¹ · 5,2·10¹² = <b>1,0·10⁻¹⁸</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Druhá rovnice je cílová rovnice <b>obrácená</b> a&nbsp;<b>vydělená dvěma</b>. Obrácení dá 1/<span class="q">K</span>, vydělení dvěma odmocninu.</p>
+              <p class="eq"><span class="q">K</span>′ = (1/<span class="q">K</span>)<sup>½</sup> = (1,0·10¹⁸)<sup>½</sup> = <b>1,0·10⁹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kontrola přes Δ<span class="q">G</span>°: sčítání rovnic = sčítání Δ<span class="q">G</span>° (Hess), a&nbsp;protože <span class="q">K</span> = e<sup>−Δ<span class="q">G</span>°/<span class="q">RT</span></sup>, sčítání v&nbsp;exponentu je násobení konstant. Obrovské <span class="q">K</span>′ říká, že NO₂ by se při 25&nbsp;°C „měl“ rozpadnout na prvky — a&nbsp;nerozpadá se jen proto, že je to nekonečně pomalé.</p>
+              <span class="result"><span class="q">K</span>(N₂ + 2 O₂ ⇌ 2 NO₂) = 1,0·10⁻¹⁸; <span class="q">K</span>(NO₂ ⇌ ½ N₂ + O₂) = 1,0·10⁹</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: zápis rovnovážné konstanty"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>

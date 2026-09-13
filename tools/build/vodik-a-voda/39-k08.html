@@ -1,0 +1,263 @@
+
+  <!-- ============ KAPITOLA 8 ============ -->
+  <section class="chapter" id="k8" data-title="Peroxid vodíku">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 08 · osnova, bod 8</span>
+      <h2>Peroxid vodíku: molekula, která umí oxidovat i&nbsp;redukovat — a&nbsp;nejradši sama sebe</h2>
+      <p class="lead">Druhá sloučenina vodíku a&nbsp;kyslíku. Liší se od vody jediným atomem kyslíku navíc, ale chová se úplně jinak: rozkládá se, bělí, dezinfikuje, pohání rakety a&nbsp;při vyšší koncentraci leptá kůži. Celé to plyne z&nbsp;jednoho čísla — <b>oxidační stav kyslíku −I</b>, tedy přesně uprostřed mezi 0 a&nbsp;−II.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Kde peroxid v&nbsp;osnovách bydlí</span>
+        <p>Peroxid vodíku se v&nbsp;klasické systematice probírá <b>u&nbsp;kyslíku</b>, ne u&nbsp;vodíku — proto ho ve většině učebnic v&nbsp;kapitole o&nbsp;vodíku nenajdete. K&nbsp;maturitní otázce „Vodík a&nbsp;voda“ ale patří, protože je to druhý binární hydrid kyslíku a&nbsp;jeho chování se vysvětluje přesně tím, co už o&nbsp;vodíku a&nbsp;vodě víte.</p>
+      </div>
+
+      <h3>Struktura molekuly</h3>
+      <p>Molekula <span class="chem">H₂O₂</span> <b>není rovinná</b>. Dvě skupiny O–H leží v&nbsp;různých rovinách, které se protínají v&nbsp;ose vazby O–O — tvar se přirovnává k&nbsp;pootevřené knize.</p>
+      <div class="grid3">
+        <div class="readout"><span class="k">Délka vazby O–O</span><span class="v">145,8 pm</span><span class="h">delší a&nbsp;slabší než většina vazeb</span></div>
+        <div class="readout"><span class="k">Délka vazby O–H</span><span class="v">98,8 pm</span><span class="h">skoro stejná jako ve vodě (96 pm)</span></div>
+        <div class="readout"><span class="k">Úhel O–O–H</span><span class="v">94,8°</span><span class="h">blízko pravého úhlu</span></div>
+      </div>
+      <p style="margin-top:1rem">Nejzajímavější je <b>torzní (dihedrální) úhel</b> mezi oběma rovinami. V&nbsp;plynné fázi je zhruba <b>111,5°</b>, v&nbsp;krystalu se vlivem vodíkových můstků stlačí na <b>90,2°</b>. Molekula tedy nemá jednu pevnou geometrii — vnitřní rotace kolem vazby O–O je poměrně volná a&nbsp;okolí ji dokáže ohnout.</p>
+
+      <div class="callout def">
+        <span class="eyebrow">Klíč ke všemu ostatnímu: slabá vazba O–O</span>
+        <p>Energie jednoduché vazby <b>O–O je jen asi 146 kJ·mol⁻¹</b>, zatímco vazba O–H má 463 kJ·mol⁻¹ a&nbsp;vazba H–H 436 kJ·mol⁻¹. Peroxidový můstek je tedy <b>nejslabším místem molekuly</b> a&nbsp;při jakémkoli podnětu praská první. Odtud plyne rozklad peroxidu, jeho oxidační účinky i&nbsp;to, proč vznikají radikály.</p>
+      </div>
+
+      <h3>Fyzikální vlastnosti a&nbsp;srovnání s&nbsp;vodou</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Veličina</th><th class="n">H₂O</th><th class="n">H₂O₂</th><th>Poznámka</th></tr></thead>
+          <tbody>
+            <tr><td>Molární hmotnost</td><td class="n">18,02 g·mol⁻¹</td><td class="n">34,01 g·mol⁻¹</td><td>o&nbsp;jeden atom kyslíku víc</td></tr>
+            <tr><td>Teplota tání</td><td class="n">0,00 °C</td><td class="n">−0,43 °C</td><td>skoro stejná</td></tr>
+            <tr><td>Teplota varu</td><td class="n">100,0 °C</td><td class="n">150,2 °C</td><td>víc vodíkových můstků na molekulu</td></tr>
+            <tr><td>Hustota (20 °C)</td><td class="n">0,998 g·cm⁻³</td><td class="n">1,450 g·cm⁻³</td><td>čistý peroxid je znatelně těžší než voda</td></tr>
+            <tr><td>Oxidační číslo kyslíku</td><td class="n">−II</td><td class="n">−I</td><td>odtud plyne veškerá odlišnost</td></tr>
+            <tr><td>Vzhled</td><td class="n">bezbarvá</td><td class="n">bezbarvá, sirupovitá</td><td>čistý peroxid je viskóznější než voda</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Bezvodý peroxid je s&nbsp;vodou <b>neomezeně mísitelný</b> a&nbsp;běžně se s&nbsp;ním pracuje jen ve formě vodných roztoků. Tvoří ještě víc vodíkových můstků než voda, což vysvětluje o&nbsp;padesát stupňů vyšší teplotu varu.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Geometrie molekuly H₂O₂ — otočte skupinami O–H kolem vazby O–O</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="pxD">Torzní úhel <span class="val" id="pxDV">111,5°</span></label>
+          <input type="range" id="pxD" min="0" max="180" step="1" value="112">
+        </div>
+        <div class="svgwrap" id="pxWrap" style="min-height:280px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="pxRo1"></div>
+          <div class="readout" id="pxRo2"></div>
+          <div class="readout" id="pxRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="pxNote">Nastavte 0° (obě skupiny O–H na stejné straně) a&nbsp;180° (na opačných stranách) — obojí je energeticky nevýhodné. Rovnovážná hodnota v&nbsp;plynu je <b>111,5°</b>, v&nbsp;krystalu <b>90,2°</b>, protože ji tam stlačí vodíkové můstky k&nbsp;sousedům.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Rozklad — disproporcionace, kterou je třeba brzdit</h3>
+      <p class="eq"><span class="chem">2 H₂O₂ → 2 H₂O + O₂</span> &nbsp;&nbsp;Δ<span class="q">H</span> = −98 kJ na mol H₂O₂</p>
+      <p>Podívejte se na oxidační čísla kyslíku: vstupuje jako <b>−I</b> a&nbsp;vystupuje jednak jako <b>−II</b> (ve vodě, tedy se zredukoval), jednak jako <b>0</b> (v&nbsp;kyslíku, tedy se zoxidoval). Táž látka se současně oxiduje i&nbsp;redukuje — je to učebnicová <span class="term">disproporcionace</span>.</p>
+      <p>Reakce je <b>exotermická a&nbsp;samovolná</b>, takže peroxid je termodynamicky nestálý za všech okolností. Zachraňuje ho jen kinetika: bez katalyzátoru běží rozklad pomalu. Urychlí ho ale prakticky cokoli:</p>
+      <div class="grid2">
+        <div class="callout warn">
+          <span class="eyebrow">Co rozklad urychlí</span>
+          <p>• <b>Katalyzátory:</b> MnO₂, oxidy a&nbsp;ionty přechodných kovů (Fe³⁺, Cu²⁺), jodid I⁻, prášková platina<br>
+          • <b>Enzym kataláza</b>, přítomný prakticky v&nbsp;každé živé tkáni — proto peroxid na ráně zpění<br>
+          • <b>Světlo</b>, zejména ultrafialové<br>
+          • <b>Zvýšená teplota</b> a&nbsp;<b>zásadité prostředí</b><br>
+          • <b>Drsný povrch</b> a&nbsp;stopy prachu</p>
+        </div>
+        <div class="callout tip">
+          <span class="eyebrow">Jak se rozkladu brání</span>
+          <p>• Skladuje se v&nbsp;<b>tmavých lahvích</b> na chladném místě<br>
+          • Přidávají se <b>stabilizátory</b> — kyselina fosforečná, fosforečnany, močovina, cínatan<br>
+          • Roztok se udržuje slabě <b>kyselý</b><br>
+          • Nádoby mají <b>hladké stěny</b> a&nbsp;odvětrávací uzávěr, protože uvolněný kyslík by je jinak roztrhl</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem">Právě uvolňování kyslíku je základem <b>desinfekčního účinku</b>: bublinky mechanicky vyplaví nečistoty z&nbsp;rány a&nbsp;vznikající kyslík ničí anaerobní bakterie. Zpěnění, které vidíte, je práce vaší vlastní katalázy.</p>
+
+      <h3>Peroxid jako oxidační činidlo</h3>
+      <p>Tohle je jeho hlavní role. Kyslík jde z&nbsp;−I na −II:</p>
+      <p class="eq">v&nbsp;kyselém prostředí: <span class="chem">H₂O₂ + 2 H⁺ + 2 e⁻ → 2 H₂O</span> &nbsp;&nbsp;<span class="q">E</span>° = <b>+1,776 V</b><br>
+      v&nbsp;zásaditém prostředí: <span class="chem">H₂O₂ + 2 e⁻ → 2 OH⁻</span> &nbsp;&nbsp;<span class="q">E</span>° = +0,88 V</p>
+      <p>Hodnota +1,78 V řadí peroxid mezi <b>velmi silná oxidační činidla</b> — silnější než manganistan v&nbsp;kyselém prostředí by byl jen málokdo. Praktické příklady:</p>
+      <p class="eq"><span class="chem">H₂O₂ + 2 KI + H₂SO₄ → I₂ + K₂SO₄ + 2 H₂O</span> &nbsp;(roztok zhnědne jodem)<br>
+      <span class="chem">PbS + 4 H₂O₂ → PbSO₄ + 4 H₂O</span> &nbsp;(zčernalá bělob na obrazech se rozjasní)<br>
+      <span class="chem">H₂O₂ + SO₂ → H₂SO₄</span> &nbsp;(odsiřování spalin)<br>
+      <span class="chem">H₂O₂ + 2 Fe²⁺ + 2 H⁺ → 2 Fe³⁺ + 2 H₂O</span> &nbsp;(Fentonovo činidlo)</p>
+
+      <h3>Peroxid jako redukční činidlo</h3>
+      <p>Pokud narazí na ještě silnější oxidační činidlo, musí ustoupit a&nbsp;sám se zoxidovat — kyslík jde z&nbsp;−I na 0:</p>
+      <p class="eq"><span class="chem">O₂ + 2 H⁺ + 2 e⁻ → H₂O₂</span> &nbsp;&nbsp;<span class="q">E</span>° = <b>+0,695 V</b> (poloreakce psaná jako redukce)</p>
+      <p>Nejznámější příklad je reakce s&nbsp;manganistanem, která se používá k&nbsp;jeho <b>odměrnému stanovení</b>:</p>
+      <p class="eq"><span class="chem">5 H₂O₂ + 2 KMnO₄ + 3 H₂SO₄ → 2 MnSO₄ + K₂SO₄ + 5 O₂ + 8 H₂O</span><br>
+      iontově: <span class="chem">5 H₂O₂ + 2 MnO₄⁻ + 6 H⁺ → 2 Mn²⁺ + 5 O₂ + 8 H₂O</span></p>
+      <p>Manganistan má v&nbsp;kyselém prostředí +1,51 V. To je sice míň než +1,78 V pro dvojici H₂O₂/H₂O, ale <b>víc než +0,695 V</b> pro dvojici O₂/H₂O₂ — a&nbsp;právě tahle druhá dvojice rozhoduje o&nbsp;tom, jestli se peroxid dá zoxidovat. Fialová barva mizí a&nbsp;z&nbsp;roztoku bublá kyslík.</p>
+      <div class="callout def">
+        <span class="eyebrow">Jak si to zapamatovat jednou provždy</span>
+        <p>Kyslík v&nbsp;peroxidu je v&nbsp;oxidačním čísle <b>−I</b>, což je <b>prostřední</b> hodnota mezi 0 (v&nbsp;O₂) a&nbsp;−II (ve vodě). Prostřední oxidační stav znamená, že látka může jít <b>oběma směry</b> — a&nbsp;proto může být oxidačním i&nbsp;redukčním činidlem, a&nbsp;dokonce reagovat sama se sebou. Stejnou logiku najdete u&nbsp;každé látky s&nbsp;prostředním oxidačním číslem: siřičitanů, dusitanů, Fe²⁺.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Oxidovat, nebo se nechat zoxidovat? Vyberte partnera</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="prSel">Reakční partner</label>
+            <select id="prSel"></select>
+          </div>
+          <div class="ctl">
+            <label>Filtr podle role peroxidu</label>
+            <div class="segmented" id="prFilt" role="group" aria-label="Filtr role">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="ox" aria-pressed="false">Oxiduje</button>
+              <button type="button" data-v="red" aria-pressed="false">Redukuje</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="prWrap" style="min-height:230px"></div>
+        <p class="eq" id="prEq" style="margin-top:1rem"></p>
+        <p class="eq" id="prIon" style="margin-top:.5rem;border-left-color:var(--accent)"></p>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="prRo1"></div>
+          <div class="readout" id="prRo2"></div>
+          <div class="readout" id="prRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="prNote">Sledujte v&nbsp;grafu pod výběrem, kam se oxidační číslo kyslíku pohnulo. Když jde dolů na −II, peroxid oxidoval partnera. Když jde nahoru na 0, peroxid se sám zoxidoval. Poslední položka jde <b>na obě strany současně</b> — to je disproporcionace.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Výroba a&nbsp;koncentrace</h3>
+      <p>Historicky se peroxid připravoval z&nbsp;peroxidu barnatého:</p>
+      <p class="eq"><span class="chem">2 BaO + O₂ → 2 BaO₂</span> &nbsp;pak&nbsp; <span class="chem">BaO₂ + H₂SO₄ → BaSO₄↓ + H₂O₂</span></p>
+      <p>Dnes se prakticky veškerý peroxid vyrábí <b>antrachinonovým procesem</b>: substituovaný antrachinon se katalyticky zhydrogenuje na hydrochinon, ten se pak vzdušným kyslíkem zoxiduje zpět — a&nbsp;přitom uvolní peroxid vodíku. Antrachinon se v&nbsp;cyklu vrací, takže se vlastně jen kombinuje vodík s&nbsp;kyslíkem přes bezpečný meziprodukt. Přímé slučování H₂ a&nbsp;O₂ na peroxid by totiž znamenalo míchat třaskavý plyn.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Objemová procenta — jednotka, kterou uvidíte v&nbsp;lékárně</span>
+        <p>Na lahvičce bývá napsáno „3&nbsp;%“, ale někdy také „<b>10 objemových</b>“. Ta druhá jednotka říká, <b>kolik litrů kyslíku</b> se uvolní z&nbsp;jednoho litru roztoku při úplném rozkladu za normálních podmínek. Tříprocentní roztok dá právě 10 objemů, třicetiprocentní perhydrol kolem 110. Je to praktické měřítko „síly“ roztoku — a&nbsp;dobře se z&nbsp;něj počítá.</p>
+      </div>
+
+      <h3>Využití</h3>
+      <div class="grid2">
+        <div class="callout def">
+          <span class="eyebrow">Bělení a&nbsp;čištění</span>
+          <p>Největší odbyt: <b>bělení buničiny, papíru a&nbsp;textilu</b>. Peroxid nahradil chlorové bělidlo, protože po sobě nenechává organochlorové sloučeniny — rozpadne se na vodu a&nbsp;kyslík. V&nbsp;pracích prášcích je ve formě pevných nosičů: <b>peruhličitanu sodného</b> (2 Na₂CO₃·3 H₂O₂) a&nbsp;<b>perboritanu sodného</b>, které se ve vodě rozpustí a&nbsp;peroxid uvolní.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Dezinfekce a&nbsp;kosmetika</span>
+          <p>Tříprocentní roztok na drobná poranění, koncentrovanější na dezinfekci povrchů a&nbsp;na sterilizaci obalů v&nbsp;potravinářství. V&nbsp;kadeřnictví <b>odbarvuje vlasy</b> tím, že zoxiduje melanin. Ve stomatologii bělí zuby.</p>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:.8rem">
+        <div class="callout def">
+          <span class="eyebrow">Životní prostředí</span>
+          <p>Čištění odpadních vod — Fentonovým činidlem (H₂O₂ + Fe²⁺) vznikají hydroxylové radikály, které rozloží i&nbsp;jinak odolné organické jedy. Odstraňování zbytkového chloru a&nbsp;odsiřování spalin.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Raketová technika</span>
+          <p>Roztoky nad 85&nbsp;% slouží jako <b>monopropelant</b>: stačí je pustit přes stříbrný nebo platinový katalyzátor a&nbsp;prudkým rozkladem vznikne horká směs páry a&nbsp;kyslíku, která pohání trysku. Používalo se to v&nbsp;řídicích tryskách raket i&nbsp;v&nbsp;pohonu torpéd.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Koncentrace peroxidu — od lékárny po raketu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="pkW">Hmotnostní zlomek <span class="val" id="pkWV">3 %</span></label>
+          <input type="range" id="pkW" min="1" max="90" step="1" value="3">
+        </div>
+        <div class="svgwrap" id="pkWrap" style="min-height:230px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="pkRo1"></div>
+          <div class="readout" id="pkRo2"></div>
+          <div class="readout" id="pkRo3"></div>
+        </div>
+        <p class="eq" id="pkEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="pkNote">Posuňte na 3&nbsp;% (lékárna), 30&nbsp;% (perhydrol) a&nbsp;85&nbsp;% (raketové palivo) a&nbsp;sledujte, kolik kyslíku by se z&nbsp;litru uvolnilo. U&nbsp;perhydrolu je to přes sto litrů — proto se s&nbsp;ním pracuje v&nbsp;rukavicích a&nbsp;nikdy v&nbsp;uzavřené nádobě bez odvětrání.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 8.1 · objemová procenta</span>
+          <p>Kolik dm³ kyslíku za normálních podmínek se uvolní z&nbsp;250 cm³ tříprocentního roztoku peroxidu vodíku (hustota 1,01 g·cm⁻³) při úplném rozkladu? Kolik „objemů“ ten roztok má? <span class="q">M</span>(H₂O₂) = 34,01 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Hmotnost roztoku a&nbsp;z&nbsp;ní hmotnost peroxidu:</p>
+              <p class="eq"><span class="q">m</span>(roztok) = 250 · 1,01 = 252,5 g</p>
+              <p class="eq"><span class="q">m</span>(H₂O₂) = 0,0300 · 252,5 = <b>7,575 g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(H₂O₂) = 7,575 / 34,01 = <b>0,2227 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Z&nbsp;rovnice <span class="chem">2 H₂O₂ → 2 H₂O + O₂</span> vzniká <b>půl</b> molu kyslíku na mol peroxidu:</p>
+              <p class="eq"><span class="q">n</span>(O₂) = 0,2227 / 2 = 0,1114 mol</p>
+              <p class="eq"><span class="q">V</span>(O₂) = 0,1114 · 22,41 = <b>2,50 dm³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Přepočet na jeden litr roztoku dá počet „objemů“:</p>
+              <p class="eq">2,50 dm³ / 0,250 dm³ = <b>10,0 objemových</b></p>
+              <span class="result">Uvolní se 2,50 dm³ kyslíku; roztok má 10 objemů</span>
+              <p>Zapamatovatelný převod: <b>3 % ≈ 10 objemů</b>, a&nbsp;dál je to lineární — 6&nbsp;% je 20 objemů, 30&nbsp;% je asi 110 objemů (o&nbsp;něco víc než desetinásobek, protože roste i&nbsp;hustota roztoku).</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 8.2 · stanovení manganistanem</span>
+          <p>Na titraci 20,0 cm³ zředěného roztoku peroxidu vodíku se v&nbsp;kyselém prostředí spotřebovalo 18,4 cm³ odměrného roztoku KMnO₄ o&nbsp;koncentraci 0,0200 mol·dm⁻³. Jaká je látková koncentrace peroxidu a&nbsp;jeho hmotnostní zlomek, je-li hustota roztoku 1,00 g·cm⁻³?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Vyčíslená iontová rovnice — poměr je klíčový:</p>
+              <p class="eq"><span class="chem">5 H₂O₂ + 2 MnO₄⁻ + 6 H⁺ → 2 Mn²⁺ + 5 O₂ + 8 H₂O</span></p>
+              <p>Kontrola elektronů: Mn jde z&nbsp;+VII na +II, tedy 5 e⁻ na atom, dva atomy = 10 e⁻. Kyslík jde z&nbsp;−I na 0, tedy 1 e⁻ na atom, pět molekul H₂O₂ má deset atomů = 10 e⁻. ✓</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(MnO₄⁻) = 0,0184 · 0,0200 = <b>3,680·10⁻⁴ mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Poměr 5&nbsp;:&nbsp;2 ve prospěch peroxidu:</p>
+              <p class="eq"><span class="q">n</span>(H₂O₂) = 3,680·10⁻⁴ · 5/2 = <b>9,200·10⁻⁴ mol</b></p>
+              <p class="eq"><span class="q">c</span>(H₂O₂) = 9,200·10⁻⁴ / 0,0200 = <b>0,0460 mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Hmotnostní zlomek: v&nbsp;jednom litru je 0,0460 · 34,01 = 1,564 g peroxidu a&nbsp;roztok váží 1000 g:</p>
+              <p class="eq"><span class="q">w</span> = 1,564 / 1000 = 0,00156 = <b>0,156 %</b></p>
+              <span class="result">c = 0,0460 mol·dm⁻³, tedy 0,156 hmotnostních %</span>
+              <p>Pozor na past: kdo použije poměr 1&nbsp;:&nbsp;1 nebo 2&nbsp;:&nbsp;5 obráceně, dostane výsledek 2,5× mimo. Vždycky si poměr ověřte elektronovou bilancí, jak je ukázáno v&nbsp;prvním kroku.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q8" data-title="Mini‑test: peroxid vodíku"></div>
+    <div class="chapter-done" data-done="k8"></div>
+  </section>

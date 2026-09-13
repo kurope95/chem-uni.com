@@ -1,0 +1,142 @@
+  <!-- ============ KAPITOLA 06 ============ -->
+  <section class="chapter" id="k6" data-title="Co dělat a co nedělat">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 7</span>
+      <h2>Co dělat a&nbsp;co nedělat</h2>
+      <p class="lead">Chyb, které se se zlomky dělají, je překvapivě málo — čtyři, možná pět typů. Zato se opakují u&nbsp;každého studenta a&nbsp;u&nbsp;každého tématu. Tahle kapitola je jejich úplný seznam: u&nbsp;každé chyby ukázka, protipříklad na číslech a&nbsp;správná verze vedle.</p>
+
+      <div class="ddgrid">
+        <div class="ddcard no">
+          <span class="ddh">Zapomenutá závorka ve jmenovateli</span>
+          <p class="eqlin" data-lbl="Co se napsalo na řádek">m / M · V</p>
+          <p class="eq" data-lbl="A co to znamená">m / M · V</p>
+          <p class="ddb">Nejčastější chyba vůbec. Poslední činitel jmenovatele vyskočí do čitatele. Pro <span class="q">m</span>&nbsp;=&nbsp;5,85, <span class="q">M</span>&nbsp;=&nbsp;58,44 a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;0,250 vyjde 0,0250 místo 0,400.</p>
+        </div>
+        <div class="ddcard do">
+          <span class="ddh">Uzávorkovat celý jmenovatel</span>
+          <p class="eqlin" data-lbl="Co se napsalo na řádek">m / (M · V)</p>
+          <p class="eq" data-lbl="A co to znamená">m / (M · V)</p>
+          <p class="ddb">Kdykoli je pod čarou víc než jeden člen, patří tam závorka. Když si nejste jistí, napište ji — nikdy nic nezkazí.</p>
+        </div>
+
+        <div class="ddcard no">
+          <span class="ddh">Krácení přes sčítání</span>
+          <p class="ddb">Ze zlomku <span class="fx">(a + b) / a</span> „vyškrtnout“ <span class="q">a</span> a&nbsp;nechat <span class="q">b</span>. Pro <span class="q">a</span>&nbsp;=&nbsp;2 a&nbsp;<span class="q">b</span>&nbsp;=&nbsp;3 je vlevo 2,5, vpravo 3. Neplatí.</p>
+        </div>
+        <div class="ddcard do">
+          <span class="ddh">Krátit jen činitele</span>
+          <p class="ddb">Ve zlomku <span class="fx">(a · b) / a</span> je <span class="q">a</span> činitelem celého čitatele, takže se zkrátit smí a&nbsp;zbude <span class="q">b</span>. Rozdíl je jediný znak: tečka místo plus.</p>
+        </div>
+
+        <div class="ddcard no">
+          <span class="ddh">Rušení členu místo činitele</span>
+          <p class="ddb">Ze zlomku <span class="fx">(a + b) / (a + c)</span> udělat <span class="fx">b / c</span>. Pro 2, 3 a&nbsp;5 je vlevo 0,7143, vpravo 0,6. Sčítanec se neškrtá, ani když stojí nahoře i&nbsp;dole.</p>
+        </div>
+        <div class="ddcard do">
+          <span class="ddh">Nejdřív vytknout, pak krátit</span>
+          <p class="ddb">Ve zlomku <span class="fx">(a · b + a · c) / a</span> se dá <span class="q">a</span> z&nbsp;čitatele vytknout: <span class="fx">a · (b + c)</span>. Teprve pak je činitelem a&nbsp;smí se krátit; zbude <span class="q">b</span>&nbsp;+&nbsp;<span class="q">c</span>.</p>
+        </div>
+
+        <div class="ddcard no">
+          <span class="ddh">Závorka navíc, která mění znaménko</span>
+          <p class="ddb">Napsat <span class="mono">a − (b − c)</span> tam, kde patří <span class="mono">a − b − c</span>. Pro 5, 3 a&nbsp;1 je vlevo 3, vpravo 1. Minus před závorkou obrací znaménka uvnitř.</p>
+        </div>
+        <div class="ddcard do">
+          <span class="ddh">Před závorkou s&nbsp;minusem myslet</span>
+          <p class="ddb">Platí <span class="mono">a − (b − c) = a − b + c</span>. Závorka za minusem není nikdy zbytečná — buď tam patří a&nbsp;mění význam, nebo tam nepatří vůbec.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Chyba 1 — zapomenutá závorka ve jmenovateli</h3>
+      <p>Popsali jsme ji v&nbsp;kapitole 01, ale patří i&nbsp;sem, protože je nejčastější. Vzniká při opisování ze svislého zápisu na řádek. Poznáte ji podle toho, že výsledek je o&nbsp;několik řádů vedle — a&nbsp;poměr chyby je roven druhé mocnině toho, co vyskočilo nahoru.</p>
+      <p><b>Jak se pozná:</b> rozměrovou kontrolou. Když ve vzorci pro koncentraci vyjde místo mol·dm⁻³ třeba mol·dm³, je chyba přesně tady.</p>
+
+      <h3>Chyba 2 — krácení přes sčítání</h3>
+      <p>Nejrozšířenější algebraická chyba na světě. Studenta svádí, že totéž písmeno vidí nahoře i&nbsp;dole, tak ho škrtne. Jenže krátit znamená <b>dělit čitatele i&nbsp;jmenovatele týmž číslem</b>, a&nbsp;to jde jen tehdy, když je to číslo <b>činitelem celého</b> čitatele i&nbsp;jmenovatele.</p>
+      <div class="twoup">
+        <div class="tu-cell ok"><span class="cap">Smí se — a je činitel</span>(a · b) / a</div>
+        <div class="tu-rel">vs</div>
+        <div class="tu-cell no"><span class="cap">Nesmí se — a je sčítanec</span>(a + b) / a</div>
+      </div>
+      <p>Vlevo se dá zlomek rozepsat jako <span class="mono">(a / a) · b</span>, a&nbsp;první závorka je jednička. Vpravo to nejde: <span class="fx">(a + b) / a</span> se rozpadá na <span class="mono">1 + b / a</span>, ne na <span class="q">b</span>.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past — „vždyť tam to áčko je“</span>
+        <p>Ano, je. Ale ne jako činitel. Rozhoduje <b>znaménko těsně vedle něj</b>: tečka znamená činitel a&nbsp;krátit se smí, plus nebo minus znamená sčítanec a&nbsp;krátit se nesmí. Jediný znak dělí správnou úpravu od nesmyslu.</p>
+      </div>
+
+      <h3>Chyba 3 — rušení členu místo činitele</h3>
+      <p>Varianta předchozí chyby, tentokrát na obou stranách zlomku. Zápis <span class="fx">(a + b) / (a + c)</span> se nedá zkrátit vůbec — ani na <span class="fx">b / c</span>, ani na nic jiného. Jediné, co se s&nbsp;ním dá dělat, je nechat ho být.</p>
+      <p>Existuje ale legální úprava, která na krácení vypadá: <b>zlomek se smí rozdělit po členech čitatele</b>. Platí <span class="fx">(a + b) / c</span> = <span class="mono">a / c + b / c</span>. Všimněte si, že se dělí <b>jmenovatelem</b>, ne členem jmenovatele — a&nbsp;že jmenovatel zůstává u&nbsp;obou částí.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Zapamatovatelné pravidlo</span>
+        <p><b>Součet v&nbsp;čitateli se dá roztrhnout, součet ve jmenovateli ne.</b> Platí <span class="fx">(a + b) / c</span> = <span class="mono">a / c + b / c</span>, ale <span class="mono">a / (b + c)</span> se na <span class="mono">a / b + a / c</span> rozdělit <b>nedá</b>. Ověřte si to na číslech: pro 2, 3, 5 je vlevo 0,25, vpravo 1,067.</p>
+      </div>
+
+      <h3>Chyba 4 — závorka navíc, která mění znaménko</h3>
+      <p>Doteď platilo „závorka navíc nikdy nic nezkazí“. Existuje jediná výjimka, a&nbsp;to je závorka <b>za znaménkem minus</b>. Minus před závorkou obrátí znaménka všem členům uvnitř.</p>
+      <div class="bigeq" data-lbl="Rozepsání závorky za minusem">a − (b − c) = a − b + c</div>
+      <p>Pro <span class="q">a</span>&nbsp;=&nbsp;5, <span class="q">b</span>&nbsp;=&nbsp;3 a&nbsp;<span class="q">c</span>&nbsp;=&nbsp;1 je vlevo 5&nbsp;−&nbsp;2&nbsp;=&nbsp;3, a&nbsp;<span class="mono">a − b − c</span> by dalo 1. Rozdíl je dvojnásobek <span class="q">c</span>.</p>
+      <p>V&nbsp;chemii tuhle chybu potkáte hlavně u&nbsp;Hessova zákona a&nbsp;u&nbsp;výpočtů reakční enthalpie, kde se odečítá součet slučovacích enthalpií reaktantů. Součet se odečítá <b>celý</b>, takže závorka je povinná — a&nbsp;při jejím rozepsání se všem členům otočí znaménko.</p>
+
+      <h3>Chyba 5 — „zkrácení“ jednotky, která se krátit nedá</h3>
+      <p>Táž logika platí i&nbsp;pro jednotky. V&nbsp;součtu se jednotky nekrátí; v&nbsp;součinu ano. Výraz <span class="mono">(g + g·mol⁻¹)</span> je navíc nesmyslný sám o&nbsp;sobě — sčítat se dají jen veličiny stejného rozměru. Když vám ve výpočtu vyjde součet dvou různých jednotek, nehledejte chybu v&nbsp;krácení, ale výš, ve vzorci.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Detektor chyby v&nbsp;krácení — je to legální?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="drill">
+          <div class="drill-q" id="dkQ">—</div>
+          <div class="drill-opts">
+            <button class="drill-opt" type="button" id="dkYes">Legální úprava</button>
+            <button class="drill-opt" type="button" id="dkNo">Nelegální úprava</button>
+          </div>
+          <p class="drill-fb" id="dkFb">—</p>
+          <div class="drill-bar">
+            <button class="btn btn-primary btn-sm" type="button" id="dkNext">Další úprava</button>
+            <span class="drill-score" id="dkScore">0 / 0 správně</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste u&nbsp;každé úpravy najít znaménko, které rozhoduje. O&nbsp;tom, jestli je úprava legální, nerozhoduje autor stránky, ale dosazení: model při chybné odpovědi vždycky vypíše konkrétní protipříklad. Přesně tak si to můžete ověřit i&nbsp;na papíře.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 6.1 · čtyři úpravy, jedna z&nbsp;nich špatně</span>
+        <p>Rozhodněte, které z&nbsp;úprav jsou správné: (A)&nbsp;<span class="fx">(a · b) / (a · c) = b / c</span>, (B)&nbsp;<span class="fx">(a + b) / (a + c) = b / c</span>, (C)&nbsp;<span class="fx">(a + b) / c</span> = <span class="mono">a / c + b / c</span>, (D)&nbsp;<span class="fx">a / (b + c)</span> = <span class="mono">a / b + a / c</span>.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+        <div class="worked-steps">
+          <div class="step"><span class="step-n">1</span><div class="step-b">
+            <p>Dosadíme všude tatáž čísla: <span class="q">a</span>&nbsp;=&nbsp;2, <span class="q">b</span>&nbsp;=&nbsp;3, <span class="q">c</span>&nbsp;=&nbsp;5.</p>
+          </div></div>
+          <div class="step"><span class="step-n">2</span><div class="step-b">
+            <p><b>(A)</b> vlevo (2·3)/(2·5) = 6/10 = 0,6; vpravo 3/5 = 0,6. Shoda — <span class="q">a</span> je činitel na obou stranách, krátit se smí.</p>
+          </div></div>
+          <div class="step"><span class="step-n">3</span><div class="step-b">
+            <p><b>(B)</b> vlevo (2+3)/(2+5) = 5/7 = 0,7143; vpravo 0,6. Neshoda — sčítanec se škrtat nesmí.</p>
+          </div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-b">
+            <p><b>(C)</b> vlevo (2+3)/5 = 1,0; vpravo 2/5 + 3/5 = 0,4 + 0,6 = 1,0. Shoda — součet v&nbsp;čitateli se roztrhnout smí.</p>
+          </div></div>
+          <div class="step"><span class="step-n">5</span><div class="step-b">
+            <p><b>(D)</b> vlevo 2/(3+5) = 0,25; vpravo 2/3 + 2/5 = 0,6667 + 0,4 = 1,0667. Neshoda — součet ve jmenovateli se roztrhnout nedá.</p>
+            <p><span class="result">Správné jsou A a C, chybné B a D</span></p>
+          </div></div>
+          <div class="step"><span class="step-n">6</span><div class="step-b">
+            <p>Všimněte si, že rozhodnutí padlo za necelou minutu a&nbsp;bez jediného algebraického pravidla. Dosazení funguje i&nbsp;tehdy, když si člověk pravidla nepamatuje — a&nbsp;o&nbsp;tom je celá následující kapitola.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: časté chyby"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

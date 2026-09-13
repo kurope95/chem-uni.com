@@ -1,0 +1,191 @@
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Reakce 0., 1. a 2. řádu · poločasy">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · osnova, bod 2 (pro přijímačky)</span>
+      <h2>Reakce nultého, prvního a&nbsp;druhého řádu</h2>
+      <p class="lead">Rychlostní rovnice říká, jak rychle koncentrace klesá <em>právě teď</em>. Když ji „sečteme“ přes čas, dostaneme, kolik reaktantu zbude <em>po hodině</em>. Tři nejčastější řády dávají tři různé křivky — a&nbsp;tři různé poločasy. Přijímačky na lékařské fakulty tohle chtějí, maturita obvykle jen první řád.</p>
+
+      <h3>Od diferenciálního k&nbsp;integrovanému tvaru</h3>
+      <p>Rychlostní rovnice <span class="q">v</span> = −d[A]/d<span class="q">t</span> = <span class="q">k</span>[A]<sup><span class="q">n</span></sup> je diferenciální rovnice. Její řešení — <span class="term">integrovaný tvar</span> — dává přímo koncentraci jako funkci času. Nemusíte umět integrovat; musíte umět tři výsledky a&nbsp;vědět, <b>která veličina vynesená proti času dá přímku</b>. Přesně tím se totiž řád z&nbsp;naměřených dat pozná.</p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="n">Řád</th><th>Rychlostní rovnice</th><th>Integrovaný tvar</th><th>Přímka</th><th>Směrnice</th><th>Poločas <span class="q">t</span>½</th></tr></thead>
+          <tbody>
+            <tr><td class="n">0</td><td class="mono"><span class="q">v</span> = <span class="q">k</span></td><td class="mono">[A] = [A]₀ − <span class="q">k</span><span class="q">t</span></td><td class="mono">[A] vs <span class="q">t</span></td><td class="mono">−<span class="q">k</span></td><td class="mono">[A]₀ / 2<span class="q">k</span></td></tr>
+            <tr><td class="n">1</td><td class="mono"><span class="q">v</span> = <span class="q">k</span>[A]</td><td class="mono">[A] = [A]₀·e<sup>−<span class="q">kt</span></sup><br>ln[A] = ln[A]₀ − <span class="q">kt</span></td><td class="mono">ln[A] vs <span class="q">t</span></td><td class="mono">−<span class="q">k</span></td><td class="mono">ln 2 / <span class="q">k</span> = 0,693/<span class="q">k</span></td></tr>
+            <tr><td class="n">2</td><td class="mono"><span class="q">v</span> = <span class="q">k</span>[A]²</td><td class="mono">1/[A] = 1/[A]₀ + <span class="q">kt</span></td><td class="mono">1/[A] vs <span class="q">t</span></td><td class="mono">+<span class="q">k</span></td><td class="mono">1 / (<span class="q">k</span>·[A]₀)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Poločas reakce</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Poločas reakce</b> <span class="q">t</span>½ je doba, za kterou klesne koncentrace reaktantu na polovinu původní hodnoty. Jeho závislost na počáteční koncentraci je nejrychlejší způsob, jak od sebe řády rozeznat.</p>
+      </div>
+
+      <h3>Reakce prvního řádu — nejdůležitější případ</h3>
+      <p>Koncentrace klesá <b>exponenciálně</b>: za každý poločas na polovinu, ať začínáte s&nbsp;čímkoli. Poločas <b>nezávisí na počáteční koncentraci</b> — to je poznávací znak prvního řádu. Po 1 poločasu zbývá 50 %, po 2 zbývá 25 %, po 3 zbývá 12,5 %, po 10 poločasech zhruba tisícina (2⁻¹⁰ = 1/1024).</p>
+      <p>Sem patří: rozklad N₂O₅ (<span class="q">k</span> = 3,38·10⁻⁵ s⁻¹ při 25 °C), rozklad H₂O₂, izomerace cyklopropanu, <b>radioaktivní rozpad</b> (¹⁴C, ¹³¹I, ²²²Rn — proto „poločas rozpadu“) a&nbsp;<span class="term">reakce pseudoprvního řádu</span>: když je jeden reaktant v&nbsp;obrovském přebytku (voda při inverzi sacharózy nebo hydrolýze esteru), jeho koncentrace se prakticky nemění a&nbsp;schová se do konstanty: <span class="q">v</span> = <span class="q">k</span>[sacharóza][H₂O] ≈ <span class="q">k</span>′[sacharóza].</p>
+      <div class="callout tip">
+        <span class="eyebrow">Rychlé počítání s poločasy</span>
+        <p>Kolik zbude po čase <span class="q">t</span>? Spočítejte, kolik poločasů uplynulo: <span class="q">N</span> = <span class="q">t</span>/<span class="q">t</span>½. Zbývá (½)<sup><span class="q">N</span></sup> původního množství. Po 3 poločasech je to ⅛, tedy 12,5 %. Obráceně: kdy zbude 10 %? Přesně to je <span class="q">t</span> = 3,32 <span class="q">t</span>½, protože 2<sup>3,32</sup> = 10. Kdy zbude 1 %? Za 6,64 poločasu.</p>
+      </div>
+
+      <h3>Reakce druhého řádu</h3>
+      <p>Lineární je <b>převrácená hodnota</b> koncentrace. Poločas je <b>nepřímo úměrný</b> počáteční koncentraci: <span class="q">t</span>½ = 1/(<span class="q">k</span>[A]₀) — s&nbsp;každým dalším poločasem se <b>prodlužuje</b> na dvojnásobek, protože reakce s&nbsp;úbytkem částic rychle „vyhasíná“. Typické: 2 NO₂ → 2 NO + O₂, 2 HI → H₂ + I₂, alkalická hydrolýza esteru, dimerizace.</p>
+
+      <h3>Reakce nultého řádu</h3>
+      <p>Rychlost <b>nezávisí na koncentraci</b>; koncentrace klesá lineárně, až náhle dojde. Poločas je <b>přímo úměrný</b> počáteční koncentraci a&nbsp;s&nbsp;každým dalším se <b>zkracuje</b>. Nultý řád vzniká tam, kde rychlost neurčuje reaktant, ale něco, co je <b>nasycené</b>: povrch katalyzátoru (rozklad N₂O na Pt, NH₃ na W), enzym (odbourávání ethanolu — proto alkohol z&nbsp;krve mizí konstantní rychlostí asi 0,15 ‰ za hodinu) nebo intenzita světla u&nbsp;fotochemických reakcí.</p>
+
+      <div class="grid3" style="margin:.4rem 0">
+        <div class="readout"><span class="k">0. řád · t½</span><span class="v">[A]₀ / 2k</span><span class="h">s koncentrací roste, postupně se zkracuje</span></div>
+        <div class="readout pos"><span class="k">1. řád · t½</span><span class="v">0,693 / k</span><span class="h">na koncentraci nezávisí, stále stejný</span></div>
+        <div class="readout"><span class="k">2. řád · t½</span><span class="v">1 / (k·[A]₀)</span><span class="h">s koncentrací klesá, postupně se prodlužuje</span></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Která veličina dá přímku? Linearizace pro 0., 1. a&nbsp;2. řád</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Skutečný řád reakce (data)</label>
+            <div class="segmented" id="linOrder" role="group" aria-label="Řád reakce">
+              <button type="button" data-v="0" aria-pressed="false">0. řád</button>
+              <button type="button" data-v="1" aria-pressed="true">1. řád</button>
+              <button type="button" data-v="2" aria-pressed="false">2. řád</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="linK">Rychlostní konstanta <span class="q">k</span> — <span class="val" id="linKV">0,15</span></label>
+            <input type="range" id="linK" min="5" max="40" step="1" value="15">
+          </div>
+        </div>
+        <div class="svgwrap" id="linWrap" style="min-height:250px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="linRo1"><span class="k">Poločas t½</span><span class="v">—</span><span class="h">pro [A]₀ = 1,0</span></div>
+          <div class="readout" id="linRo2"><span class="k">Přímku dává</span><span class="v">—</span><span class="h">test řádu</span></div>
+          <div class="readout" id="linRo3"><span class="k">Směrnice přímky</span><span class="v">—</span><span class="h">odtud k</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="linNote">Přepínejte řád a&nbsp;sledujte, který ze tří grafů se „narovná“. V&nbsp;praxi se to dělá přesně takhle: naměřená data vynesete třemi způsoby a&nbsp;přímka prozradí řád, její směrnice pak <span class="q">k</span>.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Rychlostní konstanty, poločasy a&nbsp;aktivační energie typických reakcí</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="tblSearch">Hledat reakci</label>
+            <input type="search" id="tblSearch" placeholder="např. peroxid, sacharóza, uran, rozklad…" autocomplete="off">
+          </div>
+          <div class="ctl">
+            <label>Filtr</label>
+            <div class="segmented" id="tblFilter" role="group" aria-label="Filtr tabulky">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="first" aria-pressed="false">1. řád</button>
+              <button type="button" data-v="second" aria-pressed="false">2. řád</button>
+              <button type="button" data-v="zero" aria-pressed="false">0. řád</button>
+              <button type="button" data-v="radio" aria-pressed="false">Rozpady</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:460px;overflow-y:auto">
+          <table>
+            <thead><tr>
+              <th>Reakce</th><th class="n">řád</th><th class="n"><span class="q">k</span></th><th class="n"><span class="q">t</span>½</th><th class="n"><span class="q">E</span><sub>a</sub> kJ·mol⁻¹</th><th>poznámka</th>
+            </tr></thead>
+            <tbody id="tblBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-note">Hodnoty jsou orientační tabulkové (Atkins, CRC, učebnice Brown, Zumdahl). Všimněte si, že reakce s&nbsp;koeficientem 2 (N₂O₅, H₂O₂) jsou prvního řádu, zatímco rozklad NO₂ druhého — řád se neodvozuje z&nbsp;rovnice. A&nbsp;že radioaktivní rozpady jsou čistý první řád bez ohledu na teplotu: nemají žádnou <span class="q">E</span><sub>a</sub>.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.1 · první řád, poločas a zbytek</span>
+          <p>Rozklad <span class="chem">2 N₂O₅ → 4 NO₂ + O₂</span> je prvního řádu s&nbsp;<span class="q">k</span> = 3,38·10⁻⁵ s⁻¹ při 25 °C. Vypočítejte poločas a&nbsp;zjistěte, kolik procent N₂O₅ zbude po 24 hodinách.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Poločas prvního řádu nezávisí na koncentraci.</p>
+              <p class="eq"><span class="q">t</span>½ = ln 2 / <span class="q">k</span> = 0,693 / 3,38·10⁻⁵ = 20 500 s = <b>5,70 h</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Čas převedeme na sekundy a&nbsp;dosadíme do integrovaného tvaru.</p>
+              <p class="eq"><span class="q">t</span> = 24 · 3600 = 86 400 s<br>[A]/[A]₀ = e<sup>−<span class="q">kt</span></sup> = e<sup>−3,38·10⁻⁵ · 86 400</sup> = e<sup>−2,92</sup> = <b>0,054</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kontrola přes poločasy: 24 h / 5,70 h = 4,2 poločasu → (½)<sup>4,2</sup> ≈ 0,054. Sedí.</p>
+              <span class="result"><span class="q">t</span>½ = 5,70 h; po 24 h zbývá ≈ 5,4 %</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.2 · druhý řád — poločas závisí na koncentraci</span>
+          <p>Rozklad <span class="chem">2 NO₂ → 2 NO + O₂</span> při 300 °C je druhého řádu, <span class="q">k</span> = 0,54 dm³·mol⁻¹·s⁻¹. Počáteční koncentrace je 0,0050 mol·dm⁻³. Vypočítejte poločas a&nbsp;koncentraci po 1000 s.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Poločas druhého řádu závisí na počáteční koncentraci.</p>
+              <p class="eq"><span class="q">t</span>½ = 1/(<span class="q">k</span>·[A]₀) = 1/(0,54 · 0,0050) = <b>370 s</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Integrovaný tvar druhého řádu — lineární je 1/[A].</p>
+              <p class="eq">1/[A] = 1/[A]₀ + <span class="q">kt</span> = 1/0,0050 + 0,54 · 1000 = 200 + 540 = 740 dm³·mol⁻¹<br>[A] = 1/740 = <b>1,35·10⁻³ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Kontrola: po prvním poločasu (370 s) je 0,0025; druhý poločas trvá už 740 s, takže hodnota 0,00125 by nastala v&nbsp;1110 s. Po 1000 s je koncentrace o&nbsp;něco vyšší — 0,00135. Sedí.</p>
+              <span class="result"><span class="q">t</span>½ = 370 s; [NO₂](1000 s) = 1,35·10⁻³ mol·dm⁻³</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.3 · nultý řád — alkohol v krvi</span>
+          <p>Odbourávání ethanolu v&nbsp;játrech je při nasyceném enzymu nultého řádu s&nbsp;<span class="q">k</span> ≈ 0,15 g·L⁻¹·h⁻¹ (≈ 0,15 ‰ za hodinu). Za jak dlouho klesne hladina z&nbsp;1,0 ‰ na nulu? Jaký je první a&nbsp;druhý poločas?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Nultý řád: koncentrace klesá lineárně, [A] = [A]₀ − <span class="q">kt</span>. Nula nastane při <span class="q">t</span> = [A]₀/<span class="q">k</span>.</p>
+              <p class="eq"><span class="q">t</span> = 1,0 / 0,15 = <b>6,7 h</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>První poločas: z&nbsp;1,0 na 0,5 ‰.</p>
+              <p class="eq"><span class="q">t</span>½ = [A]₀/2<span class="q">k</span> = 1,0/(2 · 0,15) = <b>3,3 h</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Druhý poločas: z&nbsp;0,5 na 0,25 ‰ — počáteční koncentrace je teď poloviční, takže i&nbsp;poločas je poloviční.</p>
+              <p class="eq"><span class="q">t</span>½′ = 0,5/(2 · 0,15) = <b>1,7 h</b></p>
+              <span class="result">na nulu za 6,7 h; poločasy 3,3 h a&nbsp;pak 1,7 h — u&nbsp;nultého řádu se zkracují</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Kdyby byl proces prvního řádu jako většina reakcí, hladina by klesala exponenciálně a&nbsp;„nikdy“ by nedošla na nulu. Lineární pokles je přesně důsledek nasyceného enzymu.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: řády reakce a poločasy"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

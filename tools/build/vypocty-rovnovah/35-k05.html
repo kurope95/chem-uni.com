@@ -1,0 +1,137 @@
+
+  <!-- ============ KAPITOLA 5 ============ -->
+  <section class="chapter" id="k5" data-title="Titrační křivky — všechno dohromady">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · osnova, bod 1 — aplikace: silné, slabé, soli a pufry na jedné křivce</span>
+      <h2>Titrační křivky: čtyři výpočty pH na jednom grafu</h2>
+      <p class="lead">Titrace je nejlepší cvičení celého tématu, protože během jednoho pokusu projdete všechny čtyři typy výpočtu. Na začátku počítáte pH slabé kyseliny, uprostřed pufr, v&nbsp;bodě ekvivalence sůl a&nbsp;za ním nadbytek silné zásady. Kdo zvládne titrační křivku, zvládl bod 1 osnovy.</p>
+
+      <h3>Bod ekvivalence a&nbsp;indikátor</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Bod ekvivalence</b> je okamžik, kdy přidané látkové množství titračního činidla přesně odpovídá stechiometrii reakce (<span class="q">n</span>(OH⁻) = <span class="q">n</span>(H₃O⁺)). <b>Konec titrace</b> je okamžik, kdy indikátor změní barvu — dobrý indikátor má oblast přechodu (p<span class="q">K</span><sub>ind</sub> ± 1) uvnitř skoku křivky, aby obě události splynuly.</p>
+      </div>
+      <p>Dva indikátory k&nbsp;zapamatování: <b>fenolftalein</b> (bezbarvý → růžový, přechod pH 8,2–10,0) a&nbsp;<b>methyloranž</b> (červená → žlutá, přechod 3,1–4,4). Který použít, plyne z&nbsp;pH v&nbsp;bodě ekvivalence.</p>
+
+      <h3>Tři typy křivek a&nbsp;jejich rozdíly</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Titrace</th><th class="n">pH na začátku</th><th class="n">v polovině</th><th class="n">v bodě ekvivalence</th><th>Indikátor</th></tr></thead>
+          <tbody>
+            <tr><td>HCl 0,1 M + NaOH 0,1 M</td><td class="n">1,00</td><td class="n">1,48</td><td class="n"><b>7,00</b> (skok 3,7 → 10,3)</td><td>fenolftalein i methyloranž</td></tr>
+            <tr><td>CH₃COOH 0,1 M + NaOH 0,1 M</td><td class="n">2,88</td><td class="n"><b>4,76 = p<span class="q">K</span><sub>a</sub></b></td><td class="n"><b>8,73</b> — hydrolýza octanu</td><td>jen fenolftalein</td></tr>
+            <tr><td>NH₃ 0,1 M + HCl 0,1 M</td><td class="n">11,13</td><td class="n"><b>9,25 = p<span class="q">K</span><sub>a</sub>(NH₄⁺)</b></td><td class="n"><b>5,28</b> — hydrolýza NH₄⁺</td><td>methyloranž (methylčerveň)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.9rem">Tři věci z&nbsp;tabulky se zkouší nejčastěji: <b>(1)</b> bod ekvivalence slabé kyseliny leží <b>nad</b> 7, protože v&nbsp;něm je jen sůl slabé kyseliny a&nbsp;ta hydrolyzuje zásaditě — kapitola 3; <b>(2)</b> v&nbsp;polovině titrace slabé kyseliny je pH = p<span class="q">K</span><sub>a</sub>, protože [HA] = [A⁻] — kapitola 4; tak se p<span class="q">K</span><sub>a</sub> experimentálně měří; <b>(3)</b> skok u&nbsp;slabé kyseliny je kratší (7,15 → 10,3 místo 3,7 → 10,3), a&nbsp;proto methyloranž selže — zbarví se dřív, než je zneutralizována.</p>
+
+      <h3>Jak spočítat pH v&nbsp;libovolném bodě</h3>
+      <p>Titrujeme 25,0 mL CH₃COOH 0,100 M hydroxidem 0,100 M. Vždy nejdřív spočítejte <b>látková množství</b> po reakci a&nbsp;celkový objem, potom rozhodněte, „co v&nbsp;baňce zbylo“:</p>
+      <p>• <b>Před přidáním</b> (V = 0): slabá kyselina → pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>) = 2,88.<br>
+      • <b>Mezi 0 a&nbsp;ekvivalencí</b>: část HA přeměněna na A⁻ → <b>pufr</b> → pH = p<span class="q">K</span><sub>a</sub> + log(<span class="q">n</span><sub>A⁻</sub>/<span class="q">n</span><sub>HA</sub>) = p<span class="q">K</span><sub>a</sub> + log(<span class="q">V</span>/(25 − <span class="q">V</span>)). V&nbsp;polovině (12,5 mL) je log 1 = 0.<br>
+      • <b>V&nbsp;bodě ekvivalence</b> (25,0 mL): zbyl jen CH₃COO⁻ o&nbsp;koncentraci 2,50 mmol / 50,0 mL = 0,050 M → <b>sůl</b> → pH = 7 + ½(p<span class="q">K</span><sub>a</sub> + log 0,050) = 8,73.<br>
+      • <b>Po ekvivalenci</b>: nadbytek OH⁻ (silná zásada) rozhoduje, hydrolýzu octanu lze zanedbat → pOH = −log(<span class="q">n</span><sub>nadbytek</sub>/<span class="q">V</span><sub>celk</sub>).</p>
+      <div class="callout warn">
+        <span class="eyebrow">Dvě pasti</span>
+        <p>V&nbsp;bodě ekvivalence počítat pH 7 „protože je to neutralizace“ — to platí jen pro silnou kyselinu se silnou zásadou. A&nbsp;v&nbsp;bodě ekvivalence zapomenout, že koncentrace soli je <b>poloviční</b> (objem se zdvojnásobil): 0,050 M, ne 0,100 M.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Titrační křivka: posouvejte objem titračního činidla a&nbsp;sledujte, který vzorec právě platí</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Titrace (vždy 25,0 mL vzorku 0,100 M, činidlo 0,100 M)</label>
+            <div class="segmented" id="tiType" role="group" aria-label="Typ titrace" style="flex-wrap:wrap">
+              <button type="button" data-v="sa" aria-pressed="false">HCl + NaOH</button>
+              <button type="button" data-v="wa" aria-pressed="true">CH₃COOH + NaOH</button>
+              <button type="button" data-v="wb" aria-pressed="false">NH₃ + HCl</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="tiV">Přidaný objem činidla — <span class="val" id="tiVV">12,5 mL</span></label>
+            <input type="range" id="tiV" min="0" max="50" step="0.1" value="12.5">
+          </div>
+        </div>
+        <div class="svgwrap" id="tiWrap" style="min-height:380px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>pH během titrace</span>
+          <span class="li"><span class="sw" style="background:var(--endo);opacity:.35"></span>pufrovací oblast (p<span class="q">K</span><sub>a</sub> ± 1)</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>fenolftalein 8,2–10,0</span>
+          <span class="li"><span class="sw" style="background:var(--cat3)"></span>methyloranž 3,1–4,4</span>
+          <span class="li"><span class="sw dot" style="background:var(--ink)"></span>bod ekvivalence</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="tiRo1"></div>
+          <div class="readout" id="tiRo2"></div>
+          <div class="readout" id="tiRo3"></div>
+          <div class="readout" id="tiRo4"></div>
+        </div>
+        <div id="tiSteps" style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div class="panel-note" id="tiNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.1 · slabá kyselina titrovaná silnou zásadou — čtyři body</span>
+          <p>25,0 mL CH₃COOH (0,100 M, p<span class="q">K</span><sub>a</sub> 4,76) titrujeme NaOH 0,100 M. Vypočítejte pH po přidání 0; 12,5; 25,0 a&nbsp;30,0 mL hydroxidu.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>0 mL</b> — čistá slabá kyselina (kapitola 2).</p>
+              <p class="eq">pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>) = ½(4,76 + 1,00) = <b>2,88</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>12,5 mL</b> — přidáno 1,25 mmol OH⁻ z&nbsp;2,50 mmol kyseliny: polovina přeměněna na octan, polovina zbyla. Pufr 1 : 1 (kapitola 4).</p>
+              <p class="eq"><span class="q">n</span>(HA) = 2,50 − 1,25 = 1,25 mmol; &nbsp;<span class="q">n</span>(A⁻) = 1,25 mmol<br>pH = 4,76 + log(1,25/1,25) = <b>4,76</b> = p<span class="q">K</span><sub>a</sub></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>25,0 mL</b> — bod ekvivalence: všechna kyselina přeměněna na 2,50 mmol octanu v&nbsp;<b>50,0 mL</b>. Sůl slabé kyseliny (kapitola 3).</p>
+              <p class="eq"><span class="q">c</span>(CH₃COO⁻) = 2,50 / 50,0 = 0,050 mol·dm⁻³<br>pH = 7 + ½(4,76 + log 0,050) = 7 + ½(4,76 − 1,30) = 7 + 1,73 = <b>8,73</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b>30,0 mL</b> — nadbytek 0,50 mmol OH⁻ v&nbsp;55,0 mL; silná zásada rozhoduje (kapitola 1).</p>
+              <p class="eq">[OH⁻] = 0,50 / 55,0 = 9,1·10⁻³ → pOH = 2,04 → pH = <b>11,96</b></p>
+              <span class="result">2,88 → 4,76 → 8,73 → 11,96 — každý bod jiný vzorec, jedna křivka</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.2 · velikost skoku u silné kyseliny</span>
+          <p>25,0 mL HCl 0,100 M titrujeme NaOH 0,100 M. Vypočítejte pH při 24,9 mL a&nbsp;25,1 mL a&nbsp;rozhodněte, zda lze použít methyloranž.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>24,9 mL: zbývá 2,50 − 2,49 = 0,010 mmol H₃O⁺ v&nbsp;49,9 mL.</p>
+              <p class="eq">[H₃O⁺] = 0,010 / 49,9 = 2,0·10⁻⁴ → pH = <b>3,70</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>25,1 mL: nadbytek 0,010 mmol OH⁻ v&nbsp;50,1 mL.</p>
+              <p class="eq">[OH⁻] = 2,0·10⁻⁴ → pOH = 3,70 → pH = <b>10,30</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Jedna kapka (0,2 mL) kolem ekvivalence změní pH o&nbsp;6,6 jednotky. Přechod methyloranže (3,1–4,4) i&nbsp;fenolftaleinu (8,2–10,0) leží uvnitř tohoto skoku — oba indikátory jsou použitelné. U&nbsp;kyseliny octové by skok začínal až u&nbsp;7,15 a&nbsp;methyloranž by se zbarvila o&nbsp;několik mL dřív.</p>
+              <span class="result">skok 3,70 → 10,30; methyloranž ano (u silné kyseliny), u slabé ne</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: titrační křivky"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

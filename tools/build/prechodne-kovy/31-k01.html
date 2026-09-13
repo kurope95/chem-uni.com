@@ -1,0 +1,199 @@
+  <!-- ============ KAPITOLA 1 ============ -->
+  <section class="chapter" id="k1" data-title="Proměnlivá oxidační čísla">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · osnova, bod 2</span>
+      <h2>Proměnlivá oxidační čísla a&nbsp;jejich trend napříč řadou</h2>
+      <p class="lead">Sodík má vždycky I, hořčík vždycky II, hliník vždycky III. Mangan má II, III, IV, VI a&nbsp;VII&nbsp;— a&nbsp;v&nbsp;karbonylech dokonce záporná. Tahle „nevyzpytatelnost“ není nahodilá: řídí se dvěma pravidly, která se dají odvodit z&nbsp;konfigurace, a&nbsp;jedním trendem, který jde napříč celou řadou.</p>
+
+      <h3>Odkud se proměnlivost bere</h3>
+      <p>U&nbsp;nepřechodných kovů je rozdíl energií mezi valenční slupkou a&nbsp;tou pod ní obrovský. Sodík dá jeden elektron a&nbsp;dostane konfiguraci neonu; druhý by musel vytrhnout z&nbsp;pevné oktetové slupky, což je energeticky nemyslitelné. Odtud jediné oxidační číslo.</p>
+      <p>U&nbsp;přechodných kovů jsou hladiny <span class="chem">ns</span> a&nbsp;<span class="chem">(n−1)d</span> <b>energeticky velmi blízko</b>. Odebrat jeden, dva nebo tři elektrony d&nbsp;stojí srovnatelně málo, a&nbsp;jestli se to vyplatí, rozhodne až prostředí — jak elektronegativní je partner, kolik vazeb se vytvoří, jak velká je mřížková nebo hydratační energie. Proto je oxidačních čísel víc a&nbsp;proto se dají mezi sebou snadno převádět redoxní reakcí.</p>
+      <div class="callout def">
+        <span class="eyebrow">Dvě pravidla, ze kterých se dá odvodit skoro všechno</span>
+        <p><b>1. Maximum se rovná číslu skupiny.</b> Do maximálního oxidačního čísla vstupují všechny elektrony <span class="chem">ns</span> i&nbsp;<span class="chem">(n−1)d</span>. Sc má maximum III, Ti IV, V&nbsp;pět, Cr šest, Mn sedm. Od železa dál to už neplatí — viz níže.</p>
+        <p style="margin-top:.5rem"><b>2. Sousední oxidační čísla se liší o&nbsp;jedničku.</b> Na rozdíl od bloku p, kde se stavy střídají po dvou (S: −II, IV, VI), tvoří přechodné kovy souvislou řadu: Mn má II, III, IV, V, VI i&nbsp;VII.</p>
+      </div>
+
+      <h3>Trend napříč řadou: nahoru a&nbsp;pak dolů</h3>
+      <p>Maximální dosažitelné oxidační číslo roste od skandia (III) k&nbsp;manganu (VII), a&nbsp;pak <b>prudce klesá</b>. Železo se běžně zastaví u&nbsp;III (VI jen ve velmi silně zásaditém prostředí), kobalt a&nbsp;nikl u&nbsp;III, měď u&nbsp;II a&nbsp;zinek jenom u&nbsp;II.</p>
+      <p>Důvod je jednoduchý. Za manganem se elektrony d&nbsp;začínají párovat a&nbsp;zároveň roste efektivní náboj jádra. Elektrony jsou tedy pevněji vázané a&nbsp;odtrhnout jich šest nebo sedm už není čím zaplatit. Železo by pro stav VIII muselo odevzdat všech osm valenčních elektronů — to prostě nejde.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past</span>
+        <p>„Železo je v&nbsp;osmé skupině, takže jeho maximální oxidační číslo je VIII.“ Není. Železo dosáhne <b>nejvýše VI</b>, a&nbsp;to jen v&nbsp;železanech typu <span class="chem">K₂FeO₄</span>, které vznikají v&nbsp;silně zásaditém prostředí a&nbsp;jsou mimořádně silnými oxidovadly. Oxidačního čísla VIII dosahuje ve své skupině jen ruthenium a&nbsp;osmium (<span class="chem">RuO₄</span>, <span class="chem">OsO₄</span>) — a&nbsp;i&nbsp;to jsou prudké oxidovadla.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Mapa oxidačních čísel první přechodné řady</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="mxSeg" style="flex-wrap:wrap" role="group" aria-label="Které stavy zobrazit">
+          <button type="button" data-mx="vse" aria-pressed="true">Všechny dosahované stavy</button>
+          <button type="button" data-mx="bezne" aria-pressed="false">Jen běžné</button>
+          <button type="button" data-mx="nej" aria-pressed="false">Jen nejstálejší</button>
+        </div>
+        <div class="svgwrap" id="mxWrap" style="min-height:340px;margin-top:1rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>velký kotouč = velmi stálý stav, malý = vzácný</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>čárkovaná čára = maximum rovné číslu skupiny</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="mxRo1"></div>
+          <div class="readout" id="mxRo2"></div>
+          <div class="readout" id="mxRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="mxNote">Přepněte na „jen nejstálejší“ a&nbsp;podívejte se na tvar, který vznikne: od skandia stoupá k&nbsp;vanadu, u&nbsp;chromu a&nbsp;manganu se rozdvojí (Cr má stálý III i&nbsp;VI, Mn má II i&nbsp;VII) a&nbsp;pak spadne k&nbsp;II. Čárkovaná čára ukazuje, kde by maximum bylo, kdyby pravidlo „číslo skupiny“ platilo až do konce&nbsp;— od železa dál se od ní skutečnost odklání.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Nízká oxidační čísla proti vysokým</h3>
+      <p>Jaké oxidační číslo kov má, rozhoduje o&nbsp;<b>charakteru vazby i&nbsp;o&nbsp;acidobazických vlastnostech</b> jeho sloučenin. To je jedno z&nbsp;nejužitečnějších pravidel celé anorganické chemie a&nbsp;přechodné kovy jsou jeho nejkrásnější ukázkou, protože týž prvek dokáže obojí.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Vlastnost</th><th>Nízké oxidační číslo (II, III)</th><th>Vysoké oxidační číslo (VI, VII)</th></tr></thead>
+          <tbody>
+            <tr><td>Typ vazby</td><td>převážně iontová</td><td>převážně kovalentní</td></tr>
+            <tr><td>Částice v&nbsp;roztoku</td><td>jednoduchý hydratovaný kation, např. <span class="chem">[Mn(H₂O)₆]²⁺</span></td><td>oxoaniont, např. <span class="chem">MnO₄⁻</span></td></tr>
+            <tr><td>Oxid</td><td>zásaditý — <span class="chem">MnO</span>, <span class="chem">CrO</span></td><td>kyselý — <span class="chem">Mn₂O₇</span>, <span class="chem">CrO₃</span></td></tr>
+            <tr><td>Uprostřed</td><td colspan="2" style="text-align:center">amfoterní — <span class="chem">Cr₂O₃</span>, <span class="chem">MnO₂</span></td></tr>
+            <tr><td>Redoxní chování</td><td>spíš redukovadlo</td><td>spíš oxidovadlo</td></tr>
+            <tr><td>Příklad u&nbsp;chromu</td><td><span class="chem">Cr²⁺</span> je tak silné redukovadlo, že rozkládá vodu</td><td><span class="chem">Cr₂O₇²⁻</span> je běžné odměrné oxidovadlo, <span class="q">E</span>° = +1,36&nbsp;V</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč to tak je</span>
+        <p>Kation <span class="chem">Mn⁷⁺</span> by měl náboj sedm na velmi malém poloměru. Takový náboj nemůže existovat volně — okamžitě by k&nbsp;sobě strhl elektrony okolních atomů. Proto se stav VII vždycky realizuje <b>kovalentními vazbami ke kyslíku</b>, tedy jako oxoaniont. Čím vyšší náboj, tím silněji kov přitahuje elektrony vazby O–H v&nbsp;navázané vodě, tím snáz se odštěpí proton — a&nbsp;tím kyselejší je oxid.</p>
+      </div>
+
+      <h3>Trend ve skupině: dolů roste stálost vysokého stavu</h3>
+      <p>Ve skupině 6 mají chrom, molybden i&nbsp;wolfram maximální stav VI. Chovají se ale zcela odlišně:</p>
+      <p class="eq"><span class="chem">CrO₃</span> a&nbsp;chromany = <b>silná oxidovadla</b>, ochotně přecházejí na Cr<sup>III</sup><br>
+      <span class="chem">MoO₃</span> a&nbsp;molybdenany = oxidační účinky jen slabé<br>
+      <span class="chem">WO₃</span> a&nbsp;wolframany = oxidační účinky prakticky žádné</p>
+      <p>Totéž ve skupině 7: manganistan je jedno z&nbsp;nejsilnějších laboratorních oxidovadel, kdežto rhenistan je vůči redukovadlům skoro netečný. Pravidlo tedy zní: <b>ve skupině shora dolů je nejvyšší oxidační stav stále stálejší</b>. Je to přesně opačný trend než u&nbsp;bloku p, kde se dolů skupinou vysoký stav naopak rozpadá kvůli efektu inertního páru.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past u&nbsp;přijímaček</span>
+        <p>Nepleťte si trendy bloku p&nbsp;a&nbsp;bloku d. V&nbsp;bloku p&nbsp;(uhlík → olovo) je dolů skupinou <b>stálejší nižší</b> stav. V&nbsp;bloku d&nbsp;(chrom → wolfram) je dolů skupinou stálejší <b>vyšší</b> stav. Otázka „srovnejte oxidační schopnost <span class="chem">CrO₄²⁻</span> a&nbsp;<span class="chem">MoO₄²⁻</span>“ je klasika.</p>
+      </div>
+
+      <h3>Který halogen stabilizuje který stav</h3>
+      <p>Vysoké oxidační číslo se udrží jen tehdy, když partner není možné zoxidovat. Proto platí jednoduché a&nbsp;spolehlivé pravidlo:</p>
+      <div class="callout def">
+        <span class="eyebrow">Pravidlo halogenů</span>
+        <p><b>Fluor stabilizuje vysoká oxidační čísla</b> — je nejelektronegativnější a&nbsp;nedá se zoxidovat ničím. <b>Jod stabilizuje nízká oxidační čísla</b> — sám se snadno oxiduje, takže vysoký stav kovu by hned zredukoval.</p>
+      </div>
+      <p class="eq">u&nbsp;vanadu existují: <span class="chem">VF₅</span>, <span class="chem">VF₄</span>, <span class="chem">VF₃</span>, <span class="chem">VF₂</span> — ale z&nbsp;jodidů jen <span class="chem">VI₃</span> a&nbsp;<span class="chem">VI₂</span><br>
+      u&nbsp;mědi existuje <span class="chem">CuF₂</span> i&nbsp;<span class="chem">CuCl₂</span> — ale <span class="chem">CuI₂</span> nikoli, hned se rozpadne na <span class="chem">CuI</span> a&nbsp;<span class="chem">I₂</span></p>
+      <p class="eq"><span class="chem">2 Cu²⁺ + 4 I⁻ → 2 CuI + I₂</span> &nbsp;<span style="color:var(--ink-3)">— jodid nejenže s&nbsp;mědí(II) nekoexistuje, on ji rovnou zredukuje</span></p>
+
+      <h3>Kondenzace oxoaniontů</h3>
+      <p>Oxoanionty přechodných kovů ve vysokých stavech mají ještě jednu vlastnost, kterou u&nbsp;síranů ani dusičnanů neuvidíte: při <b>okyselení se spojují do větších celků</b>. Proton odebere z&nbsp;aniontu kyslík jako vodu a&nbsp;dva tetraedry se spojí přes zbylý atom kyslíku.</p>
+      <p class="eq"><span class="chem">2 CrO₄²⁻ + 2 H₃O⁺ → Cr₂O₇²⁻ + 3 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(žlutý → oranžový)</span><br>
+      <span class="chem">Cr₂O₇²⁻ + CrO₄²⁻ + 2 H₃O⁺ → Cr₃O₁₀²⁻ + 3 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(a&nbsp;dál na tetrachromany)</span></p>
+      <p>U&nbsp;molybdenu a&nbsp;wolframu je kondenzace ještě výraznější — vznikají obří polyanionty jako <span class="chem">Mo₇O₂₄⁶⁻</span>, a&nbsp;pokud je v&nbsp;roztoku i&nbsp;jiný aniont, zabuduje se dovnitř a&nbsp;vznikne heteropolyaniont. Analytické stanovení fosforu „na molybdénovou modř“ přesně na tomhle stojí.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Sloučeniny přechodných kovů — najděte si je podle prvku a&nbsp;oxidačního čísla</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="tsQ">Hledat vzorec, název nebo použití</label>
+            <input type="search" id="tsQ" placeholder="např. pigment, chroman, katalyzátor">
+          </div>
+          <div class="ctl">
+            <label for="tsP">Prvek</label>
+            <select id="tsP"></select>
+          </div>
+          <div class="ctl">
+            <label for="tsK">Typ sloučeniny</label>
+            <select id="tsK">
+              <option value="">všechny typy</option>
+              <option value="ox">oxidy</option>
+              <option value="hyd">hydroxidy a oxid-hydroxidy</option>
+              <option value="hal">halogenidy</option>
+              <option value="sul">soli a další binární sloučeniny</option>
+              <option value="kompl">komplexy a organokovy</option>
+            </select>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:460px;overflow:auto">
+          <table>
+            <thead><tr><th>Vzorec</th><th>Název</th><th class="n">Ox. číslo</th><th>Vzhled</th><th>Čím je zajímavá</th></tr></thead>
+            <tbody id="tsBody"></tbody>
+          </table>
+        </div>
+        <p class="eyebrow" id="tsInfo" style="margin-top:.7rem"></p>
+      </div>
+      <div class="panel-note">Vyfiltrujte si mangan a&nbsp;seřaďte si v&nbsp;hlavě jeho sloučeniny podle oxidačního čísla: <span class="chem">MnSO₄</span> (II), <span class="chem">MnO₂</span> (IV), <span class="chem">K₂MnO₄</span> (VI), <span class="chem">KMnO₄</span> (VII). Všimněte si, jak s&nbsp;rostoucím oxidačním číslem přibývá kyslíku a&nbsp;jak se mění barva. Pak zkuste hledat slovo „pigment“ — uvidíte, kolik barev v&nbsp;běžném světě pochází právě z&nbsp;bloku d.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.1 · určete oxidační čísla</span>
+          <p>Určete oxidační číslo kovu v&nbsp;částicích <span class="chem">Cr₂O₇²⁻</span>, <span class="chem">MnO₄²⁻</span>, <span class="chem">[Fe(CN)₆]³⁻</span>, <span class="chem">[Ni(CO)₄]</span> a&nbsp;<span class="chem">Fe₃O₄</span>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Kyslík má ve všech uvedených částicích −II, součet oxidačních čísel se rovná náboji částice.</p>
+              <p class="eq"><span class="chem">Cr₂O₇²⁻</span>: 2<span class="q">x</span> + 7·(−2) = −2 → 2<span class="q">x</span> = 12 → <b><span class="q">x</span> = VI</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="chem">MnO₄²⁻</span>: <span class="q">x</span> + 4·(−2) = −2 → <b><span class="q">x</span> = VI</b> (manganan, ne manganistan)</p>
+              <p>Manganistanový aniont <span class="chem">MnO₄⁻</span> má naproti tomu VII. Rozdíl je jen v&nbsp;náboji, snadno se přehlédne.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>U&nbsp;komplexů se počítá náboj ligandu. Kyanid je <span class="chem">CN⁻</span> s&nbsp;nábojem −1, oxid uhelnatý je <b>neutrální</b>.</p>
+              <p class="eq"><span class="chem">[Fe(CN)₆]³⁻</span>: <span class="q">x</span> + 6·(−1) = −3 → <b><span class="q">x</span> = III</b><br>
+              <span class="chem">[Ni(CO)₄]</span>: <span class="q">x</span> + 4·0 = 0 → <b><span class="q">x</span> = 0</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><span class="chem">Fe₃O₄</span> je smíšený oxid. Průměrné oxidační číslo vyjde 3<span class="q">x</span> = 8, tedy <span class="q">x</span> = 8/3 — což je nesmysl pro jeden atom. Ve skutečnosti jsou v&nbsp;mřížce <b>dva různé druhy atomů železa</b>.</p>
+              <p class="eq"><span class="chem">Fe₃O₄ = FeO · Fe₂O₃</span> → jeden atom Fe<sup>II</sup> a&nbsp;dva atomy Fe<sup>III</sup></p>
+              <span class="result">Cr = VI · Mn = VI · Fe = III · Ni = 0 · v&nbsp;Fe₃O₄ jeden Fe<sup>II</sup> a&nbsp;dva Fe<sup>III</sup></span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.2 · předpovězte acidobazický charakter</span>
+          <p>Seřaďte oxidy <span class="chem">MnO</span>, <span class="chem">MnO₂</span>, <span class="chem">Mn₂O₇</span> podle rostoucí kyselosti a&nbsp;u&nbsp;každého napište, s&nbsp;čím bude reagovat.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Určíme oxidační čísla: <span class="chem">MnO</span> → II, <span class="chem">MnO₂</span> → IV, <span class="chem">Mn₂O₇</span> → VII.</p>
+              <p>Platí pravidlo: čím vyšší oxidační číslo, tím kyselejší oxid.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b><span class="chem">MnO</span> (II) — zásaditý.</b> Reaguje s&nbsp;kyselinami za vzniku manganatých solí, se zásadami nereaguje. Odpovídající hydroxid <span class="chem">Mn(OH)₂</span> je zásaditý.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b><span class="chem">MnO₂</span> (IV) — amfoterní.</b> V&nbsp;kyselém prostředí se chová jako oxidovadlo a&nbsp;přechází na <span class="chem">Mn²⁺</span>, v&nbsp;alkalických taveninách dává manganičitany. Je to typický „prostřední“ oxid.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b><span class="chem">Mn₂O₇</span> (VII) — silně kyselý.</b> Je to anhydrid kyseliny manganisté; s&nbsp;vodou dává <span class="chem">HMnO₄</span>, se zásadami manganistany. Se zředěnými kyselinami nereaguje.</p>
+              <p class="eq">rostoucí kyselost: <span class="chem">MnO</span> &lt; <span class="chem">MnO₂</span> &lt; <span class="chem">Mn₂O₇</span></p>
+              <span class="result">MnO zásaditý · MnO₂ amfoterní · Mn₂O₇ silně kyselý — pořadí kopíruje oxidační číslo</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: proměnlivá oxidační čísla"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

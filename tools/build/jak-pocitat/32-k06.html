@@ -1,0 +1,315 @@
+  <!-- ============ KAPITOLA 6 — ROZTOKY A PLYNY ============ -->
+  <section class="chapter" id="k6" data-title="Roztoky a plyny">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · roztoky a plyny</span>
+      <h2>Roztoky a&nbsp;plyny — dvě oblasti, kde se počítá pořád</h2>
+      <p class="lead">Roztoky a&nbsp;plyny mají společné to, že v&nbsp;nich nejde o&nbsp;chemii, ale o&nbsp;účetnictví: kolik látky je v&nbsp;jakém objemu. Právě proto se na nich tak dobře ukazuje, jak moc pomáhá pořádný zápis — dvě třetiny chyb tady vznikají v&nbsp;převodech, ne v&nbsp;úvaze.</p>
+
+      <h3>Tři veličiny, kterým se říká „koncentrace“</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Název</th><th>Značka</th><th>Definice</th><th>Jednotka</th><th>Kde se používá</th></tr></thead>
+          <tbody>
+            <tr><td>látková koncentrace (molarita)</td><td class="n"><span class="q">c</span></td><td class="n">n / V(roztoku)</td><td class="n">mol·dm⁻³</td><td>titrace, rovnováhy, pH — <b>výchozí volba</b></td></tr>
+            <tr><td>hmotnostní zlomek</td><td class="n"><span class="q">w</span></td><td class="n">m(látky) / m(roztoku)</td><td class="n">1 nebo %</td><td>komerční roztoky (96% <span class="chem">H₂SO₄</span>)</td></tr>
+            <tr><td>hmotnostní koncentrace</td><td class="n"><span class="q">γ</span> (ρ<sub>B</sub>)</td><td class="n">m(látky) / V(roztoku)</td><td class="n">g·dm⁻³</td><td>medicína, infuze, normy</td></tr>
+            <tr><td>molalita</td><td class="n"><span class="q">b</span></td><td class="n">n(látky) / m(rozpouštědla)</td><td class="n">mol·kg⁻¹</td><td>kryoskopie, ebulioskopie</td></tr>
+            <tr><td>objemový zlomek</td><td class="n"><span class="q">φ</span></td><td class="n">V(látky) / ΣV(složek)</td><td class="n">1 nebo %</td><td>směsi kapalin, líh</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Jmenovatel je pokaždé jiný — tady se chybuje</span>
+        <p>U&nbsp;<span class="q">c</span> a&nbsp;<span class="q">γ</span> se dělí <b>objemem celého roztoku</b>, u&nbsp;<span class="q">w</span> <b>hmotností celého roztoku</b>, u&nbsp;molality ale <b>hmotností samotného rozpouštědla</b>. „Rozpustíme 10&nbsp;g v&nbsp;90&nbsp;g vody“ dá <span class="q">w</span> = 10/100 = 10&nbsp;%, ne 10/90. A&nbsp;„doplníme na 100&nbsp;cm³“ není totéž jako „přidáme 100&nbsp;cm³“ — objemy roztoků se obecně nesčítají.</p>
+      </div>
+      <p>Most mezi hmotnostním zlomkem a&nbsp;látkovou koncentrací tvoří <b>hustota</b>. Vztah se odvozuje pořád dokola, tak si ho zapamatujte rovnou:</p>
+      <p class="eq"><span class="q">c</span> = <b><span class="q">w</span> · <span class="q">ρ</span> / <span class="q">M</span></b> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">(<span class="q">ρ</span> v&nbsp;g·dm⁻³, tedy 1,18&nbsp;g·cm⁻³ = 1180&nbsp;g·dm⁻³)</span></p>
+
+      <h3>Ředění: jediné, co se nemění, je látkové množství</h3>
+      <p>Když roztok ředíte, přiléváte rozpouštědlo — rozpuštěné látky nepřibude ani neubude. Z&nbsp;toho plyne celá ředicí rovnice:</p>
+      <p class="eq"><span class="q">n</span>₁ = <span class="q">n</span>₂ &nbsp;→&nbsp; <b><span class="q">c</span>₁<span class="q">V</span>₁ = <span class="q">c</span>₂<span class="q">V</span>₂</b> &nbsp;&nbsp;·&nbsp;&nbsp; obdobně pro hmotnosti: <span class="q">m</span>₁<span class="q">w</span>₁ = <span class="q">m</span>₂<span class="q">w</span>₂</p>
+      <p>Objemy se v&nbsp;téhle rovnici mohou dosazovat v&nbsp;jakýchkoli jednotkách, <b>když jsou na obou stranách stejné</b> — jsou v&nbsp;podílu, takže se převodní faktor vykrátí. To je vzácná úleva; skoro nikde jinde si to dovolit nemůžete.</p>
+
+      <h3>Mísení a&nbsp;směšovací kříž</h3>
+      <p>Mísíte-li dva roztoky téže látky, sečtou se látková množství i&nbsp;objemy:</p>
+      <p class="eq"><span class="q">c</span> = (<span class="q">c</span>₁<span class="q">V</span>₁ + <span class="q">c</span>₂<span class="q">V</span>₂) / (<span class="q">V</span>₁ + <span class="q">V</span>₂) &nbsp;&nbsp;·&nbsp;&nbsp; pro zlomky: <span class="q">w</span> = (<span class="q">m</span>₁<span class="q">w</span>₁ + <span class="q">m</span>₂<span class="q">w</span>₂) / (<span class="q">m</span>₁ + <span class="q">m</span>₂)</p>
+      <div class="callout tip">
+        <span class="eyebrow">Směšovací kříž</span>
+        <p>Rychlá pomůcka, když chcete <b>poměr</b>, ve kterém dva roztoky smíchat na cílovou hodnotu. Napište zlomky (nebo koncentrace) do rohů, cílovou doprostřed a&nbsp;odečítejte <b>úhlopříčně, vždy menší od většího</b>:</p>
+        <p class="eq" style="line-height:2">96&nbsp;% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|20 − 0| = <b>20 dílů 96%</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>20&nbsp;%</b><br>0&nbsp;% (voda) &nbsp;|96 − 20| = <b>76 dílů vody</b></p>
+        <p>Tedy 20 hmotnostních dílů 96% kyseliny na 76 dílů vody. Kříž funguje pro hmotnostní zlomky a&nbsp;pro látkové koncentrace, ale vždy dá <b>poměr dílů téže veličiny</b> — nemíchejte v&nbsp;něm gramy s&nbsp;mililitry.</p>
+      </div>
+
+      <h3>Plyny: jedna rovnice místo čtyř zákonů</h3>
+      <p class="eq" style="font-size:1.24rem;border-left-width:4px"><span class="q">p</span><span class="q">V</span> = <b><span class="q">n</span><span class="q">R</span><span class="q">T</span></b> &nbsp;&nbsp;&nbsp;<span style="font-size:.86rem;color:var(--ink-3)">p&nbsp;[Pa], V&nbsp;[m³], n&nbsp;[mol], R&nbsp;= 8,314&nbsp;J·K⁻¹·mol⁻¹, T&nbsp;[K]<br>nebo p&nbsp;[kPa], V&nbsp;[dm³] — týž R, protože kPa·dm³ = J</span></p>
+      <p>Všechny „plynové zákony“ z&nbsp;ní vypadnou, když něco držíte konstantní. Není potřeba si je pamatovat zvlášť:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Zákon</th><th>Co je stálé</th><th>Tvar</th><th>Slovy</th></tr></thead>
+          <tbody>
+            <tr><td>Boyleův–Mariottův</td><td class="n"><span class="q">n</span>, <span class="q">T</span></td><td class="n"><span class="q">p</span>₁<span class="q">V</span>₁ = <span class="q">p</span>₂<span class="q">V</span>₂</td><td>stlačíš na polovinu → dvojnásobný tlak</td></tr>
+            <tr><td>Charlesův</td><td class="n"><span class="q">n</span>, <span class="q">p</span></td><td class="n"><span class="q">V</span>₁/<span class="q">T</span>₁ = <span class="q">V</span>₂/<span class="q">T</span>₂</td><td>zahřeješ → roztáhne se</td></tr>
+            <tr><td>Gay-Lussacův</td><td class="n"><span class="q">n</span>, <span class="q">V</span></td><td class="n"><span class="q">p</span>₁/<span class="q">T</span>₁ = <span class="q">p</span>₂/<span class="q">T</span>₂</td><td>zahřeješ v&nbsp;nádobě → vzroste tlak</td></tr>
+            <tr><td>Avogadrův</td><td class="n"><span class="q">p</span>, <span class="q">T</span></td><td class="n"><span class="q">V</span>₁/<span class="q">n</span>₁ = <span class="q">V</span>₂/<span class="q">n</span>₂</td><td>stejný objem = stejný počet částic</td></tr>
+            <tr><td>spojený plynový</td><td class="n"><span class="q">n</span></td><td class="n"><span class="q">p</span>₁<span class="q">V</span>₁/<span class="q">T</span>₁ = <span class="q">p</span>₂<span class="q">V</span>₂/<span class="q">T</span>₂</td><td>univerzální přepočet mezi dvěma stavy</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">22,4 nebo 24,8? Rozhodněte se podle teploty</span>
+        <p><b>22,414&nbsp;dm³·mol⁻¹</b> platí za <em>normálních podmínek</em>: 0&nbsp;°C (273,15&nbsp;K) a&nbsp;101,325&nbsp;kPa.<br>
+        <b>24,790&nbsp;dm³·mol⁻¹</b> platí za <em>standardních podmínek</em>: 25&nbsp;°C (298,15&nbsp;K) a&nbsp;100&nbsp;kPa.<br>
+        Rozdíl je 10,6&nbsp;%, tedy víc, než kolik bývá tolerance u&nbsp;přijímaček. Když si nejste jistí, <b>nepoužívejte V<sub>m</sub> vůbec</b> a&nbsp;spočítejte objem přímo ze stavové rovnice — ta je vždy správně a&nbsp;stojí vás o&nbsp;jeden řádek navíc.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kalkulačka ředění a&nbsp;mísení — s&nbsp;výpočtovým listem</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Co děláme</label>
+          <div class="segmented" id="dlMode" role="group" aria-label="Režim">
+            <button type="button" data-v="dil" aria-pressed="true">Ředění</button>
+            <button type="button" data-v="mix" aria-pressed="false">Mísení dvou roztoků</button>
+          </div>
+        </div>
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="dlC1">Roztok A: koncentrace <span class="q">c</span>₁ — <span class="val" id="dlC1V">2,00 mol·dm⁻³</span></label>
+            <input type="range" id="dlC1" min="1" max="50" step="1" value="20">
+          </div>
+          <div class="ctl">
+            <label for="dlV1">Roztok A: objem <span class="q">V</span>₁ — <span class="val" id="dlV1V">25 cm³</span></label>
+            <input type="range" id="dlV1" min="5" max="250" step="5" value="25">
+          </div>
+          <div class="ctl" id="dlC2Box" hidden>
+            <label for="dlC2">Roztok B: koncentrace <span class="q">c</span>₂ — <span class="val" id="dlC2V">0,20 mol·dm⁻³</span></label>
+            <input type="range" id="dlC2" min="0" max="50" step="1" value="2">
+          </div>
+          <div class="ctl">
+            <label for="dlV2"><span id="dlV2Lbl">Doplníme na objem <span class="q">V</span>₂</span> — <span class="val" id="dlV2V">250 cm³</span></label>
+            <input type="range" id="dlV2" min="10" max="1000" step="10" value="250">
+          </div>
+        </div>
+        <div class="grid2" style="align-items:start">
+          <div class="svgwrap" id="dlWrap" style="min-height:250px"></div>
+          <div id="dlSheet"></div>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste v&nbsp;režimu <b>ředění</b> nastavit desetinásobný cílový objem a&nbsp;sledovat, že koncentrace klesne přesně desetkrát. Pak přepněte na <b>mísení</b>: výsledná koncentrace vždy leží <em>mezi</em> oběma vstupními — když vám kdy vyjde mimo, máte chybu.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 6.1 · ředění</span>
+        <p>Máme zásobní roztok <span class="chem">HCl</span> o&nbsp;koncentraci 2,00&nbsp;mol·dm⁻³. Kolik cm³ z&nbsp;něj odměříme, chceme-li připravit 250&nbsp;cm³ roztoku o&nbsp;koncentraci 0,150&nbsp;mol·dm⁻³?</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 6.1</span>
+              <span class="cs-topic">Ředicí rovnice</span>
+              <span class="cs-kind">Roztoky</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">c₁</span><span class="cs-val">= 2,00 mol·dm⁻³</span><span class="cs-note">zásobní roztok</span></div>
+                <div class="cs-row"><span class="cs-sym">c₂</span><span class="cs-val">= 0,150 mol·dm⁻³</span><span class="cs-note">cílová koncentrace</span></div>
+                <div class="cs-row"><span class="cs-sym">V₂</span><span class="cs-val">= 250 cm³ <span class="cs-conv">= 0,250 dm³</span></span><span class="cs-note">cílový objem</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">V₁</span><span class="cs-val">= ? cm³</span><span class="cs-note">kolik odměřit ze zásobního</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">n₁ = n₂ &nbsp;&nbsp;<em>(ředěním látky nepřibude)</em></div>
+                <div class="cs-line">n = c · V</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">c₁ · V₁ = c₂ · V₂</div>
+                <div class="cs-line">V₁ = <b>c₂ · V₂ / c₁</b></div>
+                <p class="cs-hint">V&nbsp;téhle rovnici se objemy vykrátí, takže se smí dosadit i&nbsp;v&nbsp;cm³ — ale jen když jsou v&nbsp;cm³ obě. Držme se převodu z&nbsp;bloku zadání.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">V₁ = 0,150 mol·dm⁻³ · 0,250 dm³ / 2,00 mol·dm⁻³</div>
+                <div class="cs-line units">jednotky: mol·dm⁻³ · dm³ / (mol·dm⁻³) = <b>dm³</b> ✓</div>
+                <div class="cs-line">V₁ = 0,01875 dm³ = 18,75 cm³</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Odměříme <b class="cs-hi">V₁ = 18,8 cm³</b> zásobního roztoku, převedeme do odměrné baňky a&nbsp;doplníme vodou po rysku na 250&nbsp;cm³.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Ředíme z&nbsp;2,00 na 0,150&nbsp;mol·dm⁻³, tedy zhruba 13×. Objem tedy musí vzrůst 13×: 250/13 ≈ 19&nbsp;cm³. Sedí. Kdyby vyšel objem <b>větší než cílový</b>, byl by výsledek fyzikálně nemožný — to je nejrychlejší kontrola ředicích úloh.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 6.2 · z procent na molaritu</span>
+        <p>Komerční kyselina chlorovodíková je 35,0% (hmotnostně) a&nbsp;má hustotu 1,18&nbsp;g·cm⁻³. Jaká je její látková koncentrace? <span class="chem">M</span>(HCl) = 36,46&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 6.2</span>
+              <span class="cs-topic">Hmotnostní zlomek + hustota → molarita</span>
+              <span class="cs-kind">Roztoky</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">w</span><span class="cs-val">= 35,0 % <span class="cs-conv">= 0,350</span></span><span class="cs-note">hmotnostní zlomek</span></div>
+                <div class="cs-row"><span class="cs-sym">ρ</span><span class="cs-val">= 1,18 g·cm⁻³ <span class="cs-conv">= 1180 g·dm⁻³</span></span><span class="cs-note">převod na dm³ hned</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 36,46 g·mol⁻¹</span><span class="cs-note">M(HCl)</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= ? mol·dm⁻³</span><span class="cs-note">látková koncentrace</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">c = n / V &nbsp;·&nbsp; n = m(HCl) / M</div>
+                <div class="cs-line">m(HCl) = w · m(roztoku) &nbsp;·&nbsp; m(roztoku) = ρ · V</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">n = w · ρ · V / M</div>
+                <div class="cs-line">c = n / V = w · ρ · V / (M · V) = <b>w · ρ / M</b></div>
+                <p class="cs-hint">Objem se vykrátil — výsledek nezávisí na tom, kolik roztoku máme. To je hezká kontrola správnosti odvození: kdyby ve výsledku V&nbsp;zůstalo, něco je špatně.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">c = 0,350 · 1180 g·dm⁻³ / 36,46 g·mol⁻¹</div>
+                <div class="cs-line units">jednotky: 1 · g·dm⁻³ / (g·mol⁻¹) = <b>mol·dm⁻³</b> ✓</div>
+                <div class="cs-line">c = 413,0 / 36,46 = 11,328 mol·dm⁻³</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Koncentrovaná kyselina chlorovodíková má látkovou koncentraci <b class="cs-hi">c = 11,3 mol·dm⁻³</b>.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">V&nbsp;litru roztoku je 1180&nbsp;g roztoku, z&nbsp;toho 413&nbsp;g HCl, tedy asi 11&nbsp;molů. Sedí. Tabulková hodnota pro 35% HCl je 11,3&nbsp;mol·dm⁻³, přesně. Kdyby někdo zapomněl na hustotu a&nbsp;počítal „350&nbsp;g v&nbsp;litru“, vyšlo by 9,6&nbsp;— o&nbsp;15&nbsp;% méně; to je právě ta chyba, kterou hustota opravuje.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 6.3 · stavová rovnice</span>
+        <p>Jaký objem zaujme 8,00&nbsp;g kyslíku při teplotě 20&nbsp;°C a&nbsp;tlaku 98,5&nbsp;kPa? <span class="chem">M</span>(O₂) = 32,00&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 6.3</span>
+              <span class="cs-topic">pV = nRT za nestandardních podmínek</span>
+              <span class="cs-kind">Plyny</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= 8,00 g</span><span class="cs-note">hmotnost kyslíku</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 32,00 g·mol⁻¹</span><span class="cs-note">M(O₂) = 2·16,00</span></div>
+                <div class="cs-row"><span class="cs-sym">t</span><span class="cs-val">= 20 °C <span class="cs-conv">→ T = 293,15 K</span></span><span class="cs-note">do vzorce jen kelviny!</span></div>
+                <div class="cs-row"><span class="cs-sym">p</span><span class="cs-val">= 98,5 kPa</span><span class="cs-note">ani normální, ani standardní tlak</span></div>
+                <div class="cs-row"><span class="cs-sym">R</span><span class="cs-val">= 8,314 kPa·dm³·K⁻¹·mol⁻¹</span><span class="cs-note">= 8,314 J·K⁻¹·mol⁻¹</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= ? dm³</span><span class="cs-note">objem plynu</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">p · V = n · R · T</div>
+                <div class="cs-line">n = m / M</div>
+                <div class="cs-line">T = t + 273,15</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">V = n · R · T / p = <b>m · R · T / (M · p)</b></div>
+                <p class="cs-hint">Molární objem V<sub>m</sub> se tu vůbec nepoužije — podmínky nejsou ani normální, ani standardní. Stavová rovnice je univerzální náhrada.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">V = 8,00 g · 8,314 kPa·dm³·K⁻¹·mol⁻¹ · 293,15 K</div>
+                <div class="cs-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ (32,00 g·mol⁻¹ · 98,5 kPa)</div>
+                <div class="cs-line units">jednotky: g · kPa·dm³·K⁻¹·mol⁻¹ · K / (g·mol⁻¹ · kPa) = <b>dm³</b> ✓</div>
+                <div class="cs-line">n = 8,00 / 32,00 = 0,250 mol &nbsp;→&nbsp; V = 0,250 · 8,314 · 293,15 / 98,5</div>
+                <div class="cs-line">V = 609,3 / 98,5 = 6,186 dm³</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Kyslík zaujme objem <b class="cs-hi">V = 6,19 dm³</b>.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Čtvrtina molu za normálních podmínek zaujme 22,4/4 = 5,6&nbsp;dm³. Máme tepleji (20&nbsp;°C místo 0&nbsp;°C, tedy +7&nbsp;%) a&nbsp;nižší tlak (98,5 místo 101,3, tedy +3&nbsp;%), takže objem musí být o&nbsp;něco větší — 6,19&nbsp;dm³ sedí. Kdyby někdo dosadil 20 místo 293,15&nbsp;K, vyšlo by 0,42&nbsp;dm³ a&nbsp;chyba by byla čtrnáctinásobná.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: roztoky a plyny"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

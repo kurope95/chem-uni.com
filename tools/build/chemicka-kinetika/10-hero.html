@@ -1,0 +1,85 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Chemická kinetika</h1>
+      <p class="lead">Termodynamika řekla, <em>jestli</em> reakce může proběhnout. Kinetika odpovídá na druhou otázku: <em>jak rychle</em> — a&nbsp;proč diamant nehoří, mléko v&nbsp;lednici vydrží a&nbsp;Haberův proces potřebuje železo. Buď rychloprůchod na hodinu, nebo devět kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 60 minut</span>
+        <span class="tag">18 interaktivních modelů</span>
+        <span class="tag">91 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulka poločasů, <span class="q">k</span> a&nbsp;<span class="q">E</span><sub>a</sub></span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">60 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: devět bloků, v každém výklad, rámeček se vzorci, upozornění na častou chybu a řešený příklad s čísly. Projde všech 66 pojmů z osnovy, má tři vlastní grafy a kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">9 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad s osmnácti interaktivními modely, dvěma trenažéry se skóre, řešenými příklady krok za krokem a testem po každé kapitole. Na konci je tahák a slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Koncentrace v&nbsp;čase — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Řád reakce A → P</label>
+            <div class="segmented" id="heroOrder" role="group" aria-label="Řád reakce">
+              <button type="button" data-v="0" aria-pressed="false">0. řád</button>
+              <button type="button" data-v="1" aria-pressed="true">1. řád</button>
+              <button type="button" data-v="2" aria-pressed="false">2. řád</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="heroK">Rychlostní konstanta <span class="q">k</span> — <span class="val" id="heroKV">0,20 s⁻¹</span></label>
+            <input type="range" id="heroK" min="5" max="100" step="5" value="20">
+          </div>
+          <div class="ctl">
+            <label for="heroC0">Počáteční koncentrace <span class="q">c</span>₀ — <span class="val" id="heroC0V">1,0 mol·dm⁻³</span></label>
+            <input type="range" id="heroC0" min="2" max="20" step="1" value="10">
+          </div>
+        </div>
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="heroT">Čas <span class="q">t</span>, ve kterém čteme rychlost — <span class="val" id="heroTV">3,0 s</span></label>
+          <input type="range" id="heroT" min="2" max="180" step="1" value="30">
+        </div>
+        <div class="svgwrap" id="heroWrap" style="min-height:320px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>reaktant A — klesá</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>produkt P — roste</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>tečna = <b>okamžitá</b> rychlost v&nbsp;čase <span class="q">t</span></span>
+          <span class="li"><span class="sw" style="background:var(--ink-3)"></span>sečna = <b>průměrná</b> rychlost od 0 do <span class="q">t</span></span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="heroRo1"><span class="k">Okamžitá rychlost v(t)</span><span class="v">—</span><span class="h">−d[A]/dt v čase t</span></div>
+          <div class="readout" id="heroRo2"><span class="k">Průměrná rychlost 0 → t</span><span class="v">—</span><span class="h">−Δ[A]/Δt</span></div>
+          <div class="readout" id="heroRo3"><span class="k">Poločas t½</span><span class="v">—</span><span class="h">kdy zbývá polovina A</span></div>
+          <div class="readout" id="heroRo4"><span class="k">[A] v čase t</span><span class="v">—</span><span class="h">zbývající reaktant</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="heroNote">Rychlost reakce <b>není konstantní</b>: jak ubývá reaktantu, křivka se zplošťuje a&nbsp;tečna klesá. Posuňte čas doprava a&nbsp;sledujte, jak se okamžitá rychlost zmenšuje — a&nbsp;jak se sečna od tečny vzdaluje.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Zavedení pojmu rychlosti chemické reakce. Výpočet rychlosti chemické reakce pomocí časové změny koncentrace reaktantů/produktů.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Pochopení rychlostní rovnice a&nbsp;popis veličin v&nbsp;rychlostní rovnici (rychlostní konstanta, parciální řád reakce a&nbsp;celkový řád reakce).</span><span class="go">Kap. 1–2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">3</span><span>Elementární a&nbsp;složené reakce. Klasifikace reakcí z&nbsp;hlediska reakční kinetiky (reakce přímé, následné, zpětné, bočné).</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">4</span><span>Elementární chemické reakce – řád a&nbsp;molekularita reakce.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">5</span><span>Teorie chemické kinetiky – srážková teorie a&nbsp;teorie aktivovaného komplexu. Energetický profil reakce (závislost energie reagujících látek na reakční koordinátě).</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k7"><span class="b">6</span><span>Mechanismus ovlivnění rychlosti chemické reakce katalýzou a&nbsp;inhibicí.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">7</span><span>Faktory ovlivňující rychlost chemické reakce – zejm. koncentrace, teplota, tlak, povrch reagujících částic a&nbsp;vliv katalýzy/inhibice.</span><span class="go">Kap. 6 a 8</span></a>
+    </div>
+  </header>

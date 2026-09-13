@@ -1,0 +1,180 @@
+/* ============================================================
+   T21 · BANKA OTÁZEK — kapitolové mini-testy
+   ============================================================ */
+
+BANK.q0=[
+ {t:"single",q:"Která vlastnost odlišuje kapalinu od pevné látky <b>i</b> od plynu?",
+  o:["Je nestlačitelná","Částice se v ní pohybují","Má vlastní objem, ale tvar přijímá podle nádoby","Její částice na sebe působí přitažlivými silami"],c:2,
+  e:"Kapalina má vlastní objem (částice se dotýkají) a zároveň teče (částice se kolem sebe protahují). Nestlačitelnost sdílí s pevnou látkou, pohyb částic a přitažlivé síly mají všechna tři skupenství — tyhle znaky tedy nerozlišují."},
+ {t:"multi",q:"Které jevy jsou přímým důkazem, že se částice látek neustále pohybují?",
+  o:["Difuze inkoustu ve vodě","Brownův pohyb pylových zrnek","Stlačitelnost plynů","Šíření vůně v místnosti","Křehkost iontových krystalů"],c:[0,1,3],
+  e:"Difuze, Brownův pohyb i šíření vůně ukazují, že částice samy od sebe mění polohu. Stlačitelnost plynů dokazuje jen to, že mezi částicemi je prázdný prostor, a křehkost krystalů plyne z uspořádání nábojů — ani jedno nemluví o pohybu."},
+ {t:"single",q:"Čím je na molekulární úrovni tlak plynu?",
+  o:["Součtem nárazů částic na stěnu nádoby","Silou, kterou se částice navzájem odpuzují","Hmotností sloupce plynu nad nádobou","Rychlostí difuze plynu"],c:0,
+  e:"Každá částice, která narazí na stěnu a odrazí se, jí předá hybnost; tlak je součet těchto nárazů na jednotku plochy. Proto tlak roste s teplotou (rychlejší a častější nárazy) i s hustotou částic. Odpuzování částic je v modelu ideálního plynu nulové."},
+ {t:"single",q:"Proč led plave na vodě, zatímco pevná fáze většiny látek klesá ke dnu?",
+  o:["Led má nižší teplotu, a proto menší hmotnost","V ledu jsou bublinky vzduchu","Voda má vysoké povrchové napětí, které led nadnáší","Vodíkové můstky drží molekuly v ledu v otevřené struktuře, která je řidší než kapalina"],c:3,
+  e:"Každá molekula vody tvoří v ledu čtyři vodíkové můstky do přesně daných směrů, čímž vzniká prostorná šestiúhelníková síť s hustotou 0,917 g·cm⁻³. V kapalině je uspořádání neuspořádanější a hustší (1,000 g·cm⁻³). Bublinky vzduchu ani teplota s tím nemají co dělat — plave i dokonale čistý led."},
+ {t:"single",q:"Viskozita kapaliny s rostoucí teplotou…",
+  o:["roste, protože částice narážejí častěji","klesá, protože rychlejší částice snáz překonají přitažlivé síly a kloužou po sobě","se nemění, závisí jen na hustotě","nejdřív klesá a od teploty varu roste"],c:1,
+  e:"Viskozita je odpor proti klouzání částic po sobě. Zahřátí dodá částicím energii, se kterou snáz opouštějí své sousedy — proto olej v motoru za studena teče hůř. Častější nárazy zvyšují tlak plynu, ne viskozitu kapaliny."},
+ {t:"single",q:"Ve kterém skupenství je uspořádání částic <b>krátkodosahové</b>?",
+  o:["V plynu — částice jsou blízko jen při srážce","Pouze v krystalické pevné látce","V kapalině a v amorfní pevné látce","V žádném; uspořádání je buď dokonalé, nebo žádné"],c:2,
+  e:"Krátkodosahové uspořádání znamená, že nejbližší sousedé jsou na správných místech, ale po několika průměrech částic se pravidelnost ztrácí — přesně to platí pro kapalinu a pro amorfní látku (zamrzlou kapalinu). Krystal má uspořádání dalekodosahové, plyn žádné."}
+];
+
+BANK.q1=[
+ {t:"single",q:"Proč se při tání ledu nemění teplota, přestože přijímá teplo?",
+  o:["Protože led je špatný vodič tepla","Protože dodané teplo jde na rozrušení vazeb mezi molekulami, ne na zrychlení jejich pohybu","Protože voda odvádí teplo do okolí stejně rychle, jak přichází","Protože teploměr v tající směsi neměří správně"],c:1,
+  e:"Teplota je mírou kinetické energie částic. Na plató jde veškerá dodaná energie na potenciální energii — rozrušení vodíkových můstků v mřížce ledu — takže rychlost molekul, a tím i teplota, zůstává stejná. Teprve po roztátí posledního krystalku začne teplota znovu stoupat."},
+ {t:"num",q:"Kolik tepla je potřeba na ohřátí 100 g ledu z −10 °C na vodu o teplotě 25 °C? (<span class='q'>c</span> ledu 2,1, vody 4,18 J·g⁻¹·K⁻¹, <span class='q'>l</span><sub>t</sub> = 334 J·g⁻¹. Zadejte v kJ.)",
+  ans:46.0,tol:1,unit:"kJ",
+  e:"Tři kroky: ohřev ledu 100·2,1·10 = 2100 J, tání 100·334 = 33 400 J, ohřev vody 100·4,18·25 = 10 450 J. Součet je 45 950 J ≈ 46,0 kJ. Nejčastější chyba je vynechat plató tání, které tvoří skoro tři čtvrtiny celého tepla."},
+ {t:"single",q:"Odpaření 1 g vody stojí 2260 J, roztátí 1 g ledu jen 334 J. Čím je ten rozdíl daný?",
+  o:["Při tání se molekuly ještě dotýkají a rozruší se jen část mezimolekulových sil, kdežto při varu se překonají všechny","Voda má při 100 °C vyšší měrnou tepelnou kapacitu","Při varu se rozbíjejí kovalentní vazby O–H uvnitř molekul","Pára má větší objem, a proto potřebuje víc energie na roztažení"],c:0,
+  e:"V kapalině jsou molekuly pořád v kontaktu — tání jen rozvolní mřížku, takže stačí zlomek energie. Var znamená úplné odtržení molekuly od všech sousedů, tedy překonání všech vodíkových můstků. Vazby O–H uvnitř molekuly zůstávají netknuté; jejich rozbití by stálo 463 kJ·mol⁻¹."},
+ {t:"single",q:"Proč vře voda na Sněžce už při zhruba 95 °C?",
+  o:["Protože je tam nižší teplota vzduchu","Protože voda v horách obsahuje méně rozpuštěných solí","Protože je tam nižší tlak, a tak tlak nasycené páry dorovná okolní tlak dřív","Protože ve vyšší nadmořské výšce je slabší gravitace"],c:2,
+  e:"Var nastane ve chvíli, kdy se tlak nasycené páry vyrovná vnějšímu tlaku. Na Sněžce je tlak asi 84 kPa, kterého voda dosáhne už kolem 95 °C. Naopak v tlakovém hrnci (200 kPa) vře až při 120 °C — proto se v něm vaří rychleji."},
+ {t:"multi",q:"Které přeměny jsou <b>endotermické</b>, tedy vyžadují dodání tepla?",
+  o:["Tání","Kondenzace","Sublimace","Desublimace","Vypařování"],c:[0,2,4],
+  e:"Endotermické jsou přeměny „nahoru“, tedy k větší volnosti částic: tání (s→l), vypařování (l→g) a sublimace (s→g). Kondenzace a desublimace jdou opačným směrem, takže se při nich stejné množství energie uvolní — proto opaření párou bolí víc než opaření vodou o téže teplotě."},
+ {t:"single",q:"Co se stane s ledem při tlaku 400 Pa, když ho zahříváme (trojný bod vody je 611 Pa)?",
+  o:["Nejdřív roztaje na vodu a ta se pak vypaří","Zůstane pevný až do 100 °C","Zkapalní až po překročení 0,01 °C","Bude přímo sublimovat, kapalná voda vůbec nevznikne"],c:3,
+  e:"Pod tlakem trojného bodu se křivka tání ani křivka varu nevyskytuje — existuje jen sublimační křivka, takže led přechází přímo v páru. Přesně na tom stojí lyofilizace (sušení mrazem) a tentýž důvod má i to, proč na povrchu Marsu (asi 600 Pa) netečou řeky."},
+ {t:"single",q:"Který údaj o vodě prozrazuje, že křivka tání ve fázovém diagramu má <b>záporný</b> sklon?",
+  o:["Voda má nejvyšší hustotu při 4 °C, ne při 0 °C","Led má menší hustotu než kapalná voda","Voda má vysokou měrnou tepelnou kapacitu","Trojný bod leží při 611 Pa"],c:1,
+  e:"Zvýšení tlaku posouvá rovnováhu ve prospěch fáze s <b>menším</b> objemem. Protože led je řidší (objemnější) než voda, stlačení mu pomáhá roztát, a teplota tání tedy s tlakem klesá — křivka se naklání doleva. To je právě ona anomálie vody; u většiny látek je sklon opačný."}
+];
+
+BANK.q2=[
+ {t:"single",q:"Proč pevný chlorid sodný nevede elektrický proud, i když je složený z iontů?",
+  o:["Protože ionty mají opačné náboje, které se ruší","Protože náboje iontů jsou příliš malé","Protože ionty se navzájem přeměnily na atomy","Protože ionty jsou vázané v mřížce a nemohou se pohybovat"],c:3,
+  e:"K vedení proudu nestačí přítomnost nábojů — nosiče se musí umět pohybovat. Každý ion v krystalu drží šest sousedů s opačným nábojem, takže zůstává na místě. Roztavením nebo rozpuštěním se mřížka rozpadne, ionty se uvolní a proud teče."},
+ {t:"single",q:"Grafit vede proud, diamant ne. Čím to je?",
+  o:["Grafit obsahuje kovové příměsi","V grafitu je uhlík sp², takže na každém atomu zbývá elektron v p orbitalu a vzniká delokalizovaný π systém","Grafit obsahuje volné ionty uhlíku","Diamant má příliš vysokou teplotu tání, než aby mohl vést"],c:1,
+  e:"Ve vrstvě grafitu tvoří sp² uhlík tři σ vazby a čtvrtý elektron zůstává v kolmém p orbitalu; překryv těchto orbitalů dá jeden velký π systém, v němž se elektrony volně pohybují. V diamantu jsou všechny čtyři elektrony uzavřené v lokalizovaných σ vazbách sp³. Stejný prvek, jiná struktura, opačná vlastnost."},
+ {t:"single",q:"Roztok sacharózy nevede proud, přestože se cukr ve vodě rozpouští výborně. Proč?",
+  o:["Sacharóza se rozpouští jen zdánlivě, ve skutečnosti zůstává pevná","Molekuly cukru jsou příliš velké, než aby se pohybovaly","Sacharóza se rozpadá jen na neutrální molekuly, žádné ionty nevznikají","Cukr reaguje s vodou a spotřebuje ionty H₃O⁺"],c:2,
+  e:"Vodíkové můstky mezi osmi skupinami OH a vodou zajistí rozpouštění, ale molekula sacharózy zůstává celá a elektricky neutrální. Bez iontů není nosič náboje, takže roztok vede stejně špatně jako čistá voda. Rozpustnost a vodivost jsou dvě nezávislé vlastnosti — proto se na tuto dvojici tak často ptá."},
+ {t:"single",q:"Který popis odpovídá <b>ionizaci</b> (na rozdíl od disociace)?",
+  o:["<span class='chem'>HCl(g) + H₂O → H₃O⁺ + Cl⁻</span> — ionty vznikají teprve reakcí s vodou","<span class='chem'>NaCl(s) → Na⁺(aq) + Cl⁻(aq)</span> — voda odděluje existující ionty","<span class='chem'>NaCl(s) → NaCl(l)</span> — mřížka se rozpadá teplem","<span class='chem'>H₂O ⇌ H⁺ + OH⁻</span> — voda se rozkládá na prvky"],c:0,
+  e:"Ionizace je vznik iontů z molekul reakcí s rozpouštědlem: v čistém chlorovodíku žádné ionty nejsou, vzniknou až přenosem protonu na vodu. Disociace naopak jen odděluje ionty, které v krystalu už byly (NaCl). Poslední možnost je navíc chybně popsaná — autoionizace vody nedává prvky."},
+ {t:"multi",q:"Které soustavy vedou elektrický proud?",
+  o:["Tavenina KBr","Roztok glukózy","Roztok HNO₃","Tuha v tužce","Kapalný čistý ethanol"],c:[0,2,3],
+  e:"Tavenina KBr má volné ionty, roztok HNO₃ obsahuje H₃O⁺ a NO₃⁻ (silná kyselina je prakticky úplně ionizovaná) a tuha je grafit s delokalizovanými π elektrony. Glukóza je neelektrolyt — rozpouští se na molekuly. Ethanol je sice polární, ale sám o sobě neionizuje, takže nevede."},
+ {t:"single",q:"Jak se s rostoucí teplotou mění vodivost mědi a vodivost křemíku?",
+  o:["U obou roste — částice se pohybují rychleji","U mědi klesá (kmitající kationty brzdí elektrony), u křemíku roste (uvolňují se nové nosiče)","U obou klesá kvůli tepelnému rozpínání","U mědi roste, u křemíku klesá"],c:1,
+  e:"V kovu jsou volné elektrony k dispozici stále, takže zahřátí jen zvýší rozptyl na kmitajících kationtech a vodivost klesne. V polovodiči je nosičů málo a teplo je z vazeb uvolňuje, takže vodivost prudce roste. Právě tenhle opačný trend polovodiče definuje."}
+];
+
+BANK.q3=[
+ {t:"single",q:"Rozpouštěcí teplo NaCl je jen +3,9 kJ·mol⁻¹, přestože mřížková energie je 787 a hydratační −783 kJ·mol⁻¹. Co z toho plyne?",
+  o:["Výsledný tepelný efekt je malý rozdíl dvou velkých čísel, takže znaménko nejde odhadnout od oka","Mřížková energie NaCl je ve skutečnosti zanedbatelná","Voda hydratuje jen ionty Cl⁻, nikoli Na⁺","Rozpouštění NaCl neprobíhá samovolně"],c:0,
+  e:"Obě energie jsou v řádu stovek kJ·mol⁻¹ a jejich rozdíl vychází na jednotky — proto se u soli teplota roztoku prakticky nezmění, zatímco u NaOH (−44,5) se roztok silně ohřeje. Rozpouštění NaCl přitom samovolné je: pohání ho nárůst entropie při rozpadu krystalu."},
+ {t:"single",q:"Jak se orientují molekuly vody kolem iontu <span class='chem'>Cl⁻</span> při hydrataci?",
+  o:["Kyslíkovým atomem k iontu, protože kyslík je nejelektronegativnější","Náhodně — na orientaci nezáleží","Vodíkovými atomy k iontu, protože nesou částečný kladný náboj","Molekuly se rozpadnou na H⁺ a OH⁻"],c:2,
+  e:"Voda je dipól: kyslík má δ−, vodíky δ+. K zápornému aniontu se proto natáčejí vodíky, ke kladnému kationtu naopak kyslík. Právě tato orientovaná přitažlivost dipól–ion je zdrojem hydratační energie, která zaplatí rozpad mřížky."},
+ {t:"single",q:"Rozpustnost plynů ve vodě s rostoucí teplotou…",
+  o:["roste, stejně jako u většiny pevných látek","nezávisí na teplotě, jen na tlaku","roste u nepolárních a klesá u polárních plynů","klesá, protože rozpouštění plynu je exotermické"],c:3,
+  e:"Při rozpouštění plynu se nic netrhá, jen se molekula zachytí v rozpouštědle — děj je exotermický, takže podle Le Chatelierova principu zahřátí rovnováhu posune zpět k plynu. Proto teplá limonáda šumí víc a v přehřátém rybníku ryby dusí. U většiny solí je to naopak, protože jejich rozpouštění bývá endotermické."},
+ {t:"single",q:"Co je <b>přesycený</b> roztok?",
+  o:["Roztok, ve kterém už se další látka nerozpustí","Roztok obsahující víc rozpuštěné látky, než odpovídá rovnováze; je nestabilní a po zárodku vykrystalizuje","Roztok, v němž je rozpouštědla méně než rozpuštěné látky","Roztok, který při zahřátí vypadne ve formě krystalů"],c:1,
+  e:"Přesycený roztok vznikne opatrným ochlazením nasyceného roztoku, kdy chybí zárodek krystalizace. Stačí vhodit krystalek nebo zatřepat a přebytek se vyloučí — na tom fungují ohřívače rukou s octanem sodným. Roztok, v němž se už nic nerozpustí, je pouze nasycený."},
+ {t:"num",q:"Rozpustnost KNO₃ je 169 g/100 g vody při 80 °C a 31,6 g/100 g při 20 °C. Kolik gramů vykrystalizuje z nasyceného roztoku připraveného ze 100 g vody po ochlazení z 80 na 20 °C? (Zadejte v gramech.)",
+  ans:137.4,tol:2,unit:"g",
+  e:"Množství vody se nemění, mění se jen to, kolik unese: 169 − 31,6 = 137,4 g. Pozor na variantu úlohy, kde je zadaná hmotnost <b>roztoku</b> — pak je nutné roztok nejdřív rozdělit na vodu a sůl, jinak vyjde nesmysl."},
+ {t:"multi",q:"Které látky se dobře rozpouštějí v <b>nepolárním</b> hexanu?",
+  o:["Jod I₂","Chlorid sodný","Parafinový vosk","Olej","Sacharóza"],c:[0,2,3],
+  e:"Jod, vosk i olej jsou nepolární a drží je disperzní síly, které hexan plnohodnotně nahradí. NaCl by potřeboval solvataci iontů, kterou nepolární rozpouštědlo nenabídne, a sacharóza by přišla o vodíkové můstky mezi skupinami OH. Platí pravidlo „podobné rozpouští podobné“."}
+];
+
+BANK.q4=[
+ {t:"single",q:"Co je <b>elementární buňka</b> krystalu?",
+  o:["Nejmenší částice, z níž je krystal složen","Oblast krystalu bez poruch mřížky","Nejmenší rovnoběžnostěn, jehož opakováním ve třech směrech vznikne celý krystal","Vzdálenost mezi dvěma nejbližšími ionty"],c:2,
+  e:"Elementární buňka je stavební „razítko“ krystalu — popisují ji tři délky hran a tři úhly. Nejmenší částicí je atom, ion nebo molekula (ta sedí v mřížkovém bodě), a vzdálenost sousedů je jen jeden z rozměrů buňky."},
+ {t:"single",q:"Buňka NaCl je krychle o hraně 564 pm a obsahuje 4 vzorcové jednotky. Které tvrzení o koordinačních číslech platí?",
+  o:["Každý ion Na⁺ má 6 sousedů Cl⁻ a každý Cl⁻ má 6 sousedů Na⁺ — poměr 6 : 6","Každý Na⁺ má 8 sousedů, každý Cl⁻ 6","Každý ion má 12 nejbližších sousedů","Koordinační číslo nelze u iontových látek definovat"],c:0,
+  e:"V mřížce typu NaCl obklopuje každý ion šest iontů opačného náboje ve vrcholech oktaedru — čtyři v rovině, jeden nad a jeden pod. Poměr 8 : 8 má CsCl, kde se velký kation vejde do středu krychle z osmi aniontů; koordinační číslo 12 mají nejtěsněji uspořádané kovy."},
+ {t:"single",q:"Proč jsou iontové krystaly tvrdé, ale zároveň křehké, zatímco kovy jsou kujné?",
+  o:["Iontové vazby jsou slabší než kovové","Posun vrstvy v iontovém krystalu postaví proti sobě stejné náboje a krystal praskne, kdežto v kovu se elektronový plyn přelije","Kovy mají nižší teplotu tání, a proto se snadněji tvarují","Iontové krystaly obsahují dutiny, které se při nárazu zbortí"],c:1,
+  e:"Iontová vazba je silná, ale <b>směrově citlivá na uspořádání nábojů</b>: stačí posunout vrstvu o jednu polohu a přitahování se změní v odpuzování. V kovu drží nesměrový elektronový plyn kationty pohromadě i po posunutí, takže vrstvy kloužou bez porušení."},
+ {t:"single",q:"Suchý led (CO₂) sublimuje při −78,5 °C. Jaký typ mřížky má?",
+  o:["Iontovou — obsahuje nabité atomy kyslíku","Atomovou — uhlík je vázán kovalentně","Kovovou — chová se jako suchý kov","Molekulovou — v uzlech jsou celé molekuly CO₂ držené jen slabými disperzními silami"],c:3,
+  e:"Uvnitř molekuly CO₂ jsou vazby pevné, ale mezi molekulami působí jen slabé disperzní síly, které stačí překonat malým množstvím tepla — proto tak nízká teplota sublimace. Právě nízká teplota tání či sublimace je nejspolehlivější indicií molekulové mřížky."},
+ {t:"multi",q:"Které vlastnosti jsou typické pro <b>atomovou (kovalentní)</b> mřížku?",
+  o:["Velmi vysoká teplota tání","Vysoká tvrdost","Vodivost v pevném stavu","Nerozpustnost v běžných rozpouštědlech","Snadná sublimace"],c:[0,1,3],
+  e:"Celý krystal je jedna obrovská molekula, takže tání i rozpouštění by znamenalo trhat kovalentní vazby — odtud extrémní teplota tání, tvrdost a nerozpustnost. Vodivost je výjimkou jen u grafitu (delokalizované π elektrony); diamant a SiO₂ jsou izolanty a nic z toho nesublimuje snadno."},
+ {t:"single",q:"Které tvrzení o amorfních látkách je <b>správné</b>?",
+  o:["Nemají ostrou teplotu tání, měknou v intervalu, a jsou izotropní","Mají ostrou teplotu tání jako krystaly, jen nižší","Jsou to ve skutečnosti pomalu tekoucí kapaliny","Vždy vedou elektrický proud"],c:0,
+  e:"V amorfní látce mají vazby různou délku a napětí, takže se netrhají naráz — látka postupně měkne (teplota skelného přechodu <span class='q'>T</span><sub>g</sub>) místo aby tála při jedné teplotě. Chybějící mřížka také znamená, že vlastnosti jsou ve všech směrech stejné. Sklo přitom není kapalina; je to pevná látka bez dalekodosahového uspořádání."},
+ {t:"num",q:"Elementární buňka MgO je krychle o hraně 421 pm a obsahuje 4 jednotky MgO (<span class='q'>M</span> = 40,30 g·mol⁻¹). Jaká je hustota MgO? (Zadejte v g·cm⁻³.)",
+  ans:3.59,tol:0.15,unit:"g·cm⁻³",
+  e:"Hmotnost buňky je 4·40,30/6,022·10²³ = 2,677·10⁻²² g, objem (4,21·10⁻⁸ cm)³ = 7,46·10⁻²³ cm³, podíl dá 3,59 g·cm⁻³ (tabulka 3,58). Pozor na převod pikometrů na centimetry a na to, že buňka obsahuje čtyři jednotky, ne jednu."}
+];
+
+BANK.q5=[
+ {t:"single",q:"Kolik elektronových domén má centrální atom v molekule <span class='chem'>CO₂</span>?",
+  o:["Čtyři — dvě dvojné vazby po dvou doménách","Dvě — každá dvojná vazba se počítá jako jedna doména","Tři — dvě vazby a jeden volný pár","Šest — počítají se všechny vazebné elektrony"],c:1,
+  e:"Násobná vazba je jedna doména bez ohledu na počet elektronů, protože všechny leží mezi týmiž dvěma jádry a odpuzují se jako jeden celek. Uhlík v CO₂ nemá volný pár, takže má dvě domény, uspořádání lineární a úhel 180°."},
+ {t:"single",q:"Jaký tvar má molekula <span class='chem'>XeF₄</span>?",
+  o:["Tetraedrický, protože má čtyři vázané atomy","Trigonálně bipyramidální","Trigonálně pyramidální","Čtvercově planární"],c:3,
+  e:"Xenon má osm valenčních elektronů: čtyři jdou do vazeb Xe–F a zbylé čtyři tvoří dva volné páry, takže domén je šest a uspořádání je oktaedrické. Oba volné páry se postaví proti sobě (nad a pod rovinu), aby si co nejméně překážely, a čtyři fluory zůstanou v rovině čtverce. Odpověď „tetraedrický“ je klasická past — ignoruje volné páry."},
+ {t:"single",q:"Proč je vazebný úhel ve vodě 104,5°, zatímco v methanu 109,5°?",
+  o:["Kyslík je menší atom než uhlík","Vazby O–H jsou kratší než C–H","Dva volné páry na kyslíku odpuzují silněji než vazebné páry, a proto vazby stlačí k sobě","Voda je polární, a proto se molekula smršťuje"],c:2,
+  e:"Volný pár patří jen jednomu jádru, drží se blíž centrálního atomu a zabírá víc prostoru než pár vazebný. Ve vodě jsou takové páry dva, takže vazby O–H stlačí nejvíc; v amoniaku s jedním volným párem je úhel 107°. Velikost atomu ani polarita tu nerozhoduje."},
+ {t:"single",q:"Který zápis odpovídá iontu <span class='chem'>H₃O⁺</span>?",
+  o:["AX₃E — trigonálně pyramidální","AX₃ — trigonálně planární","AX₂E₂ — lomený","AX₄ — tetraedrický"],c:0,
+  e:"Kyslík má šest valenčních elektronů, kladný náboj jeden odebere, zůstane pět: tři jdou do vazeb O–H a zbylé dva tvoří jeden volný pár. Čtyři domény dají tetraedrické uspořádání, po odmazání volného páru zbude trigonální pyramida s úhlem asi 113° — tedy stejný typ jako NH₃."},
+ {t:"single",q:"Molekula <span class='chem'>XeF₂</span> má pět elektronových domén. Jaký má tvar?",
+  o:["Trigonálně bipyramidální","T-tvar","Lomený s úhlem asi 120°","Lineární, 180°"],c:3,
+  e:"Xenon váže dva fluory a nese tři volné páry. Volné páry si vždy vyberou rovníkové polohy, kde mají nejvíc místa, takže všechny tři obsadí rovník a oba fluory zbudou na ose — molekula je lineární. Totéž platí pro ion I₃⁻; „lomený XeF₂“ je oblíbený distraktor přijímaček."},
+ {t:"multi",q:"Které z uvedených částic jsou <b>tetraedrické</b>?",
+  o:["<span class='chem'>NH₄⁺</span>","<span class='chem'>SO₄²⁻</span>","<span class='chem'>NO₃⁻</span>","<span class='chem'>CCl₄</span>","<span class='chem'>SO₂</span>"],c:[0,1,3],
+  e:"NH₄⁺, SO₄²⁻ i CCl₄ mají čtyři vazebné domény a žádný volný pár na centrálním atomu, tedy typ AX₄ a úhly 109,5°. NO₃⁻ má jen tři domény (trigonálně planární, 120°) a SO₂ tři domény s jedním volným párem, takže je lomený."},
+ {t:"single",q:"Který postup vede k určení tvaru molekuly podle VSEPR?",
+  o:["Určit elektronegativity, pak vazebné úhly","Spočítat valenční elektrony centrálního atomu, sestavit Lewisův vzorec, sečíst domény a odmazat volné páry","Zjistit hybridizaci z tabulky a z ní odvodit počet elektronů","Změřit dipólový moment a podle něj usoudit na geometrii"],c:1,
+  e:"VSEPR pracuje čistě s počtem domén: valenční elektrony (u iontů upravené o náboj) rozdělíte na vazby a volné páry, jejich součet dá elektronové uspořádání a teprve po odmazání volných párů dostanete tvar. Hybridizaci i dipólový moment z tvaru naopak <b>odvozujeme</b>, takže je nelze použít jako vstup."}
+];
+
+BANK.q6=[
+ {t:"single",q:"Kolik hybridních orbitalů vznikne smíšením jednoho orbitalu s a dvou orbitalů p?",
+  o:["Tři orbitaly sp², které míří do vrcholů rovnostranného trojúhelníku","Dva orbitaly sp","Čtyři orbitaly sp³","Šest orbitalů, protože každý p je dvojitý"],c:0,
+  e:"Počet hybridních orbitalů se vždy rovná počtu smíšených atomových orbitalů — z 1 s + 2 p tedy vzniknou tři sp². Rozmístí se v rovině po 120° a zbylý nehybridizovaný p orbital, kolmý na tuto rovinu, může vytvořit π vazbu (ethen, benzen)."},
+ {t:"single",q:"Proč musí uhlík před hybridizací sp³ projít excitací?",
+  o:["Aby se zvýšila jeho elektronegativita","Protože v základním stavu 2s² 2p² má jen dva nepárové elektrony, a mohl by tak tvořit jen dvě vazby","Aby se zmenšila energie hybridních orbitalů pod energii 2s","Protože jinak by měl záporný náboj"],c:1,
+  e:"Přesun jednoho elektronu z 2s do prázdného 2p dá konfiguraci 2s¹ 2p³ se čtyřmi nepárovými elektrony, tedy čtyřvazný uhlík. Excitace sice energii stojí, ale vznik dvou dalších vazeb ji mnohonásobně vrátí — proto je methan CH₄, a nikoli CH₂."},
+ {t:"single",q:"Kolik σ a π vazeb obsahuje molekula ethynu <span class='chem'>C₂H₂</span>?",
+  o:["5 σ a 1 π","3 σ a 2 π","2 σ a 3 π","4 σ a 0 π"],c:1,
+  e:"Každý uhlík je sp a má dva hybridní orbitaly: jeden na σ vazbu C–H a jeden na σ vazbu C–C, celkem tedy tři σ. Zbylé dva nehybridizované p orbitaly na každém uhlíku vytvoří dvě π vazby, takže trojná vazba je 1 σ + 2 π. Kombinace 5 σ + 1 π patří ethenu."},
+ {t:"single",q:"Který atom <b>nemůže</b> hybridizovat sp³d, a proč?",
+  o:["Fosfor — má příliš mnoho valenčních elektronů","Síra — d orbitaly má obsazené","Xenon — je vzácný plyn a nevytváří vazby","Dusík — jako prvek 2. periody nemá dostupné d orbitaly"],c:3,
+  e:"Hybridizace sp³d potřebuje jeden d orbital, jenže druhá perioda má k dispozici jen 2s a 2p. Proto dusík maximálně sp³ (čtyři domény, oktet), zatímco fosfor s prázdnými 3d orbitaly tvoří PCl₅. Xenon vazby tvoří běžně (XeF₂, XeF₄) a síra má 3d volné, takže dává SF₆."},
+ {t:"multi",q:"Které molekuly obsahují atom s hybridizací <b>sp²</b>?",
+  o:["<span class='chem'>BF₃</span>","<span class='chem'>C₂H₄</span>","<span class='chem'>CH₄</span>","<span class='chem'>C₆H₆</span>","<span class='chem'>H₂O</span>"],c:[0,1,3],
+  e:"Hybridizace sp² znamená tři elektronové domény: BF₃ má tři vazby bez volného páru, ethen a benzen mají na každém uhlíku dvě σ vazby plus jednu dvojnou (rovněž jedna doména). Methan má čtyři domény a voda dvě vazby plus dva volné páry — obojí je sp³."},
+ {t:"single",q:"Jak spolu souvisí teorie VSEPR a hybridizace?",
+  o:["Jsou to soupeřící teorie; platí vždy jen jedna z nich","Hybridizace určuje počet domén, VSEPR z nich odvodí náboj","Počet elektronových domén z VSEPR se rovná počtu hybridních orbitalů centrálního atomu","VSEPR platí jen pro molekuly bez volných párů, hybridizace jen pro ionty"],c:2,
+  e:"Obě teorie popisují totéž z jiné strany: VSEPR spočítá, kolik domén se kolem atomu odpuzuje a kam se postaví, a hybridizace pojmenuje sadu orbitalů, které do těchto směrů míří. Proto 4 domény vždy znamenají sp³, 3 domény sp² a 2 domény sp — bez ohledu na to, zda jsou domény vazebné, nebo volné páry."}
+];
+
+BANK.q7=[
+ {t:"single",q:"Proč je <span class='chem'>CO₂</span> nepolární, ačkoli vazby C=O polární jsou?",
+  o:["Protože kyslík a uhlík mají stejnou elektronegativitu","Protože molekula je v neustálém pohybu","Protože CO₂ je plyn a plyny nemohou být polární","Protože molekula je lineární a oba dipóly míří proti sobě, takže se vektorově vyruší"],c:3,
+  e:"Polarita molekuly je vektorový součet dipólů vazeb, a ten závisí na tvaru. V lineárním CO₂ jsou oba dipóly stejně velké a opačně orientované, takže výsledek je nula. Rozdíl elektronegativit C a O je přitom značný (0,89) — vazby polární opravdu jsou."},
+ {t:"single",q:"Ethanol vře při 78 °C, izomerní dimethylether při −25 °C. Čím je rozdíl 103 °C daný?",
+  o:["Ethanol má vyšší molární hmotnost","Ethanol má skupinu O–H, a tvoří proto vodíkové můstky, které ether tvořit nemůže","Ether je nepolární, ethanol iontový","Ether se při zahřátí rozkládá dřív, než stihne zavřít"],c:1,
+  e:"Obě látky mají vzorec C₂H₆O, tedy stejnou molární hmotnost i stejné atomy — liší se jen tím, kde sedí kyslík. Vodík vázaný na kyslík umožní vodíkové můstky (10–40 kJ·mol⁻¹), zatímco ether má jen dipól–dipólové interakce. Je to nejčistší školní důkaz síly vodíkových můstků."},
+ {t:"single",q:"Která řada je správně seřazena podle <b>rostoucí</b> teploty varu?",
+  o:["CH₄ &lt; HCl &lt; H₂O","H₂O &lt; HCl &lt; CH₄","HCl &lt; CH₄ &lt; H₂O","CH₄ &lt; H₂O &lt; HCl"],c:0,
+  e:"Methan je nepolární a drží ho jen disperzní síly (−161,5 °C), chlorovodík je polární a přidává dipól–dipólové interakce (−85,1 °C), voda tvoří vodíkové můstky (100 °C). Pořadí sil tedy určuje pořadí teplot varu — hmotnosti jsou přitom srovnatelné, takže nerozhodují."},
+ {t:"single",q:"Proč se jod dobře rozpouští v hexanu, ale ve vodě téměř vůbec?",
+  o:["Protože jod s hexanem chemicky reaguje","Protože voda má vyšší hustotu než jod","Protože I₂ je nepolární a hexan mu nabídne stejné disperzní síly, zatímco voda by musela obětovat vodíkové můstky","Protože jod je pevná látka a rozpouští se jen v kapalinách s nižší teplotou varu"],c:2,
+  e:"Rozpouštění proběhne, když nové interakce zhruba nahradí ty staré. Mezi I₂ a hexanem působí stejné disperzní síly jako uvnitř obou látek, takže výměna je energeticky neutrální. Voda by musela roztrhat silné vodíkové můstky a získala by jen slabé disperzní interakce, proto se rozpustí jen 0,33 g·L⁻¹."},
+ {t:"multi",q:"Které molekuly jsou <b>polární</b>?",
+  o:["<span class='chem'>NH₃</span>","<span class='chem'>CCl₄</span>","<span class='chem'>SO₂</span>","<span class='chem'>CHCl₃</span>","<span class='chem'>BF₃</span>"],c:[0,2,3],
+  e:"NH₃ (trigonální pyramida), SO₂ (lomená) a CHCl₃ (tetraedr s jedním jiným ligandem) mají porušenou symetrii, takže dipóly vazeb se nevyruší. CCl₄ a BF₃ mají všechny ligandy stejné a dokonale symetrické uspořádání, proto je jejich výsledný dipólový moment nulový."},
+ {t:"single",q:"Jak funguje mýdlo při odstraňování mastnoty?",
+  o:["Amfifilní molekuly zapíchnou nepolární ocasy do tuku a polárními hlavami trčí do vody, čímž vznikne micela","Rozpouští tuk chemickou reakcí na oxid uhličitý","Zvyšuje povrchové napětí vody, takže tuk vyplave","Mění polaritu vody na nepolární"],c:0,
+  e:"Molekula mýdla má hydrofobní uhlovodíkový ocas a hydrofilní hlavu COO⁻Na⁺. Ocasy se rozpustí v mastnotě, hlavy zůstanou ve vodě a vzniklá micela se nechá odplavit. Tenzidy navíc povrchové napětí vody <b>snižují</b>, aby lépe smáčela — proto se jim říká i smáčedla."}
+];

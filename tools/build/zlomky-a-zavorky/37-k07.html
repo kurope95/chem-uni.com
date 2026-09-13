@@ -1,0 +1,227 @@
+  <!-- ============ KAPITOLA 07 ============ -->
+  <section class="chapter" id="k7" data-title="Kontrola přepisu">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, bod 8</span>
+      <h2>Jak si ověřím, že jsem přepsal správně</h2>
+      <p class="lead">Tohle je pointa celého pod-modulu. Pravidla o&nbsp;závorkách si můžete zapamatovat nebo zapomenout — ale pokud umíte přepis <b>zkontrolovat</b>, chyba se k&nbsp;odpovědi nedostane tak jako tak. Metody jsou dvě, jsou na sobě nezávislé a&nbsp;obě zaberou míň než minutu.</p>
+
+      <h3>Metoda A — dosaďte jednoduchá čísla</h3>
+      <p>Postup: do <b>obou</b> zápisů, které mají být totožné, dosaďte tatáž malá čísla a&nbsp;porovnejte výsledky. Vyjde‑li něco jiného, přepis je špatně a&nbsp;není o&nbsp;čem diskutovat. Vyjde‑li totéž, zopakujte to ještě s&nbsp;jinou trojicí.</p>
+      <p class="eqlin" data-lbl="Ověřovaná rovnost na řádku — tady jsou vidět závorky">(m / M) / V = m / (M · V)</p>
+      <div class="bigeq" data-lbl="Táž ověřovaná rovnost jako zlomky">(m / M) / V = m / (M · V)</div>
+      <p>Dosaďme <span class="q">m</span>&nbsp;=&nbsp;2, <span class="q">M</span>&nbsp;=&nbsp;3 a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;5. Vlevo (2/3)/5&nbsp;=&nbsp;0,1333; vpravo 2/(3·5)&nbsp;=&nbsp;2/15&nbsp;=&nbsp;0,1333. Shoda. Pro jistotu ještě 3, 5, 7: vlevo (3/5)/7&nbsp;=&nbsp;0,08571; vpravo 3/35&nbsp;=&nbsp;0,08571. Dvě nezávislé shody — přepis je v&nbsp;pořádku.</p>
+
+      <div class="callout def">
+        <span class="eyebrow">Definice — protipříklad</span>
+        <p><span class="term">Protipříklad</span> je jediné konkrétní dosazení, ve kterém tvrzená rovnost neplatí. Stačí <b>jeden</b> a&nbsp;rovnost je vyvrácená — tvrzení „pro všechna čísla“ se boří jediným případem. Naopak libovolný počet shod rovnost <b>nedokazuje</b>; v&nbsp;praxi ale dvě až tři nezávislé shody úplně stačí.</p>
+      </div>
+
+      <h3>Jak volit čísla</h3>
+      <p>Volba čísel není libovolná. Špatně zvolená čísla chybu schovají.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Pravidlo</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td><b>Nikdy nulu</b></td><td>Rozbije dělení a&nbsp;vynuluje součiny. Z&nbsp;výsledku se nic nedozvíte.</td></tr>
+            <tr><td><b>Nikdy jedničku</b></td><td>Násobení a&nbsp;dělení jedničkou nic nemění, takže se chyba v&nbsp;umístění závorky neprojeví.</td></tr>
+            <tr><td><b>Každé písmeno jiné číslo</b></td><td>Když jsou dvě veličiny stejné, zamění se jejich role beztrestně a&nbsp;chyba se ztratí.</td></tr>
+            <tr><td><b>Malá celá čísla</b></td><td>Aby se to dalo spočítat z&nbsp;hlavy nebo na okraji papíru. Prvočísla 2, 3, 5, 7 fungují nejlíp.</td></tr>
+            <tr><td><b>Druhá trojice jiná než první</b></td><td>Náhodná shoda na jedné trojici se stává; na dvou už prakticky ne.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Past — náhodná shoda</span>
+        <p>Zápisy <span class="fx">(a + b) / a</span> a&nbsp;<span class="q">b</span> si nejsou rovné, ale pro <span class="q">a</span>&nbsp;=&nbsp;2 a&nbsp;<span class="q">b</span>&nbsp;=&nbsp;2 dají oba 2. Kdo dosadí zrovna tuhle dvojici, prohlásí chybný přepis za správný. Právě proto se dosazuje dvakrát a&nbsp;pokaždé jinými čísly.</p>
+      </div>
+
+      <h3>Metoda B — rozměrová kontrola</h3>
+      <p>Druhá metoda nepracuje s&nbsp;čísly, ale s&nbsp;jednotkami. Postup: <b>místo veličin dosaďte jejich jednotky</b> a&nbsp;projděte je úplně stejnými operacemi — včetně závorek. Musí vyjít jednotka veličiny, kterou hledáte.</p>
+      <p>Je to nezávislá kontrola: chytí jiné chyby než metoda A. Odhalí především <b>chybějící nebo přebývající závorku ve jmenovateli</b>, protože ta vždycky přesune jednotku z&nbsp;jednoho patra do druhého.</p>
+      <div class="bigeq" data-lbl="Rozměrová kontrola vzorce pro koncentraci">g / (g·mol⁻¹ · dm³) = mol·dm⁻³</div>
+      <p>Podrobný výklad rozměrové analýzy, včetně převodních zlomků a&nbsp;klíčových identit typu 1&nbsp;kPa·dm³&nbsp;=&nbsp;1&nbsp;J, najdete v&nbsp;kapitole o&nbsp;převodech na <a href="../index.html">hlavní stránce sekce Jak počítat chemii</a>. Tady nás zajímá jen její použití jako kontroly přepisu.</p>
+
+      <div class="callout tip">
+        <span class="eyebrow">Kdy použít kterou metodu</span>
+        <p><b>Dosazení čísel</b> použijte, když si nejste jistí <b>algebraickou úpravou</b> — krácením, sbalením složeného zlomku, roztržením součtu. Funguje i&nbsp;na výrazy bez jednotek. <b>Rozměrovou kontrolu</b> použijte, když si nejste jistí <b>přepisem vzorce</b> — kde má být závorka a&nbsp;co je nahoře a&nbsp;co dole. Ideální je udělat obojí: dohromady zachytí prakticky všechno.</p>
+      </div>
+
+      <h3>Co dělat, když kontrola neprojde</h3>
+      <p>Nepočítejte dál. Chyba je v&nbsp;<b>odvození</b>, ne v&nbsp;kalkulačce, a&nbsp;žádné množství přepočítávání ji nespraví. Vraťte se k&nbsp;poslednímu kroku, o&nbsp;kterém víte, že byl správně, a&nbsp;projděte odtud postup znovu — nejlépe ve svislém zápisu, kde je vidět, co je nahoře a&nbsp;co dole.</p>
+      <p>Když se chyba nedaří najít, přepište celý vztah od začátku s&nbsp;plným závorkováním: <span class="mono">(čitatel) / (jmenovatel)</span> u&nbsp;každého zlomku. Ten zápis je vždycky správně, i&nbsp;když vypadá upovídaně.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Zkouška dosazením — posuňte a&nbsp;sledujte, jestli se hodnoty rozejdou</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1.1rem">
+          <label for="zdSel">Ověřovaná dvojice zápisů</label>
+          <select id="zdSel"></select>
+        </div>
+        <div class="grid3" style="margin-bottom:1.1rem">
+          <div class="ctl">
+            <label for="zdA">a = <span class="val" id="zdAV">2</span></label>
+            <input type="range" id="zdA" min="2" max="9" step="1" value="2">
+          </div>
+          <div class="ctl">
+            <label for="zdB">b = <span class="val" id="zdBV">3</span></label>
+            <input type="range" id="zdB" min="2" max="9" step="1" value="3">
+          </div>
+          <div class="ctl">
+            <label for="zdC">c = <span class="val" id="zdCV">5</span></label>
+            <input type="range" id="zdC" min="2" max="9" step="1" value="5">
+          </div>
+        </div>
+        <div id="zdOut"></div>
+        <p class="verd" id="zdVerd" style="margin-top:.9rem">—</p>
+      </div>
+      <div class="panel-note">Zkuste dvojici <span class="fx">(a + b) / a</span> a&nbsp;<span class="q">b</span> a&nbsp;nastavte <span class="q">a</span>&nbsp;=&nbsp;2, <span class="q">b</span>&nbsp;=&nbsp;2. Hodnoty se shodnou, přestože zápisy stejné nejsou — model vás na tu náhodu upozorní. Pak posuňte kterýkoli posuvník a&nbsp;shoda se rozpadne. Tohle je přesně důvod, proč se dosazuje víckrát.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Rozměrová kontrola — co vyjde po zkrácení jednotek</h3>
+      </div>
+      <div class="panel-body">
+        <div class="drill">
+          <div class="drill-q" id="rkQ">—</div>
+          <div class="drill-opts" id="rkOpts"></div>
+          <p class="drill-fb" id="rkFb">—</p>
+          <div class="drill-bar">
+            <button class="btn btn-primary btn-sm" type="button" id="rkNext">Další vzorec</button>
+            <span class="drill-score" id="rkScore">0 / 0 správně</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste postupovat mechanicky: co je pod čarou, jde nahoru se záporným exponentem, pak se sečtou exponenty stejných jednotek. Nepřemýšlejte o&nbsp;chemii — rozměrová kontrola je čistě algebraická operace se symboly. Po šesti vzorcích s&nbsp;dobrým skóre se kapitola označí jako hotová.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.1 · je ten přepis správný?</span>
+        <p>Student odvodil pro hmotnost vyloučenou při elektrolýze vztah <span class="mono">m = M · I · t / z · F</span> a&nbsp;tvrdí, že je totožný se zápisem <span class="mono">m = M · I · t / (z · F)</span>. Rozhodněte oběma metodami.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+        <div class="worked-steps">
+          <div class="step"><span class="step-n">1</span><div class="step-b">
+            <p><b>Metoda A.</b> Dosadíme malá čísla, každé písmeno jiné: <span class="q">M</span>&nbsp;=&nbsp;2, <span class="q">I</span>&nbsp;=&nbsp;3, <span class="q">t</span>&nbsp;=&nbsp;5, <span class="q">z</span>&nbsp;=&nbsp;7, <span class="q">F</span>&nbsp;=&nbsp;4.</p>
+          </div></div>
+          <div class="step"><span class="step-n">2</span><div class="step-b">
+            <p>Studentův zápis se čte zleva doprava, takže se nakonec násobí <span class="q">F</span>.</p>
+            <p><span class="mono">2 · 3 · 5 / 7 · 4 = 30 / 7 · 4 = 4,286 · 4 = 17,14</span></p>
+          </div></div>
+          <div class="step"><span class="step-n">3</span><div class="step-b">
+            <p>Správný zápis dělí součinem.</p>
+            <p class="eqlin" data-lbl="Se závorkou — na řádku">2 · 3 · 5 / (7 · 4) = 30 / 28 = 1,071</p>
+          </div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-b">
+            <p>Hodnoty se liší, takže tvrzení neplatí. Jedna trojice čísel stačila — protipříklad je nalezen a&nbsp;dál se nic ověřovat nemusí.</p>
+          </div></div>
+          <div class="step"><span class="step-n">5</span><div class="step-b">
+            <p><b>Metoda B.</b> Dosadíme jednotky do studentova zápisu: g·mol⁻¹&nbsp;·&nbsp;A&nbsp;·&nbsp;s&nbsp;/&nbsp;1&nbsp;·&nbsp;C·mol⁻¹. Ampérsekunda je coulomb, takže vyjde g·mol⁻¹·C·C·mol⁻¹, tedy g·C²·mol⁻².</p>
+          </div></div>
+          <div class="step"><span class="step-n">6</span><div class="step-b">
+            <p>To není jednotka žádné veličiny, natož hmotnosti. Správný zápis dá g·mol⁻¹·C&nbsp;/&nbsp;(C·mol⁻¹)&nbsp;=&nbsp;g.</p>
+            <p><span class="result">Přepis je chybný — obě kontroly ho odmítly</span></p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.2 · dva zápisy, které vypadají různě</span>
+        <p>Jsou zápisy <span class="fx">a / (b / c)</span> a&nbsp;<span class="fx">(a · c) / b</span> totožné? Ověřte a&nbsp;řekněte, proč to na první pohled není vidět.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+        <div class="worked-steps">
+          <div class="step"><span class="step-n">1</span><div class="step-b">
+            <p>První trojice: <span class="q">a</span>&nbsp;=&nbsp;2, <span class="q">b</span>&nbsp;=&nbsp;3, <span class="q">c</span>&nbsp;=&nbsp;5.</p>
+            <p class="eq">2 / (3 / 5) = 2 / 0,6 = 3,333</p>
+            <p class="eq">(2 · 5) / 3 = 10 / 3 = 3,333</p>
+          </div></div>
+          <div class="step"><span class="step-n">2</span><div class="step-b">
+            <p>Druhá trojice, jiná čísla: <span class="q">a</span>&nbsp;=&nbsp;7, <span class="q">b</span>&nbsp;=&nbsp;4, <span class="q">c</span>&nbsp;=&nbsp;9.</p>
+            <p class="eq">7 / (4 / 9) = 7 / 0,4444 = 15,75</p>
+            <p class="eq">(7 · 9) / 4 = 63 / 4 = 15,75</p>
+          </div></div>
+          <div class="step"><span class="step-n">3</span><div class="step-b">
+            <p>Dvě nezávislé shody. Zápisy jsou totožné — a&nbsp;algebraicky to plyne z&nbsp;pravidla o&nbsp;dělení převrácenou hodnotou.</p>
+            <p><span class="result">Ano, jde o&nbsp;týž výraz</span></p>
+          </div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-b">
+            <p>Na první pohled to vidět není proto, že se <span class="q">c</span> přestěhovalo z&nbsp;„dvakrát dole“ nahoru. Právě takové přesuny je potřeba ověřovat — pouhé porovnání vzhledu obou zápisů nic neříká.</p>
+          </div></div>
+          <div class="step"><span class="step-n">5</span><div class="step-b">
+            <p>Poznámka ke kontrole strojem: srovnávat se musí <b>čísla</b>, ne struktura zápisu. Modely na téhle stránce to tak dělají — proto poznají, že <span class="fx">c · V</span> a&nbsp;<span class="fx">V · c</span> jsou totéž.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calcsheet">
+      <div class="cs-head">
+        <span class="cs-id">Výpočtový list</span>
+        <span class="cs-topic">Nernstův člen — kontrola přepisu obojím způsobem</span>
+        <span class="cs-kind">Elektrochemie</span>
+      </div>
+      <p class="cs-task">Spočítejte hodnotu členu <span class="q">R</span><span class="q">T</span>&nbsp;/&nbsp;(<span class="q">z</span><span class="q">F</span>) pro teplotu 25&nbsp;°C a&nbsp;dva vyměněné elektrony a&nbsp;ověřte, že jste vzorec přepsali správně.</p>
+      <div class="cs-block">
+        <span class="cs-lbl">Zadání</span>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-sym">R</span><span class="cs-val">= 8,314 J·K⁻¹·mol⁻¹</span><span class="cs-note">plynová konstanta</span></div>
+          <div class="cs-row"><span class="cs-sym">T</span><span class="cs-val">= 25 °C <span class="cs-conv">= 298,15 K</span></span><span class="cs-note">převedeno hned tady</span></div>
+          <div class="cs-row"><span class="cs-sym">z</span><span class="cs-val">= 2</span><span class="cs-note">počet vyměněných elektronů</span></div>
+          <div class="cs-row"><span class="cs-sym">F</span><span class="cs-val">= 96 485 C·mol⁻¹</span><span class="cs-note">Faradayova konstanta</span></div>
+        </div>
+      </div>
+      <div class="cs-block find">
+        <span class="cs-lbl">Hledáme</span>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-sym">E</span><span class="cs-val">= ? V</span><span class="cs-note">hodnota Nernstova členu</span></div>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Vztahy</span>
+        <div class="cs-rows">
+          <div class="cs-line">E = R · T / (z · F)</div>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Odvození</span>
+        <div class="cs-rows">
+          <div class="cs-line">E = R · T / (z · F)</div>
+          <p class="cs-hint">Odvozovat není co — vztah je hotový. Zato je potřeba dát pozor na závorku ve jmenovateli, protože dole stojí součin dvou činitelů: na řádek se píše <span class="mono">E = R · T / (z · F)</span>, nikdy ne <span class="mono">E = R · T / z · F</span>.</p>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Dosazení</span>
+        <div class="cs-rows">
+          <div class="cs-line">E = 8,314 J·K⁻¹·mol⁻¹ · 298,15 K / (2 · 96485 C·mol⁻¹)</div>
+          <div class="cs-line units">jednotky: J·K⁻¹·mol⁻¹ · K / (C·mol⁻¹) = <b>J·C⁻¹ = V</b> ✓ sedí s&nbsp;hledanou veličinou</div>
+          <div class="cs-line">E = 2478,8 / 192970 = 0,0128456 V</div>
+        </div>
+      </div>
+      <div class="cs-block res">
+        <span class="cs-lbl">Odpověď</span>
+        <div class="cs-rows">
+          <p class="cs-ans">Nernstův člen má při 25&nbsp;°C a&nbsp;dvou vyměněných elektronech hodnotu <b class="cs-hi">E = 0,01285 V</b>, tedy asi 12,8&nbsp;mV.</p>
+        </div>
+      </div>
+      <div class="cs-block chk">
+        <span class="cs-lbl">Kontrola</span>
+        <div class="cs-rows">
+          <p class="cs-chk">Dosazení čísel: pro <span class="q">R</span>&nbsp;=&nbsp;2, <span class="q">T</span>&nbsp;=&nbsp;3, <span class="q">z</span>&nbsp;=&nbsp;5 a&nbsp;<span class="q">F</span>&nbsp;=&nbsp;7 dá zápis se závorkou 6/35&nbsp;=&nbsp;0,1714, kdežto zápis bez závorky 6/5·7&nbsp;=&nbsp;8,4. Rozdíl je devětačtyřicetinásobný — přesně druhá mocnina toho, co vyskočilo nahoru — takže na závorce opravdu záleží. Rozměrová kontrola navíc potvrdila volt. Řádově sedí i&nbsp;výsledek: člen <span class="q">R</span><span class="q">T</span>/<span class="q">F</span> je při pokojové teplotě asi 25,7&nbsp;mV a&nbsp;my jsme ho dělili dvěma.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: kontrola přepisu"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

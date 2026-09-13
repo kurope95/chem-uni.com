@@ -1,0 +1,135 @@
+
+  <!-- ============ KAPITOLA 7 ============ -->
+  <section class="chapter" id="k7" data-title="Elektrochemie a koroze">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, bod 8</span>
+      <h2>Vztah elektrochemie a&nbsp;koroze</h2>
+      <p class="lead">Rez stojí světovou ekonomiku několik procent HDP ročně a&nbsp;je to obyčejný galvanický článek, který si železo postaví samo pod kapkou vody. Kdo rozumí Daniellovu článku, rozumí i&nbsp;tomu, proč pozinkovaný plot vydrží a&nbsp;proč promáčknutá konzerva ne.</p>
+
+      <h3>Chemická a&nbsp;elektrochemická koroze</h3>
+      <div class="grid2" style="margin:.3rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Chemická koroze</span>
+          <p>Přímá reakce kovu s&nbsp;plynem nebo nevodivým prostředím <b>bez elektrolytu</b>: okujení železa v&nbsp;žáru (<span class="chem">3 Fe + 2 O₂ → Fe₃O₄</span>), černání stříbra sulfanem (<span class="chem">2 Ag + H₂S → Ag₂S + H₂</span>). Oxidace a&nbsp;redukce probíhají na témže místě.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Elektrochemická koroze</span>
+          <p>Koroze <b>za přítomnosti elektrolytu</b> (vlhkost, voda, roztok solí), při níž se na povrchu vytvoří <b>galvanický článek</b>: oxidace a&nbsp;redukce probíhají na <b>různých místech</b> a&nbsp;elektrony mezi nimi tečou kovem. Je nesrovnatelně rychlejší a&nbsp;způsobuje naprostou většinu škod.</p>
+        </div>
+      </div>
+
+      <h3>Mechanismus — kapka vody na železe</h3>
+      <p>Pod kapkou vody se ustaví korozní článek. <b>Uprostřed</b> kapky je málo rozpuštěného kyslíku, tam je <span class="term">anodické místo</span>: železo se rozpouští. <b>Na okraji</b>, kde je kyslíku ze vzduchu nejvíc, je <span class="term">katodické místo</span>: kyslík se redukuje. Elektrony tečou kovem ze středu k&nbsp;okraji; ionty vodou.</p>
+      <p class="eq"><span style="color:var(--exo)">anoda:</span> <span class="chem">Fe → Fe²⁺ + 2 e⁻</span> &nbsp;&nbsp;(<span class="q">E</span>° = −0,44 V)<br><span style="color:var(--endo)">katoda:</span> <span class="chem">O₂ + 2 H₂O + 4 e⁻ → 4 OH⁻</span> &nbsp;&nbsp;(<span class="q">E</span>° = +0,40 V; při pH 7 ≈ 0,82 V)<br><span style="color:var(--ink-3)">v kyselém prostředí navíc: <span class="chem">2 H⁺ + 2 e⁻ → H₂</span></span><br>celkem: <span class="chem">2 Fe + O₂ + 2 H₂O → 2 Fe(OH)₂</span> &nbsp;→&nbsp; <span class="chem">4 Fe(OH)₂ + O₂ → 2 Fe₂O₃·H₂O + 2 H₂O</span> &nbsp;(rez)</p>
+      <p>Hnací síla článku Fe/O₂ je přes 1 V — koroze je termodynamicky nevyhnutelná. Rez <span class="chem">Fe₂O₃·xH₂O</span> je navíc porézní a&nbsp;odlupuje se, takže neochrání kov pod sebou (na rozdíl od Al₂O₃ na hliníku). Rez vzniká <b>na okraji</b> kapky, kde se potkají Fe²⁺ s&nbsp;OH⁻ — ne tam, kde se železo rozpouští. Proto bývá pod vrstvou rzi důlek.</p>
+
+      <h3>Co korozi urychluje</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Faktor</th><th>Účinek</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td><b>Elektrolyt</b> (sůl na silnicích, mořská voda)</td><td class="n" style="color:var(--bad)">↑↑</td><td>vodivý roztok uzavře korozní článek; chloridy navíc ničí pasivační vrstvy</td></tr>
+            <tr><td><b>Kyslík</b></td><td class="n" style="color:var(--bad)">↑</td><td>je hlavní oxidační činidlo (katodický děj); místa s rozdílným přístupem O₂ tvoří článek (koroze pod nečistotou)</td></tr>
+            <tr><td><b>Nízké pH</b></td><td class="n" style="color:var(--bad)">↑</td><td>přibude druhý katodický děj (redukce H⁺) a rozpouští se ochranné vrstvy; kyselé deště</td></tr>
+            <tr><td><b>Vlhkost</b></td><td class="n" style="color:var(--bad)">↑</td><td>bez vodního filmu není elektrolyt — v suché poušti železo nerezaví</td></tr>
+            <tr><td><b>Kontakt s ušlechtilejším kovem</b></td><td class="n" style="color:var(--bad)">↑↑</td><td>vznikne makročlánek, ve kterém je železo anoda (kontaktní koroze Fe–Cu)</td></tr>
+            <tr><td><b>Vysoké pH</b> (beton)</td><td class="n" style="color:var(--ok)">↓</td><td>železo se v zásaditém prostředí pasivuje — proto výztuž v betonu vydrží</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Ochrana proti korozi</h3>
+      <p>Každý způsob ochrany útočí na jednu součást korozního článku: buď zabrání kontaktu s&nbsp;elektrolytem, nebo udělá z&nbsp;chráněného kovu katodu, nebo mu dá vlastní nevodivou slupku.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Způsob</th><th>Princip</th><th>Po poškrábání</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td><b>Nátěr, smalt, plast</b></td><td>bariéra proti vodě a O₂</td><td class="n" style="color:var(--bad)">koroduje v rýze</td><td>mosty, karoserie, vany</td></tr>
+            <tr><td><b>Pozinkování</b></td><td>Zn je méně ušlechtilý → <b>obětovaná anoda</b>, Fe je katoda</td><td class="n" style="color:var(--ok)">chráněno dál</td><td>svodidla, plechy, šrouby</td></tr>
+            <tr><td><b>Pocínování</b></td><td>bariéra; Sn je ušlechtilejší</td><td class="n" style="color:var(--bad)">Fe koroduje <b>rychleji</b></td><td>konzervy (Sn je nejedovatý)</td></tr>
+            <tr><td><b>Katodická ochrana obětovanou anodou</b></td><td>blok Mg, Zn nebo Al vodivě spojený s konstrukcí</td><td class="n" style="color:var(--ok)">—</td><td>lodní trupy, potrubí, bojlery</td></tr>
+            <tr><td><b>Katodická ochrana vnějším zdrojem</b></td><td>konstrukce na − pól zdroje, inertní anoda v zemi</td><td class="n" style="color:var(--ok)">—</td><td>dálková potrubí, nádrže</td></tr>
+            <tr><td><b>Pasivace, slitiny</b></td><td>celistvá vrstva oxidu (Al₂O₃, Cr₂O₃ v nerezi ≥ 12 % Cr)</td><td class="n" style="color:var(--ok)">vrstva se obnoví</td><td>hliník, nerez, eloxování</td></tr>
+            <tr><td><b>Inhibitory</b></td><td>látky blokující anodický nebo katodický děj</td><td class="n">—</td><td>chladicí okruhy, nemrznoucí směsi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Zinek versus cín — nejčastější otázka z koroze</span>
+        <p>Obě vrstvy chrání jako bariéra, dokud jsou celé. Rozdíl přijde s&nbsp;prvním škrábancem. <b>Zinek</b> (−0,76 V) je méně ušlechtilý než železo (−0,44 V): v&nbsp;rýze vznikne článek, ve kterém se rozpouští <b>zinek</b> a&nbsp;železo je katoda — chráněné. <b>Cín</b> (−0,14 V) je ušlechtilejší: v&nbsp;rýze se rozpouští <b>železo</b>, a&nbsp;protože velká cínová plocha je katoda, koroduje ještě rychleji než holý plech. Pravidlo: <b>obětovaná anoda musí mít nižší <span class="q">E</span>° než chráněný kov.</b></p>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč hliník nerezaví, i když je neušlechtilejší než železo</span>
+        <p>Podle <span class="q">E</span>° by měl hliník (−1,66 V) korodovat mnohem ochotněji než železo. Jenže jeho oxid Al₂O₃ tvoří <b>celistvou, přilnavou a&nbsp;nevodivou</b> vrstvu, která se po poškrábání okamžitě obnoví. Rez Fe₂O₃·xH₂O je naopak porézní. O&nbsp;korozi tedy nerozhoduje jen termodynamika (<span class="q">E</span>°), ale i&nbsp;to, jaký produkt vznikne — opět kinetika. Chloridy (moře, sůl) ale pasivační vrstvu prorazí, proto hliník i&nbsp;nerez v&nbsp;mořské vodě trpí bodovou korozí.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kapka vody na železe — korozní článek a&nbsp;způsoby ochrany</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="coSel">Ochrana / situace</label>
+          <select id="coSel"></select>
+        </div>
+        <div class="svgwrap" id="coWrap" style="min-height:300px"></div>
+        <div class="grid2" style="margin-top:1rem;align-items:start">
+          <div class="callout" id="coText" style="border-left:3px solid var(--accent)"></div>
+          <div class="callout" style="background:var(--surface-2)"><span class="eyebrow">Kde se to používá / na co pozor</span><p id="coFx"></p></div>
+        </div>
+      </div>
+      <div class="panel-note">Přepínejte mezi pozinkováním a&nbsp;pocínováním — obě vrstvy jsou na obrázku poškrábané. Sledujte, který kov se v&nbsp;rýze rozpouští: u&nbsp;zinku zinek (železo je katoda), u&nbsp;cínu železo. Pak zkuste kontakt s&nbsp;mědí — stejný princip, opačný výsledek.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.1 · která vrstva chrání i po poškrábání</span>
+          <p>Ocelový plech je pokrytý (a) zinkem, (b) cínem, (c) mědí. Vrstva se poškrábe až na ocel a&nbsp;plech zvlhne. Rozhodněte v&nbsp;každém případě, který kov v&nbsp;rýze koroduje. <span class="q">E</span>°: Zn²⁺/Zn −0,76; Fe²⁺/Fe −0,44; Sn²⁺/Sn −0,14; Cu²⁺/Cu +0,34 V.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>V&nbsp;rýze vznikne galvanický článek dvou kovů ve společném elektrolytu. Anodou (rozpouští se) je vždy kov s&nbsp;<b>nižším <span class="q">E</span>°</b>, katodou kov s&nbsp;vyšším — na ní se jen redukuje kyslík.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">(a) Zn/Fe: −0,76 &lt; −0,44 → anoda <b>Zn</b>, Fe chráněno &nbsp;✓ &nbsp;(Δ<span class="q">E</span>° = 0,32 V)<br>(b) Sn/Fe: −0,14 &gt; −0,44 → anoda <b>Fe</b>, železo koroduje &nbsp;✕ &nbsp;(Δ<span class="q">E</span>° = 0,30 V)<br>(c) Cu/Fe: +0,34 &gt; −0,44 → anoda <b>Fe</b>, koroduje ještě rychleji &nbsp;✕ &nbsp;(Δ<span class="q">E</span>° = 0,78 V)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Čím větší rozdíl potenciálů a&nbsp;čím větší plocha katody vůči anodě, tím rychlejší koroze v&nbsp;rýze. Poškrábaná měděná vrstva na oceli je nejhorší z&nbsp;možností.</p>
+              <span class="result">chrání jen zinek (obětovaná anoda); cín a měď po poškrábání korozi železa urychlí</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.2 · výběr obětované anody</span>
+          <p>K&nbsp;ocelovému trupu lodi chceme připojit blok kovu jako obětovanou anodu. Na výběr je hořčík, olovo a&nbsp;měď. Který kov zvolíte a&nbsp;proč? Jak funguje varianta s&nbsp;vnějším zdrojem?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Obětovaná anoda se musí rozpouštět <b>místo</b> železa — musí tedy mít <b>nižší <span class="q">E</span>°</b> než −0,44 V.</p>
+              <p class="eq">Mg²⁺/Mg −2,37 V &nbsp;✓ &nbsp;·&nbsp; Pb²⁺/Pb −0,13 V &nbsp;✕ &nbsp;·&nbsp; Cu²⁺/Cu +0,34 V &nbsp;✕</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Hořčík vytvoří s&nbsp;ocelí článek o&nbsp;napětí −0,44 − (−2,37) = <b>1,93 V</b>, ve kterém je celý trup katodou: <span class="chem">Mg → Mg²⁺ + 2 e⁻</span> na bloku, <span class="chem">O₂ + 2 H₂O + 4 e⁻ → 4 OH⁻</span> na oceli. Olovo i&nbsp;měď by naopak udělaly z&nbsp;trupu anodu a&nbsp;korozi urychlily. V&nbsp;praxi se používá Mg, Zn nebo slitiny Al.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Varianta s&nbsp;vnějším zdrojem: trup se připojí k&nbsp;<b>zápornému pólu</b> stejnosměrného zdroje a&nbsp;inertní anoda (grafit, Ti) k&nbsp;plusu. Zdroj tlačí do oceli elektrony, ocel je katoda a&nbsp;Fe → Fe²⁺ neběží. Nic se nespotřebovává, jen se platí za proud.</p>
+              <span class="result">hořčík (E° = −2,37 V &lt; −0,44 V); trup je katoda, blok se obětuje</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: koroze a ochrana"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

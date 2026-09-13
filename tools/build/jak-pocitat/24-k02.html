@@ -1,0 +1,313 @@
+  <!-- ============ KAPITOLA 2 — PŘEVODY A ROZMĚROVÁ ANALÝZA ============ -->
+  <section class="chapter" id="k2" data-title="Převody a rozměrová analýza">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · převody</span>
+      <h2>Převodní zlomek a&nbsp;rozměrová analýza</h2>
+      <p class="lead">Převádět jednotky „z&nbsp;hlavy“ znamená hádat, jestli se násobí, nebo dělí. Existuje metoda, u&nbsp;které se hádat nemusí vůbec: jednotky se v&nbsp;zápisu krátí jako čísla, a&nbsp;když vám na konci zbude ta správná, převod je nutně správný. Ten samý trik pak umí zkontrolovat celý vzorec dřív, než do něj něco dosadíte.</p>
+
+      <h3>Převodní zlomek — jediná metoda, kterou potřebujete</h3>
+      <p>Každá rovnost mezi jednotkami se dá napsat jako <b>zlomek, který se rovná jedné</b>.
+      Z&nbsp;rovnosti <span class="mono">1 dm³ = 1000 cm³</span> se dají postavit <b>dva</b> takové
+      zlomky. Oba se rovnají jedné a&nbsp;oba jsou správně. Liší se jenom tím,
+      <b>kterou jednotku po vynásobení vyškrtnou</b> — a&nbsp;podle toho si vybíráte.</p>
+
+      <div class="grid2">
+        <div class="readout">
+          <span class="k">Vyškrtne dm³ a&nbsp;přinese cm³</span>
+          <span class="v eqline">1000 cm³ / 1 dm³ = 1</span>
+          <span class="h">Jednotka <span class="mono">dm³</span> stojí <b>pod čarou</b>, takže se
+          vykrátí s&nbsp;<span class="mono">dm³</span> v&nbsp;zadání. Berete tenhle, když máte
+          decimetry krychlové a&nbsp;chcete centimetry krychlové.</span>
+        </div>
+        <div class="readout">
+          <span class="k">Vyškrtne cm³ a&nbsp;přinese dm³</span>
+          <span class="v eqline">1 dm³ / 1000 cm³ = 1</span>
+          <span class="h">Jednotka <span class="mono">cm³</span> stojí <b>pod čarou</b>, takže se
+          vykrátí s&nbsp;<span class="mono">cm³</span> v&nbsp;zadání. Berete tenhle, když máte
+          centimetry krychlové a&nbsp;chcete decimetry krychlové.</span>
+        </div>
+      </div>
+
+      <p style="margin-top:1rem">Jsou to tedy <b>tytéž informace obrácené vzhůru nohama</b>, ne dvě
+      různá pravidla. Nemusíte si pamatovat, který je „ten správný“ — postavíte si ho na místě tak,
+      aby jednotka, které se chcete zbavit, skončila <b>na opačné straně čáry</b>, než na které je teď.</p>
+      <p>Násobit jedničkou smíte kdykoli a&nbsp;hodnotu to nezmění — změní se jen jednotka. Vyberete ten zlomek, po kterém se nechtěná jednotka <b>vykrátí</b>:</p>
+      <p class="eq">250 c<s style="text-decoration-thickness:1.5px">m³</s> · <b>1 dm³ / 1000 c<s style="text-decoration-thickness:1.5px">m³</s></b> = 0,250 dm³</p>
+      <p>Žádné přemýšlení, jestli se násobí, nebo dělí tisícem. Jednotka, které se chcete zbavit, musí být <b>na opačné straně zlomkové čáry</b>, než ve které je teď. To je celé pravidlo.</p>
+
+      <div class="callout tip">
+        <span class="eyebrow">Řetězení — kde metoda opravdu vynikne</span>
+        <p>Převodní zlomky můžete <b>řetězit za sebe</b>, dokud nedostanete cílovou jednotku. Kolik molekul je v&nbsp;1,0&nbsp;mg vody?</p>
+        <p class="eq" style="margin-top:.3rem">1,0 mg · <span style="color:var(--accent)">(1 g / 10³ mg)</span> · <span style="color:var(--accent)">(1 mol / 18,02 g)</span> · <span style="color:var(--accent)">(6,022·10²³ / 1 mol)</span> = 3,3·10¹⁹ molekul</p>
+        <p>Každý zlomek vyškrtne jednu jednotku a&nbsp;přinese další. Na konci zbude „molekul“ — přesně to, co jsme chtěli. Tímhle způsobem se dá vyřešit i&nbsp;úloha, u&nbsp;které vůbec netušíte, jak na ni: prostě řetězíte, dokud nezbude správná jednotka.</p>
+      </div>
+
+      <h3>Klíčové identity, které se vyplatí umět nazpaměť</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Oblast</th><th>Identita</th><th>K&nbsp;čemu je</th></tr></thead>
+          <tbody>
+            <tr><td>objem</td><td class="n">1 dm³ = 1 L = 10⁻³ m³</td><td>základ všech výpočtů s&nbsp;roztoky</td></tr>
+            <tr><td>objem</td><td class="n">1 cm³ = 1 mL = 10⁻⁶ m³</td><td>pipety, byrety, hustota</td></tr>
+            <tr><td>energie</td><td class="n">1 kPa·L = 1 J</td><td>objemová práce bez převodů</td></tr>
+            <tr><td>energie</td><td class="n">1 kPa·dm³ = 1 J = 1 Pa·m³ / 1000</td><td>totéž jinak zapsané</td></tr>
+            <tr><td>tlak</td><td class="n">1 atm = 101,325 kPa = 760 Torr</td><td>„normální tlak“ v&nbsp;zadáních</td></tr>
+            <tr><td>tlak</td><td class="n">1 bar = 100 kPa = 10⁵ Pa</td><td>dnešní standardní tlak (IUPAC)</td></tr>
+            <tr><td>teplota</td><td class="n"><span class="q">T</span>[K] = <span class="q">t</span>[°C] + 273,15</td><td>do všech stavových vzorců</td></tr>
+            <tr><td>hmotnost</td><td class="n">1 u = 1,66054·10⁻²⁷ kg</td><td>hmotnost jedné částice</td></tr>
+            <tr><td>hmotnost</td><td class="n">1 g = 1/<span class="q">N</span><sub>A</sub> mol · <span class="q">M</span></td><td>most mezi gramy a&nbsp;počtem částic</td></tr>
+            <tr><td>energie</td><td class="n">1 eV = 96,485 kJ·mol⁻¹</td><td>ionizační energie, spektroskopie</td></tr>
+            <tr><td>energie</td><td class="n">1 kcal = 4,184 kJ</td><td>starší tabulky, výživové údaje</td></tr>
+            <tr><td>náboj</td><td class="n">1 F = 96 485 C·mol⁻¹</td><td>elektrolýza, Faradayovy zákony</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nejužitečnější řádek celé tabulky</span>
+        <p><span class="mono">1 kPa · 1 L = 1 J</span>. Vypadá to jako kuriozita, ale ušetří vám polovinu chyb v&nbsp;termochemii a&nbsp;u&nbsp;plynů. Ověření: 1&nbsp;kPa = 10³&nbsp;Pa, 1&nbsp;L = 10⁻³&nbsp;m³, a&nbsp;<span class="mono">Pa·m³ = (N·m⁻²)·m³ = N·m = J</span>. Takže 10³ · 10⁻³ = 1. Objemovou práci <span class="mono">W = −pΔV</span> tak spočítáte přímo z&nbsp;kilopascalů a&nbsp;litrů a&nbsp;dostanete rovnou jouly.</p>
+      </div>
+
+      <h3>Rozměrová analýza — kontrola vzorce bez jediného čísla</h3>
+      <p><span class="term">Rozměrová analýza</span> je postup, kdy do vzorce místo hodnot dosadíte <b>jenom jednotky</b> a&nbsp;podíváte se, co vyjde. Je to nejrychlejší způsob, jak odhalit špatně zapamatovaný vzorec — a&nbsp;u&nbsp;přijímaček často jediný způsob, jak se v&nbsp;časovém stresu ubránit chybě.</p>
+      <p>Ukázka na stavové rovnici. Je správně <span class="mono">V = nRT/p</span>, nebo <span class="mono">V = np/(RT)</span>?</p>
+      <p class="eq">mol · (J·K⁻¹·mol⁻¹) · K / Pa = J / Pa = (N·m) / (N·m⁻²) = <b>m³</b> ✓</p>
+      <p>První varianta dává metr krychlový, tedy objem — je správně. U&nbsp;druhé by vyšlo <span class="mono">mol²·Pa²·J⁻¹·K⁻¹</span>, což není nic. Rozhodnuto za deset vteřin, bez tabulek.</p>
+
+      <div class="callout def">
+        <span class="eyebrow">Dvě pravidla rozměrové analýzy</span>
+        <p><b>1. Sčítat a&nbsp;odčítat lze jen veličiny stejného rozměru.</b> Ve výrazu <span class="mono">ΔG = ΔH − TΔS</span> proto musí být <span class="mono">TΔS</span> v&nbsp;joulech stejně jako <span class="mono">ΔH</span> — a&nbsp;protože <span class="q">S</span> se tabeluje v&nbsp;J·K⁻¹·mol⁻¹ a&nbsp;<span class="q">H</span> v&nbsp;kJ·mol⁻¹, musíte jedno z&nbsp;nich převést. Tohle je nejčastější chyba v&nbsp;celé termochemii.<br>
+        <b>2. Argument logaritmu, exponenciály a&nbsp;funkcí obecně musí být bezrozměrný.</b> Proto se v&nbsp;<span class="mono">ΔG° = −RT ln K</span> dosazuje <span class="q">K</span> bez jednotky (je to poměr vůči standardnímu stavu) a&nbsp;proto <span class="mono">pH = −log([H₃O⁺]/c°)</span> vlastně obsahuje dělení jednotkovou koncentrací, i&nbsp;když se to nepíše.</p>
+      </div>
+
+      <div class="callout tip">
+        <span class="eyebrow">Proč se čísla dosazují až úplně nakonec</span>
+        <p>Tohle je celý důvod, proč blok 4 (odvození) stojí před blokem 5 (dosazení).
+        Dokud máte ve vzorci <b>symboly</b>, nese si každý z&nbsp;nich svoji jednotku s&nbsp;sebou.
+        Ve chvíli, kdy dosadíte čísla, se jednotky rozplynou v&nbsp;aritmetice a&nbsp;zůstane vám
+        holé číslo, které nemáte jak zkontrolovat.</p>
+        <p>Když ale dosadíte <b>hodnoty i&nbsp;s&nbsp;jednotkami</b> a&nbsp;s&nbsp;jednotkami provedete
+        <b>tytéž operace</b> jako s&nbsp;čísly, musí vyjít přesně ta jednotka, kterou jste si
+        v&nbsp;bloku 2 zapsali jako hledanou. Pokud vyjde, máte odvození ověřené
+        <b>dřív, než jste cokoli spočítali</b>. Pokud nevyjde, počítat vůbec nemusíte —
+        chyba je výš.</p>
+        <p class="eq"><span class="q">c</span> = 5,85 g / (58,44 g·mol⁻¹ · 0,250 dm³) → g / (g·mol⁻¹ · dm³) = mol·dm⁻³</p>
+        <p>Gramy se vykrátí, <span class="mono">mol⁻¹</span> ve jmenovateli se převrátí na
+        <span class="mono">mol</span> v&nbsp;čitateli, <span class="mono">dm³</span> zůstane dole.
+        Vyšla koncentrace. Odvození je tím hotové a&nbsp;kalkulačka může začít pracovat.</p>
+      </div>
+
+      <div class="callout warn">
+        <span class="eyebrow">Vyšla jiná jednotka, než jsem hledal — co teď</span>
+        <p>Nejsou to dvě stejně vážné situace. Rozlište je, protože každá má jinou opravu.</p>
+        <p><b>1. Je to táž veličina, jen v&nbsp;jiném měřítku.</b> Chtěl jsem
+        <span class="mono">mol·dm⁻³</span> a&nbsp;vyšlo <span class="mono">mol·cm⁻³</span>;
+        chtěl jsem <span class="mono">kg</span> a&nbsp;vyšlo <span class="mono">g</span>.
+        Poznáte to tak, že se jedna jednotka dá na druhou převést <b>pouhým násobkem</b>
+        (u&nbsp;předpon mocninou deseti). <b>Odvození je správně</b> — chybí jen převod na vstupu.
+        Vraťte se do bloku 1, převeďte zadané hodnoty a&nbsp;počítejte dál.</p>
+        <p><b>2. Je to úplně jiná veličina, nebo vůbec nic.</b> Chtěl jsem
+        <span class="mono">mol·dm⁻³</span> a&nbsp;vyšlo <span class="mono">g·mol⁻¹</span>,
+        nebo shluk jako <span class="mono">mol²·Pa·J⁻¹</span>, který neodpovídá ničemu.
+        Žádný převod tohle nespraví. <b>Chyba je v&nbsp;odvození</b>: převrácený zlomek,
+        vynechaný činitel, špatně zapamatovaný vzorec. Vraťte se do bloku 4
+        a&nbsp;<b>nepočítejte</b> — čísla by vám jen daly falešný pocit, že něco máte.</p>
+        <p><b>Zvláštní případ:</b> vyšlo bezrozměrné číslo tam, kde jste čekali jednotku
+        (nebo naopak). Skoro vždy to znamená, že jste omylem dělili něčím, čím jste dělit
+        neměli, nebo naopak dělení vynechali. Zkontrolujte, co je v&nbsp;čitateli a&nbsp;co
+        ve jmenovateli.</p>
+      </div>
+
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Převodník — jedna hodnota ve všech obvyklých jednotkách naráz</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="cvCat">Veličina</label>
+            <select id="cvCat">
+              <option value="V">Objem</option>
+              <option value="m">Hmotnost</option>
+              <option value="n">Látkové množství</option>
+              <option value="p">Tlak</option>
+              <option value="E">Energie</option>
+              <option value="T">Teplota</option>
+              <option value="c">Koncentrace</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label for="cvUnit">Vstupní jednotka</label>
+            <select id="cvUnit"></select>
+          </div>
+        </div>
+        <div class="ctl" style="margin-bottom:1.1rem">
+          <label for="cvVal">Hodnota — <span class="val" id="cvValV">250</span></label>
+          <input type="range" id="cvVal" min="1" max="1000" step="1" value="250">
+        </div>
+        <div class="convgrid" id="cvOut"></div>
+      </div>
+      <div class="panel-note" id="cvNote">Zkuste nastavit <b>objem 250&nbsp;cm³</b> a&nbsp;přečíst si řádek v&nbsp;dm³. Pak přepněte na <b>tlak</b> a&nbsp;podívejte se, jak daleko od sebe jsou 1&nbsp;bar a&nbsp;1&nbsp;atm. Zvýrazněná dlaždice je vždycky ta jednotka, ve které se v&nbsp;chemických vzorcích počítá.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Rozměrová kontrola — jaká jednotka vyjde?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="drill">
+          <div class="drill-q" id="dimQ">—</div>
+          <div class="drill-opts" id="dimOpts"></div>
+          <p class="drill-fb" id="dimFb">Vyberte jednotku, která z&nbsp;výrazu vyjde po vykrácení. Deset správných za sebou označí kapitolu za splněnou.</p>
+          <div class="drill-bar">
+            <button class="btn btn-sm" type="button" id="dimNext">Další výraz</button>
+            <span class="drill-score" id="dimScore">0 / 0</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Nepočítejte, jen kraťte. Když jsou jednotky vpravo od sebe násobené, jejich exponenty se sčítají; když dělené, odčítají. <b>Pravidlo: co je v&nbsp;jednotce za mínus, patří do jmenovatele.</b></div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 2.1</span>
+        <p>Kolik molekul vody je v&nbsp;jedné kapce o&nbsp;objemu 0,050&nbsp;cm³? Hustota vody je 0,997&nbsp;g·cm⁻³, <span class="chem">M</span>(H₂O) = 18,02&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 2.1</span>
+              <span class="cs-topic">Řetězení převodních zlomků: objem → počet částic</span>
+              <span class="cs-kind">Převody</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= 0,050 cm³</span><span class="cs-note">objem kapky</span></div>
+                <div class="cs-row"><span class="cs-sym">ρ</span><span class="cs-val">= 0,997 g·cm⁻³</span><span class="cs-note">hustota vody při 25&nbsp;°C</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 18,02 g·mol⁻¹</span><span class="cs-note">M(H₂O)</span></div>
+                <div class="cs-row"><span class="cs-sym">N<sub>A</sub></span><span class="cs-val">= 6,022·10²³ mol⁻¹</span><span class="cs-note">Avogadrova konstanta</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">N</span><span class="cs-val">= ? molekul (bezrozměrné)</span><span class="cs-note">počet molekul H₂O</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">ρ = m / V</div>
+                <div class="cs-line">n = m / M</div>
+                <div class="cs-line">N = n · N<sub>A</sub></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">m = ρ · V</div>
+                <div class="cs-line">n = m / M = ρ · V / M</div>
+                <div class="cs-line">N = n · N<sub>A</sub> = <b>ρ · V · N<sub>A</sub> / M</b></div>
+                <p class="cs-hint">Tři vztahy, jedno odvození, jedno dosazení. Kdybyste dosazovali po každém kroku, počítali byste třikrát a&nbsp;dvakrát zaokrouhlovali.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">N = 0,997 g·cm⁻³ · 0,050 cm³ · 6,022·10²³ mol⁻¹ / 18,02 g·mol⁻¹</div>
+                <div class="cs-line units">jednotky: g·cm⁻³ · cm³ · mol⁻¹ / (g·mol⁻¹) = <b>1</b> (bezrozměrné) ✓</div>
+                <div class="cs-line">N = 0,04985 g · 6,022·10²³ mol⁻¹ / 18,02 g·mol⁻¹ = 1,666·10²¹</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">V&nbsp;jedné kapce vody je přibližně <b class="cs-hi">1,7·10²¹ molekul</b>. Dvě platné číslice, protože objem kapky byl zadán na dvě.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Kapka váží asi 0,05&nbsp;g, což je zhruba 1/360 molu. Setina Avogadrova čísla je 10²¹ — a&nbsp;vyšlo 1,7·10²¹. Řádově sedí. Hezká představa: v&nbsp;jediné kapce vody je víc molekul, než je hvězd v&nbsp;pozorovatelném vesmíru (odhad 10²²–10²⁴), takže jsme na stejném řádu jako celý vesmír.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 2.2</span>
+        <p>Jakou hmotnost v&nbsp;kilogramech má jeden atom železa? <span class="q">A</span><sub>r</sub>(Fe) = 55,85. Výsledek ověřte druhým způsobem přes atomovou hmotnostní jednotku.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 2.2</span>
+              <span class="cs-topic">Hmotnost jedné částice</span>
+              <span class="cs-kind">Převody</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 55,85 g·mol⁻¹ <span class="cs-conv">= 55,85·10⁻³ kg·mol⁻¹</span></span><span class="cs-note">z&nbsp;A<sub>r</sub>(Fe) = 55,85</span></div>
+                <div class="cs-row"><span class="cs-sym">N<sub>A</sub></span><span class="cs-val">= 6,022·10²³ mol⁻¹</span><span class="cs-note">Avogadrova konstanta</span></div>
+                <div class="cs-row"><span class="cs-sym">u</span><span class="cs-val">= 1,66054·10⁻²⁷ kg</span><span class="cs-note">pro druhý způsob</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m<sub>a</sub></span><span class="cs-val">= ? kg</span><span class="cs-note">hmotnost jednoho atomu</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">M = m<sub>a</sub> · N<sub>A</sub> &nbsp;&nbsp;<em>(molární hmotnost = hmotnost částice krát počet částic v&nbsp;molu)</em></div>
+                <div class="cs-line">m<sub>a</sub> = A<sub>r</sub> · u &nbsp;&nbsp;<em>(druhá cesta, přímo z&nbsp;definice u)</em></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">m<sub>a</sub> = <b>M / N<sub>A</sub></b> &nbsp;&nbsp;&nbsp;&nbsp; kontrolní cesta: m<sub>a</sub> = <b>A<sub>r</sub> · u</b></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">m<sub>a</sub> = 55,85·10⁻³ kg·mol⁻¹ / 6,022·10²³ mol⁻¹ = 9,274·10⁻²⁶ kg</div>
+                <div class="cs-line units">jednotky: kg·mol⁻¹ / mol⁻¹ = <b>kg</b> ✓</div>
+                <div class="cs-line">kontrola: m<sub>a</sub> = 55,85 · 1,66054·10⁻²⁷ kg = 9,274·10⁻²⁶ kg</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Jeden atom železa má hmotnost <b class="cs-hi">9,27·10⁻²⁶ kg</b>, tedy 9,27·10⁻²³&nbsp;g. Obě nezávislé cesty daly stejné číslo.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Atom vodíku váží zhruba 1,66·10⁻²⁷&nbsp;kg. Železo je asi 56× těžší, takže čekáme řádově 10⁻²⁵ až 10⁻²⁶&nbsp;kg — sedí. Pozor na past: kdybyste zapomněli převést gramy na kilogramy, vyšlo by 9,27·10⁻²³ a&nbsp;„kg“ by v&nbsp;odpovědi byl o&nbsp;tři řády vedle. Právě proto se převod píše hned do bloku zadání.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: převody a rozměrová analýza"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

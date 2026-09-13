@@ -1,0 +1,116 @@
+  <!-- ============ KAPITOLA 8 — ČASTÉ CHYBY ============ -->
+  <section class="chapter" id="k8" data-title="Časté chyby a jak je odhalit">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 08 · pasti</span>
+      <h2>Deset chyb, které stojí nejvíc bodů</h2>
+      <p class="lead">Tenhle seznam vznikl z&nbsp;opravovaných písemek. Nejsou to chyby z&nbsp;neznalosti chemie — jsou to chyby řemesla. Každá má svůj typický vzhled, svůj způsob odhalení a&nbsp;svou prevenci, a&nbsp;ta prevence je vždycky v&nbsp;některém bloku výpočtového listu.</p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Chyba</th><th>Jak se pozná</th><th>Prevence</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1</td><td>cm³ místo dm³</td><td>výsledek je 1000× vedle</td><td>převod v&nbsp;bloku <b>zadání</b></td></tr>
+            <tr><td class="n">2</td><td>g místo kg</td><td>výsledek je 1000× vedle</td><td>převod v&nbsp;bloku <b>zadání</b></td></tr>
+            <tr><td class="n">3</td><td><span class="q">S</span> v&nbsp;J, <span class="q">H</span> v&nbsp;kJ</td><td>Δ<span class="q">G</span> vyjde absurdně velká</td><td>rozměrová kontrola v&nbsp;<b>dosazení</b></td></tr>
+            <tr><td class="n">4</td><td>°C místo K</td><td>u&nbsp;pokojové teploty faktor ~15</td><td>převod v&nbsp;bloku <b>zadání</b></td></tr>
+            <tr><td class="n">5</td><td>zapomenutý koeficient</td><td>výsledek 2× nebo 3× vedle</td><td>koeficienty jako řádek <b>zadání</b></td></tr>
+            <tr><td class="n">6</td><td>zaokrouhlení uprostřed</td><td>poslední číslice nesedí</td><td>zaokrouhlit jen v&nbsp;<b>odpovědi</b></td></tr>
+            <tr><td class="n">7</td><td>dosazení před odvozením</td><td>ztracená nit, nelze zkontrolovat</td><td>blok <b>odvození</b> bez čísel</td></tr>
+            <tr><td class="n">8</td><td>chybějící jednotka u&nbsp;výsledku</td><td>bod dolů i&nbsp;při správném čísle</td><td>otazník s&nbsp;jednotkou v&nbsp;<b>hledáme</b></td></tr>
+            <tr><td class="n">9</td><td><span class="q">V</span><sub>m</sub> 22,4 vs&nbsp;24,8</td><td>výsledek o&nbsp;10&nbsp;% vedle</td><td>teplota jako řádek <b>zadání</b></td></tr>
+            <tr><td class="n">10</td><td>ln vs&nbsp;log</td><td>výsledek 2,303× vedle</td><td>opsat vzorec do <b>vztahů</b> přesně</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1 a&nbsp;2 · Objem a&nbsp;hmotnost o&nbsp;tři řády vedle</h3>
+      <p>Nejčastější chyba v&nbsp;celé chemii, a&nbsp;zároveň nejlépe rozpoznatelná: výsledek je <b>přesně tisíckrát</b> větší nebo menší, než má být. Když vám vyjde koncentrace 400&nbsp;mol·dm⁻³ nebo 0,0004&nbsp;mol·dm⁻³ místo 0,400, nehledejte chybu v&nbsp;úvaze — hledejte chybějící převod.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Jak vypadá v&nbsp;praxi</span>
+        <p><span class="mono">c = 5,85 / (58,44 · 250) = 0,0004 mol·dm⁻³</span> — objem zůstal v&nbsp;cm³.<br>
+        <span class="mono">V = 0,250 · 8,314 · 293 / 98 500 = 6,2·10⁻³</span> a&nbsp;student napíše „6,2·10⁻³&nbsp;dm³“ místo „6,2·10⁻³&nbsp;m³ = 6,2&nbsp;dm³“ — tlak byl v&nbsp;Pa, takže objem vyšel v&nbsp;m³.<br>
+        <b>Rozpoznávací znak:</b> ve výsledku jsou správné číslice ve správném pořadí, jen je posunutá desetinná čárka o&nbsp;tři místa.</p>
+      </div>
+      <p>Reálné rozsahy, které se vyplatí mít v&nbsp;hlavě jako kontrolu: běžné roztoky mají 0,01–2&nbsp;mol·dm⁻³, koncentrované kyseliny 10–18, mořská voda 0,6, krev 0,15. Nad 20&nbsp;mol·dm⁻³ se nedostane skoro nic (čistá voda má 55,5).</p>
+
+      <h3>3 · Entropie v&nbsp;joulech, enthalpie v&nbsp;kilojoulech</h3>
+      <p>Tabulky uvádějí Δ<span class="q">H</span>° v&nbsp;<b>kJ·mol⁻¹</b> a&nbsp;<span class="q">S</span>° v&nbsp;<b>J·K⁻¹·mol⁻¹</b>. Ve vzorci <span class="mono">ΔG = ΔH − TΔS</span> se ale odčítají — a&nbsp;odčítat lze jen stejné jednotky.</p>
+      <p class="eq"><span style="color:var(--bad)">špatně:</span> Δ<span class="q">G</span> = −92,2 − 298·(−198,8) = <b>+59 150</b> „kJ·mol⁻¹“<br><span style="color:var(--ok)">správně:</span> Δ<span class="q">G</span> = −92,2 − 298·(−0,1988) = <b>−33,0 kJ·mol⁻¹</b></p>
+      <p><b>Rozpoznávací znak:</b> Δ<span class="q">G</span> v&nbsp;desítkách tisíc kJ·mol⁻¹. Reálné hodnoty jsou v&nbsp;desítkách až stovkách. Když překročíte tisíc, skoro jistě jste zapomněli dělit tisícem.</p>
+
+      <h3>4 · Celsius místo kelvinu</h3>
+      <p>Do <span class="mono">pV = nRT</span>, <span class="mono">ΔG = ΔH − TΔS</span>, Nernstovy i&nbsp;Arrheniovy rovnice patří <b>absolutní teplota</b>. Dosazení 25 místo 298,15 posune výsledek dvanáctinásobně; u&nbsp;0&nbsp;°C dokonce vyjde nula nebo dělení nulou.</p>
+      <p>Naopak do <span class="mono">Q = mcΔT</span> patří <b>rozdíl</b>, a&nbsp;ten je v&nbsp;obou stupnicích stejný. Chyba tady tedy nevzniká — <b>pokud opravdu jde o&nbsp;rozdíl</b>. Když je v&nbsp;zadání „ohřáli jsme z&nbsp;20&nbsp;°C na 25&nbsp;°C“, je Δ<span class="q">T</span> = 5&nbsp;K. Když je v&nbsp;zadání „na 25&nbsp;°C“ bez počáteční hodnoty, je něco špatně v&nbsp;zadání, ne ve vás.</p>
+
+      <h3>5 · Zapomenutý stechiometrický koeficient</h3>
+      <p>Chyba, která nedělá „hezké“ tisícinásobky, a&nbsp;proto se hůř odhaluje: výsledek je jen dvakrát nebo třikrát vedle a&nbsp;na první pohled vypadá věrohodně.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Prevence, která funguje</span>
+        <p>Napište si <b>poměr koeficientů jako řádek zadání</b>: <span class="mono">ν = 1 : 2 (Fe₂O₃ : Fe)</span>. Pak se na něj v&nbsp;odvození nedá zapomenout, protože je fyzicky před vámi. A&nbsp;pokud v&nbsp;zadání není vyčíslená rovnice, vyčíslete ji jako první krok — ne v&nbsp;hlavě.</p>
+      </div>
+
+      <h3>6 · Zaokrouhlení uprostřed výpočtu</h3>
+      <p>Chyba, kterou opravující pozná okamžitě: číslice jsou skoro správné, ale poslední jedna či dvě nesedí. U&nbsp;přijímaček s&nbsp;výběrem odpovědi to bývá fatální, protože distraktory jsou často právě „správný výsledek zaokrouhlený špatně“.</p>
+      <p>Praktické pravidlo: během výpočtu si nechávejte <b>o&nbsp;dvě platné číslice víc</b>, než bude mít odpověď. Ještě lepší je nezapisovat mezivýsledky vůbec a&nbsp;počítat celý výraz najednou — což jde právě proto, že máte odvozený jeden vztah.</p>
+
+      <h3>7 · Dosazení dřív než odvození</h3>
+      <p>Není to početní chyba, je to <b>chyba organizační</b> — a&nbsp;stojí nejvíc bodů, protože znemožňuje všechny ostatní kontroly. Bez odvození nelze provést rozměrovou zkoušku, nelze najít, kde se stala aritmetická chyba, a&nbsp;nelze dát dílčí body.</p>
+
+      <h3>8 · Chybějící jednotka</h3>
+      <p>„Výsledek: 0,400“ je nedokončená odpověď. Číslo bez jednotky v&nbsp;přírodních vědách neznamená nic (kromě bezrozměrných veličin jako pH, <span class="q">w</span>, <span class="q">K</span> nebo <span class="q">A</span><sub>r</sub> — tam ji naopak psát nesmíte). Blok <b>hledáme</b> tuhle chybu vylučuje konstrukčně.</p>
+
+      <h3>9 · Molární objem 22,4 versus 24,8</h3>
+      <p>Deset procent rozdílu je víc, než kolik dovoluje tolerance většiny testů. <b>Rozhodovací pravidlo:</b> je-li v&nbsp;zadání 0&nbsp;°C nebo „normální podmínky“, použijte 22,4; je-li 25&nbsp;°C nebo „standardní podmínky“, použijte 24,8; je-li jakákoli jiná teplota nebo tlak, nepoužívejte <span class="q">V</span><sub>m</sub> vůbec a&nbsp;počítejte ze stavové rovnice.</p>
+
+      <h3>10 · Přirozený versus dekadický logaritmus</h3>
+      <p>Ve vzorcích <span class="mono">ΔG° = −RT ln K</span>, <span class="mono">ln(c₀/c) = kt</span> a&nbsp;<span class="mono">ln(N₀/N) = λt</span> je <b>přirozený</b> logaritmus. Ve vzorcích <span class="mono">pH = −log[H₃O⁺]</span> a&nbsp;<span class="mono">pK = −log K</span> je <b>dekadický</b>. Nernstova rovnice existuje v&nbsp;obou verzích — s&nbsp;<span class="mono">ln</span> a&nbsp;činitelem <span class="mono">RT/zF</span>, nebo s&nbsp;<span class="mono">log</span> a&nbsp;činitelem <span class="mono">0,059/z</span>. Poměr mezi nimi je vždycky <b>2,303</b>, takže když vám výsledek vyjde 2,3× vedle, víte přesně, kde hledat.</p>
+
+      <div class="callout tip">
+        <span class="eyebrow">Poslední rada, než začnete počítat</span>
+        <p>Než sáhnete po kalkulačce, <b>odhadněte výsledek zpaměti na jeden řád</b>. Trvá to deset vteřin a&nbsp;chrání vás před všemi chybami z&nbsp;této kapitoly naráz — protože každá z&nbsp;nich posune výsledek nejméně dvakrát, a&nbsp;to už řádový odhad odhalí. Trenažér níž vás to naučí.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Řádový odhad — vyjde to v&nbsp;desetinách, jednotkách, nebo stovkách?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="drill">
+          <div class="drill-q" id="ordQ">—</div>
+          <div class="svgwrap" id="ordWrap" style="min-height:130px"></div>
+          <div class="drill-opts" id="ordOpts" style="margin-top:.8rem"></div>
+          <p class="drill-fb" id="ordFb">Nepočítejte přesně — zaokrouhlete si každé číslo na jednu platnou číslici a&nbsp;odhadněte řád. Osm správných za sebou označí kapitolu za splněnou.</p>
+          <div class="drill-bar">
+            <button class="btn btn-sm" type="button" id="ordNext">Další odhad</button>
+            <span class="drill-score" id="ordScore">0 / 0</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Technika: <b>všechna čísla zaokrouhlete na jednu platnou číslici, mocniny deseti sečtěte zvlášť.</b> Například 5,85/(58,44·0,250) ≈ 6/(60·0,25) = 6/15 = 0,4. Přesný výsledek je 0,400 — na řád trefeno na první pokus.</div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Kontrolní seznam před odevzdáním</h3>
+      <p>Projděte ho u&nbsp;každé početní úlohy. Trvá to půl minuty a&nbsp;zachrání víc bodů než cokoli jiného.</p>
+      <div class="grid2">
+        <div class="callout def">
+          <span class="eyebrow">Šest otázek</span>
+          <p><b>1.</b> Převedl jsem všechny objemy na dm³ a&nbsp;hmotnosti na g (nebo důsledně na SI)?<br>
+          <b>2.</b> Je teplota v&nbsp;kelvinech všude, kde má být?<br>
+          <b>3.</b> Vyšla mi po vykrácení jednotka, kterou jsem psal v&nbsp;bloku „hledáme“?<br>
+          <b>4.</b> Použil jsem stechiometrické koeficienty?<br>
+          <b>5.</b> Má výsledek správný počet platných číslic a&nbsp;jednotku?<br>
+          <b>6.</b> Dává výsledek fyzikální smysl (znaménko, řád, srovnání s&nbsp;běžnou hodnotou)?</p>
+        </div>
+        <div class="callout tip">
+          <span class="eyebrow">A&nbsp;jedna navíc pro přijímačky</span>
+          <p>U&nbsp;testů s&nbsp;výběrem odpovědi si nabízené možnosti přečtěte <b>před</b> počítáním. Často se liší jen řádem nebo faktorem dva — a&nbsp;to znamená, že vám stačí odhad, ne přesný výpočet. Ušetřený čas pak věnujete úlohám, kde se opravdu počítat musí. Zároveň distraktory prozradí, jaké chyby se od vás očekávají: když je mezi nimi hodnota 1000× větší, víte, že se testuje převod jednotek.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q8" data-title="Mini‑test: chyby, odhady a kontrola"></div>
+    <div class="chapter-done" data-done="k8"></div>
+  </section>

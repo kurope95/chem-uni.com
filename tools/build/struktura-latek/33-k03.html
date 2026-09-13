@@ -1,0 +1,198 @@
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Rozpouštění na molekulární úrovni">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · osnova, bod 1 (děje na molekulární úrovni: rozpouštění)</span>
+      <h2>Rozpouštění na molekulární úrovni</h2>
+      <p class="lead">Když sypete sůl do vody, sledujete souboj dvou obrovských energií: mřížka nechce ionty pustit, voda je chce mít pro sebe. Výsledek je jejich malý rozdíl — a&nbsp;ten rozhoduje, jestli se roztok ohřeje, nebo ochladí.</p>
+
+      <h3>Co se při rozpouštění děje</h3>
+      <p><span class="term">Rozpouštění</span> je rozptýlení částic jedné látky mezi částice druhé až na molekulární úroveň. Aby k&nbsp;němu došlo, musí se stát tři věci:</p>
+      <p>1. <b>Rozrušit síly mezi částicemi rozpouštěné látky</b> (u&nbsp;iontového krystalu je to mřížková energie — stojí energii).<br>
+      2. <b>Rozestoupit částice rozpouštědla</b>, aby vzniklo místo (u&nbsp;vody rozbít část vodíkových můstků — stojí energii).<br>
+      3. <b>Vytvořit nové interakce</b> mezi rozpuštěnou částicí a&nbsp;rozpouštědlem — <span class="term">solvatace</span>, ve vodě <span class="term">hydratace</span> (energie se uvolní).</p>
+      <p>Rozpouštění proběhne, když jsou nové interakce zhruba tak silné jako ty staré. To je fyzikální obsah pravidla <b>„podobné rozpouští podobné“</b>: polární rozpouštědlo nahradí polární interakce, nepolární nahradí disperzní. Voda nemůže rozpustit olej, protože by musela rozbít své vodíkové můstky (silné) a&nbsp;dostala by za ně jen disperzní síly (slabé).</p>
+
+      <h3>Hydratace iontů — jak voda rozebere krystal</h3>
+      <p>Molekula vody je dipól: kyslík δ−, vodíky δ+. Na povrchu krystalu <span class="chem">NaCl</span> se molekuly natočí kyslíkem k&nbsp;<span class="chem">Na⁺</span> a&nbsp;vodíky k&nbsp;<span class="chem">Cl⁻</span>. Ion na rohu má jen tři sousedy místo šesti — tam ho několik dipólů společně vytrhne a&nbsp;obklopí <b>hydratačním obalem</b> (Na⁺ zhruba šest molekul). Hydratovaný ion odplouvá a&nbsp;krystal se rozpadá od rohů a&nbsp;hran.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Hydratace: rozpad mřížky NaCl a&nbsp;energetická bilance rozpouštění</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="hydStep">Postup rozpouštění — <span class="val" id="hydStepV">35 %</span></label>
+            <input type="range" id="hydStep" min="0" max="100" step="1" value="35">
+          </div>
+          <div class="ctl">
+            <label>Sůl pro energetickou bilanci</label>
+            <div class="segmented" id="hydSalt" role="group" aria-label="Sůl">
+              <button type="button" data-v="NaCl" aria-pressed="true">NaCl</button>
+              <button type="button" data-v="NaOH" aria-pressed="false">NaOH</button>
+              <button type="button" data-v="NH₄NO₃" aria-pressed="false">NH₄NO₃</button>
+              <button type="button" data-v="KNO₃" aria-pressed="false">KNO₃</button>
+              <button type="button" data-v="KCl" aria-pressed="false">KCl</button>
+              <button type="button" data-v="CaCl₂" aria-pressed="false">CaCl₂</button>
+              <button type="button" data-v="LiCl" aria-pressed="false">LiCl</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="hydWrap" style="min-height:330px"></div>
+        <div class="callout tip" style="margin-top:.9rem">
+          <span class="eyebrow">Co právě vidíte</span>
+          <p id="hydStage"></p>
+        </div>
+        <div class="grid3" style="margin-top:.6rem">
+          <div class="readout" id="hydRo1"></div>
+          <div class="readout" id="hydRo2"></div>
+          <div class="readout" id="hydRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="hydNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>Rozpouštěcí teplo: mřížková versus hydratační energie</h3>
+      <p class="eq">Δ<span class="q">H</span><sub>rozp</sub> = <span style="color:var(--endo)">+ <span class="q">E</span><sub>mříž</sub></span> <span style="color:var(--exo)">− |<span class="q">E</span><sub>hydr</sub>|</span> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">obě v kJ·mol⁻¹; první stojí, druhá vrací</span></p>
+      <p>Obě položky jsou řádově <b>stovky až tisíce kJ·mol⁻¹</b>, výsledek je jejich <b>malý rozdíl</b> — proto znaménko nejde odhadnout selským rozumem a&nbsp;proto se ptají zrovna na něj:</p>
+      <div class="grid3">
+        <div class="readout neg"><span class="k">NaOH</span><span class="v">−44,5 kJ·mol⁻¹</span><span class="h">exotermické — roztok se zahřeje, kádinka pálí</span></div>
+        <div class="readout"><span class="k">NaCl</span><span class="v">+3,9 kJ·mol⁻¹</span><span class="h">skoro nula — teplota se prakticky nezmění</span></div>
+        <div class="readout pos"><span class="k">NH₄NO₃</span><span class="v">+25,7 kJ·mol⁻¹</span><span class="h">endotermické — chladicí sáček</span></div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč se endotermické rozpouštění vůbec děje</span>
+        <p>Protože kromě enthalpie hraje roli <b>entropie</b>: rozpad uspořádaného krystalu na volně se pohybující ionty je obrovský nárůst neuspořádanosti. V&nbsp;tématu Termochemie to vyjadřuje Δ<span class="q">G</span> = Δ<span class="q">H</span> − <span class="q">T</span>Δ<span class="q">S</span> — u&nbsp;NH₄NO₃ je Δ<span class="q">H</span> kladná, ale <span class="q">T</span>Δ<span class="q">S</span> větší, takže Δ<span class="q">G</span> vyjde záporná a&nbsp;sůl se rozpustí sama.</p>
+      </div>
+
+      <h3>Rozpustnost, nasycený roztok a&nbsp;vliv teploty</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><span class="term">Rozpustnost</span> je maximální množství látky, které se za dané teploty rozpustí v&nbsp;daném množství rozpouštědla (obvykle g na 100 g vody). Roztok s&nbsp;tímto množstvím je <span class="term">nasycený</span> — rozpouštění a&nbsp;krystalizace v&nbsp;něm běží stejně rychle (dynamická rovnováha). <span class="term">Nenasycený</span> roztok další látku ještě rozpustí. <span class="term">Přesycený</span> roztok obsahuje víc, než odpovídá rovnováze (vznikne opatrným ochlazením), je nestabilní a&nbsp;po vhození krystalku nebo zatřepání z&nbsp;něj přebytek vykrystalizuje.</p>
+      </div>
+      <p>Vliv teploty plyne z&nbsp;Le Chatelierova principu: je-li rozpouštění <b>endotermické</b> (většina solí: KNO₃, NH₄NO₃, KCl), teplo je „reaktant“ a&nbsp;zahřátí rozpustnost <b>zvyšuje</b>. U&nbsp;NaCl je Δ<span class="q">H</span> skoro nula, takže rozpustnost na teplotě skoro nezávisí. Rozpouštění <b>plynů</b> je vždy <b>exotermické</b> (plyn ztrácí volnost, nic se netrhá) — proto rozpustnost plynů s&nbsp;teplotou <b>klesá</b>: teplá limonáda šumí víc a&nbsp;v&nbsp;přehřátém rybníku ryby dusí.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Křivky rozpustnosti — čtyři soli a&nbsp;jeden plyn</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="solT">Teplota — <span class="val" id="solTV">20 °C</span></label>
+          <input type="range" id="solT" min="0" max="100" step="1" value="20">
+        </div>
+        <div class="svgwrap" id="solWrap" style="min-height:360px"></div>
+        <div class="tablewrap" style="margin-top:1rem"><table><thead><tr><th>Látka</th><th class="n">g / 100 g vody</th><th class="n">hm. % v nasyceném roztoku</th><th>Trend</th></tr></thead><tbody id="solBody"></tbody></table></div>
+      </div>
+      <div class="panel-note" id="solNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>Rozpustnost plynů a&nbsp;Henryho zákon</h3>
+      <p class="eq"><span class="q">c</span> = <span class="q">k</span><sub>H</sub> · <span class="q">p</span> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)"><span class="q">c</span> koncentrace plynu v roztoku (mol·L⁻¹), <span class="q">p</span> jeho parciální tlak nad roztokem (atm nebo kPa), <span class="q">k</span><sub>H</sub> Henryho konstanta (pro O₂ při 25 °C 1,3·10⁻³ mol·L⁻¹·atm⁻¹)</span></p>
+      <p><span class="term">Henryho zákon</span>: rozpustnost plynu je přímo úměrná jeho tlaku nad kapalinou. Sycené nápoje se plní CO₂ pod tlakem 3–5 atm; po otevření tlak klesne na 1 atm a&nbsp;přebytek uniká jako bublinky. Potápěč v&nbsp;hloubce dýchá vzduch pod vyšším tlakem, do krve se mu rozpustí víc dusíku — při rychlém výstupu se uvolní jako bublinky (dekompresní nemoc). Plyny, které s&nbsp;vodou <b>reagují</b> (NH₃, HCl, SO₂), se rozpouštějí mnohem víc, než Henry předpovídá.</p>
+
+      <h3>Co se rozpouští v&nbsp;čem — souhrn</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Typ látky</th><th>Ve vodě (polární)</th><th>V hexanu (nepolární)</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td><b>iontové</b> (NaCl, KNO₃)</td><td style="color:var(--ok)">ano (hydratace)</td><td style="color:var(--bad)">ne</td><td>jen dipóly vody zaplatí mřížkovou energii; výjimky s&nbsp;obří mřížkovou energií: AgCl, BaSO₄, CaCO₃, MgO</td></tr>
+            <tr><td><b>polární molekulové</b> (cukr, ethanol, NH₃, HCl)</td><td style="color:var(--ok)">ano (vodíkové můstky, dipól–dipól, ionizace)</td><td style="color:var(--warn)">málo / omezeně</td><td>polární interakce nahradí polární</td></tr>
+            <tr><td><b>nepolární molekulové</b> (I₂, olej, vosk, benzen)</td><td style="color:var(--bad)">ne</td><td style="color:var(--ok)">ano (disperzní síly)</td><td>voda by ztratila vodíkové můstky a&nbsp;nic nezískala</td></tr>
+            <tr><td><b>plyny</b></td><td>málo, klesá s&nbsp;T, roste s&nbsp;p (Henry)</td><td>nepolární plyny o&nbsp;něco lépe</td><td>rozpouštění plynu je exotermické</td></tr>
+            <tr><td><b>atomové a&nbsp;kovové</b> (diamant, Cu)</td><td style="color:var(--bad)">ne</td><td style="color:var(--bad)">ne</td><td>žádné rozpouštědlo nezaplatí kovalentní / kovovou vazbu (kovy se „rozpouštějí“ jen chemickou reakcí s&nbsp;kyselinou)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.1 · krystalizace ochlazením</span>
+          <p>Rozpustnost KNO₃ je 110 g / 100 g vody při 60 °C a&nbsp;31,6 g / 100 g při 20 °C. (a) Kolik KNO₃ vykrystalizuje, ochladíme-li nasycený roztok připravený ze 100 g vody z&nbsp;60 na 20 °C? (b) A&nbsp;kolik z&nbsp;500 g nasyceného roztoku?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) Voda zůstává stejná (100 g), mění se jen to, kolik unese. Rozdíl rozpustností je přebytek, který musí ven.</p>
+              <p class="eq">110 − 31,6 = <b>78,4 g KNO₃</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) Tady je zadána hmotnost <b>roztoku</b>, ne vody. Nasycený roztok při 60 °C má 110 g soli na 100 g vody, tedy 110 g soli ve 210 g roztoku. Spočítáme, kolik vody a&nbsp;soli je v&nbsp;500 g.</p>
+              <p class="eq"><span class="q">m</span>(H₂O) = 500 · 100/210 = <b>238,1 g</b> &nbsp;&nbsp; <span class="q">m</span>(KNO₃) = 500 − 238,1 = <b>261,9 g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Při 20 °C unese 238,1 g vody jen 31,6 g na každých 100 g.</p>
+              <p class="eq"><span class="q">m</span><sub>max</sub> = 238,1 · 0,316 = <b>75,2 g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Vykrystalizuje rozdíl.</p>
+              <p class="eq">261,9 − 75,2 = <b>186,7 g</b></p>
+              <span class="result">(a) 78,4 g · (b) ≈ 187 g KNO₃</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Nejčastější chyba v&nbsp;(b): počítat 500 g jako vodu. Vždy si nejdřív rozložte roztok na vodu a&nbsp;sůl. Tohle je princip <b>rekrystalizace</b> — čištění látek, kdy nečistoty zůstanou v&nbsp;matečném roztoku.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.2 · znaménko rozpouštěcího tepla</span>
+          <p>Mřížková energie NaCl je 788 kJ·mol⁻¹, hydratační energie iontů Na⁺ a&nbsp;Cl⁻ dohromady −784 kJ·mol⁻¹. Určete rozpouštěcí teplo a&nbsp;rozhodněte, zda se roztok ohřeje. Porovnejte s&nbsp;NaOH (Δ<span class="q">H</span><sub>rozp</sub> = −44,5 kJ·mol⁻¹).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Rozpad mřížky energii <b>stojí</b> (kladné znaménko), hydratace ji <b>vrací</b> (záporné).</p>
+              <p class="eq">Δ<span class="q">H</span><sub>rozp</sub> = +788 + (−784) = <b>+4 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Výsledek je kladný, ale maličký: rozpouštění NaCl je <b>slabě endotermické</b> (tabulková hodnota +3,9). Roztok se ochladí jen o&nbsp;zlomek stupně — v&nbsp;ruce to nepoznáte.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>U&nbsp;NaOH hydratace vyhrává o&nbsp;44,5 kJ na každý mol: 40 g hydroxidu v&nbsp;200 g vody uvolní ≈ 44,5 kJ, což ohřeje roztok o&nbsp;zhruba 45 °C.</p>
+              <p class="eq">Δ<span class="q">T</span> ≈ <span class="q">Q</span>/(<span class="q">m</span>·<span class="q">c</span>) = 44 500 / (240 · 4,18) ≈ <b>44 °C</b></p>
+              <span class="result">NaCl: +4 kJ·mol⁻¹, prakticky bez tepelného efektu · NaOH: −44,5 kJ·mol⁻¹, roztok se silně zahřeje</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Proto se hydroxid i&nbsp;kyselina sírová vždy sypou (lijí) <b>do vody</b>, nikdy naopak: teplo se rozptýlí ve velkém objemu, místo aby vařilo první kapky.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.3 · Henryho zákon</span>
+          <p>Henryho konstanta kyslíku ve vodě při 25 °C je 1,3·10⁻³ mol·L⁻¹·atm⁻¹. Kolik mg O₂ je rozpuštěno v&nbsp;litru vody v&nbsp;rovnováze se vzduchem (21 % O₂, celkový tlak 1 atm)? <span class="q">M</span>(O₂) = 32 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Do Henryho zákona vstupuje <b>parciální</b> tlak kyslíku, ne celkový tlak vzduchu.</p>
+              <p class="eq"><span class="q">p</span>(O₂) = 0,21 · 1 atm = <b>0,21 atm</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme.</p>
+              <p class="eq"><span class="q">c</span> = <span class="q">k</span><sub>H</sub>·<span class="q">p</span> = 1,3·10⁻³ · 0,21 = <b>2,73·10⁻⁴ mol·L⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Převedeme na miligramy.</p>
+              <p class="eq"><span class="q">m</span> = 2,73·10⁻⁴ · 32 = 8,7·10⁻³ g = <b>8,7 mg·L⁻¹</b></p>
+              <span class="result">≈ 8,7 mg O₂ v&nbsp;litru (naměřeno 8,3 mg·L⁻¹)</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Pod čistým kyslíkem (1 atm) by to bylo 42 mg·L⁻¹. Ryby potřebují aspoň 5 mg·L⁻¹; při 30 °C rozpustnost klesne na ≈ 7,6 a&nbsp;v&nbsp;přehřátém mělkém rybníku snadno pod kritickou mez.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: rozpouštění a rozpustnost"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>

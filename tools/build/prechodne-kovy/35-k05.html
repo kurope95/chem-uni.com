@@ -1,0 +1,182 @@
+  <!-- ============ KAPITOLA 5 ============ -->
+  <section class="chapter" id="k5" data-title="Měď, stříbro, zlato">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · osnova, bod 6</span>
+      <h2>Měď, stříbro a&nbsp;zlato — skupina 11</h2>
+      <p class="lead">Tři kovy, které lidstvo používá déle než kterékoli jiné, a&nbsp;to z&nbsp;jednoho jediného důvodu: dají se najít v&nbsp;ryzí podobě. Jsou <b>ušlechtilé</b> — a&nbsp;jejich ušlechtilost roste směrem dolů skupinou, tedy přesně opačně, než jsme zvyklí u&nbsp;kovů bloku s.</p>
+
+      <h3>Konfigurace: jeden elektron nad zaplněnou desítkou</h3>
+      <p>Všechny tři prvky mají valenční sféru <span class="chem">(n−1)d¹⁰ ns¹</span> — tedy nepravidelnou konfiguraci, o&nbsp;které byla řeč v&nbsp;kapitole 0. Nad úplně zaplněnou množinou d&nbsp;jim zbývá jediný elektron s.</p>
+      <p class="eq">Cu = <span class="chem">[Ar] 3d¹⁰ 4s¹</span> &nbsp;·&nbsp; Ag = <span class="chem">[Kr] 4d¹⁰ 5s¹</span> &nbsp;·&nbsp; Au = <span class="chem">[Xe] 4f¹⁴ 5d¹⁰ 6s¹</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Past</span>
+        <p>Konfigurace <span class="chem">ns¹</span> svádí k&nbsp;závěru „chovají se jako alkalické kovy“. Nechovají. Ten jediný elektron s&nbsp;je totiž stíněn jen deseti elektrony d, které stíní <b>velmi špatně</b>. Efektivní náboj jádra je proto velký, atom malý a&nbsp;ionizační energie vysoká: měď má 745&nbsp;kJ·mol⁻¹, kdežto draslík ve stejné periodě jen 419. Odtud ušlechtilost místo bouřlivé reaktivity.</p>
+      </div>
+
+      <h3>Oxidační čísla: každý prvek jiné</h3>
+      <p>To, které oxidační číslo převáží, je u&nbsp;každého z&nbsp;trojice jiné — a&nbsp;je to jedna z&nbsp;otázek, které se u&nbsp;maturity objevují nejčastěji.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Prvek</th><th>Převažující stav</th><th>Další dostupné</th><th>Proč právě tenhle</th></tr></thead>
+          <tbody>
+            <tr><td><b>měď</b></td><td><b>II</b> (<span class="chem">d⁹</span>, modrá)</td><td>I (<span class="chem">d¹⁰</span>, bezbarvá), vzácně III</td><td>ve vodě rozhodne velká hydratační energie malého dvojmocného kationtu</td></tr>
+            <tr><td><b>stříbro</b></td><td><b>I</b> (<span class="chem">d¹⁰</span>, bezbarvá)</td><td>II a&nbsp;III jen jako silná oxidovadla</td><td>druhá ionizační energie je už příliš vysoká</td></tr>
+            <tr><td><b>zlato</b></td><td><b>III</b> (<span class="chem">d⁸</span>, žlutá) a&nbsp;I</td><td>−I v&nbsp;auridech, V&nbsp;ve fluoridech</td><td>relativistické stažení orbitalu 6s a&nbsp;rozšíření 5d zvýhodní stav III</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč je zlato žluté a&nbsp;stříbro bílé</span>
+        <p>U&nbsp;těžkých atomů se elektrony pohybují tak rychle, že se projeví <b>relativistické efekty</b> — orbital <span class="chem">6s</span> se stáhne k&nbsp;jádru a&nbsp;orbitaly <span class="chem">5d</span> se naopak rozšíří. Rozdíl energií mezi nimi klesne natolik, že přechod padne do viditelné oblasti: zlato pohltí modrou složku světla a&nbsp;odráží tu zbývající, tedy žlutou. U&nbsp;stříbra je tentýž přechod v&nbsp;ultrafialové oblasti, proto odráží celé spektrum a&nbsp;je bílé. Táž relativistická úvaha vysvětluje i&nbsp;to, proč je rtuť za laboratorní teploty kapalná.</p>
+      </div>
+
+      <h3>Ušlechtilost roste dolů skupinou</h3>
+      <p class="eq">standardní redukční potenciály [V]:<br>
+      <span class="chem">Cu²⁺ + 2 e⁻ → Cu</span> &nbsp;<span class="q">E</span>° = +0,34<br>
+      <span class="chem">Ag⁺ + e⁻ → Ag</span> &nbsp;<span class="q">E</span>° = +0,80<br>
+      <span class="chem">Au³⁺ + 3 e⁻ → Au</span> &nbsp;<span class="q">E</span>° = +1,50</p>
+      <p>Všechny tři potenciály jsou <b>kladné</b>, tedy nad vodíkem. Z&nbsp;toho plyne jediné, ale zásadní pravidlo: <b>neoxidující kyseliny (HCl, zředěná H₂SO₄) tyto kovy nerozpustí</b>. Proton nemá dost síly. Rozpustí je jen kyselina, která sama oxiduje.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Rozpustí se, nebo ne? Zkuste všechny kombinace</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="rzKov">Kov</label>
+            <select id="rzKov"></select>
+          </div>
+          <div class="ctl">
+            <label for="rzCin">Činidlo</label>
+            <select id="rzCin"></select>
+          </div>
+        </div>
+        <div class="svgwrap" id="rzWrap" style="min-height:270px"></div>
+        <div class="grid2" style="margin-top:1rem">
+          <div class="readout" id="rzRo1"></div>
+          <div class="readout" id="rzRo2"></div>
+        </div>
+        <p class="eq" id="rzRce" style="margin-top:1rem"></p>
+        <div id="rzList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="rzNote">Nejzajímavější jsou dvě políčka. <b>Stříbro a&nbsp;lučavka</b>: přestože je lučavka silnější oxidovadlo než kyselina dusičná, stříbro nerozpustí — povrch se okamžitě pokryje nerozpustným chloridem. A&nbsp;<b>zlato a&nbsp;kyanid</b>: samotný vzdušný kyslík je slabé oxidovadlo, ale jakmile kyanid odebírá vzniklé ionty do komplexu, potenciál zlata klesne z&nbsp;+1,50 na −0,60&nbsp;V a&nbsp;reakce běží.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Měď: dvě oxidační čísla a&nbsp;disproporcionace</h3>
+      <p>Měď je jediná z&nbsp;trojice, u&nbsp;níž jsou stavy I&nbsp;a&nbsp;II srovnatelně dostupné — a&nbsp;právě proto na ní jde ukázat <b>disproporcionaci</b>.</p>
+      <p class="eq"><span class="chem">Cu₂O + H₂SO₄ → CuSO₄ + Cu + H₂O</span><br>
+      <span style="color:var(--ink-3)">měď I&nbsp;se rozdělí na měď II a&nbsp;měď 0 — tedy část se zoxiduje a&nbsp;část zredukuje</span></p>
+      <p>Ve vodném roztoku je jednoduchý ion <span class="chem">Cu⁺</span> <b>nestálý</b> a&nbsp;rozpadá se právě takhle. Udrží se jen v&nbsp;nerozpustných sloučeninách (<span class="chem">CuCl</span>, <span class="chem">CuI</span>, <span class="chem">Cu₂O</span>) nebo v&nbsp;komplexech (<span class="chem">[Cu(CN)₂]⁻</span>). Odtud plyne pravidlo, které se hodí u&nbsp;testů: <b>ve vodě očekávejte měď II, v&nbsp;sraženině měď I</b>.</p>
+      <p class="eq">proto jodid měďnatý neexistuje — jodid měď rovnou zredukuje:<br>
+      <span class="chem">2 Cu²⁺ + 4 I⁻ → 2 CuI + I₂</span></p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Sloučenina</th><th>Ox. číslo</th><th>Barva</th><th>Kde ji potkáte</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chem">Cu₂O</span></td><td class="n">I</td><td>červená</td><td>Fehlingova zkouška — důkaz aldehydů a&nbsp;redukujících cukrů</td></tr>
+            <tr><td><span class="chem">CuO</span></td><td class="n">II</td><td>černá</td><td>oxidovadlo v&nbsp;elementární analýze, barvivo glazur</td></tr>
+            <tr><td><span class="chem">Cu(OH)₂</span></td><td class="n">II</td><td>světle modrá</td><td>slabě amfoterní; zahřátím přechází na <span class="chem">CuO</span></td></tr>
+            <tr><td><span class="chem">CuSO₄·5H₂O</span></td><td class="n">II</td><td>modrá</td><td>skalice modrá — fungicid, galvanika, důkaz vody</td></tr>
+            <tr><td><span class="chem">[Cu(NH₃)₄]²⁺</span></td><td class="n">II</td><td>tmavomodrá</td><td>rozpouští celulózu; výroba měďnatého hedvábí</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="eq">tvorba amminkomplexu — nápadná změna světle modré na sytě modrou:<br>
+      <span class="chem">[Cu(H₂O)₆]²⁺ + 4 NH₃ → [Cu(NH₃)₄(H₂O)₂]²⁺ + 4 H₂O</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu je měď</span>
+        <p>Většina vytěžené mědi jde do <b>elektrotechniky</b>: měď má po stříbru nejlepší elektrickou vodivost ze všech kovů, ale je nesrovnatelně levnější. Zbytek připadá na slitiny (mosaz Cu–Zn, bronz Cu–Sn) a&nbsp;na sloučeniny. Měď je zároveň <b>biogenní prvek</b> — v&nbsp;lidském těle je součástí enzymů dýchacího řetězce, a&nbsp;u&nbsp;měkkýšů a&nbsp;členovců přenáší kyslík hemocyanin, obdoba hemoglobinu s&nbsp;mědí místo železa (proto mají modrou krev).</p>
+      </div>
+
+      <h3>Stříbro: jediný stav a&nbsp;fotografie</h3>
+      <p>Stříbro je téměř výhradně jednomocné, a&nbsp;protože má <span class="chem">d¹⁰</span>, jsou jeho soli <b>bezbarvé</b> — pokud barvu nedodá aniont (<span class="chem">Ag₂S</span> černý, <span class="chem">AgI</span> žlutý, <span class="chem">Ag₂CrO₄</span> cihlově červený).</p>
+      <p class="eq">rozpustnost v&nbsp;kyselině dusičné (klasická příprava lapisu):<br>
+      <span class="chem">3 Ag + 4 HNO₃ → 3 AgNO₃ + NO + 2 H₂O</span></p>
+      <p class="eq">rozpouštění sraženiny v&nbsp;amoniaku (Tollensovo činidlo):<br>
+      <span class="chem">AgCl + 2 NH₃ → [Ag(NH₃)₂]⁺ + Cl⁻</span> &nbsp;<span style="color:var(--ink-3)">— komplex má lineární tvar</span></p>
+      <p class="eq">fotolýza halogenidu, na které stojí klasická fotografie:<br>
+      <span class="chem">2 AgBr → 2 Ag + Br₂</span> &nbsp;<span style="color:var(--ink-3)">(působením světla)</span><br>
+      <span class="chem">AgBr + 2 S₂O₃²⁻ → [Ag(S₂O₃)₂]³⁻ + Br⁻</span> &nbsp;<span style="color:var(--ink-3)">(ustalování — odplaví neosvětlený halogenid)</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Past</span>
+        <p>Stříbrné příbory černají <b>sulfanem ze vzduchu</b>, ne kyslíkem. Vzniká sulfid stříbrný:</p>
+        <p class="eq" style="margin-top:.4rem"><span class="chem">4 Ag + 2 H₂S + O₂ → 2 Ag₂S + 2 H₂O</span></p>
+        <p style="margin-top:.4rem">Proto se stříbro čistí v&nbsp;lázni s&nbsp;hliníkovou fólií a&nbsp;sodou — hliník sulfid zredukuje zpět na stříbro, kdežto leštění pastou stříbro odírá.</p>
+      </div>
+
+      <h3>Zlato: nejušlechtilejší kov</h3>
+      <p>Zlato nereaguje se vzdušným kyslíkem, s&nbsp;vodou ani s&nbsp;běžnými kyselinami. Rozpustí se jen tam, kde se k&nbsp;oxidaci přidá <b>komplexotvorná látka</b>, která vzniklé ionty okamžitě odebere z&nbsp;rovnováhy:</p>
+      <p class="eq"><span class="chem">Au + 4 HCl + HNO₃ → H[AuCl₄] + NO + 2 H₂O</span> &nbsp;<span style="color:var(--ink-3)">(lučavka královská)</span><br>
+      <span class="chem">4 Au + 8 CN⁻ + O₂ + 2 H₂O → 4 [Au(CN)₂]⁻ + 4 OH⁻</span> &nbsp;<span style="color:var(--ink-3)">(kyanidové loužení rud)</span><br>
+      <span class="chem">2 [Au(CN)₂]⁻ + Zn → [Zn(CN)₄]²⁻ + 2 Au</span> &nbsp;<span style="color:var(--ink-3)">(vysrážení zlata zinkem — cementace)</span></p>
+      <div class="callout def">
+        <span class="eyebrow">Ryzost zlata</span>
+        <p>Čisté zlato je příliš měkké, proto se legují slitiny. <b>Karát</b> udává podíl zlata ve 24 dílech: 24 karátů = ryzí zlato, 18 karátů = 750 dílů z&nbsp;tisíce, 14 karátů = 585 z&nbsp;tisíce. Přídavek mědi dává zlatu červený odstín, přídavek stříbra a&nbsp;palladia bílý.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.1 · oddělení stříbra od zlata</span>
+          <p>Máte slitinu zlata a&nbsp;stříbra. Popište, jak oba kovy oddělíte, a&nbsp;u&nbsp;každého kroku zdůvodněte, proč funguje. Napište rovnice.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Podíváme se na potenciály: <span class="q">E</span>°(Ag⁺/Ag) = +0,80&nbsp;V, <span class="q">E</span>°(Au³⁺/Au) = +1,50&nbsp;V. Existuje tedy oxidovadlo, které zvládne stříbro, ale ne zlato — kyselina dusičná.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Krok 1 — rozpuštění stříbra.</b> Slitinu zalijeme zředěnou kyselinou dusičnou. Stříbro se rozpustí, zlato zůstane jako kal na dně.</p>
+              <p class="eq"><span class="chem">3 Ag + 4 HNO₃ → 3 AgNO₃ + NO + 2 H₂O</span></p>
+              <p>Tomuto postupu se historicky říká <b>rozháněčka</b> a&nbsp;používal se v&nbsp;mincovnictví.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>Krok 2 — zlato do roztoku.</b> Zbylý kal rozpustíme v&nbsp;lučavce královské:</p>
+              <p class="eq"><span class="chem">Au + 4 HCl + HNO₃ → H[AuCl₄] + NO + 2 H₂O</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b>Krok 3 — kontrola.</b> Ze stříbrného roztoku vysrážíme stříbro chloridem:</p>
+              <p class="eq"><span class="chem">Ag⁺ + Cl⁻ → AgCl</span> — bílá sraženina tmavnoucí na světle</p>
+              <p>Pozor: kdybychom postup obrátili a&nbsp;začali lučavkou, nefungovalo by to. Chloridové ionty by stříbro obalily nerozpustným <span class="chem">AgCl</span> a&nbsp;oddělení by se zastavilo.</p>
+              <span class="result">Nejdřív HNO₃ (rozpustí stříbro), pak lučavka (rozpustí zlato) — v&nbsp;opačném pořadí to nejde</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.2 · kolik mědi z&nbsp;roztoku</span>
+          <p>Do roztoku obsahujícího 12,5&nbsp;g pentahydrátu síranu měďnatého <span class="chem">CuSO₄·5H₂O</span> vložíme železný hřebík. Kolik gramů mědi se maximálně vyloučí a&nbsp;kolik železa se přitom rozpustí? <span class="q">M</span>(CuSO₄·5H₂O) = 249,7, <span class="q">M</span>(Cu) = 63,55, <span class="q">M</span>(Fe) = 55,85&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Reakce běží, protože železo má nižší potenciál (−0,44&nbsp;V) než měď (+0,34&nbsp;V):</p>
+              <p class="eq"><span class="chem">Fe + CuSO₄ → FeSO₄ + Cu</span> — poměr 1&nbsp;:&nbsp;1</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Látkové množství skalice:</p>
+              <p class="eq"><span class="q">n</span> = 12,5 / 249,7 = 5,006·10⁻²&nbsp;mol</p>
+              <p>Voda v&nbsp;krystalu se do reakce nezapočítává, ale <b>musí se započítat do molární hmotnosti</b> — tady se chybuje nejčastěji.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Hmotnost vyloučené mědi a&nbsp;rozpuštěného železa:</p>
+              <p class="eq"><span class="q">m</span>(Cu) = 5,006·10⁻² · 63,55 = <b>3,18&nbsp;g</b><br>
+              <span class="q">m</span>(Fe) = 5,006·10⁻² · 55,85 = <b>2,80&nbsp;g</b></p>
+              <p>Hřebík tedy ubude o&nbsp;2,80&nbsp;g a&nbsp;pokryje se 3,18&nbsp;g mědi. Kdyby se počítalo s&nbsp;bezvodým síranem (<span class="q">M</span> = 159,6), vyšlo by 4,98&nbsp;g mědi — chyba přes padesát procent.</p>
+              <span class="result"><span class="q">m</span>(Cu) = 3,18 g · <span class="q">m</span>(Fe) = 2,80 g</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: měď, stříbro, zlato"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

@@ -1,0 +1,84 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Anorganická chemie · okruh 04</span>
+      <h1>Dusík a&nbsp;fosfor</h1>
+      <p class="lead">Skupina 15: od netečného N₂ k&nbsp;výbušninám a&nbsp;hnojivům, a&nbsp;proč se fosfor chová jinak. Čtyři pětiny vzduchu tvoří plyn, který je tak líný, že se v&nbsp;něm dá skladovat benzín — a&nbsp;přesto z&nbsp;něj děláme trhaviny i&nbsp;chleba. Hned pod ním v&nbsp;tabulce sedí prvek, který se sám od sebe vznítí na vzduchu. Tenhle rozdíl je celé téma v&nbsp;jedné větě.</p>
+      <div class="hero-meta">
+        <span class="tag">Skupina 15</span>
+        <span class="tag">Rychlokurz i&nbsp;plný kurz</span>
+        <span class="tag">Interaktivní modely</span>
+        <span class="tag">Testy s&nbsp;vysvětlením</span>
+        <span class="tag">Tahák a&nbsp;slovníček</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">hodina čtení</span></span>
+        <span class="pt">Rychlokurz</span>
+        <span class="pd">Celá látka v&nbsp;kostce, rozdělená do bloků. V&nbsp;každém bloku výklad, rámeček se vzorci a&nbsp;pravidly, upozornění na častou chybu a&nbsp;příklad s&nbsp;rozepsanou úvahou. Na konci osm vět, které musíte umět odříkat, a&nbsp;kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">plný výklad</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobné kapitoly s&nbsp;interaktivními modely, strukturami molekul, řešenými příklady krok za krokem a&nbsp;mini-testem po každé kapitole. Na konci závěrečný test, tahák a&nbsp;slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Žebřík oxidačních stavů — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem;align-items:end">
+          <div class="ctl" style="overflow-x:auto">
+            <label for="oxLev">Oxidační číslo (posuvník projede celý rozsah)</label>
+            <input type="range" id="oxLev" min="-3" max="5" step="1" value="5">
+            <span class="val" id="oxLevV">+V</span>
+          </div>
+          <div class="ctl">
+            <label>Který prvek popsat podrobně</label>
+            <div class="segmented" id="oxEl">
+              <button type="button" data-v="N" aria-pressed="true">Dusík</button>
+              <button type="button" data-v="P" aria-pressed="false">Fosfor</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="oxWrap" style="min-height:330px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>látka může elektrony jen odevzdávat — je redukční činidlo</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>látka může elektrony jen přijímat — je oxidační činidlo</span>
+          <span class="li"><span class="sw" style="background:var(--cat3)"></span>prostřední stav — látka může jít oběma směry</span>
+        </div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="oxRo1"></div>
+          <div class="readout" id="oxRo2"></div>
+          <div class="readout" id="oxRo3"></div>
+        </div>
+        <div class="callout def" id="oxDetail" style="margin-top:1.1rem"></div>
+      </div>
+      <div class="panel-note">Zkuste posuvníkem sjet z&nbsp;+V úplně dolů na −III a&nbsp;sledujte, jak se barva mění z&nbsp;oranžové (jen oxidační) přes žlutou (obojaká) na zelenou (jen redukční). Pak si všimněte tří prázdných příček ve sloupci fosforu — právě ty ukazují, čím se fosfor od dusíku liší.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:min(100%,100ch);font-size:1rem">Každý řádek osnovy má svou kapitolu. Klepněte na řádek a&nbsp;skočíte rovnou na ni.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Postavení dusíku a&nbsp;fosforu ve skupině 15, elektronová konfigurace ns²np³ a&nbsp;oxidační stavy od −III do +V, které z&nbsp;ní plynou.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k0"><span class="b">1a</span><span>Vaznost proti oxidačnímu číslu; proč dusík nikdy nepřekročí čtyři vazby a&nbsp;fosfor dosáhne až šesti.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Trojná vazba v&nbsp;N₂ a&nbsp;proč je dusík netečný.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Modifikace fosforu — bílý, červený a&nbsp;černý.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Amoniak a&nbsp;Haberův proces.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4a</span><span>Další sloučeniny s&nbsp;vodíkem: hydrazin, azoimid, hydroxylamin a&nbsp;fosfan; amonné soli, amidy a&nbsp;nitridy.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Oxidy dusíku.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Kyselina dusičná a&nbsp;dusičnany.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6a</span><span>Kyselina dusitá a&nbsp;dusitany; výroba kyseliny dusičné Ostwaldovým procesem a&nbsp;lučavka královská.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Binární sloučeniny fosforu: fosfidy, oxidy P₄O₆ a&nbsp;P₄O₁₀, halogenidy PX₃ a&nbsp;PX₅, sulfidy.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8</span><span>Kyseliny fosforu a&nbsp;fosforečnany.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8a</span><span>Hnojiva — výroba, obsah živin, koloběh dusíku a&nbsp;fosforu, eutrofizace.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">9</span><span>Trendy ve skupině 15: arsen, antimon, bismut a&nbsp;efekt inertního páru.</span><span class="go">Kap. 8</span></a>
+    </div>
+  </header>

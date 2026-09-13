@@ -1,0 +1,231 @@
+  <!-- ============ KAPITOLA 7 — VÝPOČTY Z OSTATNÍCH OKRUHŮ (část 1) ============ -->
+  <section class="chapter" id="k7" data-title="Výpočty z ostatních okruhů">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · napříč okruhy</span>
+      <h2>Šest výpočtů ze šesti různých okruhů — a&nbsp;pořád stejný list</h2>
+      <p class="lead">Tady se ukazuje, k&nbsp;čemu bylo dobré učit se formát. Termochemie, kinetika, rovnováha, elektrochemie, pH a&nbsp;radioaktivita spolu chemicky nemají skoro nic společného — a&nbsp;přesto se všechny počítají naprosto stejným postupem. Změní se vzorec v&nbsp;bloku „vztahy“, nic víc.</p>
+      <p>Každý příklad je zástupcem svého maturitního okruhu. Neučí ten okruh — na to máte samostatné průvodce, kde je celá teorie. Ukazuje, jak z&nbsp;jeho zadání udělat výpočtový list.</p>
+
+      <h3>Termochemie — kalorimetrie</h3>
+      <p>Kalorimetrická úloha má vždycky dvě části: <b>kolik tepla</b> se vyměnilo (<span class="mono">Q = mcΔT</span>, a&nbsp;<span class="q">m</span> je hmotnost <em>vody</em>, ne vzorku) a&nbsp;<b>kolik látky</b> to způsobilo (<span class="mono">n = m/M</span>). Podíl obojího je molární reakční teplo. Nejzrádnější je znaménko: teplo, které <em>voda přijala</em>, reakce <em>odevzdala</em>, takže Δ<span class="q">H</span> vyjde záporná. Podrobný výklad prvního termodynamického zákona a&nbsp;Hessova zákona najdete v&nbsp;okruhu Termochemie a&nbsp;úvod do termodynamiky.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.1 · termochemie</span>
+        <p>Spálením 0,500&nbsp;g ethanolu v&nbsp;jednoduchém kalorimetru se ohřálo 200&nbsp;g vody o&nbsp;17,0&nbsp;K. Určete molární spalné teplo ethanolu. <span class="chem">c</span>(H₂O) = 4,18&nbsp;J·g⁻¹·K⁻¹, <span class="chem">M</span>(C₂H₅OH) = 46,07&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 7.1</span>
+              <span class="cs-topic">Kalorimetrie: z&nbsp;ohřátí vody na Δ<span class="q">H</span></span>
+              <span class="cs-kind">Termochemie</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m<sub>vz</sub></span><span class="cs-val">= 0,500 g</span><span class="cs-note">navážka ethanolu</span></div>
+                <div class="cs-row"><span class="cs-sym">m<sub>H₂O</sub></span><span class="cs-val">= 200 g</span><span class="cs-note">hmotnost ohřívané vody</span></div>
+                <div class="cs-row"><span class="cs-sym">ΔT</span><span class="cs-val">= 17,0 K</span><span class="cs-note">rozdíl — v&nbsp;K i&nbsp;°C stejný</span></div>
+                <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= 4,18 J·g⁻¹·K⁻¹</span><span class="cs-note">měrná tepelná kapacita vody</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 46,07 g·mol⁻¹</span><span class="cs-note">M(C₂H₅OH)</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">ΔH</span><span class="cs-val">= ? kJ·mol⁻¹</span><span class="cs-note">molární spalné teplo, se znaménkem</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">Q = m<sub>H₂O</sub> · c · ΔT &nbsp;&nbsp;<em>(teplo přijaté vodou)</em></div>
+                <div class="cs-line">n = m<sub>vz</sub> / M</div>
+                <div class="cs-line">ΔH = −Q / n &nbsp;&nbsp;<em>(minus: co voda přijala, reakce vydala)</em></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">ΔH = −Q / n = −(m<sub>H₂O</sub> · c · ΔT) / (m<sub>vz</sub> / M)</div>
+                <div class="cs-line">ΔH = <b>−m<sub>H₂O</sub> · c · ΔT · M / m<sub>vz</sub></b></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">Q = 200 g · 4,18 J·g⁻¹·K⁻¹ · 17,0 K = 14 212 J = 14,212 kJ</div>
+                <div class="cs-line units">jednotky Q: g · J·g⁻¹·K⁻¹ · K = <b>J</b> ✓</div>
+                <div class="cs-line">n = 0,500 g / 46,07 g·mol⁻¹ = 0,010853 mol</div>
+                <div class="cs-line">ΔH = −14,212 kJ / 0,010853 mol = −1309,4 kJ·mol⁻¹</div>
+                <div class="cs-line units">jednotky ΔH: kJ / mol = <b>kJ·mol⁻¹</b> ✓</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Molární spalné teplo ethanolu vychází z&nbsp;tohoto měření <b class="cs-hi">ΔH = −1,31·10³ kJ·mol⁻¹</b>. Záporné znaménko znamená, že jde o&nbsp;exotermický děj.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Tabulková hodnota je −1367&nbsp;kJ·mol⁻¹, naměřili jsme −1309, tedy o&nbsp;4&nbsp;% méně. To je pro jednoduchý kalorimetr naprosto typické — část tepla ohřála nádobu a&nbsp;okolní vzduch. Kdyby vyšla hodnota <b>kladná</b> nebo o&nbsp;řád jiná, byla by chyba jistá: hoření je vždy exotermní a&nbsp;spalná tepla organických látek se pohybují v&nbsp;stovkách až tisících kJ·mol⁻¹.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Kinetika — reakce prvního řádu</h3>
+      <p>Reakce prvního řádu má tu příjemnou vlastnost, že její <b>poločas nezávisí na koncentraci</b>. Celá matematika stojí na jednom integrovaném tvaru rychlostní rovnice, který se u&nbsp;maturity používá ve dvou podobách — přes přirozený logaritmus, nebo přes poločas. Výklad řádu reakce, molekularity a&nbsp;Arrheniovy rovnice patří do okruhu Chemická kinetika.</p>
+      <p class="eq"><span class="q">c</span> = <span class="q">c</span>₀ · e<sup>−<span class="q">kt</span></sup> &nbsp;&nbsp;⟺&nbsp;&nbsp; ln(<span class="q">c</span>₀/<span class="q">c</span>) = <span class="q">kt</span> &nbsp;&nbsp;⟺&nbsp;&nbsp; <span class="q">t</span><sub>1/2</sub> = ln&nbsp;2 / <span class="q">k</span></p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.2 · kinetika</span>
+        <p>Rozklad <span class="chem">N₂O₅</span> v&nbsp;roztoku je reakcí prvního řádu s&nbsp;rychlostní konstantou <span class="q">k</span> = 3,46·10⁻⁵&nbsp;s⁻¹ při 25&nbsp;°C. Určete poločas reakce a&nbsp;čas, za který klesne koncentrace na 20&nbsp;% původní hodnoty. Oboje vyjádřete v&nbsp;hodinách.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 7.2</span>
+              <span class="cs-topic">Poločas a&nbsp;čas pro daný úbytek</span>
+              <span class="cs-kind">Kinetika</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">k</span><span class="cs-val">= 3,46·10⁻⁵ s⁻¹</span><span class="cs-note">jednotka s⁻¹ prozrazuje 1. řád</span></div>
+                <div class="cs-row"><span class="cs-sym">c/c₀</span><span class="cs-val">= 0,20</span><span class="cs-note">zbylý podíl, bezrozměrné</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">t<sub>1/2</sub></span><span class="cs-val">= ? h</span><span class="cs-note">poločas</span></div>
+                <div class="cs-row"><span class="cs-sym">t</span><span class="cs-val">= ? h</span><span class="cs-note">čas do poklesu na 20&nbsp;%</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">c = c₀ · e<sup>−kt</sup></div>
+                <div class="cs-line">t<sub>1/2</sub> = ln 2 / k</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">c/c₀ = e<sup>−kt</sup> &nbsp;/ln/&nbsp; ln(c/c₀) = −k·t</div>
+                <div class="cs-line">t = <b>−ln(c/c₀) / k</b> = ln(c₀/c) / k</div>
+                <div class="cs-line">t<sub>1/2</sub> = <b>ln 2 / k</b> &nbsp;&nbsp;<em>(zvláštní případ pro c/c₀ = 1/2)</em></div>
+                <p class="cs-hint">Argument logaritmu je poměr dvou koncentrací, tedy bezrozměrný — přesně jak vyžaduje rozměrová analýza.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">t<sub>1/2</sub> = 0,6931 / 3,46·10⁻⁵ s⁻¹ = 2,003·10⁴ s</div>
+                <div class="cs-line units">jednotky: 1 / s⁻¹ = <b>s</b> ✓</div>
+                <div class="cs-line">t<sub>1/2</sub> = 2,003·10⁴ s · (1 h / 3600 s) = 5,565 h</div>
+                <div class="cs-line">t = ln(1/0,20) / k = 1,6094 / 3,46·10⁻⁵ = 4,652·10⁴ s = 12,92 h</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Poločas rozkladu je <b class="cs-hi">t<sub>1/2</sub> = 5,57 h</b> a&nbsp;na pětinu původní koncentrace klesne <span class="chem">N₂O₅</span> za <b class="cs-hi">t = 12,9 h</b>.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Pokles na 20&nbsp;% leží mezi dvěma poločasy (na 25&nbsp;%) a&nbsp;třemi (na 12,5&nbsp;%), takže čas musí být mezi 11,1 a&nbsp;16,7&nbsp;h. Vyšlo 12,9&nbsp;h — sedí. Tohle je nejrychlejší kontrola všech úloh na rozpad: <b>počítejte poločasy na prstech</b> a&nbsp;podívejte se, jestli výsledek padne do správného intervalu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Rovnováha — spojka s&nbsp;termodynamikou</h3>
+      <p>Vztah <span class="mono">ΔG° = −RT ln K</span> je jedna z&nbsp;nejhezčích rovnic středoškolské chemie: propojuje rovnovážnou konstantu (kterou změříte analyticky) s&nbsp;Gibbsovou energií (kterou spočtete z&nbsp;tabulek). Numericky je zrádná ve dvou bodech — <span class="q">R</span> je v&nbsp;joulech, ale výsledek se uvádí v&nbsp;kilojoulech, a&nbsp;logaritmus je <b>přirozený</b>, ne dekadický. Teorie posunu rovnováhy a&nbsp;Le Chatelierova principu patří do okruhu Chemická rovnováha.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 7.3 · rovnováha</span>
+        <p>Pro jistou reakci byla při 25&nbsp;°C změřena rovnovážná konstanta <span class="q">K</span> = 4,00·10². Vypočtěte standardní reakční Gibbsovu energii a&nbsp;rozhodněte, zda reakce za standardních podmínek probíhá samovolně.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 7.3</span>
+              <span class="cs-topic">Z&nbsp;rovnovážné konstanty na Δ<span class="q">G</span>°</span>
+              <span class="cs-kind">Rovnováha</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">K</span><span class="cs-val">= 4,00·10² = 400</span><span class="cs-note">bezrozměrná (vůči standardnímu stavu)</span></div>
+                <div class="cs-row"><span class="cs-sym">t</span><span class="cs-val">= 25 °C <span class="cs-conv">→ T = 298,15 K</span></span><span class="cs-note">standardní teplota</span></div>
+                <div class="cs-row"><span class="cs-sym">R</span><span class="cs-val">= 8,314 J·K⁻¹·mol⁻¹</span><span class="cs-note">pozor: jouly, ne kilojouly</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">ΔG°</span><span class="cs-val">= ? kJ·mol⁻¹</span><span class="cs-note">se znaménkem</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">ΔG° = −R · T · ln K</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">ΔG° = <b>−R · T · ln K</b> &nbsp;&nbsp;<em>(vztah je už vyjádřený, odvození odpadá)</em></div>
+                <div class="cs-line">jen si všimněme: K &gt; 1 ⟹ ln K &gt; 0 ⟹ ΔG° &lt; 0 ⟹ samovolné</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">ln 400 = 5,9915</div>
+                <div class="cs-line">ΔG° = −8,314 J·K⁻¹·mol⁻¹ · 298,15 K · 5,9915</div>
+                <div class="cs-line units">jednotky: J·K⁻¹·mol⁻¹ · K · 1 = <b>J·mol⁻¹</b> → dělíme 1000 na kJ·mol⁻¹</div>
+                <div class="cs-line">ΔG° = −14 844 J·mol⁻¹ = −14,844 kJ·mol⁻¹</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Standardní reakční Gibbsova energie je <b class="cs-hi">ΔG° = −14,8 kJ·mol⁻¹</b>. Protože je záporná, reakce za standardních podmínek <b>probíhá samovolně</b> a&nbsp;rovnováha je posunutá ve prospěch produktů.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Praktické měřítko: při 25&nbsp;°C odpovídá <b>každý řád v&nbsp;<span class="q">K</span> asi 5,7&nbsp;kJ·mol⁻¹</b> (protože <span class="q">RT</span>·ln&nbsp;10 = 5,71). Konstanta 4·10² je 2,6 řádu, tedy 2,6·5,7 ≈ 14,8&nbsp;kJ·mol⁻¹. Souhlasí přesně. Kdyby někdo použil dekadický logaritmus místo přirozeného, vyšlo by −6,4&nbsp;kJ·mol⁻¹ — o&nbsp;faktor 2,303 vedle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

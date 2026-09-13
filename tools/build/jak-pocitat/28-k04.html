@@ -1,0 +1,188 @@
+  <!-- ============ KAPITOLA 4 — PLATNÉ ČÍSLICE ============ -->
+  <section class="chapter" id="k4" data-title="Platné číslice a zaokrouhlování">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · přesnost</span>
+      <h2>Platné číslice — kolik číslic smíte napsat</h2>
+      <p class="lead">Kalkulačka vypíše 0,400410678986995. Napsat to celé je horší chyba než zaokrouhlit špatně: tvrdíte tím, že jste navážku znali na patnáct míst. Počet číslic ve výsledku není otázka vkusu, je to <b>tvrzení o&nbsp;přesnosti měření</b> — a&nbsp;u&nbsp;maturity i&nbsp;u&nbsp;přijímaček se za něj strhávají body.</p>
+
+      <h3>Co je platná číslice</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><span class="term">Platné číslice</span> jsou všechny číslice zapsaného čísla počínaje první nenulovou zleva, včetně nul, které za ní následují. Vyjadřují, jak přesně veličinu známe: číslo 5,85&nbsp;g znamená „mezi 5,845 a&nbsp;5,855&nbsp;g“, kdežto 5,8&nbsp;g znamená „mezi 5,75 a&nbsp;5,85&nbsp;g“ — desetkrát hrubší údaj.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Pravidlo</th><th class="n">Příklad</th><th class="n">Platných</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td>Všechny nenulové číslice jsou platné</td><td class="n">5,85</td><td class="n">3</td><td>bez výjimky</td></tr>
+            <tr><td>Nuly <b>mezi</b> nenulovými jsou platné</td><td class="n">2,004</td><td class="n">4</td><td>nedají se vynechat</td></tr>
+            <tr><td>Nuly <b>před</b> první nenulovou nejsou platné</td><td class="n">0,0250</td><td class="n">3</td><td>jen udávají řád: 2,50·10⁻²</td></tr>
+            <tr><td>Nuly <b>za</b> desetinnou čárkou na konci jsou platné</td><td class="n">1,500</td><td class="n">4</td><td>měřeno na tisíciny</td></tr>
+            <tr><td>Koncové nuly u&nbsp;celého čísla jsou nejednoznačné</td><td class="n">1500</td><td class="n">2 až 4</td><td>zapište vědeckým tvarem: 1,5·10³ = 2 platné</td></tr>
+            <tr><td>Přesná čísla mají nekonečně mnoho platných</td><td class="n">2 (koeficient)</td><td class="n">∞</td><td>nikdy neomezují přesnost výsledku</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Dvě pravidla pro počítání — a&nbsp;jsou různá</h3>
+      <p>Tohle je místo, kde se chybuje nejčastěji: <b>násobení a&nbsp;dělení se řídí jiným pravidlem než sčítání a&nbsp;odčítání</b>.</p>
+      <div class="grid2">
+        <div class="callout def">
+          <span class="eyebrow">Násobení a&nbsp;dělení</span>
+          <p>Výsledek má tolik <b>platných číslic</b>, kolik jich má vstup s&nbsp;nejmenším počtem.</p>
+          <p class="eq" style="font-size:.94rem">12,47 g / 4,5 cm³ = 2,7711… → <b>2,8 g·cm⁻³</b><br><span style="color:var(--ink-3)">4 platné : 2 platné → 2 platné</span></p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Sčítání a&nbsp;odčítání</span>
+          <p>Výsledek má tolik <b>desetinných míst</b>, kolik jich má vstup s&nbsp;nejmenším počtem. Platné číslice se tu neřeší vůbec.</p>
+          <p class="eq" style="font-size:.94rem">125,3 g + 0,0472 g = 125,3472 → <b>125,3 g</b><br><span style="color:var(--ink-3)">1 desetinné : 4 desetinná → 1 desetinné</span></p>
+        </div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Proč to takhle je</span>
+        <p>Při <b>násobení</b> se relativní chyby sčítají, takže rozhoduje <em>relativní</em> přesnost = počet platných číslic. Při <b>sčítání</b> se sčítají absolutní chyby, takže rozhoduje <em>absolutní</em> přesnost = pozice posledního jistého místa. Když k&nbsp;125,3&nbsp;g (kde neznáme setiny) přidáte 0,0472&nbsp;g, o&nbsp;setinách pořád nic nevíte — a&nbsp;výsledek to nesmí předstírat.</p>
+      </div>
+
+      <h3>Zaokrouhluje se až úplně na konci</h3>
+      <p>Během výpočtu si necháváte plnou přesnost kalkulačky (nebo aspoň dvě číslice navíc) a&nbsp;zaokrouhlíte teprve v&nbsp;bloku <b>odpověď</b>. Zaokrouhlování v&nbsp;mezikroku se nazývá <span class="term">akumulace zaokrouhlovací chyby</span> a&nbsp;u&nbsp;výpočtů na tři a&nbsp;víc kroků dokáže posunout výsledek o&nbsp;procenta.</p>
+      <p class="eq">správně: 5,85/58,44 = 0,100102… → ·4 → 0,400411 → <b>0,400</b><br>špatně: 5,85/58,44 ≈ 0,10 → ·4 → <b>0,40</b> &nbsp;<span style="color:var(--bad)">(ztraceny dvě platné číslice)</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak zaokrouhlovat</span>
+        <p>Když je první odříznutá číslice 0–4, zaokrouhluje se dolů; 5–9 nahoru. (Vědecká „bankovní“ varianta, kdy se přesná pětka zaokrouhluje na sudou číslici, se na střední škole nevyžaduje.) Zaokrouhluje se <b>jednorázově z&nbsp;původního čísla</b>, nikdy postupně: 2,449 → 2,4, ne 2,449 → 2,45 → 2,5.</p>
+      </div>
+
+      <h3>Vědecký tvar</h3>
+      <p><span class="term">Vědecký (semilogaritmický) tvar</span> zapisuje číslo jako <span class="mono">a·10<sup>b</sup></span>, kde <b>1&nbsp;≤&nbsp;|a|&nbsp;&lt;&nbsp;10</b> a&nbsp;<span class="q">b</span> je celé číslo. Má tři výhody: je jednoznačný v&nbsp;počtu platných číslic, dá se s&nbsp;ním počítat zpaměti a&nbsp;u&nbsp;velmi malých a&nbsp;velkých čísel se v&nbsp;něm nedá ztratit nula.</p>
+      <p class="eq">0,000 062 5 = <b>6,25·10⁻⁵</b> &nbsp;·&nbsp; 96 485 = <b>9,6485·10⁴</b> &nbsp;·&nbsp; 22 400 (3 platné) = <b>2,24·10⁴</b></p>
+      <p>Počítání s&nbsp;mocninami: při <b>násobení se exponenty sčítají</b>, při <b>dělení odčítají</b>. <span class="mono">(2,0·10⁻³)·(3,0·10⁸) = 6,0·10⁵</span>. Tohle je základ řádového odhadu — viz <a href="#k8">kapitola 08</a>.</p>
+
+      <h3>Přesná čísla</h3>
+      <p>Některá čísla ve výpočtu nejsou naměřená, ale <b>definovaná</b> nebo <b>spočítaná</b>. Ta mají nekonečně mnoho platných číslic a&nbsp;na přesnost výsledku nemají vliv:</p>
+      <p>• <b>Stechiometrické koeficienty</b> — v&nbsp;<span class="chem">2 H₂ + O₂ → 2 H₂O</span> je dvojka přesně dvojka.<br>
+      • <b>Definiční převody</b> — 1&nbsp;dm³ = 1000&nbsp;cm³ přesně, 1&nbsp;min = 60&nbsp;s přesně, 1&nbsp;atm = 101&nbsp;325&nbsp;Pa přesně (je to definice), <span class="q">T</span>[K] = <span class="q">t</span>[°C] + 273,15 přesně.<br>
+      • <b>Počty kusů</b> — „tři baňky“ je přesně tři.<br>
+      • Naopak <b>molární hmotnosti a&nbsp;tabelované konstanty jsou naměřené</b> a&nbsp;platné číslice mají: 55,85 má čtyři, 8,314 má také čtyři. Berte je s&nbsp;alespoň jednou číslicí navíc oproti zadání, ať výsledek neomezují.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kolik platných číslic má výsledek</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="sgA">První číslo</label>
+            <input type="search" id="sgA" value="12,47" placeholder="např. 12,47">
+          </div>
+          <div class="ctl">
+            <label>Operace</label>
+            <div class="segmented" id="sgOp" role="group" aria-label="Operace">
+              <button type="button" data-v="mul" aria-pressed="false">×</button>
+              <button type="button" data-v="div" aria-pressed="true">÷</button>
+              <button type="button" data-v="add" aria-pressed="false">+</button>
+              <button type="button" data-v="sub" aria-pressed="false">−</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="sgB">Druhé číslo</label>
+            <input type="search" id="sgB" value="4,5" placeholder="např. 4,5">
+          </div>
+        </div>
+        <div class="grid3" style="margin-bottom:1rem">
+          <div class="readout" id="sgRoA"><span class="k">První číslo</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="sgRoB"><span class="k">Druhé číslo</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="sgRoR"><span class="k">Výsledek</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+        <div class="svgwrap" id="sgWrap" style="min-height:150px"></div>
+        <p class="drill-fb" id="sgFb" style="margin-top:.8rem">—</p>
+      </div>
+      <div class="panel-note">Zkuste zadat <b>125,3</b> a&nbsp;<b>0,0472</b> a&nbsp;přepínat mezi <b>+</b> a&nbsp;<b>×</b>. Uvidíte, že tatáž dvojice čísel dá u&nbsp;součtu čtyři platné číslice a&nbsp;u&nbsp;součinu jen tři — pravidla jsou opravdu různá a&nbsp;nelze je zaměňovat.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Kolik platných číslic má tohle číslo?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="drill">
+          <div class="drill-q" id="pfQ">—</div>
+          <div class="drill-opts" id="pfOpts"></div>
+          <p class="drill-fb" id="pfFb">Vyberte počet platných číslic. Osm správných za sebou označí kapitolu za splněnou.</p>
+          <div class="drill-bar">
+            <button class="btn btn-sm" type="button" id="pfNext">Další číslo</button>
+            <span class="drill-score" id="pfScore">0 / 0</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Trik na rychlé počítání: přepište si číslo v&nbsp;duchu do vědeckého tvaru. Kolik číslic zbude před mocninou deseti, tolik je platných. <span class="mono">0,004070</span> → <span class="mono">4,070·10⁻³</span> → čtyři.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 4.1</span>
+        <p>Kovový váleček má hmotnost 12,47&nbsp;g. Ponořením do odměrného válce jsme určili jeho objem na 4,5&nbsp;cm³. Určete hustotu se správným počtem platných číslic a&nbsp;rozhodněte, o&nbsp;jaký kov jde.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 4.1</span>
+              <span class="cs-topic">Hustota a&nbsp;platné číslice</span>
+              <span class="cs-kind">Přesnost</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= 12,47 g</span><span class="cs-note">4 platné číslice (analytické váhy)</span></div>
+                <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= 4,5 cm³</span><span class="cs-note">2 platné číslice (odměrný válec)</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">ρ</span><span class="cs-val">= ? g·cm⁻³</span><span class="cs-note">hustota</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">ρ = m / V</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">ρ = <b>m / V</b> &nbsp;&nbsp;<em>(vztah je už vyjádřený pro hledanou veličinu, odvození je prázdné)</em></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">ρ = 12,47 g / 4,5 cm³</div>
+                <div class="cs-line units">jednotky: g / cm³ = <b>g·cm⁻³</b> ✓</div>
+                <div class="cs-line">ρ = 2,77111… g·cm⁻³ &nbsp;→&nbsp; dělení: min(4; 2) = <b>2 platné číslice</b></div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Hustota kovu je <b class="cs-hi">ρ = 2,8 g·cm⁻³</b>. Odpovídá to <b>hliníku</b> (2,70&nbsp;g·cm⁻³); hořčík má 1,74 a&nbsp;titan 4,51, takže záměna nehrozí.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Zajímavý závěr: přesná váha nám byla k&nbsp;ničemu. Objem změřený na dvě platné číslice srazil přesnost celého výsledku a&nbsp;čtyři číslice hmotnosti se zahodily. <b>Přesnost výsledku určuje nejslabší článek.</b> Kdybychom chtěli rozlišit hliník od hořčíku spolehlivě, museli bychom lépe změřit objem — ne hmotnost.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: platné číslice a zaokrouhlování"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

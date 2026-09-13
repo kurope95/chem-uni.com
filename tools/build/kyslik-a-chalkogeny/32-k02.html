@@ -1,0 +1,252 @@
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Elementární kyslík — O₂ a ozon">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · osnova, body 3, 3a a 3b</span>
+      <h2>Elementární kyslík: molekula O₂, ozon, výroba a&nbsp;využití</h2>
+      <p class="lead">Kyslík je nejrozšířenější prvek zemské kůry a&nbsp;pětina vzduchu. Existuje ve dvou modifikacích, které se liší vším — barvou, zápachem, teplotou varu, oxidační silou i&nbsp;tím, jestli je přitahuje magnet. A&nbsp;jedna z&nbsp;nich, ta vzácnější, drží nad planetou ochranný štít, o&nbsp;který jsme málem přišli.</p>
+
+      <h3>Výskyt</h3>
+      <p>Kyslík je s&nbsp;podílem asi <b>46 % hmotnosti zemské kůry</b> nejrozšířenější prvek litosféry — je v&nbsp;křemičitanech, uhličitanech, síranech a&nbsp;oxidech. V&nbsp;hydrosféře tvoří <b>88,8 % hmotnosti vody</b>. V&nbsp;atmosféře je <b>20,95 % objemových</b> jako <span class="chem">O₂</span>, ve vyšších vrstvách jako <span class="chem">O₃</span> a&nbsp;nad zhruba 50–70 km i&nbsp;v&nbsp;atomární formě. V&nbsp;lidském těle je asi 65 % hmotnosti.</p>
+      <p>Má tři stabilní izotopy: <span class="chem"><sup>16</sup>O</span> (99,757 %), <span class="chem"><sup>17</sup>O</span> (0,038 %) a&nbsp;<span class="chem"><sup>18</sup>O</span> (0,205 %). Poměr <sup>18</sup>O/<sup>16</sup>O v&nbsp;ledovcových vrtech slouží jako <b>teploměr dávné minulosti</b> — z&nbsp;něj se rekonstruují teploty za posledních 800 000 let.</p>
+
+      <h3>Molekula O₂ a&nbsp;její paramagnetismus</h3>
+      <p>Lewisův vzorec <span class="chem">O=O</span> se dvěma volnými páry na každém atomu vypadá bezchybně a&nbsp;dá správný řád vazby. Má ale jednu fatální vadu: <b>předpovídá, že všechny elektrony jsou spárované</b>, tedy že kyslík je diamagnetický. Skutečnost je jiná — kapalný kyslík se v&nbsp;magnetickém poli drží mezi póly magnetu, je tedy <span class="term">paramagnetický</span> a&nbsp;musí mít nepárové elektrony.</p>
+      <div class="callout def">
+        <span class="eyebrow">Vysvětlení teorií molekulových orbitalů</span>
+        <p>Ve valenční sféře <span class="chem">O₂</span> je 12 elektronů. Obsazují postupně: σ(2s)² σ*(2s)² σ(2p)² π(2p)⁴ a&nbsp;zbývají <b>dva elektrony na dvojici degenerovaných (stejně energetických) protivazebných orbitalů π*</b>. Podle <b>Hundova pravidla</b> se rozmístí <b>každý do jednoho orbitalu se souhlasným spinem</b>. Odtud dva nepárové elektrony a&nbsp;paramagnetismus.</p>
+        <p class="eq">řád vazby = (vazebné − protivazebné) / 2 = (8 − 4) / 2 = <b>2</b></p>
+      </div>
+      <p>Řád vazby vyjde 2, což se s&nbsp;Lewisem shoduje. Rozdíl je jen v&nbsp;magnetismu — a&nbsp;právě proto se molekula kyslíku uvádí jako <b>učebnicový důkaz převahy MO teorie</b> nad teorií valenčních vazeb.</p>
+      <div class="grid3" style="margin:1rem 0">
+        <div class="readout"><span class="k">délka vazby O=O</span><span class="v">121 pm</span><span class="h">kratší než jednoduchá (148)</span></div>
+        <div class="readout"><span class="k">disociační energie</span><span class="v">498 kJ·mol⁻¹</span><span class="h">silná, ale ne extrémní</span></div>
+        <div class="readout"><span class="k">nepárové elektrony</span><span class="v">2</span><span class="h">oba v orbitalech π*</span></div>
+      </div>
+      <p>Když se počet elektronů v&nbsp;π* změní, změní se i&nbsp;všechno ostatní. Tuhle řadu si vyzkoušejte v&nbsp;modelu níž.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Souvislost s&nbsp;biologií</span>
+        <p>Právě proto, že <span class="chem">O₂</span> má dva nepárové elektrony (je to <b>triplet</b>), reaguje s&nbsp;organickými látkami, které mají spárované elektrony, překvapivě pomalu. Kdyby to tak nebylo, každý les by shořel při první jiskře. Excitovaná forma <b>singletový kyslík</b> ¹O₂ (o&nbsp;94 kJ·mol⁻¹ výš, spárované elektrony) je naopak agresivní a&nbsp;v&nbsp;buňkách způsobuje oxidační poškození.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Řada O₂⁺ → O₂ → O₂⁻ → O₂²⁻ v&nbsp;orbitalech π*</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="moR">Počet elektronů v&nbsp;protivazebných orbitalech π* &nbsp;<span class="val" id="moRv">2</span></label>
+            <input type="range" id="moR" min="1" max="4" step="1" value="2">
+          </div>
+          <div class="ctl">
+            <label>Nebo rovnou vyberte částici</label>
+            <div class="segmented" id="moSeg">
+              <button type="button" data-v="1" aria-pressed="false">O₂⁺</button>
+              <button type="button" data-v="2" aria-pressed="true">O₂</button>
+              <button type="button" data-v="3" aria-pressed="false">O₂⁻</button>
+              <button type="button" data-v="4" aria-pressed="false">O₂²⁻</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="moWrap" style="min-height:330px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="moRo1"></div>
+          <div class="readout" id="moRo2"></div>
+          <div class="readout" id="moRo3"></div>
+        </div>
+        <div class="explain" id="moSay" style="margin-top:1rem;display:flex"></div>
+      </div>
+      <div class="panel-note">Táhněte posuvníkem od 1 do 4 a&nbsp;sledujte tři věci najednou: klesající <b>řád vazby</b>, rostoucí <b>délku vazby</b> a&nbsp;střídání paramagnetismu s&nbsp;diamagnetismem. Všechno se odehrává jen v&nbsp;té jediné dvojici orbitalů π* — zbytek diagramu se nemění.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Ozon <span class="chem">O₃</span> — druhá tvář kyslíku</h3>
+      <p><span class="term">Alotropie</span> znamená, že týž prvek existuje ve víc formách lišících se strukturou. Kyslík má dvě: <span class="chem">O₂</span> a&nbsp;<span class="chem">O₃</span>. Ozon (z&nbsp;řeckého „páchnu“) objevil Schönbein roku 1840 podle zápachu vznikajícího při elektrických výbojích.</p>
+      <p><b>Struktura.</b> Molekula je <b>lomená</b> s&nbsp;úhlem <b>116,8°</b> a&nbsp;obě vazby jsou <b>stejně dlouhé, 127,8 pm</b> — mezi jednoduchou (148 pm) a&nbsp;dvojnou (121 pm). Vysvětlení: středový atom je hybridizovaný sp², dvě vazby σ míří ke krajním atomům, třetí hybridní orbital nese volný pár. Zbylé orbitaly p<sub>z</sub> všech tří atomů vytvoří <b>delokalizovanou vazbu π</b> přes celou molekulu, do níž patří jediný elektronový pár. Řád vazby proto vychází asi 1,5.</p>
+      <p class="eq">úhel 116,8° &lt; 120° <span style="color:var(--ink-3)">— volný pár na středovém atomu tlačí vazby blíž k&nbsp;sobě, delokalizovaná π je naopak roztahuje</span></p>
+      <p><b>Vlastnosti.</b> Ozon je namodralý plyn (kapalný tmavě modrý, pevný modročerný) s&nbsp;pronikavým zápachem, který člověk vnímá už od koncentrace kolem 0,01 ppm. Díky lomené struktuře je <b>polární</b>, a&nbsp;proto má silnější mezimolekulové síly a&nbsp;výrazně vyšší teplotu varu než kyslík: <b>−111,9 °C</b> proti −183,0 °C.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Vlastnost</th><th class="n">O₂</th><th class="n">O₃</th><th>Proč se liší</th></tr></thead>
+          <tbody>
+            <tr><td>Tvar molekuly</td><td>lineární (dvouatomová)</td><td>lomená, 116,8°</td><td>volný pár na středovém atomu</td></tr>
+            <tr><td>Délka vazby</td><td class="n">121 pm</td><td class="n">127,8 pm</td><td>řád vazby 2 proti 1,5</td></tr>
+            <tr><td>Polarita</td><td>nepolární</td><td><b>polární</b> (μ = 0,53 D)</td><td>nerovnocenné atomy a&nbsp;lomený tvar</td></tr>
+            <tr><td>Teplota varu</td><td class="n">−183,0 °C</td><td class="n">−111,9 °C</td><td>silnější van der Waalsovy síly u&nbsp;polární molekuly</td></tr>
+            <tr><td>Magnetismus</td><td><b>paramagnetický</b></td><td>diamagnetický</td><td>O₂ má dva nepárové elektrony, O₃ ne</td></tr>
+            <tr><td>Standardní potenciál</td><td class="n">+1,23 V</td><td class="n"><b>+2,07 V</b></td><td>ozon snadno odštěpí atom O</td></tr>
+            <tr><td>Barva plynu</td><td>bezbarvý</td><td>namodralý</td><td>absorpce v&nbsp;červené oblasti</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem"><b>Vznik a&nbsp;příprava.</b> Ozon vzniká z&nbsp;kyslíku <b>tichým elektrickým výbojem</b> nebo <b>ultrafialovým zářením</b>, které nejdřív rozštěpí molekulu O₂ na atomy, a&nbsp;ty se pak na další molekuly navážou. Reakce je endotermická: <span class="chem">3 O₂ → 2 O₃</span>, ΔH = +285 kJ. Zařízení na to se jmenuje <b>ozonizátor</b>. Chemicky se dá připravit i&nbsp;reakcí manganistanu s&nbsp;koncentrovanou kyselinou sírovou, ale vždy vzniká současně hodně kyslíku.</p>
+      <p><b>Oxidační účinky.</b> S&nbsp;<span class="q">E</span>° = +2,07 V je ozon <b>druhé nejsilnější běžné oxidační činidlo</b> hned po fluoru (+2,87 V). Oxiduje i&nbsp;stříbro (<span class="chem">2 Ag + O₃ → Ag₂O + O₂</span>) a&nbsp;z&nbsp;jodidu uvolní jod — na tom je založený jeho důkaz:</p>
+      <p class="eq"><span class="chem">2 KI + O₃ + H₂O → I₂ + 2 KOH + O₂</span> &nbsp;&nbsp;<span style="color:var(--ink-3)">škrobový papírek navlhčený jodidem draselným zmodrá</span></p>
+      <p>Prakticky se využívá k&nbsp;<b>dezinfekci pitné vody a&nbsp;bazénů</b> (Paříž ozonizuje vodu od roku 1906), k&nbsp;bělení celulózy a&nbsp;k&nbsp;odstraňování pachů. Výhodou proti chloru je, že nezanechává chuť ani chlorované vedlejší produkty; nevýhodou, že nemá <b>zbytkový účinek</b> — jakmile ozon rozložením zmizí, voda už není chráněná.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Ozonová vrstva — profil, Chapmanův cyklus a&nbsp;freony</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label>Co zobrazit</label>
+            <div class="segmented" id="ozSeg">
+              <button type="button" data-v="prof" aria-pressed="true">Profil ve výšce</button>
+              <button type="button" data-v="chap" aria-pressed="false">Chapmanův cyklus</button>
+              <button type="button" data-v="cfc" aria-pressed="false">Rozklad chlorem</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="ozH">Výška nad zemí &nbsp;<span class="val" id="ozHv">25 km</span></label>
+            <input type="range" id="ozH" min="0" max="50" step="1" value="25">
+          </div>
+        </div>
+        <div class="svgwrap" id="ozWrap" style="min-height:320px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="ozRo1"></div>
+          <div class="readout" id="ozRo2"></div>
+          <div class="readout" id="ozRo3"></div>
+        </div>
+        <div class="explain" id="ozSay" style="margin-top:1rem;display:flex"></div>
+      </div>
+      <div class="panel-note">Nastavte výšku na 22 km — tam je ozonu nejvíc. Pak sjeďte na 0 km a&nbsp;všimněte si, že u&nbsp;země je ho velmi málo, a&nbsp;přesto je tam <b>škodlivinou</b>: ve stratosféře chrání, v&nbsp;přízemní vrstvě dráždí plíce. Pak přepněte na Chapmanův cyklus a&nbsp;sledujte, že ozon se pořád tvoří i&nbsp;rozkládá — vrstva je <b>rovnovážný stav</b>, ne zásoba.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Ozonová vrstva: jak vzniká, jak se ničí a&nbsp;jak se ji povedlo zachránit</h3>
+      <p>Ve stratosféře, zhruba <b>15 až 35 km</b> nad zemí s&nbsp;maximem kolem 22 km, je zvýšená koncentrace ozonu. Když by se všechen stratosférický ozon stlačil na tlak u&nbsp;hladiny moře, měla by ta vrstva tloušťku pouhé <b>3 mm</b> (odpovídá 300 Dobsonovým jednotkám). Přesto zachytí prakticky všechno záření UV‑C a&nbsp;většinu UV‑B, které by jinak poškozovalo DNA.</p>
+      <div class="callout def">
+        <span class="eyebrow">Chapmanův cyklus — čtyři rovnice</span>
+        <p class="eq"><b>1. štěpení kyslíku</b> &nbsp;<span class="chem">O₂ + hν → 2 O</span> &nbsp;&nbsp;(λ &lt; 240 nm)<br>
+        <b>2. vznik ozonu</b> &nbsp;<span class="chem">O + O₂ + M → O₃ + M</span> &nbsp;&nbsp;(M odvádí uvolněnou energii)<br>
+        <b>3. štěpení ozonu</b> &nbsp;<span class="chem">O₃ + hν → O₂ + O</span> &nbsp;&nbsp;(pohltí UV‑B a&nbsp;UV‑C)<br>
+        <b>4. zánik</b> &nbsp;<span class="chem">O + O₃ → 2 O₂</span></p>
+        <p>Kroky 2 a&nbsp;3 běží stále dokola a&nbsp;při každém průchodu se <b>pohltí kvantum ultrafialového záření a&nbsp;přemění na teplo</b>. Ozonová vrstva tedy není zásobárna, ale <b>dynamická rovnováha</b>, která záření pořád znovu odchytává.</p>
+      </div>
+      <p><b>Jak to zkazily freony.</b> Chlorfluoruhlovodíky (CFC, freony) byly v&nbsp;30. letech oslavovány: nehořlavé, netoxické, chemicky netečné — ideální chladiva a&nbsp;hnací plyny sprejů. Právě ta netečnost byla problém. Nic je v&nbsp;troposféře nerozloží, a&nbsp;tak se během deseti až dvaceti let dostanou do stratosféry, kde je tvrdé UV rozštěpí:</p>
+      <p class="eq"><span class="chem">CCl₂F₂ + hν → CClF₂ + Cl</span> &nbsp;&nbsp;<span style="color:var(--ink-3)">uvolní se atomární chlor</span></p>
+      <p>A&nbsp;pak začne <b>katalytický cyklus</b>, ve kterém se chlor sám nespotřebovává:</p>
+      <p class="eq"><span class="chem">Cl + O₃ → ClO + O₂</span><br><span class="chem">ClO + O → Cl + O₂</span><br><b>součet: <span class="chem">O + O₃ → 2 O₂</span></b> &nbsp;&nbsp;<span style="color:var(--ink-3)">chlor vystupuje z&nbsp;cyklu nezměněný a&nbsp;jde na další ozon</span></p>
+      <p>Jediný atom chloru takto zlikviduje řádově <b>sto tisíc molekul ozonu</b>, než se z&nbsp;cyklu odstraní jinou reakcí. V&nbsp;roce 1985 byla nad Antarktidou objevena <b>ozonová díra</b> — oblast, kde na jaře klesá množství ozonu na méně než třetinu obvyklého.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jediný ekologický problém, který se opravdu vyřešil</span>
+        <p><b>Montrealský protokol</b> z&nbsp;roku 1987 zakázal výrobu freonů a&nbsp;ratifikovaly ho všechny státy světa — jediná smlouva OSN s&nbsp;univerzální účastí. Koncentrace chloru ve stratosféře od 90. let klesá a&nbsp;ozonová vrstva se zotavuje. Podle hodnocení z&nbsp;roku 2022 se očekává návrat na úroveň roku 1980 kolem roku <b>2040</b> pro většinu světa a&nbsp;kolem roku <b>2066</b> nad Antarktidou. Freony nahradily nejdřív HCFC a&nbsp;pak HFC, dnes se hledají náhrady i&nbsp;za ně, protože jsou to silné skleníkové plyny.</p>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nepleťte si dvě různé věci</span>
+        <p><b>Ozonová díra a&nbsp;skleníkový efekt spolu nesouvisejí.</b> Ozonová vrstva odstiňuje ultrafialové záření a&nbsp;ničily ji freony; skleníkový efekt je o&nbsp;zadržování infračerveného záření a&nbsp;způsobuje ho hlavně CO₂ a&nbsp;methan. Že jsou freony současně i&nbsp;silné skleníkové plyny, je náhoda, ne příčina. A&nbsp;<b>přízemní ozon</b> je třetí, zase jiný problém: vzniká z&nbsp;výfukových plynů za slunečního svitu, dráždí dýchací cesty a&nbsp;imisní limit je 120 µg·m⁻³ jako osmihodinový průměr.</p>
+      </div>
+
+      <h3>Výroba kyslíku</h3>
+      <p>Průmyslově se kyslík vyrábí prakticky výhradně <b>frakční destilací zkapalněného vzduchu</b>. Postup má tři fáze.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="n">Krok</th><th>Co se děje</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1</td><td>Čištění: odstranění vodní páry a&nbsp;CO₂</td><td>obojí by při ochlazení zmrzlo a&nbsp;ucpalo aparaturu</td></tr>
+            <tr><td class="n">2</td><td>Zkapalnění opakovanou kompresí a&nbsp;expanzí (Lindeho postup)</td><td>při expanzi plyn koná práci proti mezimolekulovým silám a&nbsp;chladne (Jouleův–Thomsonův jev)</td></tr>
+            <tr><td class="n">3</td><td>Frakční destilace v&nbsp;rektifikační koloně</td><td>složky se dělí podle teplot varu</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid3" style="margin:1rem 0">
+        <div class="readout"><span class="k">teplota varu N₂</span><span class="v">−195,8 °C</span><span class="h">odchází první, 78 % vzduchu</span></div>
+        <div class="readout"><span class="k">teplota varu Ar</span><span class="v">−185,8 °C</span><span class="h">boční frakce, 0,93 %</span></div>
+        <div class="readout"><span class="k">teplota varu O₂</span><span class="v">−183,0 °C</span><span class="h">zůstává v kapalině, 20,95 %</span></div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Past, na které se to nejčastěji plete</span>
+        <p><b>Odchází dusík, ne kyslík.</b> Rozhoduje teplota varu: dusík má nižší, takže se odpaří dřív a&nbsp;kyslík zůstává v&nbsp;kapalině. Kdo si to plete, obvykle uvažuje „dusíku je víc, tak se ho odpaří víc“, což s&nbsp;pořadím nesouvisí. Vyrobený kyslík má čistotu kolem 99,5 %; zbytek je hlavně argon, který ve většině použití nevadí.</p>
+      </div>
+      <p>Vedle destilace se používá i&nbsp;<b>adsorpce na molekulových sítech</b> (postup PSA — kyslíkové koncentrátory v&nbsp;nemocnicích a&nbsp;pro domácí kyslíkovou terapii) a&nbsp;jako vedlejší produkt vzniká kyslík při <b>elektrolýze vody</b> na anodě.</p>
+
+      <h3>Laboratorní příprava</h3>
+      <p>V&nbsp;laboratoři se kyslík připravuje rozkladem nějaké kyslíkaté sloučeniny — nejčastěji katalyzovaným.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Metoda</th><th>Rovnice</th><th>Podmínky a&nbsp;poznámka</th></tr></thead>
+          <tbody>
+            <tr><td>Rozklad peroxidu vodíku</td><td class="chem">2 H₂O₂ → 2 H₂O + O₂</td><td>katalyzátor MnO₂; nejběžnější metoda, běží za studena</td></tr>
+            <tr><td>Rozklad chlorečnanu</td><td class="chem">2 KClO₃ → 2 KCl + 3 O₂</td><td>zahřátí, katalyzátor MnO₂ (bez něj je nutná mnohem vyšší teplota)</td></tr>
+            <tr><td>Rozklad manganistanu</td><td class="chem">2 KMnO₄ → K₂MnO₄ + MnO₂ + O₂</td><td>zahřátí nad 240 °C</td></tr>
+            <tr><td>Rozklad dusičnanu</td><td class="chem">2 KNO₃ → 2 KNO₂ + O₂</td><td>tavení</td></tr>
+            <tr><td>Rozklad oxidu rtuťnatého</td><td class="chem">2 HgO → 2 Hg + O₂</td><td>zahřátí; touhle reakcí objevil Priestley kyslík roku 1774</td></tr>
+            <tr><td>Rozklad peroxidu barnatého</td><td class="chem">2 BaO₂ → 2 BaO + O₂</td><td>750 °C; dříve průmyslová Brinova metoda</td></tr>
+            <tr><td>Reakce peroxidů s&nbsp;vodou</td><td class="chem">2 Na₂O₂ + 2 H₂O → 4 NaOH + O₂</td><td>okamžitá reakce</td></tr>
+            <tr><td>Elektrolýza vody</td><td class="chem">4 OH⁻ → 2 H₂O + O₂ + 4 e⁻</td><td>anodický děj; s&nbsp;přídavkem NaOH pro vodivost</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Využití</h3>
+      <p>Světová spotřeba kyslíku se počítá na stovky milionů tun ročně a&nbsp;největší podíl si bere <b>hutnictví</b>: v&nbsp;kyslíkovém konvertoru se do roztaveného surového železa fouká čistý kyslík, který spálí nadbytečný uhlík a&nbsp;příměsi a&nbsp;promění surové železo na ocel. Další velká pole: <b>svařování a&nbsp;řezání</b> kovů (kyslíko‑acetylenový plamen dosahuje přes 3 000 °C), <b>chemický průmysl</b> (výroba ethylenoxidu, kyseliny dusičné, syntézního plynu), <b>čištění odpadních vod</b> (provzdušňování aktivačních nádrží), <b>medicína</b> a&nbsp;<b>raketová technika</b> (kapalný kyslík je okysličovadlo prakticky všech velkých nosných raket).</p>
+      <div class="callout tip">
+        <span class="eyebrow">Kyslík v&nbsp;plechovce: superoxid draselný</span>
+        <p>V&nbsp;dýchacích přístrojích pro doly a&nbsp;ponorky se používá <span class="chem">KO₂</span>, protože dělá dvě věci najednou — <b>pohltí vydechovaný oxid uhličitý a&nbsp;zároveň uvolní kyslík</b>:</p>
+        <p class="eq"><span class="chem">4 KO₂ + 2 CO₂ → 2 K₂CO₃ + 3 O₂</span></p>
+        <p>Na každé dvě molekuly pohlceného CO₂ připadnou tři molekuly uvolněného O₂. Přístroj je tak úplně nezávislý na okolním vzduchu.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.1 · proč právě 240 nm</span>
+          <p>Vypočítejte nejdelší vlnovou délku záření, které ještě dokáže rozštěpit molekulu <span class="chem">O₂</span> na atomy. Disociační energie vazby O=O je 498 kJ·mol⁻¹. <span class="q">h</span> = 6,626·10⁻³⁴ J·s, <span class="q">c</span> = 2,998·10⁸ m·s⁻¹, <span class="q">N</span><sub>A</sub> = 6,022·10²³ mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Energii na jednu molekulu dostaneme dělením Avogadrovou konstantou.</p>
+              <p class="eq"><span class="q">E</span> = 498 000 / (6,022·10²³) = <b>8,27·10⁻¹⁹ J</b> na molekulu</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Foton musí mít aspoň tuto energii. Z&nbsp;Planckova vztahu <span class="q">E</span> = <span class="q">hc</span>/λ vyjádříme vlnovou délku.</p>
+              <p class="eq">λ = <span class="q">hc</span> / <span class="q">E</span> = (6,626·10⁻³⁴ · 2,998·10⁸) / 8,27·10⁻¹⁹</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq">λ = 1,987·10⁻²⁵ / 8,27·10⁻¹⁹ = 2,40·10⁻⁷ m = <b>240 nm</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>To je hluboko v&nbsp;oblasti <b>UV‑C</b>. Takové záření se k&nbsp;zemskému povrchu vůbec nedostane — pohltí se právě při štěpení kyslíku ve výšce nad 30 km. Delší vlnová délka znamená menší energii fotonu, a&nbsp;ta už na roztržení vazby O=O nestačí.</p>
+              <span class="result">λ ≈ 240 nm — proto první krok Chapmanova cyklu probíhá jen vysoko ve stratosféře</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.2 · kolik ozonu je ve „vrstvě“</span>
+          <p>Průměrná tloušťka ozonové vrstvy je 300 Dobsonových jednotek, což odpovídá vrstvě čistého ozonu 3,00 mm silné za normálních podmínek (0 °C, 101,325 kPa). Kolik gramů ozonu připadá na jeden čtvereční metr zemského povrchu? <span class="q">V</span><sub>m</sub> = 22,414 dm³·mol⁻¹, <span class="q">M</span>(O₃) = 48,00 g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Objem sloupce nad jedním metrem čtverečním:</p>
+              <p class="eq"><span class="q">V</span> = 1,00 m² · 3,00·10⁻³ m = 3,00·10⁻³ m³ = <b>3,00 dm³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(O₃) = 3,00 / 22,414 = <b>0,1339 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(O₃) = 0,1339 · 48,00 = <b>6,43 g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Šest a&nbsp;půl gramu na metr čtvereční — to je zhruba hmotnost dvou pětikorun. A&nbsp;tohle množství, rozprostřené přes dvacet kilometrů výšky, drží nad planetou UV štít. Když poklesne pod 220 DU, mluvíme o&nbsp;ozonové díře.</p>
+              <span class="result">asi 6,4 g ozonu na m² zemského povrchu</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: O₂, ozon a výroba kyslíku"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

@@ -1,0 +1,75 @@
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Elementární kovy</h1>
+      <p class="lead">Proč se měděný drát ohne, ale kuchyňská sůl praskne? Proč se hliník vyrábí elektřinou, kdežto železo koksem? A&nbsp;proč pozinkovaný plech po poškrábání drží, kdežto pocínovaný zrezaví rychleji, než kdyby byl holý? Všechno jsou to otázky o&nbsp;téže věci: co dělá kov kovem. Buď rychlokurz na hodinu, nebo devět kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Kovová vazba a&nbsp;pásová teorie</span>
+        <span class="tag">Krystalové mřížky</span>
+        <span class="tag">Slitiny</span>
+        <span class="tag">Metalurgie a&nbsp;výroba oceli</span>
+        <span class="tag">Koroze</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">Rychlá cesta</span></span>
+        <span class="pt">Rychlokurz</span>
+        <span class="pd">Celá látka v&nbsp;kostce: devět bloků, v&nbsp;každém výklad, rámeček se vzorci a&nbsp;pravidly, upozornění na častou chybu a&nbsp;řešený příklad. Projde všechny pojmy z&nbsp;osnovy, má vlastní schémata a&nbsp;kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">Podrobná cesta</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Výklad kapitolu po kapitole s&nbsp;interaktivními modely, řešenými příklady krok za krokem, trenažéry a&nbsp;testem po každé kapitole. Na konci je tahák a&nbsp;slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Tři mřížky kovů — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="mzSeg" style="flex-wrap:wrap" role="group" aria-label="Typ krystalové mřížky">
+          <button type="button" data-mz="kpc" aria-pressed="true">Kubická plošně centrovaná</button>
+          <button type="button" data-mz="hex" aria-pressed="false">Hexagonální nejtěsnější</button>
+          <button type="button" data-mz="kpr" aria-pressed="false">Kubická prostorově centrovaná</button>
+          <button type="button" data-mz="sc" aria-pressed="false">Prostá kubická</button>
+        </div>
+        <div class="svgwrap" id="mzWrap" style="min-height:350px;margin-top:1rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>atomy ve vrcholech buňky — každý se dělí mezi osm buněk</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>atomy ve stěnách nebo uprostřed — přispívají polovinou nebo celé</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>směr, ve kterém se koule dotýkají</span>
+        </div>
+        <div class="grid2" style="margin-top:1.1rem;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <p class="eq" id="mzEq" style="margin:0"></p>
+            <p class="eq" id="mzEx" style="margin:0;border-left-color:var(--accent)"></p>
+          </div>
+          <div class="grid3">
+            <div class="readout" id="mzRo1"></div>
+            <div class="readout" id="mzRo2"></div>
+            <div class="readout" id="mzRo3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note" id="mzNote">Přepínejte mezi prvními dvěma mřížkami: mají shodné koordinační číslo i&nbsp;shodné zaplnění prostoru, liší se jen pořadím vrstev. Pak přejděte na prostorově centrovanou a&nbsp;sledujte, jak koordinační číslo spadne na osm a&nbsp;zaplnění na 68 %.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:min(100%,100ch);font-size:1rem">Každý řádek osnovy má svou kapitolu. Klepněte na řádek a&nbsp;skočíte rovnou na ni.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Kovová vazba a&nbsp;pásová teorie: delokalizované elektrony, valenční a&nbsp;vodivostní pás, rozlišení vodiče, polovodiče a&nbsp;izolantu, příměsové polovodiče typu N a&nbsp;P.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Typy krystalových mřížek kovů a&nbsp;nejtěsnější uspořádání: koordinační číslo, počet atomů v&nbsp;buňce, stupeň zaplnění prostoru, dutiny, polymorfie železa.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Fyzikální vlastnosti kovů a&nbsp;čím jsou dané: lesk, elektrická a&nbsp;tepelná vodivost, kujnost a&nbsp;tažnost, hustota, teploty tání a&nbsp;varu, tvrdost, magnetické chování.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Slitiny — substituční a&nbsp;intersticiální: Hume‑Rotheryho podmínky, intermetalické sloučeniny, eutektikum, proč je slitina tvrdší a&nbsp;hůř vede.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Rudy, jejich vznik a&nbsp;úprava: zastoupení kovů v&nbsp;přírodě, geochemické skupiny, typy rud, flotace, pražení a&nbsp;kalcinace.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Metalurgie a&nbsp;redukce rud: Ellinghamův diagram, redukce uhlíkem a&nbsp;vodíkem, metalotermie a&nbsp;Krollova metoda, cementace, tepelný rozklad.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Elektrolytická výroba kovů — hliník: Bayerův proces a&nbsp;Hallova–Héroultova elektrolýza, elektrolýza tavenin a&nbsp;roztoků, Faradayovy zákony, rafinace mědi.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8</span><span>Výroba železa a&nbsp;oceli: vysoká pec a&nbsp;její chemismus, struska, surové železo a&nbsp;litina, kyslíkový konvertor a&nbsp;elektrická oblouková pec, legování.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">9</span><span>Koroze a&nbsp;ochrana proti ní: korozní článek, chemická a&nbsp;elektrochemická koroze, bariéry, obětovaná anoda, pasivace, recyklace kovů.</span><span class="go">Kap. 8</span></a>
+    </div>
+  </header>

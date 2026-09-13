@@ -1,0 +1,198 @@
+
+  <!-- ============ KAPITOLA 1 ============ -->
+  <section class="chapter" id="k1" data-title="Izotopy vodíku a těžká voda">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · osnova, bod 2</span>
+      <h2>Protium, deuterium, tritium — a&nbsp;voda, která je o&nbsp;jedenáct procent těžší</h2>
+      <p class="lead">U&nbsp;žádného jiného prvku nemá výměna izotopu takový dopad. Když v&nbsp;uranu vyměníte ²³⁵U za ²³⁸U, změní se hmotnost o&nbsp;1&nbsp;%. Když ve vodíku vyměníte protium za deuterium, hmotnost se <b>zdvojnásobí</b> — a&nbsp;s&nbsp;ní se změní teploty tání a&nbsp;varu, rychlost reakcí i&nbsp;to, jestli v&nbsp;dané vodě přežije rostlina.</p>
+
+      <h3>Tři nuklidy jednoho prvku</h3>
+      <p>Všechny izotopy vodíku mají v&nbsp;jádře <b>jeden proton</b> — jinak by to nebyl vodík. Liší se počtem neutronů:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Nuklid</th><th>Název</th><th class="n">protony</th><th class="n">neutrony</th><th class="n"><span class="q">A</span>ᵣ</th><th>Zastoupení</th><th>Stabilita</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chem"><sup>1</sup><sub>1</sub>H</span></td><td>protium</td><td class="n">1</td><td class="n">0</td><td class="n">1,00783</td><td>99,9885&nbsp;%</td><td>stabilní</td></tr>
+            <tr><td><span class="chem"><sup>2</sup><sub>1</sub>H</span> = D</td><td>deuterium</td><td class="n">1</td><td class="n">1</td><td class="n">2,01410</td><td>0,0115&nbsp;%</td><td>stabilní</td></tr>
+            <tr><td><span class="chem"><sup>3</sup><sub>1</sub>H</span> = T</td><td>tritium</td><td class="n">1</td><td class="n">2</td><td class="n">3,01605</td><td>asi 1 atom na 10¹⁸</td><td>β⁻, poločas 12,32 roku</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Izotopy</b> jsou nuklidy téhož prvku — mají stejné protonové číslo <span class="q">Z</span>, ale různé nukleonové číslo <span class="q">A</span>. Vodík je jediný prvek, jehož izotopy mají <b>vlastní jména a&nbsp;vlastní značky</b>: D a&nbsp;T. Právě proto, že jejich vlastnosti se od sebe měřitelně liší.</p>
+      </div>
+      <p>Protium je zvláštní i&nbsp;tím, že jeho jádro <b>nemá vůbec žádný neutron</b> — je to jediný takový nuklid v&nbsp;celé nuklidové mapě. Průměrná relativní atomová hmotnost vodíku 1,008 vzniká váženým průměrem: 0,999885 × 1,00783 + 0,000115 × 2,01410 = 1,00795.</p>
+
+      <h3>Izotopový efekt — proč tady na hmotnosti záleží</h3>
+      <p>Rychlost chemické reakce závisí na tom, jak snadno se rozkmitá a&nbsp;přetrhne vazba. Frekvence kmitání vazby je nepřímo úměrná odmocnině z&nbsp;hmotnosti atomu, takže <b>vazba D–X kmitá pomaleji než H–X</b> a&nbsp;má nižší nulovou energii, tedy hlubší „důlek“. Rozštěpit ji stojí víc energie.</p>
+      <div class="grid3">
+        <div class="readout"><span class="k">Poměr hmotností D/H</span><span class="v">1,998</span><span class="h">u&nbsp;²³⁵U/²³⁸U je to jen 1,013</span></div>
+        <div class="readout"><span class="k">Poměr hmotností T/H</span><span class="v">2,993</span><span class="h">tritium je třikrát těžší než protium</span></div>
+        <div class="readout"><span class="k">Kinetický izotopový efekt</span><span class="v">až 7×</span><span class="h">reakce s&nbsp;D může běžet sedmkrát pomaleji než s&nbsp;H</span></div>
+      </div>
+      <p style="margin-top:1rem">Tenhle efekt je natolik velký, že se dá <b>prakticky využít</b>: chemici jím zjišťují, jestli se v&nbsp;kroku určujícím rychlost reakce trhá vazba k&nbsp;vodíku. A&nbsp;stejný jev umožňuje deuterium získávat — o&nbsp;tom za chvíli.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník izotopů — jádro, hmotnost, osud</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Který izotop</label>
+          <div class="segmented" id="izSel" role="group" aria-label="Volba izotopu">
+            <button type="button" data-v="H" aria-pressed="true">¹H protium</button>
+            <button type="button" data-v="D" aria-pressed="false">²H deuterium</button>
+            <button type="button" data-v="T" aria-pressed="false">³H tritium</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="izWrap" style="min-height:250px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw dot" style="background:var(--exo)"></span>proton</span>
+          <span class="li"><span class="sw dot" style="background:var(--endo)"></span>neutron</span>
+          <span class="li"><span class="sw dot" style="background:var(--accent)"></span>elektron v&nbsp;orbitalu 1s</span>
+        </div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="izRo1"></div>
+          <div class="readout" id="izRo2"></div>
+          <div class="readout" id="izRo3"></div>
+        </div>
+        <p class="eq" id="izEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="izNote">Přepínejte mezi izotopy a&nbsp;sledujte, jak roste jádro, zatímco obal zůstává úplně stejný. Chemické vlastnosti určuje obal — proto se všechny tři izotopy chovají chemicky stejně, jen různě rychle.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Těžká voda D₂O</h3>
+      <p>V&nbsp;přírodní vodě je deuterium přítomné hlavně jako <b>polotěžká voda HDO</b> (zhruba jedna molekula ze 4300) a&nbsp;jen velmi vzácně jako <b>čistá těžká voda D₂O</b>. Získává se <b>obohacováním, ne syntézou</b> — a&nbsp;klíčem je právě izotopový efekt.</p>
+      <div class="callout def">
+        <span class="eyebrow">Jak se těžká voda vyrábí</span>
+        <p>Při <b>elektrolýze vody</b> se na katodě přednostně vybíjejí ionty s&nbsp;lehkým vodíkem, protože vazba O–H se trhá snáz než O–D. Deuterium tedy <b>zůstává v&nbsp;elektrolytu</b> a&nbsp;jeho podíl v&nbsp;nezelektrolyzovaném zbytku roste. Opakováním se dá dojít k&nbsp;téměř čisté D₂O. Průmyslově se dnes používá levnější <b>Girdlerův sulfidový proces</b>, kde se deuterium přerozděluje mezi vodou a&nbsp;sulfanem při dvou různých teplotách; elektrolýza slouží jako závěrečné dočištění.</p>
+      </div>
+      <p>Aby to bylo názorné: z&nbsp;jedné tuny přírodní vody získáte přibližně <b>26 gramů</b> deuteria. Právě proto je těžká voda drahá — nejde o&nbsp;chemii, ale o&nbsp;množství energie potřebné k&nbsp;oddělení dvou látek, které se chovají skoro stejně.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Těžká voda proti lehké — šest vlastností, které se změní</h3>
+      </div>
+      <div class="panel-body">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Vlastnost</th><th class="n">H₂O</th><th class="n">D₂O</th><th>Co z&nbsp;toho plyne</th></tr></thead>
+            <tbody id="tzBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-note">Všimněte si, že <b>všechny</b> teplotní body se posunuly nahoru a&nbsp;anomálie hustoty se přesunula z&nbsp;3,98&nbsp;°C na 11,2&nbsp;°C. Důvod je jediný: těžší jádro znamená pomalejší kmitání, a&nbsp;tedy pevnější vodíkový můstek. Kdo pije těžkou vodu dlouhodobě, umírá — při zhruba 25&nbsp;% náhrady tělesné vody se rozladí buněčné dělení. Jeden hlt je ale neškodný.</div>
+    </div>
+
+    <div class="prose">
+      <h3>K&nbsp;čemu je deuterium a&nbsp;těžká voda dobrá</h3>
+      <div class="grid2">
+        <div class="callout tip">
+          <span class="eyebrow">Jaderná energetika</span>
+          <p>D₂O je <b>moderátor</b> — zpomaluje rychlé neutrony na tepelné, aniž by je pohlcovala. Reaktory typu CANDU díky tomu jedou na <b>přírodní uran</b> bez obohacování. Obyčejná voda neutrony taky zpomalí, ale část jich pohltí, a&nbsp;proto potřebuje obohacené palivo.</p>
+        </div>
+        <div class="callout tip">
+          <span class="eyebrow">Analytika a&nbsp;výzkum</span>
+          <p>Deuterovaná rozpouštědla (D₂O, CDCl₃) jsou nutná pro <b>NMR spektroskopii</b> — kdyby v&nbsp;rozpouštědle byl obyčejný vodík, jeho signál by přehlušil vzorek. V&nbsp;IČ spektroskopii se záměnou H za D <b>identifikují pásy</b> patřící vodíku, protože se posunou k&nbsp;nižším vlnočtům. V&nbsp;biologii slouží deuterium jako neradioaktivní <b>značka</b> při sledování metabolismu.</p>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:.8rem">
+        <div class="callout tip">
+          <span class="eyebrow">Tritium — světlo bez baterie</span>
+          <p>Trubička naplněná tritiem a&nbsp;potažená luminoforem svítí <b>dvanáct let bez zdroje energie</b>. Používá se v&nbsp;nouzových značkách východů, na ciferníkách hodinek a&nbsp;na mířidlech. Záření β⁻ o&nbsp;maximální energii 18,6 keV neprojde ani sklem trubičky.</p>
+        </div>
+        <div class="callout tip">
+          <span class="eyebrow">Tritium — fúze a&nbsp;datování</span>
+          <p>Reakce <b>D + T → ⁴He + n</b> je nejsnáze dosažitelná termojaderná reakce a&nbsp;počítá s&nbsp;ní projekt ITER. Tritium vzniklé při zkouškách jaderných zbraní v&nbsp;padesátých letech dodnes slouží k&nbsp;<b>datování mladých podzemních vod</b>: podle jeho zbytku se pozná, kdy voda naposledy viděla atmosféru.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Rozpad tritia — kolik ho zbude za <span class="q">t</span> let</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="tdT">Uplynulý čas <span class="val" id="tdTV">0 let</span></label>
+          <input type="range" id="tdT" min="0" max="60" step="1" value="0">
+        </div>
+        <div class="svgwrap" id="tdWrap" style="min-height:280px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="tdRo1"></div>
+          <div class="readout" id="tdRo2"></div>
+          <div class="readout" id="tdRo3"></div>
+        </div>
+        <p class="eq" id="tdEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note">Zkuste nastavit 12,3 roku a&nbsp;pak 24,6 roku a&nbsp;sledujte, jak se hodnota vždycky <b>rozpůlí</b> — to je smysl pojmu poločas. Po zhruba 37 letech (tři poločasy) zbývá už jen osmina, a&nbsp;proto tritiová svítilna po deseti letech znatelně pobledne.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.1 · kolik deuteria je v&nbsp;jedné vaně</span>
+          <p>Vana obsahuje 150 litrů vody. Kolik gramů deuteria je v&nbsp;ní obsaženo, když je zastoupení ²H mezi atomy vodíku 0,0115&nbsp;%? Uvažujte hustotu vody 1,00 kg·dm⁻³ a&nbsp;<span class="q">M</span>(H₂O) = 18,02 g·mol⁻¹, <span class="q">A</span>ᵣ(D) = 2,014.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Látkové množství vody:</p>
+              <p class="eq"><span class="q">n</span>(H₂O) = 150 000 g / 18,02 g·mol⁻¹ = <b>8324 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Každá molekula vody má dva atomy vodíku, takže atomů vodíku je dvakrát tolik:</p>
+              <p class="eq"><span class="q">n</span>(H celkem) = 2 · 8324 = <b>16 648 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Z&nbsp;toho je deuterium 0,0115&nbsp;%, tedy podíl 1,15·10⁻⁴:</p>
+              <p class="eq"><span class="q">n</span>(D) = 16 648 · 1,15·10⁻⁴ = <b>1,914 mol</b></p>
+              <p class="eq"><span class="q">m</span>(D) = 1,914 · 2,014 = <b>3,86 g</b></p>
+              <span class="result">V jedné vaně vody jsou necelé 4 gramy deuteria — prakticky celé jako HDO, tedy asi 36 g polotěžké vody</span>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kontrola řádu: v&nbsp;jedné tuně vody je deuteria zhruba 26 g, tedy ve 150 kg asi 3,9 g. Sedí.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.2 · aktivita tritia v&nbsp;čase</span>
+          <p>Nouzová značka obsahuje tritium a&nbsp;svítí, dokud v&nbsp;ní zbývá alespoň 40&nbsp;% původního množství. Po kolika letech ji bude třeba vyměnit? Poločas tritia je 12,32 roku.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Zákon radioaktivní přeměny s&nbsp;poločasem <span class="q">T</span>:</p>
+              <p class="eq"><span class="q">N</span>/<span class="q">N</span>₀ = (1/2)<sup><span class="q">t</span>/<span class="q">T</span></sup></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme podíl 0,40 a&nbsp;zlogaritmujeme:</p>
+              <p class="eq">0,40 = (1/2)<sup><span class="q">t</span>/12,32</sup> &nbsp;→&nbsp; log 0,40 = (<span class="q">t</span>/12,32) · log 0,5</p>
+              <p class="eq"><span class="q">t</span> = 12,32 · log 0,40 / log 0,50 = 12,32 · (−0,3979) / (−0,3010)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Výsledek:</p>
+              <p class="eq"><span class="q">t</span> = 12,32 · 1,3219 = <b>16,3 roku</b></p>
+              <span class="result">Značku je nutné vyměnit zhruba po šestnácti letech</span>
+              <p>Rychlá kontrola: po jednom poločase (12,3 roku) je 50&nbsp;%, po dvou (24,6 roku) 25&nbsp;%. Hodnota 40&nbsp;% musí ležet mezi tím, blíž k&nbsp;prvnímu poločasu — a&nbsp;16,3 roku tam skutečně padne.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: izotopy vodíku a těžká voda"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

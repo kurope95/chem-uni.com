@@ -1,0 +1,215 @@
+
+  <!-- ============ KAPITOLA 7 ============ -->
+  <section class="chapter" id="k7" data-title="Komplexotvorné rovnováhy">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, bod 3</span>
+      <h2>Výpočty komplexotvorných rovnováh</h2>
+      <p class="lead">Sraženinu chloridu stříbrného rozpustíte amoniakem, bromid už jen thiosíranem a&nbsp;jodid teprve kyanidem. Není to kouzlo: je to součin dvou konstant, které umíte spočítat. Komplexy jsou zároveň poslední díl skládačky — spojují <span class="q">K</span><sub>sp</sub>, rovnováhu i&nbsp;pH.</p>
+
+      <h3>Konstanta stability β</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Konstanta stability</b> (celková, kumulativní) β je rovnovážná konstanta vzniku komplexu z&nbsp;centrálního atomu a&nbsp;ligandů. Její převrácená hodnota je <b>konstanta nestability</b> <span class="q">K</span><sub>nest</sub> = 1/β, což je konstanta rozpadu komplexu. Čím větší β (větší log β), tím stálejší komplex.</p>
+      </div>
+      <p class="eq" style="font-size:1.05rem"><span class="chem">Ag⁺ + 2 NH₃ ⇌ [Ag(NH₃)₂]⁺</span> &nbsp;&nbsp;β = [Ag(NH₃)₂⁺] / ([Ag⁺]·[NH₃]²) = 1,6·10⁷ &nbsp;&nbsp;(log β = 7,20)<br><span class="chem">[Ag(NH₃)₂]⁺ ⇌ Ag⁺ + 2 NH₃</span> &nbsp;&nbsp;<span class="q">K</span><sub>nest</sub> = 1/β = 6,3·10⁻⁸</p>
+      <p>Ligandy se ve skutečnosti vážou <b>postupně</b>, každý krok má svou <span class="term">dílčí (postupnou) konstantu</span> <span class="q">K</span><sub>1</sub>, <span class="q">K</span><sub>2</sub>, … Celková konstanta je jejich <b>součinem</b>:</p>
+      <p class="eq"><span class="chem">Ag⁺ + NH₃ ⇌ [Ag(NH₃)]⁺</span> &nbsp;<span class="q">K</span><sub>1</sub> = 2,0·10³<br><span class="chem">[Ag(NH₃)]⁺ + NH₃ ⇌ [Ag(NH₃)₂]⁺</span> &nbsp;<span class="q">K</span><sub>2</sub> = 8,0·10³<br><b>β = <span class="q">K</span><sub>1</sub> · <span class="q">K</span><sub>2</sub> = 2,0·10³ · 8,0·10³ = 1,6·10⁷</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">obecně β<sub><span class="q">n</span></sub> = Π <span class="q">K</span><sub>i</sub>, log β = Σ log <span class="q">K</span><sub>i</sub></span></p>
+      <p>Protože se konstanty násobí, jsou log β obrovská čísla — od 2,15 u&nbsp;slabého [FeSCN]²⁺ po 42 u&nbsp;[Fe(CN)₆]³⁻. Právě proto se pracuje s&nbsp;logaritmy.</p>
+
+      <h3>Kolik zbývá volného kovu? Výpočet při nadbytku ligandu</h3>
+      <p>Nejtypičtější úloha: v&nbsp;roztoku je komplex o&nbsp;koncentraci <span class="q">c</span>(M) a&nbsp;<b>nadbytek</b> ligandu o&nbsp;koncentraci [L]. Protože je β obrovská, je komplex prakticky nerozložený a&nbsp;jeho koncentrace se rovná <span class="q">c</span>(M); z&nbsp;definice β pak přímo:</p>
+      <p class="eq" style="font-size:1.1rem"><b>[M<sup><span class="q">n</span>+</sup>] = <span class="q">c</span>(M) / (β · [L]<sup><span class="q">n</span></sup>)</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">platí jen při nadbytku ligandu, kdy [L] ≈ počáteční koncentraci</span></p>
+      <p>V&nbsp;0,010 M roztoku [Ag(NH₃)₂]⁺ s&nbsp;1 mol·dm⁻³ volného amoniaku zbývá [Ag⁺] = 0,010 / (1,6·10⁷ · 1²) = <b>6,3·10⁻¹⁰ mol·dm⁻³</b>. To je milionkrát méně, než by stačilo na vysrážení AgCl — proto komplexace „schová“ kov před srážedlem. Tomu se v&nbsp;analytice říká <span class="term">maskování iontů</span>.</p>
+
+      <h3>Rozpouštění sraženiny komplexací — spojení <span class="q">K</span><sub>sp</sub> a&nbsp;β</h3>
+      <p>Sečteme-li rovnici rozpouštění a&nbsp;rovnici vzniku komplexu, konstanty se <b>vynásobí</b> (Hessův princip pro rovnovážné konstanty):</p>
+      <p class="eq"><span class="chem">AgCl(s) ⇌ Ag⁺ + Cl⁻</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="q">K</span><sub>sp</sub> = 1,8·10⁻¹⁰<br><span class="chem">Ag⁺ + 2 NH₃ ⇌ [Ag(NH₃)₂]⁺</span> &nbsp;&nbsp;β = 1,6·10⁷<br>─────────────────────────────<br><span class="chem">AgCl(s) + 2 NH₃ ⇌ [Ag(NH₃)₂]⁺ + Cl⁻</span> &nbsp;&nbsp;<b><span class="q">K</span> = <span class="q">K</span><sub>sp</sub> · β = 2,9·10⁻³</b></p>
+      <p>Číslo 2,9·10⁻³ vypadá malé, ale stačí: v&nbsp;1 M amoniaku se rozpustí 0,048 mol AgCl na litr (7 g!), zatímco ve vodě jen 1,3·10⁻⁵ mol. Pro AgBr je <span class="q">K</span> = 8,6·10⁻⁶ (rozpustí se 2,9·10⁻³ mol, tedy 0,55 g — mnohem méně) a&nbsp;pro AgI 1,4·10⁻⁹ (prakticky nic). Odtud plyne klasická trojice:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Sraženina</th><th class="n">1 M NH₃ &nbsp;(β 1,6·10⁷)</th><th class="n">1 M S₂O₃²⁻ &nbsp;(β 2,9·10¹³)</th><th class="n">1 M CN⁻ &nbsp;(β 1,0·10²¹)</th></tr></thead>
+          <tbody>
+            <tr><td>AgCl (<span class="q">K</span><sub>sp</sub> 1,8·10⁻¹⁰)</td><td class="n" style="color:var(--ok)">0,048 M — rozpustí se</td><td class="n" style="color:var(--ok)">0,50 M</td><td class="n" style="color:var(--ok)">0,50 M</td></tr>
+            <tr><td>AgBr (5,4·10⁻¹³)</td><td class="n" style="color:var(--warn)">2,9·10⁻³ M — jen trochu</td><td class="n" style="color:var(--ok)">0,44 M — ustalovač</td><td class="n" style="color:var(--ok)">0,50 M</td></tr>
+            <tr><td>AgI (8,5·10⁻¹⁷)</td><td class="n" style="color:var(--bad)">3,7·10⁻⁵ M — nerozpustí</td><td class="n" style="color:var(--warn)">0,045 M</td><td class="n" style="color:var(--ok)">0,50 M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Fotografie, kyanidové loužení a měďnaté komplexy</span>
+        <p><b>Ustalovač</b> ve fotografii je roztok thiosíranu sodného: rozpustí neexponovaný AgBr z&nbsp;filmu, protože β([Ag(S₂O₃)₂]³⁻) = 2,9·10¹³. <b>Kyanidové loužení</b> zlata a&nbsp;stříbra funguje díky β = 10²¹ až 10³⁸. A&nbsp;modrý <b>[Cu(NH₃)₄]²⁺</b> rozpouští čerstvě vysrážený Cu(OH)₂ (<span class="q">K</span> = <span class="q">K</span><sub>sp</sub>·β = 2,2·10⁻²⁰ · 1,1·10¹³ = 2,4·10⁻⁷) — reakce, kterou v&nbsp;laboratoři poznáte podle sytě modrého zbarvení.</p>
+      </div>
+
+      <h3>Chelátový efekt a&nbsp;EDTA</h3>
+      <p><span class="term">Chelát</span> je komplex s&nbsp;vícevazným ligandem, který obepne centrální atom jako klepeto (řecky <em>chele</em>). Je vždy podstatně stálejší než komplex s&nbsp;odpovídajícím počtem jednovazných ligandů — <b>chelátový efekt</b>, který má entropický původ: jedna molekula chelátu uvolní čtyři molekuly vody, a&nbsp;tím vzroste neuspořádanost. <b>EDTA</b> (kyselina ethylendiamintetraoctová) je šestivazný ligand a&nbsp;tvoří s&nbsp;většinou kovů komplexy 1 : 1 s&nbsp;log β 8 až 25. Používá se ke <b>chelatometrickému stanovení</b> tvrdosti vody, jako konzervant v&nbsp;potravinách a&nbsp;v&nbsp;medicíně jako <b>antidotum při otravě olovem</b> (log β pro [Pb(EDTA)]²⁻ je 18,3, takže olovo se váže pevněji než vápník a&nbsp;odchází močí).</p>
+      <div class="callout warn">
+        <span class="eyebrow">Tři pasti</span>
+        <p>1. Zaměnit β a&nbsp;<span class="q">K</span><sub>nest</sub> — konstanta stability je velké číslo, nestability malé. „<span class="q">K</span> = 6,3·10⁻⁸“ u&nbsp;stříbrného komplexu je konstanta <b>nestability</b>.<br>2. Zapomenout na mocninu u&nbsp;ligandu: β·[NH₃]<b>⁴</b> u&nbsp;[Cu(NH₃)₄]²⁺, ne β·[NH₃].<br>3. Dosadit celkovou koncentraci amoniaku místo <b>volného</b>. Ta část, která je vázaná v&nbsp;komplexu, se do [L] nepočítá — a&nbsp;u&nbsp;malého nadbytku je rozdíl podstatný.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Konstanty stability β (25 °C) — a&nbsp;jim odpovídající konstanty nestability</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl"><label for="cbSearch">Hledat</label><input type="search" id="cbSearch" placeholder="např. stříbro, NH₃, EDTA, kyanid…" autocomplete="off"></div>
+          <div class="ctl">
+            <label>Ligand</label>
+            <div class="segmented" id="cbFilter" role="group" aria-label="Filtr podle ligandu">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="NH₃" aria-pressed="false">NH₃</button>
+              <button type="button" data-v="CN⁻" aria-pressed="false">CN⁻</button>
+              <button type="button" data-v="EDTA⁴⁻" aria-pressed="false">EDTA</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:420px;overflow-y:auto">
+          <table><thead><tr>
+            <th>Komplex</th><th>Centrální atom</th><th>Ligand</th><th class="n">β</th><th class="n">log β</th><th class="n"><span class="q">K</span><sub>nest</sub></th><th>Poznámka</th>
+          </tr></thead><tbody id="cbBody"></tbody></table>
+        </div>
+      </div>
+      <div class="panel-note">Čím vyšší log β, tím pevněji je kov „schovaný“. Porovnejte [FeSCN]²⁺ (log β 2,15 — slabý, ale sytě červený, proto se hodí jako důkaz Fe³⁺) s&nbsp;[Fe(CN)₆]³⁻ (log β 42 — tak pevný, že roztok kyanoželezitanu není jedovatý).</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kolik zbývá volného kovu? Kalkulačka [M] = <span class="q">c</span>(M) / (β·[L]<sup><span class="q">n</span></sup>)</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl"><label for="cxSel">Komplex</label><select id="cxSel"></select></div>
+          <div class="ctl"><label for="cxCM">Koncentrace komplexu <span class="q">c</span>(M) — <span class="val" id="cxCMV">0,010 mol·dm⁻³</span></label><input type="range" id="cxCM" min="-4" max="-1" step="0.05" value="-2"></div>
+          <div class="ctl"><label for="cxCL">Volný ligand [L] — <span class="val" id="cxCLV">1,0 mol·dm⁻³</span></label><input type="range" id="cxCL" min="-3" max="0.5" step="0.05" value="0"></div>
+        </div>
+        <div class="grid3" style="margin-bottom:1rem">
+          <div class="readout" id="cxRo1"></div>
+          <div class="readout" id="cxRo2"></div>
+          <div class="readout" id="cxRo3"></div>
+          <div class="readout" id="cxRo4"></div>
+        </div>
+        <div id="cxSteps" style="display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div class="panel-note" id="cxNote"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Rozpouštění sraženiny komplexací: kolik se rozpustí v&nbsp;závislosti na koncentraci ligandu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl"><label for="dsSalt">Sraženina</label><select id="dsSalt"></select></div>
+          <div class="ctl">
+            <label>Činidlo</label>
+            <div class="segmented" id="dsLig" role="group" aria-label="Komplexotvorné činidlo">
+              <button type="button" data-v="0" aria-pressed="true">NH₃</button>
+              <button type="button" data-v="1" aria-pressed="false">S₂O₃²⁻</button>
+              <button type="button" data-v="2" aria-pressed="false">CN⁻</button>
+            </div>
+          </div>
+          <div class="ctl"><label for="dsC">Koncentrace činidla — <span class="val" id="dsCV">1,0 mol·dm⁻³</span></label><input type="range" id="dsC" min="-2" max="0.78" step="0.02" value="0"></div>
+        </div>
+        <div class="svgwrap" id="dsWrap" style="min-height:320px"></div>
+        <div class="legend" id="dsLegend"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="dsRo1"></div>
+          <div class="readout" id="dsRo2"></div>
+          <div class="readout" id="dsRo3"></div>
+          <div class="readout" id="dsRo4"></div>
+        </div>
+        <div id="dsSteps" style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div class="panel-note" id="dsNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.1 · volná koncentrace kovu</span>
+          <p>Roztok obsahuje 0,010 mol·dm⁻³ komplexu [Ag(NH₃)₂]⁺ a&nbsp;navíc 1,0 mol·dm⁻³ volného amoniaku. Vypočítejte [Ag⁺]. Vysrážel by se z&nbsp;takového roztoku AgCl, kdyby v&nbsp;něm bylo 0,010 mol·dm⁻³ chloridů? β = 1,6·10⁷, <span class="q">K</span><sub>sp</sub>(AgCl) = 1,8·10⁻¹⁰.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Napíšeme konstantu stability a&nbsp;vyjádříme z&nbsp;ní volné [Ag⁺]. Komplex je při takové β prakticky nerozložený, takže [Ag(NH₃)₂⁺] ≈ 0,010.</p>
+              <p class="eq">β = [Ag(NH₃)₂⁺] / ([Ag⁺]·[NH₃]²) &nbsp;⇒&nbsp; [Ag⁺] = <span class="q">c</span>(M) / (β·[NH₃]²)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">[Ag⁺] = 0,010 / (1,6·10⁷ · 1,0²) = <b>6,3·10⁻¹⁰ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Test na sraženinu: spočítáme <span class="q">Q</span> a&nbsp;porovnáme s&nbsp;<span class="q">K</span><sub>sp</sub>.</p>
+              <p class="eq"><span class="q">Q</span> = [Ag⁺]·[Cl⁻] = 6,3·10⁻¹⁰ · 0,010 = 6,3·10⁻¹² &nbsp;&lt;&nbsp; <span class="q">K</span><sub>sp</sub> = 1,8·10⁻¹⁰ &nbsp;⇒&nbsp; <b>nesráží se</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Amoniak stříbro <b>maskoval</b>: snížil volnou koncentraci o&nbsp;sedm řádů, takže srážedlo „nemá co srážet“. Přesně tak se v&nbsp;analytice potlačují rušivé ionty.</p>
+              <span class="result">[Ag⁺] = 6,3·10⁻¹⁰ mol·dm⁻³, Q &lt; Ksp — sraženina nevznikne</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.2 · rozpustí se AgCl v amoniaku?</span>
+          <p>Kolik molů AgCl se rozpustí v&nbsp;1,0 dm³ roztoku amoniaku o&nbsp;koncentraci 1,0 mol·dm⁻³? <span class="q">K</span><sub>sp</sub>(AgCl) = 1,8·10⁻¹⁰, β([Ag(NH₃)₂]⁺) = 1,6·10⁷.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Sečteme obě rovnováhy; konstanty se násobí.</p>
+              <p class="eq"><span class="chem">AgCl(s) + 2 NH₃ ⇌ [Ag(NH₃)₂]⁺ + Cl⁻</span><br><span class="q">K</span> = <span class="q">K</span><sub>sp</sub> · β = 1,8·10⁻¹⁰ · 1,6·10⁷ = <b>2,9·10⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>ICE: rozpustí-li se <span class="q">s</span> molů, vznikne <span class="q">s</span> molů komplexu a&nbsp;<span class="q">s</span> molů chloridu, spotřebuje se <b>2<span class="q">s</span></b> molů amoniaku.</p>
+              <p class="eq"><span class="q">K</span> = <span class="q">s</span>·<span class="q">s</span> / (1,0 − 2<span class="q">s</span>)² = 2,9·10⁻³</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Rovnice je čtvercová v&nbsp;obou stranách, takže stačí odmocnit.</p>
+              <p class="eq"><span class="q">s</span> / (1,0 − 2<span class="q">s</span>) = √(2,9·10⁻³) = 0,0537<br><span class="q">s</span> = 0,0537 − 0,107<span class="q">s</span> &nbsp;⇒&nbsp; 1,107<span class="q">s</span> = 0,0537 &nbsp;⇒&nbsp; <span class="q">s</span> = <b>0,048 mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>V&nbsp;gramech a&nbsp;pro srovnání s&nbsp;čistou vodou.</p>
+              <p class="eq"><span class="q">m</span> = 0,048 · 143,3 = <b>6,9 g na litr</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">(ve vodě 1,9 mg — tedy 3600× víc)</span></p>
+              <span class="result"><span class="q">s</span> = 4,8·10⁻² mol·dm⁻³ ≈ 6,9 g AgCl v litru 1 M amoniaku</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.3 · proč AgBr amoniak nerozpustí a thiosíran ano</span>
+          <p>Porovnejte, kolik AgBr (<span class="q">K</span><sub>sp</sub> = 5,4·10⁻¹³) se rozpustí v&nbsp;1,0 M NH₃ (β = 1,6·10⁷) a&nbsp;v&nbsp;1,0 M Na₂S₂O₃ (β([Ag(S₂O₃)₂]³⁻) = 2,9·10¹³).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Amoniak: <span class="q">K</span> = <span class="q">K</span><sub>sp</sub>·β = 5,4·10⁻¹³ · 1,6·10⁷ = 8,6·10⁻⁶; √<span class="q">K</span> = 2,94·10⁻³.</p>
+              <p class="eq"><span class="q">s</span> = √<span class="q">K</span> · <span class="q">c</span> / (1 + 2√<span class="q">K</span>) = 2,94·10⁻³ · 1,0 / 1,0059 = <b>2,9·10⁻³ mol·dm⁻³</b> (0,55 g·dm⁻³)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Thiosíran: <span class="q">K</span> = 5,4·10⁻¹³ · 2,9·10¹³ = <b>15,7</b> — konstanta větší než jedna, rovnováha leží vpravo.</p>
+              <p class="eq">√<span class="q">K</span> = 3,96 &nbsp;⇒&nbsp; <span class="q">s</span> = 3,96 · 1,0 / (1 + 7,92) = <b>0,44 mol·dm⁻³</b> (83 g·dm⁻³)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Rozdíl je 150násobný — a&nbsp;právě proto se film ustaluje thiosíranem, ne čpavkem. Pro AgI (<span class="q">K</span><sub>sp</sub> = 8,5·10⁻¹⁷) je i&nbsp;s&nbsp;thiosíranem <span class="q">K</span> jen 2,5·10⁻³ a&nbsp;spolehlivě ho rozpustí až kyanid (<span class="q">K</span> = 8,5·10⁴).</p>
+              <span class="result">AgBr: 2,9·10⁻³ M v NH₃ versus 0,44 M v thiosíranu</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: komplexotvorné rovnováhy"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

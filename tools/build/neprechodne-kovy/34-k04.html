@@ -1,0 +1,211 @@
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Vápno, vápenec a tvrdost vody">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 5</span>
+      <h2>Sloučeniny skupiny 2, vápenný cyklus a&nbsp;tvrdost vody</h2>
+      <p class="lead">Vápník je pátý nejrozšířenější prvek zemské kůry a&nbsp;jeho chemie je pozoruhodně sevřená — točí se kolem jediné rovnováhy mezi vápencem, oxidem uhličitým a&nbsp;vodou. Z&nbsp;téhle jedné rovnováhy plynou jeskyně, malta, kotelní kámen i&nbsp;to, proč vám v&nbsp;některých městech nedělá mýdlo pěnu. Tahle kapitola navazuje na okruh o&nbsp;vodíku a&nbsp;vodě, kde jsme rozebírali vlastnosti vody samotné.</p>
+
+      <h3>Oxidy a&nbsp;hydroxidy: bazicita roste dolů skupinou</h3>
+      <p>Všechny oxidy skupiny 2 mají vzorec <span class="chem">MO</span> a&nbsp;všechny mají vysokou teplotu tání, protože iontová mřížka s&nbsp;dvojnásobně nabitými ionty drží pevně — oxid hořečnatý taje až při 2852&nbsp;°C, a&nbsp;proto se z&nbsp;něj dělají vyzdívky pecí.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Oxid</th><th>Charakter</th><th>Reakce s&nbsp;vodou</th><th>Hydroxid a&nbsp;jeho síla</th></tr></thead>
+          <tbody>
+            <tr><td class="chem"><b>BeO</b></td><td><b>amfoterní</b></td><td>nereaguje</td><td><span class="chem">Be(OH)₂</span> — amfoterní</td></tr>
+            <tr><td class="chem"><b>MgO</b></td><td>slabě zásaditý</td><td>velmi pomalu</td><td><span class="chem">Mg(OH)₂</span> — slabá zásada, málo rozpustná</td></tr>
+            <tr><td class="chem"><b>CaO</b></td><td>zásaditý</td><td><b>bouřlivě</b>, exotermicky</td><td><span class="chem">Ca(OH)₂</span> — středně silná, málo rozpustná</td></tr>
+            <tr><td class="chem"><b>SrO</b></td><td>silně zásaditý</td><td>bouřlivě</td><td><span class="chem">Sr(OH)₂</span> — silná zásada</td></tr>
+            <tr><td class="chem"><b>BaO</b></td><td>silně zásaditý</td><td>bouřlivě</td><td><span class="chem">Ba(OH)₂</span> — silná zásada, dobře rozpustná</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Zapamatujte si to jako obecné pravidlo, které bude platit i&nbsp;u&nbsp;hliníku, cínu a&nbsp;olova: <b>čím větší kation a&nbsp;čím nižší oxidační číslo, tím zásaditější oxid.</b> Amfoterní jsou ty oxidy, které leží přesně na přechodu mezi zásaditými a&nbsp;kyselými.</p>
+
+      <h3>Vápenný kolotoč: tři reakce, na kterých stojí stavebnictví</h3>
+      <p>Celý cyklus se dá napsat na tři řádky. Nahoře je vápenec, dole plyn — a&nbsp;pec i&nbsp;vzduch se starají o&nbsp;to, aby se cyklus otáčel oběma směry.</p>
+      <p class="eq"><b>1. Pálení</b> (v&nbsp;peci, 900 až 1000 °C): <span class="chem">CaCO₃ → CaO + CO₂</span>, ΔH ≈ +178&nbsp;kJ·mol⁻¹<br>
+      <b>2. Hašení</b> (vodou, samovolně): <span class="chem">CaO + H₂O → Ca(OH)₂</span>, ΔH ≈ −64&nbsp;kJ·mol⁻¹<br>
+      <b>3. Tuhnutí</b> (na vzduchu, týdny): <span class="chem">Ca(OH)₂ + CO₂ → CaCO₃ + H₂O</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč malta tvrdne pomalu a&nbsp;proč se zdí zvenku dovnitř</span>
+        <p>Tuhnutí vzdušné malty je právě ten třetí krok — hydroxid vápenatý pomalu reaguje se vzdušným oxidem uhličitým. Protože oxid uhličitý musí do zdi <b>prodifundovat</b>, tvrdne malta odpovrchu a&nbsp;u&nbsp;silné zdi to trvá i&nbsp;roky. Ve středověkých maltách se dodnes najde nezreagované vápno. Moderní cement tuhne jinak — hydratací křemičitanů — a&nbsp;proto tvrdne i&nbsp;pod vodou.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Vápenný cyklus — kudy vápník putuje</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="vcSeg" style="flex-wrap:wrap" role="group" aria-label="Krok vápenného cyklu">
+          <button type="button" data-vc="pal" aria-pressed="true">Pálení vápence</button>
+          <button type="button" data-vc="has" aria-pressed="false">Hašení vápna</button>
+          <button type="button" data-vc="tuh" aria-pressed="false">Tuhnutí malty</button>
+          <button type="button" data-vc="kras" aria-pressed="false">Krasové jevy</button>
+        </div>
+        <div class="svgwrap" id="vcWrap" style="min-height:330px;margin-top:1rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>právě probíhající přeměna</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>děj uvolňující teplo</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>děj spotřebovávající teplo</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="vcRo1"></div>
+          <div class="readout" id="vcRo2"></div>
+          <div class="readout" id="vcRo3"></div>
+        </div>
+        <div id="vcText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="vcNote">Přejděte na <b>krasové jevy</b> a&nbsp;všimněte si, že jde o&nbsp;<b>jednu a&nbsp;tutéž rovnováhu</b> čtenou zleva doprava a&nbsp;zprava doleva. Ve stropě jeskyně se vápenec rozpouští, na kapce visící ze stropu se zase sráží — a&nbsp;výsledkem jsou krápníky. Stejná rovnováha vytvoří i&nbsp;kotelní kámen v&nbsp;konvici.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Krasové jevy: rozpustný vápenec</h3>
+      <p>Uhličitan vápenatý je ve vodě prakticky nerozpustný (rozpustnost 5,8·10⁻⁵&nbsp;mol·dm⁻³). Když se ale ve vodě rozpustí oxid uhličitý, vznikne slabá kyselina uhličitá, ta vápenec převede na <b>rozpustný hydrogenuhličitan</b> a&nbsp;odnese ho pryč:</p>
+      <p class="eq"><span class="chem">CaCO₃ + CO₂ + H₂O ⇌ Ca(HCO₃)₂</span><br><span style="color:var(--ink-3)">doprava při vyšším tlaku CO₂ a nižší teplotě, doleva při zahřátí nebo úniku CO₂</span></p>
+      <p>Tahle jediná rovnováha vysvětlí:</p>
+      <ul>
+        <li><b>jeskyně</b> — kyselá dešťová voda prosakující vápencem rozpouští horninu a&nbsp;vyhlodává chodby;</li>
+        <li><b>krápníky</b> — z&nbsp;kapky visící ze stropu unikne oxid uhličitý, rovnováha se posune doleva a&nbsp;vápenec se vysráží;</li>
+        <li><b>kotelní kámen</b> — zahřátím se rovnováha posune doleva a&nbsp;uhličitan se usadí na topném tělese;</li>
+        <li><b>přechodnou tvrdost vody</b> — právě rozpuštěný hydrogenuhličitan je její příčinou.</li>
+      </ul>
+
+      <h3>Tvrdost vody</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Tvrdost vody</b> je celková látková koncentrace vápenatých a&nbsp;hořečnatých iontů ve vodě. Udává se v&nbsp;<span class="mono">mmol·dm⁻³</span>, historicky ve stupních německých <span class="mono">°dH</span>, kde 1&nbsp;°dH odpovídá 10&nbsp;mg oxidu vápenatého na litr. Platí <b>1&nbsp;mmol·dm⁻³ = 5,61&nbsp;°dH</b>.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Druh tvrdosti</th><th>Který anion ji nese</th><th>Odkud pochází</th><th>Jak se odstraní</th></tr></thead>
+          <tbody>
+            <tr><td><b>Přechodná</b> (uhličitanová)</td><td class="chem">HCO₃⁻</td><td>rozpouštění vápence oxidem uhličitým</td><td><b>varem</b> — vysráží se kotelní kámen</td></tr>
+            <tr><td><b>Trvalá</b> (neuhličitanová)</td><td class="chem">SO₄²⁻, Cl⁻, NO₃⁻</td><td>rozpouštění sádrovce a&nbsp;jiných solí</td><td>sodou, fosforečnanem nebo <b>iontoměničem</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="eq"><b>odstranění přechodné tvrdosti varem:</b><br><span class="chem">Ca(HCO₃)₂ → CaCO₃↓ + CO₂ + H₂O</span><br>
+      <b>odstranění přechodné tvrdosti vápnem (Clarkova metoda):</b><br><span class="chem">Ca(HCO₃)₂ + Ca(OH)₂ → 2 CaCO₃↓ + 2 H₂O</span><br>
+      <b>odstranění trvalé tvrdosti sodou:</b><br><span class="chem">CaSO₄ + Na₂CO₃ → CaCO₃↓ + Na₂SO₄</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Past, na které se ztrácejí body</span>
+        <p>„Tvrdá voda je nezdravá.“ Není — vápník a&nbsp;hořčík jsou biogenní prvky a&nbsp;tvrdá voda k&nbsp;jejich příjmu naopak přispívá. Problém je <b>technický</b>: kotelní kámen izoluje topné těleso, a&nbsp;proto rychlovarná konvice s&nbsp;usazeninou žere víc energie a&nbsp;doslouží dřív. A&nbsp;druhá past: přidávat sodu <b>před</b> varem, když chcete odstranit jen přechodnou tvrdost — soda srazí i&nbsp;vápník ze síranů a&nbsp;výsledek je zbytečně alkalický.</p>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč tvrdá voda nedělá pěnu s&nbsp;mýdlem</span>
+        <p>Mýdlo je sodná sůl vyšší mastné kyseliny. Sodné soli jsou rozpustné, ale <b>vápenaté nikoli</b>. Ve tvrdé vodě proto mýdlo nejdřív vysráží šedou vločkovitou hmotu (vápenaté mýdlo) a&nbsp;pění začne teprve tehdy, až se všechen vápník spotřebuje. Moderní prací prostředky používají syntetické tenzidy, jejichž vápenaté soli rozpustné jsou, a&nbsp;k&nbsp;tomu <b>změkčovadlo</b>, které vápník naváže.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Tvrdost vody: spočítejte ji a&nbsp;zvolte, jak ji odstranit</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2">
+          <div class="ctl">
+            <label for="tvCa">Vápník ve vodě: <span class="val" id="tvCav">80</span> mg·dm⁻³</label>
+            <input type="range" id="tvCa" min="0" max="200" step="4" value="80">
+          </div>
+          <div class="ctl">
+            <label for="tvMg">Hořčík ve vodě: <span class="val" id="tvMgv">12</span> mg·dm⁻³</label>
+            <input type="range" id="tvMg" min="0" max="60" step="2" value="12">
+          </div>
+        </div>
+        <div class="ctl">
+          <label for="tvHco">Podíl přechodné tvrdosti: <span class="val" id="tvHcov">70</span> %</label>
+          <input type="range" id="tvHco" min="0" max="100" step="5" value="70">
+        </div>
+        <div class="segmented" id="tvSeg" style="flex-wrap:wrap;margin-top:.8rem" role="group" aria-label="Způsob úpravy">
+          <button type="button" data-tv="nic" aria-pressed="true">Bez úpravy</button>
+          <button type="button" data-tv="var" aria-pressed="false">Převaření</button>
+          <button type="button" data-tv="soda" aria-pressed="false">Přidání sody</button>
+          <button type="button" data-tv="ion" aria-pressed="false">Iontoměnič</button>
+        </div>
+        <div class="svgwrap" id="tvWrap" style="min-height:300px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="tvRo1"></div>
+          <div class="readout" id="tvRo2"></div>
+          <div class="readout" id="tvRo3"></div>
+        </div>
+        <div id="tvText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="tvNote">Nastavte vápník na maximum a&nbsp;podíl přechodné tvrdosti na 100&nbsp;%, pak zapněte <b>Převaření</b> — tvrdost spadne skoro na nulu. Teď stáhněte podíl přechodné tvrdosti na 20&nbsp;% a&nbsp;zkuste převaření znovu. Uvidíte, proč se v&nbsp;oblastech se sádrovcovým podložím musí voda upravovat jinak.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Další vápenaté a&nbsp;hořečnaté sloučeniny, které se ptají</h3>
+      <div class="grid2" style="margin:.5rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Sádrovec a&nbsp;sádra</span>
+          <p>Sádrovec je dihydrát <span class="chem">CaSO₄·2H₂O</span>. Zahřátím na zhruba 130&nbsp;°C ztratí tři čtvrtiny vody a&nbsp;vznikne <b>sádra</b>, hemihydrát <span class="chem">CaSO₄·½H₂O</span>. S&nbsp;vodou se děj otočí, sádra tuhne zpět na dihydrát a&nbsp;přitom mírně zvětší objem — proto sádrový odlitek přesně vyplní formu.</p>
+          <p class="eq" style="margin-top:.4rem"><span class="chem">2 CaSO₄·2H₂O → 2 CaSO₄·½H₂O + 3 H₂O</span></p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Karbid vápníku</span>
+          <p><span class="chem">CaC₂</span> obsahuje ion <span class="chem">C₂²⁻</span>, tedy uhlík v&nbsp;oxidačním čísle −I. Vyrábí se v&nbsp;elektrické peci a&nbsp;s&nbsp;vodou dává okamžitě acetylen — na tom stály karbidové lampy.</p>
+          <p class="eq" style="margin-top:.4rem"><span class="chem">CaO + 3 C → CaC₂ + CO</span><br><span class="chem">CaC₂ + 2 H₂O → C₂H₂ + Ca(OH)₂</span></p>
+        </div>
+      </div>
+      <p>Z&nbsp;hořečnatých sloučenin stojí za zmínku <b>hořká sůl</b> <span class="chem">MgSO₄·7H₂O</span> (projímadlo a&nbsp;doplněk hořčíku), <b>magnezie</b> <span class="chem">MgO</span> (vyzdívky pecí a&nbsp;antacidum) a&nbsp;<b>dolomit</b> <span class="chem">CaCO₃·MgCO₃</span>, ze kterého se pálením získá směs obou oxidů. Baryum je zastoupené hlavně <b>barytem</b> <span class="chem">BaSO₄</span> — nejméně rozpustnou běžnou solí, a&nbsp;proto zároveň bílým pigmentem i&nbsp;rentgenovou kontrastní látkou.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · vápno z vápence</span>
+          <p>Ve vápence se pálí 1&nbsp;t vápence o&nbsp;čistotě 94&nbsp;%. Kolik kilogramů páleného vápna vznikne, kolik oxidu uhličitého unikne a&nbsp;o&nbsp;kolik procent se sníží hmotnost vsázky? <span class="q">M</span>(CaCO₃) = 100,09, <span class="q">M</span>(CaO) = 56,08, <span class="q">M</span>(CO₂) = 44,01&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq"><span class="chem">CaCO₃ → CaO + CO₂</span> &nbsp;— poměr 1 : 1 : 1</p>
+              <p>Čistého uhličitanu je 1000 · 0,94 = <b>940 kg</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(CaCO₃) = 940&nbsp;000 / 100,09 = <b>9392 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(CaO) = 9392 · 56,08 = 526&nbsp;700 g = <b>527 kg</b><br><span class="q">m</span>(CO₂) = 9392 · 44,01 = 413&nbsp;300 g = <b>413 kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Zbylých 60&nbsp;kg nečistot v&nbsp;peci zůstane. Výstupní hmotnost je tedy 527 + 60 = 587&nbsp;kg.</p>
+              <p class="eq">úbytek = (1000 − 587) / 1000 = <b>41,3 %</b></p>
+              <span class="result">527 kg vápna, 413 kg CO₂, hmotnostní úbytek 41,3 %</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · teplo z hašení</span>
+          <p>Kolik tepla se uvolní uhašením 1,00&nbsp;kg páleného vápna a&nbsp;kolik kilogramů vody by to ohřálo o&nbsp;80&nbsp;°C? ΔH hašení = −64,3&nbsp;kJ·mol⁻¹, <span class="q">M</span>(CaO) = 56,08&nbsp;g·mol⁻¹, <span class="q">c</span>(H₂O) = 4,18&nbsp;kJ·kg⁻¹·K⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq"><span class="chem">CaO + H₂O → Ca(OH)₂</span> &nbsp;&nbsp; ΔH = −64,3 kJ·mol⁻¹</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">n</span>(CaO) = 1000 / 56,08 = <b>17,83 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">Q</span> = 17,83 · 64,3 = <b>1147 kJ</b>, tedy zhruba 1,15 MJ</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq"><span class="q">m</span>(H₂O) = <span class="q">Q</span> / (<span class="q">c</span>·Δ<span class="q">T</span>) = 1147 / (4,18 · 80) = <b>3,4 kg</b></p>
+              <p>Proto se do velkých hasicích jam přidává hodně vody — jinak by se voda uvařila a&nbsp;vápno by rozstřikovalo horkou žíravou kaši.</p>
+              <span class="result">Q = 1147 kJ, což ohřeje asi 3,4 kg vody o 80 °C</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: vápno, vápenec a tvrdost vody"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

@@ -1,0 +1,180 @@
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Iontová vazba a vlastnosti iontových látek">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · osnova, bod 3 (3a, 3b)</span>
+      <h2>Iontová vazba</h2>
+      <p class="lead">Kuchyňská sůl je tvrdá, křehká, taje až při 801 °C, nevede proud — a&nbsp;přesto ho rozpuštěná vede výborně. Všechny čtyři věci plynou z&nbsp;jediného faktu: v&nbsp;krystalu NaCl nejsou molekuly, jsou tam nabité kuličky.</p>
+
+      <h3>3a · Způsob vzniku iontové vazby</h3>
+      <p>Když se potká atom s&nbsp;<b>velmi nízkou elektronegativitou</b> (kov, typicky 1. a&nbsp;2. skupina) a&nbsp;atom s&nbsp;<b>velmi vysokou</b> (nekov, typicky 16. a&nbsp;17. skupina), rozdíl je tak velký, že sdílení elektronů nedává smysl — elektronegativnější atom si elektron prostě <b>vezme celý</b>. Kov se stane <span class="term">kationtem</span>, nekov <span class="term">aniontem</span>, a&nbsp;oba tím obvykle získají konfiguraci nejbližšího vzácného plynu (oktet).</p>
+      <p class="eq"><span class="chem">Na</span> (1s²2s²2p⁶<b>3s¹</b>) → <span class="chem">Na⁺</span> (konfigurace Ne) + e⁻ &nbsp;&nbsp;&nbsp; <span class="chem">Cl</span> (…3s²<b>3p⁵</b>) + e⁻ → <span class="chem">Cl⁻</span> (konfigurace Ar)<br>2 Na(s) + Cl₂(g) → 2 NaCl(s) &nbsp;&nbsp;Δ<span class="q">H</span>°<sub>f</sub> = −411,2 kJ·mol⁻¹</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><span class="term">Iontová vazba</span> je elektrostatická přitažlivost mezi <b>opačně nabitými ionty</b>, které vznikly <b>přenosem</b> jednoho nebo více elektronů z&nbsp;atomu kovu na atom nekovu. Orientační kritérium: <b>ΔEN &gt; 1,7</b> (rozdíl Paulingových elektronegativit). Vazba je <b>nesměrová</b> — ion přitahuje všechny opačné ionty kolem sebe stejně.</p>
+      </div>
+
+      <div class="callout warn">
+        <span class="eyebrow">Neexistuje „molekula NaCl“</span>
+        <p>V&nbsp;pevném chloridu sodném <b>nenajdete dvojici Na–Cl</b>, která by patřila k&nbsp;sobě. Každý Na⁺ je obklopen <b>šesti</b> Cl⁻ a&nbsp;každý Cl⁻ šesti Na⁺ — <span class="term">koordinační číslo 6</span>. Celý krystal je jedna obří síť iontů. Vzorec NaCl proto neznamená molekulu, ale <b>poměr</b> iontů 1 : 1 (tzv. <em>vzorcová jednotka</em>). Molekuly NaCl existují jen v&nbsp;plynné fázi nad 1400 °C. Kdo v&nbsp;testu napíše „molekula chloridu sodného“, přijde o&nbsp;bod.</p>
+      </div>
+
+      <h3>Proč to energeticky vyjde — mřížková energie</h3>
+      <p>Samotný přenos elektronu se <em>nevyplatí</em>: ionizace sodíku stojí 496 kJ·mol⁻¹, elektronová afinita chloru vrátí jen 349 kJ·mol⁻¹. Bilance vzniku páru Na⁺ + Cl⁻ v&nbsp;plynu je +147 kJ·mol⁻¹, tedy nevýhodná. Co všechno zachrání, je <span class="term">mřížková energie</span>: když se plynné ionty seskládají do krystalu, uvolní se <b>−787 kJ·mol⁻¹</b>. Právě tohle číslo dělá iontové sloučeniny stabilními — a&nbsp;právě to se počítá <b>Born–Haberovým cyklem</b>, který jste viděli v&nbsp;tématu Termochemie jako aplikaci Hessova zákona.</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice a Coulombův zákon</span>
+        <p><b>Mřížková energie</b> je energie uvolněná při vzniku 1 molu iontového krystalu z&nbsp;volných plynných iontů (záporná; často se tabeluje jako kladná energie na rozebrání). Její velikost plyne z&nbsp;Coulombova zákona:</p>
+        <p class="eq" style="margin-top:.3rem"><span class="q">E</span> ∝ <span class="q">z</span>₊ · <span class="q">z</span>₋ / (<span class="q">r</span>₊ + <span class="q">r</span>₋) &nbsp;&nbsp;<span style="color:var(--ink-3)"><span class="q">z</span> = náboje iontů, <span class="q">r</span> = jejich poloměry</span></p>
+        <p>Tedy: <b>větší náboje</b> a&nbsp;<b>menší ionty</b> → větší mřížková energie → vyšší teplota tání a&nbsp;větší tvrdost. NaCl (1+/1−, 283 pm) má 787 kJ·mol⁻¹ a&nbsp;taje při 801 °C; MgO (2+/2−, 212 pm) má 3791 kJ·mol⁻¹ a&nbsp;taje při 2852 °C.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Mřížková energie z&nbsp;Coulombova zákona — vyberte kation a&nbsp;anion</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1.1rem">
+          <div class="ctl">
+            <label for="latCat">Kation</label>
+            <select id="latCat"></select>
+          </div>
+          <div class="ctl">
+            <label for="latAn">Anion</label>
+            <select id="latAn"></select>
+          </div>
+        </div>
+        <div class="svgwrap" id="latWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="latRo1"></div>
+          <div class="readout" id="latRo2"></div>
+          <div class="readout" id="latRo3"></div>
+        </div>
+        <p class="eq" id="latEq" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="latNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>3b · Vlastnosti látek s&nbsp;iontovou vazbou</h3>
+      <p>Iontová vazba je silná (stovky až tisíce kJ·mol⁻¹) a&nbsp;nesměrová, ionty jsou nabité a&nbsp;v&nbsp;krystalu nehybné. Z&nbsp;těchto tří faktů odvodíte všechno.</p>
+
+      <h3>Vysoké teploty tání a&nbsp;varu, tvrdost</h3>
+      <p>Aby krystal roztál, musí se rozvolnit elektrostatické síly mezi <em>všemi</em> ionty — ne jen slabé síly mezi molekulami jako u&nbsp;cukru. Proto NaCl taje při 801 °C, cukr (molekulová látka) se rozkládá už při 186 °C. A&nbsp;proto jsou iontové krystaly <b>tvrdé</b>: vrstvy iontů se nedají posunout bez porušení vazby.</p>
+
+      <h3>Křehkost — a&nbsp;za jakých okolností</h3>
+      <p>Tvrdý ≠ pevný. Iontový krystal je tvrdý, ale <span class="term">křehký</span>: <b>při úderu nebo posunu vrstvy</b> se ionty posunou o&nbsp;jednu polohu, čímž se dostanou <b>stejné náboje proti sobě</b>. Přitažlivost se změní v&nbsp;odpuzování a&nbsp;krystal se podél té roviny <b>rozštípne</b>. Sůl se dá rozdrtit na prach, ale nedá se vykovat v&nbsp;plech. Kov naopak posun snese, protože elektronový plyn drží kationty bez ohledu na polohu. Tohle je nejčastější srovnávací otázka: <em>„Proč je kov kujný a&nbsp;sůl křehká?“</em></p>
+
+      <h3>Elektrická vodivost — kdy ano a&nbsp;proč</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Stav</th><th>Vede?</th><th>Proč</th></tr></thead>
+          <tbody>
+            <tr><td><b>Pevný krystal</b></td><td><span class="tag bad">ne</span></td><td>Nosiče náboje (ionty) existují, ale jsou <b>fixované</b> v&nbsp;mřížce — nemohou se pohybovat. Volné elektrony nejsou žádné.</td></tr>
+            <tr><td><b>Tavenina</b></td><td><span class="tag ok">ano</span></td><td>Po roztavení jsou ionty <b>pohyblivé</b>; v&nbsp;poli putují kationty ke katodě, anionty k&nbsp;anodě. Na tom stojí výroba hliníku (elektrolýza taveniny Al₂O₃) i&nbsp;sodíku.</td></tr>
+            <tr><td><b>Vodný roztok</b></td><td><span class="tag ok">ano</span></td><td>Voda krystal rozebere na <b>hydratované ionty</b>, které jsou volně pohyblivé. Vodivost roste s&nbsp;koncentrací.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Zapamatujte si větu: <b>iontová látka vede proud jen tehdy, když jsou její ionty pohyblivé.</b> Nosičem náboje jsou ionty, ne elektrony — proto se vodivost taveniny nebo roztoku vždy pojí s&nbsp;chemickou změnou na elektrodách (elektrolýza), zatímco u&nbsp;kovu ne.</p>
+
+      <h3>Rozpustnost v&nbsp;polárních rozpouštědlech, hydratace</h3>
+      <p>Voda je polární molekula: kyslík nese δ−, vodíky δ+. Když se krystal ponoří do vody, k&nbsp;Na⁺ na povrchu se natočí kyslíky vod, k&nbsp;Cl⁻ vodíky. Vzniká <span class="term">ion–dipólová interakce</span>, a&nbsp;když se jich kolem iontu nashromáždí dost (Na⁺ mívá kolem sebe 4–6 vod), vytrhnou ion z&nbsp;mřížky. To je <span class="term">hydratace</span> a&nbsp;energie, která se při ní uvolní (<b>hydratační enthalpie</b>, u&nbsp;NaCl −784 kJ·mol⁻¹), zhruba vyrovná mřížkovou energii (+787). Rozpouštění NaCl je proto téměř tepelně neutrální (+3,9 kJ·mol⁻¹). V&nbsp;nepolárním rozpouštědle (benzen, CCl₄) není co by ionty odtrhlo — sůl se nerozpustí.</p>
+      <p class="eq"><span class="chem">NaCl(s) → Na⁺(aq) + Cl⁻(aq)</span> &nbsp;&nbsp;Δ<span class="q">H</span>°<sub>sol</sub> = +3,9 kJ·mol⁻¹ &nbsp;<span style="color:var(--ink-3)">(= mřížková +787 + hydratační −784 → skoro nula)</span></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Krystal NaCl — udeřte do něj, roztavte ho, rozpusťte ho</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1.1rem">
+          <div class="ctl">
+            <label>Skupenství</label>
+            <div class="segmented" id="ionMode" role="group" aria-label="Stav chloridu sodného">
+              <button type="button" data-v="pevna" aria-pressed="true">Pevný krystal</button>
+              <button type="button" data-v="tavenina" aria-pressed="false">Tavenina (&gt; 801 °C)</button>
+              <button type="button" data-v="roztok" aria-pressed="false">Vodný roztok</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label>Mechanické namáhání (jen u pevného)</label>
+            <div class="quiz-foot" style="margin:0">
+              <button class="btn btn-primary" type="button" id="ionShift">Posunout horní vrstvu</button>
+              <button class="btn" type="button" id="ionReset">Vrátit</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="ionWrap" style="min-height:320px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="ionRo1"></div>
+          <div class="readout" id="ionRo2"></div>
+          <div class="readout" id="ionRo3"></div>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw dot" style="background:var(--cat3)"></span>Na⁺ (menší)</span>
+          <span class="li"><span class="sw dot" style="background:var(--cat1)"></span>Cl⁻ (větší)</span>
+          <span class="li"><span class="sw dot" style="background:var(--endo)"></span>molekuly vody (δ− kyslík tmavší)</span>
+        </div>
+      </div>
+      <div class="panel-note" id="ionNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.1 · Coulomb a teplota tání</span>
+          <p>Odhadněte z&nbsp;Coulombova zákona, kolikrát větší mřížkovou energii má MgO než NaCl, a&nbsp;rozhodněte, který z&nbsp;nich bude mít vyšší teplotu tání. Poloměry (pm): Na⁺ 102, Cl⁻ 181, Mg²⁺ 72, O²⁻ 140.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Vzdálenost středů iontů je součet poloměrů.</p>
+              <p class="eq">NaCl: <span class="q">d</span> = 102 + 181 = <b>283 pm</b><br>MgO: <span class="q">d</span> = 72 + 140 = <b>212 pm</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme do úměry <span class="q">E</span> ∝ <span class="q">z</span>₊<span class="q">z</span>₋/<span class="q">d</span>.</p>
+              <p class="eq">NaCl: 1 · 1 / 283 = 3,53·10⁻³<br>MgO: 2 · 2 / 212 = 1,89·10⁻²<br>poměr = 0,01887 / 0,003534 ≈ <b>5,3</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Odhad: MgO má zhruba <b>5× větší</b> mřížkovou energii. Tabulky: NaCl 787, MgO 3791 kJ·mol⁻¹ — poměr 4,8. Coulombův odhad sedí na 10 %, což je na jednoduchý model výborné. Dvojnásobný náboj obou iontů dává faktor 4, menší ionty přidají zbytek.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Vyšší mřížková energie → silnější vazba → vyšší teplota tání: NaCl 801 °C, MgO <b>2852 °C</b>. Proto se z&nbsp;MgO dělají žáruvzdorné vyzdívky pecí.</p>
+              <span class="result">E(MgO) ≈ 5 × E(NaCl); MgO taje mnohem výš (2852 vs 801 °C)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.2 · rozhodovací — vodivost a mechanika</span>
+          <p>Máte krystal KBr. Rozhodněte, zda vede elektrický proud (a) pevný při 25 °C, (b) roztavený při 800 °C, (c) rozpuštěný ve vodě, (d) rozpuštěný v&nbsp;benzenu. (e) Co se stane, když do krystalu udeříte kladivem?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Základní otázka u&nbsp;iontové látky zní vždy stejně: <b>jsou ionty pohyblivé?</b> Nosiče náboje (K⁺, Br⁻) v&nbsp;látce jsou, volné elektrony ne.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(a) Pevný: ionty pevně v&nbsp;mřížce → <b>nevede</b>. (b) Tavenina (KBr taje při 734 °C, takže při 800 °C je tekutý): ionty se pohybují → <b>vede</b>, a&nbsp;přitom probíhá elektrolýza (K na katodě, Br₂ na anodě).</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(c) Ve vodě: polární voda ionty hydratuje a&nbsp;odtrhne z&nbsp;mřížky (KBr je dobře rozpustný, 678 g/L) → <b>vede</b>. (d) Benzen je nepolární, ionty nehydratuje, KBr se v&nbsp;něm <b>nerozpustí</b> → nic nevede.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>(e) Úder posune vrstvu iontů o&nbsp;jednu polohu → K⁺ proti K⁺, Br⁻ proti Br⁻ → odpuzování → krystal se <b>rozštípne</b> podél roviny (křehkost). Nevykuje se jako kov.</p>
+              <span class="result">nevede · vede · vede · nerozpustí se · rozštípne se</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: iontová vazba"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

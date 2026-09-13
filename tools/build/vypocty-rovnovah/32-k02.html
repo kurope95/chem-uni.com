@@ -1,0 +1,237 @@
+
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Slabé kyseliny a slabé zásady">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · osnova, bod 1 — slabé kyseliny, slabé báze</span>
+      <h2>pH slabých kyselin a&nbsp;slabých zásad</h2>
+      <p class="lead">Kyselina octová v&nbsp;octu je 0,1 M, a&nbsp;přesto má pH skoro 3, ne 1. Většina jejích molekul totiž proton vůbec neodštěpí. Tady poprvé potřebujeme rovnovážnou konstantu, ICE tabulku a&nbsp;jednu odmocninu — a&nbsp;musíme vědět, kdy si ji smíme dovolit.</p>
+
+      <h3>Disociační konstanta kyseliny <span class="q">K</span><sub>a</sub></h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Slabá kyselina</b> je ve vodě disociovaná jen částečně; mezi molekulami a&nbsp;ionty se ustaví rovnováha popsaná <b>disociační konstantou kyseliny</b> <span class="q">K</span><sub>a</sub>. Čím větší <span class="q">K</span><sub>a</sub> (menší p<span class="q">K</span><sub>a</sub>), tím silnější kyselina. Analogicky <span class="q">K</span><sub>b</sub> pro zásady.</p>
+      </div>
+      <p class="eq" style="font-size:1.08rem"><span class="chem">HA + H₂O ⇌ H₃O⁺ + A⁻</span> &nbsp;&nbsp;&nbsp;<span class="q">K</span><sub>a</sub> = [H₃O⁺]·[A⁻] / [HA] &nbsp;&nbsp;&nbsp;p<span class="q">K</span><sub>a</sub> = −log <span class="q">K</span><sub>a</sub><br><span class="chem">B + H₂O ⇌ BH⁺ + OH⁻</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="q">K</span><sub>b</sub> = [BH⁺]·[OH⁻] / [B] &nbsp;&nbsp;&nbsp;&nbsp;p<span class="q">K</span><sub>b</sub> = −log <span class="q">K</span><sub>b</sub></p>
+      <p>Orientace: silné kyseliny mají p<span class="q">K</span><sub>a</sub> záporné, střední (HF, HNO₂, HCOOH) kolem 3–4, typické slabé (CH₃COOH, benzoová) kolem 4–5, velmi slabé (HCN, fenol, H₂O₂) 9–12. U&nbsp;zásad totéž s&nbsp;p<span class="q">K</span><sub>b</sub>: aminy 3–4, amoniak 4,75, pyridin 8,8, anilin 9,4.</p>
+
+      <h3>Odvození přes ICE tabulku</h3>
+      <p>Pro slabou kyselinu o&nbsp;počáteční koncentraci <span class="q">c</span> zavedeme neznámou <span class="q">x</span> = koncentrace odštěpených protonů:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th></th><th class="n">HA</th><th class="n">H₃O⁺</th><th class="n">A⁻</th></tr></thead>
+          <tbody>
+            <tr><td><b>I</b></td><td class="n"><span class="q">c</span></td><td class="n">≈ 0</td><td class="n">0</td></tr>
+            <tr><td><b>C</b></td><td class="n">−<span class="q">x</span></td><td class="n">+<span class="q">x</span></td><td class="n">+<span class="q">x</span></td></tr>
+            <tr><td><b>E</b></td><td class="n"><span class="q">c</span> − <span class="q">x</span></td><td class="n"><span class="q">x</span></td><td class="n"><span class="q">x</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="eq" style="margin-top:.9rem"><span class="q">K</span><sub>a</sub> = <span class="q">x</span>² / (<span class="q">c</span> − <span class="q">x</span>) &nbsp;&nbsp;<span style="color:var(--ink-3)">— přesně (kvadratická rovnice <span class="q">x</span>² + <span class="q">K</span><sub>a</sub><span class="q">x</span> − <span class="q">K</span><sub>a</sub><span class="q">c</span> = 0)</span><br>
+      <span class="q">K</span><sub>a</sub> ≈ <span class="q">x</span>² / <span class="q">c</span> &nbsp;&nbsp;⇒&nbsp;&nbsp; <b>[H₃O⁺] = √(<span class="q">K</span><sub>a</sub>·<span class="q">c</span>)</b> &nbsp;&nbsp;⇒&nbsp;&nbsp; <b>pH = ½(p<span class="q">K</span><sub>a</sub> − log <span class="q">c</span>)</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">— aproximace <span class="q">x</span> ≪ <span class="q">c</span></span></p>
+      <p>Zásada úplně stejně, jen s&nbsp;OH⁻ a&nbsp;pOH: <b>[OH⁻] = √(<span class="q">K</span><sub>b</sub>·<span class="q">c</span>)</b>, pOH = ½(p<span class="q">K</span><sub>b</sub> − log <span class="q">c</span>), <b>pH = 14 − ½(p<span class="q">K</span><sub>b</sub> − log <span class="q">c</span>)</b>.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Nejčastější chyba celé kapitoly</span>
+        <p>Dosadit [H₃O⁺] = <span class="q">c</span> jako u&nbsp;silné kyseliny. Pro 0,1 M CH₃COOH by vyšlo pH 1,00 místo 2,88. Slabá kyselina <b>vždy</b> znamená odmocninu ze součinu <span class="q">K</span><sub>a</sub>·<span class="q">c</span>. Druhá chyba: dosadit p<span class="q">K</span><sub>a</sub> tam, kde má být <span class="q">K</span><sub>a</sub>. Do odmocniny patří <span class="q">K</span><sub>a</sub> (např. 1,75·10⁻⁵), do vzorce s&nbsp;polovinou p<span class="q">K</span><sub>a</sub> (4,76).</p>
+      </div>
+
+      <h3>Kdy aproximace stačí — 5% pravidlo</h3>
+      <p>Zanedbání <span class="q">x</span> proti <span class="q">c</span> je oprávněné, když je disociace malá. Praktické kritérium: <b>když <span class="q">x</span>/<span class="q">c</span> &lt; 5 %</b> (ekvivalentně <span class="q">c</span>/<span class="q">K</span><sub>a</sub> &gt; 400), je chyba v&nbsp;pH pod 0,02 a&nbsp;aproximaci smíte použít. Jinak řešte kvadratickou rovnici. Selhává typicky u&nbsp;<b>zředěných roztoků středně silných kyselin</b> — HF 0,01 M je disociovaná z&nbsp;22 %, HNO₂ 0,1 M ze 7 %, ale kyselina octová 0,1 M jen z&nbsp;1,3 %.</p>
+
+      <h3>Stupeň disociace a&nbsp;Ostwaldův zřeďovací zákon</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Stupeň disociace</b> α je podíl molekul, které se rozpadly na ionty: α = <span class="q">x</span>/<span class="q">c</span> (0 až 1, často v&nbsp;%). Vyjádříme-li rovnovážné koncentrace pomocí α, dostaneme <b>Ostwaldův zřeďovací zákon</b>:</p>
+        <p class="eq" style="margin-top:.3rem"><span class="q">K</span><sub>a</sub> = α²·<span class="q">c</span> / (1 − α) &nbsp;&nbsp;⇒&nbsp;&nbsp; pro malé α: &nbsp;<b>α ≈ √(<span class="q">K</span><sub>a</sub> / <span class="q">c</span>)</b></p>
+      </div>
+      <p>Zákon říká něco na první pohled paradoxního: <b>čím víc kyselinu zředíte, tím větší podíl jí disociuje</b> (α roste), i&nbsp;když absolutní koncentrace H₃O⁺ klesá. Kyselina octová 1 M je disociovaná ze 0,4 %, 0,1 M z&nbsp;1,3 %, 0,01 M ze 4,1 % a&nbsp;10⁻⁴ M už z&nbsp;34 %. Přesně proto 5% pravidlo selhává u&nbsp;zředěných roztoků. A&nbsp;obráceně: z&nbsp;naměřeného α nebo pH při známé koncentraci umíte <span class="q">K</span><sub>a</sub> spočítat (příklad 2.4).</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Aproximace versus přesné řešení: ICE tabulka, 5% pravidlo a&nbsp;Ostwaldův zákon</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Druh</label>
+            <div class="segmented" id="wkKind" role="group" aria-label="Kyselina nebo zásada">
+              <button type="button" data-v="a" aria-pressed="true">Slabá kyselina</button>
+              <button type="button" data-v="b" aria-pressed="false">Slabá zásada</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="wkPK"><span id="wkPKL">p<span class="q">K</span><sub>a</sub></span> — <span class="val" id="wkPKV">4,76</span></label>
+            <input type="range" id="wkPK" min="1" max="12" step="0.05" value="4.76">
+          </div>
+          <div class="ctl">
+            <label for="wkC">Koncentrace <span class="q">c</span> — <span class="val" id="wkCV">0,1 mol·dm⁻³</span></label>
+            <input type="range" id="wkC" min="-5" max="0" step="0.05" value="-1">
+          </div>
+        </div>
+        <div class="grid2" style="align-items:start">
+          <div>
+            <div class="tablewrap"><table>
+              <thead><tr><th>ICE</th><th class="n" id="wkH1">HA</th><th class="n" id="wkH2">H₃O⁺</th><th class="n" id="wkH3">A⁻</th></tr></thead>
+              <tbody id="wkIce"></tbody>
+            </table></div>
+            <div class="grid3" style="margin-top:.8rem">
+              <div class="readout" id="wkRo1"></div>
+              <div class="readout" id="wkRo2"></div>
+              <div class="readout" id="wkRo3"></div>
+              <div class="readout" id="wkRo4"></div>
+              <div class="readout" id="wkRo5"></div>
+              <div class="readout" id="wkRo6"></div>
+            </div>
+          </div>
+          <div>
+            <div class="svgwrap" id="wkWrap" style="min-height:290px"></div>
+            <div class="legend">
+              <span class="li"><span class="sw" style="background:var(--accent)"></span>stupeň disociace α = √(<span class="q">K</span>/<span class="q">c</span>) (Ostwald, přesně)</span>
+              <span class="li"><span class="sw" style="background:var(--warn)"></span>hranice 5 % — nad ní aproximace selhává</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note" id="wkNote"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Tabulka</span>
+        <h3>Disociační konstanty kyselin a&nbsp;zásad (25 °C) — hledejte podle názvu, vzorce nebo konjugátu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="kaSearch">Hledat</label>
+            <input type="search" id="kaSearch" placeholder="např. octová, NH₃, HCO₃⁻, fenol…" autocomplete="off">
+          </div>
+          <div class="ctl">
+            <label>Filtr</label>
+            <div class="segmented" id="kaFilter" role="group" aria-label="Filtr tabulky konstant">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="a" aria-pressed="false">Kyseliny</button>
+              <button type="button" data-v="b" aria-pressed="false">Zásady</button>
+              <button type="button" data-v="poly" aria-pressed="false">Vícesytné</button>
+            </div>
+          </div>
+        </div>
+        <div class="tablewrap" style="max-height:440px;overflow-y:auto">
+          <table><thead><tr>
+            <th>Látka</th><th>Vzorec</th><th class="n"><span class="q">K</span></th><th class="n">p<span class="q">K</span></th><th style="width:22%">síla</th><th>Konjugát</th>
+          </tr></thead><tbody id="kaBody"></tbody></table>
+        </div>
+      </div>
+      <div class="panel-note">Hodnoty jsou standardní tabulkové (CRC / české Chemické tabulky), zaokrouhlené na dvě platné číslice. Konjugovaný pár spojuje p<span class="q">K</span><sub>a</sub> + p<span class="q">K</span><sub>b</sub> = 14 — porovnejte CH₃COOH (4,76) a&nbsp;CH₃COO⁻ (9,24), nebo NH₃ (4,75) a&nbsp;NH₄⁺ (9,25). Tuhle tabulku používá i&nbsp;kalkulačka v&nbsp;úvodu.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.1 · slabá kyselina</span>
+          <p>Vypočítejte pH a&nbsp;stupeň disociace kyseliny octové o&nbsp;koncentraci 0,10 mol·dm⁻³; <span class="q">K</span><sub>a</sub> = 1,75·10⁻⁵ (p<span class="q">K</span><sub>a</sub> = 4,76).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Rovnice a&nbsp;ICE tabulka; <span class="q">x</span> = [H₃O⁺].</p>
+              <p class="eq"><span class="chem">CH₃COOH + H₂O ⇌ H₃O⁺ + CH₃COO⁻</span><br><span class="q">K</span><sub>a</sub> = <span class="q">x</span>² / (0,10 − <span class="q">x</span>)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Odhad: <span class="q">c</span>/<span class="q">K</span><sub>a</sub> = 0,1 / 1,75·10⁻⁵ ≈ 5700 ≫ 400, aproximace <span class="q">x</span> ≪ <span class="q">c</span> bude v&nbsp;pořádku.</p>
+              <p class="eq"><span class="q">x</span> = √(<span class="q">K</span><sub>a</sub>·<span class="q">c</span>) = √(1,75·10⁻⁵ · 0,10) = √(1,75·10⁻⁶) = <b>1,32·10⁻³ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq">pH = −log(1,32·10⁻³) = 3 − 0,12 = <b>2,88</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">kontrola: ½(4,76 − (−1)) = ½ · 5,76 = 2,88 ✓</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Stupeň disociace a&nbsp;ověření 5% pravidla.</p>
+              <p class="eq">α = <span class="q">x</span>/<span class="q">c</span> = 1,32·10⁻³ / 0,10 = 0,0132 = <b>1,3 %</b> &lt; 5 % ✓</p>
+              <span class="result">pH = 2,88 · α = 1,3 % (přesné řešení kvadratické rovnice dává 2,88 také)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.2 · slabá zásada</span>
+          <p>Vypočítejte pH roztoku amoniaku o&nbsp;koncentraci 0,10 mol·dm⁻³; <span class="q">K</span><sub>b</sub> = 1,78·10⁻⁵ (p<span class="q">K</span><sub>b</sub> = 4,75).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Amoniak je zásada — přijímá proton od vody, vzniká OH⁻. Neznámá <span class="q">x</span> je tentokrát [OH⁻].</p>
+              <p class="eq"><span class="chem">NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</span> &nbsp;&nbsp;<span class="q">K</span><sub>b</sub> = <span class="q">x</span>² / (0,10 − <span class="q">x</span>) ≈ <span class="q">x</span>² / 0,10</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">[OH⁻] = √(1,78·10⁻⁵ · 0,10) = √(1,78·10⁻⁶) = <b>1,33·10⁻³ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Nejdřív pOH, pak pH. Tady se nejčastěji chybuje.</p>
+              <p class="eq">pOH = −log(1,33·10⁻³) = 3 − 0,12 = 2,88<br>pH = 14 − 2,88 = <b>11,12</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">(vzorec: 14 − ½(4,75 + 1) = 14 − 2,875 = 11,13 — rozdíl v&nbsp;setině je zaokrouhlení)</span></p>
+              <span class="result">pH ≈ 11,13 · α = 1,3 % — zrcadlový obraz kyseliny octové kolem pH 7</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.3 · když 5% pravidlo selže</span>
+          <p>Vypočítejte pH roztoku HF o&nbsp;koncentraci 0,010 mol·dm⁻³; <span class="q">K</span><sub>a</sub> = 6,3·10⁻⁴.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Zkusíme aproximaci — a&nbsp;hned ji zkontrolujeme.</p>
+              <p class="eq"><span class="q">x</span> ≈ √(6,3·10⁻⁴ · 0,010) = √(6,3·10⁻⁶) = 2,51·10⁻³<br><span class="q">x</span>/<span class="q">c</span> = 2,51·10⁻³ / 0,010 = <b>25 %</b> ≫ 5 % ✕</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Aproximace neplatí — čtvrtina kyseliny je disociovaná a&nbsp;„0,010 − <span class="q">x</span>“ se od 0,010 podstatně liší. Řešíme kvadratickou rovnici.</p>
+              <p class="eq">6,3·10⁻⁴ = <span class="q">x</span>² / (0,010 − <span class="q">x</span>) &nbsp;⇒&nbsp; <span class="q">x</span>² + 6,3·10⁻⁴·<span class="q">x</span> − 6,3·10⁻⁶ = 0</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">x</span> = (−6,3·10⁻⁴ + √((6,3·10⁻⁴)² + 4 · 6,3·10⁻⁶)) / 2 = (−6,3·10⁻⁴ + 5,06·10⁻³) / 2 = <b>2,21·10⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p class="eq">pH = −log(2,21·10⁻³) = <b>2,66</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">(aproximace by dala 2,60 — chyba 0,06, na maturitě už znatelná)</span></p>
+              <span class="result">pH = 2,66 · α = 22 % — středně silná kyselina ve zředěném roztoku</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.4 · obráceně: Ka z naměřeného pH</span>
+          <p>Roztok neznámé jednosytné kyseliny o&nbsp;koncentraci 0,10 mol·dm⁻³ má pH 3,00. Určete stupeň disociace a&nbsp;<span class="q">K</span><sub>a</sub>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Z&nbsp;pH koncentrace H₃O⁺ — to je přímo <span class="q">x</span>.</p>
+              <p class="eq">[H₃O⁺] = 10⁻³·⁰⁰ = 1,0·10⁻³ mol·dm⁻³ = <span class="q">x</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq">α = <span class="q">x</span>/<span class="q">c</span> = 1,0·10⁻³ / 0,10 = 0,010 = <b>1,0 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Dosadíme do <b>přesného</b> výrazu (Ostwald) — teď žádná aproximace není nutná, všechno známe.</p>
+              <p class="eq"><span class="q">K</span><sub>a</sub> = <span class="q">x</span>² / (<span class="q">c</span> − <span class="q">x</span>) = (1,0·10⁻³)² / (0,10 − 0,001) = 1,0·10⁻⁶ / 0,099 = <b>1,0·10⁻⁵</b> &nbsp;(p<span class="q">K</span><sub>a</sub> = 5,0)</p>
+              <span class="result"><span class="q">K</span><sub>a</sub> ≈ 1,0·10⁻⁵, α = 1,0 % — síla podobná kyselině octové</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: slabé kyseliny a zásady"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

@@ -1,0 +1,176 @@
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="Bloky s a p: konfigurace rozhoduje">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · osnova, bod 1</span>
+      <h2>Nepřechodné kovy jako celek: bloky s&nbsp;a&nbsp;p</h2>
+      <p class="lead">V&nbsp;okruhu o&nbsp;elementárních kovech jsme se ptali, co dělá kov kovem — a&nbsp;odpověď byla u&nbsp;všech stejná: kovová vazba, mřížka, delokalizované elektrony. Tady se ptáme na něco jiného: <b>čím se jednotlivé kovy liší</b>. Jaké oxidační číslo prvek zvolí, jestli bude jeho oxid zásaditý nebo amfoterní, jestli se rozpustí v&nbsp;louhu. Na všechny tyhle otázky odpovídá jediná věc — valenční sféra a&nbsp;to, co leží pod ní.</p>
+
+      <h3>Kdo mezi nepřechodné kovy patří</h3>
+      <p><span class="term">Nepřechodné kovy</span> jsou kovové prvky, které nemají rozestavěnou vrstvu <span class="chem">d</span> ani <span class="chem">f</span>. Tvoří dvě skupiny:</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Blok s</span>
+          <p><b>Skupina 1</b> — lithium, sodík, draslík, rubidium, cesium, francium. Valenční sféra <span class="chem">ns¹</span>.</p>
+          <p style="margin-top:.3rem"><b>Skupina 2</b> — beryllium, hořčík, vápník, stroncium, baryum, radium. Valenční sféra <span class="chem">ns²</span>.</p>
+          <p style="margin-top:.3rem">Vodík ani helium sem nepatří: vodík je nekov, helium vzácný plyn.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Kovová část bloku p</span>
+          <p><b>Skupina 13</b> — hliník, gallium, indium, thallium (bor je polokov). Valenční sféra <span class="chem">ns²np¹</span>.</p>
+          <p style="margin-top:.3rem"><b>Skupina 14</b> — cín a&nbsp;olovo (germanium je polokov). Valenční sféra <span class="chem">ns²np²</span>.</p>
+          <p style="margin-top:.3rem"><b>Skupina 15</b> — bismut (arsen a&nbsp;antimon jsou polokovy). Valenční sféra <span class="chem">ns²np³</span>.</p>
+        </div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Past, na které se ztrácejí body</span>
+        <p>Zinek, kadmium a&nbsp;rtuť mají zaplněnou vrstvu <span class="chem">d¹⁰</span> a&nbsp;jejich chemie připomíná nepřechodné kovy. Přesto to <b>nepřechodné kovy nejsou</b> — leží ve skupině 12, tedy v&nbsp;bloku d. V&nbsp;maturitní otázce o&nbsp;nepřechodných kovech je nezmiňujte jako členy, nanejvýš jako podobnost.</p>
+      </div>
+
+      <h3>Proč konfigurace určuje oxidační číslo</h3>
+      <p>Vezměte sodík: <span class="chem">[Ne] 3s¹</span>. Odtrhnout ten jediný elektron stojí 496&nbsp;kJ·mol⁻¹, což vazebná energie pohodlně zaplatí. Odtrhnout druhý ale stojí 4562&nbsp;kJ·mol⁻¹, protože by musel z&nbsp;uzavřené slupky neonu. To žádná vazba nezaplatí, a&nbsp;proto sodík <b>nikdy</b> netvoří <span class="chem">Na²⁺</span>.</p>
+      <p>Stejná úvaha platí u&nbsp;všech prvků bloku s. Skok v&nbsp;ionizační energii přijde přesně za posledním valenčním elektronem, a&nbsp;proto má každý prvek jedno jediné oxidační číslo, rovné číslu skupiny.</p>
+      <p class="eq">skupina 1: <span class="chem">ns¹</span> → oxidační číslo <b>I</b> &nbsp;·&nbsp; skupina 2: <span class="chem">ns²</span> → oxidační číslo <b>II</b><br><span style="color:var(--ink-3)">u sodíku je poměr druhé a první ionizační energie roven 4562 / 496, tedy zhruba devět</span></p>
+      <p>V&nbsp;bloku p&nbsp;je to složitější. Hliník má <span class="chem">3s² 3p¹</span> a&nbsp;skok přichází až za třetím elektronem (<span class="q">I</span>₄&nbsp;=&nbsp;11&nbsp;577&nbsp;kJ·mol⁻¹). Do vazeb tedy může jít jeden elektron nebo všechny tři — a&nbsp;protože rozdíl mezi <span class="q">I</span>₁ a&nbsp;součtem <span class="q">I</span>₂&nbsp;+&nbsp;<span class="q">I</span>₃ vazebná energie zaplatí, vítězí <b>III</b>. U&nbsp;těžších prvků ale přestane a&nbsp;vyhraje nižší stav. Tomu se věnuje celá kapitola 6.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník valenční sféry a&nbsp;ionizačních energií</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="kfSel">Prvek</label>
+          <select id="kfSel" aria-label="Vyberte prvek"></select>
+        </div>
+        <div class="svgwrap" id="kfWrap" style="min-height:330px;margin-top:.8rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>elektrony, které do vazby jdou — ionizace se vyplatí</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>první elektron z&nbsp;uzavřené slupky — ionizace se nikdy nevyplatí</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>pár <span class="chem">ns²</span>, o&nbsp;který se u&nbsp;bloku p&nbsp;hraje</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="kfRo1"></div>
+          <div class="readout" id="kfRo2"></div>
+          <div class="readout" id="kfRo3"></div>
+        </div>
+        <div id="kfText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="kfNote">Projděte prvky odshora dolů a&nbsp;sledujte, <b>kde je největší skok</b> mezi sloupci. U&nbsp;sodíku hned za prvním, u&nbsp;hořčíku za druhým, u&nbsp;hliníku až za třetím. Právě tenhle skok určuje, kolik elektronů může prvek do vazeb poslat — a&nbsp;tedy jaké oxidační číslo bude mít.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Co se skrývá pod valenční sférou</h3>
+      <p>Tohle je detail, který rozhoduje o&nbsp;celé pravé polovině okruhu. Podívejte se, co leží bezprostředně pod valenčními elektrony:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Prvek</th><th>Valenční sféra</th><th>Co leží pod ní</th><th class="n">Poloměr atomu [pm]</th><th>Důsledek</th></tr></thead>
+          <tbody>
+            <tr><td><b>Al</b> (3. perioda)</td><td class="chem">3s² 3p¹</td><td>uzavřená slupka neonu, <b>žádné d</b></td><td class="n">143</td><td>jediný stav <b>III</b></td></tr>
+            <tr><td><b>Ga</b> (4. perioda)</td><td class="chem">4s² 4p¹</td><td>zaplněných deset orbitalů <span class="chem">3d</span></td><td class="n">135</td><td>hlavně <b>III</b>, stopově I</td></tr>
+            <tr><td><b>In</b> (5. perioda)</td><td class="chem">5s² 5p¹</td><td>zaplněných deset orbitalů <span class="chem">4d</span></td><td class="n">167</td><td>hlavně <b>III</b>, občas I</td></tr>
+            <tr><td><b>Tl</b> (6. perioda)</td><td class="chem">6s² 6p¹</td><td><span class="chem">4f¹⁴</span> i&nbsp;<span class="chem">5d¹⁰</span></td><td class="n">170</td><td>převažuje <b>I</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Všimněte si té anomálie: gallium má <b>menší</b> atom než hliník, přestože je o&nbsp;periodu níž. Vrstva <span class="chem">3d¹⁰</span> totiž stíní jádro mizerně — orbitaly d&nbsp;mají v&nbsp;jádře nulovou hustotu a&nbsp;jsou prostorově rozprostřené. Efektivní náboj jádra, který valenční elektrony cítí, je proto vyšší, než by měl být. Tomu se říká <span class="term">stínění</span> a&nbsp;jeho selhání se u&nbsp;lanthanoidové vrstvy <span class="chem">4f¹⁴</span> projeví ještě mnohem silněji.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak si to zapamatovat</span>
+        <p>Stínění je jako clona před lampou. Slupka <span class="chem">s</span> je hustá clona — dobře stíní. Slupka <span class="chem">d</span> je síťka, slupka <span class="chem">f</span> skoro dírkovaná fólie. Čím dál doprava a&nbsp;dolů, tím víc „prosvítá“ jádro a&nbsp;tím pevněji jsou valenční elektrony drženy. Odtud pochází i&nbsp;to, že elektronegativita gallia (1,81) je <b>vyšší</b> než hliníku (1,61) — přestože je gallium níž.</p>
+      </div>
+
+      <h3>Chemicky typický kov proti technicky typickému</h3>
+      <p>Tohle je rozpor, který stojí za zapamatování, protože se na něj hodně ptá. Z&nbsp;<b>chemického</b> hlediska jsou nejtypičtějšími kovy alkalické kovy: nejnižší elektronegativita, nejnižší ionizační energie, nejochotněji odevzdají elektron, nejsilnější redukční činidla. Z&nbsp;<b>technického</b> hlediska jsou k&nbsp;ničemu — jsou měkké jako máslo, tají pod bodem varu vody, na vzduchu se rozpadnou a&nbsp;s&nbsp;vodou reagují výbušně.</p>
+      <p>Technicky dobrý konstrukční kov chce pravý opak: pevnou kovovou vazbu (hodně valenčních elektronů, malý atom), tedy vysokou teplotu tání a&nbsp;tvrdost, a&nbsp;chemickou netečnost. To splňují přechodné kovy — a&nbsp;z&nbsp;nepřechodných jen hliník, který si netečnost koupí pasivací.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Chemicky typický kov není technicky typický</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="chSeg" style="flex-wrap:wrap" role="group" aria-label="Sledovaná vlastnost">
+          <button type="button" data-ch="en" aria-pressed="true">Elektronegativita</button>
+          <button type="button" data-ch="i1" aria-pressed="false">Ionizační energie</button>
+          <button type="button" data-ch="tt" aria-pressed="false">Teplota tání</button>
+          <button type="button" data-ch="rho" aria-pressed="false">Hustota</button>
+        </div>
+        <div class="svgwrap" id="chWrap" style="min-height:310px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="chRo1"></div>
+          <div class="readout" id="chRo2"></div>
+          <div class="readout" id="chRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="chNote">Přepínejte mezi vlastnostmi a&nbsp;sledujte, jak se pořadí <b>obrátí</b>. U&nbsp;elektronegativity a&nbsp;ionizační energie je cesium nejlepší kov na světě; u&nbsp;teploty tání a&nbsp;tvrdosti je naopak úplně poslední. Přesně tenhle rozpor je důvod, proč se z&nbsp;alkalických kovů nedá nic postavit.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Jak číst zbytek okruhu</h3>
+      <p>Každá další kapitola drží stejný postup, který si teď osvojte, protože podle něj se dá odvodit skoro všechno:</p>
+      <div class="callout def">
+        <span class="eyebrow">Pět kroků, kterými se dá popsat kterýkoli nepřechodný kov</span>
+        <p><b>1. Valenční sféra a&nbsp;co je pod ní</b> → jaká oxidační čísla přicházejí v&nbsp;úvahu a&nbsp;které z&nbsp;nich vyhraje.<br>
+        <b>2. Elementární prvek</b> → jak vypadá, jak je reaktivní, s&nbsp;čím reaguje a&nbsp;jak prudce.<br>
+        <b>3. Binární sloučeniny</b> → oxidy, hydridy, halogenidy a&nbsp;trend v&nbsp;jejich vazebnosti.<br>
+        <b>4. Soli a&nbsp;jejich chování ve vodě</b> → rozpustnost, hydrolýza, komplexy.<br>
+        <b>5. Výroba a&nbsp;použití</b> → odkud se ruda bere a&nbsp;proč se to dělá zrovna takhle.</p>
+      </div>
+      <p>A&nbsp;jedno obecné pravidlo, které se bude opakovat v&nbsp;každé kapitole: <b>bazicita oxidu roste s&nbsp;klesajícím oxidačním číslem a&nbsp;s&nbsp;rostoucím poloměrem kationtu.</b> Odtud plyne, proč je <span class="chem">BeO</span> amfoterní a&nbsp;<span class="chem">BaO</span> silně zásaditý, i&nbsp;proč je <span class="chem">PbO</span> zásaditější než <span class="chem">PbO₂</span>.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.1 · skok v ionizacích</span>
+          <p>Prvek X&nbsp;má ionizační energie 738, 1451, 7733 a&nbsp;10&nbsp;543&nbsp;kJ·mol⁻¹. Určete, do které skupiny patří a&nbsp;jaké oxidační číslo bude mít ve sloučeninách.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Spočítejte <b>poměry sousedních hodnot</b>, ne rozdíly — skok se pozná podle násobku.</p>
+              <p class="eq"><span class="q">I</span>₂ / <span class="q">I</span>₁ = 1451 / 738 = 1,97 &nbsp;·&nbsp; <span class="q">I</span>₃ / <span class="q">I</span>₂ = 7733 / 1451 = 5,33 &nbsp;·&nbsp; <span class="q">I</span>₄ / <span class="q">I</span>₃ = 10&nbsp;543 / 7733 = 1,36</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Největší skok je mezi druhou a&nbsp;třetí ionizací — pětinásobný. To znamená, že prvek má ve valenční sféře <b>dva</b> elektrony a&nbsp;třetí by musel z&nbsp;uzavřené slupky.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Dva valenční elektrony a&nbsp;kov ⇒ <b>skupina 2</b>. Podle absolutních hodnot (738 a&nbsp;1451) jde o&nbsp;hořčík; kdyby to byl vápník, byly by hodnoty 590 a&nbsp;1145.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Prvek tedy tvoří výhradně kation <span class="chem">Mg²⁺</span> a&nbsp;ve všech sloučeninách má oxidační číslo <b>II</b>. Jeho oxid bude zásaditý, sůl silné kyseliny se ve vodě slabě hydrolyzuje.</p>
+              <span class="result">X je hořčík, skupina 2, jediné oxidační číslo II</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.2 · gallium × hliník</span>
+          <p>Poloměr atomu hliníku je 143&nbsp;pm, poloměr gallia jen 135&nbsp;pm — přestože je gallium o&nbsp;celou periodu níž. Vysvětlete a&nbsp;řekněte, jak se to projeví na elektronegativitě.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Normální trend je jasný: o&nbsp;periodu níž znamená o&nbsp;jednu slupku navíc, tedy větší atom. Mezi hliníkem a&nbsp;galliem se ale nachází <b>celá řada přechodných kovů</b> od skandia po zinek.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Během té řady vzrostlo protonové číslo o&nbsp;<b>deset</b> a&nbsp;přibylo deset elektronů do orbitalů <span class="chem">3d</span>. Jenže orbitaly d&nbsp;stíní jádro <b>špatně</b> — mají v&nbsp;jádře nulovou hustotu a&nbsp;jsou rozprostřené daleko.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Efektivní náboj jádra, který cítí valenční elektrony <span class="chem">4s² 4p¹</span> gallia, je proto podstatně vyšší než u&nbsp;hliníku. Jádro je stáhne blíž a&nbsp;atom se scvrkne. Tomu se říká <b>kontrakce bloku d</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Elektronegativita jde stejným směrem: gallium 1,81 proti hliníku 1,61. Stejná anomálie se opakuje o&nbsp;dvě periody níž, kde navíc zafunguje i&nbsp;lanthanoidová kontrakce — proto má olovo elektronegativitu 2,33 a&nbsp;cín jen 1,96.</p>
+              <span class="result">Vina je na kontrakci bloku d — přibylo deset protonů, ale stínění se skoro nezlepšilo</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: bloky s a p a co z konfigurace plyne"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

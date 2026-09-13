@@ -1,0 +1,278 @@
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Hodnoty K a stupeň konverze">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 4</span>
+      <h2>Hodnoty rovnovážné konstanty a&nbsp;stupeň konverze</h2>
+      <p class="lead">Rovnovážná konstanta je číslo od nuly do nekonečna. Tahle kapitola vás naučí ho číst — kdy znamená „proběhne prakticky celé“, kdy „skoro nic“ — a&nbsp;přepočítat ho na to, co chemika ve skutečnosti zajímá: kolik procent výchozí látky zreaguje.</p>
+
+      <h3>Řádové čtení <span class="q">K</span></h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Velikost <span class="q">K</span></th><th>Poloha rovnováhy</th><th>Slovy</th><th>Příklad (25 °C, není-li uvedeno jinak)</th></tr></thead>
+          <tbody>
+            <tr><td class="n" style="color:var(--ok);font-weight:600"><span class="q">K</span> ≫ 1 (nad ≈ 10³)</td><td>daleko <b>vpravo</b></td><td>reakce proběhne <b>prakticky úplně</b>; výchozí látky zbudou jen ve stopách</td><td>hoření CH₄: 10¹⁴³ · syntéza NH₃: 5,6·10⁵ · srážení AgCl: 5,6·10⁹</td></tr>
+            <tr><td class="n" style="color:var(--warn);font-weight:600"><span class="q">K</span> ≈ 1 (≈ 10⁻³ až 10³)</td><td><b>uprostřed</b></td><td>v&nbsp;rovnováze jsou <b>obě strany</b> v&nbsp;měřitelném množství; tady se počítá</td><td>H₂ + I₂ ⇌ 2 HI: 50 (448 °C) · esterifikace: 4 · N₂O₄ ⇌ 2 NO₂: 0,15</td></tr>
+            <tr><td class="n" style="color:var(--bad);font-weight:600"><span class="q">K</span> ≪ 1 (pod ≈ 10⁻³)</td><td>daleko <b>vlevo</b></td><td>reakce <b>prakticky neprobíhá</b>; produktů vzniknou jen stopy</td><td>disociace CH₃COOH: 1,8·10⁻⁵ · N₂ + O₂ ⇌ 2 NO: 2·10⁻³¹</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Hranice 10³ a&nbsp;10⁻³ jsou orientační a&nbsp;závisí na stechiometrii. Pro <span class="chem">A ⇌ B</span> znamená <span class="q">K</span> = 1000 přeměnu 99,9&nbsp;%, ale pro <span class="chem">2 A ⇌ B</span> při <span class="q">c</span>₀ = 0,01&nbsp;mol·dm⁻³ jen 80&nbsp;%. Proto se vždy vyplatí přepočet na stupeň konverze.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Co <span class="q">K</span> neříká</span>
+        <p><span class="q">K</span> nic neříká o&nbsp;<b>rychlosti</b>. Přeměna diamantu na grafit má <span class="q">K</span> ≈ 3 (diamant je termodynamicky nestálý!), a&nbsp;přesto prsten vydrží věčnost. Syntéza amoniaku má při 25&nbsp;°C <span class="q">K</span> ≈ 10⁶, ale bez katalyzátoru se nedočkáte. O&nbsp;rychlosti rozhoduje aktivační energie, o&nbsp;poloze rovnováhy Δ<span class="q">G</span>°. Dvě nezávislé věci — na tuhle záměnu se ptají pořád.</p>
+      </div>
+
+      <h3>Stupeň konverze (stupeň přeměny) <span class="q">α</span></h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Stupeň konverze</b> (přeměny, u&nbsp;rozkladů <em>stupeň disociace</em>) <span class="q">α</span> výchozí látky A je podíl jejího množství, které do rovnováhy zreagovalo:</p>
+        <p class="eq" style="margin-top:.3rem"><span class="q">α</span> = (<span class="q">c</span>₀ − [A]) / <span class="q">c</span>₀ = zreagováno / původně &nbsp;&nbsp;&nbsp;(0 ≤ <span class="q">α</span> ≤ 1, často v&nbsp;%)</p>
+        <p style="margin-top:.3rem">Bezrozměrný; místo koncentrací lze dosadit látková množství. Rovnovážná koncentrace je pak [A] = <span class="q">c</span>₀(1 − <span class="q">α</span>).</p>
+      </div>
+      <p>Pro nejjednodušší případ <span class="chem">A ⇌ B</span> je vztah mezi <span class="q">K</span> a&nbsp;<span class="q">α</span> okamžitý: <span class="q">K</span> = [B]/[A] = <span class="q">α</span>/(1 − <span class="q">α</span>), tedy</p>
+      <p class="eq"><span class="q">α</span> = <span class="q">K</span> / (1 + <span class="q">K</span>) &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">(jen pro A ⇌ B; nezávisí na <span class="q">c</span>₀)</span></p>
+      <div class="grid3">
+        <div class="readout"><span class="k"><span class="q">K</span> = 0,1</span><span class="v">9,1 %</span><span class="h">α = 0,1/1,1</span></div>
+        <div class="readout"><span class="k"><span class="q">K</span> = 1</span><span class="v">50 %</span><span class="h">půl na půl</span></div>
+        <div class="readout"><span class="k"><span class="q">K</span> = 10</span><span class="v">90,9 %</span><span class="h">α = 10/11</span></div>
+        <div class="readout"><span class="k"><span class="q">K</span> = 100</span><span class="v">99,0 %</span><span class="h">prakticky úplná</span></div>
+        <div class="readout"><span class="k"><span class="q">K</span> = 1000</span><span class="v">99,9 %</span><span class="h">„nevratná“</span></div>
+        <div class="readout"><span class="k"><span class="q">K</span> = 0,01</span><span class="v">0,99 %</span><span class="h">„neprobíhá“</span></div>
+      </div>
+
+      <h3>Výtěžek versus stupeň přeměny</h3>
+      <p>Dva pojmy, které se pletou. <span class="term">Rovnovážný výtěžek</span> je podíl produktu, který v&nbsp;rovnováze skutečně vznikl, vůči množství, jaké by vzniklo, kdyby reakce proběhla úplně — počítá se vždy z&nbsp;<b>látky, která je v&nbsp;nedostatku</b> (limitující). <span class="term">Stupeň přeměny</span> se vztahuje ke <b>konkrétní</b> výchozí látce. Když jsou výchozí látky ve stechiometrickém poměru, obě čísla splývají. Když je jedna v&nbsp;nadbytku, rozejdou se:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Esterifikace, <span class="q">K</span> = 4</th><th class="n">zreaguje esteru [mol]</th><th class="n">výtěžek (z&nbsp;kyseliny)</th><th class="n"><span class="q">α</span>(kyselina)</th><th class="n"><span class="q">α</span>(alkohol)</th></tr></thead>
+          <tbody>
+            <tr><td>1 mol kyseliny + 1 mol alkoholu</td><td class="n">0,667</td><td class="n">66,7 %</td><td class="n">66,7 %</td><td class="n">66,7 %</td></tr>
+            <tr><td>1 mol kyseliny + 3 mol alkoholu</td><td class="n">0,903</td><td class="n">90,3 %</td><td class="n">90,3 %</td><td class="n">30,1 %</td></tr>
+            <tr><td>1 mol kyseliny + 10 mol alkoholu</td><td class="n">0,974</td><td class="n">97,4 %</td><td class="n">97,4 %</td><td class="n">9,7 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Nadbytek levnější složky je nejstarší trik chemické výroby: <span class="q">K</span> zůstává 4, ale rovnováha se „vytlačí“ směrem k&nbsp;produktu, protože k&nbsp;dosažení téhož podílu musí zreagovat větší část té vzácnější látky. Totéž dělá odvádění vody. Obojí je Le Chatelier, kapitola 6.</p>
+
+      <h3>Vliv počáteční koncentrace u&nbsp;reakcí se změnou počtu částic</h3>
+      <p>U&nbsp;<span class="chem">A ⇌ B</span> na <span class="q">c</span>₀ nezáleží. Jakmile se ale počet částic mění, záleží — a&nbsp;to je oblíbená přijímačková past:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Typ reakce</th><th>Vztah <span class="q">K</span> a&nbsp;<span class="q">α</span></th><th>Vliv zředění (menší <span class="q">c</span>₀)</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chem">A ⇌ B</span> (Δn = 0)</td><td class="mono">K = α/(1−α)</td><td>žádný</td><td>izomerace, H₂ + I₂ ⇌ 2 HI</td></tr>
+            <tr><td><span class="chem">A ⇌ 2 B</span>, <span class="chem">A ⇌ B + C</span> (Δn &gt; 0)</td><td class="mono">K = 4α²c₀/(1−α)  resp.  α²c₀/(1−α)</td><td><b><span class="q">α</span> roste</b> — zředění podporuje rozklad</td><td>PCl₅ ⇌ PCl₃ + Cl₂; slabé kyseliny (Ostwaldův zřeďovací zákon)</td></tr>
+            <tr><td><span class="chem">2 A ⇌ B</span> (Δn &lt; 0)</td><td class="mono">K = α/(2c₀(1−α)²)</td><td><b><span class="q">α</span> klesá</b> — zředění rozpouští dimery</td><td>2 NO₂ ⇌ N₂O₄; dimerizace kyselin</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Konkrétně chlorid fosforečný při 250&nbsp;°C (<span class="q">K</span><sub>c</sub> = 0,042): z&nbsp;<span class="q">c</span>₀ = 1,0&nbsp;mol·dm⁻³ disociuje 18&nbsp;%, z&nbsp;0,10&nbsp;mol·dm⁻³ už 47&nbsp;% a&nbsp;z&nbsp;0,010&nbsp;mol·dm⁻³ celých 83&nbsp;%. Stejné <span class="q">K</span>, úplně jiný stupeň disociace. Přesně tohle je také důvod, proč slabá kyselina při ředění disociuje víc, i&nbsp;když se roztok stává méně kyselým.</p>
+
+      <h3>Univerzální nástroj: ICE tabulka</h3>
+      <p>Když potřebujete z&nbsp;<span class="q">K</span> a&nbsp;počátečního složení spočítat rovnovážné, použijte tabulku se třemi řádky — anglicky <b>I</b>nitial, <b>C</b>hange, <b>E</b>quilibrium, česky <b>počáteční · změna · rovnovážná</b>:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th></th><th class="n">H₂</th><th class="n">I₂</th><th class="n">HI</th></tr></thead>
+          <tbody>
+            <tr><td><b>Počáteční</b> (<span class="q">c</span>₀)</td><td class="n">1,00</td><td class="n">1,00</td><td class="n">0</td></tr>
+            <tr><td><b>Změna</b> (podle stechiometrie)</td><td class="n">−<span class="q">x</span></td><td class="n">−<span class="q">x</span></td><td class="n">+2<span class="q">x</span></td></tr>
+            <tr><td><b>Rovnovážná</b> [ ]</td><td class="n">1,00 − <span class="q">x</span></td><td class="n">1,00 − <span class="q">x</span></td><td class="n">2<span class="q">x</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Postup: (1) vyplníte první řádek ze zadání, (2) do druhého napíšete změnu jako násobky jedné neznámé <span class="q">x</span> podle koeficientů — reaktanty mínus, produkty plus, (3) sečtete, (4) dosadíte třetí řádek do výrazu pro <span class="q">K</span>, (5) vyřešíte rovnici (často kvadratickou) a&nbsp;(6) <b>vyberete kořen, který dává smysl</b>: žádná koncentrace nesmí vyjít záporná. Nakonec zkontrolujete dosazením, že vyjde <span class="q">K</span>.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Dva triky, které ušetří kvadratickou rovnici</span>
+        <p><b>Odmocnění:</b> když je výraz dokonalý čtverec — jako (2<span class="q">x</span>)²/(1 − <span class="q">x</span>)² = 50 — odmocněte obě strany: 2<span class="q">x</span>/(1 − <span class="q">x</span>) = 7,07 a&nbsp;je to lineární.<br>
+        <b>Zanedbání:</b> když je <span class="q">K</span> velmi malé (pod ≈ 10⁻³·<span class="q">c</span>₀), je <span class="q">x</span> ≪ <span class="q">c</span>₀ a&nbsp;smíte psát <span class="q">c</span>₀ − <span class="q">x</span> ≈ <span class="q">c</span>₀. Vždy ale ověřte, že <span class="q">x</span> vyšlo pod 5&nbsp;% z&nbsp;<span class="q">c</span>₀.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Stupeň konverze podle <span class="q">K</span> — a&nbsp;kdy záleží na počáteční koncentraci</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Typ reakce</label>
+            <div class="segmented" id="alMode" role="group" aria-label="Typ reakce">
+              <button type="button" data-v="ab" aria-pressed="true">A ⇌ B</button>
+              <button type="button" data-v="a2b" aria-pressed="false">A ⇌ 2 B</button>
+              <button type="button" data-v="2ab" aria-pressed="false">2 A ⇌ B</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="alK">Rovnovážná konstanta <span class="q">K</span> — <span class="val" id="alKV">1</span></label>
+            <input type="range" id="alK" min="-3" max="3" step="0.1" value="0">
+          </div>
+          <div class="ctl">
+            <label for="alC0">Počáteční koncentrace <span class="q">c</span>₀ — <span class="val" id="alC0V">1 mol·dm⁻³</span></label>
+            <input type="range" id="alC0" min="-2" max="1" step="0.1" value="0">
+          </div>
+        </div>
+        <div class="svgwrap" id="alWrap" style="min-height:330px"></div>
+        <div class="legend" id="alLegend"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="alRoA"><span class="k">Stupeň konverze</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="alRoK"><span class="k"><span class="q">K</span></span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="alRoInt"><span class="k">Čtení</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="alNote">U&nbsp;<span class="chem">A ⇌ B</span> zkuste hýbat <span class="q">c</span>₀ — křivka se nehne. Pak přepněte na <span class="chem">A ⇌ 2 B</span>: zředění (menší <span class="q">c</span>₀) posune křivku doleva, tedy k&nbsp;vyšší konverzi při stejném <span class="q">K</span>. U&nbsp;<span class="chem">2 A ⇌ B</span> je to naopak.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Řešitel ICE tabulky — krok za krokem</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="iceTask">Úloha</label>
+          <select id="iceTask"></select>
+        </div>
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl" id="iceCtlA">
+            <label for="iceA"><span id="iceLA">c₀(H₂)</span> — <span class="val" id="iceAV">1,00</span></label>
+            <input type="range" id="iceA" min="0" max="2" step="0.05" value="1">
+          </div>
+          <div class="ctl" id="iceCtlB">
+            <label for="iceB"><span id="iceLB">c₀(I₂)</span> — <span class="val" id="iceBV">1,00</span></label>
+            <input type="range" id="iceB" min="0" max="2" step="0.05" value="1">
+          </div>
+          <div class="ctl" id="iceCtlC">
+            <label for="iceC"><span id="iceLC">c₀(HI)</span> — <span class="val" id="iceCV">0</span></label>
+            <input type="range" id="iceC" min="0" max="2" step="0.05" value="0">
+          </div>
+        </div>
+        <p class="eq" id="iceEq" style="text-align:center"></p>
+        <div class="tablewrap"><table><thead><tr id="iceHead"></tr></thead><tbody id="iceTable"></tbody></table></div>
+        <div id="iceSteps" style="display:flex;flex-direction:column;gap:.6rem;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="iceRo1"></div>
+          <div class="readout" id="iceRo2"></div>
+          <div class="readout" id="iceRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="iceNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · klasika: H₂ + I₂ ⇌ 2 HI</span>
+          <p>Při 448&nbsp;°C je <span class="q">K</span><sub>c</sub> = 50. Do nádoby o&nbsp;objemu 1&nbsp;dm³ dáme 1,00&nbsp;mol H₂ a&nbsp;1,00&nbsp;mol I₂. Vypočítejte rovnovážné složení a&nbsp;stupeň přeměny vodíku.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>ICE tabulka: počáteční 1,00 / 1,00 / 0; změna −<span class="q">x</span> / −<span class="q">x</span> / +2<span class="q">x</span>; rovnovážná (1 − <span class="q">x</span>) / (1 − <span class="q">x</span>) / 2<span class="q">x</span>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme do <span class="q">K</span><sub>c</sub> = [HI]²/([H₂][I₂]):</p>
+              <p class="eq">(2<span class="q">x</span>)² / (1 − <span class="q">x</span>)² = 50</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Levá strana je dokonalý čtverec — odmocníme (bereme kladnou odmocninu, protože obě strany zlomku jsou kladné):</p>
+              <p class="eq">2<span class="q">x</span> / (1 − <span class="q">x</span>) = √50 = 7,071 &nbsp;⟹&nbsp; 2<span class="q">x</span> = 7,071 − 7,071<span class="q">x</span> &nbsp;⟹&nbsp; <span class="q">x</span> = 7,071/9,071 = <b>0,7795</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Rovnovážné koncentrace a&nbsp;kontrola:</p>
+              <p class="eq">[H₂] = [I₂] = 1 − 0,7795 = <b>0,2205</b>; [HI] = 2 · 0,7795 = <b>1,559 mol·dm⁻³</b><br>kontrola: 1,559² / 0,2205² = 2,430 / 0,04862 = 50,0 ✓</p>
+              <span class="result"><span class="q">α</span>(H₂) = 0,7795 ≈ 78 %; [HI] = 1,56 mol·dm⁻³</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · esterifikace a&nbsp;nadbytek alkoholu</span>
+          <p>Esterifikace <span class="chem">CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O</span> má <span class="q">K</span> = 4,0. Jaký je rovnovážný výtěžek esteru (a) z&nbsp;1,00&nbsp;mol kyseliny a&nbsp;1,00&nbsp;mol ethanolu, (b) z&nbsp;1,00&nbsp;mol kyseliny a&nbsp;3,00&nbsp;mol ethanolu?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Všechny látky jsou v&nbsp;jedné kapalné fázi a&nbsp;objem se vykrátí — smíme počítat s&nbsp;látkovými množstvími. (a) ICE: kyselina 1 − <span class="q">x</span>, alkohol 1 − <span class="q">x</span>, ester <span class="q">x</span>, voda <span class="q">x</span>.</p>
+              <p class="eq"><span class="q">x</span>² / (1 − <span class="q">x</span>)² = 4 &nbsp;⟹&nbsp; <span class="q">x</span>/(1 − <span class="q">x</span>) = 2 &nbsp;⟹&nbsp; <span class="q">x</span> = 2/3 = <b>0,667 mol</b> → výtěžek <b>66,7 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) S&nbsp;nadbytkem alkoholu už to čtverec není: kyselina 1 − <span class="q">x</span>, alkohol 3 − <span class="q">x</span>.</p>
+              <p class="eq"><span class="q">x</span>² / ((1 − <span class="q">x</span>)(3 − <span class="q">x</span>)) = 4 &nbsp;⟹&nbsp; <span class="q">x</span>² = 4(3 − 4<span class="q">x</span> + <span class="q">x</span>²) &nbsp;⟹&nbsp; 3<span class="q">x</span>² − 16<span class="q">x</span> + 12 = 0</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p class="eq"><span class="q">x</span> = [16 ± √(256 − 144)] / 6 = (16 ± 10,58) / 6 &nbsp;⟹&nbsp; <span class="q">x</span>₁ = 4,43 (nesmysl, víc než 1 mol kyseliny) &nbsp;·&nbsp; <span class="q">x</span>₂ = <b>0,903 mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Výtěžek se vztahuje k&nbsp;limitující kyselině: 90,3&nbsp;%. Stupeň přeměny alkoholu je jen 0,903/3 = 30&nbsp;% — nadbytek jsme obětovali. <span class="q">K</span> se nezměnilo, změnilo se jen, odkud jsme vyšli.</p>
+              <span class="result">(a) 66,7 % · (b) 90,3 % — trojnásobek alkoholu zvedne výtěžek o&nbsp;24 procentních bodů</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.3 · stupeň disociace závisí na koncentraci</span>
+          <p>Pro <span class="chem">PCl₅(g) ⇌ PCl₃(g) + Cl₂(g)</span> je při 250&nbsp;°C <span class="q">K</span><sub>c</sub> = 0,042. Vypočítejte stupeň disociace, je-li počáteční koncentrace PCl₅ (a) 0,100&nbsp;mol·dm⁻³, (b) 1,00&nbsp;mol·dm⁻³.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>ICE s&nbsp;obecným <span class="q">c</span>₀: PCl₅ (<span class="q">c</span>₀ − <span class="q">x</span>), PCl₃ <span class="q">x</span>, Cl₂ <span class="q">x</span>.</p>
+              <p class="eq"><span class="q">x</span>² / (<span class="q">c</span>₀ − <span class="q">x</span>) = 0,042 &nbsp;⟹&nbsp; <span class="q">x</span>² + 0,042<span class="q">x</span> − 0,042<span class="q">c</span>₀ = 0</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(a) <span class="q">c</span>₀ = 0,100:</p>
+              <p class="eq"><span class="q">x</span> = [−0,042 + √(0,042² + 4·0,0042)] / 2 = [−0,042 + √0,01856] / 2 = (−0,042 + 0,1362)/2 = <b>0,0471</b> &nbsp;⟹&nbsp; <span class="q">α</span> = 0,0471/0,100 = <b>47 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>(b) <span class="q">c</span>₀ = 1,00:</p>
+              <p class="eq"><span class="q">x</span> = [−0,042 + √(0,042² + 4·0,042)] / 2 = (−0,042 + 0,4120)/2 = <b>0,185</b> &nbsp;⟹&nbsp; <span class="q">α</span> = <b>18,5 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Desetkrát zředěný plyn disociuje 2,5× víc. Důvod: v&nbsp;čitateli <span class="q">K</span> jsou <b>dvě</b> koncentrace, ve jmenovateli jedna — zředění zmenší čitatel víc než jmenovatel, <span class="q">Q</span> klesne pod <span class="q">K</span> a&nbsp;soustava doplní produkty. Stejná logika stojí za Ostwaldovým zřeďovacím zákonem u&nbsp;slabých kyselin.</p>
+              <span class="result"><span class="q">α</span> = 47 % při 0,100 mol·dm⁻³, 18 % při 1,00 mol·dm⁻³ — totéž <span class="q">K</span></span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.4 · disociace N₂O₄ z&nbsp;<span class="q">K</span><sub>p</sub></span>
+          <p>Při 25&nbsp;°C je pro <span class="chem">N₂O₄(g) ⇌ 2 NO₂(g)</span> <span class="q">K</span><sub>p</sub> = 0,148. Jaký je stupeň disociace <span class="q">α</span> při celkovém tlaku 1,00&nbsp;bar a&nbsp;při 0,10&nbsp;bar?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Vyjdeme z&nbsp;1&nbsp;mol N₂O₄. V&nbsp;rovnováze: N₂O₄ (1 − <span class="q">α</span>), NO₂ 2<span class="q">α</span>, celkem (1 + <span class="q">α</span>) mol. Molární zlomky: <span class="q">x</span>(N₂O₄) = (1 − <span class="q">α</span>)/(1 + <span class="q">α</span>), <span class="q">x</span>(NO₂) = 2<span class="q">α</span>/(1 + <span class="q">α</span>). Parciální tlak = molární zlomek × celkový tlak <span class="q">p</span>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p class="eq"><span class="q">K</span><sub>p</sub> = <span class="q">p</span>(NO₂)² / <span class="q">p</span>(N₂O₄) = [2<span class="q">α</span>/(1+<span class="q">α</span>)]²<span class="q">p</span>² / [(1−<span class="q">α</span>)/(1+<span class="q">α</span>)]<span class="q">p</span> = <b>4<span class="q">α</span>²<span class="q">p</span> / (1 − <span class="q">α</span>²)</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Vyjádříme <span class="q">α</span> (tlak relativní, <span class="q">p</span>/<span class="q">p</span>°):</p>
+              <p class="eq"><span class="q">α</span> = √[<span class="q">K</span><sub>p</sub> / (<span class="q">K</span><sub>p</sub> + 4<span class="q">p</span>)]<br>
+              <span class="q">p</span> = 1,00: <span class="q">α</span> = √(0,148/4,148) = <b>0,189 = 19 %</b><br>
+              <span class="q">p</span> = 0,10: <span class="q">α</span> = √(0,148/0,548) = <b>0,520 = 52 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Snížení tlaku podporuje disociaci (Δ<span class="q">n</span> = +1): při desetinovém tlaku se rozpadne skoro třikrát větší podíl. <span class="q">K</span><sub>p</sub> je pořád 0,148.</p>
+              <span class="result"><span class="q">α</span> = 19 % při 1 bar, 52 % při 0,1 bar</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: hodnoty K a stupeň konverze"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

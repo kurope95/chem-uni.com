@@ -1,0 +1,79 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Chemická struktura a&nbsp;vlastnosti látek</h1>
+      <p class="lead">Proč diamant a&nbsp;tuha jsou tentýž uhlík, a&nbsp;přesto jeden řeže sklo a&nbsp;druhý píše. Proč sůl vede proud jen roztavená, proč voda je lomená a&nbsp;proč olej plave. Všechno je to jedna myšlenka: <b>vlastnosti látky plynou z&nbsp;toho, jak jsou v&nbsp;ní uspořádané částice</b>. Buď rychloprůchod na hodinu, nebo osm kapitol s&nbsp;šestnácti modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 60 minut</span>
+        <span class="tag">16 interaktivních modelů</span>
+        <span class="tag">87 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulka 47 látek: tvar, mřížka, b.t., b.v.</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">60 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: deset bloků, v každém výklad, rámeček s pravidly, upozornění na častou chybu a řešený příklad. Projde všech 76 pojmů z osnovy, má vlastní grafy a kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">8 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad s šestnácti interaktivními modely, šestnácti řešenými příklady krok za krokem, třemi trenažéry se skóre a testem po každé kapitole. Na konci tahák a slovníček.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Průzkumník VSEPR — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroType">Typ molekuly AXₙEₘ — <span class="val" id="heroTypeLbl">AX₂E₂ — H₂O</span></label>
+            <select id="heroType"></select>
+          </div>
+          <div class="ctl">
+            <label>Počet elektronových domén</label>
+            <div class="segmented" id="heroDom" role="group" aria-label="Počet domén">
+              <button type="button" data-v="2" aria-pressed="false">2</button>
+              <button type="button" data-v="3" aria-pressed="false">3</button>
+              <button type="button" data-v="4" aria-pressed="true">4</button>
+              <button type="button" data-v="5" aria-pressed="false">5</button>
+              <button type="button" data-v="6" aria-pressed="false">6</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="heroSvgWrap" style="min-height:300px"></div>
+        <div class="grid2" style="margin-top:1rem;align-items:start">
+          <div class="grid2" style="gap:.6rem">
+            <div class="readout" id="heroRo1"></div>
+            <div class="readout" id="heroRo2"></div>
+            <div class="readout" id="heroRo3"></div>
+            <div class="readout" id="heroRo4"></div>
+          </div>
+          <div class="callout" id="heroEx" style="border-left:3px solid var(--accent);margin:0"></div>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>centrální atom a vazebné domény</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>volný elektronový pár (zabírá víc místa než vazba)</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>skutečný vazebný úhel</span>
+        </div>
+      </div>
+      <div class="panel-note" id="heroNote"></div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Základní představy o&nbsp;struktuře pevných látek, kapalin a&nbsp;plynů a&nbsp;rovněž o&nbsp;dějích a&nbsp;vlastnostech látek na molekulární úrovni (zejm. vodivost, skupenské přeměny a&nbsp;rozpouštění).</span><span class="go">Kap. 0–3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">2</span><span>Krystalová mřížka a&nbsp;amorfní stav.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">3</span><span>Tvary molekul — teorie VSEPR.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">4</span><span>Vliv tvaru molekul na strukturu atomových orbitalů — hybridizace orbitalů.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">5</span><span>Posuzování vlastností vybraných látek na základě jejich struktury (polarita, rozpustnost, mísitelnost).</span><span class="go">Kap. 7</span></a>
+    </div>
+  </header>

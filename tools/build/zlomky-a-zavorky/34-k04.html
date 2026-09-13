@@ -1,0 +1,182 @@
+  <!-- ============ KAPITOLA 04 ============ -->
+  <section class="chapter" id="k4" data-title="Složený zlomek">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 5</span>
+      <h2>Složený zlomek — zlomek ve zlomku</h2>
+      <p class="lead">Složený zlomek nevzniká proto, že by si ho někdo vymyslel. Vzniká sám od sebe pokaždé, když do vzorce dosadíte jiný vzorec — a&nbsp;to je přesně to, co se dělá v&nbsp;bloku <b>Odvození</b> výpočtového listu. Naštěstí se sbalí jediným pravidlem, které se vejde do šesti slov.</p>
+
+      <h3>Jak složený zlomek vznikne</h3>
+      <p>Chcete látkovou koncentraci. Znáte dva vztahy: <span class="fx">c = n / V</span> a&nbsp;<span class="fx">n = m / M</span>. Dosadíte druhý do prvního — a&nbsp;máte zlomek, jehož čitatel je sám zlomek:</p>
+      <div class="bigeq" data-lbl="Po dosazení">c = (m / M) / V</div>
+      <p>Tohle je zcela korektní zápis, jen se s&nbsp;ním špatně počítá a&nbsp;ještě hůř kontrolují jednotky. Proto se sbalí na jediný zlomek.</p>
+
+      <div class="callout def">
+        <span class="eyebrow">Definice — složený zlomek a&nbsp;hlavní čára</span>
+        <p><span class="term">Složený zlomek</span> je zlomek, který má další zlomek v&nbsp;čitateli, ve jmenovateli, nebo v&nbsp;obou. <span class="term">Hlavní zlomková čára</span> je ta, která odděluje celý čitatel od celého jmenovatele; sází se <b>delší</b> než ostatní a&nbsp;bývá zarovnaná s&nbsp;rovnítkem. Když hlavní čáru nepoznáte, zápis je nejednoznačný a&nbsp;je špatně vysázený.</p>
+      </div>
+
+      <h3>Jediné pravidlo: dělit zlomkem znamená násobit převrácenou hodnotou</h3>
+      <p>Dělení je násobení převrácenou hodnotou. To platí pro čísla (dělit pěti je totéž jako násobit jednou pětinou) a&nbsp;platí to i&nbsp;pro zlomky. Převrácená hodnota zlomku je tentýž zlomek <b>vzhůru nohama</b>.</p>
+      <div class="bigeq" data-lbl="Základní tvar pravidla">a / (b / c) = (a · c) / b</div>
+      <div class="bigeq" data-lbl="A obrácený případ">(a / b) / c = a / (b · c)</div>
+      <p>Oba tvary se dají odvodit z&nbsp;téhož: čím dělím, to převrátím a&nbsp;vynásobím. V&nbsp;prvním případě převracím jmenovatel <span class="fx">b / c</span> na <span class="fx">c / b</span>. Ve druhém převracím <span class="q">c</span>, tedy vlastně <span class="fx">c / 1</span>, na <span class="fx">1 / c</span>.</p>
+
+      <div class="callout tip">
+        <span class="eyebrow">Mnemotechnika — „co je hlouběji, jde nahoru“</span>
+        <p>U&nbsp;složeného zlomku platí jednoduché vodítko: <b>co je ve jmenovateli jmenovatele, skončí v&nbsp;čitateli</b>. Ve výrazu <span class="fx">a / (b / c)</span> je <span class="q">c</span> „dvakrát dole“ — a&nbsp;dvě záporná znaménka dají kladné, takže vyleze nahoru. Ve výrazu <span class="fx">(a / b) / c</span> je <span class="q">c</span> „jednou dole“ a&nbsp;dole zůstane.</p>
+      </div>
+
+      <h3>Chemický případ: koncentrace z&nbsp;navážky</h3>
+      <p>Aplikujme pravidlo na náš složený zlomek. Dělíme objemem <span class="q">V</span>, takže <span class="q">V</span> převrátíme a&nbsp;vynásobíme:</p>
+      <div class="bigeq" data-lbl="Krok za krokem">(m / M) / V = (m / M) · (1 / V) = (m · 1) / (M · V) = m / (M · V)</div>
+      <p>Výsledek <span class="mono">c = m / (M · V)</span> je přesně ten vztah, který uvidíte v&nbsp;bloku <b>Odvození</b> vzorového výpočtového listu na hlavní stránce sekce. Teď víte, odkud se tam vzal — a&nbsp;proč je tam ve jmenovateli závorka.</p>
+      <p>Ve svislém zápisu se přitom celé sbalení dá udělat „pohledem“: dva jmenovatele nad sebou se prostě vynásobí. Právě proto se odvozuje na papíře a&nbsp;ne v&nbsp;řádku.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Past — záměna dvou tvarů</span>
+        <p>Nejčastější chyba u&nbsp;složených zlomků je záměna <span class="mono">(a / b) / c</span> za <span class="mono">a / (b / c)</span> — liší se jen tím, kde stojí závorka. Vypadají skoro stejně, ale první dá <span class="fx">a / (b · c)</span> a&nbsp;druhý <span class="fx">(a · c) / b</span> — tedy převrácený poměr. Pro <span class="q">a</span>&nbsp;=&nbsp;36, <span class="q">b</span>&nbsp;=&nbsp;6, <span class="q">c</span>&nbsp;=&nbsp;3 vyjde 2 proti 18, tedy devítinásobný rozdíl. Kdykoli si nejste jistí, dosaďte právě tahle tři čísla.</p>
+      </div>
+
+      <h3>Zlomek děleno zlomkem — křížové pravidlo</h3>
+      <p>Když je zlomek nahoře i&nbsp;dole, pravidlo se použije dvakrát a&nbsp;výsledek vypadá jako násobení „křížem“:</p>
+      <div class="bigeq" data-lbl="Křížové pravidlo">(a / b) / (c / d) = (a · d) / (b · c)</div>
+      <div class="svgwrap" id="mg4"></div>
+      <p>Není to nové pravidlo, jen zkratka pro postup, který už znáte: spodní zlomek se převrátí a&nbsp;vynásobí. Pro <span class="q">a</span>&nbsp;=&nbsp;2, <span class="q">b</span>&nbsp;=&nbsp;3, <span class="q">c</span>&nbsp;=&nbsp;5 a&nbsp;<span class="q">d</span>&nbsp;=&nbsp;7 dá levá strana 0,9333 a&nbsp;pravá 14/15, tedy také 0,9333.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Skládačka složeného zlomku — krok za krokem</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1.1rem">
+          <div class="ctl">
+            <label for="szSel">Který zlomek sbalit</label>
+            <select id="szSel"></select>
+          </div>
+          <div class="ctl">
+            <label>Postup</label>
+            <div class="quiz-foot" style="margin-top:0">
+              <button class="btn btn-primary btn-sm" type="button" id="szNext">Další krok</button>
+              <button class="btn btn-sm" type="button" id="szReset">Od začátku</button>
+              <span class="drill-score" id="szStep">krok 1 / 4</span>
+            </div>
+          </div>
+        </div>
+        <div id="szBox"></div>
+      </div>
+      <div class="panel-note">Zkuste projít první úlohu až do konce a&nbsp;všimněte si posledního rámečku: model sám dosadí malá čísla do původního i&nbsp;výsledného zápisu a&nbsp;porovná je. Přesně tohle byste měli dělat na papíře pokaždé, když nějaký zlomek sbalíte — trvá to deset sekund a&nbsp;chytí to každou chybu v&nbsp;úpravě.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Kde v&nbsp;chemii složené zlomky potkáte</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Situace</th><th>Po dosazení vznikne</th><th>Po sbalení</th></tr></thead>
+          <tbody>
+            <tr><td>Koncentrace z&nbsp;navážky</td><td class="mono">(m / M) / V</td><td class="mono">m / (M · V)</td></tr>
+            <tr><td>Počet částic z&nbsp;hmotnosti</td><td class="mono">(m / M) · N<sub>A</sub></td><td class="mono">m · N<sub>A</sub> / M</td></tr>
+            <tr><td>Objem plynu z&nbsp;hmotnosti</td><td class="mono">(m / M) · V<sub>m</sub></td><td class="mono">m · V<sub>m</sub> / M</td></tr>
+            <tr><td>Hustota z&nbsp;molární hmotnosti</td><td class="mono">M / (V<sub>m</sub>)</td><td class="mono">M / V<sub>m</sub></td></tr>
+            <tr><td>Koncentrace z&nbsp;hmotnostního zlomku</td><td class="mono">(w · ρ) / M</td><td class="mono">w · ρ / M</td></tr>
+            <tr><td>Rychlostní konstanta z&nbsp;poločasu</td><td class="mono">0,693 / t<sub>½</sub></td><td class="mono">0,693 / t<sub>½</sub></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Všimněte si, že sbalení někdy jen odstraní zbytečnou závorku a&nbsp;jindy skutečně přesune veličinu z&nbsp;jednoho patra do druhého. Rozhoduje o&nbsp;tom jediná věc: jestli byl vnořený zlomek v&nbsp;čitateli, nebo ve jmenovateli.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 4.1 · celý řetěz od navážky ke koncentraci</span>
+        <p>Navážíme 5,85&nbsp;g chloridu sodného a&nbsp;doplníme na 250&nbsp;cm³ roztoku. Odvoďte vztah pro koncentraci <b>bez jediného čísla</b>, teprve pak dosaďte. <span class="q">M</span>(NaCl)&nbsp;=&nbsp;58,44&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+        <div class="worked-steps">
+          <div class="step"><span class="step-n">1</span><div class="step-b">
+            <p>Vypíšeme vztahy, které budeme potřebovat. Nic se zatím nedosazuje.</p>
+            <p class="eq">c = n / V</p>
+            <p class="eq">n = m / M</p>
+          </div></div>
+          <div class="step"><span class="step-n">2</span><div class="step-b">
+            <p>Dosadíme druhý vztah do prvního. Vznikne složený zlomek.</p>
+            <p class="eq">c = (m / M) / V</p>
+          </div></div>
+          <div class="step"><span class="step-n">3</span><div class="step-b">
+            <p>Dělíme objemem, takže objem převrátíme a&nbsp;vynásobíme; jmenovatele se vynásobí mezi sebou.</p>
+            <p class="eq">c = m / (M · V)</p>
+          </div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-b">
+            <p>Teprve teď čísla, a&nbsp;hned s&nbsp;převedeným objemem: 250&nbsp;cm³&nbsp;=&nbsp;0,250&nbsp;dm³.</p>
+            <p class="eq">c = 5,85 / (58,44 · 0,250) = 5,85 / 14,61 = 0,40041</p>
+            <p><span class="result">c = 0,400 mol·dm⁻³</span></p>
+          </div></div>
+          <div class="step"><span class="step-n">5</span><div class="step-b">
+            <p>Rozměrová kontrola: g&nbsp;/&nbsp;(g·mol⁻¹&nbsp;·&nbsp;dm³) dá mol·dm⁻³. Sedí s&nbsp;tím, co jsme hledali.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calcsheet">
+      <div class="cs-head">
+        <span class="cs-id">Výpočtový list</span>
+        <span class="cs-topic">Koncentrace z&nbsp;navážky — složený zlomek v&nbsp;bloku Odvození</span>
+        <span class="cs-kind">Roztoky</span>
+      </div>
+      <p class="cs-task">Navážíme 5,85&nbsp;g chloridu sodného, rozpustíme ho a&nbsp;doplníme na 250&nbsp;cm³. Jaká je látková koncentrace roztoku?</p>
+      <div class="cs-block">
+        <span class="cs-lbl">Zadání</span>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= 5,85 g</span><span class="cs-note">navážka NaCl</span></div>
+          <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= 250 cm³ <span class="cs-conv">= 0,250 dm³</span></span><span class="cs-note">převedeno hned tady</span></div>
+          <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 58,44 g·mol⁻¹</span><span class="cs-note">z&nbsp;tabulek</span></div>
+        </div>
+      </div>
+      <div class="cs-block find">
+        <span class="cs-lbl">Hledáme</span>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= ? mol·dm⁻³</span><span class="cs-note">látková koncentrace</span></div>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Vztahy</span>
+        <div class="cs-rows">
+          <div class="cs-line">c = n / V</div>
+          <div class="cs-line">n = m / M</div>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Odvození</span>
+        <div class="cs-rows">
+          <div class="cs-line">c = n / V = (m / M) / V = <b>m / (M · V)</b></div>
+          <p class="cs-hint">Prostřední člen je složený zlomek. Poslední krok je jeho sbalení podle pravidla o&nbsp;dělení převrácenou hodnotou.</p>
+        </div>
+      </div>
+      <div class="cs-block">
+        <span class="cs-lbl">Dosazení</span>
+        <div class="cs-rows">
+          <div class="cs-line">c = 5,85 g / (58,44 g·mol⁻¹ · 0,250 dm³)</div>
+          <div class="cs-line units">jednotky: g / (g·mol⁻¹ · dm³) = <b>mol·dm⁻³</b> ✓ sedí s&nbsp;hledanou veličinou</div>
+          <div class="cs-line">c = 0,40041… mol·dm⁻³</div>
+        </div>
+      </div>
+      <div class="cs-block res">
+        <span class="cs-lbl">Odpověď</span>
+        <div class="cs-rows">
+          <p class="cs-ans">Roztok má látkovou koncentraci <b class="cs-hi">c = 0,400 mol·dm⁻³</b>. Tři platné číslice, protože tolik jich má navážka.</p>
+        </div>
+      </div>
+      <div class="cs-block chk">
+        <span class="cs-lbl">Kontrola</span>
+        <div class="cs-rows">
+          <p class="cs-chk">Dosaďme do obou zápisů jednoduchá čísla: pro <span class="q">m</span>&nbsp;=&nbsp;2, <span class="q">M</span>&nbsp;=&nbsp;3 a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;5 dá složený zlomek (2/3)/5&nbsp;=&nbsp;0,1333 a&nbsp;sbalený tvar 2/(3·5)&nbsp;=&nbsp;0,1333. Sbalení tedy proběhlo správně a&nbsp;na výsledek se dá spolehnout.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: složené zlomky"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

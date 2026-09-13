@@ -1,0 +1,214 @@
+  <!-- ============ KAPITOLA 1 ============ -->
+  <section class="chapter" id="k1" data-title="Rovnovážná konstanta a Gibbsova energie">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · osnova, bod 2 (termodynamická část)</span>
+      <h2>Rovnovážná konstanta z&nbsp;termodynamiky</h2>
+      <p class="lead">V&nbsp;termochemii jsme skončili větou „Δ<span class="q">G</span> = 0 znamená rovnováhu“. Teď z&nbsp;ní vytěžíme číslo: ukážeme, že Gibbsova energie závisí na složení směsi, a&nbsp;že z&nbsp;tabulkové hodnoty Δ<span class="q">G</span>° se dá spočítat, <em>kde přesně</em> se reakce zastaví.</p>
+
+      <h3>Δ<span class="q">G</span> závisí na složení: reakční kvocient <span class="q">Q</span></h3>
+      <p>Tabulková hodnota Δ<span class="q">G</span>° platí pro jednu jedinou situaci — všechny látky ve <b>standardním stavu</b> (koncentrace 1&nbsp;mol·dm⁻³, tlak 100&nbsp;kPa). V&nbsp;reálné směsi jsou koncentrace jiné a&nbsp;mění se v&nbsp;průběhu reakce. Termodynamika to zohledňuje jedním členem navíc:</p>
+      <p class="eq" style="font-size:1.25rem;border-left-width:4px">Δ<span class="q">G</span> = Δ<span class="q">G</span>° + <span class="q">R</span><span class="q">T</span> · ln <span class="q">Q</span></p>
+      <p>kde Δ<span class="q">G</span> (bez kolečka) je hnací síla reakce <b>právě teď</b>, při aktuálním složení, v&nbsp;J·mol⁻¹; Δ<span class="q">G</span>° je standardní reakční Gibbsova energie z&nbsp;tabulek (pozor na kJ → J); <span class="q">R</span> = 8,314&nbsp;J·K⁻¹·mol⁻¹; <span class="q">T</span> je teplota v&nbsp;kelvinech a&nbsp;<span class="q">Q</span> je <span class="term">reakční kvocient</span>.</p>
+      <div class="callout def">
+        <span class="eyebrow">Reakční kvocient</span>
+        <p>Pro reakci <span class="chem">a A + b B ⇌ c C + d D</span> je <span class="q">Q</span> podíl součinu <b>okamžitých</b> relativních koncentrací produktů a&nbsp;výchozích látek, každá umocněná na svůj stechiometrický koeficient:</p>
+        <p class="eq" style="margin-top:.3rem"><span class="q">Q</span> = <span class="mono">(<span class="q">c</span><sub>C</sub>/<span class="q">c</span>°)<sup>c</sup> · (<span class="q">c</span><sub>D</sub>/<span class="q">c</span>°)<sup>d</sup> &nbsp;/&nbsp; (<span class="q">c</span><sub>A</sub>/<span class="q">c</span>°)<sup>a</sup> · (<span class="q">c</span><sub>B</sub>/<span class="q">c</span>°)<sup>b</sup></span></p>
+        <p style="margin-top:.3rem"><span class="q">Q</span> má stejný tvar jako rovnovážná konstanta, ale dosazují se do něj <b>libovolné</b> koncentrace — ty, které ve směsi právě jsou. Je bezrozměrný, protože každou koncentraci dělíme standardní <span class="q">c</span>° = 1&nbsp;mol·dm⁻³ (u&nbsp;plynů tlak standardním <span class="q">p</span>° = 100&nbsp;kPa).</p>
+      </div>
+      <p>Logaritmus dává členu <span class="q">RT</span>·ln&nbsp;<span class="q">Q</span> správné chování: když je produktů málo (<span class="q">Q</span> → 0), je ln&nbsp;<span class="q">Q</span> hluboce záporný a&nbsp;reakce má obrovskou chuť běžet doprava, ať je Δ<span class="q">G</span>° jakékoli. Když je produktů hodně (<span class="q">Q</span> → ∞), je to naopak. <b>Žádná reakce proto neběží úplně do konce</b> — někde uprostřed se hnací síla vynuluje.</p>
+
+      <h3>V&nbsp;rovnováze Δ<span class="q">G</span> = 0: vztah mezi <span class="q">K</span> a&nbsp;Δ<span class="q">G</span>°</h3>
+      <p>Rovnováha je stav, kdy reakce nemá hnací sílu ani jedním směrem: Δ<span class="q">G</span> = 0. Hodnota kvocientu <span class="q">Q</span> v&nbsp;tom okamžiku je něco zvláštního — nezávisí na tom, odkud jsme vyšli, jen na teplotě. Říkáme jí <span class="term">rovnovážná konstanta</span> <span class="q">K</span>. Dosadíme:</p>
+      <p class="eq">0 = Δ<span class="q">G</span>° + <span class="q">RT</span> · ln <span class="q">K</span> &nbsp;&nbsp;⟹&nbsp;&nbsp; <b>Δ<span class="q">G</span>° = −<span class="q">RT</span> · ln <span class="q">K</span></b> &nbsp;&nbsp;⟺&nbsp;&nbsp; <b><span class="q">K</span> = e<sup>−Δ<span class="q">G</span>°/<span class="q">RT</span></sup></b></p>
+      <div class="callout def">
+        <span class="eyebrow">Definice (termodynamická)</span>
+        <p><b>Rovnovážná konstanta</b> <span class="q">K</span> je hodnota reakčního kvocientu v&nbsp;rovnováze. Je určena standardní reakční Gibbsovou energií vztahem Δ<span class="q">G</span>° = −<span class="q">RT</span>&nbsp;ln&nbsp;<span class="q">K</span>. Je <b>bezrozměrná</b> a&nbsp;<b>závisí pouze na teplotě</b> — ne na počátečních koncentracích, ne na tlaku, ne na katalyzátoru.</p>
+      </div>
+      <p>Tenhle vztah je most mezi dvěma tématy vaší osnovy. Z&nbsp;termochemie znáte Δ<span class="q">G</span>° = Δ<span class="q">H</span>° − <span class="q">T</span>Δ<span class="q">S</span>°; z&nbsp;něj teď vyčtete <span class="q">K</span>. Záporná Δ<span class="q">G</span>° znamená <span class="q">K</span> &gt; 1 (rovnováha „vpravo“), kladná Δ<span class="q">G</span>° znamená <span class="q">K</span> &lt; 1 (rovnováha „vlevo“), nula znamená <span class="q">K</span> = 1.</p>
+
+      <h3>Orientační čísla, která stojí za zapamatování</h3>
+      <p>Při 298&nbsp;K je <span class="q">RT</span> = 8,314 · 298,15 = 2479&nbsp;J·mol⁻¹ ≈ 2,48&nbsp;kJ·mol⁻¹ a&nbsp;<span class="q">RT</span>·ln&nbsp;10 = 5,71&nbsp;kJ·mol⁻¹. Každých <b>5,7&nbsp;kJ·mol⁻¹</b> tedy posune <span class="q">K</span> o&nbsp;<b>jeden řád</b>:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="n">Δ<span class="q">G</span>° (298 K)</th><th class="n"><span class="q">K</span></th><th>Co to znamená</th></tr></thead>
+          <tbody>
+            <tr><td class="n">−57 kJ·mol⁻¹</td><td class="n">10¹⁰</td><td>prakticky nevratná, „běží do konce“</td></tr>
+            <tr><td class="n">−17,1 kJ·mol⁻¹</td><td class="n">10³</td><td>rovnováha silně vpravo</td></tr>
+            <tr><td class="n">−11,4 kJ·mol⁻¹</td><td class="n">100</td><td>rovnováha vpravo</td></tr>
+            <tr><td class="n">−5,7 kJ·mol⁻¹</td><td class="n">10</td><td>mírně vpravo</td></tr>
+            <tr><td class="n">0</td><td class="n">1</td><td>reaktanty i&nbsp;produkty „napůl“ (podle stechiometrie)</td></tr>
+            <tr><td class="n">+5,7 kJ·mol⁻¹</td><td class="n">0,1</td><td>mírně vlevo</td></tr>
+            <tr><td class="n">+11,4 kJ·mol⁻¹</td><td class="n">0,01</td><td>rovnováha vlevo</td></tr>
+            <tr><td class="n">+57 kJ·mol⁻¹</td><td class="n">10⁻¹⁰</td><td>prakticky neprobíhá</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Tři pasti na jednotky</span>
+        <p>1. Δ<span class="q">G</span>° je v&nbsp;tabulkách v&nbsp;<b>kJ</b>·mol⁻¹, ale <span class="q">R</span> v&nbsp;<b>J</b>·K⁻¹·mol⁻¹ — před dosazením vynásobte tisícem.<br>
+        2. Logaritmus je <b>přirozený</b> (ln), ne dekadický. Kdo chce log₁₀, musí psát Δ<span class="q">G</span>° = −2,303·<span class="q">RT</span>·log&nbsp;<span class="q">K</span>.<br>
+        3. Teplota v&nbsp;<b>kelvinech</b>. Δ<span class="q">G</span>° = −5,7&nbsp;kJ dá <span class="q">K</span> = 10 jen při 298&nbsp;K; při 1000&nbsp;K vyjde <span class="q">K</span> = 2.</p>
+      </div>
+
+      <h3><span class="q">Q</span> proti <span class="q">K</span>: kompas směru reakce</h3>
+      <p>Odečtením obou rovnic dostanete nejužitečnější vzorec kapitoly:</p>
+      <p class="eq">Δ<span class="q">G</span> = <span class="q">RT</span> · ln (<span class="q">Q</span> / <span class="q">K</span>)</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Porovnání</th><th class="n">Δ<span class="q">G</span></th><th>Co soustava udělá</th></tr></thead>
+          <tbody>
+            <tr><td><b><span class="q">Q</span> &lt; <span class="q">K</span></b> — produktů je „málo“</td><td class="n" style="color:var(--ok)">&lt; 0</td><td>reakce běží samovolně <b>doprava</b>, <span class="q">Q</span> roste, dokud nedosáhne <span class="q">K</span></td></tr>
+            <tr><td><b><span class="q">Q</span> = <span class="q">K</span></b></td><td class="n">0</td><td><b>rovnováha</b> — navenek se nic neděje</td></tr>
+            <tr><td><b><span class="q">Q</span> &gt; <span class="q">K</span></b> — produktů je „moc“</td><td class="n" style="color:var(--bad)">&gt; 0</td><td>reakce běží samovolně <b>doleva</b>, <span class="q">Q</span> klesá, dokud neklesne na <span class="q">K</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Jak to říct u&nbsp;zkoušky</span>
+        <p>„Reakce směřuje vždy tak, aby se <span class="q">Q</span> přiblížilo ke <span class="q">K</span>.“ Když je <span class="q">Q</span> menší než <span class="q">K</span>, musí <span class="q">Q</span> vzrůst — a&nbsp;<span class="q">Q</span> roste jen tehdy, když přibývá produktů, tedy reakcí doprava. Celý Le Chatelierův princip (kapitola 6) je jen tahle věta aplikovaná na různé zásahy.</p>
+      </div>
+
+      <h3>Proč se reakce zastaví uprostřed: graf <span class="q">G</span> podle rozsahu reakce</h3>
+      <p>Představte si, že sledujete Gibbsovu energii celé směsi v&nbsp;závislosti na tom, kolik reakce už proběhlo. Tomu „kolik“ se říká <span class="term">rozsah reakce</span> <span class="q">ξ</span> (ksí): 0 = jen výchozí látky, 1 = jen produkty. Kdyby <span class="q">G</span> byla jen přímka mezi <span class="q">G</span>(reaktanty) a&nbsp;<span class="q">G</span>(produkty), spadla by soustava vždy do jednoho z&nbsp;krajů — reakce by běžely buď úplně, nebo vůbec.</p>
+      <p>Jenže směs má oproti čistým látkám navíc <b>entropii míšení</b>, a&nbsp;ta křivku <span class="q">G</span>(<span class="q">ξ</span>) prohne <b>dolů</b>. Vznikne <b>minimum</b> uvnitř intervalu — a&nbsp;to je rovnováha. Sklon křivky v&nbsp;daném bodě je přesně Δ<span class="q">G</span> = Δ<span class="q">G</span>° + <span class="q">RT</span>&nbsp;ln&nbsp;<span class="q">Q</span>: vlevo od minima je záporný (reakce jde doprava), vpravo kladný (jde doleva), v&nbsp;minimu nulový. Δ<span class="q">G</span>° rozhoduje jen o&nbsp;tom, <b>kde</b> minimum leží: čím zápornější, tím blíž k&nbsp;produktům.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Z&nbsp;Gibbsovy energie na rovnovážnou konstantu: <span class="q">K</span> = e<sup>−Δ<span class="q">G</span>°/<span class="q">RT</span></sup></h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="dgG">Standardní reakční Gibbsova energie Δ<span class="q">G</span>° — <span class="val" id="dgGV">−20 kJ·mol⁻¹</span></label>
+            <input type="range" id="dgG" min="-60" max="60" step="1" value="-20">
+          </div>
+          <div class="ctl">
+            <label for="dgT">Teplota <span class="q">T</span> — <span class="val" id="dgTV">298 K (25 °C)</span></label>
+            <input type="range" id="dgT" min="200" max="1500" step="2" value="298">
+          </div>
+        </div>
+        <div class="svgwrap" id="dgWrap" style="min-height:200px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="dgRoK"><span class="k">Rovnovážná konstanta</span><span class="v">—</span><span class="h">K = exp(−ΔG°/RT)</span></div>
+          <div class="readout" id="dgRoLn"><span class="k">ln <span class="q">K</span></span><span class="v">—</span><span class="h">= −ΔG°/(RT)</span></div>
+          <div class="readout" id="dgRoDir"><span class="k">Poloha rovnováhy</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+        <div class="tablewrap" style="margin-top:1rem"><table><thead><tr>
+          <th class="n">Δ<span class="q">G</span>° [kJ·mol⁻¹]</th><th class="n"><span class="q">K</span> při 298 K</th><th class="n"><span class="q">K</span> při <span id="dgTh">298</span> K</th><th>čtení</th>
+        </tr></thead><tbody id="dgTable"></tbody></table></div>
+      </div>
+      <div class="panel-note" id="dgNote">Zkuste nastavit Δ<span class="q">G</span>° = −5,7&nbsp;kJ·mol⁻¹ při 298&nbsp;K — vyjde <span class="q">K</span> = 10. Pak zvyšte teplotu na 600&nbsp;K a&nbsp;sledujte, jak se totéž Δ<span class="q">G</span>° „rozmělní“: exponent −Δ<span class="q">G</span>°/<span class="q">RT</span> se zmenší a&nbsp;<span class="q">K</span> spadne ke 3.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Gibbsova energie směsi podél reakce — minimum je rovnováha</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="gxG">Δ<span class="q">G</span>° reakce A ⇌ B — <span class="val" id="gxGV">−5 kJ·mol⁻¹</span></label>
+            <input type="range" id="gxG" min="-15" max="15" step="0.5" value="-5">
+          </div>
+          <div class="ctl">
+            <label for="gxXi">Aktuální složení směsi (podíl B) — <span class="val" id="gxXiV">0,20</span></label>
+            <input type="range" id="gxXi" min="0.02" max="0.98" step="0.01" value="0.2">
+          </div>
+        </div>
+        <div class="svgwrap" id="gxWrap" style="min-height:330px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--ink-2)"></span><span class="q">G</span> směsi (298 K, ideální míšení)</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>tečna = Δ<span class="q">G</span> při daném složení</span>
+          <span class="li"><span class="sw" style="background:var(--ok)"></span>minimum = rovnováha, <span class="q">Q</span> = <span class="q">K</span></span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="gxRoQ"><span class="k">Kvocient <span class="q">Q</span> = [B]/[A]</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="gxRoDG"><span class="k">Δ<span class="q">G</span> = Δ<span class="q">G</span>° + <span class="q">RT</span> ln <span class="q">Q</span></span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="gxRoEq"><span class="k">Rovnováha</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="gxNote">Posouvejte složení a&nbsp;sledujte sklon tečny: vlevo od minima míří dolů (Δ<span class="q">G</span> &lt; 0, reakce jde doprava), vpravo nahoru (Δ<span class="q">G</span> &gt; 0, jde zpět). Pak změňte Δ<span class="q">G</span>° na 0 — minimum skočí přesně doprostřed, <span class="q">K</span> = 1.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.1 · <span class="q">K</span> ze standardní Gibbsovy energie</span>
+          <p>Standardní slučovací Gibbsova energie amoniaku je Δ<span class="q">G</span>°<sub>f</sub>(NH₃, g) = −16,4&nbsp;kJ·mol⁻¹. Vypočítejte rovnovážnou konstantu reakce <span class="chem">N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g)</span> při 25&nbsp;°C.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Δ<span class="q">G</span>° reakce ze slučovacích hodnot — produkty mínus reaktanty, prvky mají nulu. Pozor na koeficient 2.</p>
+              <p class="eq">Δ<span class="q">G</span>° = 2 · (−16,4) − (0 + 3 · 0) = <b>−32,8 kJ·mol⁻¹</b> = −32 800 J·mol⁻¹</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Vyjádříme ln&nbsp;<span class="q">K</span>. Jednotky: J děleno J — bezrozměrné.</p>
+              <p class="eq">ln <span class="q">K</span> = −Δ<span class="q">G</span>°/(<span class="q">RT</span>) = 32 800 / (8,314 · 298,15) = 32 800 / 2479 = <b>13,23</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Odlogaritmujeme.</p>
+              <p class="eq"><span class="q">K</span> = e<sup>13,23</sup> ≈ <b>5,6·10⁵</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Interpretace: při pokojové teplotě leží rovnováha <b>daleko na straně amoniaku</b>. Že se přesto amoniak vyrábí při 450&nbsp;°C, kde je <span class="q">K</span> řádově 10⁻⁴, je věc rychlosti — a&nbsp;téma kapitoly 5.</p>
+              <span class="result"><span class="q">K</span>(298 K) ≈ 5,6·10⁵ — rovnováha silně vpravo</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.2 · obráceně: Δ<span class="q">G</span>° z&nbsp;rovnovážné konstanty</span>
+          <p>Esterifikace <span class="chem">CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O</span> má při 25&nbsp;°C <span class="q">K</span> = 4,0. Jaká je Δ<span class="q">G</span>°? Je reakce za standardních podmínek samovolná?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p class="eq">Δ<span class="q">G</span>° = −<span class="q">RT</span> ln <span class="q">K</span> = −8,314 · 298,15 · ln 4,0 = −2479 · 1,386 = <b>−3436 J·mol⁻¹ ≈ −3,4 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Záporná, ale malá: reakce je za standardních podmínek samovolná, ale rovnováha leží „jen kousek“ vpravo. Z&nbsp;ekvimolární směsi zreagují dvě třetiny (kapitola 4). Srovnejte s&nbsp;orientační tabulkou: −5,7&nbsp;kJ by dalo <span class="q">K</span> = 10, my máme −3,4 → <span class="q">K</span> = 4. Sedí.</p>
+              <span class="result">Δ<span class="q">G</span>° ≈ −3,4 kJ·mol⁻¹ — samovolná, ale rovnováha jen mírně vpravo</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.3 · kterým směrem reakce poběží?</span>
+          <p>Při 448&nbsp;°C (721&nbsp;K) je pro <span class="chem">H₂(g) + I₂(g) ⇌ 2 HI(g)</span> <span class="q">K</span> = 50. Do nádoby dáme směs o&nbsp;koncentracích <span class="q">c</span>(H₂) = 0,10; <span class="q">c</span>(I₂) = 0,20; <span class="q">c</span>(HI) = 0,40&nbsp;mol·dm⁻³. Je směs v&nbsp;rovnováze? Pokud ne, kterým směrem reakce poběží a&nbsp;jaká je Δ<span class="q">G</span>?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Spočítáme reakční kvocient z&nbsp;<b>aktuálních</b> koncentrací (relativní, děleno 1&nbsp;mol·dm⁻³).</p>
+              <p class="eq"><span class="q">Q</span> = <span class="q">c</span>(HI)² / (<span class="q">c</span>(H₂) · <span class="q">c</span>(I₂)) = 0,40² / (0,10 · 0,20) = 0,16 / 0,020 = <b>8,0</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Porovnáme: <span class="q">Q</span> = 8 &lt; <span class="q">K</span> = 50. Produktů je vzhledem k&nbsp;rovnováze <b>málo</b> → reakce poběží <b>doprava</b>, bude vznikat HI, dokud <span class="q">Q</span> nevzroste na 50.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Hnací síla:</p>
+              <p class="eq">Δ<span class="q">G</span> = <span class="q">RT</span> ln(<span class="q">Q</span>/<span class="q">K</span>) = 8,314 · 721 · ln(8/50) = 5994 · (−1,833) = <b>−11 000 J·mol⁻¹ ≈ −11 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Záporná Δ<span class="q">G</span> potvrzuje samovolný průběh doprava. Všimněte si, že jsme vůbec nepotřebovali Δ<span class="q">G</span>° — stačilo porovnat <span class="q">Q</span> s&nbsp;<span class="q">K</span>.</p>
+              <span class="result"><span class="q">Q</span> = 8 &lt; <span class="q">K</span> = 50 → doprava; Δ<span class="q">G</span> ≈ −11 kJ·mol⁻¹</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: K a Gibbsova energie"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

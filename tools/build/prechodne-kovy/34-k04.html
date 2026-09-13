@@ -1,0 +1,196 @@
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Triáda železa">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 5</span>
+      <h2>Triáda železa: železo, kobalt, nikl</h2>
+      <p class="lead">Uprostřed periodické tabulky je jediné místo, kde tři sousedé <b>v&nbsp;jedné řadě</b> patří k&nbsp;sobě víc než ke svým svislým sousedům. Železo, kobalt a&nbsp;nikl mají skoro stejný poloměr, skoro stejnou elektronegativitu, stejnou dvojici oxidačních čísel a&nbsp;jako jediné tři prvky v&nbsp;celé tabulce jsou za laboratorní teploty feromagnetické.</p>
+
+      <h3>Proč zrovna tyhle tři</h3>
+      <p>Skupiny 8, 9 a&nbsp;10 obsahují dohromady devět prvků, které se tradičně dělí na tři vodorovné trojice — <span class="term">triády</span>. První z&nbsp;nich je triáda železa (Fe, Co, Ni), zbylé dvě tvoří <b>platinové kovy</b> (Ru, Rh, Pd a&nbsp;Os, Ir, Pt).</p>
+      <p>Za vodorovnou podobností stojí to, o&nbsp;čem byla řeč v&nbsp;kapitole 0: přibývající elektron jde do vnitřní vrstvy <span class="chem">3d</span>, kdežto vnější sféra <span class="chem">4s²</span> zůstává. Poloměry se proto liší jen o&nbsp;jednotky pikometrů (Fe 126, Co 125, Ni 125&nbsp;pm) a&nbsp;elektronegativity jen o&nbsp;setiny (1,83 · 1,88 · 1,91).</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past</span>
+        <p>Žádný z&nbsp;prvků triády <b>nedosáhne oxidačního čísla podle své skupiny</b>. Železo by potřebovalo VIII, kobalt IX, nikl X&nbsp;— a&nbsp;prakticky se zastaví u&nbsp;III, respektive u&nbsp;II. Stavu VIII dosáhnou ve skupině 8 jen ruthenium a&nbsp;osmium, a&nbsp;i&nbsp;to jen v&nbsp;oxidech <span class="chem">RuO₄</span> a&nbsp;<span class="chem">OsO₄</span>.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Tři sousedi vedle sebe — v&nbsp;čem se shodnou a&nbsp;v&nbsp;čem ne</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" style="flex-wrap:wrap" id="triSeg" role="group" aria-label="Prvek triády">
+          <button type="button" data-tri="fe" aria-pressed="true">Železo</button>
+          <button type="button" data-tri="co" aria-pressed="false">Kobalt</button>
+          <button type="button" data-tri="ni" aria-pressed="false">Nikl</button>
+        </div>
+        <div class="svgwrap" id="triWrap" style="min-height:320px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="triRo1"></div>
+          <div class="readout" id="triRo2"></div>
+          <div class="readout" id="triRo3"></div>
+        </div>
+        <div id="triList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="triNote">Přepínejte mezi prvky a&nbsp;sledujte dva sloupce zvlášť. Vlastnosti kovu (poloměr, teplota tání, hustota) se skoro nemění — to je ta vodorovná podobnost. Zato Curieova teplota skáče od 358 °C u&nbsp;niklu přes 770 °C u&nbsp;železa až k&nbsp;1115 °C u&nbsp;kobaltu, a&nbsp;stálost oxidačního stavu III klesá zleva doprava.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Železo: dvojice Fe²⁺ a&nbsp;Fe³⁺</h3>
+      <p>Železo má <span class="chem">[Ar] 3d⁶ 4s²</span> a&nbsp;v&nbsp;praxi jen dvě oxidační čísla. Rozdíl mezi nimi je jádrem celé chemie železa:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th></th><th>Železnaté Fe²⁺</th><th>Železité Fe³⁺</th></tr></thead>
+          <tbody>
+            <tr><td>Konfigurace</td><td><span class="chem">3d⁶</span>, 4 nepárové elektrony</td><td><span class="chem">3d⁵</span>, 5 nepárových elektronů</td></tr>
+            <tr><td>Barva akvakomplexu</td><td>bledě zelená</td><td>bledě fialová, v&nbsp;praxi žlutohnědá hydrolýzou</td></tr>
+            <tr><td>Stabilita ve vodě</td><td>na vzduchu se oxiduje na Fe³⁺</td><td>stálý, poloviční zaplnění d⁵</td></tr>
+            <tr><td>Hydroxid</td><td><span class="chem">Fe(OH)₂</span> bělavě zelený, rychle hnědne</td><td><span class="chem">Fe(OH)₃</span> červenohnědý, rosolovitý</td></tr>
+            <tr><td>Hydrolýza soli</td><td>slabá, roztok mírně kyselý</td><td>silná, roztok výrazně kyselý</td></tr>
+            <tr><td>Typický zástupce</td><td><span class="chem">FeSO₄·7H₂O</span> — zelená skalice</td><td><span class="chem">FeCl₃</span> — leptadlo, koagulant</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="eq">standardní potenciál dvojice: <span class="chem">Fe³⁺ + e⁻ → Fe²⁺</span>, &nbsp;<span class="q">E</span>° = +0,77&nbsp;V<br>
+      <span style="color:var(--ink-3)">to je uprostřed — proto se dá železo snadno oxidovat i&nbsp;redukovat, a&nbsp;proto je tak dobrým katalyzátorem redoxních dějů</span></p>
+      <p class="eq">oxidace železnatého hydroxidu vzdušným kyslíkem (počátek rezavění):<br>
+      <span class="chem">4 Fe(OH)₂ + O₂ + 2 H₂O → 4 Fe(OH)₃</span></p>
+      <p class="eq">hydrolýza železité soli — proto je roztok chloridu železitého kyselý:<br>
+      <span class="chem">[Fe(H₂O)₆]³⁺ + H₂O ⇌ [Fe(H₂O)₅(OH)]²⁺ + H₃O⁺</span></p>
+      <div class="callout tip">
+        <span class="eyebrow">Proč hydrolyzuje Fe³⁺ silněji</span>
+        <p>Kation s&nbsp;větším nábojem na menším poloměru přitahuje elektrony vazby O–H v&nbsp;koordinované vodě silněji. Proton se pak snáz odštěpí. Je to stejná úvaha jako u&nbsp;kyselosti oxidů podle oxidačního čísla — jen na úrovni jednoho iontu.</p>
+      </div>
+
+      <h3>Železo ve vysokých oxidačních číslech</h3>
+      <p>Železo VI existuje jako <b>železan</b> <span class="chem">FeO₄²⁻</span>, ale jen v&nbsp;silně zásaditém prostředí. Připraví se oxidací hydroxidu železitého chlornanem:</p>
+      <p class="eq"><span class="chem">2 Fe(OH)₃ + 3 ClO⁻ + 4 OH⁻ → 2 FeO₄²⁻ + 3 Cl⁻ + 5 H₂O</span></p>
+      <p>Železany jsou červenofialové a&nbsp;patří k&nbsp;nejsilnějším známým oxidovadlům. Zkoumají se jako ekologické činidlo pro úpravu vody — oxidují znečištění a&nbsp;samy se rozloží na neškodný hydroxid železitý, který zároveň funguje jako koagulant.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Rozlišíte železnatý ion od železitého? Důkazové reakce vedle sebe</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="feCin">Přidané činidlo</label>
+            <select id="feCin"></select>
+          </div>
+          <div class="ctl">
+            <label for="feSegL">Zkoumaný ion</label>
+            <div class="segmented" style="flex-wrap:wrap" id="feSeg" role="group" aria-label="Ion železa">
+              <button type="button" data-fe="2" aria-pressed="true">Fe²⁺ železnatý</button>
+              <button type="button" data-fe="3" aria-pressed="false">Fe³⁺ železitý</button>
+            </div>
+            <span id="feSegL" class="eyebrow">Přepněte a&nbsp;porovnejte, jak se obě zkumavky liší.</span>
+          </div>
+        </div>
+        <div class="svgwrap" id="feWrap" style="min-height:280px"></div>
+        <div class="grid2" style="margin-top:1rem">
+          <div class="readout" id="feRo1"></div>
+          <div class="readout" id="feRo2"></div>
+        </div>
+        <p class="eq" id="feRce" style="margin-top:1rem"></p>
+        <div id="feList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="feNote">Projděte všechna činidla u&nbsp;obou iontů. Nejjednoznačnější je thiokyanatan: s&nbsp;železitým iontem dá krvavě červené zbarvení, s&nbsp;železnatým vůbec nic. Krevní soli dají v&nbsp;obou případech modrou sraženinu, ale musí se použít <b>ta správná</b> — a&nbsp;právě na tom se ve škole nejčastěji chybuje.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Komplexy železa a&nbsp;jejich role v&nbsp;životě</h3>
+      <p>Železo je nejběžnějším prvkem bloku d&nbsp;v&nbsp;živých organismech. V&nbsp;<b>hemoglobinu</b> je atom železa II uprostřed porfyrinového kruhu; čtyři vazby drží dusíky kruhu, pátou bílkovinu a&nbsp;šestá je volná — a&nbsp;právě na ni se reverzibilně váže molekula <span class="chem">O₂</span>. Železo se přitom <b>neoxiduje</b>; kdyby přešlo na III, hemoglobin by kyslík vázat přestal.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Proč je oxid uhelnatý tak nebezpečný</span>
+        <p>Molekula <span class="chem">CO</span> se váže na tentýž atom železa jako kyslík, ale asi dvěstěkrát pevněji. Důvodem je zpětná donace π, o&nbsp;které bude řeč v&nbsp;kapitole 7. Otrava tedy není udušením z&nbsp;nedostatku kyslíku ve vzduchu, ale <b>zablokováním přenašeče</b>.</p>
+      </div>
+      <p class="eq">nejznámější komplexy železa:<br>
+      <span class="chem">K₄[Fe(CN)₆]</span> žlutá krevní sůl — Fe<sup>II</sup>, nízkospinový, diamagnetický<br>
+      <span class="chem">K₃[Fe(CN)₆]</span> červená krevní sůl — Fe<sup>III</sup>, jeden nepárový elektron<br>
+      <span class="chem">Fe₄[Fe(CN)₆]₃</span> berlínská modř — obsahuje Fe<sup>II</sup> i&nbsp;Fe<sup>III</sup> vedle sebe</p>
+      <div class="callout tip">
+        <span class="eyebrow">Odkud se bere ta modř</span>
+        <p>Berlínská modř má tak intenzivní barvu proto, že v&nbsp;její mřížce sedí vedle sebe <span class="chem">Fe²⁺</span> a&nbsp;<span class="chem">Fe³⁺</span> propojené kyanidovými můstky, a&nbsp;mezi nimi <b>přeskakuje elektron</b>. Je to opět přenos náboje, tentokrát mezi dvěma kovy — proto je zbarvení tak sytější než u&nbsp;běžných přechodů d–d.</p>
+      </div>
+
+      <h3>Kobalt</h3>
+      <p>Kobalt má <span class="chem">[Ar] 3d⁷ 4s²</span>. V&nbsp;jednoduchých solích je stálý stav <b>II</b>, v&nbsp;komplexech s&nbsp;dusíkatými ligandy naopak <b>III</b>. To je pěkná ukázka toho, jak ligand rozhoduje o&nbsp;tom, které oxidační číslo je výhodnější: silné pole stabilizuje nízkospinovou konfiguraci <span class="chem">d⁶</span>, kterou má právě Co<sup>III</sup>.</p>
+      <p class="eq">rovnováha růžového a&nbsp;modrého kobaltu (indikátor vlhkosti v&nbsp;silikagelu):<br>
+      <span class="chem">[Co(H₂O)₆]²⁺ + 4 Cl⁻ ⇌ [CoCl₄]²⁻ + 6 H₂O</span><br>
+      <span style="color:var(--ink-3)">růžový oktaedrický&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modrý tetraedrický</span></p>
+      <p>Kobaltnaté křemičitany jsou hlavní složkou modrých smaltů a&nbsp;kobaltového skla; hlinitan <span class="chem">CoAl₂O₄</span> je pigment zvaný Thénardova modř. Kobalt je také součástí <b>vitaminu B₁₂</b> — jediného vitaminu, který obsahuje kov. Technicky se používá v&nbsp;superslitinách pro lopatky turbín a&nbsp;v&nbsp;katodách lithiových akumulátorů.</p>
+
+      <h3>Nikl</h3>
+      <p>Nikl má <span class="chem">[Ar] 3d⁸ 4s²</span> a&nbsp;prakticky jediné oxidační číslo <b>II</b>. Proměnlivost, kterou jsme sledovali od skandia, tady už vyhasla. Kov je ušlechtilejší než železo, na vlhkém vzduchu nekoroduje a&nbsp;dobře se pasivuje — proto se jím poniklovává.</p>
+      <p class="eq">Mondův proces čištění niklu — dvě reakce téhož typu v&nbsp;opačném směru:<br>
+      <span class="chem">Ni + 4 CO → [Ni(CO)₄]</span> &nbsp;<span style="color:var(--ink-3)">při 50 až 60 °C, nečistoty nereagují</span><br>
+      <span class="chem">[Ni(CO)₄] → Ni + 4 CO</span> &nbsp;<span style="color:var(--ink-3)">při 230 °C, vzniká nikl o&nbsp;čistotě přes 99,9 %</span></p>
+      <p>Nikl je taky nejběžnější hydrogenační katalyzátor (ztužování tuků), složka nerezavějících ocelí a&nbsp;kladná elektroda akumulátorů:</p>
+      <p class="eq"><span class="chem">NiO(OH) + H₂O + e⁻ ⇌ Ni(OH)₂ + OH⁻</span></p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · identifikace neznámého roztoku</span>
+          <p>Máte tři zkumavky se světle zeleným, žlutohnědým a&nbsp;růžovým roztokem. Víte, že jde o&nbsp;sůl železnatou, železitou a&nbsp;kobaltnatou. Navrhněte postup, jak je bez pochyb rozlišíte, a&nbsp;napište reakce.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Barva sama o&nbsp;sobě nestačí — světle zelený může být i&nbsp;roztok nikelnatý a&nbsp;žlutohnědý i&nbsp;roztok chromitý. Potřebujeme důkazové reakce.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Krok 1 — thiokyanatan draselný.</b> Přidáme do všech tří zkumavek:</p>
+              <p class="eq"><span class="chem">Fe³⁺ + SCN⁻ → [Fe(SCN)]²⁺</span> — krvavě červené zbarvení</p>
+              <p>Jen jedna zkumavka zčervená: ta obsahuje <b>železitou sůl</b>. Zbylé dvě jsou beze změny.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>Krok 2 — červená krevní sůl.</b> Do zbylých dvou přidáme <span class="chem">K₃[Fe(CN)₆]</span>. Nejdřív si obě částice vymění elektron, pak se vysráží pigment:</p>
+              <p class="eq"><span class="chem">Fe²⁺ + [Fe(CN)₆]³⁻ → Fe³⁺ + [Fe(CN)₆]⁴⁻</span><br>
+              <span class="chem">4 Fe³⁺ + 3 [Fe(CN)₆]⁴⁻ → Fe₄[Fe(CN)₆]₃</span> — tmavě modrá sraženina</p>
+              <p>Zkumavka, kde vznikla modrá sraženina, obsahovala <b>železnatou sůl</b>. Dřív se produktu téhle reakce říkalo Turnbullova modř a&nbsp;považoval se za jinou látku než berlínská modř; dnes víme, že jde o&nbsp;tutéž sloučeninu.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b>Krok 3 — potvrzení kobaltu.</b> Poslední zkumavku okyselíme a&nbsp;přidáme koncentrovanou kyselinu chlorovodíkovou:</p>
+              <p class="eq"><span class="chem">[Co(H₂O)₆]²⁺ + 4 Cl⁻ → [CoCl₄]²⁻ + 6 H₂O</span> — růžová se změní na sytě modrou</p>
+              <p>Změna barvy po zředění vodou zase zmizí — reakce je vratná, což potvrzuje, že jde o&nbsp;záměnu ligandů, ne o&nbsp;redoxní děj.</p>
+              <span class="result">Postup: SCN⁻ na Fe³⁺ → červená krevní sůl na Fe²⁺ → koncentrovaná HCl na Co²⁺</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · obsah železa v&nbsp;rudě</span>
+          <p>Kolik procent železa obsahuje čistý hematit <span class="chem">Fe₂O₃</span> a&nbsp;kolik čistý magnetit <span class="chem">Fe₃O₄</span>? Který je bohatší a&nbsp;proč? <span class="q">M</span>(Fe) = 55,85, <span class="q">M</span>(O) = 16,00&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Molární hmotnosti:</p>
+              <p class="eq"><span class="q">M</span>(Fe₂O₃) = 2 · 55,85 + 3 · 16,00 = <b>159,70&nbsp;g·mol⁻¹</b><br>
+              <span class="q">M</span>(Fe₃O₄) = 3 · 55,85 + 4 · 16,00 = <b>231,55&nbsp;g·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Hmotnostní zlomek železa:</p>
+              <p class="eq"><span class="q">w</span>(Fe) v&nbsp;Fe₂O₃ = 2 · 55,85 / 159,70 = 0,6994 → <b>69,9 %</b><br>
+              <span class="q">w</span>(Fe) v&nbsp;Fe₃O₄ = 3 · 55,85 / 231,55 = 0,7236 → <b>72,4 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Bohatší je <b>magnetit</b>. Důvod: obsahuje část železa v&nbsp;oxidačním stavu II, tedy s&nbsp;menším podílem kyslíku na jeden atom železa. Poměr O&nbsp;: Fe je u&nbsp;hematitu 1,5, u&nbsp;magnetitu jen 1,33.</p>
+              <p>Rozdíl 2,5 procentního bodu vypadá málo, ale při milionech tun zpracované rudy ročně to rozhoduje o&nbsp;ekonomice těžby.</p>
+              <span class="result">Fe₂O₃ = 69,9 % Fe · Fe₃O₄ = 72,4 % Fe — magnetit je bohatší</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: triáda železa"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

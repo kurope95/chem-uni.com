@@ -1,0 +1,199 @@
+
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Beketovova řada a odhad průběhu">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · osnova, bod 3</span>
+      <h2>Odhad průběhu redoxní reakce — Beketovova řada a&nbsp;<span class="q">E</span>°</h2>
+      <p class="lead">Teď z&nbsp;tabulky uděláme nástroj. Otázka „proběhne reakce?“ má dvě odpovědi: rychlou kvalitativní z&nbsp;Beketovovy řady a&nbsp;přesnou číselnou z&nbsp;rozdílu potenciálů. Obě říkají totéž, jen druhá umí i&nbsp;„o&nbsp;kolik“.</p>
+
+      <h3>Beketovova řada kovů</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Beketovova řada</b> (řada reaktivity kovů, elektrochemická řada napětí) je kovy seřazené podle rostoucího standardního redukčního potenciálu, tedy podle <b>klesající ochoty oxidovat se</b>. Vodík je v&nbsp;ní zařazen jako dělicí čára.</p>
+        <p class="eq" style="margin-top:.3rem;font-size:.95rem">Li K Ca Na Mg Al Mn Zn Cr Fe Cd Ni Sn Pb <b>H</b> Cu Ag Hg Pt Au<br><span style="color:var(--ink-3)">← neušlechtilé (E° &lt; 0) &nbsp;&nbsp;|&nbsp;&nbsp; ušlechtilé (E° &gt; 0) →</span></p>
+      </div>
+      <p>Kovy <b>vlevo od vodíku</b> jsou <span class="term">neušlechtilé</span>: mají záporný <span class="q">E</span>°, snadno se oxidují, v&nbsp;přírodě se vyskytují jen ve sloučeninách. Kovy <b>vpravo od vodíku</b> jsou <span class="term">ušlechtilé</span>: kladný <span class="q">E</span>°, oxidují se neochotně, zlato a&nbsp;platinu najdete ryzí. Nikolaj Beketov sestavil řadu v&nbsp;60. letech 19. století z&nbsp;pokusů s&nbsp;vytěsňováním — dnes víme, že je to jen výřez tabulky <span class="q">E</span>° pro kovy.</p>
+
+      <h3>Tři pravidla, která z&nbsp;řady plynou</h3>
+      <p><b>1. Vytěsňování z&nbsp;roztoku soli.</b> Kov vlevo vytěsní z&nbsp;roztoku kterýkoli kov vpravo od sebe: <span class="chem">Zn + CuSO₄ → ZnSO₄ + Cu</span>, <span class="chem">Cu + 2 AgNO₃ → Cu(NO₃)₂ + 2 Ag</span>, <span class="chem">Fe + CuSO₄ → FeSO₄ + Cu</span>. Obráceně (<span class="chem">Cu + ZnSO₄</span>) nic.<br>
+      <b>2. Vytěsňování vodíku z&nbsp;kyselin.</b> Kovy vlevo od H reagují se zředěnou HCl nebo H₂SO₄ za vývoje vodíku: <span class="chem">Zn + 2 HCl → ZnCl₂ + H₂</span>. Kovy vpravo od H (Cu, Ag, Hg, Au) vodík z&nbsp;kyselin <b>nevytěsní nikdy</b>.<br>
+      <b>3. Reakce s&nbsp;vodou.</b> Nejneušlechtilejší kovy (Li, K, Ca, Na) reagují s&nbsp;vodou už <b>za studena</b> (<span class="chem">2 Na + 2 H₂O → 2 NaOH + H₂</span>); Mg s&nbsp;horkou vodou; Al, Zn, Fe jen s&nbsp;<b>vodní párou</b> za žáru (<span class="chem">3 Fe + 4 H₂O(g) → Fe₃O₄ + 4 H₂</span>); ostatní s&nbsp;vodou nereagují.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Tři pasti kolem kyselin</span>
+        <p>• <b>Oxidující kyseliny</b> (HNO₃ jakékoli koncentrace, horká koncentrovaná H₂SO₄) rozpouští i&nbsp;měď, stříbro a&nbsp;rtuť — ale <b>ne uvolněním vodíku</b>. Oxidačním činidlem není H⁺, ale dusičnan (<span class="q">E</span>° = 0,96 V) nebo síran: <span class="chem">Cu + 4 HNO₃(konc.) → Cu(NO₃)₂ + 2 NO₂ + 2 H₂O</span>; <span class="chem">Cu + 2 H₂SO₄(konc.) → CuSO₄ + SO₂ + 2 H₂O</span>.<br>
+        • <b>Pasivace.</b> Al, Fe a&nbsp;Cr se v&nbsp;koncentrované HNO₃ pokryjí vrstvičkou oxidu a&nbsp;přestanou reagovat, přestože jsou hluboko pod vodíkem. Proto se koncentrovaná HNO₃ vozí v&nbsp;hliníkových a&nbsp;ocelových cisternách.<br>
+        • <b>Olovo</b> je pod vodíkem, ale se zředěnou HCl a&nbsp;H₂SO₄ prakticky nereaguje — hned se pokryje nerozpustným PbCl₂ resp. PbSO₄.<br>
+        Zlato a&nbsp;platina se rozpouští jen v&nbsp;<b>lučavce královské</b> (HNO₃ + 3 HCl): dusičnan oxiduje a&nbsp;chlorid stahuje ionty do komplexu [AuCl₄]⁻, čímž potenciál zlata sníží.</p>
+      </div>
+
+      <h3>Odhad z&nbsp;hodnoty redukčního potenciálu</h3>
+      <p>Beketovova řada funguje jen pro kovy. Tabulka <span class="q">E</span>° funguje pro všechno — halogeny, manganistan, peroxid. Pravidlo je jediné:</p>
+      <p class="eq" style="font-size:1.1rem">Δ<span class="q">E</span>° = <span class="q">E</span>°(<b>oxidační činidlo</b>, tj. pár, který se redukuje) − <span class="q">E</span>°(<b>redukční činidlo</b>, tj. pár, který se oxiduje)<br><br>Δ<span class="q">E</span>° &gt; 0 → reakce je samovolná (Δ<span class="q">G</span>° &lt; 0) &nbsp;&nbsp;·&nbsp;&nbsp; Δ<span class="q">E</span>° &lt; 0 → samovolná je zpětná reakce</p>
+      <p>Je to přesně vzorec pro napětí článku z&nbsp;úvodního modelu: <span class="q">E</span>°<sub>článku</sub> = <span class="q">E</span>°<sub>katoda</sub> − <span class="q">E</span>°<sub>anoda</sub>. Reakce, kterou lze „zapřáhnout“ do článku s&nbsp;kladným napětím, proběhne samovolně i&nbsp;ve zkumavce.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Reakce</th><th class="n"><span class="q">E</span>°(ox.)</th><th class="n"><span class="q">E</span>°(red.)</th><th class="n">Δ<span class="q">E</span>°</th><th>Verdikt</th></tr></thead>
+          <tbody>
+            <tr><td class="chem">Cu + 2 Ag⁺ → Cu²⁺ + 2 Ag</td><td class="n">+0,80</td><td class="n">+0,34</td><td class="n" style="color:var(--ok)">+0,46</td><td><span class="tag ok">proběhne</span></td></tr>
+            <tr><td class="chem">Cu + Zn²⁺ → Cu²⁺ + Zn</td><td class="n">−0,76</td><td class="n">+0,34</td><td class="n" style="color:var(--bad)">−1,10</td><td><span class="tag bad">ne — opačně ano</span></td></tr>
+            <tr><td class="chem">2 Fe³⁺ + 2 I⁻ → 2 Fe²⁺ + I₂</td><td class="n">+0,77</td><td class="n">+0,54</td><td class="n" style="color:var(--ok)">+0,23</td><td><span class="tag ok">proběhne</span></td></tr>
+            <tr><td class="chem">2 Fe³⁺ + 2 Br⁻ → 2 Fe²⁺ + Br₂</td><td class="n">+0,77</td><td class="n">+1,07</td><td class="n" style="color:var(--bad)">−0,30</td><td><span class="tag bad">ne</span></td></tr>
+            <tr><td class="chem">Cl₂ + 2 Br⁻ → 2 Cl⁻ + Br₂</td><td class="n">+1,36</td><td class="n">+1,07</td><td class="n" style="color:var(--ok)">+0,29</td><td><span class="tag ok">proběhne</span></td></tr>
+            <tr><td class="chem">Br₂ + 2 Cl⁻ → 2 Br⁻ + Cl₂</td><td class="n">+1,07</td><td class="n">+1,36</td><td class="n" style="color:var(--bad)">−0,29</td><td><span class="tag bad">ne</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem">Všimněte si dvojic: reakce a&nbsp;její obrácení mají Δ<span class="q">E</span>° opačného znaménka. Jedna z&nbsp;nich proběhne vždy — otázka je jen která.</p>
+
+      <h3>Od Δ<span class="q">E</span>° k&nbsp;Δ<span class="q">G</span>° a&nbsp;rovnovážné konstantě</h3>
+      <p>Napětí článku je práce, kterou článek vykoná na jednotku náboje. Přenese-li reakce <span class="q">z</span> molů elektronů, tedy náboj <span class="q">z</span>·<span class="q">F</span>, je maximální práce (= úbytek Gibbsovy energie):</p>
+      <p class="eq" style="font-size:1.15rem;border-left-width:4px">Δ<span class="q">G</span>° = −<span class="q">z</span>·<span class="q">F</span>·<span class="q">E</span>° &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)"><span class="q">F</span> = 96 485 C·mol⁻¹, <span class="q">E</span>° ve V → Δ<span class="q">G</span>° v&nbsp;J·mol⁻¹</span></p>
+      <p>Znaménko minus zařídí, že kladné <span class="q">E</span>° dá zápornou Δ<span class="q">G</span>° — obě kritéria samovolnosti se shodují. A&nbsp;protože z&nbsp;termochemie víme Δ<span class="q">G</span>° = −<span class="q">RT</span>·ln <span class="q">K</span>, spojíme:</p>
+      <p class="eq">ln <span class="q">K</span> = <span class="q">zFE</span>°/<span class="q">RT</span> &nbsp;&nbsp;&nbsp;⇔&nbsp;&nbsp;&nbsp; log <span class="q">K</span> = <span class="q">z</span>·<span class="q">E</span>° / 0,0592 &nbsp;&nbsp;(při 25 °C)</p>
+      <p>Důsledek, který stojí za zapamatování: <b>každých 0,0592/<span class="q">z</span> voltu je jeden řád v&nbsp;<span class="q">K</span></b>. Daniellův článek s&nbsp;1,10 V a&nbsp;<span class="q">z</span> = 2 má log <span class="q">K</span> = 37 — reakce běží „do konce“. Rozdíl 0,1 V při <span class="q">z</span> = 1 znamená <span class="q">K</span> ≈ 50; to je rovnováha, kterou koncentrace snadno přetáhnou.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Kladné E° znamená „může“, ne „bude rychle“</span>
+        <p>Δ<span class="q">E</span>° &gt; 0 je termodynamický verdikt. O&nbsp;<b>rychlosti</b> rozhoduje kinetika — aktivační energie, přepětí, pasivační vrstvy. Hliník s&nbsp;<span class="q">E</span>° = −1,66 V by měl rozpouštět v&nbsp;každé louži, ale chrání ho Al₂O₃. Vodík a&nbsp;kyslík mají Δ<span class="q">E</span>° = 1,23 V, a&nbsp;přesto směs v&nbsp;lahvi vydrží roky, dokud nepřiskočí jiskra. Elektrochemie vám řekne, kterým směrem svět padá; jak rychle padá, je jiná otázka.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Beketovova řada — vyzkoušejte kov proti soli, kyselině a&nbsp;vodě</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+          <div class="ctl">
+            <label for="bkMetal">Kov</label>
+            <select id="bkMetal"></select>
+          </div>
+          <div class="ctl">
+            <label>Do čeho ho ponoříte</label>
+            <div class="segmented" id="bkMode" role="group" aria-label="Partner reakce">
+              <button type="button" data-v="salt" aria-pressed="true">Roztok soli kovu</button>
+              <button type="button" data-v="acid" aria-pressed="false">Zředěná HCl</button>
+              <button type="button" data-v="water" aria-pressed="false">Voda</button>
+              <button type="button" data-v="hno3" aria-pressed="false">HNO₃</button>
+            </div>
+          </div>
+          <div class="ctl" id="bkPartnerCtl">
+            <label for="bkPartner">Roztok soli kovu</label>
+            <select id="bkPartner"></select>
+          </div>
+        </div>
+        <div class="svgwrap" id="bkWrap" style="min-height:170px"></div>
+        <div class="grid2" style="margin-top:1rem;align-items:start">
+          <div class="callout" id="bkResult" style="border-left:3px solid var(--accent)"></div>
+          <div class="callout" style="background:var(--surface-2)">
+            <span class="eyebrow">Rychlý trenažér — proběhne?</span>
+            <p id="bkDrillQ" style="font-family:var(--f-ui);font-weight:600"></p>
+            <div class="quiz-foot" style="margin-top:.3rem">
+              <button class="btn btn-sm" type="button" id="bkYes" style="border-color:var(--ok);color:var(--ok)">Ano, proběhne</button>
+              <button class="btn btn-sm" type="button" id="bkNo" style="border-color:var(--bad);color:var(--bad)">Ne</button>
+              <span class="eyebrow">skóre <b id="bkScore" style="color:var(--accent)">0</b> / <span id="bkN">0</span></span>
+            </div>
+            <p id="bkDrillA" style="font-family:var(--f-ui);font-size:.9rem;color:var(--ink-2)"></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste měď v&nbsp;HCl (nic) a&nbsp;pak měď v&nbsp;HNO₃ (rozpustí se, ale bez vodíku). Zkuste hliník ve vodě — termodynamika říká ano, pasivace říká ne. V&nbsp;trenažéru se kapitola označí jako hotová po 8 správných odpovědích.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Předpověď z&nbsp;<span class="q">E</span>°: vyberte oxidační a&nbsp;redukční činidlo</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="prOx">Oxidační činidlo (látka VLEVO v poloreakci, bude se redukovat)</label>
+            <select id="prOx"></select>
+          </div>
+          <div class="ctl">
+            <label for="prRed">Redukční činidlo (látka VPRAVO v poloreakci, bude se oxidovat)</label>
+            <select id="prRed"></select>
+          </div>
+        </div>
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Předvolby z tabulky výše</label>
+          <div class="segmented" id="prPresets" role="group" aria-label="Předvolené dvojice" style="flex-wrap:wrap">
+            <button type="button" data-ox="Ag" data-red="Cu">Cu + Ag⁺</button>
+            <button type="button" data-ox="Zn" data-red="Cu">Cu + Zn²⁺</button>
+            <button type="button" data-ox="Fe3" data-red="I2">Fe³⁺ + I⁻</button>
+            <button type="button" data-ox="Fe3" data-red="Br2">Fe³⁺ + Br⁻</button>
+            <button type="button" data-ox="Cl2" data-red="Br2">Cl₂ + Br⁻</button>
+            <button type="button" data-ox="Br2" data-red="Cl2">Br₂ + Cl⁻</button>
+            <button type="button" data-ox="H" data-red="Zn">Zn + H⁺</button>
+            <button type="button" data-ox="H" data-red="Cu">Cu + H⁺</button>
+          </div>
+        </div>
+        <p class="eq" id="prEq" style="margin-bottom:1rem"></p>
+        <div class="grid3">
+          <div class="readout" id="prRo1"></div>
+          <div class="readout" id="prRo2"></div>
+          <div class="readout" id="prRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="prNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.1 · železo a cín</span>
+          <p>Proběhne reakce železného hřebíku s&nbsp;roztokem SnCl₂? A&nbsp;cínového plíšku s&nbsp;roztokem FeCl₂? <span class="q">E</span>°(Fe²⁺/Fe) = −0,44 V, <span class="q">E</span>°(Sn²⁺/Sn) = −0,14 V.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Beketovova řada: … Zn Cr <b>Fe</b> Cd Ni <b>Sn</b> Pb H … Železo je vlevo od cínu → je neušlechtilejší, silnější redukční činidlo, vytěsní cín.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Číselně pro hřebík v&nbsp;SnCl₂: oxidační činidlo Sn²⁺, redukční Fe.</p>
+              <p class="eq">Δ<span class="q">E</span>° = (−0,14) − (−0,44) = <b>+0,30 V</b> &gt; 0 → <b>proběhne</b>: <span class="chem">Fe + Sn²⁺ → Fe²⁺ + Sn</span></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Cínový plíšek ve FeCl₂: oxidační činidlo Fe²⁺, redukční Sn.</p>
+              <p class="eq">Δ<span class="q">E</span>° = (−0,44) − (−0,14) = <b>−0,30 V</b> &lt; 0 → <b>neproběhne</b></p>
+              <span class="result">Fe + Sn²⁺ ano (+0,30 V); Sn + Fe²⁺ ne (−0,30 V)</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Přesně tenhle rozdíl rozhoduje o&nbsp;tom, proč poškrábaná konzerva (Fe pod Sn) rezaví rychleji — v&nbsp;kapitole 7.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 3.2 · od napětí k ΔG° a K</span>
+          <p>Pro reakci <span class="chem">Zn + 2 H⁺ → Zn²⁺ + H₂</span> vypočítejte Δ<span class="q">E</span>°, Δ<span class="q">G</span>° a&nbsp;rovnovážnou konstantu při 25 °C. <span class="q">E</span>°(Zn²⁺/Zn) = −0,76 V.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Oxidační činidlo je H⁺ (redukuje se na H₂, <span class="q">E</span>° = 0), redukční činidlo Zn.</p>
+              <p class="eq">Δ<span class="q">E</span>° = 0,00 − (−0,76) = <b>+0,76 V</b> → samovolná</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Vyměňují se 2 elektrony (<span class="chem">Zn → Zn²⁺ + 2 e⁻</span>), <span class="q">z</span> = 2.</p>
+              <p class="eq">Δ<span class="q">G</span>° = −<span class="q">zFE</span>° = −2 · 96 485 · 0,76 = −146 657 J ≈ <b>−146,7 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Rovnovážná konstanta z&nbsp;log <span class="q">K</span> = <span class="q">zE</span>°/0,0592.</p>
+              <p class="eq">log <span class="q">K</span> = 2 · 0,76 / 0,0592 = <b>25,7</b> → <span class="q">K</span> ≈ 5·10²⁵</p>
+              <span class="result">Δ<span class="q">E</span>° = +0,76 V; Δ<span class="q">G</span>° = −147 kJ·mol⁻¹; <span class="q">K</span> ≈ 5·10²⁵</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Kontrola přes ln: ln <span class="q">K</span> = 146 657 / (8,314 · 298,15) = 59,2, tedy log <span class="q">K</span> = 59,2/2,303 = 25,7 ✓. Zinek se v&nbsp;kyselině rozpustí beze zbytku.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: Beketovova řada a odhad průběhu"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>

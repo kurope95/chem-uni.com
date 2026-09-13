@@ -1,0 +1,81 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Uhlík, křemík a&nbsp;bor</h1>
+      <p class="lead">Prvky, které staví kostry: řetězce uhlíku, sítě křemíku a&nbsp;elektronový deficit boru. Tři sousedé v&nbsp;tabulce, tři úplně jiné strategie, jak se vypořádat s&nbsp;valenčními elektrony — a&nbsp;z&nbsp;toho plyne všechno ostatní: proč je diamant tvrdý a&nbsp;grafit mastný, proč je oxid uhličitý plyn a&nbsp;oxid křemičitý kámen, a&nbsp;proč se dvěma elektrony dá slepit trojice atomů. Buď rychlokurz na&nbsp;jedno odpoledne, nebo devět kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po&nbsp;každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Popisná chemie: proč se prvek chová, jak se chová</span>
+        <span class="tag">Struktury od molekuly po&nbsp;prostorovou síť</span>
+        <span class="tag">Prohlížeč krystalových struktur</span>
+        <span class="tag">Stavebnice křemičitanů</span>
+        <span class="tag">Vyčíslené rovnice u&nbsp;každé výroby</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">Hodina čtení</span></span>
+        <span class="pt">Rychlokurz</span>
+        <span class="pd">Celá látka v&nbsp;kostce. Každý blok má výklad, rámeček se vzorci, upozornění na&nbsp;častou chybu a&nbsp;příklad, ve kterém se opravdu rozhoduje. Na&nbsp;konci osm vět, které musíte umět odříkat, kontrolní test a&nbsp;mapa pojmů s&nbsp;odkazy do&nbsp;kapitol.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">Plný kurz</span></span>
+        <span class="pt">Devět kapitol</span>
+        <span class="pd">Podrobný výklad s&nbsp;interaktivními modely struktur, řešenými příklady krok za&nbsp;krokem a&nbsp;mini‑testem po&nbsp;každé kapitole. Na&nbsp;konci závěrečný test, tahák na&nbsp;jednu obrazovku a&nbsp;slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Prohlížeč struktur — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem;align-items:end">
+          <div class="ctl">
+            <label for="xsSel">Struktura</label>
+            <select id="xsSel"></select>
+          </div>
+          <div class="ctl">
+            <label>Zobrazení</label>
+            <div class="segmented" id="xsMode">
+              <button type="button" data-v="struct" aria-pressed="true">Struktura</button>
+              <button type="button" data-v="orb" aria-pressed="false">Hybridizace</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="xsWrap" style="aspect-ratio:720/330"></div>
+        <div class="legend">
+          <span class="li"><span class="sw dot" style="background:var(--accent)"></span>atom uhlíku, křemíku nebo boru</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>vazba σ v&nbsp;rovině nebo v&nbsp;síti</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>delokalizované elektrony π nebo slabá vazba mezi vrstvami</span>
+        </div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="xsRo1"></div>
+          <div class="readout" id="xsRo2"></div>
+          <div class="readout" id="xsRo3"></div>
+        </div>
+        <p class="eq" id="xsTxt" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note">Přepínejte mezi diamantem a&nbsp;grafitem a&nbsp;všímejte si jediné věci: <b>v&nbsp;diamantu je každý elektron zamčený ve&nbsp;vazbě σ, v&nbsp;grafitu čtvrtý elektron zbývá.</b> Z&nbsp;toho plyne tvrdost i&nbsp;vodivost. Pak se podívejte na&nbsp;křemík — táž mřížka jako diamant, jen s&nbsp;delší vazbou — a&nbsp;na&nbsp;bor, kde stavebním kamenem není atom, ale ikosaedr B₁₂.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:min(100%,100ch);font-size:1rem">Každý řádek osnovy má svou kapitolu. Klepněte na&nbsp;řádek a&nbsp;skočíte rovnou na&nbsp;ni.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Postavení uhlíku, křemíku a&nbsp;boru v&nbsp;periodické tabulce, elektronová konfigurace valenční sféry a&nbsp;vazebné možnosti, které z&nbsp;ní plynou.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k0"><span class="b">2</span><span>Proč uhlík tvoří řetězce a&nbsp;křemík ne — pevnost vazeb C—C, Si—Si a&nbsp;Si—O, schopnost tvořit vazby π a&nbsp;role orbitalů 3d.</span><span class="go">Kap. 0 a&nbsp;4</span></a>
+      <a class="syl-row" href="#k1"><span class="b">3</span><span>Modifikace uhlíku: diamant, grafit, fullereny, nanotrubice a&nbsp;grafen — struktura, vazby a&nbsp;z&nbsp;nich plynoucí vlastnosti a&nbsp;použití.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">4</span><span>Oxidy uhlíku — oxid uhelnatý a&nbsp;oxid uhličitý, jejich vznik, vlastnosti, Boudouardova rovnováha a&nbsp;toxicita CO.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k2"><span class="b">5</span><span>Kyselina uhličitá, uhličitany a&nbsp;hydrogenuhličitany — struktura aniontu, rovnováhy v&nbsp;roztoku, tvrdost vody, Solvayův postup.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">6</span><span>Karbidy a&nbsp;jejich tři typy, kyanidy, kyanovodík, sirouhlík a&nbsp;halogenidy uhlíku — binární sloučeniny uhlíku a&nbsp;jejich hydrolýza.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">7</span><span>Elementární křemík, jeho výroba a&nbsp;reaktivita, silany, silicidy a&nbsp;halogenidy křemičité — a&nbsp;srovnání s&nbsp;odpovídajícími sloučeninami uhlíku.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">8</span><span>Oxid křemičitý, kyselina křemičitá a&nbsp;silikagel; silikáty a&nbsp;jejich stavba od&nbsp;izolovaného tetraedru SiO₄ přes řetězce a&nbsp;vrstvy až&nbsp;po&nbsp;prostorové sítě a&nbsp;zeolity.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">9</span><span>Sklo, keramika, porcelán a&nbsp;cement — z&nbsp;čeho se vyrábějí, co se při výpalu děje se strukturou a&nbsp;čím se od&nbsp;sebe liší; silikony.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">10</span><span>Bor a&nbsp;elektronový deficit — sextet na&nbsp;boru, Lewisova kyselost, borany a&nbsp;třístředová dvouelektronová vazba, boridy, nitrid boritý a&nbsp;karbid boru.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">11</span><span>Kyslíkaté sloučeniny boru: kyselina boritá a&nbsp;její zvláštní kyselost, boritany, borax a&nbsp;jejich použití.</span><span class="go">Kap. 8</span></a>
+      <a class="syl-row" href="#k8"><span class="b">12</span><span>Diagonální podobnost Be—Al a&nbsp;B—Si, její příčina, a&nbsp;křemík v&nbsp;polovodičích — zakázaný pás, dopování fosforem a&nbsp;borem, výroba čistého křemíku.</span><span class="go">Kap. 8</span></a>
+    </div>
+  </header>

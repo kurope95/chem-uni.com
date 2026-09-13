@@ -1,0 +1,228 @@
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Elektrolytická výroba a rafinace">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 7</span>
+      <h2>Metalurgie II: elektrolytická výroba a&nbsp;rafinace kovů</h2>
+      <p class="lead">U&nbsp;nejneušlechtilejších kovů žádné chemické redukovadlo nestačí — museli byste použít kov ještě neušlechtilejší, a&nbsp;ten se také musí nejdřív vyrobit. Elektrolýza tuhle smyčku přetne: elektrony dodá <b>přímo elektrický proud</b>, a&nbsp;ten může být libovolně „silné redukovadlo“. Vlajkovou lodí je hliník.</p>
+
+      <h3>Kdy sáhnout po elektrolýze</h3>
+      <p>Rozhodovacím kritériem je opět standardní potenciál. Kovy s&nbsp;<span class="q">E</span>° pod zhruba −1,7 V se prakticky vždy vyrábějí elektrolyticky, protože chemická redukce by byla dražší nebo nemožná.</p>
+      <div class="callout def">
+        <span class="eyebrow">Dvě varianty elektrolýzy</span>
+        <p><b>Elektrolýza vodného roztoku</b> — laciná, probíhá za nízkých teplot, ale funguje jen pro kovy, které se stihnou vyloučit <b>dřív než vodík</b> (Cu, Ag, Ni, Zn, Cd, Cr).<br>
+        <b>Elektrolýza taveniny</b> — energeticky náročná (několik set °C), ale je to jediná cesta k&nbsp;alkalickým kovům, kovům alkalických zemin a&nbsp;k&nbsp;hliníku.</p>
+      </div>
+
+      <h3>Proč z&nbsp;vodného roztoku neušlechtilý kov nedostanete</h3>
+      <p>Na katodě spolu soutěží dva možné děje: redukce kationtu kovu a&nbsp;redukce vody. Vyhraje ten s&nbsp;<b>vyšším potenciálem</b>.</p>
+      <p class="eq">katoda, možnost A: <span class="chem">Na⁺ + e⁻ → Na</span> &nbsp;&nbsp;<span class="q">E</span>° = −2,71 V<br>katoda, možnost B: <span class="chem">2 H₂O + 2 e⁻ → H₂ + 2 OH⁻</span> &nbsp;&nbsp;<span class="q">E</span> = −0,83 V (neutrální roztok)<br><b>vyhraje B</b> — z&nbsp;roztoku NaCl proto uniká vodík a&nbsp;vzniká NaOH, nikdy kovový sodík</p>
+      <div class="callout warn">
+        <span class="eyebrow">Klasická past u&nbsp;maturity</span>
+        <p>„Elektrolýzou roztoku chloridu sodného vzniká sodík.“ <b>Nevzniká.</b> Vznikají tři jiné produkty — <b>NaOH, H₂ a&nbsp;Cl₂</b> — a&nbsp;je to jedna z&nbsp;nejdůležitějších chemických výrob vůbec. Kovový sodík dostanete jedině z&nbsp;<b>taveniny</b>.</p>
+      </div>
+      <p>Hranice ale není ostrá, a&nbsp;to kvůli <span class="term">přepětí</span>. Vylučování plynu na elektrodě je kineticky pomalé, takže reálně potřebuje vyšší napětí, než odpovídá tabulce. Přepětí vodíku na zinku a&nbsp;na rtuti je tak velké, že se na těchto materiálech vyloučí i&nbsp;kov, který by podle tabulky neměl mít šanci — na tom stojí elektrolytická výroba zinku i&nbsp;historický amalgámový proces.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Elektrolyzér — pět technologií vedle sebe</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="ezSeg" style="flex-wrap:wrap" role="group" aria-label="Typ elektrolýzy">
+          <button type="button" data-ez="nacl" aria-pressed="true">Sodík (tavenina NaCl)</button>
+          <button type="button" data-ez="mgcl2" aria-pressed="false">Hořčík (MgCl₂)</button>
+          <button type="button" data-ez="al2o3" aria-pressed="false">Hliník (Al₂O₃ v kryolitu)</button>
+          <button type="button" data-ez="cu" aria-pressed="false">Rafinace mědi</button>
+          <button type="button" data-ez="zn" aria-pressed="false">Zinek (roztok ZnSO₄)</button>
+        </div>
+        <div class="svgwrap" id="ezWrap" style="min-height:330px;margin-top:1rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>katoda (−) — redukce, tady vzniká kov</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>anoda (+) — oxidace</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>tavenina nebo roztok, ve kterém migrují ionty</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.55rem;margin-top:1.1rem">
+          <p class="eq" id="ezKat" style="margin:0;border-left-color:var(--endo)"></p>
+          <p class="eq" id="ezAn" style="margin:0;border-left-color:var(--exo)"></p>
+          <p class="eq" id="ezTot" style="margin:0;border-left-color:var(--accent)"></p>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="ezRo1"></div>
+          <div class="readout" id="ezRo2"></div>
+          <div class="readout" id="ezRo3"></div>
+        </div>
+        <div id="ezWhy" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="ezNote">Porovnejte napětí jednotlivých technologií: tavné elektrolýzy potřebují 4 až 7 V, kdežto rafinace mědi jen dvě desetiny voltu. Právě to nízké napětí je u&nbsp;rafinace klíčové — stačí na měď, ale ne na příměsi.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Hliník: Bayerův proces a&nbsp;Hallova–Héroultova elektrolýza</h3>
+      <p>Výroba hliníku je nejlepší příklad toho, jak se metalurgie skládá z&nbsp;řetězu kroků. Nejde jen o&nbsp;elektrolýzu — polovina práce je před ní.</p>
+      <div class="callout def">
+        <span class="eyebrow">Krok 1 — Bayerův proces: z&nbsp;bauxitu čistý oxid</span>
+        <p>Bauxit je znečištěný oxidy železa (odtud jeho červená barva) a&nbsp;křemičitany. Rozemletý se louží horkým roztokem <b>hydroxidu sodného</b> za zvýšeného tlaku. Hliník je amfoterní, takže přejde do roztoku jako hlinitan, kdežto <span class="chem">Fe₂O₃</span> se nerozpustí a&nbsp;odfiltruje se jako <b>červený kal</b>.</p>
+        <p class="eq" style="margin-top:.35rem"><span class="chem">AlO(OH) + NaOH + H₂O → Na[Al(OH)₄]</span><br><span class="chem">2 Na[Al(OH)₄] + CO₂ → 2 Al(OH)₃ + Na₂CO₃ + H₂O</span> &nbsp;(vysrážení)<br><span class="chem">2 Al(OH)₃ → Al₂O₃ + 3 H₂O</span> &nbsp;(kalcinace při 1200 °C)</p>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Krok 2 — Hallova–Héroultova elektrolýza</span>
+        <p>Čistý <span class="chem">Al₂O₃</span> taje až při <b>2050 °C</b>, což je technicky neúnosné. Rozpustí se proto v&nbsp;tavenině <b>kryolitu</b> <span class="chem">Na₃AlF₆</span> a&nbsp;pracovní teplota klesne na <b>950 až 970 °C</b>. Katodou je uhlíková vyzdívka vany, anodou uhlíkové bloky shora.</p>
+        <p class="eq" style="margin-top:.35rem">katoda: <span class="chem">Al³⁺ + 3 e⁻ → Al</span><br>anoda: <span class="chem">2 O²⁻ → O₂ + 4 e⁻</span>, a&nbsp;hned <span class="chem">C + O₂ → CO₂</span><br>celkově: <b><span class="chem">2 Al₂O₃ + 3 C → 4 Al + 3 CO₂</span></b></p>
+      </div>
+      <p>Kapalný hliník je hustší než tavenina a&nbsp;stahuje se ze dna vany. Uhlíková anoda se během procesu <b>spotřebovává</b> — musí se pravidelně vyměňovat a&nbsp;na tunu hliníku jí padne zhruba 400 až 450&nbsp;kg (teoreticky 334&nbsp;kg podle rovnice). Vývoj dnes míří k&nbsp;<b>inertním anodám</b>, které by uvolňovaly kyslík místo oxidu uhličitého.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Kolik to stojí energie</span>
+        <p>Na jeden kilogram hliníku připadá <b>13 až 15&nbsp;kWh</b> elektřiny. Proto stojí hliníkárny u&nbsp;vodních elektráren (Island, Norsko, Kanada) a&nbsp;proto se hliníku říká „zmrazená elektřina“. <b>Recyklace</b> potřebuje jen kolem 5 % této energie — přetavit plechovku je nesrovnatelně levnější než vyrobit hliník z&nbsp;bauxitu. Tohle je nejsilnější argument pro třídění odpadu, jaký chemie nabízí.</p>
+      </div>
+
+      <h3>Faradayovy zákony — kolik kovu za kolik proudu</h3>
+      <p>Množství vyloučeného kovu je přímo úměrné prošlému náboji. To je celý první Faradayův zákon a&nbsp;praktický vzorec z&nbsp;něj plyne okamžitě.</p>
+      <p class="eq"><span class="q">m</span> = <span class="q">M</span>·<span class="q">I</span>·<span class="q">t</span> / (<span class="q">z</span>·<span class="q">F</span>)<br><span style="color:var(--ink-3)"><span class="q">m</span> … hmotnost kovu [g], <span class="q">M</span> … molární hmotnost [g·mol⁻¹], <span class="q">I</span> … proud [A], <span class="q">t</span> … čas [s], <span class="q">z</span> … počet vyměněných elektronů, <span class="q">F</span> = 96&nbsp;485&nbsp;C·mol⁻¹</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Kde se nejčastěji chybuje</span>
+        <p>Zapomenutý <b>počet elektronů</b> <span class="q">z</span>. Na jeden atom hliníku připadají tři elektrony, na atom mědi nebo zinku dva, na atom sodíku nebo stříbra jeden. Když <span class="q">z</span> vynecháte, u&nbsp;hliníku vám vyjde třikrát víc kovu, než ve skutečnosti vznikne. A&nbsp;druhá chyba: čas <b>vždy</b> v&nbsp;sekundách.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Faradayova kalkulačka výtěžku a&nbsp;spotřeby energie</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="fdSel">Vyráběný kov</label>
+            <select id="fdSel">
+              <option value="Al">hliník — Al³⁺ + 3 e⁻ → Al</option>
+              <option value="Na">sodík — Na⁺ + e⁻ → Na</option>
+              <option value="Mg">hořčík — Mg²⁺ + 2 e⁻ → Mg</option>
+              <option value="Cu">měď — Cu²⁺ + 2 e⁻ → Cu</option>
+              <option value="Zn">zinek — Zn²⁺ + 2 e⁻ → Zn</option>
+              <option value="Ag">stříbro — Ag⁺ + e⁻ → Ag</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label for="fdY">Proudová výtěžnost: <span class="val" id="fdYv">95 %</span></label>
+            <input type="range" id="fdY" min="50" max="100" step="1" value="95">
+          </div>
+        </div>
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="fdI">Proud: <span class="val" id="fdIv">150 kA</span></label>
+            <input type="range" id="fdI" min="1" max="500" step="1" value="150">
+          </div>
+          <div class="ctl">
+            <label for="fdT">Doba elektrolýzy: <span class="val" id="fdTv">24 h</span></label>
+            <input type="range" id="fdT" min="1" max="168" step="1" value="24">
+          </div>
+        </div>
+        <div class="svgwrap" id="fdWrap" style="min-height:190px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="fdRo1"></div>
+          <div class="readout" id="fdRo2"></div>
+          <div class="readout" id="fdRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="fdNote">Nastavte hliník, 150&nbsp;kA a&nbsp;24 hodin — to je typická denní produkce jedné elektrolyzní vany. Pak přepněte na stříbro se stejným proudem a&nbsp;porovnejte: stříbro má vyšší molární hmotnost, ale potřebuje jen jeden elektron, takže ho vznikne čtyřikrát víc.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Elektrolytická rafinace mědi</h3>
+      <p>Měď z&nbsp;konvertoru má čistotu kolem 99 % — pro vodiče je to málo, protože i&nbsp;desetina procenta příměsi znatelně sníží vodivost. Elektrolýza to vyřeší elegantně: <b>anodou je surová měď</b>, katodou tenký plech čisté mědi, elektrolytem okyselený roztok <span class="chem">CuSO₄</span>.</p>
+      <p class="eq">anoda: <span class="chem">Cu → Cu²⁺ + 2 e⁻</span> &nbsp;·&nbsp; katoda: <span class="chem">Cu²⁺ + 2 e⁻ → Cu</span><br><span style="color:var(--ink-3)">celkově se měď jen přenáší z&nbsp;anody na katodu; koncentrace v&nbsp;roztoku se nemění</span></p>
+      <div class="callout def">
+        <span class="eyebrow">Kouzlo je v&nbsp;nastaveném napětí</span>
+        <p>Napětí se drží velmi nízké (0,2 až 0,3 V) — právě tak, aby stačilo na měď a&nbsp;na nic jiného.<br>
+        <b>Neušlechtilejší příměsi</b> (Zn, Fe, Ni) se z&nbsp;anody sice rozpustí, ale na katodě se při tomto napětí <b>nevyloučí</b> a&nbsp;zůstanou v&nbsp;lázni.<br>
+        <b>Ušlechtilejší příměsi</b> (Ag, Au, Pt) se z&nbsp;anody vůbec <b>nerozpustí</b> a&nbsp;propadnou pod ni jako <span class="term">anodový kal</span>.<br>
+        Výsledek na katodě: <b>99,99 % mědi</b>.</p>
+      </div>
+      <p>Anodový kal je tak cenný, že u&nbsp;řady rafinerií zaplatí velkou část provozu — je hlavním světovým zdrojem stříbra a&nbsp;významným zdrojem zlata, platiny a&nbsp;selenu.</p>
+
+      <h3>Fyzikální rafinace — když je potřeba opravdová čistota</h3>
+      <p>Chemické a&nbsp;elektrolytické metody dovedou kov na čistotu vhodnou pro konstrukce. Pro polovodičovou a&nbsp;jadernou techniku to nestačí a&nbsp;nastupují metody fyzikální.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Metoda</th><th>Princip</th><th>Kde se používá</th></tr></thead>
+          <tbody>
+            <tr><td><b>Destilace za sníženého tlaku</b></td><td>rozdílná těkavost kovu a&nbsp;příměsí; snížení tlaku posune rovnováhu i&nbsp;sníží potřebnou teplotu</td><td class="chem">Zn, Cd, Mg, Hg, alkalické kovy</td></tr>
+            <tr><td><b>Zonální tavba</b></td><td>úzkou zónou se protáhlý ingot opakovaně přetaví; příměsi jsou rozpustnější v&nbsp;tavenině a&nbsp;putují s&nbsp;ní na konec ingotu</td><td class="chem">Si, Ge — polovodičová čistota</td></tr>
+            <tr><td><b>van Arkelova–de Boerova metoda</b></td><td>kov se převede na těkavý jodid, ten se rozloží na žhaveném vlákně a&nbsp;čistý kov na něm naroste</td><td class="chem">Ti, Zr, Hf, V, Nb</td></tr>
+            <tr><td><b>Mondův proces</b></td><td>kov se převede na těkavý karbonyl, ten se oddestiluje a&nbsp;jinde tepelně rozloží</td><td class="chem">Ni</td></tr>
+            <tr><td><b>Pěstování monokrystalu</b></td><td>z&nbsp;taveniny se pomalu vytahuje jediný krystal; příměsi zůstávají v&nbsp;tavenině</td><td class="chem">Si (Czochralského metoda)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Souvislost s&nbsp;předchozí kapitolou</span>
+        <p>Zonální tavba funguje z&nbsp;téhož důvodu jako eutektikum: <b>příměs se lépe rozpouští v&nbsp;kapalině než v&nbsp;pevné fázi</b>. Když tedy zónou taveniny projedete ingotem několikrát, příměsi se s&nbsp;ní posunou a&nbsp;nahromadí na konci, který se pak odřízne. Křemík pro procesory se takto čistí na 99,999 999 9 %, tedy méně než jeden cizí atom na miliardu.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · produkce vany za den</span>
+          <p>Elektrolyzér na hliník pracuje s&nbsp;proudem 150&nbsp;kA při napětí 4,2 V a&nbsp;proudové výtěžnosti 95 %. Kolik hliníku vyrobí za 24 hodin a&nbsp;kolik elektřiny na kilogram spotřebuje? <span class="q">M</span>(Al) = 26,98&nbsp;g·mol⁻¹, <span class="q">F</span> = 96&nbsp;485&nbsp;C·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Nejdřív převedeme čas na sekundy a&nbsp;určíme počet elektronů. Poloreakce je <span class="chem">Al³⁺ + 3 e⁻ → Al</span>, tedy <span class="q">z</span> = 3.</p>
+              <p class="eq"><span class="q">t</span> = 24 · 3600 = 86&nbsp;400&nbsp;s</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme do Faradayova vzorce (teoretický výtěžek):</p>
+              <p class="eq"><span class="q">m</span> = 26,98 · 150&nbsp;000 · 86&nbsp;400 / (3 · 96&nbsp;485) = 1,208·10⁶&nbsp;g = <b>1208&nbsp;kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Skutečnost je nižší o&nbsp;proudovou výtěžnost — část proudu se ztratí zpětnými reakcemi:</p>
+              <p class="eq"><span class="q">m</span><sub>skut</sub> = 0,95 · 1208 = <b>1148&nbsp;kg za den</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Spotřebovaná elektrická energie za tentýž den:</p>
+              <p class="eq"><span class="q">W</span> = <span class="q">U</span>·<span class="q">I</span>·<span class="q">t</span> = 4,2 · 150&nbsp;000 · 86&nbsp;400 = 5,443·10¹⁰&nbsp;J<br><span class="q">W</span> = 5,443·10¹⁰ / 3,6·10⁶ = 15&nbsp;120&nbsp;kWh</p>
+              <p class="eq">na kilogram: 15&nbsp;120 / 1148 = <b>13,2&nbsp;kWh·kg⁻¹</b></p>
+              <p>To odpovídá průmyslové skutečnosti (13 až 15&nbsp;kWh·kg⁻¹). Domácnost spotřebuje kolem 3000&nbsp;kWh za rok — jedna vana ji tedy „spotřebuje“ za pět hodin.</p>
+              <span class="result">1148&nbsp;kg hliníku za den při spotřebě 13,2&nbsp;kWh na kilogram</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · bauxit na tunu Al</span>
+          <p>Kolik oxidu hlinitého a&nbsp;kolik bauxitu (s&nbsp;obsahem 50 % <span class="chem">Al₂O₃</span>) je potřeba na jednu tunu hliníku? Kolik uhlíkové anody se přitom spotřebuje podle rovnice? <span class="q">A</span><sub>r</sub>(Al) = 26,98, <span class="q">A</span><sub>r</sub>(O) = 16,00, <span class="q">A</span><sub>r</sub>(C) = 12,01.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><span class="q">M</span>(Al₂O₃) = 2 · 26,98 + 3 · 16,00 = 101,96&nbsp;g·mol⁻¹. Hmotnostní zlomek hliníku:</p>
+              <p class="eq"><span class="q">w</span>(Al) = 2 · 26,98 / 101,96 = 0,529 → <b>52,9 %</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Na tunu hliníku tedy připadá:</p>
+              <p class="eq"><span class="q">m</span>(Al₂O₃) = 1000 / 0,529 = <b>1890&nbsp;kg</b> ≈ 1,89&nbsp;t</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Při obsahu 50 % v&nbsp;bauxitu:</p>
+              <p class="eq"><span class="q">m</span>(bauxit) = 1890 / 0,50 = <b>3780&nbsp;kg</b> ≈ 3,8&nbsp;t</p>
+              <p>Zbytek jsou oxidy železa a&nbsp;křemičitany, které skončí jako červený kal — a&nbsp;jeho ukládání je největší ekologický problém celé technologie.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Uhlík z&nbsp;rovnice <span class="chem">2 Al₂O₃ + 3 C → 4 Al + 3 CO₂</span>: na 4 moly hliníku připadají 3 moly uhlíku.</p>
+              <p class="eq"><span class="q">m</span>(C) = 1000 · 3 · 12,01 / (4 · 26,98) = <b>334&nbsp;kg</b></p>
+              <p>V&nbsp;praxi se spotřebuje 400 až 450&nbsp;kg, protože anoda částečně shoří i&nbsp;vzdušným kyslíkem. Odpovídající množství oxidu uhličitého je zhruba 1,2 tuny na tunu hliníku.</p>
+              <span class="result">na 1&nbsp;t Al: 1,89&nbsp;t Al₂O₃, asi 3,8&nbsp;t bauxitu a&nbsp;334&nbsp;kg uhlíku podle rovnice</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: elektrolytická výroba a rafinace"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

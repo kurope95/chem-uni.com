@@ -1,0 +1,97 @@
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Výpočty související s&nbsp;chemickou rovnováhou</h1>
+      <p class="lead">Kolik je pH octa, proč krev drží 7,40 a&nbsp;proč se z&nbsp;fotografického filmu dá stříbro vymýt thiosíranem, ale ne amoniakem — na to všechno odpovídá jedna rovnovážná konstanta a&nbsp;jeden logaritmus. Tohle je početní téma: osmnáct kalkulaček s&nbsp;rozepsaným postupem, 28 řešených příkladů krok za krokem a&nbsp;91 otázek, z&nbsp;nichž skoro polovina se počítá.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 55 minut</span>
+        <span class="tag">18 interaktivních modelů</span>
+        <span class="tag">91 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulky <span class="q">K</span><sub>a</sub>, <span class="q">K</span><sub>b</sub>, <span class="q">K</span><sub>sp</sub>, β</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">55 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: deset bloků, v každém výklad, rámeček se vzorci, upozornění na častou chybu a řešený příklad s čísly. Projde všech 42 pojmů z osnovy, má tři vlastní grafy a kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">9 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad s osmnácti interaktivními modely, 28 řešenými příklady krok za krokem, trenažérem „který vzorec použít“ a testem po každé kapitole. Na konci tahák a slovníček se 45 hesly.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Univerzální kalkulačka pH — sedm typů roztoků, jeden postup, který si musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Typ roztoku</label>
+          <div class="segmented" id="heroType" role="group" aria-label="Typ roztoku" style="flex-wrap:wrap">
+            <button type="button" data-v="sa" aria-pressed="true">Silná kyselina</button>
+            <button type="button" data-v="sb" aria-pressed="false">Silná zásada</button>
+            <button type="button" data-v="wa" aria-pressed="false">Slabá kyselina</button>
+            <button type="button" data-v="wb" aria-pressed="false">Slabá zásada</button>
+            <button type="button" data-v="san" aria-pressed="false">Sůl slabé kyseliny</button>
+            <button type="button" data-v="scat" aria-pressed="false">Sůl slabé zásady</button>
+            <button type="button" data-v="buf" aria-pressed="false">Pufr</button>
+          </div>
+        </div>
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroSub">Látka</label>
+            <select id="heroSub"></select>
+          </div>
+          <div class="ctl">
+            <label for="heroC"><span id="heroCL">Koncentrace <span class="q">c</span></span> — <span class="val" id="heroCV">0,1 mol·dm⁻³</span></label>
+            <input type="range" id="heroC" min="-6" max="0" step="0.05" value="-1">
+          </div>
+          <div class="ctl" id="heroPKWrap" hidden>
+            <label for="heroPK"><span id="heroPKL">p<span class="q">K</span><sub>a</sub></span> (posuvník = vlastní hodnota) — <span class="val" id="heroPKV">4,76</span></label>
+            <input type="range" id="heroPK" min="0" max="14" step="0.05" value="4.76">
+          </div>
+          <div class="ctl" id="heroRWrap" hidden>
+            <label for="heroR">Poměr [A⁻] / [HA] — <span class="val" id="heroRV">1,0</span></label>
+            <input type="range" id="heroR" min="-1.3" max="1.3" step="0.05" value="0">
+          </div>
+        </div>
+        <div class="svgwrap" id="heroSvgWrap" style="min-height:150px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="heroRo1"></div>
+          <div class="readout" id="heroRo2"></div>
+          <div class="readout" id="heroRo3"></div>
+          <div class="readout" id="heroRo4"></div>
+          <div class="readout" id="heroRo5"></div>
+        </div>
+        <div style="margin-top:1.1rem;display:flex;flex-direction:column;gap:.55rem">
+          <span class="eyebrow">Postup krok za krokem</span>
+          <div id="heroSteps" style="display:flex;flex-direction:column;gap:.5rem"></div>
+        </div>
+        <div class="callout" id="heroApprox" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="heroNote"></div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu — a&nbsp;každý dílčí případ z&nbsp;první odrážky má vlastní kapitolu nebo podkapitolu s&nbsp;řešeným příkladem. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k1"><span class="b">1</span><span>Výpočty pH silných kyselin, silných bází, slabých kyselin, slabých bází, solí slabých kyselin, solí slabých bází a&nbsp;pufrů.</span><span class="go">Kap. 0–5</span></a>
+      <a class="syl-row" href="#k1"><span class="b">1a</span><span>silné kyseliny</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k1"><span class="b">1b</span><span>silné báze</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">1c</span><span>slabé kyseliny</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k2"><span class="b">1d</span><span>slabé báze</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">1e</span><span>soli slabých kyselin</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k3"><span class="b">1f</span><span>soli slabých bází</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">1g</span><span>pufry (+ titrační křivky jako aplikace)</span><span class="go">Kap. 4–5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">2</span><span>Výpočty srážecích rovnováh.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">3</span><span>Výpočty komplexotvorných rovnováh.</span><span class="go">Kap. 7</span></a>
+    </div>
+  </header>

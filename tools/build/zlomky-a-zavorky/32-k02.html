@@ -1,0 +1,112 @@
+  <!-- ============ KAPITOLA 02 ============ -->
+  <section class="chapter" id="k2" data-title="Pořadí operací">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · osnova, bod 3</span>
+      <h2>Pořadí operací — co se počítá dřív</h2>
+      <p class="lead">Řádkový zápis je jednoznačný jen díky pevnému pravidlu, které říká, co se počítá dřív. Bez něj by <span class="mono">2 + 3 · 4</span> mohlo být 14 i&nbsp;20. Pravidlo znáte od základní školy, ale jedna jeho část se soustavně přehlíží — a&nbsp;právě ona stojí za většinou chyb v&nbsp;chemických výpočtech.</p>
+
+      <h3>Čtyři patra přednosti</h3>
+      <p>Operace se vyhodnocují v&nbsp;pořadí, které je stejné na celém světě, ve všech kalkulačkách i&nbsp;ve všech tabulkových procesorech:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Pořadí</th><th>Operace</th><th>Poznámka</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1.</td><td>závorky <span class="mono">( )</span></td><td>Nejvyšší přednost. Uvnitř závorky platí totéž pravidlo znovu, od začátku.</td></tr>
+            <tr><td class="n">2.</td><td>mocniny a&nbsp;odmocniny</td><td>Také logaritmus a&nbsp;exponenciála — všechno, co má vlastní argument.</td></tr>
+            <tr><td class="n">3.</td><td>násobení a&nbsp;dělení <span class="mono">· /</span></td><td><b>Stejná přednost</b>, proto zleva doprava.</td></tr>
+            <tr><td class="n">4.</td><td>sčítání a&nbsp;odčítání <span class="mono">+ −</span></td><td>Také stejná přednost, také zleva doprava.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout def">
+        <span class="eyebrow">Definice — asociativita zleva doprava</span>
+        <p>Když stojí vedle sebe dvě operace <span class="term">stejné přednosti</span>, vyhodnocují se v&nbsp;pořadí, v&nbsp;jakém jsou napsané — tedy <span class="term">zleva doprava</span>. Platí to pro dvojici <span class="mono">·</span> a&nbsp;<span class="mono">/</span> i&nbsp;pro dvojici <span class="mono">+</span> a&nbsp;<span class="mono">−</span>. Násobení <b>nemá</b> přednost před dělením, ani sčítání před odčítáním.</p>
+      </div>
+
+      <h3>Proč 2 / 3 · 4 není 2 / 12</h3>
+      <p>Tohle je ta přehlížená část pravidla. Mnoho lidí si pamatuje zkratku „nejdřív násobení, pak dělení“, protože se tak dá říct hezky rytmicky. Jenže je to <b>špatně</b>. Obě operace jsou si rovny a&nbsp;rozhoduje pořadí na řádku.</p>
+      <p>Zápis <span class="mono">2 / 3 · 4</span> tedy znamená: nejdřív <span class="mono">2 / 3</span>, což je asi 0,6667, a&nbsp;pak to celé krát 4, tedy přibližně <b>2,667</b>. Chybné čtení <span class="mono">2 / (3 · 4)</span> dá <span class="mono">2 / 12</span>, tedy asi <b>0,1667</b>. Šestnáctinásobný rozdíl.</p>
+
+      <div class="twoup">
+        <div class="tu-cell ok"><span class="cap">2 / 3 · 4 znamená</span>(2 / 3) · 4</div>
+        <div class="tu-rel no">≠</div>
+        <div class="tu-cell no"><span class="cap">a rozhodně ne</span>2 / (3 · 4)</div>
+      </div>
+
+      <p>Totéž platí pro řetěz dvou dělení. <span class="mono">36 / 6 / 3</span> se čte zleva: nejdřív 36&nbsp;/&nbsp;6&nbsp;=&nbsp;6, pak 6&nbsp;/&nbsp;3&nbsp;=&nbsp;<b>2</b>. Čtení zprava by dalo 36&nbsp;/&nbsp;2&nbsp;=&nbsp;<b>18</b>, což je devětkrát víc.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Past — „vždyť to tak vypadá“</span>
+        <p>Nejhorší na tom je, že chybné čtení vypadá naprosto přirozeně. Když vidíte <span class="mono">p · V / R · T</span>, oko samo seskupí <span class="q">R</span>&nbsp;·&nbsp;<span class="q">T</span> dohromady, protože ten součin ze stavové rovnice znáte. Kalkulačka ale nezná chemii — čte znak po znaku a&nbsp;<span class="q">T</span> vynásobí.</p>
+      </div>
+
+      <h3>Kde se chybuje nejčastěji</h3>
+      <p><b>Při opisování z&nbsp;tabule.</b> Vzorec je na tabuli svisle, do sešitu se píše na řádek a&nbsp;závorky se cestou ztratí. Tohle je zdaleka nejčastější zdroj chyb.</p>
+      <p><b>Při zadávání do kalkulačky.</b> Zvlášť u&nbsp;jednodušších kalkulaček, které nemají displej se zlomky. Student vidí zlomek v&nbsp;sešitě, ale mačká tlačítka v&nbsp;řadě.</p>
+      <p><b>V&nbsp;tabulkovém procesoru.</b> Vzorec <span class="mono">=A1/B1*C1</span> dělá totéž co na papíře: dělí a&nbsp;pak násobí. Kdo chce mít <span class="q">C</span>1 ve jmenovateli, musí napsat <span class="mono">=A1/(B1*C1)</span>.</p>
+      <p><b>Při diktování po telefonu nebo v&nbsp;chatu.</b> „Em lomeno em vé“ je nejednoznačné. Správně se diktuje „em lomeno závorka em krát vé závorka“ — nebo rovnou „em lomeno součin em vé“.</p>
+
+      <div class="callout tip">
+        <span class="eyebrow">Mnemotechnika — ZMND</span>
+        <p><b>Z</b>ávorky, <b>M</b>ocniny, <b>N</b>ásobení a&nbsp;dělení, <b>D</b>alší (sčítání a&nbsp;odčítání). Klíčové je, že třetí písmeno zastupuje <b>obě</b> operace najednou, ne jen násobení. Kdo si to pamatuje jako „násobení, potom dělení“, počítá špatně.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Krokovač pořadí operací — co jde na řadu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1.1rem">
+          <div class="ctl">
+            <label for="koSel">Výraz</label>
+            <select id="koSel"></select>
+          </div>
+          <div class="ctl">
+            <label>Postup</label>
+            <div class="quiz-foot" style="margin-top:0">
+              <button class="btn btn-primary btn-sm" type="button" id="koNext">Další krok</button>
+              <button class="btn btn-sm" type="button" id="koReset">Od začátku</button>
+              <span class="drill-score" id="koStep">krok 1</span>
+            </div>
+          </div>
+        </div>
+        <div class="stepbox" id="koBox"></div>
+        <p class="stepnote" id="koMsg" style="margin-top:.9rem"></p>
+      </div>
+      <div class="panel-note">Zkuste porovnat dvojici <span class="mono">36 / 6 / 3</span> a&nbsp;<span class="mono">36 / (6 / 3)</span>. Tatáž tři čísla, tytéž dvě dělení — a&nbsp;devítinásobně jiný výsledek. Zvýrazněná operace je vždycky ta, která jde na řadu jako další; sledujte, jak se závorka vždycky předběhne do čela.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 2.1 · rychlost reakce</span>
+        <p>Koncentrace reaktantu klesla o&nbsp;0,120&nbsp;mol·dm⁻³ za 30&nbsp;s a&nbsp;v&nbsp;rovnici má látka stechiometrický koeficient 2, takže <span class="q">v</span>&nbsp;=&nbsp;Δ<span class="q">c</span>&nbsp;/&nbsp;(2&nbsp;·&nbsp;Δ<span class="q">t</span>). Kolik vyjde a&nbsp;kolik by vyšlo bez závorky?</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+        <div class="worked-steps">
+          <div class="step"><span class="step-n">1</span><div class="step-b">
+            <p>Se závorkou se nejdřív vyhodnotí jmenovatel.</p>
+            <p class="eqlin" data-lbl="Se závorkou — na řádku">v = 0,120 / (2 · 30) = 0,120 / 60 = 0,00200</p>
+            <p class="eq" data-lbl="Týž výpočet jako zlomek">v = 0,120 / (2 · 30) = 0,120 / 60 = 0,00200</p>
+            <p><span class="result">v = 2,00·10⁻³ mol·dm⁻³·s⁻¹</span></p>
+          </div></div>
+          <div class="step"><span class="step-n">2</span><div class="step-b">
+            <p>Bez závorky se jde zleva doprava: nejdřív dělení dvěma, pak násobení třiceti.</p>
+            <p><span class="mono">0,120 / 2 · 30 = 0,060 · 30 = 1,80</span></p>
+          </div></div>
+          <div class="step"><span class="step-n">3</span><div class="step-b">
+            <p>Rozdíl je devítisetnásobný. A&nbsp;co je horší, výsledek 1,80&nbsp;mol·dm⁻³·s⁻¹ nevypadá na první pohled nemožně — u&nbsp;rychlé reakce by taková hodnota klidně mohla platit.</p>
+          </div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-b">
+            <p>Poučení: u&nbsp;výsledku, který „mohl by být“, nestačí zdravý rozum. Musí se kontrolovat zápis, ne jen věrohodnost čísla.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: pořadí operací"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

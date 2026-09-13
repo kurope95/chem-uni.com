@@ -1,0 +1,86 @@
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Vodík a&nbsp;voda</h1>
+      <p class="lead">Jeden proton a&nbsp;jeden elektron. Z&nbsp;téhle nejjednodušší možné stavby plyne, proč vodík nesedí ani mezi alkalické kovy, ani mezi halogeny, proč tvoří tři různé typy hydridů, proč led plave na vodě a&nbsp;proč peroxid v&nbsp;lahvičce nakonec sám od sebe zmizí. Buď rychlokurz na hodinu, nebo devět kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychlokurz i&nbsp;plný kurz</span>
+        <span class="tag">Interaktivní modely a&nbsp;grafy</span>
+        <span class="tag">Řešené příklady krok za krokem</span>
+        <span class="tag">Testy s&nbsp;vysvětlením</span>
+        <span class="tag">Tahák a&nbsp;slovníček</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">Celá látka v&nbsp;kostce</span></span>
+        <span class="pt">Rychlokurz</span>
+        <span class="pd">Deset bloků, v&nbsp;každém výklad, rámeček se vzorci, upozornění na častou chybu a&nbsp;příklad s&nbsp;čísly. Projde všechny pojmy z&nbsp;osnovy, má vlastní schémata a&nbsp;kontrolní test. Vejde se do jedné hodiny.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">Podrobný výklad</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Devět kapitol od postavení vodíku v&nbsp;periodické tabulce až po peroxid vodíku. Interaktivní modely, prohledávatelná tabulka hydridů, trenažér a&nbsp;mini‑test po každé kapitole. Na konci tahák a&nbsp;slovníček.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Tři vazebné možnosti vodíku — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="hbSel">Vazebný partner</label>
+            <select id="hbSel"></select>
+          </div>
+          <div class="ctl">
+            <label>Co zobrazit</label>
+            <div class="segmented" id="hbMode" role="group" aria-label="Volba zobrazení">
+              <button type="button" data-v="en" aria-pressed="true">Stupnice elektronegativit</button>
+              <button type="button" data-v="sch" aria-pressed="false">Schéma vazby</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="hbWrap" style="min-height:320px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>vodík si elektronový pár přitáhne — vzniká H⁻, oxidační číslo −I</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>elektronový pár se posune k&nbsp;partnerovi — vodík má δ⁺ a&nbsp;oxidační číslo +I</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>zvláštní případy: třístředová a&nbsp;kovová vazba</span>
+        </div>
+        <div class="grid2" style="margin-top:1.1rem;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <p class="eq" id="hbEq" style="margin:0"></p>
+            <p class="eq" id="hbEq2" style="margin:0;border-left-color:var(--accent)"></p>
+          </div>
+          <div class="grid3">
+            <div class="readout" id="hbRo1"></div>
+            <div class="readout" id="hbRo2"></div>
+            <div class="readout" id="hbRo3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note" id="hbNote">Vyberte draslík a&nbsp;pak fluor. Uvidíte dva krajní případy: u&nbsp;draslíku elektronový pár skončí u&nbsp;vodíku a&nbsp;vznikne skutečná iontová mřížka s&nbsp;H⁻. U&nbsp;fluoru se pár posune k&nbsp;partnerovi, ale <b>iontová vazba nevznikne</b> — proton nemá čím být iontem. Přesně v&nbsp;tomhle rozdílu je celá zvláštnost vodíku.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klepněte na řádek a&nbsp;skočíte rovnou na ni.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Postavení vodíku v&nbsp;periodické tabulce — proč nesedí ani do 1., ani do 17. skupiny; tři vazebné možnosti (H⁺, H⁻, kovalentní vazba).</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Izotopy: protium, deuterium, tritium; těžká voda a&nbsp;její využití.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Elementární vodík: molekula H₂, ortho a&nbsp;para vodík, fyzikální vlastnosti, atomární vodík.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">3a</span><span>Reaktivita vodíku, hoření, redukční účinky a&nbsp;jediný případ oxidačního působení.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">4</span><span>Výroba: parní reforming, zplyňování, elektrolýza vody, laboratorní příprava (Zn + HCl, hydridy + voda); vodík jako palivo a&nbsp;nosič energie, dnešní stav.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">5</span><span>Hydridy: iontové (NaH, CaH₂), kovalentní (CH₄, NH₃, H₂O, HF), kovové (intersticiální); trend přes periodu a&nbsp;skupinu.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k5"><span class="b">5a</span><span>Hydridové komplexy (LiAlH₄, NaBH₄) a&nbsp;k&nbsp;čemu jsou.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">6</span><span>Voda: molekula, vodíkové můstky, anomálie hustoty, vysoká teplota varu a&nbsp;tepelná kapacita, rozpouštědlo.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">7</span><span>Tvrdost vody (přechodná a&nbsp;trvalá), její odstranění, měkčení, destilovaná a&nbsp;demineralizovaná voda.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k7"><span class="b">7a</span><span>Ionizace vody, iontový součin, pH — krátce, podrobně je to v&nbsp;jiném modulu.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">8</span><span>Peroxid vodíku: struktura, rozklad, redoxní chování, využití.</span><span class="go">Kap. 8</span></a>
+    </div>
+  </header>

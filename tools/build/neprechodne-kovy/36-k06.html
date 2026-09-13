@@ -1,0 +1,220 @@
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Efekt inertního páru">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · osnova, bod 7</span>
+      <h2>Efekt inertního páru</h2>
+      <p class="lead">Tenhle pojem jste zatím nikde nepotkali, a&nbsp;přitom bez něj nedává smysl polovina chemie bloku p. Proč je thallium normálně jednomocné, když má tři valenční elektrony? Proč je olovo dvojmocné, když jich má čtyři? A&nbsp;proč se přesně stejná věc opakuje u&nbsp;bismutu? Postavíme si to od začátku a&nbsp;s&nbsp;čísly — protože právě tohle je otázka, u&nbsp;které se pozná, jestli student rozumí, nebo jen memoruje.</p>
+
+      <h3>Nejdřív problém: dvě možná oxidační čísla</h3>
+      <p>Prvek bloku p&nbsp;má valenční sféru <span class="chem">ns²npˣ</span>. Když má vstoupit do vazeb, má dvě možnosti:</p>
+      <div class="grid2" style="margin:.5rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Možnost A — zapojí všechno</span>
+          <p>Do vazeb jdou <b>všechny</b> valenční elektrony, tedy pár <span class="chem">ns²</span> i&nbsp;elektrony <span class="chem">np</span>. Oxidační číslo je pak rovné <b>skupinovému</b>: III ve skupině 13, IV ve skupině 14, V&nbsp;ve skupině 15.</p>
+          <p style="margin-top:.35rem">Na iontu zbude konfigurace typu <span class="chem">d¹⁰</span> — starší literatura jí říká „<b>osmnáctka</b>“, protože pod ní leží osmnáct elektronů předposlední slupky.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Možnost B — pár <span class="chem">ns²</span> si nechá</span>
+          <p>Do vazeb jdou jen elektrony z&nbsp;orbitalů <span class="chem">np</span>, kdežto pár <span class="chem">ns²</span> zůstane na atomu jako <b>volný elektronový pár</b>. Oxidační číslo je pak o&nbsp;<b>dvě jednotky nižší</b>: I, II a&nbsp;III.</p>
+          <p style="margin-top:.35rem">Na iontu zbude konfigurace <span class="chem">d¹⁰s²</span> — „<b>dvacítka</b>“, tedy osmnáctka plus zachovaný pár.</p>
+        </div>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><span class="term">Efekt inertního páru</span> je jev, kdy u&nbsp;těžších prvků bloku p&nbsp;zůstává pár elektronů <span class="chem">ns²</span> nezapojený do vazeb, takže převládá oxidační číslo o&nbsp;<b>dvě jednotky nižší</b>, než odpovídá skupině. Efekt <b>sílí směrem dolů ve skupině</b> a&nbsp;projevuje se ve skupinách 13, 14 i&nbsp;15.</p>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Past, na které se ztrácejí body</span>
+        <p>„Inertní pár znamená, že ty dva elektrony tam už nejsou.“ Jsou tam pořád — jen nejsou vazebné. Projeví se jako <b>stereochemicky aktivní volný pár</b>: molekula <span class="chem">SnCl₂</span> proto není lineární, ale <b>lomená</b> s&nbsp;úhlem kolem 95°, protože volný pár zabírá jednu z&nbsp;pozic kolem centrálního atomu. Přesně tak, jak to předpovídá teorie VSEPR.</p>
+      </div>
+
+      <h3>Jak to vypadá v&nbsp;praxi: tři skupiny, jeden vzorec</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Skupina</th><th>Valenční sféra</th><th>Vyšší stav („osmnáctka“)</th><th>Nižší stav („dvacítka“)</th><th>Kde se láme převaha</th></tr></thead>
+          <tbody>
+            <tr><td><b>13</b></td><td class="chem">ns² np¹</td><td><b>III</b></td><td><b>I</b></td><td>Al, Ga, In dávají III · <b>Tl dává I</b></td></tr>
+            <tr><td><b>14</b></td><td class="chem">ns² np²</td><td><b>IV</b></td><td><b>II</b></td><td>Ge, Sn dávají IV · <b>Pb dává II</b></td></tr>
+            <tr><td><b>15</b></td><td class="chem">ns² np³</td><td><b>V</b></td><td><b>III</b></td><td>As, Sb dávají oba · <b>Bi dává III</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Všimněte si té pravidelnosti: <b>zlom vždycky přijde v&nbsp;šesté periodě.</b> Thallium, olovo a&nbsp;bismut jsou tři sousedé v&nbsp;jedné řadě a&nbsp;všichni tři si nechávají svůj pár <span class="chem">6s²</span>. Není to náhoda — je to jedna a&nbsp;táž příčina.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Efekt inertního páru na číslech: co stojí vyšší oxidační stav</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="ipSeg" style="flex-wrap:wrap" role="group" aria-label="Skupina">
+          <button type="button" data-ip="13" aria-pressed="true">Skupina 13 (Al, Ga, In, Tl)</button>
+          <button type="button" data-ip="14" aria-pressed="false">Skupina 14 (Ge, Sn, Pb)</button>
+        </div>
+        <div class="ctl" style="margin-top:.9rem">
+          <label for="ipView">Co vynést</label>
+          <select id="ipView" aria-label="Zobrazená veličina">
+            <option value="ie">cena za vyšší stav — součet ionizačních energií [kJ·mol⁻¹]</option>
+            <option value="stab">relativní stálost obou oxidačních stavů</option>
+            <option value="vaz">průměrná energie vazby M—Cl [kJ·mol⁻¹]</option>
+          </select>
+        </div>
+        <div class="svgwrap" id="ipWrap" style="min-height:330px;margin-top:.9rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>vyšší oxidační stav — pár <span class="chem">ns²</span> je zapojený</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>nižší oxidační stav — pár <span class="chem">ns²</span> zůstal na atomu</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>prvek, u&nbsp;kterého se převaha láme</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="ipRo1"></div>
+          <div class="readout" id="ipRo2"></div>
+          <div class="readout" id="ipRo3"></div>
+        </div>
+        <div id="ipText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="ipNote">Nechte skupinu 14 a&nbsp;přepněte na <b>součet ionizačních energií</b>. Sloupec pro olovo je <b>vyšší</b> než pro cín, přestože je olovo o&nbsp;periodu níž a&nbsp;jeho atom je větší — normální trend by kázal opak. Pak přepněte na <b>energii vazby</b> a&nbsp;uvidíte, že ta zároveň klesá. Obě křivky táhnou proti vyššímu stavu a&nbsp;u&nbsp;olova se sečtou.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Příčina první: relativistická kontrakce orbitalu s</h3>
+      <p>Elektron v&nbsp;orbitalu <span class="chem">1s</span> těžkého atomu se pohybuje rychlostí, která už není zanedbatelná proti rychlosti světla. Odhad je jednoduchý: rychlost je zhruba <span class="q">Z</span>&nbsp;/&nbsp;137 násobek rychlosti světla. Pro hliník (<span class="q">Z</span> = 13) to je 9,5&nbsp;% rychlosti světla, pro thallium (<span class="q">Z</span> = 81) už <b>59&nbsp;%</b>.</p>
+      <p>Podle speciální teorie relativity roste hmotnost s&nbsp;rychlostí, a&nbsp;protože poloměr orbitalu je hmotnosti nepřímo úměrný, <b>orbital se stáhne k&nbsp;jádru</b>. U&nbsp;thallia je faktor stažení asi 1,24, tedy zhruba čtvrtina.</p>
+      <p class="eq"><span class="q">v</span> / <span class="q">c</span> ≈ <span class="q">Z</span> / 137 &nbsp;&nbsp;·&nbsp;&nbsp; <span class="q">m</span> = <span class="q">m</span>₀ / √(1 − <span class="q">v</span>²/<span class="q">c</span>²) &nbsp;&nbsp;·&nbsp;&nbsp; <span class="q">r</span> ~ 1 / <span class="q">m</span><br><span style="color:var(--ink-3)">c je rychlost světla, m₀ klidová hmotnost elektronu, Z protonové číslo</span></p>
+      <p>Podstatné je, že se to netýká všech orbitalů stejně. <b>Jen orbitaly s&nbsp;mají nenulovou hustotu pravděpodobnosti přímo v&nbsp;jádře</b>, a&nbsp;tak se jich efekt dotkne nejvíc. Orbitaly p&nbsp;jsou postiženy méně, orbitaly d&nbsp;a&nbsp;f se naopak nepřímo rozšíří, protože stažené vnitřní orbitaly s&nbsp;stíní jádro lépe.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Kde tenhle efekt ještě potkáte</span>
+        <p>Relativistická kontrakce orbitalu <span class="chem">6s</span> vysvětluje i&nbsp;dvě věci, které znáte odjinud. <b>Zlato je žluté</b>, protože stažený orbital 6s posune absorpci do modré oblasti viditelného světla (stříbro má stejnou strukturu, ale posun je mimo viditelnou oblast, a&nbsp;proto je bílé). A&nbsp;<b>rtuť je kapalná</b>, protože její pár <span class="chem">6s²</span> je stažený a&nbsp;natolik netečný, že se skoro nezapojuje do kovové vazby.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Relativistický efekt: jak rychle letí elektron kolem těžkého jádra</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="rlZ">Protonové číslo <span class="q">Z</span>: <span class="val" id="rlZv">13</span></label>
+          <input type="range" id="rlZ" min="5" max="92" step="1" value="13">
+        </div>
+        <div class="svgwrap" id="rlWrap" style="min-height:300px;margin-top:.8rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="rlRo1"></div>
+          <div class="readout" id="rlRo2"></div>
+          <div class="readout" id="rlRo3"></div>
+        </div>
+        <div id="rlText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="rlNote">Posuňte se z&nbsp;hliníku (<span class="q">Z</span> = 13) na thallium (<span class="q">Z</span> = 81) a&nbsp;sledujte, jak rychlost přeskočí z&nbsp;desetiny na skoro šest desetin rychlosti světla. Křivka je zpočátku plochá a&nbsp;pak se láme nahoru — přesně proto se efekt projeví až v&nbsp;šesté periodě a&nbsp;ne dřív.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Příčina druhá: vazby dolů skupinou slábnou</h3>
+      <p>Relativistický efekt sám o&nbsp;sobě nestačí. Kdyby byl jediný, museli bychom vysvětlit, proč se projeví teprve tehdy, když se rozhoduje o&nbsp;dvou vazbách navíc. Druhý díl skládačky je energetická bilance.</p>
+      <p>Aby se vyšší oxidační stav vyplatil, musí <b>energie získaná ze dvou vazeb navíc</b> přebít <b>energii potřebnou na ionizaci páru <span class="chem">ns²</span></b>. Obě veličiny se ale dolů skupinou vyvíjejí <b>nepříznivě</b>: vazby slábnou, protože se orbitaly hůř překrývají a&nbsp;jsou dál od sebe, kdežto ionizační energie neklesá tak, jak by měla, protože se do ní vloží relativistická kontrakce.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Veličina (skupina 14)</th><th class="n">Germanium</th><th class="n">Cín</th><th class="n">Olovo</th><th>Trend</th></tr></thead>
+          <tbody>
+            <tr><td><span class="q">I</span>₃ + <span class="q">I</span>₄ [kJ·mol⁻¹] — cena za stav IV</td><td class="n">7713</td><td class="n">6873</td><td class="n"><b>7165</b></td><td>u&nbsp;olova <b>vzroste</b></td></tr>
+            <tr><td>Průměrná energie vazby M—Cl [kJ·mol⁻¹]</td><td class="n">349</td><td class="n">323</td><td class="n"><b>244</b></td><td>plynule <b>klesá</b></td></tr>
+            <tr><td>Zisk ze dvou vazeb navíc [kJ·mol⁻¹]</td><td class="n">698</td><td class="n">646</td><td class="n"><b>488</b></td><td>u&nbsp;olova o&nbsp;158 méně</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="eq"><b>bilance přechodu od cínu k&nbsp;olovu</b><br>
+      ionizace je dražší o&nbsp;7165 − 6873 = +291&nbsp;kJ·mol⁻¹<br>
+      dvě vazby vynesou méně o&nbsp;646 − 488 = +158&nbsp;kJ·mol⁻¹<br>
+      <b>celkem mluví proti stavu IV u&nbsp;olova zhruba 449&nbsp;kJ·mol⁻¹</b></p>
+      <p>Stejný výpočet ve skupině 13 pro přechod od india k&nbsp;thalliu dá +324&nbsp;kJ·mol⁻¹ na ionizaci a&nbsp;+150 na vazbách, dohromady zhruba 474&nbsp;kJ·mol⁻¹ proti stavu III. To je řádově tolik, kolik dá jedna slušná chemická vazba — proto se rozhodnutí obrátí.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak si to zapamatovat jako obchod</span>
+        <p>Představte si to jako nákup. <b>Cena</b> je součet ionizačních energií, které musíte zaplatit, aby se pár <span class="chem">ns²</span> dostal do hry. <b>Výnos</b> jsou dvě vazby navíc. Nahoře ve skupině je zboží levné a&nbsp;výnos vysoký, takže se obchod vyplatí. Dole cena stoupne a&nbsp;výnos klesne — a&nbsp;prvek obchod odmítne. To je celý efekt inertního páru.</p>
+      </div>
+
+      <h3>Důsledky, které se ptají</h3>
+      <div class="grid2" style="margin:.5rem 0">
+        <div class="callout def">
+          <span class="eyebrow">1. Redoxní chování se převrací</span>
+          <p>Sloučenina ve stavu, který <b>není</b> pro daný prvek preferovaný, je nestabilní a&nbsp;chce se do preferovaného dostat. Proto:</p>
+          <p style="margin-top:.35rem"><span class="chem">Sn²⁺</span> je <b>redukovadlo</b> (chce nahoru na IV), <span class="chem">Pb⁴⁺</span> je <b>oxidovadlo</b> (chce dolů na II), <span class="chem">Tl³⁺</span> je silné <b>oxidovadlo</b>, <span class="chem">Ga⁺</span> je silné <b>redukovadlo</b>.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">2. Některé sloučeniny prostě neexistují</span>
+          <p><span class="chem">PbBr₄</span> a&nbsp;<span class="chem">PbI₄</span> nejde připravit, protože by <span class="chem">Pb⁴⁺</span> halogenid okamžitě zoxidoval. <span class="chem">PbCl₄</span> existuje, ale nad 50&nbsp;°C se rozpadá. Stálý je jen <span class="chem">PbF₄</span> — fluorid se oxiduje nejhůř ze všech.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">3. Nižší stav může disproporcionovat</span>
+          <p>Když je nižší stav nestálý, rozpadne se na kov a&nbsp;vyšší stav. U&nbsp;germania to vypadá takto:</p>
+          <p class="eq" style="margin-top:.35rem"><span class="chem">2 GeI₂ → Ge + GeI₄</span></p>
+          <p style="margin-top:.35rem">U&nbsp;olova by šlo o&nbsp;disproporcionaci opačným směrem a&nbsp;ta neprobíhá.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">4. Bazicita a&nbsp;iontovost rostou s&nbsp;nižším stavem</span>
+          <p>V&nbsp;nižším oxidačním stavu je náboj menší, kation větší, vazba iontovější a&nbsp;oxid zásaditější. Proto je <span class="chem">PbO</span> zásaditější než <span class="chem">PbO₂</span> a&nbsp;<span class="chem">TlOH</span> je dokonce silná zásada srovnatelná s&nbsp;hydroxidy alkalických kovů.</p>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Thallium: prvek, který se tváří jako alkalický kov</span>
+        <p>Ion <span class="chem">Tl⁺</span> má poloměr 150&nbsp;pm, což je téměř přesně mezi <span class="chem">K⁺</span> (138&nbsp;pm) a&nbsp;<span class="chem">Rb⁺</span> (152&nbsp;pm). Tvoří proto silně zásaditý hydroxid <span class="chem">TlOH</span>, rozpustné soli a&nbsp;organismus si ho plete s&nbsp;draslíkem — vpustí ho dovnitř buněk, kde rozvrátí všechny na draslíku závislé enzymy. Právě proto je thallium tak zákeřný jed: je bez chuti, bez zápachu a&nbsp;tělo proti němu nemá obranu.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.1 · bilance thallia</span>
+          <p>Rozhodněte energetickou úvahou, proč indium tvoří <span class="chem">InCl₃</span>, kdežto thallium <span class="chem">TlCl</span>. Použijte <span class="q">I</span>₂&nbsp;+&nbsp;<span class="q">I</span>₃(In) = 4525, <span class="q">I</span>₂&nbsp;+&nbsp;<span class="q">I</span>₃(Tl) = 4849&nbsp;kJ·mol⁻¹ a&nbsp;energie vazeb In—Cl = 328, Tl—Cl = 253&nbsp;kJ·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Přechod od stavu I&nbsp;ke stavu III znamená: zaplatit <span class="q">I</span>₂&nbsp;+&nbsp;<span class="q">I</span>₃ a&nbsp;získat <b>dvě vazby</b> navíc.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Indium:</p>
+              <p class="eq">cena = 4525 kJ·mol⁻¹ · výnos = 2 · 328 = 656 kJ·mol⁻¹</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Thallium:</p>
+              <p class="eq">cena = 4849 kJ·mol⁻¹ · výnos = 2 · 253 = 506 kJ·mol⁻¹</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Rozdíl mezi oběma prvky (co všechno se zhoršilo při přechodu od india k&nbsp;thalliu):</p>
+              <p class="eq">cena vzrostla o&nbsp;4849 − 4525 = <b>324 kJ·mol⁻¹</b><br>výnos klesl o&nbsp;656 − 506 = <b>150 kJ·mol⁻¹</b><br>dohromady <b>474 kJ·mol⁻¹</b> proti stavu III u&nbsp;thallia</p>
+              <p>Absolutní hodnoty samy o&nbsp;sobě nic neříkají, protože v&nbsp;úplné bilanci by musela být i&nbsp;mřížková a&nbsp;hydratační energie. Rozhodující je ten <b>rozdíl</b> — a&nbsp;ten je zdrcující.</p>
+              <span class="result">Přechod In → Tl zhorší bilanci stavu III o zhruba 474 kJ·mol⁻¹ — proto Tl(I)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 6.2 · antimon × bismut</span>
+          <p>Antimon a&nbsp;bismut jsou sousedé ve skupině 15. Předpovězte, který z&nbsp;nich tvoří stálejší sloučeniny v&nbsp;oxidačním stavu V, a&nbsp;rozhodněte, jak se bude chovat bismutičnan sodný <span class="chem">NaBiO₃</span>.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Skupina 15 má valenční sféru <span class="chem">ns² np³</span>. Vyšší stav je <b>V</b> (zapojí se všech pět elektronů), nižší <b>III</b> (pár <span class="chem">ns²</span> zůstane).</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Antimon je v&nbsp;5. periodě, bismut v&nbsp;6. Efekt inertního páru sílí dolů, takže <b>u&nbsp;bismutu je stav V&nbsp;výrazně méně stálý</b> než u&nbsp;antimonu.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Antimon proto tvoří stálé antimoničnany, kdežto bismutičnany jsou mimořádně nestálé — bismut se z&nbsp;nich chce co nejrychleji dostat na stav III.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Nestálý vyšší stav znamená <b>silné oxidovadlo</b>. Bismutičnan sodný je jedno z&nbsp;nejsilnějších oxidovadel v&nbsp;analytické chemii — v&nbsp;kyselém prostředí zoxiduje manganatý ion až na manganistan, přesně jako oxid olovičitý.</p>
+              <span class="result">Sb(V) je stálý, Bi(V) není — proto je NaBiO₃ silné oxidovadlo</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q6" data-title="Mini‑test: efekt inertního páru"></div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

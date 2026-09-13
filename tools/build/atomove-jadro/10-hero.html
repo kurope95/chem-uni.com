@@ -1,0 +1,77 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Atomové jádro, přeměny jader a&nbsp;radioaktivita</h1>
+      <p class="lead">Proč jsou některá jádra věčná a&nbsp;jiná se rozpadnou za mikrosekundu — a&nbsp;proč se to dá spočítat s&nbsp;přesností na promile, i&nbsp;když u&nbsp;jednoho jádra nikdy nevíte, kdy to přijde. Buď rychloprůchod na jednu hodinu, nebo osm kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 60 minut</span>
+        <span class="tag">14 interaktivních modelů</span>
+        <span class="tag">94 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulka nuklidů a&nbsp;poločasů</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">60 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: deset bloků, v každém výklad, rámeček se vzorci, upozornění na častou chybu a řešený příklad s čísly. Projde všech 57 pojmů z osnovy, má tři vlastní grafy a kontrolní test o 12 otázkách.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">8 kapitol + test + tahák</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad se čtrnácti interaktivními modely, osmnácti řešenými příklady krok za krokem, trenažérem zápisu přeměn a testem po každé kapitole. Na konci závěrečný test, tahák a slovníček všech pojmů.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Rozpadová křivka — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid3" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroHl">Poločas <span class="q">t</span><sub>½</sub> — <span class="val" id="heroHlV">8 dní</span></label>
+            <input type="range" id="heroHl" min="1" max="30" step="1" value="8">
+          </div>
+          <div class="ctl">
+            <label for="heroT">Uplynulý čas <span class="q">t</span> — <span class="val" id="heroTV">24 dní</span></label>
+            <input type="range" id="heroT" min="0" max="120" step="1" value="24">
+          </div>
+          <div class="ctl">
+            <label>Svislá osa</label>
+            <div class="segmented" id="heroScale" role="group" aria-label="Měřítko svislé osy">
+              <button type="button" data-v="lin" aria-pressed="true">Lineární</button>
+              <button type="button" data-v="log" aria-pressed="false">Logaritmická</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="heroWrap" style="min-height:320px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span><span class="q">N</span>(<span class="q">t</span>) = <span class="q">N</span>₀·e<sup>−<span class="q">λt</span></sup> — podíl nepřeměněných jader</span>
+          <span class="li"><span class="sw dot" style="background:var(--ink-2)"></span>½, ¼, ⅛ po 1, 2, 3 poločasech</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>váš okamžik <span class="q">t</span></span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="heroRo1"></div>
+          <div class="readout" id="heroRo2"></div>
+          <div class="readout" id="heroRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="heroNote">Po každém poločasu zbývá <b>polovina</b> toho, co bylo — ne polovina původního. Po dvou poločasech čtvrtina, po třech osmina. Přepněte na logaritmickou osu: exponenciála se narovná na přímku, a&nbsp;právě to je znak přeměny prvního řádu.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Určení počtu elementárních částic v&nbsp;atomovém jádře (protonové, neutronové a&nbsp;nukleonové číslo).</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Pojem nuklidu a&nbsp;vztahy mezi nuklidy (izotopy, izobary, izotony).</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Stabilita atomových jader, řeka stability a&nbsp;určování stability jednotlivých nuklidů.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Samovolné přeměny nuklidů (přeměny alfa, beta, gama, elektronový záchyt, emise neutronu apod.)</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Radioaktivita (přirozená a&nbsp;umělá), ionizující záření. Nebezpečnost a&nbsp;propustnost jednotlivých typů radioaktivního záření.</span><span class="go">Kap. 4–5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">6</span><span>Rozpadový zákon, poločas rozpadu.</span><span class="go">Kap. 6–7</span></a>
+    </div>
+  </header>

@@ -1,0 +1,203 @@
+  <!-- ============ KAPITOLA 5 ============ -->
+  <section class="chapter" id="k5" data-title="Srážková teorie, aktivovaný komplex, energetický profil">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · osnova, bod 5</span>
+      <h2>Teorie chemické kinetiky a&nbsp;energetický profil reakce</h2>
+      <p class="lead">Zatím jsme rychlost jen popisovali. Teď ji vysvětlíme: proč vůbec reakce potřebuje čas, proč ji teplota tak silně zrychluje a&nbsp;co se děje v&nbsp;tom okamžiku, kdy staré vazby zanikají a&nbsp;nové vznikají. Dvě teorie, jeden obrázek.</p>
+
+      <h3>Srážková teorie (Lewis, 1918)</h3>
+      <div class="callout def">
+        <span class="eyebrow">Tři podmínky účinné srážky</span>
+        <p>Aby částice zreagovaly, musí se <b>(1) srazit</b>, srážka musí mít <b>(2) dostatečnou energii</b> — alespoň rovnou <span class="term">aktivační energii</span> <span class="q">E</span><sub>a</sub> — a&nbsp;částice musí být <b>(3) vhodně orientované</b>. Srážka, která splní všechny tři podmínky, je <span class="term">účinná (efektivní) srážka</span>. Rychlost reakce = počet účinných srážek za sekundu v&nbsp;jednotce objemu.</p>
+      </div>
+      <p>Srážek je nesmírně mnoho — v&nbsp;plynu za normálních podmínek prodělá každá molekula asi 10⁹ až 10¹⁰ srážek za sekundu. Kdyby každá vedla k&nbsp;reakci, všechny reakce by proběhly za zlomek sekundy. Realita je jiná, protože <b>jen nepatrný zlomek srážek je účinný</b>. Srážková teorie to zapisuje jako součin tří členů:</p>
+      <p class="eq"><span class="q">v</span> = <span class="q">Z</span> · <span class="q">P</span> · e<sup>−<span class="q">E</span><sub>a</sub>/<span class="q">RT</span></sup> &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)"><span class="q">Z</span> = frekvence srážek · <span class="q">P</span> = sterický faktor · e<sup>−<span class="q">E</span>a/<span class="q">RT</span></sup> = podíl srážek s&nbsp;dostatečnou energií</span></p>
+
+      <h3>Podmínka energie — Maxwell–Boltzmannovo rozdělení</h3>
+      <p>Molekuly při dané teplotě nemají všechny stejnou energii; rozdělení je široké a&nbsp;má dlouhý „ocas“ směrem k&nbsp;vysokým energiím. <b>Podíl molekul s&nbsp;energií alespoň <span class="q">E</span><sub>a</sub></b> dává Boltzmannův faktor <span class="mono">e<sup>−<span class="q">E</span>a/<span class="q">RT</span></sup></span>. Pro typickou <span class="q">E</span><sub>a</sub> = 50 kJ·mol⁻¹ při 300 K je to e<sup>−20</sup> ≈ 2·10⁻⁹ — dvě srážky z&nbsp;miliardy. Při 310 K už 3,8·10⁻⁹, tedy skoro dvojnásobek: <b>zvýšení teploty o&nbsp;10 K zdvojnásobí počet dostatečně energetických srážek</b>, i&nbsp;když se průměrná rychlost molekul zvýší jen o&nbsp;1,7 %. To je celé tajemství vlivu teploty — nezáleží na průměru, ale na ocasu rozdělení.</p>
+
+      <h3>Podmínka orientace — sterický faktor</h3>
+      <p>Ani energeticky bohatá srážka nemusí vést k&nbsp;reakci, když molekuly narazí „špatnou stranou“. Pro <span class="chem">NO + O₃ → NO₂ + O₂</span> musí dusík NO zamířit na koncový kyslík ozonu; srážka atomem kyslíku napřed nic nedá. <span class="term">Sterický (orientační) faktor</span> <span class="q">P</span> udává podíl srážek se správnou orientací: u&nbsp;malých symetrických částic bývá blízký 1, u&nbsp;velkých molekul s&nbsp;jedním reaktivním místem třeba 10⁻³ i&nbsp;méně. Proto reagují enzymy tak selektivně — substrát musí do aktivního místa zapadnout přesně.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Maxwell–Boltzmannovo rozdělení: kolik molekul má energii aspoň <span class="q">E</span><sub>a</sub></h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="mbT">Teplota <span class="q">T</span> — <span class="val" id="mbTV">300 K</span></label>
+            <input type="range" id="mbT" min="200" max="800" step="10" value="300">
+          </div>
+          <div class="ctl">
+            <label for="mbEa">Aktivační energie <span class="q">E</span><sub>a</sub> — <span class="val" id="mbEaV">50 kJ·mol⁻¹</span></label>
+            <input type="range" id="mbEa" min="10" max="150" step="5" value="50">
+          </div>
+        </div>
+        <div class="svgwrap" id="mbWrap" style="min-height:280px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--ink-2)"></span>rozdělení energií při <span class="q">T</span></span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>totéž při <span class="q">T</span> + 100 K (pro srovnání)</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>molekuly s&nbsp;<span class="q">E</span> ≥ <span class="q">E</span><sub>a</sub> — ty mohou reagovat</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="mbRo1"><span class="k">Podíl e^(−Ea/RT) při T</span><span class="v">—</span><span class="h">z jedné srážky</span></div>
+          <div class="readout" id="mbRo2"><span class="k">Podíl při T + 10 K</span><span class="v">—</span><span class="h">malé zahřátí</span></div>
+          <div class="readout" id="mbRo3"><span class="k">Kolikrát víc</span><span class="v">—</span><span class="h">zrychlení za +10 K</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="mbNote">Tvar křivky je schematický (skutečný ocas je mnohem tenčí, než se dá nakreslit), čísla v&nbsp;dlaždicích jsou přesná. Zkuste nastavit <span class="q">E</span><sub>a</sub> = 50 kJ·mol⁻¹ a&nbsp;posunout teplotu z&nbsp;300 na 310 K: podíl účinných srážek se skoro zdvojnásobí. Pak zkuste <span class="q">E</span><sub>a</sub> = 100 — tam už +10 K znamená skoro 4×.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Podmínka orientace: srážka NO s&nbsp;ozonem</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Jak se molekuly potkají</label>
+          <div class="segmented" id="orMode" role="group" aria-label="Orientace srážky">
+            <button type="button" data-v="good" aria-pressed="true">N míří na koncový O ozonu</button>
+            <button type="button" data-v="bad" aria-pressed="false">O z NO napřed</button>
+            <button type="button" data-v="slow" aria-pressed="false">správně, ale pomalu</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="orWrap" style="min-height:200px"></div>
+      </div>
+      <div class="panel-note" id="orNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>Teorie aktivovaného komplexu (Eyring, 1935)</h3>
+      <p>Srážková teorie funguje pro plyny a&nbsp;jednoduché molekuly, ale nic neříká o&nbsp;tom, <em>co se během srážky děje</em>. To doplnila <span class="term">teorie aktivovaného komplexu</span> (teorie přechodového stavu, Eyring, Polanyi, Evans 1935). Reaktanty nepřecházejí v&nbsp;produkty skokem: postupně se k&nbsp;sobě přibližují, staré vazby se prodlužují a&nbsp;nové se začínají tvořit, až soustava projde stavem s&nbsp;nejvyšší energií.</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Aktivovaný komplex</b> (přechodový stav, značí se ‡) je nestabilní, krátkodobé uspořádání atomů na <b>vrcholu energetické bariéry</b>, v&nbsp;němž jsou staré vazby už zčásti rozvolněné a&nbsp;nové zčásti vytvořené. Existuje řádově 10⁻¹³ s (jedna vibrace), nelze ho izolovat a&nbsp;rozpadá se buď na produkty, nebo zpět na reaktanty. <b>Aktivační energie</b> je rozdíl energie aktivovaného komplexu a&nbsp;reaktantů.</p>
+      </div>
+      <p class="eq">H–H + Cl· → [H···H···Cl]<sup>‡</sup> → H· + H–Cl &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">uprostřed je aktivovaný komplex: vazba H–H se trhá, H–Cl vzniká</span></p>
+      <p>Teorie říká, že aktivovaný komplex je v&nbsp;rychlé rovnováze s&nbsp;reaktanty a&nbsp;rychlost reakce je dána tím, jak rychle se rozpadá na produkty. Výsledek má stejný tvar jako Arrheniova rovnice, ale předexponenciální faktor se dá spočítat z&nbsp;vlastností molekul. Pro nás je podstatný obrázek, který z&nbsp;ní plyne — energetický profil.</p>
+
+      <h3>Energetický profil reakce</h3>
+      <div class="callout def">
+        <span class="eyebrow">Co je na osách</span>
+        <p>Na vodorovné ose je <span class="term">reakční koordináta</span> — abstraktní míra postupu reakce od reaktantů (vlevo) k&nbsp;produktům (vpravo); nejde o&nbsp;čas. Na svislé ose je energie (přesněji potenciální energie soustavy, u&nbsp;plynů za stálého tlaku enthalpie). Křivka je <span class="term">energetický profil</span>. Vrchol je aktivovaný komplex; rozdíl reaktanty → vrchol je <span class="q">E</span><sub>a</sub>; rozdíl reaktanty → produkty je Δ<span class="q">H</span>.</p>
+      </div>
+      <p>Z&nbsp;profilu se dají přečíst čtyři věci, a&nbsp;všechny bývají v&nbsp;testu:</p>
+      <p>• <b>Aktivační energie přímé reakce</b> <span class="q">E</span><sub>a</sub>(→) = <span class="q">E</span>(komplex) − <span class="q">E</span>(reaktanty).<br>
+      • <b>Aktivační energie zpětné reakce</b> <span class="q">E</span><sub>a</sub>(←) = <span class="q">E</span>(komplex) − <span class="q">E</span>(produkty). Zpětná reakce jde přes tentýž vrchol.<br>
+      • <b>Reakční enthalpie</b> Δ<span class="q">H</span> = <span class="q">E</span>(produkty) − <span class="q">E</span>(reaktanty) = <span class="q">E</span><sub>a</sub>(→) − <span class="q">E</span><sub>a</sub>(←). U&nbsp;exotermické reakce je zpětná bariéra vyšší než přímá; u&nbsp;endotermické naopak.<br>
+      • <b>Meziprodukt</b> u&nbsp;vícekrokové reakce sedí v&nbsp;<em>údolí</em> mezi dvěma vrcholy; <b>rychlost určující krok</b> je ten s&nbsp;<em>nejvyšší bariérou</em>.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Eₐ a ΔH spolu nesouvisí</span>
+        <p>Silně exotermická reakce může mít obrovskou <span class="q">E</span><sub>a</sub> (hoření diamantu: Δ<span class="q">H</span>° = −395 kJ·mol⁻¹, a&nbsp;přesto na stole nehoří) a&nbsp;endotermická reakce malou. Δ<span class="q">H</span> je termodynamika — <em>kolik</em>; <span class="q">E</span><sub>a</sub> je kinetika — <em>jak rychle</em>. Toto je most k&nbsp;minulému tématu: hladiny výchozích látek a&nbsp;produktů jsou stejné jako v&nbsp;termochemii, jen jsme mezi ně vložili kopec.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Energetický profil: exo/endo, katalyzátor, jeden nebo dva kroky</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label>Typ reakce</label>
+            <div class="segmented exoendo" id="epType" role="group" aria-label="Typ reakce">
+              <button type="button" data-v="exo" aria-pressed="true">Exotermická</button>
+              <button type="button" data-v="endo" aria-pressed="false">Endotermická</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label>Katalyzátor</label>
+            <div class="segmented" id="epCat" role="group" aria-label="Katalyzátor">
+              <button type="button" data-v="0" aria-pressed="true">bez</button>
+              <button type="button" data-v="1" aria-pressed="false">s katalyzátorem</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label>Mechanismus</label>
+            <div class="segmented" id="epSteps" role="group" aria-label="Počet kroků">
+              <button type="button" data-v="1" aria-pressed="true">jeden krok</button>
+              <button type="button" data-v="2" aria-pressed="false">dva kroky (meziprodukt)</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label>U dvou kroků: pomalý je</label>
+            <div class="segmented" id="epSlow" role="group" aria-label="Pomalý krok">
+              <button type="button" data-v="1" aria-pressed="true">1. krok</button>
+              <button type="button" data-v="2" aria-pressed="false">2. krok</button>
+            </div>
+          </div>
+        </div>
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="epEa">Aktivační energie přímé reakce <span class="q">E</span><sub>a</sub> — <span class="val" id="epEaV">75 kJ·mol⁻¹</span></label>
+          <input type="range" id="epEa" min="30" max="200" step="5" value="75">
+        </div>
+        <div class="svgwrap" id="epWrap" style="min-height:330px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="epRo1"><span class="k">Eₐ přímé reakce</span><span class="v">—</span><span class="h">reaktanty → vrchol</span></div>
+          <div class="readout" id="epRo2"><span class="k">Eₐ zpětné reakce</span><span class="v">—</span><span class="h">produkty → vrchol</span></div>
+          <div class="readout" id="epRo3"><span class="k">ΔH = Eₐ(→) − Eₐ(←)</span><span class="v">—</span><span class="h">katalyzátor ji nemění</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="epNote"></div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.1 · čtení z energetického profilu</span>
+          <p>Reakce má aktivační energii přímé reakce 75 kJ·mol⁻¹ a&nbsp;Δ<span class="q">H</span> = −40 kJ·mol⁻¹. Určete aktivační energii zpětné reakce. S&nbsp;katalyzátorem klesne <span class="q">E</span><sub>a</sub> přímé reakce na 45 kJ·mol⁻¹ — jaká bude zpětná a&nbsp;jaké Δ<span class="q">H</span>?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Zpětná reakce startuje z&nbsp;produktů, které leží o&nbsp;40 kJ níž, a&nbsp;musí na tentýž vrchol.</p>
+              <p class="eq"><span class="q">E</span><sub>a</sub>(←) = <span class="q">E</span><sub>a</sub>(→) − Δ<span class="q">H</span> = 75 − (−40) = <b>115 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Katalyzátor sníží vrchol, ale hladiny reaktantů a&nbsp;produktů nechá. Δ<span class="q">H</span> zůstává −40.</p>
+              <p class="eq"><span class="q">E</span><sub>a</sub>(←, kat.) = 45 − (−40) = <b>85 kJ·mol⁻¹</b> &nbsp;&nbsp;Δ<span class="q">H</span> = 45 − 85 = <b>−40 kJ·mol⁻¹</b> ✓</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Obě bariéry klesly o&nbsp;stejných 30 kJ. Katalyzátor proto urychluje přímou i&nbsp;zpětnou reakci — a&nbsp;rovnováhu neposune.</p>
+              <span class="result"><span class="q">E</span><sub>a</sub>(←) = 115 → s&nbsp;katalyzátorem 85 kJ·mol⁻¹; Δ<span class="q">H</span> stále −40</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.2 · podíl účinných srážek</span>
+          <p>Reakce má <span class="q">E</span><sub>a</sub> = 50 kJ·mol⁻¹. Vypočítejte podíl srážek s&nbsp;energií alespoň <span class="q">E</span><sub>a</sub> při 300 K a&nbsp;při 310 K. Kolikrát se reakce zrychlí? (<span class="q">R</span> = 8,314 J·K⁻¹·mol⁻¹)</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Pozor na jednotky: <span class="q">E</span><sub>a</sub> převedeme na jouly, aby se vykrátily s&nbsp;<span class="q">R</span>.</p>
+              <p class="eq"><span class="q">E</span><sub>a</sub>/<span class="q">RT</span> = 50 000 / (8,314 · 300) = <b>20,05</b><br>e<sup>−20,05</sup> = <b>2,0·10⁻⁹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Totéž pro 310 K.</p>
+              <p class="eq"><span class="q">E</span><sub>a</sub>/<span class="q">RT</span> = 50 000 / (8,314 · 310) = 19,40 → e<sup>−19,40</sup> = <b>3,8·10⁻⁹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Poměr obou podílů je zrychlení.</p>
+              <p class="eq">3,8·10⁻⁹ / 2,0·10⁻⁹ = <b>1,9×</b></p>
+              <span class="result">2 srážky z miliardy → 3,8 z miliardy; zrychlení ≈ 1,9× za +10 K</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Proto platí van 't Hoffovo pravidlo „+10 °C ≈ 2×“ právě pro reakce s&nbsp;<span class="q">E</span><sub>a</sub> kolem 50 kJ·mol⁻¹. Podrobně v&nbsp;kapitole 6.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: teorie kinetiky a energetický profil"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

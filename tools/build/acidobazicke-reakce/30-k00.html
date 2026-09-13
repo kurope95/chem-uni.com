@@ -1,0 +1,168 @@
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="Voda, autoprotolýza a pH">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · nutný základ pro body 1–5 osnovy</span>
+      <h2>Voda, autoprotolýza a&nbsp;stupnice pH</h2>
+      <p class="lead">Všechno, co v&nbsp;tomhle tématu přijde — teorie, konjugované páry, síla kyselin, hydrolýza — se odehrává ve vodě. A&nbsp;voda není jen prostředí: je to reaktant, který sám umí být kyselinou i&nbsp;zásadou. Bez čtyř čísel z&nbsp;této kapitoly se nedá číst nic dalšího.</p>
+
+      <h3>Co je acidobazická reakce</h3>
+      <p><span class="term">Acidobazická reakce</span> (z&nbsp;latinského <em>acidum</em> = kyselina a&nbsp;<em>basis</em> = zásada) je v&nbsp;dnešním, Brønstedově pojetí <b>přenos protonu H⁺</b> z&nbsp;jedné částice na druhou. Nic víc. Žádné elektrony se nepřesouvají (to by byla redoxní reakce), žádná sraženina nemusí vznikat. Jedna částice proton dá, druhá ho vezme. Říká se jí také <span class="term">protolytická reakce</span> nebo <span class="term">protolýza</span>.</p>
+      <p>Proton H⁺ je holé jádro vodíku — částice tak malá a&nbsp;s&nbsp;tak koncentrovaným nábojem, že ve vodě nikdy neexistuje sama. Okamžitě se naváže na volný elektronový pár molekuly vody a&nbsp;vznikne <span class="term">oxoniový kation</span> <span class="chem">H₃O⁺</span>. Když v&nbsp;rovnicích píšeme zkráceně „H⁺“, myslíme vždy <span class="chem">H₃O⁺</span>; obojí je u&nbsp;maturity přípustné, ale musíte vědět, co za tím je.</p>
+
+      <h3>Autoprotolýza vody</h3>
+      <p>Voda reaguje sama se sebou. Jedna molekula se chová jako kyselina a&nbsp;odevzdá proton, druhá jako zásada a&nbsp;proton přijme:</p>
+      <p class="eq" style="font-size:1.12rem"><span class="chem">H₂O + H₂O ⇌ H₃O⁺ + OH⁻</span></p>
+      <div class="callout def">
+        <span class="eyebrow">Iontový součin vody</span>
+        <p>Rovnováha autoprotolýzy leží skoro úplně vlevo. Její konstanta se nazývá <b>iontový součin vody</b> <span class="q">K</span><sub>w</sub>:</p>
+        <p class="eq" style="margin-top:.3rem"><span class="q">K</span><sub>w</sub> = [H₃O⁺]·[OH⁻] = <b>1,0·10⁻¹⁴</b> &nbsp;<span style="color:var(--ink-3)">(při 25 °C; koncentrace v mol·dm⁻³)</span></p>
+        <p>Voda se do výrazu nepíše — je jí tolik, že se její koncentrace (55,5 mol·dm⁻³) prakticky nemění a&nbsp;je zahrnutá v&nbsp;konstantě.</p>
+      </div>
+      <p>V&nbsp;čisté vodě vzniká z&nbsp;každé rozpadlé molekuly jeden <span class="chem">H₃O⁺</span> a&nbsp;jeden <span class="chem">OH⁻</span>, takže [H₃O⁺] = [OH⁻] = √(10⁻¹⁴) = <b>10⁻⁷ mol·dm⁻³</b>. To je jedna disociovaná molekula z&nbsp;půl miliardy. A&nbsp;přesto tenhle nepatrný součin řídí veškerou chemii roztoků: <b>ať do vody přidáte cokoli, součin [H₃O⁺]·[OH⁻] zůstane 10⁻¹⁴</b>. Zvednete jedno, druhé klesne.</p>
+
+      <h3>pH a&nbsp;pOH</h3>
+      <p>Koncentrace <span class="chem">H₃O⁺</span> v&nbsp;běžných roztocích se pohybují od 1 do 10⁻¹⁴ mol·dm⁻³ — čtrnáct řádů. S&nbsp;takovými čísly se nedá pracovat, proto Søren Sørensen v&nbsp;roce 1909 zavedl logaritmickou stupnici:</p>
+      <p class="eq" style="font-size:1.12rem">pH = −log [H₃O⁺] &nbsp;&nbsp;&nbsp;&nbsp;pOH = −log [OH⁻] &nbsp;&nbsp;&nbsp;&nbsp;<b>pH + pOH = 14</b> &nbsp;<span style="color:var(--ink-3)">(25 °C)</span></p>
+      <p>Poslední vztah je jen zlogaritmovaný iontový součin: −log(10⁻¹⁴) = 14. Operátor „p“ znamená vždy totéž — <b>záporný dekadický logaritmus</b>. Uvidíte ho ještě u&nbsp;p<span class="q">K</span><sub>a</sub>, p<span class="q">K</span><sub>b</sub> i&nbsp;p<span class="q">K</span><sub>w</sub>.</p>
+      <div class="grid3">
+        <div class="readout"><span class="k">Kyselý roztok</span><span class="v" style="color:var(--exo)">pH &lt; 7</span><span class="h">[H₃O⁺] &gt; [OH⁻]</span></div>
+        <div class="readout"><span class="k">Neutrální roztok</span><span class="v">pH = 7</span><span class="h">[H₃O⁺] = [OH⁻] = 10⁻⁷</span></div>
+        <div class="readout"><span class="k">Zásaditý roztok</span><span class="v" style="color:var(--endo)">pH &gt; 7</span><span class="h">[H₃O⁺] &lt; [OH⁻]</span></div>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Logaritmus je zrádný — rozdíl 1 znamená 10×</span>
+        <p>Roztok o&nbsp;pH 3 nemá „dvakrát víc kyseliny“ než roztok o&nbsp;pH 6. Má jí <b>tisíckrát</b> víc: 10⁻³ / 10⁻⁶ = 10³. Cola (pH 2,5) je zhruba <b>desetmilionkrát</b> kyselejší než krev (pH 7,4). A&nbsp;když přijímačky napíšou „pH kleslo z&nbsp;5 na 4“, chtějí slyšet „koncentrace H₃O⁺ vzrostla desetkrát“.</p>
+      </div>
+      <p>Stupnici 0–14 berte jako zvyk, ne jako zákon. Koncentrovaná HCl (12 mol·dm⁻³) má pH ≈ −1, nasycený NaOH pH ≈ 15. Jen se s&nbsp;tím běžně nepracuje.</p>
+
+      <h3>Neutrální neznamená vždycky pH 7</h3>
+      <p>Autoprotolýza je <b>endotermická</b> (Δ<span class="q">H</span> ≈ +56 kJ·mol⁻¹) — rozbíjí se při ní vazba O–H. Podle Le Chatelierova principu ji zahřátí podpoří, takže <span class="q">K</span><sub>w</sub> s&nbsp;teplotou <b>roste</b>. Při 50 °C je <span class="q">K</span><sub>w</sub> ≈ 5,5·10⁻¹⁴ a&nbsp;čistá voda má pH ≈ 6,6. Je stále dokonale neutrální — [H₃O⁺] = [OH⁻] — jen ta hodnota není 7. Hodnota 7 je tedy <b>vlastnost 25 °C</b>, ne definice neutrality. Definice neutrality zní: [H₃O⁺] = [OH⁻].</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Iontový součin vody v&nbsp;závislosti na teplotě</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1.1rem">
+          <label for="kwT">Teplota — <span class="val" id="kwTV">25 °C</span></label>
+          <input type="range" autocomplete="off" id="kwT" min="0" max="100" step="1" value="25">
+        </div>
+        <div class="svgwrap" id="kwWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="kwRo1"></div>
+          <div class="readout" id="kwRo2"></div>
+          <div class="readout" id="kwRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste nastavit 0 °C a&nbsp;pak 100 °C. Neutrální pH se posune ze 7,5 na 6,1 — a&nbsp;voda je přitom v&nbsp;obou případech stejně neutrální. Součet pH + pOH je vždy roven p<span class="q">K</span><sub>w</sub>, ale číslo 14 platí jen při 25 °C. Ve zkouškových úlohách se ovšem téměř vždy počítá s&nbsp;25 °C.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Acidobazické indikátory</h3>
+      <p><span class="term">Indikátor</span> je látka, která mění barvu podle pH. Chemicky je to <b>slabá organická kyselina</b> (nebo zásada), jejíž kyselá forma HInd má jinou barvu než forma zásaditá Ind⁻:</p>
+      <p class="eq"><span class="chem">HInd ⇌ H⁺ + Ind⁻</span> &nbsp;&nbsp;<span style="color:var(--ink-3)">(barva 1 ⇌ barva 2)</span></p>
+      <p>Když do roztoku přidáte kyselinu, rovnováha se posune doleva a&nbsp;převládne barva HInd. Přidáte-li zásadu, OH⁻ odebere protony a&nbsp;převládne Ind⁻. Přechod není skokový: oko rozliší změnu, když je jedné formy asi 10× víc než druhé, takže <b>přechodová oblast má šířku zhruba 2 jednotek pH</b> a&nbsp;leží kolem p<span class="q">K</span><sub>a</sub> indikátoru. Proto má každý indikátor své vlastní rozmezí a&nbsp;proto <b>lakmus nepozná rozdíl mezi pH 2 a&nbsp;pH 4</b> — v&nbsp;obou je prostě červený.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Indikátory — jakou barvu uvidíte při daném pH</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1.1rem">
+          <label for="indPH">pH roztoku — <span class="val" id="indPHV">7,0</span></label>
+          <input type="range" autocomplete="off" id="indPH" min="0" max="14" step="0.1" value="7">
+        </div>
+        <div class="svgwrap" id="indWrap" style="min-height:330px"></div>
+        <div class="tablewrap" style="margin-top:1rem">
+          <table>
+            <thead><tr><th>Indikátor</th><th class="n">Přechod (pH)</th><th>Kyselá forma</th><th>Zásaditá forma</th><th>Při nastaveném pH</th></tr></thead>
+            <tbody id="indBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste nastavit pH 5 a&nbsp;pak 9: fenolftalein je v&nbsp;obou kyselých i&nbsp;neutrálních roztocích <b>bezbarvý</b> a&nbsp;zrůžoví až nad pH 8,2 — proto se s&nbsp;ním titrují silné kyseliny hydroxidem (bod ekvivalence pH 7 leží těsně pod přechodem, první kapka nadbytku ho zbarví). Methyloranž naopak hlídá kyselou oblast. <b>Univerzální indikátor</b> je směs několika indikátorů, která mění barvu spojitě přes celou stupnici.</div>
+    </div>
+
+    <div class="prose">
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Indikátor</th><th class="n">Přechod</th><th>Barvy (kyselá → zásaditá)</th><th>Kde se používá</th></tr></thead>
+          <tbody>
+            <tr><td>Methyloranž</td><td class="n">3,1–4,4</td><td>červená → žlutá</td><td>titrace slabých zásad silnou kyselinou</td></tr>
+            <tr><td>Methylčerveň</td><td class="n">4,4–6,2</td><td>červená → žlutá</td><td>slabě kyselá oblast</td></tr>
+            <tr><td>Lakmus</td><td class="n">5,0–8,0</td><td>červený → modrý</td><td>orientační zkouška kyselé/zásadité</td></tr>
+            <tr><td>Bromthymolová modř</td><td class="n">6,0–7,6</td><td>žlutá → modrá (zelená při 7)</td><td>akvaristika, neutrální oblast</td></tr>
+            <tr><td>Fenolftalein</td><td class="n">8,2–10,0</td><td>bezbarvý → růžovofialový</td><td>titrace kyselin hydroxidem</td></tr>
+            <tr><td>Thymolová modř</td><td class="n">1,2–2,8 a 8,0–9,6</td><td>červená → žlutá → modrá</td><td>dva přechody</td></tr>
+            <tr><td>Univerzální</td><td class="n">0–14</td><td>červená → oranžová → žlutá → zelená → modrá → fialová</td><td>papírky, odhad pH na ±1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Přírodní indikátory a&nbsp;titrace</span>
+        <p>Šťáva z&nbsp;<b>červeného zelí</b> obsahuje antokyany a&nbsp;je červená v&nbsp;kyselině, fialová v&nbsp;neutrálním a&nbsp;zelená až žlutá v&nbsp;zásadě — domácí univerzální indikátor. Stejně fungují barviva černého čaje (zesvětlá po citronu) nebo červené řepy. V&nbsp;laboratoři indikátor ukazuje <b>bod ekvivalence</b> při <b>titraci</b> — přesné stanovení koncentrace kyseliny odměřováním zásady. Výpočty titrací a&nbsp;pH patří do následujícího tématu; tady stačí vědět, že indikátor volíme tak, aby jeho přechod ležel v&nbsp;oblasti bodu ekvivalence.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.1 · pH, pOH a&nbsp;iontový součin</span>
+          <p>Roztok kyseliny chlorovodíkové má koncentraci 0,010 mol·dm⁻³. Určete pH, pOH a&nbsp;koncentraci hydroxidových iontů (25 °C).</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>HCl je <b>silná</b> kyselina — ve vodě disociuje úplně. Koncentrace H₃O⁺ je tedy rovna koncentraci kyseliny.</p>
+              <p class="eq"><span class="chem">HCl + H₂O → H₃O⁺ + Cl⁻</span> &nbsp;&nbsp;[H₃O⁺] = 0,010 = 10⁻² mol·dm⁻³</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dosadíme do definice pH.</p>
+              <p class="eq">pH = −log(10⁻²) = <b>2,0</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>pOH dopočítáme ze součtu 14.</p>
+              <p class="eq">pOH = 14 − 2 = <b>12,0</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Koncentraci OH⁻ dostaneme buď z&nbsp;pOH, nebo z&nbsp;iontového součinu — obojí musí dát totéž.</p>
+              <p class="eq">[OH⁻] = 10⁻¹² mol·dm⁻³ &nbsp;&nbsp;<span style="color:var(--ink-3)">kontrola: <span class="q">K</span><sub>w</sub>/[H₃O⁺] = 10⁻¹⁴/10⁻² = 10⁻¹² ✓</span></p>
+              <span class="result">pH = 2, pOH = 12, [OH⁻] = 10⁻¹² mol·dm⁻³</span>
+              <p style="color:var(--ink-2);font-size:.94rem">I&nbsp;v&nbsp;kyselém roztoku hydroxidové ionty <b>jsou</b> — jen jich je bilionkrát míň než oxoniových. Nikdy nejsou nula.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.2 · neutrální pH při jiné teplotě</span>
+          <p>Při 50 °C je iontový součin vody <span class="q">K</span><sub>w</sub> = 5,5·10⁻¹⁴. Jaké pH má čistá voda při této teplotě? Je kyselá?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>V&nbsp;čisté vodě platí vždy [H₃O⁺] = [OH⁻] — každá rozpadlá molekula dá jeden od každého.</p>
+              <p class="eq"><span class="q">K</span><sub>w</sub> = [H₃O⁺]² &nbsp;→&nbsp; [H₃O⁺] = √(5,5·10⁻¹⁴) = <b>2,35·10⁻⁷ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Zlogaritmujeme.</p>
+              <p class="eq">pH = −log(2,35·10⁻⁷) = 7 − log 2,35 = 7 − 0,37 = <b>6,63</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Odpověď na druhou otázku: <b>ne</b>. Kyselý roztok je ten, kde [H₃O⁺] &gt; [OH⁻]; tady jsou obě koncentrace stejné. Voda je neutrální, jen se posunula hodnota, která neutralitě odpovídá.</p>
+              <span class="result">pH ≈ 6,6 — voda je neutrální, protože [H₃O⁺] = [OH⁻]</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Tělesná teplota 37 °C: <span class="q">K</span><sub>w</sub> ≈ 2,4·10⁻¹⁴, neutrální pH ≈ 6,8. Krev s&nbsp;pH 7,4 je tedy při 37 °C ještě o&nbsp;něco „zásaditější“, než by se z&nbsp;porovnání se sedmičkou zdálo.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: voda, Kw a pH"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

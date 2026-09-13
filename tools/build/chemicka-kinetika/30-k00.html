@@ -1,0 +1,162 @@
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="Rychlost chemické reakce">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · osnova, bod 1</span>
+      <h2>Rychlost chemické reakce</h2>
+      <p class="lead">Termodynamika vám v&nbsp;minulém tématu řekla, že spalování diamantu má Δ<span class="q">G</span>° = −397 kJ·mol⁻¹ a&nbsp;je tedy samovolné. Přesto prsten nechytne. Chybí druhá polovina příběhu: <em>jak rychle</em>. Tu řeší chemická kinetika a&nbsp;její první úkol je vůbec říct, co „rychlost“ znamená.</p>
+
+      <h3>Co kinetika zkoumá a&nbsp;proč to není termodynamika</h3>
+      <p><span class="term">Chemická kinetika</span> je obor, který studuje <b>rychlost chemických reakcí</b>, <b>faktory, které ji ovlivňují</b>, a&nbsp;<b>mechanismus</b> — tedy sled dílčích kroků, kterými reakce skutečně probíhá. Termodynamika porovnává jen výchozí a&nbsp;konečný stav (proto jí stačily stavové veličiny). Kinetika se dívá na to, co je <em>mezi</em> nimi — a&nbsp;právě tam se skrývá důvod, proč je reakce rychlá nebo pomalá.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Dvě nezávislé otázky — držte je oddělené</span>
+        <p><b>Termodynamika:</b> Může reakce proběhnout? Kolik tepla? Kde je rovnováha? (Δ<span class="q">H</span>, Δ<span class="q">G</span>, <span class="q">K</span>)<br>
+        <b>Kinetika:</b> Jak rychle se k&nbsp;rovnováze dostane? Čím to urychlit? (<span class="q">v</span>, <span class="q">k</span>, <span class="q">E</span><sub>a</sub>)<br>
+        Směs vodíku a&nbsp;kyslíku je termodynamicky „odsouzená“ k&nbsp;přeměně na vodu — a&nbsp;přesto vydrží v&nbsp;baňce tisíce let, dokud nepřijde jiskra. Termodynamicky možná, kineticky zablokovaná.</p>
+      </div>
+
+      <h3>Zavedení pojmu rychlosti reakce</h3>
+      <p>Rychlost auta je dráha za čas. Rychlost reakce je analogicky <b>změna množství látky za čas</b>. Protože množství látky v&nbsp;roztoku nebo v&nbsp;plynu popisujeme koncentrací, definujeme:</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Rychlost chemické reakce</b> <span class="q">v</span> je změna koncentrace reaktantu nebo produktu za jednotku času, vztažená na stechiometrický koeficient dané látky. Pro reaktant se bere se záporným znaménkem, aby rychlost vyšla kladná.</p>
+      </div>
+      <p class="eq" style="font-size:1.1rem">a A + b B → c C + d D<br><br><span class="q">v</span> = −<span class="mono">1/<span class="q">a</span></span> · Δ[A]/Δ<span class="q">t</span> = −<span class="mono">1/<span class="q">b</span></span> · Δ[B]/Δ<span class="q">t</span> = +<span class="mono">1/<span class="q">c</span></span> · Δ[C]/Δ<span class="q">t</span> = +<span class="mono">1/<span class="q">d</span></span> · Δ[D]/Δ<span class="q">t</span></p>
+      <p>Hranaté závorky [A] značí koncentraci látky A v&nbsp;mol·dm⁻³ (v&nbsp;učebnicích také <span class="q">c</span><sub>A</sub>). Rychlost má proto <b>jednotku <span class="mono">mol·dm⁻³·s⁻¹</span></b>; u&nbsp;pomalých dějů se používají minuty, hodiny nebo roky.</p>
+
+      <h3>Proč se dělí stechiometrickým koeficientem</h3>
+      <p>Vezměte rozklad peroxidu vodíku <span class="chem">2 H₂O₂ → 2 H₂O + O₂</span>. Za každé dvě molekuly peroxidu, které zmizí, vznikne <b>jedna</b> molekula kyslíku. Kdybychom rychlost definovali jen jako „Δ[H₂O₂]/Δ<span class="q">t</span>“, vyšla by dvakrát větší než při definici přes kyslík — pro <em>tutéž</em> reakci. To je nepřijatelné. Dělení koeficientem zajistí, že rychlost reakce je <b>jedno číslo, ať ji měříme přes kteroukoli látku</b>.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past — rychlost úbytku látky vs. rychlost reakce</span>
+        <p>„Rychlost úbytku H₂O₂“ je −Δ[H₂O₂]/Δ<span class="q">t</span>. „Rychlost reakce“ je polovina toho. „Rychlost vzniku O₂“ je rovna rychlosti reakce. V&nbsp;testu vždy čtěte, na <em>kterou</em> z&nbsp;těch tří rychlostí se ptají — liší se právě stechiometrickými koeficienty.</p>
+      </div>
+
+      <h3>Průměrná a&nbsp;okamžitá rychlost</h3>
+      <p><span class="term">Průměrná rychlost</span> je změna koncentrace za konečný interval: −Δ[A]/Δ<span class="q">t</span>. Odpovídá <b>sečně</b> křivky <span class="q">c</span>(<span class="q">t</span>) mezi dvěma body. <span class="term">Okamžitá rychlost</span> je limita pro nekonečně krátký interval: −d[A]/d<span class="q">t</span>, tedy <b>směrnice tečny</b> ke křivce v&nbsp;daném čase. V&nbsp;modelu v&nbsp;úvodu vidíte obě — a&nbsp;vidíte také to nejdůležitější:</p>
+      <div class="callout def">
+        <span class="eyebrow">Rychlost reakce není konstantní</span>
+        <p>Jak reaktant ubývá, klesá i&nbsp;rychlost. Křivka koncentrace reaktantu je na začátku strmá a&nbsp;postupně se zplošťuje. Proto se v&nbsp;laboratoři často měří <b>počáteční rychlost</b> <span class="q">v</span>₀ — tečna v&nbsp;čase <span class="q">t</span> = 0, kdy jsou koncentrace ještě přesně známé.</p>
+      </div>
+
+      <h3>Jak se rychlost měří</h3>
+      <p>Sleduje se libovolná veličina úměrná koncentraci: objem uvolněného plynu (H₂O₂, Zn + HCl), tlak v&nbsp;uzavřené nádobě, zbarvení (I₂, MnO₄⁻, Br₂ — spektrofotometricky), vodivost (hydrolýza esteru), otáčení roviny polarizovaného světla (inverze sacharózy — první kinetické měření vůbec, Wilhelmy 1850), nebo se v&nbsp;čase odebírají vzorky a&nbsp;titrují. Výsledkem je vždy <b>tabulka <span class="q">c</span>(<span class="q">t</span>)</b>, ze které se rychlosti počítají — přesně jako v&nbsp;kalkulačce níže.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Jedna reakce, jedna rychlost — jak spolu souvisí úbytky a&nbsp;přírůstky látek</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="stRxn">Reakce</label>
+            <select id="stRxn"></select>
+          </div>
+          <div class="ctl">
+            <label for="stV">Rychlost reakce <span class="q">v</span> — <span class="val" id="stVV">2,0·10⁻⁴ mol·dm⁻³·s⁻¹</span></label>
+            <input type="range" id="stV" min="1" max="10" step="1" value="2">
+          </div>
+        </div>
+        <div class="svgwrap" id="stWrap" style="min-height:230px"></div>
+        <div class="tablewrap" style="margin-top:1rem"><table><thead><tr>
+          <th>Látka</th><th class="n">koeficient ν</th><th>role</th><th class="n">Δ[X]/Δt</th><th>vztah k rychlosti reakce</th>
+        </tr></thead><tbody id="stBody"></tbody></table></div>
+      </div>
+      <div class="panel-note" id="stNote">Zkuste přepnout na syntézu amoniaku: vodík ubývá <b>třikrát rychleji</b> než dusík a&nbsp;amoniak přibývá dvakrát rychleji než dusík ubývá — a&nbsp;přesto má reakce jen jednu rychlost <span class="q">v</span>.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kalkulačka průměrné rychlosti z&nbsp;tabulky <span class="q">c</span>(<span class="q">t</span>) — rozklad H₂O₂</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="avgT1">Začátek intervalu <span class="q">t</span>₁</label>
+            <select id="avgT1"></select>
+          </div>
+          <div class="ctl">
+            <label for="avgT2">Konec intervalu <span class="q">t</span>₂</label>
+            <select id="avgT2"></select>
+          </div>
+        </div>
+        <div class="grid2" style="align-items:start">
+          <div class="svgwrap" id="avgWrap" style="min-height:280px"></div>
+          <div style="display:flex;flex-direction:column;gap:.7rem">
+            <div class="tablewrap" style="max-height:230px;overflow-y:auto"><table><thead><tr>
+              <th class="n">t [s]</th><th class="n">[H₂O₂] [mol·dm⁻³]</th>
+            </tr></thead><tbody id="avgBody"></tbody></table></div>
+            <p class="eq" id="avgEq" style="font-size:.92rem"></p>
+          </div>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="avgRo1"><span class="k">Rychlost úbytku H₂O₂</span><span class="v">—</span><span class="h">−Δ[H₂O₂]/Δt</span></div>
+          <div class="readout" id="avgRo2"><span class="k">Rychlost reakce v</span><span class="v">—</span><span class="h">= ½ · rychlost úbytku</span></div>
+          <div class="readout" id="avgRo3"><span class="k">Rychlost vzniku O₂</span><span class="v">—</span><span class="h">= v (koeficient 1)</span></div>
+        </div>
+      </div>
+      <div class="panel-note" id="avgNote">Zkuste nastavit interval 0–600 s a&nbsp;potom 2400–3000 s. Stejně dlouhý interval, ale rychlost na konci je skoro desetkrát menší — reaktantu ubylo a&nbsp;s&nbsp;ním i&nbsp;rychlost.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.1 · průměrná rychlost z tabulky</span>
+          <p>Při rozkladu <span class="chem">2 H₂O₂ → 2 H₂O + O₂</span> byla naměřena koncentrace peroxidu 1,00 mol·dm⁻³ v&nbsp;čase 0 s a&nbsp;0,59 mol·dm⁻³ v&nbsp;čase 600 s. Vypočítejte průměrnou rychlost úbytku H₂O₂, rychlost reakce a&nbsp;rychlost vzniku O₂ v&nbsp;tomto intervalu.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Změna koncentrace je vždy <b>konec mínus začátek</b>. Pro reaktant vyjde záporná.</p>
+              <p class="eq">Δ[H₂O₂] = 0,59 − 1,00 = <b>−0,41 mol·dm⁻³</b><br>Δ<span class="q">t</span> = 600 − 0 = 600 s</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Rychlost úbytku peroxidu — s&nbsp;minusem, aby byla kladná.</p>
+              <p class="eq">−Δ[H₂O₂]/Δ<span class="q">t</span> = 0,41 / 600 = <b>6,8·10⁻⁴ mol·dm⁻³·s⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Rychlost <b>reakce</b> se vztahuje na stechiometrický koeficient. U&nbsp;H₂O₂ je 2.</p>
+              <p class="eq"><span class="q">v</span> = ½ · 6,8·10⁻⁴ = <b>3,4·10⁻⁴ mol·dm⁻³·s⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kyslík má koeficient 1, takže vzniká přesně rychlostí reakce.</p>
+              <p class="eq">Δ[O₂]/Δ<span class="q">t</span> = 1 · <span class="q">v</span> = <b>3,4·10⁻⁴ mol·dm⁻³·s⁻¹</b></p>
+              <span class="result">úbytek H₂O₂ 6,8·10⁻⁴; rychlost reakce 3,4·10⁻⁴; vznik O₂ 3,4·10⁻⁴ mol·dm⁻³·s⁻¹</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Tři různá čísla pro jednu reakci — a&nbsp;právě proto se rychlost reakce definuje přes koeficienty. V&nbsp;intervalu 2400–3000 s by stejný výpočet dal jen 8·10⁻⁵ pro úbytek peroxidu: rychlost klesla skoro desetkrát.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.2 · přepočet rychlostí mezi látkami</span>
+          <p>Při syntéze amoniaku <span class="chem">N₂ + 3 H₂ → 2 NH₃</span> ubývá vodík rychlostí 0,060 mol·dm⁻³·s⁻¹. Jaká je rychlost reakce, jak rychle ubývá dusík a&nbsp;jak rychle vzniká amoniak?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Vodík má koeficient 3. Rychlost reakce je jeho úbytek dělený třemi.</p>
+              <p class="eq"><span class="q">v</span> = ⅓ · 0,060 = <b>0,020 mol·dm⁻³·s⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Dusík má koeficient 1, jeho úbytek je tedy roven rychlosti reakce.</p>
+              <p class="eq">−Δ[N₂]/Δ<span class="q">t</span> = 1 · 0,020 = <b>0,020 mol·dm⁻³·s⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Amoniak má koeficient 2 a&nbsp;je produkt — přibývá dvakrát rychleji, než reakce běží.</p>
+              <p class="eq">Δ[NH₃]/Δ<span class="q">t</span> = 2 · 0,020 = <b>+0,040 mol·dm⁻³·s⁻¹</b></p>
+              <span class="result"><span class="q">v</span> = 0,020; N₂ ubývá 0,020; NH₃ přibývá 0,040 mol·dm⁻³·s⁻¹</span>
+              <p style="color:var(--ink-2);font-size:.94rem">Kontrola selským rozumem: poměr rychlostí 1 : 3 : 2 je přesně poměr koeficientů 1 : 3 : 2. Když vám poměr nesedí s&nbsp;rovnicí, máte chybu.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: rychlost reakce"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

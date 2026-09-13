@@ -1,0 +1,221 @@
+  <!-- ============ KAPITOLA 1 — JEDNOTKY ============ -->
+  <section class="chapter" id="k1" data-title="Jednotky: SI a to, čím chemie počítá">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · jednotky</span>
+      <h2>Jednotky — soustava SI a&nbsp;to, čím chemie počítá doopravdy</h2>
+      <p class="lead">Soustava SI je logická, uzavřená a&nbsp;pro chemii dost často nepraktická. Chemik neváží v&nbsp;kilogramech a&nbsp;neměří objem v&nbsp;metrech krychlových. Proto se v&nbsp;chemických výpočtech vždycky pohybujete mezi dvěma světy — a&nbsp;právě na jejich rozhraní vzniká drtivá většina chyb o&nbsp;tři řády.</p>
+
+      <h3>Sedm základních jednotek SI</h3>
+      <p>Všechny ostatní jednotky se z&nbsp;nich odvozují. Z&nbsp;chemického pohledu jsou důležité čtyři: kilogram, metr, kelvin a&nbsp;mol.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Veličina</th><th>Značka</th><th>Jednotka</th><th>Zn.</th><th>Poznámka pro chemika</th></tr></thead>
+          <tbody>
+            <tr><td>hmotnost</td><td class="n"><span class="q">m</span></td><td>kilogram</td><td class="n">kg</td><td>jediná základní jednotka s&nbsp;předponou už v&nbsp;názvu; v&nbsp;chemii se počítá v&nbsp;gramech</td></tr>
+            <tr><td>délka</td><td class="n"><span class="q">l</span></td><td>metr</td><td class="n">m</td><td>objem odtud dědí m³, což je pro kádinku absurdně velké</td></tr>
+            <tr><td>čas</td><td class="n"><span class="q">t</span></td><td>sekunda</td><td class="n">s</td><td>rychlostní konstanty a&nbsp;poločasy v&nbsp;s, min, h, dnech, letech</td></tr>
+            <tr><td>elektrický proud</td><td class="n"><span class="q">I</span></td><td>ampér</td><td class="n">A</td><td>elektrolýza: <span class="mono">1 A · 1 s = 1 C</span></td></tr>
+            <tr><td>termodynamická teplota</td><td class="n"><span class="q">T</span></td><td>kelvin</td><td class="n">K</td><td>do každého vzorce patří <b>kelvin</b>, ne stupeň Celsia</td></tr>
+            <tr><td>látkové množství</td><td class="n"><span class="q">n</span></td><td>mol</td><td class="n">mol</td><td>základní jednotka celé chemie</td></tr>
+            <tr><td>svítivost</td><td class="n"><span class="q">I</span><sub>v</sub></td><td>kandela</td><td class="n">cd</td><td>v&nbsp;chemii ji nepotkáte; uvádí se pro úplnost</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Mol od roku 2019</span>
+        <p>Mol už není definovaný přes 12&nbsp;gramů uhlíku ¹²C, ale <b>pevně stanoveným počtem částic</b>: 1&nbsp;mol obsahuje přesně 6,022&nbsp;140&nbsp;76·10²³ elementárních jednotek. Praktický dopad pro vás je nulový (počítáte pořád s&nbsp;6,022·10²³), ale u&nbsp;ústní zkoušky je to hezký bod navíc.</p>
+      </div>
+
+      <h3>V&nbsp;čem chemie reálně počítá</h3>
+      <p>Tohle je nejužitečnější tabulka celé kapitoly. Levý sloupec je „správně podle SI“, prostřední to, co uvidíte v&nbsp;zadání, a&nbsp;pravý přepočet mezi nimi.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Veličina</th><th>Jednotka SI</th><th>Co uvidíte v&nbsp;zadání</th><th>Přepočet</th></tr></thead>
+          <tbody>
+            <tr><td>hmotnost <span class="q">m</span></td><td class="n">kg</td><td class="n">g, mg, µg, t</td><td class="n">1 kg = 10³ g = 10⁶ mg</td></tr>
+            <tr><td>objem <span class="q">V</span></td><td class="n">m³</td><td class="n">dm³ (L), cm³ (mL), µL</td><td class="n">1 m³ = 10³ dm³ = 10⁶ cm³</td></tr>
+            <tr><td>látkové množství <span class="q">n</span></td><td class="n">mol</td><td class="n">mol, mmol</td><td class="n">1 mol = 10³ mmol</td></tr>
+            <tr><td>molární hmotnost <span class="q">M</span></td><td class="n">kg·mol⁻¹</td><td class="n">g·mol⁻¹</td><td class="n">1 kg·mol⁻¹ = 10³ g·mol⁻¹</td></tr>
+            <tr><td>koncentrace <span class="q">c</span></td><td class="n">mol·m⁻³</td><td class="n">mol·dm⁻³ (M)</td><td class="n">1 mol·dm⁻³ = 10³ mol·m⁻³</td></tr>
+            <tr><td>hustota <span class="q">ρ</span></td><td class="n">kg·m⁻³</td><td class="n">g·cm⁻³, g·dm⁻³, kg·dm⁻³</td><td class="n">1 g·cm⁻³ = 10³ kg·m⁻³</td></tr>
+            <tr><td>tlak <span class="q">p</span></td><td class="n">Pa</td><td class="n">kPa, bar, atm, Torr, mmHg</td><td class="n">1 atm = 101,325 kPa = 760 Torr</td></tr>
+            <tr><td>energie <span class="q">E</span>, <span class="q">Q</span>, Δ<span class="q">H</span></td><td class="n">J</td><td class="n">kJ, kJ·mol⁻¹, eV, kcal</td><td class="n">1 kJ = 10³ J; 1 kcal = 4,184 kJ</td></tr>
+            <tr><td>teplota <span class="q">T</span></td><td class="n">K</td><td class="n">°C</td><td class="n"><span class="q">T</span>/K = <span class="q">t</span>/°C + 273,15</td></tr>
+            <tr><td>hmotnost částice</td><td class="n">kg</td><td class="n">u, Da</td><td class="n">1 u = 1 Da = 1,66054·10⁻²⁷ kg</td></tr>
+            <tr><td>entropie <span class="q">S</span></td><td class="n">J·K⁻¹·mol⁻¹</td><td class="n">J·K⁻¹·mol⁻¹ (nikdy kJ!)</td><td class="n">pozor: <span class="q">H</span> v&nbsp;kJ, <span class="q">S</span> v&nbsp;J</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Objem: proč se v&nbsp;chemii vždycky počítá v&nbsp;dm³</h3>
+      <p>Chemie definuje koncentraci jako <span class="mono">mol·dm⁻³</span> — historicky proto, že litr je objem, se kterým se v&nbsp;laboratoři pracuje. Litr a&nbsp;decimetr krychlový jsou <b>přesně totéž</b>, stejně jako mililitr a&nbsp;centimetr krychlový:</p>
+      <p class="eq"><b>1 dm³ = 1 L</b> = 10⁻³ m³ &nbsp;&nbsp;·&nbsp;&nbsp; <b>1 cm³ = 1 mL</b> = 10⁻³ dm³ = 10⁻⁶ m³</p>
+      <div class="callout warn">
+        <span class="eyebrow">Past číslo jedna v&nbsp;celé chemii</span>
+        <p>Objem v&nbsp;zadání je skoro vždycky v&nbsp;cm³ nebo mL, koncentrace se počítá v&nbsp;mol·dm⁻³. Kdo nepřevede, splete se přesně <b>tisíckrát</b>. A&nbsp;pozor na krychlení předpony: <span class="mono">1 cm = 10⁻² m</span>, ale <span class="mono">1 cm³ = (10⁻²)³ m³ = 10⁻⁶ m³</span>. Předpona se umocňuje spolu s&nbsp;jednotkou.</p>
+      </div>
+
+      <h3>Tlak: čtyři jednotky, které nikdy nezmizí</h3>
+      <p>Do stavové rovnice s&nbsp;<span class="q">R</span> = 8,314&nbsp;J·K⁻¹·mol⁻¹ patří tlak v&nbsp;<b>pascalech</b> a&nbsp;objem v&nbsp;<b>m³</b>. Zadání ale mluví v&nbsp;kilopascalech, barech, atmosférách nebo torrech.</p>
+      <div class="grid2">
+        <div class="readout"><span class="k">Standardní atmosféra</span><span class="v">1 atm = 101,325 kPa</span><span class="h">= 760 Torr = 760 mmHg = 1,01325 bar</span></div>
+        <div class="readout"><span class="k">Bar (dnešní standardní tlak)</span><span class="v">1 bar = 100 kPa</span><span class="h">= 10⁵ Pa; IUPAC standardní tlak od r. 1982</span></div>
+      </div>
+      <p style="margin-top:1rem">Rozdíl mezi 1&nbsp;atm a&nbsp;1&nbsp;bar je jen 1,3&nbsp;%, ale právě on stojí za tím, že se molární objem plynu za normálních podmínek uvádí jednou jako 22,414&nbsp;dm³·mol⁻¹ a&nbsp;jindy jako 22,711&nbsp;dm³·mol⁻¹. Podrobněji v&nbsp;<a href="#k6">kapitole 06</a>.</p>
+
+      <h3>Teplota: kelvin, stupeň Celsia a&nbsp;jeden zásadní rozdíl</h3>
+      <p class="eq"><span class="q">T</span> [K] = <span class="q">t</span> [°C] + 273,15 &nbsp;&nbsp;&nbsp;<span style="color:var(--ink-3)">například 25 °C = 298,15 K, 0 °C = 273,15 K</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Rozdíl teplot versus teplota</span>
+        <p><b>Δ<span class="q">T</span> je v&nbsp;kelvinech i&nbsp;ve stupních Celsia číselně stejná</b>, protože oba dílky jsou stejně velké: ohřátí z&nbsp;20&nbsp;°C na 25&nbsp;°C je Δ<span class="q">t</span> = 5&nbsp;°C a&nbsp;zároveň Δ<span class="q">T</span> = 5&nbsp;K. Ale <b>absolutní teplota <span class="q">T</span> stejná není</b>: 25&nbsp;°C není 25&nbsp;K, ale 298,15&nbsp;K. Do <span class="mono">Q = mcΔT</span> tedy můžete klidně dosadit rozdíl ve stupních Celsia; do <span class="mono">pV = nRT</span>, <span class="mono">ΔG = ΔH − TΔS</span> a&nbsp;Arrheniovy rovnice <b>musí</b> jít kelviny.</p>
+      </div>
+
+      <h3>Atomová hmotnostní jednotka, dalton a&nbsp;relativní hmotnosti</h3>
+      <p><span class="term">Atomová hmotnostní jednotka</span> <span class="mono">u</span> (v&nbsp;biochemii se jí říká <span class="term">dalton</span>, značka Da) je definovaná jako jedna dvanáctina hmotnosti atomu uhlíku ¹²C:</p>
+      <p class="eq">1 u = 1 Da = <b>1,66054·10⁻²⁷ kg</b> = 1/<span class="q">N</span><sub>A</sub> gramu</p>
+      <p><span class="term">Relativní atomová hmotnost</span> <span class="q">A</span><sub>r</sub> a&nbsp;<span class="term">relativní molekulová hmotnost</span> <span class="q">M</span><sub>r</sub> jsou <b>bezrozměrná čísla</b> — kolikrát je částice těžší než 1&nbsp;u. Číselně se rovnají molární hmotnosti v&nbsp;g·mol⁻¹, ale nejsou totéž:</p>
+      <p class="eq"><span class="q">M</span><sub>r</sub>(H₂O) = 18,02 &nbsp;&nbsp;(bez jednotky)&nbsp;&nbsp;·&nbsp;&nbsp; <span class="q">M</span>(H₂O) = 18,02 <b>g·mol⁻¹</b></p>
+      <p>Ta číselná shoda není náhoda — je to celý smysl definice molu. Právě díky ní můžete sečíst relativní atomové hmotnosti z&nbsp;periodické tabulky, připsat g·mol⁻¹ a&nbsp;máte molární hmotnost.</p>
+
+      <h3>Předpony soustavy SI</h3>
+      <p>Předpona je jenom mocnina deseti přilepená k&nbsp;jednotce. Devět z&nbsp;nich potřebujete v&nbsp;chemii pravidelně:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Předpona</th><th>Zn.</th><th class="n">Činitel</th><th>Kde to potkáte</th></tr></thead>
+          <tbody>
+            <tr><td>piko</td><td class="n">p</td><td class="n">10⁻¹²</td><td>pm — délka vazby (C–C ≈ 154 pm)</td></tr>
+            <tr><td>nano</td><td class="n">n</td><td class="n">10⁻⁹</td><td>nm — vlnová délka světla, poloměr částic</td></tr>
+            <tr><td>mikro</td><td class="n">µ</td><td class="n">10⁻⁶</td><td>µg, µL, µmol — stopové analýzy</td></tr>
+            <tr><td>mili</td><td class="n">m</td><td class="n">10⁻³</td><td>mg, mL, mmol, mV — nejčastější ze všech</td></tr>
+            <tr><td>centi</td><td class="n">c</td><td class="n">10⁻²</td><td>cm, cm³ — jen u&nbsp;délky a&nbsp;objemu</td></tr>
+            <tr><td>deci</td><td class="n">d</td><td class="n">10⁻¹</td><td>dm³ — základ chemické koncentrace</td></tr>
+            <tr><td>kilo</td><td class="n">k</td><td class="n">10³</td><td>kg, kJ, kPa</td></tr>
+            <tr><td>mega</td><td class="n">M</td><td class="n">10⁶</td><td>MPa, MJ — průmyslové podmínky</td></tr>
+            <tr><td>giga</td><td class="n">G</td><td class="n">10⁹</td><td>GPa — vysokotlaká chemie</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Osa předpon — kam vás posune každý krok</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="pxExp">Mocnina deseti — <span class="val" id="pxExpV">10⁻³ (mili)</span></label>
+            <input type="range" id="pxExp" min="-12" max="9" step="1" value="-3">
+          </div>
+          <div class="ctl">
+            <label>Základní jednotka</label>
+            <div class="segmented" id="pxUnit" role="group" aria-label="Základní jednotka">
+              <button type="button" data-v="g" aria-pressed="true">gram</button>
+              <button type="button" data-v="L" aria-pressed="false">litr</button>
+              <button type="button" data-v="mol" aria-pressed="false">mol</button>
+              <button type="button" data-v="m" aria-pressed="false">metr</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="pxWrap" style="min-height:210px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="pxRo1"><span class="k">Zápis</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="pxRo2"><span class="k">Vědecký tvar</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="pxRo3"><span class="k">Typicky</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note">Zkuste posunout na <b>centi</b> a&nbsp;přepnout na litr. Uvidíte, proč se centilitr prakticky nepoužívá — a&nbsp;proč naopak <b>deci</b> u&nbsp;litru ano: dm³ je přesně litr, tedy objem, se kterým chemik pracuje. Předpona není mystika, jenom mocnina deseti.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Pravidla psaní, na kterých se u&nbsp;maturity ztrácejí body</h3>
+      <div class="grid2">
+        <div class="callout def">
+          <span class="eyebrow">Takhle ano</span>
+          <p><b>Mezera mezi číslem a&nbsp;jednotkou:</b> <span class="mono">25 g</span>, <span class="mono">298 K</span>, <span class="mono">5,0 dm³</span>. Výjimkou je stupeň úhlový. U&nbsp;°C se mezera píše: <span class="mono">25 °C</span>.<br>
+          <b>Prostřední tečka nebo mezera mezi násobenými jednotkami:</b> <span class="mono">J·K⁻¹·mol⁻¹</span>.<br>
+          <b>Záporné exponenty místo lomítek</b> tam, kde by jinak vzniklo víc lomítek: <span class="mono">mol·dm⁻³</span>, ne <span class="mono">mol/dm/dm/dm</span>.<br>
+          <b>Značky jednotek se neskloňují a&nbsp;nekončí tečkou:</b> <span class="mono">5 g</span>, ne <span class="mono">5 g.</span> ani <span class="mono">5 gr</span>.</p>
+        </div>
+        <div class="callout warn">
+          <span class="eyebrow">Takhle ne</span>
+          <p><span class="mono">25g</span> (chybí mezera) · <span class="mono">5 Mol</span> (jednotky odvozené od jmen se píšou velkým písmenem, ale <em>mol</em> jméno není — malé m) · <span class="mono">100 kpa</span> (má být kPa, P velké podle Pascala) · <span class="mono">mol/l</span> místo <span class="mono">mol·dm⁻³</span> je tolerované, <span class="mono">M</span> jako jednotka molarity už jen v&nbsp;anglických textech · <span class="mono">Δ<span class="q">H</span> = −890</span> bez jednotky = ztráta bodu vždy.</p>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Kurzíva versus stojaté písmo</span>
+        <p><b>Symboly veličin se sázejí kurzívou</b> (<span class="q">m</span>, <span class="q">V</span>, <span class="q">T</span>, <span class="q">c</span>, <span class="q">K</span>), <b>značky jednotek stojatě</b> (<span class="mono">m</span> jako metr, <span class="mono">K</span> jako kelvin). Právě proto <span class="q">m</span> = 5&nbsp;m znamená „hmotnost je pět metrů“ jen tehdy, když člověk kurzívu ignoruje. Na papíře se kurzíva nahrazuje tím, že veličinu píšete o&nbsp;něco šikměji nebo prostě spoléháte na kontext — po vás nikdo krasopis nechce, ale rozdíl znát máte. Stojatě se píše i&nbsp;pH, pKa a&nbsp;značky prvků.</p>
+      </div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 1.1</span>
+        <p>Infuzní roztok glukózy je označený jako „50&nbsp;g·dm⁻³“. Vyjádřete jeho koncentraci v&nbsp;mol·dm⁻³ a&nbsp;v&nbsp;mmol·dm⁻³. <span class="chem">M</span>(C₆H₁₂O₆) = 180,16&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 1.1</span>
+              <span class="cs-topic">Z&nbsp;hmotnostní koncentrace na látkovou</span>
+              <span class="cs-kind">Jednotky</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">γ</span><span class="cs-val">= 50,0 g·dm⁻³</span><span class="cs-note">hmotnostní koncentrace</span></div>
+                <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 180,16 g·mol⁻¹</span><span class="cs-note">M(C₆H₁₂O₆)</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= ? mol·dm⁻³</span><span class="cs-note">a&nbsp;totéž v&nbsp;mmol·dm⁻³</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">γ = m / V</div>
+                <div class="cs-line">c = n / V</div>
+                <div class="cs-line">n = m / M</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">c = n / V = (m / M) / V = (m / V) / M = <b>γ / M</b></div>
+                <p class="cs-hint">Hezký příklad na to, proč se nedosazuje: bez čísel je hned vidět, že se hmotnostní koncentrace prostě dělí molární hmotností. Stačí jeden krok.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">c = 50,0 g·dm⁻³ / 180,16 g·mol⁻¹</div>
+                <div class="cs-line units">jednotky: g·dm⁻³ / (g·mol⁻¹) = <b>mol·dm⁻³</b> ✓</div>
+                <div class="cs-line">c = 0,27754 mol·dm⁻³</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Roztok má látkovou koncentraci <b class="cs-hi">c = 0,278 mol·dm⁻³</b>, tedy <b class="cs-hi">278 mmol·dm⁻³</b>. Klinicky se používá právě druhý zápis.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Glukóza má molární hmotnost skoro 200&nbsp;g·mol⁻¹, takže 50&nbsp;g je zhruba čtvrtina molu — a&nbsp;vyšlo 0,28. Sedí. Pro srovnání: normální glykémie je 4–6&nbsp;mmol·dm⁻³, tedy asi padesátkrát méně; proto se infuzní roztok podává pomalu a&nbsp;ředěný.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: jednotky a předpony"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

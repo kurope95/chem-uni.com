@@ -1,0 +1,177 @@
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Vazby σ a π, násobnost vazby">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · osnova, bod 4 (4c, 4d)</span>
+      <h2>Vazby σ a&nbsp;π, násobnost vazby</h2>
+      <p class="lead">Dvojná vazba není „dvě jednoduché“. Skládá se ze dvou různých typů vazeb, které se liší tím, <em>kde</em> mezi jádry sedí elektrony — a&nbsp;právě ten rozdíl vysvětluje, proč alkeny reagují a&nbsp;dusík ne.</p>
+
+      <h3>4c · Typy kovalentní vazby podle polohy elektronové hustoty</h3>
+      <div class="grid2">
+        <div class="callout def">
+          <span class="eyebrow">Vazba σ (sigma)</span>
+          <p>Vzniká <b>čelním překryvem</b> orbitalů podél spojnice jader. Elektronová hustota leží <b>na spojnici jader</b>, rotačně symetricky kolem ní. Vzniká překryvem s–s (<span class="chem">H₂</span>), s–p (<span class="chem">HCl</span>), p–p čelně (<span class="chem">Cl₂</span>) i&nbsp;hybridních orbitalů. Je <b>pevnější</b> než π a&nbsp;<b>umožňuje volnou rotaci</b> kolem své osy.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Vazba π (pí)</span>
+          <p>Vzniká <b>bočním překryvem</b> dvou rovnoběžných p-orbitalů. Elektronová hustota leží <b>nad a&nbsp;pod spojnicí jader</b> (na spojnici samotné je nulová — uzlová rovina). Je <b>slabší</b> než σ (menší překryv) a&nbsp;<b>brání rotaci</b> — otočením by se překryv zrušil. Vzniká vždy až <em>po</em> σ vazbě, nikdy samostatně.</p>
+        </div>
+      </div>
+      <p class="eq">jednoduchá vazba = <b>1 σ</b> &nbsp;·&nbsp; dvojná = <b>1 σ + 1 π</b> &nbsp;·&nbsp; trojná = <b>1 σ + 2 π</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">(první vazba mezi dvěma atomy je vždy σ)</span></p>
+
+      <p>Proč je π slabší? Čelní překryv je „tváří v&nbsp;tvář“ — laloky míří přímo na sebe a&nbsp;překryv je velký. Boční překryv je „bok po boku“ — laloky se jen dotýkají, překryv je menší. Číselně: C–C (σ) 348 kJ·mol⁻¹, C=C (σ + π) 614 → <b>π vazba přidává jen 266 kJ·mol⁻¹</b>, tedy méně než σ. A&nbsp;C≡C 839 → druhá π přidá dalších 225. Každá další vazba přidá méně než ta předchozí.</p>
+
+      <div class="callout tip">
+        <span class="eyebrow">Proč to rozhoduje o reaktivitě</span>
+        <p><b>Alkeny</b> (C=C) reagují adicí: obětují slabší π vazbu (266 kJ) a&nbsp;získají dvě nové σ vazby (2 × ≈ 400 kJ). Vyplatí se to, proto ethen ochotně aduje brom, vodu i&nbsp;vodík. <b>Dusík</b> N≡N je naopak nejinertnější běžná molekula — ne proto, že by π vazby byly zvlášť pevné, ale proto, že celá trojná vazba stojí 945 kJ·mol⁻¹ a&nbsp;žádný produkt to nevrátí zpět tak snadno. Proto Haberův proces potřebuje 450 °C, 200 atm a&nbsp;katalyzátor.</p>
+      </div>
+
+      <h3>Volná otáčivost — a&nbsp;proč existuje cis/trans</h3>
+      <p>Kolem <b>jednoduché (σ) vazby</b> se atomy mohou volně otáčet — ethan má nekonečně mnoho konformací. Kolem <b>dvojné vazby</b> otáčení možné není: p-orbitaly π vazby musí zůstat rovnoběžné, a&nbsp;otočení o&nbsp;90° by π vazbu přetrhlo (266 kJ·mol⁻¹, to se za pokojové teploty nestane). Proto existují <b>dva různé but-2-eny</b> — <em>cis</em> (skupiny CH₃ na téže straně) a&nbsp;<em>trans</em> (na opačných). Jsou to různé látky s&nbsp;různými teplotami varu (4 °C vs 1 °C). U&nbsp;butanu nic takového není.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Překryv orbitalů — kde sedí elektronová hustota</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Typ překryvu</label>
+          <div class="segmented" id="ovlSel" role="group" aria-label="Typ překryvu orbitalů">
+            <button type="button" data-v="ss" aria-pressed="true">s–s: H₂</button>
+            <button type="button" data-v="sp" aria-pressed="false">s–p: HF</button>
+            <button type="button" data-v="pp" aria-pressed="false">p–p čelně: F₂</button>
+            <button type="button" data-v="pi" aria-pressed="false">p–p bočně: π</button>
+            <button type="button" data-v="n2" aria-pressed="false">N₂: 1 σ + 2 π</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="ovlWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="ovlRo1"></div>
+          <div class="readout" id="ovlRo2"></div>
+          <div class="readout" id="ovlRo3"></div>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw dot" style="background:var(--cat2)"></span>orbital s</span>
+          <span class="li"><span class="sw dot" style="background:var(--cat1)"></span>orbital p (dva laloky)</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>oblast překryvu = elektronová hustota vazby</span>
+          <span class="li"><span class="sw" style="background:var(--line-strong)"></span>spojnice jader (osa vazby)</span>
+        </div>
+      </div>
+      <div class="panel-note" id="ovlNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>4d · Násobnost kovalentní vazby</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><span class="term">Násobnost vazby</span> (řád vazby) = počet sdílených elektronových párů mezi dvěma atomy. <b>Jednoduchá</b> (1 pár, σ), <b>dvojná</b> (2 páry, σ + π), <b>trojná</b> (3 páry, σ + 2 π). Čtyřnásobná vazba se u&nbsp;běžných prvků nevyskytuje — nejsou na ni volné p-orbitaly.</p>
+      </div>
+      <p>Tři pravidla, která z&nbsp;násobnosti plynou a&nbsp;která byste měli umět zdůvodnit:</p>
+      <p>1. <b>Čím vyšší násobnost, tím kratší vazba.</b> Více elektronů mezi jádry táhne jádra blíž k&nbsp;sobě: C–C 154 pm, C=C 134 pm, C≡C 120 pm.<br>
+      2. <b>Čím vyšší násobnost, tím pevnější vazba</b> — ale <b>ne úměrně</b>. C=C (614) není 2 × C–C (696), C≡C (839) není 3 × 348 (1044). Každá π vazba je slabší než σ.<br>
+      3. <b>Čím vyšší násobnost, tím menší otáčivost</b> — σ volná rotace, π ji blokuje.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Chyták u dusíku a kyslíku</span>
+        <p>Jednoduché vazby N–N (163) a&nbsp;O–O (146) jsou <b>nezvykle slabé</b> — malé atomy s&nbsp;volnými páry se odpuzují. Proto je hydrazin N₂H₄ raketové palivo a&nbsp;peroxid vodíku se rozkládá sám. Trojná N≡N (945) je naopak druhá nejpevnější vazba tabulky. U&nbsp;dusíku tedy platí: násobná vazba je <b>mnohem</b> výhodnější než tři jednoduché — proto dusík tvoří N₂, zatímco fosfor (velké atomy, špatný boční překryv) tvoří P₄ s&nbsp;jednoduchými vazbami.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Délka a&nbsp;energie vazby podle násobnosti — kratší a&nbsp;pevnější, ale ne úměrně</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Dvojice atomů</label>
+          <div class="segmented" id="multSel" role="group" aria-label="Dvojice atomů">
+            <button type="button" data-v="0" aria-pressed="true">C–C</button>
+            <button type="button" data-v="1" aria-pressed="false">N–N</button>
+            <button type="button" data-v="2" aria-pressed="false">C–O</button>
+            <button type="button" data-v="3" aria-pressed="false">O–O</button>
+            <button type="button" data-v="4" aria-pressed="false">C–N</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="multWrap" style="min-height:330px"></div>
+        <div class="tablewrap" style="margin-top:1rem">
+          <table><thead><tr><th>Vazba</th><th class="n">Násobnost</th><th class="n">Délka [pm]</th><th class="n">Energie [kJ·mol⁻¹]</th><th class="n">Přírůstek energie</th><th>složení</th></tr></thead>
+          <tbody id="multBody"></tbody></table>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--cat1)"></span>délka vazby (levá osa, pm)</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>vazebná energie (pravá osa, kJ·mol⁻¹)</span>
+          <span class="li"><span class="sw" style="background:var(--line-strong)"></span>čárkovaně: kdyby energie rostla úměrně</span>
+        </div>
+      </div>
+      <div class="panel-note" id="multNote"></div>
+    </div>
+
+    <div class="prose">
+      <h3>Tabulka délek a&nbsp;energií jednoduchých vazeb</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Vazba</th><th class="n">Délka [pm]</th><th class="n">Energie [kJ·mol⁻¹]</th><th>Vazba</th><th class="n">Délka [pm]</th><th class="n">Energie [kJ·mol⁻¹]</th></tr></thead>
+          <tbody id="bond1Body"></tbody>
+        </table>
+      </div>
+      <p style="margin-top:.8rem;color:var(--ink-3);font-size:.92rem">Dva trendy k&nbsp;odečtení: v&nbsp;řadě H–F → H–I vazba <b>prodlužuje a&nbsp;slábne</b> (větší atom, horší překryv), a&nbsp;halogen–halogenové vazby jsou obecně slabé (odpuzování volných párů). Vazba F–F (155) je slabší než Cl–Cl (243) — jediná anomálie, daná právě tím, že fluor je tak malý.</p>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.1 · spočítat σ a π</span>
+          <p>Určete počet vazeb σ a&nbsp;π v&nbsp;molekulách: ethen <span class="chem">C₂H₄</span>, ethyn <span class="chem">C₂H₂</span>, oxid uhličitý <span class="chem">CO₂</span> a&nbsp;kyanovodík <span class="chem">HCN</span>. Kolem kterých vazeb je možná volná rotace?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Pravidlo: každá vazba (čárka) mezi dvěma atomy obsahuje <b>právě jednu σ</b>; každá další čárka nad první je π. Stačí tedy spočítat spojené dvojice atomů (= σ) a&nbsp;zvlášť „čárky navíc“ (= π).</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Ethen H₂C=CH₂: dvojice C–C, 4× C–H → <b>5 σ</b>; dvojná vazba má jednu čárku navíc → <b>1 π</b>.<br>
+              Ethyn HC≡CH: C–C, 2× C–H → <b>3 σ</b>; trojná má dvě navíc → <b>2 π</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>CO₂ O=C=O: 2 dvojice → <b>2 σ</b>; dvě dvojné vazby → <b>2 π</b>.<br>
+              HCN H–C≡N: 2 dvojice → <b>2 σ</b>; trojná → <b>2 π</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Volná rotace je možná jen kolem <b>jednoduchých</b> vazeb (čistě σ): v&nbsp;ethenu kolem vazeb C–H (bez významu — H nemá co otáčet), kolem C=C ne. V&nbsp;ethynu, CO₂ a&nbsp;HCN jsou molekuly lineární a&nbsp;rotace kolem násobných vazeb je blokována.</p>
+              <span class="result">C₂H₄: 5 σ + 1 π · C₂H₂: 3 σ + 2 π · CO₂: 2 σ + 2 π · HCN: 2 σ + 2 π</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 4.2 · energie π vazby a hydrogenace</span>
+          <p>Z&nbsp;vazebných energií C–C 348, C=C 614, H–H 436, C–H 413 kJ·mol⁻¹ odhadněte (a) energii π vazby v&nbsp;ethenu a&nbsp;(b) reakční enthalpii hydrogenace <span class="chem">C₂H₄ + H₂ → C₂H₆</span>. Proč je reakce exotermická?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>(a) Dvojná vazba = σ + π. Když σ v&nbsp;C=C přibližně odpovídá jednoduché C–C:</p>
+              <p class="eq"><span class="q">E</span>(π) ≈ <span class="q">E</span>(C=C) − <span class="q">E</span>(C–C) = 614 − 348 = <b>266 kJ·mol⁻¹</b> &nbsp;(&lt; 348 → π je slabší než σ)</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>(b) Rozbité vazby: π vazba C=C (jen ta — σ zůstává) a&nbsp;H–H. Vzniklé: 2 nové C–H.</p>
+              <p class="eq">rozbité: 266 + 436 = <b>702 kJ</b><br>vzniklé: 2 × 413 = <b>826 kJ</b><br>Δ<span class="q">H</span> ≈ 702 − 826 = <b>−124 kJ·mol⁻¹</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Tabulková hodnota je −137 kJ·mol⁻¹ — odhad z&nbsp;průměrných energií trefil na 13 kJ. Reakce je exotermická, protože dvě σ vazby C–H (826) jsou dohromady pevnější než slabá π vazba + H–H (702). <b>Obecně: adice na dvojnou vazbu se vyplatí, protože se mění slabá π na silné σ.</b></p>
+              <span class="result">E(π) ≈ 266 kJ·mol⁻¹; ΔH(hydrogenace) ≈ −124 kJ·mol⁻¹ (tabulka −137)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: σ, π a násobnost"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

@@ -1,0 +1,310 @@
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   0 · POMOCNÉ FUNKCE
+   ============================================================ */
+var $  = function(s,r){return (r||document).querySelector(s);};
+var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+
+/* česká desetinná čárka */
+function fmt(n,d){
+  if(n===null||n===undefined||isNaN(n)) return "—";
+  if(d===undefined) d = 1;
+  var s = Math.abs(n).toFixed(d);
+  if(d>0){ s = s.replace(/0+$/,""); s = s.replace(/\.$/,""); }
+  s = s.replace(".",",");
+  return (n<0?"−":"")+s;
+}
+function sgn(n,d){ var s=fmt(Math.abs(n),d); return (n<0?"−":"+")+s; }
+
+var store = {
+  get:function(k,f){ try{ var v=localStorage.getItem("{{PREFIX}}."+k); return v===null?f:JSON.parse(v); }catch(e){ return f; } },
+  set:function(k,v){ try{ localStorage.setItem("{{PREFIX}}."+k,JSON.stringify(v)); }catch(e){} },
+  del:function(){ try{ Object.keys(localStorage).filter(function(k){return k.indexOf("{{PREFIX}}.")===0;}).forEach(function(k){localStorage.removeItem(k);}); }catch(e){} }
+};
+
+var toastEl = $("#toast"), toastT;
+function toast(msg){
+  if(!toastEl) return;
+  toastEl.textContent = msg; toastEl.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove("show"); },2600);
+}
+
+/* ============================================================
+   1 · MOTIV (světlý / tmavý)
+   ============================================================ */
+(function(){
+  var saved = store.get("theme",null);
+  if(saved) document.documentElement.setAttribute("data-theme",saved);
+  function current(){
+    var a = document.documentElement.getAttribute("data-theme");
+    if(a) return a;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function paint(){
+    var dark = current()==="dark";
+    var i=$("#themeIcon"), l=$("#themeLbl"), b2=$("#themeBtn2");
+    var SUN = '<svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="4.4" style="fill:currentColor"/><g style="stroke:currentColor;stroke-width:2;stroke-linecap:round"><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></g></svg>';
+    var MOON = '<svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z" style="fill:currentColor"/></svg>';
+    if(i) i.innerHTML = dark ? SUN : MOON;
+    if(l) l.textContent = dark ? "Světlý" : "Tmavý";
+    if(b2) b2.innerHTML = dark ? SUN : MOON;
+    setTimeout(redrawAll,30);
+  }
+  function toggle(){
+    var next = current()==="dark" ? "light":"dark";
+    document.documentElement.setAttribute("data-theme",next);
+    store.set("theme",next); paint();
+  }
+  ["#themeBtn","#themeBtn2"].forEach(function(s){ var b=$(s); if(b) b.addEventListener("click",toggle); });
+  paint();
+})();
+
+/* ============================================================
+   3 · NAVIGACE, POKROK, SCROLLSPY
+   ============================================================ */
+var chapters = $$("section.chapter");
+var TOTAL = chapters.length;
+var done = store.get("done",{});
+
+function buildNav(){
+  var rail=$("#railNav"), chip=$("#chipNav");
+  var hasQuick = !!document.getElementById("r0");
+  chapters.forEach(function(sec,i){
+    var id=sec.id, t=sec.getAttribute("data-title");
+    var a=document.createElement("a");
+    a.href="#"+id; a.dataset.for=id;
+    var lbl = (id==="r0") ? "R" : String(i-(hasQuick?1:0)).padStart(2,"0");
+    a.innerHTML='<span class="idx">'+lbl+'</span><span>'+t+'</span><span class="tick"></span>';
+    rail.appendChild(a);
+    var c=document.createElement("a");
+    c.href="#"+id; c.dataset.for=id; c.textContent=t;
+    chip.appendChild(c);
+  });
+}
+function renderProgress(){
+  var n=Object.keys(done).filter(function(k){return done[k];}).length;
+  var pct=Math.round(n/TOTAL*100);
+  ["#mFill","#mFill2"].forEach(function(s){var e=$(s); if(e) e.style.width=pct+"%";});
+  ["#mDone","#mDone2"].forEach(function(s){var e=$(s); if(e) e.textContent=n;});
+  $$("[data-tot]").forEach(function(e){e.textContent=TOTAL;});
+  $$("[data-for]").forEach(function(a){ a.classList.toggle("done", !!done[a.dataset.for]); });
+  chapters.forEach(function(sec){
+    var box=$('[data-done="'+sec.id+'"]',sec); if(box) paintDoneBox(box,sec.id);
+  });
+}
+function paintDoneBox(box,id){
+  var isDone=!!done[id];
+  box.innerHTML =
+    '<span class="grow">'+(isDone
+      ? '<b style="color:var(--ok)">✓ Kapitolu máte hotovou.</b> Můžete se k ní kdykoli vrátit.'
+      : 'Až budete mít kapitolu za sebou, označte si ji — pokrok se ukládá do prohlížeče.')+'</span>'+
+    '<button class="btn '+(isDone?"":"btn-primary")+' btn-sm" type="button">'+(isDone?"Odznačit":"Označit jako hotové")+'</button>';
+  $("button",box).addEventListener("click",function(){
+    done[id]=!done[id]; store.set("done",done); renderProgress();
+    toast(done[id]?"Kapitola označena jako hotová.":"Označení zrušeno.");
+  });
+}
+function markDone(id){ if(!done[id]){ done[id]=true; store.set("done",done); renderProgress(); } }
+
+function scrollspy(){
+  var best=null, bestD=1e9, mid=window.innerHeight*0.34;
+  chapters.forEach(function(sec){
+    var r=sec.getBoundingClientRect();
+    if(r.bottom>60 && r.top<window.innerHeight){
+      var d=Math.abs(r.top-mid); if(d<bestD){bestD=d;best=sec.id;}
+    }
+  });
+  if(!best) return;
+  $$("[data-for]").forEach(function(a){
+    var on = a.dataset.for===best;
+    if(on) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current");
+    if(on && a.parentElement.id==="chipNav"){
+      var p=a.parentElement, x=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;
+      p.scrollTo({left:x,behavior:"smooth"});
+    }
+  });
+}
+
+/* ============================================================
+   4 · ŘEŠENÉ PŘÍKLADY — rozbalení postupu
+   ============================================================ */
+$$("[data-worked]").forEach(function(w){
+  var b=$("[data-reveal]",w);
+  var CH='<svg class="chev" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">'+
+         '<path d="M6 9.5l6 6 6-6" style="fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round"/></svg>';
+  b.innerHTML='<span>Ukázat postup</span>'+CH;
+  b.addEventListener("click",function(){
+    var open=w.classList.toggle("open");
+    $("span",b).textContent = open ? "Skrýt postup" : "Ukázat postup";
+  });
+});
+
+/* ============================================================
+   5 · KVÍZOVÝ MOTOR
+   ============================================================ */
+var BANK = {};
+
+function renderQuiz(box){
+  var key=box.dataset.quiz, qs=BANK[key]||[], isFinal=box.dataset.final==="1";
+  var order = box._order || qs.map(function(_,i){return i;});
+  box._order = order;
+  var wasOpen = box.classList.contains("open");
+  var CHEV = '<svg class="chev" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">'+
+             '<path d="M6 9.5l6 6 6-6" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"/></svg>';
+  var h='<button class="quiz-toggle" type="button" aria-expanded="'+wasOpen+'">'+
+        '<span class="tag">'+(isFinal?"Test":"Mini‑test")+'</span>'+
+        '<span class="qt-title">'+box.dataset.title+'</span>'+
+        '<span class="qt-score"></span>'+
+        '<span class="qt-meta">'+qs.length+' otázek</span>'+CHEV+'</button>'+
+        '<div class="quiz-wrap"><div class="quiz-inner"><div class="quiz-pad">';
+  order.forEach(function(qi,pos){
+    var q=qs[qi];
+    h+='<div class="qcard" data-q="'+qi+'"><div class="qtext"><span class="qn">'+(pos+1)+'.</span><span class="qbody">'+q.q+'</span></div>';
+    if(q.t==="num"){
+      h+='<div class="numin"><input type="text" inputmode="decimal" placeholder="číslo" aria-label="Odpověď">'+
+         '<span class="unit">'+(q.unit||"")+'</span></div>';
+    } else {
+      var type = q.t==="multi" ? "checkbox":"radio";
+      h+='<div class="opts">';
+      q.o.forEach(function(o,oi){
+        h+='<label class="opt"><input type="'+type+'" name="'+key+'_'+qi+'" value="'+oi+'"><span class="otext">'+o+'</span><span class="mk"></span></label>';
+      });
+      h+='</div>';
+      if(q.t==="multi") h+='<span class="eyebrow">Vyberte všechny správné možnosti</span>';
+    }
+    h+='<div class="explain"><span class="verdict"></span><span class="eyebrow">Proč</span><div>'+q.e+'</div></div></div>';
+  });
+  h+='<div class="quiz-foot"><button class="btn btn-primary" type="button" data-check>'+(isFinal?"Vyhodnotit test":"Zkontrolovat")+'</button>'+
+     '<button class="btn" type="button" data-again>Zkusit znovu</button>'+
+     (isFinal?'<button class="btn" type="button" data-shuffle>Zamíchat otázky</button>':'')+
+     '<span class="score"></span></div></div></div></div>';
+  box.innerHTML=h;
+  box.classList.remove("checked");
+  if(wasOpen) box.classList.add("open");
+  $(".quiz-toggle",box).addEventListener("click",function(){
+    var open=box.classList.toggle("open");
+    this.setAttribute("aria-expanded",open);
+  });
+
+  $("[data-check]",box).addEventListener("click",function(){ checkQuiz(box); });
+  $("[data-again]",box).addEventListener("click",function(){ box._order=order; renderQuiz(box); });
+  var sh=$("[data-shuffle]",box);
+  if(sh) sh.addEventListener("click",function(){
+    var o=order.slice();
+    for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=o[i];o[i]=o[j];o[j]=t;}
+    box._order=o; renderQuiz(box); toast("Otázky zamíchány.");
+  });
+}
+
+function checkQuiz(box){
+  var key=box.dataset.quiz, qs=BANK[key], correct=0;
+  box.classList.add("checked");
+  $$(".qcard",box).forEach(function(card){
+    var q=qs[+card.dataset.q], ok=false;
+    if(q.t==="num"){
+      var inp=$("input",card), raw=(inp.value||"").trim().replace(",",".").replace(/−/g,"-").replace(/\s/g,"");
+      var v=parseFloat(raw);
+      ok = !isNaN(v) && Math.abs(v-q.ans) <= (q.tol!==undefined?q.tol:Math.max(0.05,Math.abs(q.ans)*0.01));
+      inp.disabled=true;
+    } else {
+      var picked=[];
+      $$(".opt",card).forEach(function(l,oi){
+        var inp=$("input",l);
+        var isC = (q.t==="multi") ? q.c.indexOf(oi)>=0 : oi===q.c;
+        if(inp.checked) picked.push(oi);
+        if(isC){ l.classList.add("is-correct"); $(".mk",l).textContent="✓"; }
+        else if(inp.checked){ l.classList.add("is-wrong"); $(".mk",l).textContent="✕"; }
+      });
+      ok = (q.t==="multi")
+        ? (picked.length===q.c.length && picked.every(function(p){return q.c.indexOf(p)>=0;}))
+        : (picked.length===1 && picked[0]===q.c);
+    }
+    card.classList.add("revealed", ok?"correct":"wrong");
+    $(".verdict",card).textContent = ok ? "✓ Správně" : "✕ Špatně";
+    if(ok) correct++;
+  });
+  var pct=Math.round(correct/qs.length*100);
+  var sc=$(".score",box);
+  sc.classList.add("show");
+  sc.innerHTML='<span>Výsledek:</span><span class="pct">'+correct+' / '+qs.length+'</span><span class="tag '+
+    (pct>=80?"ok":(pct>=50?"warn":"bad"))+'">'+pct+' %</span>';
+  var sec=box.closest("section.chapter");
+  if(sec && pct>=60) markDone(sec.id);
+  var hs=$(".qt-score",box);
+  if(hs){
+    hs.className="qt-score show";
+    hs.innerHTML='<span class="tag '+(pct>=80?"ok":(pct>=50?"warn":"bad"))+'">'+correct+'/'+qs.length+' · '+pct+' %</span>';
+  }
+  sc.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+
+/* ============================================================
+   6 · SVG POMOCNÍCI
+   ============================================================ */
+function svg(vb,inner,extra){
+  return '<svg viewBox="'+vb+'" role="img" '+(extra||"")+'>'+inner+'</svg>';
+}
+function txt(x,y,s,o){
+  o=o||{};
+  return '<text x="'+x+'" y="'+y+'" style="fill:'+(o.fill||"var(--ink-2)")+';font-family:'+(o.mono?"var(--f-mono)":"var(--f-ui)")+
+    ';font-size:'+(o.size||12)+'px;font-weight:'+(o.w||400)+';'+(o.anchor?"text-anchor:"+o.anchor+";":"")+
+    (o.style||"")+'">'+s+'</text>';
+}
+function line(x1,y1,x2,y2,o){
+  o=o||{};
+  return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" style="stroke:'+(o.c||"var(--line)")+
+    ';stroke-width:'+(o.w||1)+';'+(o.dash?"stroke-dasharray:"+o.dash+";":"")+(o.cap?"stroke-linecap:"+o.cap+";":"")+'"/>';
+}
+function rect(x,y,w,h,o){
+  o=o||{};
+  return '<rect x="'+x+'" y="'+y+'" width="'+Math.max(0,w)+'" height="'+Math.max(0,h)+'" rx="'+(o.r||0)+
+    '" style="fill:'+(o.fill||"var(--surface-2)")+';'+(o.stroke?"stroke:"+o.stroke+";stroke-width:"+(o.sw||1)+";":"")+(o.style||"")+'"/>';
+}
+/* svislá dvojšipka s popiskem */
+function vArrow(x,y1,y2,color,label,side){
+  var s='';
+  s+=line(x,y1,x,y2,{c:color,w:2,cap:"round"});
+  var d1=(y2>y1?1:-1);
+  s+='<path d="M'+x+' '+y2+' l-4 '+(-5*d1)+' l8 0 z" style="fill:'+color+'"/>';
+  s+='<path d="M'+x+' '+y1+' l-4 '+(5*d1)+' l8 0 z" style="fill:'+color+'"/>';
+  var my=(y1+y2)/2;
+  s+=txt(x+(side==="left"?-9:9),my+4,label,{fill:color,size:12.5,w:600,anchor:side==="left"?"end":"start"});
+  return s;
+}
+
+/* ============================================================
+   7 · SLOVNÍČEK — vykreslení (pole GLOSS definuje tematická část)
+   ============================================================ */
+function drawGloss(){
+  $("#glossary").innerHTML=GLOSS.map(function(g){
+    return '<details class="gitem"><summary>'+g[0]+'</summary><div class="gbody">'+
+      (g[1]?'<span class="unit-badge">'+g[1]+'</span>':'')+'<p>'+g[2]+'</p></div></details>';
+  }).join("");
+}
+
+/* ============================================================
+   8 · JÁDRO OVLÁDÁNÍ — vynulování pokroku, scrollspy
+   ============================================================ */
+function bindCore(){
+  $("#resetBtn").addEventListener("click",function(){
+    if(!confirm("Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.")) return;
+    var th=store.get("theme",null);
+    store.del(); if(th) store.set("theme",th);
+    done={}; renderProgress(); toast("Pokrok vynulován.");
+  });
+  var st;
+  window.addEventListener("scroll",function(){ clearTimeout(st); st=setTimeout(scrollspy,60); },{passive:true});
+  window.addEventListener("resize",function(){ clearTimeout(st); st=setTimeout(scrollspy,120); },{passive:true});
+}
+
+/* ============================================================
+   TEMATICKÁ ČÁST — data, modely, GLOSS, redrawAll, bind, initAll, BANK.*
+   (vše níže je specifické pro dané téma)
+   ============================================================ */

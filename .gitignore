@@ -27,5 +27,20 @@ node_modules/
 *~
 
 # Pomocné skripty pro kontrolu, které se nenasazují
-qa.js
-overlap.js
+/qa.js
+/overlap.js
+
+# ------------------------------------------------------------------
+# Sestavovací nástroje (tools/) jsou v repozitáři, ale tohle z nich nesmí:
+# ------------------------------------------------------------------
+# data tiskového klíče — obsahují správné odpovědi ke všem otázkám
+pool.json
+qa_payload.json
+# naskenované stránky učebnice a digesty z ní — autorsky chráněný text
+kniha/
+DIGEST.md
+# zadání pro agenty — doslovné citace soukromé komunikace
+BRIEF*.md
+# mezisoubory Pythonu
+__pycache__/
+*.pyc

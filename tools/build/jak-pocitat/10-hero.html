@@ -1,0 +1,84 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Jak počítat chemii</h1>
+      <p class="lead">Chemii umíte. A&nbsp;pak přijde početní úloha a&nbsp;všechno se rozsype: gramy se pomíchají s&nbsp;kilogramy, čísla se dosadí hned v&nbsp;prvním řádku, po třech dosazeních už nikdo neví, co se vlastně počítá — a&nbsp;výsledek nejde zkontrolovat. Tahle stránka neučí chemii. Učí <b>řemeslo výpočtu</b>: jeden pevný způsob zápisu, převzatý z&nbsp;vysokoškolské fyziky, který funguje na stechiometrii stejně jako na Nernstovu rovnici, a&nbsp;u&nbsp;kterého dostanete body i&nbsp;tehdy, když se v&nbsp;poslední řádce spletete v&nbsp;násobení.</p>
+      <div class="hero-meta">
+        <span class="tag">Zápis výpočtu</span>
+        <span class="tag">Jednotky a&nbsp;převody</span>
+        <span class="tag">Přehled vzorců</span>
+        <span class="tag">Řešené příklady</span>
+        <span class="tag">Trenažéry</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#k0">
+        <span class="pk"><span class="tag">Začněte tady</span></span>
+        <span class="pt">Naučit se zápis</span>
+        <span class="pd">Šest bloků výpočtového listu — zadání, hledáme, vztahy, odvození, dosazení, odpověď — vysvětlených jeden po druhém, s&nbsp;porovnáním „takhle ne / takhle ano“ a&nbsp;trenažérem, ve kterém si pořadí bloků naklikáte sami.</span>
+        <span class="pgo">Kapitola 00 →</span>
+      </a>
+      <a class="path" href="#k3">
+        <span class="pk"><span class="tag">Referenční část</span></span>
+        <span class="pt">Přehled vzorců</span>
+        <span class="pd">Prohledávatelná kartotéka všech vztahů, které se v&nbsp;deseti maturitních okruzích počítají — u&nbsp;každého význam písmen, jednotka, kdy ho použít a&nbsp;na co si dát pozor. Plus tabulka konstant.</span>
+        <span class="pgo">Kapitola 03 →</span>
+      </a>
+      <a class="path submod-path" href="zlomky-a-zavorky/index.html">
+        <span class="pk"><span class="tag">Samostatný pod-modul</span></span>
+        <span class="pt">Zlomky a závorky</span>
+        <span class="pd">Kdy zlomková čára nahrazuje závorku, jak přepsat stohovaný
+        zápis na řádek a&nbsp;zpátky, co se smí krátit a&nbsp;co ne — a&nbsp;jak si ověřit,
+        že jste přepsali správně. Devět kapitol s&nbsp;procvičováním a&nbsp;testem.</span>
+        <span class="pgo">Otevřít pod-modul →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Živý výpočtový list — jediné schéma, které si musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1.1rem">
+          <div class="ctl">
+            <label for="csTask">Úloha</label>
+            <select id="csTask">
+              <option value="0">Koncentrace roztoku z&nbsp;navážky (NaOH)</option>
+              <option value="1">Látkové množství plynu ze stavové rovnice</option>
+              <option value="2">Ředění zásobního roztoku</option>
+              <option value="3">Objem vodíku z&nbsp;reakce zinku s&nbsp;kyselinou</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label>Postup</label>
+            <div class="quiz-foot" style="margin-top:0">
+              <button class="btn btn-primary btn-sm" type="button" id="csNext">Odkrýt další krok</button>
+              <button class="btn btn-sm" type="button" id="csAll">Celý list</button>
+              <button class="btn btn-sm" type="button" id="csReset">Od začátku</button>
+              <span class="drill-score" id="csStep">krok 1 / 7</span>
+            </div>
+          </div>
+        </div>
+        <div id="csLive"></div>
+      </div>
+      <div class="panel-note" id="csNote">Zkuste přepnout úlohu a&nbsp;odkrývat krok po kroku. Všimněte si, že <b>první číslo se objeví až v&nbsp;pátém bloku</b> — čtyři bloky předtím jsou jen písmena. Přesně tohle je celý trik: dokud nejsou v&nbsp;zápisu čísla, nemáte kde udělat početní chybu, a&nbsp;jednotky se dají zkontrolovat dřív, než sáhnete po kalkulačce.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.6rem;max-width:min(100%,100ch)">Devět kapitol, osmnáct výpočtových listů, jedenáct interaktivních modelů a&nbsp;závěrečný test. Každý řádek níž vede na kapitolu, která ho řeší.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Jak zapsat výpočet: zadání → hledáme → vztahy → odvození → dosazení → odpověď. Proč se dosazuje až na konci.</span><span class="go">Kap. 00</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Jednotky: soustava SI a&nbsp;to, v&nbsp;čem chemie reálně počítá (g, dm³, kPa, kJ, mol·dm⁻³, °C, u, Da). Předpony a&nbsp;pravidla psaní.</span><span class="go">Kap. 01</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Převody metodou převodního zlomku a&nbsp;rozměrová analýza — kontrola vzorce podle jednotek.</span><span class="go">Kap. 02</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Přehled veličin a&nbsp;vzorců ze všech deseti okruhů + tabulka konstant (<span class="q">R</span>, <span class="q">N</span><sub>A</sub>, <span class="q">F</span>, <span class="q">k</span><sub>B</sub>, <span class="q">c</span>, <span class="q">h</span>).</span><span class="go">Kap. 03</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Platné číslice, zaokrouhlování, vědecký tvar a&nbsp;„přesná čísla“.</span><span class="go">Kap. 04</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Stechiometrie krok za krokem: m&nbsp;→&nbsp;n&nbsp;→&nbsp;n&nbsp;→&nbsp;m, limitující reaktant, výtěžek, čistota, nadbytek.</span><span class="go">Kap. 05</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Roztoky a&nbsp;plyny: koncentrace, ředění, mísení, hmotnostní zlomek, stavová rovnice.</span><span class="go">Kap. 06</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8</span><span>Reprezentativní výpočet z&nbsp;termochemie, kinetiky, rovnováhy, elektrochemie, acidobaziky a&nbsp;radioaktivity.</span><span class="go">Kap. 07</span></a>
+      <a class="syl-row" href="#k8"><span class="b">9</span><span>Časté chyby: gramy vs&nbsp;kilogramy, cm³ vs&nbsp;dm³, J vs&nbsp;kJ, °C vs&nbsp;K, zapomenutý koeficient, <span class="q">V</span><sub>m</sub> 22,4 vs&nbsp;24,8.</span><span class="go">Kap. 08</span></a>
+      <a class="syl-row" href="#k9"><span class="b">10</span><span>Závěrečný test — 24 otázek přes celé řemeslo výpočtu.</span><span class="go">Kap. 09</span></a>
+      <a class="syl-row" href="#k10"><span class="b">11</span><span>Tahák k&nbsp;vytištění a&nbsp;slovníček veličin, symbolů a&nbsp;jednotek.</span><span class="go">Kap. 10</span></a>
+    </div>
+  </header>

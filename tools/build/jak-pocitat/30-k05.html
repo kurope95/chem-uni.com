@@ -1,0 +1,305 @@
+  <!-- ============ KAPITOLA 5 — STECHIOMETRIE ============ -->
+  <section class="chapter" id="k5" data-title="Stechiometrie krok za krokem">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · stechiometrie</span>
+      <h2>Stechiometrie: gramy → moly → moly → gramy</h2>
+      <p class="lead">Každá stechiometrická úloha na světě má stejnou kostru. Zadání je v&nbsp;gramech (nebo litrech, nebo kusech), reakce mluví v&nbsp;molech, a&nbsp;odpověď se zase chce v&nbsp;gramech. Celý výpočet je tedy cesta tam a&nbsp;zpátky přes mol — a&nbsp;jediné místo, kde se dá pochybit, je prostřední krok.</p>
+
+      <h3>Univerzální postup</h3>
+      <div class="callout def">
+        <span class="eyebrow">Čtyři kroky, které fungují vždycky</span>
+        <p><b>0. Napište a&nbsp;vyčíslete rovnici.</b> Bez vyčíslené rovnice nelze udělat třetí krok. Vyčíslení není součást „přípravy“, je to část výpočtu.<br>
+        <b>1. Zadanou látku převeďte na moly.</b> Podle toho, co víte: <span class="mono">n = m/M</span>, <span class="mono">n = V/V<sub>m</sub></span>, <span class="mono">n = c·V</span>, <span class="mono">n = N/N<sub>A</sub></span>.<br>
+        <b>2. Přejděte na moly hledané látky stechiometrickým poměrem.</b> <span class="mono">n(B) = n(A) · ν(B)/ν(A)</span>, kde ν jsou koeficienty z&nbsp;rovnice.<br>
+        <b>3. Moly převeďte na to, na co se ptají.</b> Zpátky přes <span class="mono">m = n·M</span>, <span class="mono">V = n·V<sub>m</sub></span>, <span class="mono">c = n/V</span> nebo <span class="mono">N = n·N<sub>A</sub></span>.</p>
+      </div>
+      <p>Ten druhý krok je jádro. Stechiometrický koeficient je <b>přesný převodní zlomek mezi látkami</b>: rovnice <span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span> říká, že z&nbsp;jednoho molu oxidu vzniknou dva moly železa, tedy <span class="mono">n(Fe)/n(Fe₂O₃) = 2/1</span>. Nic víc v&nbsp;tom není — a&nbsp;přesto je zapomenutý koeficient nejčastější chybou v&nbsp;celé maturitní chemii.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Nikdy nepočítejte poměr z&nbsp;hmotností</span>
+        <p>Koeficienty platí <b>pro moly, ne pro gramy</b>. Z&nbsp;rovnice <span class="chem">2 H₂ + O₂ → 2 H₂O</span> neplyne, že „na 2&nbsp;g vodíku připadne 1&nbsp;g kyslíku“ — ve skutečnosti připadá 16&nbsp;g. Kdo poměr aplikuje na hmotnosti, dostane naprostý nesmysl a&nbsp;většinou si toho ani nevšimne.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stechiometrické schéma — kde se násobí čím</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="stRx">Reakce</label>
+            <select id="stRx">
+              <option value="0">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂ (vysoká pec)</option>
+              <option value="1">CaCO₃ → CaO + CO₂ (pálení vápna)</option>
+              <option value="2">Zn + 2 HCl → ZnCl₂ + H₂ (vývoj vodíku)</option>
+              <option value="3">2 H₂ + O₂ → 2 H₂O (spalování vodíku)</option>
+              <option value="4">N₂ + 3 H₂ → 2 NH₃ (Haberův–Boschův proces)</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label for="stM">Navážka výchozí látky — <span class="val" id="stMV">500 g</span></label>
+            <input type="range" id="stM" min="10" max="1000" step="10" value="500">
+          </div>
+        </div>
+        <div class="svgwrap" id="stWrap" style="min-height:270px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="stRo1"><span class="k">n výchozí</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="stRo2"><span class="k">n produktu</span><span class="v">—</span><span class="h">—</span></div>
+          <div class="readout" id="stRo3"><span class="k">m produktu</span><span class="v">—</span><span class="h">—</span></div>
+        </div>
+      </div>
+      <div class="panel-note">Sledujte prostřední šipku: u&nbsp;Haberova procesu se moly <b>zdvojnásobí</b> (z&nbsp;1&nbsp;N₂ vzniknou 2&nbsp;NH₃), u&nbsp;pálení vápna zůstanou stejné, u&nbsp;spalování vodíku se moly nemění, ale hmotnost roste devítinásobně. <b>Moly a&nbsp;gramy se nechovají stejně</b> — to je celý smysl toho schématu.</div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 5.1 · základní typ</span>
+        <p>Ve vysoké peci se oxid železitý redukuje oxidem uhelnatým: <span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span>. Kolik železa vznikne z&nbsp;500&nbsp;g čistého <span class="chem">Fe₂O₃</span> při úplném průběhu reakce?</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 5.1</span>
+              <span class="cs-topic">m → n → n → m, základní schéma</span>
+              <span class="cs-kind">Stechiometrie</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m(Fe₂O₃)</span><span class="cs-val">= 500 g</span><span class="cs-note">navážka, 100&nbsp;% čistota</span></div>
+                <div class="cs-row"><span class="cs-sym">M(Fe₂O₃)</span><span class="cs-val">= 159,70 g·mol⁻¹</span><span class="cs-note">2·55,85 + 3·16,00</span></div>
+                <div class="cs-row"><span class="cs-sym">M(Fe)</span><span class="cs-val">= 55,85 g·mol⁻¹</span><span class="cs-note">z&nbsp;tabulek</span></div>
+                <div class="cs-row"><span class="cs-sym">ν</span><span class="cs-val">= 1 : 2 (Fe₂O₃ : Fe)</span><span class="cs-note">z&nbsp;vyčíslené rovnice</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m(Fe)</span><span class="cs-val">= ? g</span><span class="cs-note">hmotnost vzniklého železa</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">n = m / M</div>
+                <div class="cs-line">n(Fe) = n(Fe₂O₃) · ν(Fe) / ν(Fe₂O₃)</div>
+                <div class="cs-line">m = n · M</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">m(Fe) = n(Fe) · M(Fe) = n(Fe₂O₃) · (2/1) · M(Fe)</div>
+                <div class="cs-line">m(Fe) = <b>2 · m(Fe₂O₃) · M(Fe) / M(Fe₂O₃)</b></div>
+                <p class="cs-hint">Jeden vztah pro celou úlohu. Kdyby se v&nbsp;další části zeptali na jinou navážku, jen dosadíte znovu.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">m(Fe) = 2 · 500 g · 55,85 g·mol⁻¹ / 159,70 g·mol⁻¹</div>
+                <div class="cs-line units">jednotky: g · g·mol⁻¹ / (g·mol⁻¹) = <b>g</b> ✓</div>
+                <div class="cs-line">n(Fe₂O₃) = 500/159,70 = 3,1309 mol &nbsp;→&nbsp; n(Fe) = 6,2617 mol</div>
+                <div class="cs-line">m(Fe) = 6,2617 · 55,85 = 349,72 g</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Z&nbsp;500&nbsp;g oxidu železitého vznikne <b class="cs-hi">m(Fe) = 350 g</b> železa (tři platné číslice podle navážky).</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Železo tvoří v&nbsp;<span class="chem">Fe₂O₃</span> hmotnostní zlomek 111,7/159,7 = 69,9&nbsp;%. Z&nbsp;500&nbsp;g tedy má vyjít 0,699·500 = 350&nbsp;g. Souhlasí, a&nbsp;navíc to dává smysl: produkt musí být lehčí než výchozí oxid, protože kyslík odešel pryč. Kdyby vyšlo víc než 500&nbsp;g, byla by chyba v&nbsp;koeficientu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Limitující reaktant</h3>
+      <p>Když zadání uvede množství <b>dvou nebo více</b> výchozích látek, skoro jistě jde o&nbsp;úlohu na limitující reaktant. <span class="term">Limitující (nedostatkový) reaktant</span> je ten, který dojde první — a&nbsp;právě on určuje, kolik produktu vznikne. Zbytek je <span class="term">v&nbsp;nadbytku</span> a&nbsp;část ho po reakci zbude.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak ho poznat — spolehlivá metoda</span>
+        <p>Pro každý reaktant spočítejte podíl <span class="mono">n / ν</span> (látkové množství dělené jeho stechiometrickým koeficientem). <b>Nejmenší podíl = limitující reaktant.</b> Metoda funguje i&nbsp;u&nbsp;tří a&nbsp;víc látek a&nbsp;nikdy nezklame, na rozdíl od porovnávání holých molů.</p>
+        <p>Analogie: skládáte kolo ze dvou kol a&nbsp;jednoho rámu. Máte 10 rámů a&nbsp;14 kol. Rámů je „14 : 2 = 7“ kol na rám, ale kol je jen „14/2 = 7“ souprav proti 10 rámům — postavíte sedm kol a&nbsp;zůstanou tři rámy. Kola limitují, i&nbsp;když jich je početně víc.</p>
+      </div>
+      <p>Pozor na typickou past: „vyšlo mi, že limituje ten, kterého je míň v&nbsp;molech“. To platí jen tehdy, když jsou koeficienty stejné. Jakmile jsou různé, musíte dělit.</p>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 5.2 · limitující reaktant</span>
+        <p>Do 100&nbsp;cm³ kyseliny chlorovodíkové o&nbsp;koncentraci 1,00&nbsp;mol·dm⁻³ vhodíme 5,00&nbsp;g zinku. Jaký objem vodíku se uvolní při 25&nbsp;°C a&nbsp;100&nbsp;kPa? <span class="chem">Zn + 2 HCl → ZnCl₂ + H₂</span>, <span class="chem">M</span>(Zn) = 65,38&nbsp;g·mol⁻¹.</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 5.2</span>
+              <span class="cs-topic">Který reaktant dojde první</span>
+              <span class="cs-kind">Stechiometrie</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m(Zn)</span><span class="cs-val">= 5,00 g</span><span class="cs-note">navážka kovu</span></div>
+                <div class="cs-row"><span class="cs-sym">V(HCl)</span><span class="cs-val">= 100 cm³ <span class="cs-conv">= 0,100 dm³</span></span><span class="cs-note">převod hned</span></div>
+                <div class="cs-row"><span class="cs-sym">c(HCl)</span><span class="cs-val">= 1,00 mol·dm⁻³</span><span class="cs-note">koncentrace kyseliny</span></div>
+                <div class="cs-row"><span class="cs-sym">M(Zn)</span><span class="cs-val">= 65,38 g·mol⁻¹</span><span class="cs-note">z&nbsp;tabulek</span></div>
+                <div class="cs-row"><span class="cs-sym">V<sub>m</sub></span><span class="cs-val">= 24,79 dm³·mol⁻¹</span><span class="cs-note">25&nbsp;°C a&nbsp;100&nbsp;kPa — ne 22,4!</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">V(H₂)</span><span class="cs-val">= ? dm³</span><span class="cs-note">objem uvolněného vodíku</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">n = m / M &nbsp;&nbsp;·&nbsp;&nbsp; n = c · V</div>
+                <div class="cs-line">limitující: nejmenší podíl n / ν</div>
+                <div class="cs-line">V = n · V<sub>m</sub></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">n(Zn) = m(Zn)/M(Zn) &nbsp;·&nbsp; n(HCl) = c·V</div>
+                <div class="cs-line">porovnáme n(Zn)/1 a&nbsp;n(HCl)/2; menší limituje</div>
+                <div class="cs-line">je-li limitující HCl: n(H₂) = n(HCl)/2 &nbsp;→&nbsp; V(H₂) = <b>n(HCl) · V<sub>m</sub> / 2</b></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">n(Zn) = 5,00 g / 65,38 g·mol⁻¹ = 0,07648 mol &nbsp;→&nbsp; n/ν = 0,07648</div>
+                <div class="cs-line">n(HCl) = 1,00 mol·dm⁻³ · 0,100 dm³ = 0,100 mol &nbsp;→&nbsp; n/ν = 0,0500 &nbsp;<b>← menší</b></div>
+                <div class="cs-line units">limituje <b>HCl</b>; zinku zbude 0,07648 − 0,0500 = 0,0265 mol, tj. 1,73&nbsp;g</div>
+                <div class="cs-line">V(H₂) = 0,0500 mol · 24,79 dm³·mol⁻¹ = 1,2395 dm³</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Uvolní se <b class="cs-hi">V(H₂) = 1,24 dm³</b> vodíku. Zinek je v&nbsp;nadbytku a&nbsp;1,73&nbsp;g ho zůstane nerozpuštěno na dně.</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Kdybychom limitující reaktant neurčili a&nbsp;počítali ze zinku, vyšlo by 1,90&nbsp;dm³ — o&nbsp;polovinu víc, než se reálně uvolní. Zkouška zdravým rozumem: 0,05&nbsp;mol plynu je zhruba dvacetina molu, tedy asi 24,79/20 ≈ 1,2&nbsp;dm³. Sedí.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2rem">
+      <h3>Čistota, výtěžek, nadbytek</h3>
+      <p>Reálná úloha skoro nikdy nepracuje s&nbsp;čistou látkou ani se stoprocentním průběhem. Tři korekce, které se v&nbsp;zadání objevují, se aplikují na <b>různých místech výpočtu</b> — a&nbsp;právě to je zdroj chyb.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Korekce</th><th>Kde se použije</th><th>Vzorec</th><th>Typická formulace v&nbsp;zadání</th></tr></thead>
+          <tbody>
+            <tr><td><b>Čistota</b> vstupu</td><td>hned na začátku, na navážku</td><td class="n">m(čisté) = m(vzorku) · w</td><td>„vápenec o&nbsp;čistotě 92&nbsp;%“</td></tr>
+            <tr><td><b>Výtěžek</b> reakce</td><td>úplně na konci, na produkt</td><td class="n">m(skutečné) = m(teoretické) · η</td><td>„reakce probíhá s&nbsp;výtěžkem 87&nbsp;%“</td></tr>
+            <tr><td><b>Nadbytek</b> reaktantu</td><td>nepočítá se z&nbsp;něj</td><td class="n">použij limitující</td><td>„v&nbsp;přebytku kyslíku“</td></tr>
+            <tr><td><b>Zpětný výtěžek</b></td><td>když se ptají, kolik navážit</td><td class="n">m(vstup) = m(cíl) / (η · w)</td><td>„kolik suroviny je potřeba na…“</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Pořadí je závazné</span>
+        <p>Čistota se aplikuje <b>před</b> přepočtem na moly, výtěžek <b>až po</b> přepočtu zpátky na gramy. Kdo obojí vynásobí naráz kdekoli, dostane náhodou správné číslo jen tehdy, když jsou obě korekce prosté násobení — což u&nbsp;úlohy typu „kolik surovin potřebujeme“ neplatí, protože tam se <b>dělí</b>.</p>
+      </div>
+    </div>
+
+    <div class="worked" data-worked>
+      <div class="worked-head">
+        <span class="eyebrow">Příklad 5.3 · čistota i výtěžek</span>
+        <p>Pálením 25,0&nbsp;g vápence o&nbsp;čistotě 92,0&nbsp;% <span class="chem">CaCO₃</span> se má vyrobit pálené vápno: <span class="chem">CaCO₃ → CaO + CO₂</span>. Reakce probíhá s&nbsp;výtěžkem 87&nbsp;%. Kolik gramů <span class="chem">CaO</span> získáme?</p>
+      </div>
+      <div class="worked-body">
+        <button class="btn btn-sm" type="button" data-reveal></button>
+        <div class="worked-steps">
+          <div class="calcsheet">
+            <div class="cs-head">
+              <span class="cs-id">Příklad 5.3</span>
+              <span class="cs-topic">Tři korekce ve správném pořadí</span>
+              <span class="cs-kind">Stechiometrie</span>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Zadání</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m<sub>vz</sub></span><span class="cs-val">= 25,0 g</span><span class="cs-note">navážka vápence</span></div>
+                <div class="cs-row"><span class="cs-sym">w</span><span class="cs-val">= 92,0 % <span class="cs-conv">= 0,920</span></span><span class="cs-note">čistota — převod na desetinné číslo</span></div>
+                <div class="cs-row"><span class="cs-sym">η</span><span class="cs-val">= 87 % <span class="cs-conv">= 0,87</span></span><span class="cs-note">výtěžek reakce</span></div>
+                <div class="cs-row"><span class="cs-sym">M(CaCO₃)</span><span class="cs-val">= 100,09 g·mol⁻¹</span><span class="cs-note">40,08 + 12,01 + 3·16,00</span></div>
+                <div class="cs-row"><span class="cs-sym">M(CaO)</span><span class="cs-val">= 56,08 g·mol⁻¹</span><span class="cs-note">40,08 + 16,00</span></div>
+                <div class="cs-row"><span class="cs-sym">ν</span><span class="cs-val">= 1 : 1</span><span class="cs-note">z&nbsp;rovnice</span></div>
+              </div>
+            </div>
+            <div class="cs-block find">
+              <span class="cs-lbl">Hledáme</span>
+              <div class="cs-rows">
+                <div class="cs-row"><span class="cs-sym">m(CaO)</span><span class="cs-val">= ? g</span><span class="cs-note">skutečný výtěžek</span></div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Vztahy</span>
+              <div class="cs-rows">
+                <div class="cs-line">m(čisté) = m<sub>vz</sub> · w</div>
+                <div class="cs-line">n = m / M &nbsp;·&nbsp; n(CaO) = n(CaCO₃) · 1/1 &nbsp;·&nbsp; m = n · M</div>
+                <div class="cs-line">m(skut.) = m(teor.) · η</div>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Odvození</span>
+              <div class="cs-rows">
+                <div class="cs-line">m(CaO)<sub>teor</sub> = (m<sub>vz</sub> · w / M(CaCO₃)) · M(CaO)</div>
+                <div class="cs-line">m(CaO) = <b>m<sub>vz</sub> · w · η · M(CaO) / M(CaCO₃)</b></div>
+                <p class="cs-hint">Až v&nbsp;jednom vztahu je vidět, že obě korekce jsou tu prostým násobením. Kdyby se ptali obráceně („kolik vápence na 10&nbsp;kg vápna“), stejný vztah se jen obrátí a&nbsp;bude se dělit.</p>
+              </div>
+            </div>
+            <div class="cs-block">
+              <span class="cs-lbl">Dosazení</span>
+              <div class="cs-rows">
+                <div class="cs-line">m(CaCO₃) = 25,0 g · 0,920 = 23,00 g</div>
+                <div class="cs-line">n(CaCO₃) = 23,00 / 100,09 = 0,22979 mol = n(CaO)</div>
+                <div class="cs-line">m(CaO)<sub>teor</sub> = 0,22979 · 56,08 = 12,887 g</div>
+                <div class="cs-line units">jednotky: g · 1 · 1 · g·mol⁻¹ / (g·mol⁻¹) = <b>g</b> ✓ (w i&nbsp;η jsou bezrozměrné)</div>
+                <div class="cs-line">m(CaO) = 12,887 · 0,87 = 11,211 g</div>
+              </div>
+            </div>
+            <div class="cs-block res">
+              <span class="cs-lbl">Odpověď</span>
+              <div class="cs-rows">
+                <p class="cs-ans">Získáme <b class="cs-hi">m(CaO) = 11,2 g</b> páleného vápna. (Dvě platné číslice by odpovídaly výtěžku 87&nbsp;%; uvádíme tři, protože ostatní vstupy jsou přesnější.)</p>
+              </div>
+            </div>
+            <div class="cs-block chk">
+              <span class="cs-lbl">Kontrola</span>
+              <div class="cs-rows">
+                <p class="cs-chk">Hrubý odhad: čtvrtina molu <span class="chem">CaCO₃</span> je asi 25&nbsp;g, z&nbsp;ní by vzniklo asi 14&nbsp;g <span class="chem">CaO</span>; po započtení čistoty a&nbsp;výtěžku (0,92·0,87 ≈ 0,80) čekáme kolem 11&nbsp;g. Sedí. A&nbsp;musí platit, že <b>produkt je lehčí než vstup</b> — odešel z&nbsp;něj <span class="chem">CO₂</span>. Kdyby vyšlo víc než 25&nbsp;g, je chyba jistá.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: stechiometrie"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

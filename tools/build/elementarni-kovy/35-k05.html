@@ -1,0 +1,219 @@
+  <!-- ============ KAPITOLA 5 ============ -->
+  <section class="chapter" id="k5" data-title="Redukce rud a tepelný rozklad">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · osnova, bod 6</span>
+      <h2>Metalurgie I: redukce rud a&nbsp;tepelný rozklad</h2>
+      <p class="lead">V&nbsp;rudě je kov skoro vždy jako <b>kation</b>, tedy v&nbsp;kladném oxidačním čísle. Vyrobit kov proto znamená jedinou věc: <b>dodat mu elektrony</b>. Celá metalurgie je tedy jedna velká redukce. Otázka zní jen, kdo ty elektrony dodá — a&nbsp;odpověď se dá vyčíst z&nbsp;jediného grafu.</p>
+
+      <h3>Tři principy, kterými se vyrábějí všechny kovy</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Princip</th><th>Kdo dodá elektrony</th><th>Pro které kovy</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td><b>a) Redukce</b></td><td>uhlík, oxid uhelnatý, vodík nebo jiný kov</td><td>kovy mírně a&nbsp;středně neušlechtilé (Fe, Zn, Sn, Pb, Cr, Mn, W, Ti)</td><td class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</td></tr>
+            <tr><td><b>b) Tepelný rozklad</b></td><td>nikdo — sloučenina se rozpadne sama</td><td>ušlechtilé kovy a&nbsp;těkavé sloučeniny (Hg, Ag, Ni, Ti při rafinaci)</td><td class="chem">2 HgO → 2 Hg + O₂</td></tr>
+            <tr><td><b>c) Elektrolýza</b></td><td>elektrický proud (katoda)</td><td>nejneušlechtilejší kovy (Li, Na, K, Mg, Ca, Al) a&nbsp;rafinace</td><td class="chem">2 Al₂O₃ + 3 C → 4 Al + 3 CO₂</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Rozhodovací pravidlo, které funguje skoro vždy</span>
+        <p>Podívejte se na <b>standardní redukční potenciál</b> kovu:<br>
+        <span class="q">E</span>° <b>nad 0 V</b> (Hg, Ag, Au, Pt, Cu) ...... stačí pražení, tepelný rozklad nebo loužení<br>
+        <span class="q">E</span>° <b>od −1 V do 0 V</b> (Cu, Pb, Sn, Ni, Fe, Zn) ...... redukce uhlíkem nebo vodíkem<br>
+        <span class="q">E</span>° <b>od −2 V do −1 V</b> (Cr, Mn, Ti, Al) ...... redukce jiným kovem, nebo elektrolýza<br>
+        <span class="q">E</span>° <b>pod −2 V</b> (Mg, Ca, Na, K, Li) ...... jen tavná elektrolýza</p>
+      </div>
+
+      <h3>Ellinghamův diagram — jak se pozná, jestli redukce proběhne</h3>
+      <p>Přesněji než potenciálem se to rozhodne pomocí <b>Gibbsovy energie tvorby oxidu</b>. Nakreslíme si pro každý kov závislost Δ<span class="q">G</span>° reakce „kov + O₂ → oxid“ na teplotě, vždy přepočtenou na <b>jeden mol kyslíku</b>. Takový graf se jmenuje <span class="term">Ellinghamův diagram</span> a&nbsp;čte se z&nbsp;něj jediné pravidlo.</p>
+      <div class="callout def">
+        <span class="eyebrow">Pravidlo Ellinghamova diagramu</span>
+        <p><b>Kdo je v&nbsp;grafu níž, ten redukuje toho nad sebou.</b> Prvek, jehož oxid má při dané teplotě zápornější Δ<span class="q">G</span>°, si kyslík vezme.</p>
+        <p style="margin-top:.4rem">Většina čar <b>stoupá</b>, protože při vzniku pevného oxidu se spotřebuje plynný kyslík a&nbsp;entropie klesá (Δ<span class="q">S</span>° &lt; 0). Jediná důležitá čára <b>klesá</b>: reakce <span class="chem">2 C + O₂ → 2 CO</span>, při níž z&nbsp;jedné molekuly plynu vzniknou dvě. Proto uhlík při dostatečně vysoké teplotě podleze <b>každý</b> kov — a&nbsp;proto je koks univerzální redukovadlo.</p>
+      </div>
+      <p class="eq">Δ<span class="q">G</span>°(<span class="q">T</span>) = Δ<span class="q">H</span>° − <span class="q">T</span>·Δ<span class="q">S</span>°<br><span style="color:var(--ink-3)">Δ<span class="q">G</span>° … Gibbsova energie [kJ·mol⁻¹ O₂], Δ<span class="q">H</span>° … reakční entalpie [kJ], Δ<span class="q">S</span>° … reakční entropie [J·K⁻¹], <span class="q">T</span> … teplota [K]</span></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Ellinghamův diagram — kdo koho zredukuje při dané teplotě</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="ehT">Teplota: <span class="val" id="ehTv">1000 °C</span></label>
+          <input type="range" id="ehT" min="100" max="2400" step="10" value="1000">
+        </div>
+        <div class="svgwrap" id="ehWrap" style="min-height:400px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>uhlík: 2 C + O₂ → 2 CO (jediná klesající čára)</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>oxidy, které uhlík při této teplotě zredukuje</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>oxidy, na které uhlík ještě nestačí</span>
+        </div>
+        <div class="grid2" style="margin-top:1rem">
+          <div class="readout" id="ehRo1"></div>
+          <div class="readout" id="ehRo2"></div>
+        </div>
+        <div id="ehList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="ehNote">Nastavte 750 °C — uhlík právě podlezl oxidy železa, a&nbsp;to je teplota, při které ve vysoké peci vzniká železo. Posuňte na 1200 °C a&nbsp;přibude zinek. Až kolem 2000 °C by uhlík dosáhl na oxid hlinitý, a&nbsp;to je důvod, proč se hliník vyrábí elektrolýzou.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Redukce uhlíkem — nejlevnější cesta na světě</h3>
+      <p>Koks je levný, dostupný a&nbsp;při hoření dodá zároveň teplo. Má ale jednu zásadní vlastnost, kterou si studenti často neuvědomí: <b>uhlík obvykle neredukuje přímo</b>. V&nbsp;peci nejdřív shoří na oxid uhličitý, ten se se žhavým koksem změní zpátky na oxid uhelnatý — a&nbsp;<b>oxid uhelnatý</b> je to skutečné redukovadlo, protože jako plyn pronikne ke každému zrnku rudy.</p>
+      <p class="eq"><span class="chem">C + O₂ → CO₂</span> &nbsp;&nbsp;(hoření, dodá teplo)<br><span class="chem">CO₂ + C → 2 CO</span> &nbsp;&nbsp;(Boudouardova reakce, nad 900 °C)<br><span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span> &nbsp;&nbsp;(<b>nepřímá redukce</b> — plynem)<br><span class="chem">FeO + C → Fe + CO</span> &nbsp;&nbsp;(<b>přímá redukce</b> — pevným uhlíkem, jen za vysokých teplot)</p>
+      <div class="callout warn">
+        <span class="eyebrow">Kdy uhlík použít nelze</span>
+        <p><b>1. Silně elektropozitivní kovy</b> (Ti, Zr, W, Mo, V, Ca, Al) tvoří s&nbsp;uhlíkem <b>karbidy</b> — místo kovu dostanete tvrdou keramiku TiC nebo WC. To je vada u&nbsp;výroby, ale výhoda u&nbsp;nástrojů.<br>
+        <b>2. Kovy s&nbsp;příliš pevnou vazbou ke kyslíku</b> (Al, Mg, Ca) by potřebovaly teploty přes 2000 °C, které jsou technicky i&nbsp;ekonomicky nesmyslné.<br>
+        <b>3. Sulfidy</b> se uhlíkem neredukují — musí se předtím opražit.</p>
+      </div>
+      <p>Když kov s&nbsp;uhlíkem karbid tvoří, ale vadí to jen částečně, řeší se to <b>záměrným přidáním železa</b>. Vznikne slitina zvaná <span class="term">ferroslitina</span> — ferrochrom, ferromangan, ferrosilicium, ferrovanad. Do ocelárny je to ideální forma: kov i&nbsp;železo tam stejně patří.</p>
+
+      <h3>Redukce vodíkem — čistá, ale drahá</h3>
+      <p>Vodík dá kov <b>bez příměsi uhlíku</b> a&nbsp;jediným odpadem je voda. Používá se tam, kde na čistotě opravdu záleží nebo kde by karbid vadil.</p>
+      <p class="eq"><span class="chem">WO₃ + 3 H₂ → W + 3 H₂O</span> &nbsp;(1100 °C)<br><span class="chem">MoO₃ + 3 H₂ → Mo + 3 H₂O</span> &nbsp;(1200 °C)<br><span class="chem">CuO + H₂ → Cu + H₂O</span></p>
+      <p>Nevýhody jsou tři: vodík je drahý, výbušný a&nbsp;na silně neušlechtilé kovy nestačí. Zajímavé je, že přesně kvůli první výhodě se dnes zkouší <b>přímá redukce železné rudy vodíkem</b> místo koksu — nevznikal by při ní oxid uhličitý.</p>
+
+      <h3>Metalotermie — kov redukuje kov</h3>
+      <p>Když nestačí uhlík ani vodík, sáhne se po kovu, který má ke kyslíku ještě větší afinitu. Nejčastěji je to <b>hliník</b> (aluminotermie), dále hořčík, vápník a&nbsp;křemík. Reakce jsou silně exotermické — směs se vlastním teplem roztaví.</p>
+      <p class="eq"><span class="chem">Fe₂O₃ + 2 Al → 2 Fe + Al₂O₃</span> &nbsp;&nbsp;Δ<span class="q">H</span>° ≈ −852&nbsp;kJ·mol⁻¹ &nbsp;(termit)<br><span class="chem">Cr₂O₃ + 2 Al → 2 Cr + Al₂O₃</span> &nbsp;&nbsp;Δ<span class="q">H</span>° ≈ −536&nbsp;kJ·mol⁻¹<br><span class="chem">3 Mn₃O₄ + 8 Al → 9 Mn + 4 Al₂O₃</span><br><span class="chem">2 MgO + Si + 2 CaO → 2 Mg + Ca₂SiO₄</span> &nbsp;(silikotermie, Pidgeonův proces)</p>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu je termit</span>
+        <p>Směs <span class="chem">Fe₂O₃</span> a&nbsp;hliníkového prášku uvolní zhruba <b>4000&nbsp;kJ na kilogram</b> a&nbsp;teplota vyskočí nad 2500 °C. Vzniklé železo je tekuté a&nbsp;dá se jím svařit kolejnice přímo na trati — proto se termit používá při stavbě železnic. Zapaluje se hořčíkovou páskou, protože sám se nezapálí.</p>
+      </div>
+      <p><span class="term">Krollova metoda</span> je varianta metalotermie pro <b>halogenidy</b>. Používá se u&nbsp;kovů, které s&nbsp;uhlíkem dávají karbidy a&nbsp;s&nbsp;kyslíkem se vážou příliš pevně.</p>
+      <p class="eq"><span class="chem">TiO₂ + 2 C + 2 Cl₂ → TiCl₄ + 2 CO</span> &nbsp;(chlorace, 900 °C)<br><span class="chem">TiCl₄ + 2 Mg → Ti + 2 MgCl₂</span> &nbsp;(redukce v&nbsp;argonu, 900 °C)<br><span class="chem">UF₄ + 2 Mg → U + 2 MgF₂</span></p>
+      <p>Mezikrok s&nbsp;chloridem má dvojí smysl: chlorid je <b>těkavý</b>, takže se dá destilací dokonale vyčistit, a&nbsp;<b>hořčík ho zredukuje snáz</b> než oxid. Argon je nutný, protože horký titan pohlcuje kyslík i&nbsp;dusík.</p>
+
+      <h3>Substituční pochody: cementace a&nbsp;„srážení“</h3>
+      <p>Nejjednodušší redukce vůbec: do roztoku nebo taveniny se přidá <b>méně ušlechtilý kov</b>, který ten ušlechtilejší vytěsní. Je to prostá aplikace Beketovovy řady.</p>
+      <p class="eq"><span class="chem">Cu²⁺ + Fe → Cu + Fe²⁺</span> &nbsp;(cementace mědi železným šrotem)<br><span class="chem">2 K[Au(CN)₂] + Zn → 2 Au + K₂[Zn(CN)₄]</span> &nbsp;(cementace zlata zinkem)<br><span class="chem">HgS + Fe → Hg + FeS</span> &nbsp;(srážení rtuti železem v&nbsp;tavenině)</p>
+
+      <h3>Pražně‑redukční a&nbsp;pražně‑reakční postup</h3>
+      <p>U&nbsp;sulfidických rud existuje elegantní trik. Část rudy se opraží na oxid, pak se <b>uzavře přívod vzduchu</b> a&nbsp;zbylý sulfid oxid zredukuje sám. Nepotřebujete žádné cizí redukovadlo a&nbsp;síra i&nbsp;kyslík odejdou společně jako oxid siřičitý.</p>
+      <p class="eq"><b>pražně‑redukční</b> (dva kroky, redukuje uhlík):<br><span class="chem">2 PbS + 3 O₂ → 2 PbO + 2 SO₂</span> &nbsp;·&nbsp; <span class="chem">PbO + C → Pb + CO</span><br><br><b>pražně‑reakční</b> (redukuje zbylý sulfid):<br><span class="chem">2 PbO + PbS → 3 Pb + SO₂</span><br><span class="chem">Cu₂S + 2 Cu₂O → 6 Cu + SO₂</span> &nbsp;(měďařský konvertor)</p>
+
+      <h3>Tepelný rozklad — kov vznikne sám</h3>
+      <p>U&nbsp;ušlechtilých kovů je oxid tak nestálý, že se za mírného žáru rozloží bez jakéhokoli redukovadla. A&nbsp;u&nbsp;některých kovů se dá tepelný rozklad použít jako mimořádně účinná <b>rafinace</b>: kov se převede na těkavou sloučeninu, ta se v&nbsp;plynné fázi oddělí od nečistot a&nbsp;jinde se zase rozloží.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Postup</th><th>Rovnice</th><th class="n">Teplota</th><th>Kde se používá</th></tr></thead>
+          <tbody>
+            <tr><td>Rozklad oxidu</td><td class="chem">2 HgO → 2 Hg + O₂</td><td class="n">nad 400 °C</td><td>historicky Priestleyho objev kyslíku</td></tr>
+            <tr><td>Rozklad oxidu stříbra</td><td class="chem">2 Ag₂O → 4 Ag + O₂</td><td class="n">nad 200 °C</td><td>ukazuje, jak nestálé jsou oxidy ušlechtilých kovů</td></tr>
+            <tr><td><b>Mondův proces</b></td><td class="chem">Ni + 4 CO → [Ni(CO)₄] → Ni + 4 CO</td><td class="n">60 °C / 200 °C</td><td>výroba niklu vysoké čistoty</td></tr>
+            <tr><td><b>van Arkelova–de Boerova metoda</b></td><td class="chem">Ti + 2 I₂ → TiI₄ → Ti + 2 I₂</td><td class="n">500 °C / 1400 °C</td><td>Ti, Zr, Hf, V, Nb nejvyšší čistoty</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč jsou tyto dva procesy tak chytré</span>
+        <p>Oba pracují jako <b>čerpadlo</b>: sloučenina vznikne při jedné teplotě, přesune se, a&nbsp;při jiné teplotě se rozloží zpátky. Reakce běží stále dokola a&nbsp;pracovní látka (CO nebo jod) se nespotřebovává. U&nbsp;van Arkela se čistý titan usazuje přímo na žhaveném wolframovém vlákně, kdežto nečistoty zůstávají v&nbsp;původní surovině — proto je výsledný kov tak mimořádně čistý.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Rozhodovač: jakou metodou se tenhle kov vyrábí?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="rzSel">Kov</label>
+          <select id="rzSel"></select>
+        </div>
+        <div class="svgwrap" id="rzWrap" style="min-height:200px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="rzRo1"></div>
+          <div class="readout" id="rzRo2"></div>
+          <div class="readout" id="rzRo3"></div>
+        </div>
+        <p class="eq" id="rzEq" style="margin-top:1rem;border-left-color:var(--accent)"></p>
+        <div id="rzWhy" style="margin-top:.8rem"></div>
+      </div>
+      <div class="panel-note" id="rzNote">Osa v&nbsp;grafu je standardní potenciál. Projděte kovy zleva doprava a&nbsp;sledujte, jak se metoda mění zcela pravidelně — od elektrolýzy taveniny přes metalotermii a&nbsp;redukci uhlíkem až po pouhé pražení. To je celá metalurgie na jedné ose.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Trenažér</span>
+        <h3>Poznejte správnou metodu výroby</h3>
+      </div>
+      <div class="panel-body">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem">
+          <span class="eyebrow">Úloha <span id="drQn">1</span> z&nbsp;<span id="drQtot">16</span></span>
+          <span class="eyebrow">Skóre: <b style="color:var(--accent)"><span id="drScore">0</span></b> správně</span>
+        </div>
+        <div class="eq" id="drTask" style="font-size:1.08rem;text-align:center;padding:1.2rem 1rem"></div>
+        <div class="grid2" id="drOpts" style="margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"></div>
+        <div class="explain" id="drExplain" style="margin-top:1rem"></div>
+        <div class="quiz-foot"><button class="btn btn-primary" type="button" id="drNext" disabled>Další úloha →</button><button class="btn" type="button" id="drReset">Od začátku</button></div>
+      </div>
+      <div class="panel-note">Postupujte vždy stejně: (1) V&nbsp;jaké formě je kov v&nbsp;rudě — oxid, sulfid, halogenid, nebo ryzí? (2) Jak je ušlechtilý? (3) Tvoří s&nbsp;uhlíkem karbid? Odpovědi na tyhle tři otázky metodu určí. Při dvanácti a&nbsp;více správných se kapitola označí jako hotová.</div>
+    </div>
+
+    <div class="prose">
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.1 · Ellinghamův diagram</span>
+          <p>Při jaké nejnižší teplotě zredukuje uhlík oxid zinečnatý? Použijte Δ<span class="q">H</span>° a&nbsp;Δ<span class="q">S</span>° na jeden mol kyslíku: pro <span class="chem">2 C + O₂ → 2 CO</span> je −221,0&nbsp;kJ a&nbsp;+178,7&nbsp;J·K⁻¹; pro <span class="chem">2 Zn + O₂ → 2 ZnO</span> je −701,0&nbsp;kJ a&nbsp;−201,0&nbsp;J·K⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Uhlík zredukuje ZnO tehdy, když je jeho čára v&nbsp;diagramu <b>níž</b>, tedy když Δ<span class="q">G</span>°(CO) &lt; Δ<span class="q">G</span>°(ZnO). Hraniční teplotu najdeme tam, kde se obě čáry protnou.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Napíšeme obě přímky. Entropie převedeme z&nbsp;J·K⁻¹ na kJ·K⁻¹ dělením tisícem, aby jednotky souhlasily s&nbsp;entalpií v&nbsp;kJ:</p>
+              <p class="eq">Δ<span class="q">G</span>°(CO) = −221,0 − 0,1787·<span class="q">T</span> &nbsp;&nbsp;(klesá)<br>Δ<span class="q">G</span>°(ZnO) = −701,0 + 0,2010·<span class="q">T</span> &nbsp;&nbsp;(stoupá)</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Průsečík najdeme položením obou výrazů sobě rovných:</p>
+              <p class="eq">−221,0 − 0,1787·<span class="q">T</span> = −701,0 + 0,2010·<span class="q">T</span><br>701,0 − 221,0 = 0,2010·<span class="q">T</span> + 0,1787·<span class="q">T</span><br>480,0 = 0,3797·<span class="q">T</span><br><span class="q">T</span> = 480,0 / 0,3797 = <b>1264&nbsp;K</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Převedeme na Celsiovu stupnici:</p>
+              <p class="eq"><span class="q">t</span> = 1264 − 273 = <b>991 °C</b></p>
+              <p>V&nbsp;praxi se zinek redukuje při <b>1200 °C</b> — s&nbsp;rezervou nad vypočítanou hranicí, aby reakce běžela dost rychle. Zinek přitom vře už při 907 °C, takže z&nbsp;pece odchází jako pára a&nbsp;rovnou se destiluje.</p>
+              <span class="result">uhlík zredukuje ZnO nad zhruba 990 °C; průmyslově se pracuje při 1200 °C</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 5.2 · energie termitové reakce</span>
+          <p>Kolik tepla uvolní 1&nbsp;kg termitové směsi <span class="chem">Fe₂O₃ + 2 Al</span> ve stechiometrickém poměru? Δ<span class="q">H</span>° reakce je −852&nbsp;kJ·mol⁻¹. <span class="q">M</span>(Fe₂O₃) = 159,7, <span class="q">M</span>(Al) = 26,98&nbsp;g·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Nejdřív zjistíme hmotnost směsi, ve které proběhne <b>jeden mol</b> reakce podle rovnice <span class="chem">Fe₂O₃ + 2 Al → 2 Fe + Al₂O₃</span>:</p>
+              <p class="eq"><span class="q">m</span> = 159,7 + 2 · 26,98 = <b>213,7&nbsp;g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>V&nbsp;jednom kilogramu je tedy:</p>
+              <p class="eq"><span class="q">n</span> = 1000 / 213,7 = 4,68&nbsp;mol reakčních jednotek</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Uvolněné teplo:</p>
+              <p class="eq"><span class="q">Q</span> = 4,68 · 852 = <b>3986&nbsp;kJ</b> ≈ 4,0&nbsp;MJ na kilogram směsi</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Kontrola smyslu: ohřát 1&nbsp;kg železa o&nbsp;jeden kelvin stojí zhruba 0,45&nbsp;kJ. Vzniklé železo (asi 0,52&nbsp;kg z&nbsp;kilogramu směsi) by se tedy dalo ohřát o&nbsp;tisíce kelvinů — teplota skutečně vystoupá nad 2500 °C a&nbsp;železo je roztavené. Přesně proto se termitem svařují kolejnice.</p>
+              <span class="result">1&nbsp;kg termitu uvolní zhruba 4,0&nbsp;MJ a&nbsp;železo z&nbsp;něj vyteče roztavené</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: redukce rud a tepelný rozklad"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>

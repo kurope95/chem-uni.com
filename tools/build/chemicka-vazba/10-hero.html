@@ -1,0 +1,82 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Chemická vazba</h1>
+      <p class="lead">Proč je měď kujná a&nbsp;sůl křehká, proč je diamant nejtvrdší látka a&nbsp;methan plyn, proč voda vře při 100 °C místo při −80 — a&nbsp;proč to všechno plyne z&nbsp;jediné otázky: <em>komu patří elektrony</em>. Buď rychloprůchod na hodinu, nebo deset kapitol s&nbsp;modely, řešenými příklady a&nbsp;testem po každé z&nbsp;nich.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychloprůchod na 60 minut</span>
+        <span class="tag">18 interaktivních modelů</span>
+        <span class="tag">96 otázek s&nbsp;vysvětlením</span>
+        <span class="tag">Tabulky EN, délek a&nbsp;energií vazeb, 34 látek</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">60 minut čtení</span></span>
+        <span class="pt">Rychloprůchod</span>
+        <span class="pd">Celá látka v kostce: deset bloků, v každém výklad, rámeček se vzorci a pravidly, upozornění na častou chybu a rozhodovací příklad s čísly. Projde všech 74 pojmů z osnovy, má tři vlastní grafy a kontrolní test.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">10 kapitol</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad s osmnácti interaktivními modely, osmnácti řešenými příklady krok za krokem, dvěma trenažéry se skóre a testem po každé kapitole. Na konci závěrečný test, tahák a slovníček.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Rozdíl elektronegativit — jediný obrázek, který si opravdu musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1rem">
+          <div class="ctl">
+            <label for="heroPair">Dvojice atomů</label>
+            <select id="heroPair"></select>
+          </div>
+          <div class="ctl">
+            <label for="heroEN">Rozdíl elektronegativit ΔEN — <span class="val" id="heroENV">0,96</span></label>
+            <input type="range" id="heroEN" min="0" max="3.3" step="0.01" value="0.96">
+          </div>
+        </div>
+        <div class="svgwrap" id="heroWrap" style="min-height:280px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="heroRo1"><span class="k">ΔEN</span><span class="v">0,96</span><span class="h">Paulingova stupnice</span></div>
+          <div class="readout" id="heroRo2"><span class="k">Typ vazby</span><span class="v">polární kovalentní</span><span class="h">hranice 0,4 a 1,7 jsou orientační</span></div>
+          <div class="readout" id="heroRo3"><span class="k">Iontový charakter</span><span class="v">21 %</span><span class="h">1 − e^(−ΔEN²/4)</span></div>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--cat1)"></span>nepolární kovalentní (ΔEN &lt; 0,4)</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>polární kovalentní (0,4–1,7)</span>
+          <span class="li"><span class="sw" style="background:var(--cat4)"></span>iontová (&gt; 1,7)</span>
+        </div>
+      </div>
+      <div class="panel-note" id="heroNote">Elektronová hustota (modrý oblak) se posouvá k&nbsp;elektronegativnějšímu atomu. Do 0,4 je sdílení skoro spravedlivé, nad 1,7 už si elektron jeden atom prakticky vzal celý. Přepínejte dvojice a&nbsp;sledujte, že C–H je nepolární, O–H polární a&nbsp;Na–Cl iontová — celá chemie polarit v&nbsp;jednom posuvníku.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:68ch;font-size:1rem">Každý řádek osnovy má svou kapitolu. Klikněte na řádek a&nbsp;skočíte rovnou na něj.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Základní členění interakcí mezi částicemi (kovová vazba, iontová vazba, kovalentní vazba a&nbsp;„slabé“ vazebné interakce).</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Kovová vazba</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2a</span><span>Způsob vzniku a&nbsp;popis kovové vazby.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2b</span><span>Vlastnosti látek vázaných kovovou vazbou — vliv kovové vazby na vlastnosti látek (vodivost, kujnost, tažnost)</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Iontová vazba</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3a</span><span>Způsob vzniku a&nbsp;popis iontové vazby,</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3b</span><span>Vlastnosti látek vázaných iontovou vazbou — vliv iontové vazby na vlastnosti látek (vodivost, pevnost, křehkost a&nbsp;za jakých okolností).</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Kovalentní vazba</span><span class="go">Kap. 3–7</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4a</span><span>Způsob vzniku a&nbsp;popis kovalentní vazby včetně orbitalového a&nbsp;prostorového znázornění.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4b</span><span>Vlastnosti látek vázaných kovalentní vazbou — vliv kovalentní vazby na vlastnosti látek.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">4c</span><span>Typy kovalentní vazby dle polohy elektronové hustoty (vazby typu sigma a&nbsp;pí) včetně orbitalového a&nbsp;prostorového porozumění.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k4"><span class="b">4d</span><span>Násobnost kovalentní vazby.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">4e</span><span>Polarita kovalentní vazby a&nbsp;vznik parciálních nábojů na atomech. Vliv elektronegativity jednotlivých atomů na polaritu vazby.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">4f</span><span>Polarita vazeb a&nbsp;polarita molekul (schopnost rozhodnout a&nbsp;porovnat polaritu molekul).</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">4g</span><span>Koordinačně kovalentní vazba (vznik a&nbsp;vlastnosti).</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">5</span><span>„Slabé“ vazebné interakce</span><span class="go">Kap. 8–9</span></a>
+      <a class="syl-row" href="#k8"><span class="b">5a</span><span>Popis a&nbsp;klasifikace slabých vazebných interakcí (vdW síly — ion-ion, ion-dipól, dipól-dipól, disperzní interakce; vodíkové vazby).</span><span class="go">Kap. 8</span></a>
+      <a class="syl-row" href="#k9"><span class="b">5b</span><span>Vliv slabých vazebných interakcí na vlastnosti vybraných látek (voda, DNA, grafit, bílkoviny apod.)</span><span class="go">Kap. 9</span></a>
+    </div>
+  </header>

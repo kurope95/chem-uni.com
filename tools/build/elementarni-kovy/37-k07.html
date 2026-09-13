@@ -1,0 +1,213 @@
+  <!-- ============ KAPITOLA 7 ============ -->
+  <section class="chapter" id="k7" data-title="Výroba železa a oceli">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · osnova, bod 8</span>
+      <h2>Výroba železa a&nbsp;oceli</h2>
+      <p class="lead">Železo je nejvyráběnější kov na světě a&nbsp;jeho výroba je učebnicová ukázka všeho z&nbsp;předchozích kapitol: redukce oxidem uhelnatým, struska jako řízená chemická reakce, intersticiální slitina a&nbsp;polymorfie. Celá věc se přitom točí kolem jednoho jediného čísla — <b>obsahu uhlíku</b>.</p>
+
+      <h3>Suroviny do vysoké pece</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Surovina</th><th>Co obsahuje</th><th>K&nbsp;čemu v&nbsp;peci je</th></tr></thead>
+          <tbody>
+            <tr><td><b>Železná ruda</b></td><td class="chem">Fe₂O₃ (hematit), Fe₃O₄ (magnetit), FeO(OH) (limonit), FeCO₃ (siderit)</td><td>zdroj železa; předem se upraví aglomerací nebo peletizací</td></tr>
+            <tr><td><b>Koks</b></td><td>uhlík z&nbsp;vypáleného černého uhlí</td><td><b>trojí role:</b> palivo, zdroj redukovadla CO a&nbsp;nosná kostra, která drží vsázku propustnou pro plyn</td></tr>
+            <tr><td><b>Vápenec</b></td><td class="chem">CaCO₃</td><td>struskotvorná přísada — váže křemičitou hlušinu</td></tr>
+            <tr><td><b>Horký vzduch</b></td><td>1000 až 1200 °C, často obohacený kyslíkem</td><td>spaluje koks a&nbsp;dodává teplo pro celý proces</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">Proč koks a&nbsp;ne uhlí</span>
+        <p>Surové uhlí by se v&nbsp;peci rozpadlo na prach a&nbsp;ucpalo ji, plyny by neprošly. <b>Koksování</b> — zahřátí uhlí na 1000 °C bez přístupu vzduchu — odstraní těkavé látky a&nbsp;zanechá pevný porézní uhlík, který unese sloupec vsázky vysoký přes třicet metrů a&nbsp;přitom je propustný.</p>
+      </div>
+
+      <h3>Chemismus vysoké pece odshora dolů</h3>
+      <p>Pec je protiproudý reaktor: <b>vsázka klesá</b>, <b>plyny stoupají</b>. Teplota roste směrem dolů a&nbsp;v&nbsp;každém pásmu probíhá jiná reakce. Klíčové je, že redukce probíhá hlavně <b>plynem</b>, ne pevným uhlíkem.</p>
+      <p class="eq">u&nbsp;výfučen: <span class="chem">C + O₂ → CO₂</span> &nbsp;(hoření, teplo)<br>hned nato: <span class="chem">CO₂ + C → 2 CO</span> &nbsp;(Boudouardova reakce, vzniká redukovadlo)<br>stupňovitá redukce nahoru: <span class="chem">3 Fe₂O₃ + CO → 2 Fe₃O₄ + CO₂</span><br><span class="chem">Fe₃O₄ + CO → 3 FeO + CO₂</span><br><span class="chem">FeO + CO → Fe + CO₂</span><br>souhrnně: <b><span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span></b></p>
+      <div class="callout def">
+        <span class="eyebrow">Nepřímá a&nbsp;přímá redukce</span>
+        <p><b>Nepřímá redukce</b> probíhá plynným <span class="chem">CO</span> v&nbsp;chladnějších horních pásmech (400 až 900 °C). Zajišťuje většinu výroby, protože plyn se dostane do každé skuliny.<br>
+        <b>Přímá redukce</b> pevným uhlíkem (<span class="chem">FeO + C → Fe + CO</span>) běží až nad 900 °C v&nbsp;dolní části pece. Spotřebuje víc koksu a&nbsp;je endotermická, takže se jí hutníci snaží spíš omezit.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Vysoká pec — co se děje v&nbsp;jaké výšce</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="vpH">Hloubka v&nbsp;peci (0 = kychta nahoře, 100 = nístěj dole): <span class="val" id="vpHv">0 %</span></label>
+          <input type="range" id="vpH" min="0" max="100" step="1" value="0">
+        </div>
+        <div class="svgwrap" id="vpWrap" style="min-height:435px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="vpRo1"></div>
+          <div class="readout" id="vpRo2"></div>
+          <div class="readout" id="vpRo3"></div>
+        </div>
+        <p class="eq" id="vpEq" style="margin-top:1rem;border-left-color:var(--accent)"></p>
+        <div id="vpText" style="margin-top:.8rem"></div>
+      </div>
+      <div class="panel-note" id="vpNote">Sjeďte posuvníkem od kychty k&nbsp;nístěji a&nbsp;sledujte, jak se s&nbsp;rostoucí teplotou mění reakce. Všimněte si zejména pásma kolem 900 °C, kde se rozběhne Boudouardova reakce a&nbsp;kde se z&nbsp;nepřímé redukce stává přímá.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Struska — proč se do pece sype vápenec</h3>
+      <p>Hlušina je z&nbsp;větší části <span class="chem">SiO₂</span>, tedy <b>kyselý</b> oxid, který má vysokou teplotu tání a&nbsp;sám by z&nbsp;pece neodešel. Vápenec se žárem rozloží na <b>zásaditý</b> oxid vápenatý a&nbsp;ten s&nbsp;křemičitou hlušinou vytvoří tekutý křemičitan — <span class="term">strusku</span>.</p>
+      <p class="eq"><span class="chem">CaCO₃ → CaO + CO₂</span><br><span class="chem">CaO + SiO₂ → CaSiO₃</span> &nbsp;(struska)<br><span class="chem">FeS + CaO + C → Fe + CaS + CO</span> &nbsp;(odsíření — síra přejde do strusky)</p>
+      <p>Struska má menší hustotu než roztavené železo, plave tedy na hladině. To má tři výhody najednou: odvádí hlušinu, <b>chrání kov před opětovnou oxidací</b> vzduchem a&nbsp;odsiřuje. Odpichuje se zvlášť a&nbsp;dnes se z&nbsp;ní vyrábí cement a&nbsp;kamenivo — do odpadu nejde.</p>
+
+      <h3>Surové železo, litina a&nbsp;ocel — rozhoduje uhlík</h3>
+      <p>Z&nbsp;pece vytéká <span class="term">surové železo</span> s&nbsp;3,5 až 4,5 % uhlíku a&nbsp;s&nbsp;příměsemi křemíku, manganu, fosforu a&nbsp;síry. Je tvrdé, křehké a&nbsp;nekujné — a&nbsp;paradoxně taje níž (kolem 1150 °C) než čisté železo (1538 °C), právě kvůli uhlíku.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Materiál</th><th class="n">Obsah uhlíku [%]</th><th>Vlastnosti</th><th>Použití</th></tr></thead>
+          <tbody>
+            <tr><td><b>Technicky čisté železo</b></td><td class="n">pod 0,02</td><td>měkké, tvárné, magneticky měkké</td><td>jádra transformátorů, elektrotechnika</td></tr>
+            <tr><td><b>Nízkouhlíková ocel</b></td><td class="n">0,02 až 0,25</td><td>dobře svařitelná, tvárná, méně pevná</td><td>plechy karoserií, profily, trubky</td></tr>
+            <tr><td><b>Středněuhlíková ocel</b></td><td class="n">0,25 až 0,6</td><td>pevná, dá se kalit</td><td>hřídele, ozubená kola, kolejnice</td></tr>
+            <tr><td><b>Vysokouhlíková (nástrojová) ocel</b></td><td class="n">0,6 až 2,11</td><td>velmi tvrdá, hůř svařitelná</td><td>nože, vrtáky, pružiny, pilníky</td></tr>
+            <tr><td><b>Litina</b></td><td class="n">2,11 až 4,3</td><td>křehká a&nbsp;nekujná, ale výborně zabíhavá do formy a&nbsp;tlumí chvění</td><td>odlitky: bloky motorů, poklopy, radiátory</td></tr>
+            <tr><td><b>Surové železo</b></td><td class="n">3,5 až 4,5</td><td>meziprodukt, nepoužitelný přímo</td><td>vsázka do ocelárny</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Hranice, kterou si zapamatujte</span>
+        <p><b>2,11 % uhlíku</b> je dělicí čára mezi ocelí a&nbsp;litinou. Není náhodná: je to <b>maximální rozpustnost uhlíku v&nbsp;austenitu</b> (γ‑železe s&nbsp;plošně centrovanou mřížkou) při 1147 °C. Nad ní se uhlík už do mřížky nevejde a&nbsp;vylučuje se jako karbid <span class="chem">Fe₃C</span> (cementit) nebo grafit — a&nbsp;to je přesně důvod křehkosti litiny.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Uhlík rozhoduje: od čistého železa po litinu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="ucC">Obsah uhlíku: <span class="val" id="ucCv">0,20 %</span></label>
+          <input type="range" id="ucC" min="0" max="450" step="1" value="20">
+        </div>
+        <div class="svgwrap" id="ucWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="ucRo1"></div>
+          <div class="readout" id="ucRo2"></div>
+          <div class="readout" id="ucRo3"></div>
+        </div>
+        <div id="ucText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="ucNote">Posuňte se přes hranici 2,11 % a&nbsp;sledujte, jak se materiál skokem změní z&nbsp;kujné oceli na křehkou litinu. Zajímavá je i&nbsp;křivka teploty tání: nejníž leží kolem 4,3 % uhlíku, což je <b>eutektické</b> složení — právě proto se litina tak dobře odlévá.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Zkujňování — jak se z&nbsp;uhlíku dostane pryč</h3>
+      <p>Ocelářství je v&nbsp;jádru jednoduché: <b>spálit přebytečný uhlík a&nbsp;nežádoucí příměsi kyslíkem</b>. Dnes se to dělá dvěma cestami.</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Kyslíkový konvertor (BOF)</span>
+          <p>Do nádoby se surovým železem se shora vhání trubicí <b>čistý kyslík</b> pod tlakem. Uhlík a&nbsp;příměsi shoří během asi dvaceti minut, přičemž se uvolní tolik tepla, že se nemusí topit — naopak se přidává 15 až 30 % ocelového šrotu, aby se lázeň chladila.</p>
+          <p class="eq" style="margin-top:.35rem"><span class="chem">2 C + O₂ → 2 CO</span><br><span class="chem">Si + O₂ → SiO₂</span> &nbsp;·&nbsp; <span class="chem">2 Mn + O₂ → 2 MnO</span><br><span class="chem">4 P + 5 O₂ → 2 P₂O₅</span> &nbsp;·&nbsp; <span class="chem">P₂O₅ + 3 CaO → Ca₃(PO₄)₂</span></p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Elektrická oblouková pec (EOP)</span>
+          <p>Vsázkou je převážně <b>ocelový šrot</b>, který se roztaví elektrickým obloukem mezi grafitovými elektrodami. Nepotřebuje vysokou pec ani koks, takže je to nejrychlejší cesta k&nbsp;recyklované oceli — a&nbsp;při použití bezemisní elektřiny i&nbsp;nejčistší.</p>
+          <p style="margin-top:.35rem">Umožňuje také přesné legování, proto se v&nbsp;ní vyrábějí ušlechtilé a&nbsp;nerezavějící oceli.</p>
+        </div>
+      </div>
+      <p>Starší postupy — <b>Bessemerův konvertor</b> (1856, foukal vzduch zespodu) a&nbsp;<b>Siemensova–Martinova pec</b> — se už nepoužívají. Bessemerově oceli škodil dusík ze vzduchu, martinská pec byla příliš pomalá a&nbsp;energeticky náročná.</p>
+      <p>Na konci se ocel <span class="term">dezoxiduje</span>: přidá se hliník, křemík nebo mangan, které naváží zbylý rozpuštěný kyslík, jenž by jinak při tuhnutí vytvořil bubliny.</p>
+      <p class="eq"><span class="chem">3 FeO + 2 Al → 3 Fe + Al₂O₃</span> &nbsp;(dezoxidace hliníkem)</p>
+
+      <h3>Legování a&nbsp;tepelné zpracování</h3>
+      <p>Přidáním dalších kovů vzniká <span class="term">legovaná ocel</span> s&nbsp;cíleně navrženými vlastnostmi. Legury se do ocelárny dodávají jako <b>ferroslitiny</b> — ferrochrom, ferromangan, ferrosilicium, ferrovanad.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Přísada</th><th>Co udělá</th><th>Typický materiál</th></tr></thead>
+          <tbody>
+            <tr><td class="chem">Cr (nad 10,5 %)</td><td>pasivace vrstvou <span class="chem">Cr₂O₃</span> — odolnost proti korozi</td><td>nerezavějící ocel</td></tr>
+            <tr><td class="chem">Ni</td><td>stabilizuje plošně centrovanou strukturu, zvyšuje houževnatost</td><td>austenitická nerez 18/8</td></tr>
+            <tr><td class="chem">Mn</td><td>dezoxidace, odsíření, vyšší otěruvzdornost</td><td>Hadfieldova manganová ocel</td></tr>
+            <tr><td class="chem">W, Mo, V</td><td>tvrdost za červeného žáru</td><td>rychlořezná ocel</td></tr>
+            <tr><td class="chem">Si</td><td>dezoxidace, snížení ztrát v&nbsp;magnetickém poli</td><td>transformátorové plechy</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Vlastnosti se dají měnit i&nbsp;bez přidávání čehokoli — jen <b>režimem ohřevu a&nbsp;chlazení</b>, protože železo je polymorfní.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Tři tepelné operace, které se u&nbsp;maturity hodí znát</span>
+        <p><b>Kalení</b> — ohřev do austenitické oblasti (nad 912 °C) a&nbsp;prudké ochlazení. Mřížka se překlopí zpět na prostorově centrovanou, ale uhlík nestihne uniknout a&nbsp;zůstane násilím uvnitř. Vzniká velmi tvrdý a&nbsp;křehký <b>martenzit</b>.<br>
+        <b>Popouštění</b> — následný ohřev na 200 až 600 °C uvolní část vnitřního napětí a&nbsp;vrátí materiálu houževnatost za cenu mírné ztráty tvrdosti.<br>
+        <b>Žíhání</b> — pomalý ohřev a&nbsp;pomalé chladnutí; struktura se srovná, materiál změkne a&nbsp;dá se obrábět.</p>
+      </div>
+
+      <h3>Kam ocelářství míří dnes</h3>
+      <p>Vysoká pec je zdrojem velkého množství oxidu uhličitého — na tunu surového železa připadá zhruba jeho dvojnásobek. Proto se hledají náhrady.</p>
+      <p><b>Přímá redukce (DRI)</b> nahradí koks zemním plynem: ruda se redukuje směsí <span class="chem">CO</span> a&nbsp;<span class="chem">H₂</span> pod bodem tání a&nbsp;vzniká houbovité železo, které se pak taví v&nbsp;elektrické peci. <b>Redukce vodíkem</b> jde ještě dál — jediným odpadem je vodní pára.</p>
+      <p class="eq"><span class="chem">Fe₂O₃ + 3 H₂ → 2 Fe + 3 H₂O</span><br><span style="color:var(--ink-3)">porovnejte s&nbsp;klasickou pecí: <span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span> — místo oxidu uhličitého jen voda</span></p>
+      <p>Třetí a&nbsp;dnes nejúčinnější cesta je prostě <b>recyklace</b>: ocel se dá přetavovat prakticky bez omezení a&nbsp;elektrická oblouková pec ji zvládne bez rudy i&nbsp;bez koksu.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.1 · koks na tunu železa</span>
+          <p>Kolik kilogramů uhlíku je podle rovnice <span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span> teoreticky potřeba na výrobu 1&nbsp;t železa, počítáte-li, že veškeré <span class="chem">CO</span> vzniklo z&nbsp;koksu reakcí <span class="chem">CO₂ + C → 2 CO</span>? Kolik oxidu uhličitého při tom vznikne? <span class="q">A</span><sub>r</sub>(Fe) = 55,85, <span class="q">A</span><sub>r</sub>(C) = 12,01, <span class="q">A</span><sub>r</sub>(O) = 16,00.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Látkové množství železa v&nbsp;tuně:</p>
+              <p class="eq"><span class="q">n</span>(Fe) = 1&nbsp;000&nbsp;000 / 55,85 = 17&nbsp;905&nbsp;mol</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Z&nbsp;rovnice plyne, že na 2 moly železa připadají 3 moly <span class="chem">CO</span>:</p>
+              <p class="eq"><span class="q">n</span>(CO) = 1,5 · 17&nbsp;905 = 26&nbsp;858&nbsp;mol</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Zjednodušíme si bilanci uhlíku: každý atom uhlíku z&nbsp;koksu nakonec odnese jeden atom kyslíku navíc, takže <b>na každý mol CO připadá jeden mol C</b>.</p>
+              <p class="eq"><span class="q">m</span>(C) = 26&nbsp;858 · 12,01 = 322&nbsp;600&nbsp;g ≈ <b>323&nbsp;kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Odpovídající množství oxidu uhličitého (<span class="q">M</span> = 44,01&nbsp;g·mol⁻¹):</p>
+              <p class="eq"><span class="q">m</span>(CO₂) = 26&nbsp;858 · 44,01 = 1&nbsp;182&nbsp;000&nbsp;g ≈ <b>1,18&nbsp;t</b></p>
+              <p>Ve skutečnosti se spotřebuje 400 až 500&nbsp;kg koksu, protože část uhlíku slouží jen jako palivo a&nbsp;část zůstane rozpuštěná v&nbsp;surovém železe. Reálná emise je proto kolem 1,8 až 2&nbsp;t oxidu uhličitého na tunu — a&nbsp;přesně tohle číslo dnes tlačí ocelářství k&nbsp;vodíku.</p>
+              <span class="result">teoreticky 323&nbsp;kg uhlíku a&nbsp;1,18&nbsp;t CO₂ na tunu železa</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 7.2 · oduhličení</span>
+          <p>Do konvertoru přišla tuna surového železa se 4,3 % uhlíku. Kolik uhlíku musí shořet, aby vznikla ocel s&nbsp;0,20 % uhlíku, a&nbsp;jaký objem oxidu uhelnatého při tom vznikne za normálních podmínek? <span class="q">V</span><sub>m</sub> = 22,4&nbsp;dm³·mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Hmotnost uhlíku před oduhličením a&nbsp;po něm. Zanedbáme úbytek celkové hmotnosti (je pod pět procent):</p>
+              <p class="eq"><span class="q">m</span>₁ = 0,043 · 1000 = 43,0&nbsp;kg &nbsp;·&nbsp; <span class="q">m</span>₂ = 0,0020 · 1000 = 2,0&nbsp;kg</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Uhlík, který musí odejít:</p>
+              <p class="eq">Δ<span class="q">m</span> = 43,0 − 2,0 = <b>41,0&nbsp;kg</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Látkové množství a&nbsp;objem vzniklého <span class="chem">CO</span> podle <span class="chem">2 C + O₂ → 2 CO</span> (poměr 1 : 1):</p>
+              <p class="eq"><span class="q">n</span> = 41&nbsp;000 / 12,01 = 3414&nbsp;mol<br><span class="q">V</span> = 3414 · 22,4 = 76&nbsp;470&nbsp;dm³ ≈ <b>76,5&nbsp;m³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Konvertorový plyn se dnes zachytává a&nbsp;spaluje se jako palivo — obsahuje totiž hodně hořlavého <span class="chem">CO</span>. Kdyby se vypouštěl, byla by to jak ztráta energie, tak jedovatá emise.</p>
+              <span class="result">musí odejít 41&nbsp;kg uhlíku, což dá zhruba 76,5&nbsp;m³ oxidu uhelnatého</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q7" data-title="Mini‑test: výroba železa a oceli"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>

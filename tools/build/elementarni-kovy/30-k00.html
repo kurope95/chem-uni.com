@@ -1,0 +1,180 @@
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="Kovová vazba a pásová teorie">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · osnova, bod 1</span>
+      <h2>Kovová vazba a&nbsp;pásová teorie</h2>
+      <p class="lead">Kov poznáte poslepu: je lesklý, vede proud, dá se ohnout a&nbsp;nerozbije se. Všechny čtyři vlastnosti mají jednu jedinou příčinu — elektrony v&nbsp;kovu nepatří žádnému konkrétnímu atomu. Tahle kapitola ukáže, proč tomu tak je, a&nbsp;dovede vás od dvou atomů až k&nbsp;pásovému modelu, který jedním obrázkem odliší vodič, polovodič a&nbsp;izolant.</p>
+
+      <h3>Kde v&nbsp;periodické tabulce kovy jsou</h3>
+      <p>Kovy tvoří drtivou většinu prvků — všechno nalevo a&nbsp;dole od schodovité hranice, která vede od boru k&nbsp;astatu. Patří sem celá <b>skupina 1</b> (alkalické kovy, kromě vodíku), <b>skupina 2</b> (kovy alkalických zemin), všechny <b>přechodné kovy skupin 3 až 12</b>, lanthanoidy a&nbsp;aktinoidy a&nbsp;část prvků <b>skupin 13 až 16</b> (Al, Ga, In, Tl, Sn, Pb, Bi, Po). Na samotné hranici sedí <span class="term">polokovy</span> (B, Si, Ge, As, Sb, Te), které se chovají napůl.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Jak si hranici zapamatovat</span>
+        <p>Nakreslete si v&nbsp;tabulce schod od boru k&nbsp;astatu. <b>Nalevo dole</b> jsou kovy, <b>napravo nahoře</b> nekovy, <b>na schodu</b> polokovy. A&nbsp;protože kovový charakter roste <b>doleva a&nbsp;dolů</b>, je v&nbsp;každé skupině nejtěžší prvek nejkovovější: uhlík je nekov, křemík a&nbsp;germanium polokovy, cín a&nbsp;olovo už plnohodnotné kovy.</p>
+      </div>
+
+      <h3>Proč kov ochotně pustí elektron</h3>
+      <p>Kovové prvky mají tři vlastnosti, které jdou vždycky ruku v&nbsp;ruce: <b>málo valenčních elektronů</b> (jeden až tři), <b>velký atomový poloměr</b> a&nbsp;z&nbsp;toho plynoucí <b>nízkou ionizační energii</b> a&nbsp;<b>nízkou elektronegativitu</b>. Valenční elektron je daleko od jádra a&nbsp;stíněný vnitřními slupkami, takže ho jádro drží slabě.</p>
+      <p>Když takové atomy postavíte vedle sebe, nemá kdo elektron „přeplatit“ — všichni partneři jsou stejně málo elektronegativní. Elektron se tedy neusadí u&nbsp;jednoho z&nbsp;nich (to by byla vazba iontová) ani se nezůstane v&nbsp;jednom sdíleném páru (to by byla vazba kovalentní), ale <b>rozteče se přes celý krystal</b>.</p>
+      <div class="callout def">
+        <span class="eyebrow">Definice</span>
+        <p><b>Kovová vazba</b> je vazba, ve které jsou valenční elektrony <b>delokalizované přes celý krystal</b> a&nbsp;drží pohromadě pravidelně uspořádané kationty kovu. Není nasměrovaná do žádného konkrétního směru a&nbsp;není omezená počtem partnerů.</p>
+      </div>
+      <p>Starší, ale velmi názorný <span class="term">model elektronového plynu</span> říká: v&nbsp;uzlech mřížky sedí kationty, mezi nimi se volně pohybuje „plyn“ elektronů jako mrak. Přiložíte-li napětí, mrak se dá do usměrněného pohybu — a&nbsp;to je elektrický proud. Model je hrubý, ale spolehlivě vysvětlí vodivost, lesk i&nbsp;tvárnost.</p>
+
+      <h3>Od dvou orbitalů k&nbsp;pásu</h3>
+      <p>Přesnější je pohled <b>molekulových orbitalů</b>. Spojíte-li dva atomy sodíku, jejich dva orbitaly <span class="chem">3s</span> se překryjí a&nbsp;vzniknou dva molekulové orbitaly: jeden vazebný (níž) a&nbsp;jeden protivazebný (výš). Ze čtyř atomů budou čtyři hladiny, z&nbsp;osmi osm — a&nbsp;protože v&nbsp;krychlovém milimetru kovu je atomů řádově 10²⁰, hladin je tolik a&nbsp;jsou tak blízko sebe, že už nejdou rozlišit. Splynou v&nbsp;souvislý <span class="term">energetický pás</span>.</p>
+      <p class="eq">2 atomy → 2 hladiny &nbsp;·&nbsp; <span class="q">N</span> atomů → <span class="q">N</span> hladin &nbsp;·&nbsp; <span class="q">N</span> → ∞ &nbsp;⇒&nbsp; <b>pás</b><br><span style="color:var(--ink-3)">rozestup hladin uvnitř pásu je řádově 10⁻²² eV — nesrovnatelně méně než tepelná energie 0,025 eV</span></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Od orbitalů k&nbsp;pásu — co se stane, když atomů přibývá</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="paN">Počet atomů v&nbsp;řetízku: <span class="val" id="paNv">2</span></label>
+          <input type="range" id="paN" min="2" max="60" step="1" value="2">
+        </div>
+        <div class="svgwrap" id="paWrap" style="min-height:270px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="paRo1"></div>
+          <div class="readout" id="paRo2"></div>
+          <div class="readout" id="paRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="paNote">Zkuste posuvník posunout ze dvou atomů na šedesát a&nbsp;sledujte, jak se z&nbsp;několika oddělených čar stane souvislý blok. Právě v&nbsp;tom okamžiku přestává mít smysl mluvit o&nbsp;jednotlivých hladinách a&nbsp;začíná pásový model.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Valenční pás, vodivostní pás a&nbsp;zakázaný pás</h3>
+      <p>Elektrony pásy zaplňují odspodu. Nejvyšší pás, který je za absolutní nuly ještě obsazený, se jmenuje <span class="term">valenční pás</span>; nejnižší prázdný je <span class="term">vodivostní pás</span>. Mezera mezi nimi je <span class="term">zakázaný pás</span> — oblast energií, které elektron v&nbsp;krystalu prostě nemůže mít. Její šířku značíme <span class="q">E</span><sub>g</sub> a&nbsp;udáváme v&nbsp;elektronvoltech.</p>
+      <div class="callout def">
+        <span class="eyebrow">Proč je zakázaný pás klíčový</span>
+        <p>Aby elektron vedl proud, musí se dát do pohybu — a&nbsp;k&nbsp;tomu potřebuje <b>volnou hladinu těsně nad sebou</b>. V&nbsp;plně obsazeném pásu žádná volná hladina není a&nbsp;pás nevede, i&nbsp;kdyby byl elektronů plný. Vodivost tedy nezáleží na počtu elektronů, ale na tom, jestli mají kam jít.</p>
+      </div>
+      <p>Odtud plyne celá klasifikace pevných látek. U&nbsp;kovu se pásy <b>překrývají</b> nebo je valenční pás jen zpola zaplněný — volná hladina je bezprostředně nad každým elektronem a&nbsp;stačí sebemenší napětí. U&nbsp;polovodiče je zakázaný pás <b>úzký</b> a&nbsp;tepelná energie přes něj pár elektronů přehodí. U&nbsp;izolantu je <b>široký</b> a&nbsp;nepřekoná ho nic.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Typ látky</th><th class="n">Šířka zakázaného pásu <span class="q">E</span><sub>g</sub> [eV]</th><th class="n">Měrná vodivost <span class="q">σ</span> [S·m⁻¹]</th><th>Vliv zahřátí</th><th>Příklad</th></tr></thead>
+          <tbody>
+            <tr><td><b>Vodič (kov)</b></td><td class="n">0 (pásy se překrývají)</td><td class="n">10⁶ až 10⁸</td><td>vodivost <b>klesá</b></td><td class="chem">Cu, Al, Fe, Ag</td></tr>
+            <tr><td><b>Polovodič</b></td><td class="n">0,1 až 3</td><td class="n">10⁻⁴ až 10⁴</td><td>vodivost <b>prudce roste</b></td><td class="chem">Si (1,12), Ge (0,66)</td></tr>
+            <tr><td><b>Izolant</b></td><td class="n">nad 3</td><td class="n">10⁻²⁰ až 10⁻¹⁰</td><td>prakticky bez vlivu</td><td class="chem">diamant (5,47), SiO₂ (≈ 9)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Past, na které se ztrácejí body</span>
+        <p>„Polovodič vede hůř než kov, protože má míň elektronů.“ <b>Ne.</b> Elektronů má srovnatelně, jenže sedí v&nbsp;plně obsazeném pásu a&nbsp;nemají kam. Rozhoduje <b>dostupnost volných hladin</b>, ne počet elektronů. A&nbsp;druhá past: hranice 3 eV není fyzikální zákon, ale dohoda — přechod mezi polovodičem a&nbsp;izolantem je plynulý.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Pásová struktura: vodič, polovodič, izolant</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="bsSeg" style="flex-wrap:wrap" role="group" aria-label="Typ pevné látky">
+          <button type="button" data-bs="kov" aria-pressed="true">Kov</button>
+          <button type="button" data-bs="pv" aria-pressed="false">Vlastní polovodič</button>
+          <button type="button" data-bs="pn" aria-pressed="false">Polovodič N</button>
+          <button type="button" data-bs="pp" aria-pressed="false">Polovodič P</button>
+          <button type="button" data-bs="iz" aria-pressed="false">Izolant</button>
+        </div>
+        <div class="svgwrap" id="bsWrap" style="min-height:300px;margin-top:1rem"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>obsazené hladiny (valenční pás)</span>
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>volné hladiny (vodivostní pás)</span>
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>příměsová hladina — donorová nebo akceptorová</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="bsRo1"></div>
+          <div class="readout" id="bsRo2"></div>
+          <div class="readout" id="bsRo3"></div>
+        </div>
+        <div id="bsText" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="bsNote">Přepněte z&nbsp;kovu na vlastní polovodič a&nbsp;všimněte si, že mezi pásy najednou vznikne mezera. Pak přejděte na typ N a&nbsp;P a&nbsp;sledujte, kam se posadí příměsová hladina — u&nbsp;typu N pod vodivostní pás, u&nbsp;typu P nad valenční.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Příměsové polovodiče: typ N a&nbsp;typ P</h3>
+      <p>Čistý křemík má za pokojové teploty vodivost mizivou. Stačí ale nahradit jeden atom z&nbsp;milionu, a&nbsp;vodivost vyskočí o&nbsp;několik řádů. Tomu se říká <span class="term">dotování</span> a&nbsp;funguje ve dvou variantách.</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Typ N — příměs s&nbsp;pěti valenčními elektrony</span>
+          <p>Do křemíku (4 valenční elektrony) přidáme <b>fosfor nebo arsen</b>. Čtyři elektrony vytvoří vazby, <b>pátý přebývá</b> a&nbsp;sedí na donorové hladině těsně pod vodivostním pásem. Odskočí do něj už za pokojové teploty.</p>
+          <p style="margin-top:.3rem">Většinovými nosiči jsou <b>záporné elektrony</b> — odtud N, negative.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Typ P — příměs se třemi valenčními elektrony</span>
+          <p>Přidáme <b>bor nebo gallium</b>. Jedna vazba zůstane neúplná a&nbsp;vznikne akceptorová hladina těsně nad valenčním pásem. Elektron z&nbsp;valenčního pásu do ní přeskočí a&nbsp;zanechá po sobě <b>díru</b>, která se chová jako kladný nosič.</p>
+          <p style="margin-top:.3rem">Většinovými nosiči jsou <b>kladné díry</b> — odtud P, positive.</p>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu to je</span>
+        <p>Přiložením vrstvy P k&nbsp;vrstvě N vznikne <b>PN přechod</b>, který propouští proud jen jedním směrem. To je dioda — a&nbsp;na ní stojí každý usměrňovač, tranzistor, procesor i&nbsp;solární panel. Celá polovodičová technika je tedy jen chytře řízená šířka zakázaného pásu.</p>
+      </div>
+
+      <h3>Proč kov s&nbsp;teplotou vede hůř a&nbsp;polovodič lépe</h3>
+      <p>Tohle je nejspolehlivější experimentální rozlišení obou tříd a&nbsp;pásový model ho vysvětlí jedním pohybem. V&nbsp;<b>kovu</b> je nosičů náboje pořád stejně; zahřátím se ale rozkmitají ionty v&nbsp;mřížce a&nbsp;elektrony se o&nbsp;ně častěji rozptýlí. Odpor tedy <b>roste</b>, vodivost klesá. V&nbsp;<b>polovodiči</b> tepelná energie naopak <b>vyrábí nové nosiče</b> — přehazuje elektrony přes zakázaný pás — a&nbsp;tenhle efekt je řádově silnější než rozptyl. Vodivost proto prudce roste.</p>
+      <p class="eq">kov: <span class="q">σ</span> ↓ s&nbsp;rostoucí <span class="q">T</span> &nbsp;&nbsp;·&nbsp;&nbsp; polovodič: <span class="q">σ</span> ↑ s&nbsp;rostoucí <span class="q">T</span><br><span style="color:var(--ink-3)">u&nbsp;čistého křemíku vzroste vodivost mezi 20 °C a&nbsp;100 °C zhruba stokrát</span></p>
+      <p>Zvláštní kapitolou je <span class="term">supravodivost</span>: pod kritickou teplotou (u&nbsp;rtuti 4,2 K, u&nbsp;niobu 9,2 K, u&nbsp;keramických supravodičů přes 90 K) klesne odpor některých kovů a&nbsp;slitin skokem na nulu. Elektrony se v&nbsp;tomto stavu párují a&nbsp;přestanou se o&nbsp;mřížku rozptylovat úplně.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.1 · zařaďte podle E_g</span>
+          <p>Máte tři látky: A&nbsp;s <span class="q">E</span><sub>g</sub> = 0&nbsp;eV, B&nbsp;s <span class="q">E</span><sub>g</sub> = 1,1&nbsp;eV a&nbsp;C&nbsp;s <span class="q">E</span><sub>g</sub> = 5,5&nbsp;eV. Zařaďte je a&nbsp;předpovězte, co udělá jejich vodivost při zahřátí z&nbsp;20 °C na 200 °C.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>A:</b> nulová mezera znamená, že se pásy překrývají nebo je valenční pás jen zčásti zaplněný. Nad každým elektronem je volná hladina — jde o&nbsp;<b>kov</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>B:</b> 1,1&nbsp;eV je typická hodnota křemíku. Za pokojové teploty přeskočí přes mezeru jen zlomek elektronů — jde o&nbsp;<b>polovodič</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>C:</b> 5,5&nbsp;eV odpovídá diamantu. Tepelná energie při pokojové teplotě je zhruba <span class="mono">k</span>·<span class="q">T</span> ≈ 0,025&nbsp;eV, tedy <b>dvěstěkrát méně</b> — přeskok je vyloučený. Jde o&nbsp;<b>izolant</b>.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Zahřátí: u&nbsp;<b>A klesne</b> vodivost (silnější kmity mřížky, větší rozptyl), u&nbsp;<b>B prudce vzroste</b> (vznikají nové nosiče), u&nbsp;<b>C se prakticky nic nestane</b> — 5,5&nbsp;eV je i&nbsp;při 200 °C nepřekonatelných.</p>
+              <span class="result">A = kov (σ klesá) · B = polovodič (σ prudce roste) · C = izolant (beze změny)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.2 · diamant × grafit</span>
+          <p>Diamant i&nbsp;grafit jsou čistý uhlík. Diamant je dokonalý izolant, grafit vede proud srovnatelně s&nbsp;horším kovem. Vysvětlete pásovým modelem.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>V&nbsp;<b>diamantu</b> je každý atom uhlíku v&nbsp;hybridizaci <span class="chem">sp³</span> a&nbsp;všechny čtyři valenční elektrony jsou pevně zapojené do <b>čtyř σ vazeb</b>. Žádný elektron nezbývá.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Všechny vazebné orbitaly tvoří plně obsazený valenční pás, protivazebné prázdný vodivostní pás, a&nbsp;mezi nimi je mezera <b>5,47&nbsp;eV</b>. Nic se nemůže pohnout.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>V&nbsp;<b>grafitu</b> je uhlík v&nbsp;hybridizaci <span class="chem">sp²</span>: tři σ vazby ve vrstvě a&nbsp;<b>čtvrtý elektron v&nbsp;orbitalu p</b>, který se překrývá se sousedy nad i&nbsp;pod rovinou.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Tyto orbitaly p&nbsp;vytvoří <b>zpola zaplněný pás π</b> rozprostřený přes celou vrstvu — přesně situace kovu. Grafit proto vede podél vrstev dobře a&nbsp;kolmo na ně špatně.</p>
+              <span class="result">Rozhoduje struktura a&nbsp;hybridizace, ne prvek — týž uhlík dá izolant i&nbsp;vodič</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: kovová vazba a pásová teorie"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

@@ -1,0 +1,212 @@
+  <!-- ============ KAPITOLA 1 ============ -->
+  <section class="chapter" id="k1" data-title="Krystalové mřížky kovů">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · osnova, bod 2</span>
+      <h2>Krystalové mřížky a&nbsp;nejtěsnější uspořádání</h2>
+      <p class="lead">Kovová vazba nemá směr. Atomy se tedy neuspořádají podle úhlů mezi orbitaly, ale podle toho, jak se dá nejúsporněji naskládat hromada stejně velkých koulí. Z&nbsp;tohoto jediného geometrického zadání vyplyne koordinační číslo, stupeň zaplnění prostoru, hustota, tvárnost i&nbsp;to, kolik uhlíku se vejde do oceli.</p>
+
+      <h3>Kov jako hromada koulí</h3>
+      <p>Protože kovová vazba působí do všech stran stejně, snaží se každý atom obklopit co největším počtem sousedů. Model kovového krystalu je proto <b>skládání stejně velkých tvrdých koulí</b> do co nejmenšího objemu. Tomu se říká <span class="term">nejtěsnější uspořádání</span> a&nbsp;příroda ho realizuje dvěma způsoby, které mají shodné parametry, ale liší se pořadím vrstev.</p>
+
+      <h3>Elementární buňka a&nbsp;co v&nbsp;ní počítáme</h3>
+      <p><span class="term">Elementární buňka</span> je nejmenší kvádr (u&nbsp;kovů obvykle krychle), jehož opakovaným posouváním vznikne celý krystal. U&nbsp;každé buňky nás zajímají tři čísla.</p>
+      <div class="callout def">
+        <span class="eyebrow">Tři veličiny, které musíte umět určit</span>
+        <p><b>Koordinační číslo</b> = počet nejbližších sousedů jednoho atomu.<br>
+        <b>Počet atomů v&nbsp;buňce</b> = součet podílů atomů, které do buňky zasahují: atom ve <b>vrcholu</b> se dělí mezi 8 buněk (přispěje 1/8), atom ve <b>stěně</b> mezi 2 buňky (1/2), atom v&nbsp;<b>hraně</b> mezi 4 buňky (1/4), atom uvnitř patří celý (1).<br>
+        <b>Stupeň zaplnění prostoru</b> = podíl objemu buňky, který koule opravdu vyplní.</p>
+      </div>
+
+      <h3>Tři mřížky, které pokryjí skoro všechny kovy</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Mřížka</th><th class="n">Koordinační číslo</th><th class="n">Atomů v&nbsp;buňce</th><th class="n">Zaplnění prostoru [%]</th><th>Vztah mezi hranou <span class="q">a</span> a&nbsp;poloměrem <span class="q">r</span></th><th>Příklady kovů</th></tr></thead>
+          <tbody>
+            <tr><td><b>Kubická plošně centrovaná (KPC)</b><br><span style="color:var(--ink-3)">vrstvení ABCABC</span></td><td class="n">12</td><td class="n">4</td><td class="n">74,05</td><td class="mono">a = 2√2·r</td><td class="chem">Al, Cu, Ag, Au, Pb, Ni, γ‑Fe</td></tr>
+            <tr><td><b>Hexagonální nejtěsnější (HTU)</b><br><span style="color:var(--ink-3)">vrstvení ABAB</span></td><td class="n">12</td><td class="n">6</td><td class="n">74,05</td><td class="mono">a = 2r, c/a = 1,633</td><td class="chem">Mg, Zn, Cd, Ti, Co, Be</td></tr>
+            <tr><td><b>Kubická prostorově centrovaná (KPR)</b></td><td class="n">8</td><td class="n">2</td><td class="n">68,02</td><td class="mono">a = 4r/√3</td><td class="chem">Li, Na, K, Cr, W, V, α‑Fe</td></tr>
+            <tr><td>Prostá kubická <span style="color:var(--ink-3)">(pro srovnání)</span></td><td class="n">6</td><td class="n">1</td><td class="n">52,36</td><td class="mono">a = 2r</td><td class="chem">jen polonium</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nejčastější chyba u&nbsp;maturity</span>
+        <p>Zaměnit <b>plošně</b> centrovanou za <b>prostorově</b> centrovanou. Pomůcka: „<b>plošně</b>“ = atom uprostřed každé <b>plochy</b> (stěny), je jich šest, buňka má 4 atomy a&nbsp;je nejtěsnější. „<b>Prostorově</b>“ = jediný atom uprostřed <b>prostoru</b> krychle, buňka má 2 atomy a&nbsp;nejtěsnější není.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Skládání vrstev: ABAB proti ABCABC</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="vrSeg" style="flex-wrap:wrap" role="group" aria-label="Typ vrstvení">
+          <button type="button" data-vr="hex" aria-pressed="true">ABAB — hexagonální</button>
+          <button type="button" data-vr="kpc" aria-pressed="false">ABCABC — plošně centrovaná</button>
+        </div>
+        <div class="svgwrap" id="vrWrap" style="min-height:300px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="vrRo1"></div>
+          <div class="readout" id="vrRo2"></div>
+          <div class="readout" id="vrRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="vrNote">Obě uspořádání mají stejné koordinační číslo i&nbsp;stejné zaplnění prostoru — rozdíl je jen v&nbsp;tom, jestli třetí vrstva sedne přesně nad první (ABAB), nebo do dosud nevyužitých prohlubní (ABCABC). Přesto z&nbsp;tohoto drobného rozdílu plyne, že hliník a&nbsp;měď se dají vytáhnout na drát, kdežto zinek a&nbsp;hořčík se za studena lámou.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Jak se počítá stupeň zaplnění prostoru</h3>
+      <p>Postup je vždy stejný: vyjádřím poloměr koule přes hranu buňky, spočítám objem všech koulí v&nbsp;buňce a&nbsp;podělím ho objemem buňky. Klíčový je krok, kde najdu <b>směr, ve kterém se koule dotýkají</b>.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Kde se koule dotýkají</span>
+        <p><b>Prostá kubická:</b> podél hrany → <span class="mono">a = 2r</span>.<br>
+        <b>Prostorově centrovaná:</b> podél <b>tělesové úhlopříčky</b> (délka <span class="mono">a√3</span>), na které leží 4 poloměry → <span class="mono">a√3 = 4r</span>.<br>
+        <b>Plošně centrovaná:</b> podél <b>stěnové úhlopříčky</b> (délka <span class="mono">a√2</span>), na které leží také 4 poloměry → <span class="mono">a√2 = 4r</span>.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.1 · odvození stupně zaplnění</span>
+          <p>Odvoďte stupeň zaplnění prostoru u&nbsp;kubické prostorově centrované mřížky a&nbsp;porovnejte ho s&nbsp;plošně centrovanou.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>V&nbsp;buňce jsou <b>2 atomy</b>: osm vrcholů po 1/8 dá jeden atom, plus jeden atom celý uprostřed.</p>
+              <p class="eq">8 · 1/8 + 1 = <b>2 atomy</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Koule se dotýkají podél tělesové úhlopříčky, jejíž délka je <span class="mono">a√3</span>. Na ní leží poloměr rohového atomu, celý průměr středového a&nbsp;poloměr druhého rohového — dohromady <b>4 poloměry</b>.</p>
+              <p class="eq"><span class="q">a</span>√3 = 4<span class="q">r</span> &nbsp;⇒&nbsp; <span class="q">r</span> = <span class="q">a</span>√3/4</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Objem koulí vydělíme objemem buňky:</p>
+              <p class="eq">φ = 2 · (4/3)π<span class="q">r</span>³ / <span class="q">a</span>³ = (8π/3)·(√3/4)³ = π√3/8</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Číselně: π·1,7321/8 = 0,6802, tedy <b>68,02 %</b>. Stejným postupem u&nbsp;plošně centrované vyjde <span class="mono">a√2 = 4r</span> a&nbsp;φ = π/(3√2) = 0,7405, tedy <b>74,05 %</b>.</p>
+              <p>Rozdíl šesti procentních bodů vypadá malý, ale znamená, že v&nbsp;prostorově centrované mřížce má atom jen <b>8 sousedů místo 12</b>.</p>
+              <span class="result">zaplnění prostoru: prostorově centrovaná = 68,02 % · plošně centrovaná = 74,05 %</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1.2 · hustota mědi</span>
+          <p>Měď krystaluje v&nbsp;kubické plošně centrované mřížce s&nbsp;hranou <span class="q">a</span> = 361,5&nbsp;pm. Vypočítejte její hustotu. <span class="q">M</span>(Cu) = 63,55&nbsp;g·mol⁻¹, <span class="q">N</span><sub>A</sub> = 6,022·10²³&nbsp;mol⁻¹.</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Počet atomů v&nbsp;buňce: 8 vrcholů po 1/8 a&nbsp;6 stěn po 1/2.</p>
+              <p class="eq">8 · 1/8 + 6 · 1/2 = <b>4 atomy</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Hmotnost obsahu buňky:</p>
+              <p class="eq"><span class="q">m</span> = 4 · 63,55 / (6,022·10²³) = 4,221·10⁻²²&nbsp;g</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Objem buňky. Pozor na jednotky: 361,5&nbsp;pm = 3,615·10⁻⁸&nbsp;cm.</p>
+              <p class="eq"><span class="q">V</span> = (3,615·10⁻⁸)³ = 4,724·10⁻²³&nbsp;cm³</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Hustota je podíl:</p>
+              <p class="eq"><span class="q">ρ</span> = 4,221·10⁻²² / 4,724·10⁻²³ = <b>8,94&nbsp;g·cm⁻³</b></p>
+              <p>Tabulková hodnota je 8,96&nbsp;g·cm⁻³ — shoda na tři platné číslice. Kdybyste omylem použili 2 atomy (prostorově centrovanou), vyšlo by 4,47&nbsp;g·cm⁻³ a&nbsp;byla by to poloviční nesmyslná hodnota.</p>
+              <span class="result"><span class="q">ρ</span> = 8,94&nbsp;g·cm⁻³ (tabulkově 8,96)</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Dutiny v&nbsp;mřížce — kam se vejde cizí atom</h3>
+      <p>Ani nejtěsnější uspořádání není plné: čtvrtina prostoru zůstane prázdná a&nbsp;tvoří pravidelně rozmístěné <span class="term">dutiny</span>. Jsou dvojího druhu a&nbsp;jejich velikost rozhodne, jestli se do mřížky vejde cizí atom — a&nbsp;tedy jestli vznikne intersticiální slitina.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Dutina</th><th>Obklopena</th><th class="n">Počet na 1 atom (KPC)</th><th class="n">Největší koule, která se vejde</th></tr></thead>
+          <tbody>
+            <tr><td><b>Oktaedrická</b></td><td>šesti atomy ve vrcholech osmistěnu</td><td class="n">1</td><td class="n"><span class="q">r</span> = 0,414·<span class="q">R</span></td></tr>
+            <tr><td><b>Tetraedrická</b></td><td>čtyřmi atomy ve vrcholech čtyřstěnu</td><td class="n">2</td><td class="n"><span class="q">r</span> = 0,225·<span class="q">R</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>V&nbsp;prostorově centrované mřížce je situace jiná: přestože je v&nbsp;ní <b>víc</b> prázdného prostoru celkem, je rozdrobený do <b>mnoha malých</b> dutin. Největší oktaedrická dutina tam pojme jen kouli o&nbsp;poloměru 0,155·<span class="q">R</span>. Tohle je jádro celé nauky o&nbsp;oceli — vrátíme se k&nbsp;němu za chvíli u&nbsp;železa.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Vejde se příměs do dutiny?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2">
+          <div class="ctl">
+            <label for="duSel">Mřížka a&nbsp;typ dutiny</label>
+            <select id="duSel">
+              <option value="kpc-o">Plošně centrovaná — oktaedrická dutina</option>
+              <option value="kpc-t">Plošně centrovaná — tetraedrická dutina</option>
+              <option value="kpr-o">Prostorově centrovaná — oktaedrická dutina</option>
+              <option value="kpr-t">Prostorově centrovaná — tetraedrická dutina</option>
+            </select>
+          </div>
+          <div class="ctl">
+            <label for="duR">Poloměr atomu hostitele <span class="q">R</span>: <span class="val" id="duRv">127 pm</span></label>
+            <input type="range" id="duR" min="70" max="200" step="1" value="127">
+          </div>
+        </div>
+        <div class="svgwrap" id="duWrap" style="min-height:250px;margin-top:1rem"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="duRo1"></div>
+          <div class="readout" id="duRo2"></div>
+          <div class="readout" id="duRo3"></div>
+        </div>
+        <div id="duList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="duNote">Nastavte poloměr hostitele na 127&nbsp;pm (to je železo v&nbsp;plošně centrované modifikaci) a&nbsp;porovnejte oktaedrickou dutinu v&nbsp;obou mřížkách. Uvidíte, proč se uhlík vejde do horkého austenitu, ale ne do studeného feritu.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Polymorfie kovů — jeden prvek, několik mřížek</h3>
+      <p>Řada kovů mění se stoupající teplotou typ mřížky. Tomu se říká <span class="term">polymorfie</span> (u&nbsp;prvků také alotropie) a&nbsp;u&nbsp;železa má tak dalekosáhlé důsledky, že na ní stojí celá metalurgie oceli.</p>
+      <div class="callout def">
+        <span class="eyebrow">Modifikace železa</span>
+        <p><b>α‑železo (ferit)</b> — do 912 °C, mřížka <b>prostorově centrovaná</b>, rozpustnost uhlíku jen <b>0,02 %</b>, feromagnetické do 770 °C.<br>
+        <b>γ‑železo (austenit)</b> — 912 až 1394 °C, mřížka <b>plošně centrovaná</b>, rozpustnost uhlíku až <b>2,11 %</b>, nemagnetické.<br>
+        <b>δ‑železo</b> — 1394 až 1538 °C, opět <b>prostorově centrovaná</b>.<br>
+        <b>tavenina</b> — nad 1538 °C.</p>
+      </div>
+      <p>Všimněte si toho paradoxu: <b>hustěji</b> zaplněný austenit pojme <b>stokrát víc</b> uhlíku než řidčeji zaplněný ferit. Vysvětlení je v&nbsp;předchozím odstavci — v&nbsp;plošně centrované mřížce je sice prázdna méně, ale je soustředěné do velkých oktaedrických dutin (poloměr 0,414·<span class="q">R</span> ≈ 53&nbsp;pm), kdežto v&nbsp;prostorově centrované je rozptýlené do mnoha maličkých (0,155·<span class="q">R</span> ≈ 19&nbsp;pm). Atom uhlíku má poloměr kolem 70&nbsp;pm — do velké dutiny se vtěsná s&nbsp;napětím, do malé vůbec.</p>
+      <div class="callout tip">
+        <span class="eyebrow">K&nbsp;čemu to je: kalení</span>
+        <p>Ocel se rozžhaví do austenitické oblasti, kde se uhlík rozpustí, a&nbsp;pak se <b>prudce ochladí</b> do vody. Mřížka se stihne překlopit na prostorově centrovanou, ale uhlík už nemá kam uniknout — zůstane násilím uvězněný uvnitř a&nbsp;mřížku zdeformuje. Vzniklý <b>martenzit</b> je extrémně tvrdý a&nbsp;křehký. Následné <b>popouštění</b> (ohřev na 200 až 600 °C) část napětí uvolní a&nbsp;vrátí materiálu houževnatost.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Polymorfie železa — mřížka podle teploty</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl">
+          <label for="feT">Teplota: <span class="val" id="feTv">20 °C</span></label>
+          <input type="range" id="feT" min="20" max="1700" step="5" value="20">
+        </div>
+        <div class="svgwrap" id="feWrap" style="min-height:250px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="feRo1"></div>
+          <div class="readout" id="feRo2"></div>
+          <div class="readout" id="feRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="feNote">Přejeďte posuvníkem přes 912 °C a&nbsp;sledujte, jak mřížka přeskočí z&nbsp;prostorově centrované na plošně centrovanou a&nbsp;rozpustnost uhlíku vyskočí stonásobně. Přesně tenhle skok využívá kalení.</div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: krystalové mřížky a nejtěsnější uspořádání"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

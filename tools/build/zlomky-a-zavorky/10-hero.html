@@ -1,0 +1,82 @@
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Zlomky a&nbsp;závorky</h1>
+      <p class="lead">Vzorec <span class="mono">c = m / (M · V)</span> a&nbsp;vzorec <span class="mono">c = m / M · V</span> se liší jedinou dvojicí závorek — a&nbsp;dávají úplně jiný výsledek. Tenhle průvodce je celý o&nbsp;tom jediném rozdílu: co dělá zlomková čára, kdy ji musíte nahradit napsanou závorkou, jak se ze zlomku ve zlomku stane jeden obyčejný zlomek a&nbsp;proč chemie píše mol·dm⁻³ místo mol/dm³. A&nbsp;hlavně: jak si <b>sám ověříte</b>, že jste vzorec opsali správně, aniž byste se musel ptát učitele.</p>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — se závorkou</span>c = m / (M · V)</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Týž vzorec jako zlomek — V&nbsp;je ve jmenovateli</span><span class="fline">c = m / (M · V)</span></div>
+      </div>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — bez závorky</span>c = m / M · V</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Týž vzorec jako zlomek — V&nbsp;je v&nbsp;čitateli</span><span class="fline">c = m / M · V</span></div>
+      </div>
+      <div class="hero-meta">
+        <span class="tag">Zlomková čára</span>
+        <span class="tag">Závorky</span>
+        <span class="tag">Pořadí operací</span>
+        <span class="tag">Složené zlomky</span>
+        <span class="tag">Záporné exponenty</span>
+        <span class="tag">Kontrola přepisu</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">Nejdřív rychle</span></span>
+        <span class="pt">Rychlokurz</span>
+        <span class="pd">Celé téma zhuštěné do krátkých bloků: co dělá zlomková čára, jak se čte řádek bez závorek, jak se sbalí složený zlomek a&nbsp;jak se přepis ověří. Na konci věty, které musíte umět odříkat, a&nbsp;krátký test.</span>
+        <span class="pgo">Rychlokurz →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">Pak pořádně</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Kapitola po kapitole od dvou zápisů téhož vzorce až po dvě nezávislé metody kontroly. U&nbsp;každé kapitoly interaktivní model, řešené příklady a&nbsp;mini‑test.</span>
+        <span class="pgo">Kapitola 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Převodník zápisu — napište výraz do řádku a&nbsp;podívejte se, co znamená</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="align-items:end;margin-bottom:1.1rem">
+          <div class="ctl">
+            <label for="pzIn">Výraz na řádku</label>
+            <input class="exin" type="text" id="pzIn" value="m / (M · V)" spellcheck="false" autocomplete="off">
+          </div>
+          <div class="ctl">
+            <label>Zvýraznit, co uzávorkovala čára</label>
+            <div class="segmented" id="pzMode" role="group" aria-label="Zvýraznění">
+              <button type="button" data-v="hl" aria-pressed="true">Zvýraznit</button>
+              <button type="button" data-v="plain" aria-pressed="false">Bez zvýraznění</button>
+            </div>
+          </div>
+        </div>
+        <div class="chipbar" id="pzChips"></div>
+        <div id="pzOut" style="margin-top:1.1rem"></div>
+        <div class="convgrid" id="pzVals" style="margin-top:.9rem"></div>
+        <p class="stepnote" id="pzMsg" style="margin-top:.8rem"></p>
+      </div>
+      <div class="panel-note">Zkuste napsat <span class="mono">m / M · V</span> a&nbsp;pak <span class="mono">m / (M · V)</span> a&nbsp;porovnat řádek „Hodnota výrazu“. Jsou to dva různé vzorce, které se liší jedinou dvojicí závorek — a&nbsp;jeden z&nbsp;nich je ten správný pro látkovou koncentraci. Model počítá s&nbsp;malými celými čísly místo veličin; přesně tak si přepis ověříte i&nbsp;na papíře.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.6rem;max-width:min(100%,100ch)">Každý řádek níž vede na kapitolu, která ho řeší. Průvodce navazuje na hlavní stránku sekce <b>Jak počítat chemii</b>, konkrétně na blok <b>Odvození</b> a&nbsp;blok <b>Dosazení</b> výpočtového listu — právě tam se se zlomky a&nbsp;závorkami pracuje nejvíc.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Dva zápisy téhož vzorce: lineární <span class="mono">m / (M · V)</span> versus stohovaný zlomek. K&nbsp;čemu se hodí který a&nbsp;proč nejde o&nbsp;dvě různá pravidla.</span><span class="go">Kap. 00</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Zlomková čára je závorka: automaticky uzávorkuje celý čitatel i&nbsp;celý jmenovatel. Na řádku tytéž závorky musíte napsat ručně.</span><span class="go">Kap. 01</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Pořadí operací: co má přednost, proč <span class="mono">2 / 3 · 4</span> není <span class="mono">2 / 12</span> a&nbsp;kde se chybuje nejčastěji.</span><span class="go">Kap. 02</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Ze stohovaného zápisu na řádek a&nbsp;zpátky: mechanický postup oběma směry, krok za krokem, s&nbsp;drilem.</span><span class="go">Kap. 03</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Složený zlomek — zlomek ve zlomku. Pravidlo „dělit zlomkem znamená násobit převrácenou hodnotou“ a&nbsp;jeho chemická podoba <span class="fx">c = n / V</span>, kde <span class="fx">n = m / M</span>.</span><span class="go">Kap. 04</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Záporný exponent místo zlomku: mol·dm⁻³ versus mol/dm³, převod oběma směry a&nbsp;krácení s&nbsp;exponenty.</span><span class="go">Kap. 05</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Co dělat a&nbsp;co nedělat: zapomenutá závorka ve jmenovateli, krácení přes sčítání, rušení členu místo činitele, závorka navíc měnící znaménko.</span><span class="go">Kap. 06</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8</span><span>Jak si ověřím, že jsem přepsal správně: dosazení jednoduchých čísel do obou zápisů a&nbsp;rozměrová kontrola jednotkami.</span><span class="go">Kap. 07</span></a>
+      <a class="syl-row" href="#k8"><span class="b">9</span><span>Závěrečný test přes celý pod-modul — ekvivalence zápisů, umístění závorek, krácení i&nbsp;kontrola přepisu.</span><span class="go">Kap. 08</span></a>
+      <a class="syl-row" href="#k9"><span class="b">10</span><span>Tahák k&nbsp;vytištění a&nbsp;slovníček pojmů od zlomkové čáry po rozměrovou analýzu.</span><span class="go">Kap. 09</span></a>
+    </div>
+  </header>

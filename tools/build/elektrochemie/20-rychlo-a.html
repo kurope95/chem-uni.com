@@ -1,0 +1,180 @@
+
+  <!-- ============ RYCHLOPRŮCHOD ============ -->
+  <section class="chapter" id="r0" data-title="Rychloprůchod za 60 minut">
+    <div class="prose wide">
+      <span class="eyebrow">Rychloprůchod · celá látka v kostce</span>
+      <h2>Celá elektrochemie za 60 minut</h2>
+      <p class="lead" style="max-width:70ch">Devět bloků, dohromady hodina čtení. Každý blok má výklad, rámeček <b>Zapamatujte si</b> se vzorci a rámeček <b>Častá chyba</b> s tím, na čem se v testech nejvíc ztrácejí body. Projde se tu všech 58 pojmů z osnovy — u každého bloku je máte vypsané pod textem. Když něčemu nerozumíte, klepněte na pojem v kontrole pokrytí a skočíte do podrobné kapitoly.</p>
+    </div>
+
+    <div class="timeplan">
+      <a href="#s1"><b>5′</b> Oxidace a redukce</a>
+      <a href="#s2"><b>8′</b> Oxidační čísla a vyčíslování</a>
+      <a href="#s3"><b>7′</b> Potenciál a síla činidel</a>
+      <a href="#s4"><b>7′</b> Beketov a odhad průběhu</a>
+      <a href="#s5"><b>7′</b> Nernst</a>
+      <a href="#s6"><b>8′</b> Katoda, anoda, článek</a>
+      <a href="#s7"><b>6′</b> Galvanický vs elektrolytický</a>
+      <a href="#s8"><b>7′</b> Elektrolýza a Faraday</a>
+      <a href="#s9"><b>5′</b> Koroze</a>
+    </div>
+
+    <!-- 1 -->
+    <div class="sblock" id="s1">
+      <div class="sb-head"><span class="sb-min">5 min</span><h3>Oxidace, redukce a kdo je kdo</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Celá elektrochemie je o jedné věci: <b>kam tečou elektrony</b>. Částice, která elektrony <b>odevzdá</b>, se <b>oxiduje</b> a její oxidační číslo <b>roste</b>. Částice, která elektrony <b>přijme</b>, se <b>redukuje</b> a oxidační číslo jí <b>klesá</b>. Elektron nemůže zmizet, takže jedno bez druhého neexistuje — proto <b>redoxní</b> reakce.</p>
+          <p>A teď ta část, kde se plete většina lidí. <b>Oxidační činidlo</b> je látka, která <em>způsobí oxidaci někoho jiného</em> — musí mu tedy elektrony <b>vzít</b>, a tím se <b>sama redukuje</b>. <b>Redukční činidlo</b> elektrony <b>dává</b> a samo se <b>oxiduje</b>. Dárce krve krev ztrácí; oxidační činidlo se redukuje.</p>
+          <p>V reakci <span class="chem">Zn + Cu²⁺ → Zn²⁺ + Cu</span> tečou elektrony ze zinku na měďnatý ion. Zinek se oxiduje (0 → +II), je redukční činidlo. Cu²⁺ se redukuje (+II → 0), je oxidační činidlo. Přesně tenhle přenos dvou elektronů budeme za chvíli pouštět drátem.</p>
+          <p>Jak redoxní reakci poznáte? <b>Někomu se změnilo oxidační číslo.</b> Neutralizace ani srážení redoxní nejsou; hoření, rezavění, dýchání i každá baterie ano.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq">oxidace = ztráta e⁻ = ox. číslo ↑<br>redukce = příjem e⁻ = ox. číslo ↓<br><br>ox. činidlo: bere e⁻, <b>redukuje se</b><br>red. činidlo: dává e⁻, <b>oxiduje se</b></div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>„Oxidační činidlo se oxiduje.“ Ne — oxiduje <em>druhého</em>, samo se redukuje. Ptejte se vždy: <b>kam elektrony tečou?</b> Ten, ke komu tečou, je oxidační činidlo.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · rozhodněte, kdo je kdo</span>
+        <p class="task">V reakci <span class="chem">Cl₂ + 2 KBr → 2 KCl + Br₂</span> určete, co se oxiduje, co se redukuje, a pojmenujte činidla.</p>
+        <div class="calc">Cl: 0 → −I &nbsp;&nbsp;klesá → chlor <b>přijal</b> e⁻ → <b>redukuje se</b> → Cl₂ je <b>oxidační činidlo</b><br>
+Br: −I → 0 &nbsp;&nbsp;roste → bromid <b>odevzdal</b> e⁻ → <b>oxiduje se</b> → Br⁻ je <b>redukční činidlo</b><br>
+K: +I → +I &nbsp;&nbsp;nemění se → divák</div>
+        <span class="res">Cl₂ oxiduje bromid — chlor je silnější oxidační činidlo než brom</span>
+        <p class="out">Draslík je jen divák, do bilance nevstupuje. Že to proběhne tímto směrem a ne opačně, zjistíte v bloku 3 z čísel: E°(Cl₂/Cl⁻) = 1,36 V &gt; E°(Br₂/Br⁻) = 1,07 V.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>oxidace</span><span>redukce</span><span>redoxní reakce</span><span>oxidační činidlo</span><span>redukční činidlo</span><span>oxidační číslo</span></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sblock" id="s2">
+      <div class="sb-head"><span class="sb-min">8 min</span><h3>Oxidační čísla, poloreakce a vyčíslování</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p><b>Oxidační číslo</b> je formální náboj atomu, kdyby všechny vazby byly iontové. Píše se římsky. Pravidla: volný prvek <b>0</b>; F vždy <b>−I</b>; O <b>−II</b> (v peroxidech −I); H <b>+I</b> (v hydridech kovů −I); alkalické kovy +I, kovy alkalických zemin +II; <b>součet = náboj částice</b>. Z toho dopočítáte cokoli: v KMnO₄ je +1 + x − 8 = 0, tedy Mn = +VII.</p>
+          <p><b>Poloreakce</b> je zápis jen oxidace nebo jen redukce s elektrony jako částicemi: <span class="chem">Fe²⁺ → Fe³⁺ + e⁻</span>, <span class="chem">MnO₄⁻ + 8 H⁺ + 5 e⁻ → Mn²⁺ + 4 H₂O</span>. Sama neproběhne, ale přesně tohle se děje na jedné elektrodě článku.</p>
+          <p>Vyčíslování je pak mechanika: <b>oxidační čísla → dvě poloreakce → atomy kromě O a H → kyslík vodou → vodík ionty H⁺ → náboj elektrony → vynásobit tak, aby se elektrony vykrátily → sečíst</b>. Poslední krok je <b>elektronová bilance</b>: odevzdané = přijaté. V zásaditém prostředí na konci přidáte ke každému H⁺ na obě strany OH⁻.</p>
+          <p>Dva speciální případy: <b>disproporcionace</b> — táž látka se zároveň oxiduje i redukuje (<span class="chem">Cl₂ + 2 OH⁻ → Cl⁻ + ClO⁻ + H₂O</span>, rozklad H₂O₂); <b>synproporcionace</b> — dvě oxidační čísla téhož prvku se sejdou na jednom (<span class="chem">SO₂ + 2 H₂S → 3 S + 2 H₂O</span>).</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq">prvek 0 · F −I · O −II (peroxid −I)<br>H +I (hydrid −I) · Σ = náboj<br><br>e⁻ odevzdané = e⁻ přijaté<br>oxidace: e⁻ vpravo<br>redukce: e⁻ vlevo</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Zapomenutá <b>dvojka</b> u Cr³⁺ z dichromanu (6 e⁻, ne 3). A u mědi s HNO₃ napsat vodík — nevzniká, oxiduje dusičnan.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · elektronová bilance ve čtyřech řádcích</span>
+        <p class="task">Vyčíslete <span class="chem">Cr₂O₇²⁻ + Fe²⁺ + H⁺ → Cr³⁺ + Fe³⁺ + H₂O</span>.</p>
+        <div class="calc">Cr: +VI → +III, <b>2 atomy</b> → přijato <b>6 e⁻</b> &nbsp;·&nbsp; Fe: +II → +III → odevzdán <b>1 e⁻</b><br>
+redukce: <span class="chem">Cr₂O₇²⁻ + 14 H⁺ + 6 e⁻ → 2 Cr³⁺ + 7 H₂O</span> &nbsp;(7 O → 7 H₂O → 14 H⁺)<br>
+oxidace: <span class="chem">Fe²⁺ → Fe³⁺ + e⁻</span> &nbsp;×6<br>
+<b><span class="chem">Cr₂O₇²⁻ + 6 Fe²⁺ + 14 H⁺ → 2 Cr³⁺ + 6 Fe³⁺ + 7 H₂O</span></b></div>
+        <span class="res">kontrola náboje: −2 + 12 + 14 = +24 = +6 + 18 ✓</span>
+        <p class="out">Šestka u železa je přímý důsledek dvou atomů chromu. Kdo napíše „Cr³⁺“ bez dvojky, dostane 3 e⁻ a rovnice nikdy nesedne.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>pravidla oxidačních čísel</span><span>poloreakce</span><span>elektronová bilance</span><span>disproporcionace</span><span>synproporcionace</span></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sblock" id="s3">
+      <div class="sb-head"><span class="sb-min">7 min</span><h3>Standardní redukční potenciál a síla činidel</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Měď je redukční činidlo vůči stříbru, ale oxidační činidlo vůči zinku. Role záleží na partnerovi — potřebujeme tedy každé látce přiřadit <b>jedno číslo</b>, podle kterého se dvojice porovnají.</p>
+          <p>Kov ponořený do roztoku svých iontů se nabije: ustálí se rovnováha <span class="chem">M ⇌ Mⁿ⁺ + n e⁻</span> a mezi kovem a roztokem vznikne <b>elektrodový potenciál</b>. Absolutně ho změřit nejde (voltmetr potřebuje dvě elektrody), tak se dohodla nula: <b>standardní vodíková elektroda</b> — platina, H₂ o tlaku 101,325 kPa, H⁺ o koncentraci 1 mol·dm⁻³, 25 °C, E° = 0,00 V.</p>
+          <p><b>Standardní redukční potenciál</b> E° je napětí článku SHE ‖ daná elektroda za standardních podmínek, s poloreakcí zapsanou <b>jako redukce</b> (konvence IUPAC). Znaménko je polarita vůči vodíku: Cu²⁺/Cu +0,34 V (měď je kladná, Cu²⁺ se redukuje raději než H⁺), Zn²⁺/Zn −0,76 V (zinek je záporný, oxiduje se raději než H₂).</p>
+          <p>Tabulka seřazená podle E° je žebříček síly. <b>Čím vyšší E°, tím silnější oxidační činidlo je látka vlevo</b> (F₂ +2,87 V je nejsilnější). <b>Čím nižší E°, tím silnější redukční činidlo je látka vpravo</b> (Li −3,04 V je nejsilnější). E° se nenásobí koeficientem a v IUPAC konvenci se neobrací.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq">SHE: Pt, H₂ 101,325 kPa,<br>c(H⁺) = 1 mol·dm⁻³, 25 °C, E° = 0<br><br>vyšší E° → silnější <b>ox.</b> činidlo (vlevo)<br>nižší E° → silnější <b>red.</b> činidlo (vpravo)<br>F₂ +2,87 · Li −3,04</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Násobit E° koeficientem (2 Ag⁺ + 2 e⁻ má pořád +0,80 V) nebo měnit znaménko při obrácení poloreakce. E° je vlastnost elektrody, ne rovnice.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · seřaďte a předpovězte</span>
+        <p class="task">Seřaďte Br₂, Fe³⁺, Ag⁺, Cu²⁺ podle síly oxidačního činidla. Který z halogenidů (Cl⁻, Br⁻, I⁻) zoxiduje Fe³⁺?</p>
+        <div class="calc">E°: Br₂/Br⁻ 1,07 &nbsp;&gt;&nbsp; Ag⁺/Ag 0,80 &nbsp;&gt;&nbsp; Fe³⁺/Fe²⁺ 0,77 &nbsp;&gt;&nbsp; Cu²⁺/Cu 0,34<br>
+→ oxidační síla: <b>Br₂ &gt; Ag⁺ &gt; Fe³⁺ &gt; Cu²⁺</b><br><br>
+Fe³⁺ (0,77) zoxiduje jen to, co má nižší E°: I⁻ (0,54) <b>ano</b>; Br⁻ (1,07) ne; Cl⁻ (1,36) ne</div>
+        <span class="res">2 Fe³⁺ + 2 I⁻ → 2 Fe²⁺ + I₂ — jodid ano, bromid a chlorid ne</span>
+        <p class="out">Pravidlo diagonály: oxidovaná forma z vyššího řádku reaguje s redukovanou formou z nižšího. Proto roztok FeCl₃ nezhnědne (chlorid nezoxiduje), ale s KI zhnědne jodem okamžitě.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>elektrodový potenciál</span><span>standardní vodíková elektroda</span><span>standardní redukční potenciál</span><span>konvence IUPAC</span><span>síla oxidačního činidla</span><span>síla redukčního činidla</span></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sblock" id="s4">
+      <div class="sb-head"><span class="sb-min">7 min</span><h3>Beketovova řada a odhad průběhu reakce</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p><b>Beketovova řada</b> je výřez tabulky E° pro kovy: <span class="mono">Li K Ca Na Mg Al Mn Zn Cr Fe Cd Ni Sn Pb <b>H</b> Cu Ag Hg Pt Au</span>. Vlevo od vodíku jsou kovy <b>neušlechtilé</b> (E° &lt; 0), vpravo <b>ušlechtilé</b>. Tři pravidla: kov vlevo <b>vytěsní</b> z roztoku soli kov vpravo (Zn + CuSO₄, Cu + AgNO₃); kovy vlevo od H vytěsňují <b>vodík ze zředěných kyselin</b>; nejneušlechtilejší (Li, K, Ca, Na) reagují už <b>s vodou</b>, Mg s horkou, Al/Zn/Fe jen s párou.</p>
+          <p>Pasti: <b>oxidující kyseliny</b> HNO₃ a horká koncentrovaná H₂SO₄ rozpustí i Cu, Ag a Hg — ale bez vodíku, vzniká NO, NO₂ nebo SO₂. Al, Fe a Cr se v koncentrované HNO₃ <b>pasivují</b>. Pb s HCl prakticky nereaguje kvůli PbCl₂ na povrchu. Zlato jen v lučavce královské.</p>
+          <p>Číselně platí pro cokoli: <b>ΔE° = E°(oxidační činidlo) − E°(redukční činidlo)</b>. Kladné → reakce je samovolná. A protože ΔG° = −zFE°, dostanete rovnou i Gibbsovu energii a přes ΔG° = −RT ln K rovnovážnou konstantu: <b>log K = zE°/0,0592</b>. Každých 59 mV / z je jeden řád v K.</p>
+          <p>Pozor: kladné E° znamená „termodynamicky může“, ne „bude rychle“. Hliník by měl korodovat v každé louži, ale Al₂O₃ ho chrání; H₂ a O₂ mají 1,23 V a v lahvi vydrží roky. To je kinetika a přepětí.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq">ΔE° = E°(ox) − E°(red) &gt; 0 → jde<br>ΔG° = −z·F·E° &nbsp;[F = 96 485 C/mol]<br>log K = z·E°/0,0592<br><br>vlevo vytěsní vpravo<br>nad H: vodík z kyselin ne</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>„Cu + HNO₃ → … + H₂“. Měď je nad vodíkem, vodík nikdy nevytěsní; rozpouští ji dusičnan a vzniká NO/NO₂. A: kladné E° ≠ rychlá reakce.</p></div>
+        </div>
+      </div>
+      <div class="svgwrap" id="miniBekWrap" style="min-height:150px;margin-top:1.1rem"></div>
+      <div class="exbox">
+        <span class="eyebrow">Příklad · od tabulky ke K</span>
+        <p class="task">Proběhne reakce mědi s roztokem AgNO₃? Vypočítejte ΔE°, ΔG° a K při 25 °C. E°: Ag⁺/Ag +0,80 V, Cu²⁺/Cu +0,34 V.</p>
+        <div class="calc">oxidační činidlo Ag⁺ (0,80), redukční činidlo Cu (0,34)<br>
+ΔE° = 0,80 − 0,34 = <b>+0,46 V</b> → samovolná ✓<br>
+z = 2 (Cu → Cu²⁺ + 2 e⁻; 2 Ag⁺ + 2 e⁻ → 2 Ag)<br>
+ΔG° = −2 · 96 485 · 0,46 = −88 766 J ≈ <b>−88,8 kJ·mol⁻¹</b><br>
+log K = 2 · 0,46 / 0,0592 = 15,5 → <b>K ≈ 3·10¹⁵</b></div>
+        <span class="res">Cu + 2 Ag⁺ → Cu²⁺ + 2 Ag proběhne kvantitativně</span>
+        <p class="out">Měděný drát v roztoku dusičnanu stříbrného obroste stříbrnými krystalky a roztok zmodrá. Obrácená reakce (Ag + Cu²⁺) má ΔE° = −0,46 V a neproběhne.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>Beketovova řada</span><span>neušlechtilé kovy</span><span>ušlechtilé kovy</span><span>vytěsňování</span><span>oxidující kyseliny</span><span>pasivace</span><span>ΔG° = −zFE°</span><span>rovnovážná konstanta z E°</span></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sblock" id="s5">
+      <div class="sb-head"><span class="sb-min">7 min</span><h3>Nernstova rovnice</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Tabulkové E° platí jen pro koncentrace 1 mol·dm⁻³. Skutečný potenciál dává <b>Nernstova rovnice</b>, která je jen spojením ΔG = ΔG° + RT ln Q s ΔG = −zFE: <b>E = E° − (RT/zF)·ln Q</b>. Při 25 °C: <b>E = E° − (0,0592/z)·log Q</b>. Q je reakční kvocient — produkty děleno reaktanty, pevné látky a voda mají hodnotu 1, elektrony do Q nepatří.</p>
+          <p>Pro jednu elektrodu ox + z e⁻ → red je Q = [red]/[ox]: E(Ag⁺/Ag) = 0,80 + 0,0592·log[Ag⁺]. <b>Zředění iontů potenciál snižuje</b>: každý řád koncentrace je 59 mV / z. Pro celý článek se dosadí celková rovnice; jak se článek vybíjí, Q roste a E klesá. Při E = 0 je Q = K — odtud opět log K = zE°/0,0592.</p>
+          <p><b>Koncentrační článek</b>: dvě stejné elektrody, různé koncentrace. E° se odečtou na nulu a zbude E = (0,0592/z)·log(c_konc/c_zřeď). Ag | Ag⁺ 0,01 M ‖ Ag⁺ 1 M | Ag dá 0,118 V; <b>anoda je ve zředěnějším roztoku</b>.</p>
+          <p><b>pH-závislé potenciály</b>: kdykoli je v poloreakci H⁺, potenciál klesá s pH. Vodíková elektroda: E = −0,0592·pH — to je princip pH-metru (v praxi skleněná elektroda, stejný sklon 59 mV/pH). Manganistan: E = 1,51 − 0,0947·pH (8 H⁺ na 5 e⁻) — v kyselině zoxiduje i chlorid, při pH 7 (0,85 V) už ne. Kyslík: 1,23 − 0,0592·pH.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamatujte si</span>
+            <div class="bq">E = E° − (0,0592/z)·log Q<br><br>koncentrační článek:<br>E = (0,0592/z)·log(c₂/c₁)<br><br>E(H⁺/H₂) = −0,0592·pH<br>E(MnO₄⁻) = 1,51 − 0,0947·pH</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Dosazovat do Q pevný kov nebo vodu (mají aktivitu 1) a zapomínat na mocniny — [H⁺]⁸ u manganistanu je osmá mocnina, proto sklon 8/5 · 59 mV.</p></div>
+        </div>
+      </div>
+      <div class="exgrid">
+        <div class="exbox">
+          <span class="eyebrow">Příklad A · zředěná stříbrná elektroda</span>
+          <p class="task">Jaký potenciál má elektroda Ag | Ag⁺ při c(Ag⁺) = 0,10 mol·dm⁻³? E° = +0,80 V.</p>
+          <div class="calc">Ag⁺ + e⁻ → Ag, z = 1, Q = 1/[Ag⁺]<br>
+E = 0,80 − 0,0592 · log(1/0,10)<br>
+&nbsp;&nbsp;= 0,80 − 0,0592 · 1 = <b>0,741 V</b></div>
+          <span class="res">E = 0,741 V (o 59 mV méně)</span>
+          <p class="out">Jeden řád koncentrace, z = 1 → přesně 59 mV dolů. Při 0,010 M by to bylo 0,682 V.</p>
+        </div>
+        <div class="exbox">
+          <span class="eyebrow">Příklad B · vodíková elektroda a pH</span>
+          <p class="task">Jaký potenciál má vodíková elektroda (p(H₂) = 101,325 kPa) v roztoku o pH 4?</p>
+          <div class="calc">2 H⁺ + 2 e⁻ → H₂, z = 2, Q = 1/[H⁺]²<br>
+E = 0 − (0,0592/2) · log(1/[H⁺]²)<br>
+&nbsp;&nbsp;= −(0,0592/2) · 2 · pH = −0,0592 · 4 = <b>−0,237 V</b></div>
+          <span class="res">E = −0,237 V</span>
+          <p class="out">Dvojka z mocniny a dvojka z počtu elektronů se vykrátí — proto je sklon vždy 59 mV na jednotku pH bez ohledu na z. Při pH 7 je to −0,41 V.</p>
+        </div>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>Nernstova rovnice</span><span>reakční kvocient Q</span><span>koncentrační článek</span><span>pH-závislý potenciál</span><span>skleněná elektroda</span></div>
+    </div>

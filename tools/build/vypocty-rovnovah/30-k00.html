@@ -1,0 +1,140 @@
+
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="pH, pOH, Kw a logaritmy">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · nutný základ pro bod 1 osnovy</span>
+      <h2>pH, pOH, iontový součin vody a&nbsp;práce s&nbsp;logaritmy</h2>
+      <p class="lead">Všechny výpočty v&nbsp;tomhle tématu končí stejně: máte koncentraci a&nbsp;potřebujete z&nbsp;ní pH, nebo naopak. Kdo neumí rychle a&nbsp;bez chyby logaritmovat, prohraje každý příklad ve třetím řádku, i&nbsp;když má správný vzorec. Proto začínáme tady.</p>
+
+      <h3>Autoprotolýza vody a&nbsp;iontový součin</h3>
+      <p>Čistá voda není úplně „nevodivá“. Nepatrná část molekul si mezi sebou předá proton — tomu se říká <span class="term">autoprotolýza vody</span>:</p>
+      <p class="eq"><span class="chem">2 H₂O ⇌ H₃O⁺ + OH⁻</span></p>
+      <p>Rovnovážná konstanta této reakce se jmenuje <span class="term">iontový součin vody</span> <span class="q">K</span><sub>w</sub>. Koncentrace vody se do ní nepíše (je prakticky konstantní, 55,5 mol·dm⁻³), takže:</p>
+      <p class="eq" style="font-size:1.15rem"><span class="q">K</span><sub>w</sub> = [H₃O⁺]·[OH⁻] = <b>1,0·10⁻¹⁴</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">(při 25 °C; hranaté závorky = rovnovážná koncentrace v mol·dm⁻³)</span></p>
+      <p>V&nbsp;čisté vodě vznikají oba ionty ve stejném množství, takže [H₃O⁺] = [OH⁻] = √(10⁻¹⁴) = 10⁻⁷ mol·dm⁻³. A&nbsp;důležitý důsledek: <b>součin je konstantní v&nbsp;každém vodném roztoku</b>. Když přidáte kyselinu a&nbsp;[H₃O⁺] stoupne tisíckrát, [OH⁻] tisíckrát klesne. Nikdy nejsou oba nula — v&nbsp;0,1 M HCl je pořád 10⁻¹³ mol·dm⁻³ hydroxidových aniontů.</p>
+      <div class="callout warn">
+        <span class="eyebrow">Pozor na teplotu</span>
+        <p><span class="q">K</span><sub>w</sub> = 10⁻¹⁴ platí jen při 25 °C. Při 37 °C (tělesná teplota) je 2,4·10⁻¹⁴ a&nbsp;neutrální pH je 6,81; při 100 °C je neutrální pH 6,1. „Neutrální = pH 7“ je tedy pravda jen při pokojové teplotě — oblíbená otázka přijímaček. Všechny výpočty v&nbsp;tomto materiálu jsou pro 25 °C.</p>
+      </div>
+
+      <h3>Definice pH a&nbsp;pOH</h3>
+      <div class="callout def">
+        <span class="eyebrow">Definice (Sørensen 1909)</span>
+        <p><b>pH</b> je záporný dekadický logaritmus relativní koncentrace oxoniových kationtů: <span class="mono">pH = −log[H₃O⁺]</span>. Analogicky <span class="mono">pOH = −log[OH⁻]</span> a&nbsp;<span class="mono">p<span class="q">K</span> = −log <span class="q">K</span></span> pro jakoukoli konstantu. Operátor „p“ prostě znamená „mínus logaritmus“.</p>
+      </div>
+      <p>Zlogaritmujeme-li iontový součin, dostaneme vztah, který budete používat v&nbsp;každém druhém příkladu:</p>
+      <p class="eq" style="font-size:1.15rem">pH + pOH = p<span class="q">K</span><sub>w</sub> = <b>14</b> &nbsp;&nbsp;<span style="color:var(--ink-3)">(25 °C)</span></p>
+      <p>Odtud plyne, že u&nbsp;zásad počítáme <b>nejdřív pOH</b> z&nbsp;koncentrace OH⁻ a&nbsp;teprve potom pH = 14 − pOH. Zpětný převod je <span class="term">antilogaritmus</span>: [H₃O⁺] = 10<sup>−pH</sup>. Roztok o&nbsp;pH 3 má 10⁻³ mol·dm⁻³ H₃O⁺, roztok o&nbsp;pH 4 desetkrát méně. <b>Jedna jednotka pH = desetinásobek koncentrace.</b> Rozdíl mezi pH 1 a&nbsp;pH 7 je milionkrát.</p>
+
+      <h3>Logaritmy bez kalkulačky</h3>
+      <p>U&nbsp;přijímaček kalkulačku většinou nemáte. Vystačíte si se třemi čísly a&nbsp;dvěma pravidly:</p>
+      <div class="grid3">
+        <div class="readout"><span class="k">log 2</span><span class="v">≈ 0,30</span><span class="h">log 4 = 0,60 · log 8 = 0,90</span></div>
+        <div class="readout"><span class="k">log 3</span><span class="v">≈ 0,48</span><span class="h">log 9 = 0,95 · log 6 = 0,78</span></div>
+        <div class="readout"><span class="k">log 5</span><span class="v">≈ 0,70</span><span class="h">= 1 − log 2 · log 2,5 = 0,40</span></div>
+      </div>
+      <p style="margin-top:.6rem">Pravidla: <span class="mono">log(<span class="q">a</span>·<span class="q">b</span>) = log <span class="q">a</span> + log <span class="q">b</span></span> a&nbsp;<span class="mono">log 10<sup><span class="q">n</span></sup> = <span class="q">n</span></span>. Každou koncentraci proto napište ve tvaru <span class="mono"><span class="q">m</span>·10<sup>−<span class="q">n</span></sup></span> s&nbsp;mantisou 1–10; pak <span class="mono">pH = <span class="q">n</span> − log <span class="q">m</span></span>. Protože log <span class="q">m</span> je mezi 0 a&nbsp;1, leží pH vždy mezi <span class="q">n</span> − 1 a&nbsp;<span class="q">n</span>. To je zároveň nejrychlejší kontrola výsledku.</p>
+      <p class="eq">[H₃O⁺] = 3,2·10⁻⁵ &nbsp;→&nbsp; pH = 5 − log 3,2 = 5 − 0,505 = <b>4,49</b><br>pH = 2,88 &nbsp;→&nbsp; [H₃O⁺] = 10⁻²·⁸⁸ = 10⁰·¹²·10⁻³ = 1,32·10⁻³ mol·dm⁻³</p>
+      <div class="callout tip">
+        <span class="eyebrow">Platné číslice u pH</span>
+        <p>Počet desetinných míst pH odpovídá počtu platných číslic koncentrace. Koncentrace 0,10 mol·dm⁻³ (dvě platné) → pH 1,00 (dvě desetinná místa). Na maturitě zapisujte pH na <b>dvě desetinná místa</b> — a&nbsp;ve výsledcích tohoto materiálu je tomu tak všude.</p>
+      </div>
+
+      <h3>Rovnovážné konstanty, se kterými budete pracovat</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Konstanta</th><th>Reakce</th><th>Výraz</th><th>Kde</th></tr></thead>
+          <tbody>
+            <tr><td><span class="q">K</span><sub>w</sub></td><td><span class="chem">2 H₂O ⇌ H₃O⁺ + OH⁻</span></td><td class="n">[H₃O⁺][OH⁻] = 10⁻¹⁴</td><td>všude</td></tr>
+            <tr><td><span class="q">K</span><sub>a</sub> (disociační kyseliny)</td><td><span class="chem">HA + H₂O ⇌ H₃O⁺ + A⁻</span></td><td class="n">[H₃O⁺][A⁻] / [HA]</td><td>kap. 2, 3, 4, 5</td></tr>
+            <tr><td><span class="q">K</span><sub>b</sub> (disociační zásady)</td><td><span class="chem">B + H₂O ⇌ BH⁺ + OH⁻</span></td><td class="n">[BH⁺][OH⁻] / [B]</td><td>kap. 2, 3, 4, 5</td></tr>
+            <tr><td><span class="q">K</span><sub>h</sub> (hydrolýzy)</td><td><span class="chem">A⁻ + H₂O ⇌ HA + OH⁻</span></td><td class="n"><span class="q">K</span><sub>w</sub> / <span class="q">K</span><sub>a</sub></td><td>kap. 3</td></tr>
+            <tr><td><span class="q">K</span><sub>sp</sub> (součin rozpustnosti)</td><td><span class="chem">AgCl(s) ⇌ Ag⁺ + Cl⁻</span></td><td class="n">[Ag⁺][Cl⁻]</td><td>kap. 6</td></tr>
+            <tr><td>β (konstanta stability)</td><td><span class="chem">Ag⁺ + 2 NH₃ ⇌ [Ag(NH₃)₂]⁺</span></td><td class="n">[Ag(NH₃)₂⁺] / ([Ag⁺][NH₃]²)</td><td>kap. 7</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.9rem">Všechny mají společné tři věci, které znáte z&nbsp;tématu Chemická rovnováha: pevné látky a&nbsp;rozpouštědlo se do výrazu <b>nepíší</b>, koncentrace jsou <b>rovnovážné</b> (ne počáteční) a&nbsp;konstanta závisí <b>jen na teplotě</b>. A&nbsp;konjugovaný pár spojuje jednoduchý vztah <span class="mono"><span class="q">K</span><sub>a</sub>·<span class="q">K</span><sub>b</sub> = <span class="q">K</span><sub>w</sub></span>, tedy <span class="mono">p<span class="q">K</span><sub>a</sub> + p<span class="q">K</span><sub>b</sub> = 14</span>.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Logaritmická lišta: pH ↔ [H₃O⁺] ↔ pOH ↔ [OH⁻] + trenažér počítání zpaměti</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label for="lgPH">pH — <span class="val" id="lgPHV">7,00</span></label>
+          <input type="range" id="lgPH" min="0" max="14" step="0.01" value="7">
+        </div>
+        <div class="svgwrap" id="lgWrap" style="min-height:170px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="lgRo1"></div>
+          <div class="readout" id="lgRo2"></div>
+          <div class="readout" id="lgRo3"></div>
+          <div class="readout" id="lgRo4"></div>
+        </div>
+        <div style="margin-top:1.3rem;padding-top:1.1rem;border-top:1px dashed var(--line-strong)">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.7rem">
+            <span class="eyebrow">Trenažér · log bez kalkulačky</span>
+            <span class="eyebrow">Skóre: <b style="color:var(--accent)"><span id="lgScore">0 / 0</span></b></span>
+          </div>
+          <p class="eq" id="lgTask" style="margin-bottom:.8rem"></p>
+          <div class="numin" style="gap:.6rem">
+            <input type="text" id="lgAns" inputmode="decimal" placeholder="pH" aria-label="Odpověď pH">
+            <button class="btn btn-primary btn-sm" type="button" id="lgCheck">Zkontrolovat</button>
+            <button class="btn btn-sm" type="button" id="lgNew">Nové zadání</button>
+          </div>
+          <div class="explain" id="lgVerdict" style="margin-top:.8rem"></div>
+        </div>
+      </div>
+      <div class="panel-note">Posuňte pH o&nbsp;jednu jednotku a&nbsp;sledujte, že [H₃O⁺] se změní přesně 10× a&nbsp;[OH⁻] 10× opačně. V&nbsp;trenažéru používejte jen log 2 ≈ 0,30, log 3 ≈ 0,48 a&nbsp;log 5 ≈ 0,70 — tolerance je ±0,06. Osm zadání se 70% úspěšností označí kapitolu za hotovou.</div>
+    </div>
+
+    <div class="prose">
+      <h3>ICE tabulka — nástroj, který použijeme v&nbsp;každé kapitole</h3>
+      <p>Skoro každá úloha o&nbsp;rovnováze se řeší stejným rituálem. Pod rovnici napíšete tři řádky: <b>I</b>&nbsp;(initial — počáteční koncentrace), <b>C</b>&nbsp;(change — změna vyjádřená neznámou <span class="q">x</span> a&nbsp;stechiometrickými koeficienty) a&nbsp;<b>E</b>&nbsp;(equilibrium — rovnovážné koncentrace = součet obou řádků). Rovnovážné koncentrace dosadíte do konstanty a&nbsp;vyřešíte pro <span class="q">x</span>.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th></th><th class="n">CH₃COOH</th><th class="n">H₃O⁺</th><th class="n">CH₃COO⁻</th></tr></thead>
+          <tbody>
+            <tr><td><b>I</b> počátek</td><td class="n">0,10</td><td class="n">≈ 0</td><td class="n">0</td></tr>
+            <tr><td><b>C</b> změna</td><td class="n">−<span class="q">x</span></td><td class="n">+<span class="q">x</span></td><td class="n">+<span class="q">x</span></td></tr>
+            <tr><td><b>E</b> rovnováha</td><td class="n">0,10 − <span class="q">x</span></td><td class="n"><span class="q">x</span></td><td class="n"><span class="q">x</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.9rem">Kompletní formulář ICE pro všechny typy úloh (slabá kyselina, sůl, srážení, komplex) a&nbsp;pravidla, kdy stačí aproximace, najdete v&nbsp;kapitole 8.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 0.1 · převody bez kalkulačky</span>
+          <p>Roztok má [H₃O⁺] = 3,2·10⁻⁵ mol·dm⁻³. Určete pH, pOH a&nbsp;[OH⁻]. Pak obráceně: jakou koncentraci H₃O⁺ má roztok o&nbsp;pH 9,40?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Rozložíme logaritmus součinu na součet. Mantisa 3,2 leží mezi 3 a&nbsp;4, takže log 3,2 je mezi 0,48 a&nbsp;0,60 — přesně 0,505.</p>
+              <p class="eq">pH = −log(3,2·10⁻⁵) = −(log 3,2 + log 10⁻⁵) = −(0,505 − 5) = <b>4,49</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Kontrola řádu: koncentrace je mezi 10⁻⁵ a&nbsp;10⁻⁴, takže pH musí být mezi 4 a&nbsp;5. Sedí.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>pOH z&nbsp;iontového součinu a&nbsp;[OH⁻] antilogaritmem.</p>
+              <p class="eq">pOH = 14 − 4,49 = <b>9,51</b><br>[OH⁻] = <span class="q">K</span><sub>w</sub> / [H₃O⁺] = 10⁻¹⁴ / 3,2·10⁻⁵ = <b>3,1·10⁻¹⁰ mol·dm⁻³</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p>Obrácený směr: pH 9,40 rozdělíme na celou část a&nbsp;desetinnou část tak, aby exponent byl záporné celé číslo o&nbsp;jedna větší.</p>
+              <p class="eq">[H₃O⁺] = 10⁻⁹·⁴⁰ = 10⁰·⁶⁰ · 10⁻¹⁰ = 4,0·10⁻¹⁰ mol·dm⁻³ &nbsp;<span style="color:var(--ink-3)">(10⁰·⁶ = 4, protože log 4 = 0,60)</span></p>
+              <span class="result">pH 4,49 · pOH 9,51 · [OH⁻] = 3,1·10⁻¹⁰ · a&nbsp;pH 9,40 ⇔ [H₃O⁺] = 4,0·10⁻¹⁰ mol·dm⁻³</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: pH, pOH a logaritmy"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

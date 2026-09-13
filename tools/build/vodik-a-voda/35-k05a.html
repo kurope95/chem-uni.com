@@ -1,0 +1,138 @@
+
+  <!-- ============ KAPITOLA 5 (část A) ============ -->
+  <section class="chapter" id="k5" data-title="Hydridy a hydridové komplexy">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · osnova, bod 5</span>
+      <h2>Hydridy: tři typy vazby, tři úplně jiné látky</h2>
+      <p class="lead">Slovo <b>hydrid</b> označuje v&nbsp;širším smyslu jakoukoli binární sloučeninu vodíku s&nbsp;jiným prvkem. To ale znamená, že do jedné kategorie spadá sodná sůl, plyn, kterým dýcháte, i&nbsp;kovová slitina. Aby to dávalo smysl, netřídí se hydridy podle skupiny partnera, ale <b>podle charakteru vazby</b> — a&nbsp;z&nbsp;ní pak plyne úplně všechno ostatní.</p>
+
+      <h3>Proč zrovna podle vazby</h3>
+      <p>Klasifikace podle typu vazby není jen pořádkumilovnost. Je to <b>nástroj předpovědi</b>. Když u&nbsp;neznámé sloučeniny určíte podle elektronegativit typ vazby, okamžitě víte, jestli je to pevná látka nebo plyn, jestli vede proud, jestli reaguje s&nbsp;vodou a&nbsp;jaké oxidační číslo v&nbsp;ní vodík má. Bez toho pravidla byste se museli učit desítky látek jednu po druhé.</p>
+      <div class="callout def">
+        <span class="eyebrow">Tři typy binárních hydridů</span>
+        <p><b>Iontové (solné)</b> — s&nbsp;alkalickými kovy a&nbsp;těžšími kovy alkalických zemin. Mřížka z&nbsp;kationtů a&nbsp;aniontů <span class="chem">H⁻</span>, vodík má <b>−I</b>.<br>
+        <b>Kovalentní (molekulové a&nbsp;polymerní)</b> — s&nbsp;nekovy, polokovy a&nbsp;některými nepřechodnými kovy. Polární kovalentní vazba, vodík má obvykle <b>+I</b>.<br>
+        <b>Kovové (intersticiální)</b> — s&nbsp;přechodnými kovy. Vodík se zapojuje do delokalizované kovové vazby, složení bývá nestechiometrické.<br>
+        <b>Vzácné plyny hydridy netvoří vůbec.</b></p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Mapa hydridů v&nbsp;periodické tabulce — kde který typ vazby leží</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label>Zvýraznit typ</label>
+            <div class="segmented" id="hmTyp" role="group" aria-label="Zvýraznění typu hydridu">
+              <button type="button" data-v="all" aria-pressed="true">Vše</button>
+              <button type="button" data-v="i" aria-pressed="false">Iontové</button>
+              <button type="button" data-v="k" aria-pressed="false">Kovalentní</button>
+              <button type="button" data-v="m" aria-pressed="false">Kovové</button>
+              <button type="button" data-v="p" aria-pressed="false">Přechodné</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="hmEl">Vybrat prvek</label>
+            <select id="hmEl"></select>
+          </div>
+        </div>
+        <div class="svgwrap" id="hmWrap" style="min-height:300px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--exo)"></span>iontové</span>
+          <span class="li"><span class="sw" style="background:var(--endo)"></span>kovalentní</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>kovové</span>
+          <span class="li"><span class="sw" style="background:var(--cat3)"></span>přechodná oblast</span>
+          <span class="li"><span class="sw" style="background:var(--ink-3)"></span>hydridy netvoří</span>
+        </div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="hmRo1"></div>
+          <div class="readout" id="hmRo2"></div>
+          <div class="readout" id="hmRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="hmNote">Zvýrazněte postupně jednotlivé typy. Uvidíte, že rozdělení kopíruje elektronegativitu: <b>vlevo</b> jsou nejelektropozitivnější kovy a&nbsp;iontové hydridy, <b>vpravo</b> nekovy a&nbsp;kovalentní hydridy, <b>uprostřed</b> blok přechodných kovů s&nbsp;hydridy kovovými. Mezi nimi jsou úzké přechodové pruhy — hydridy Be, Mg, Zn, Cd, Hg, In a&nbsp;Tl už nejsou ani jedno, ani druhé.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Iontové (solné) hydridy</h3>
+      <p>Krystalová mřížka je postavená z&nbsp;kationtů silně elektropozitivního kovu a&nbsp;z&nbsp;aniontů <span class="chem">H⁻</span>. <b>NaH má úplně stejnou strukturu jako NaCl</b> — anion H⁻ tam prostě zastane roli chloridu. Podíl kovalentnosti je malý.</p>
+      <p><b>Příprava:</b> nejlépe přímou syntézou z&nbsp;prvků. Roztavený kov se při zvýšené teplotě sytí plynným vodíkem:</p>
+      <p class="eq"><span class="chem">2 Na + H₂ → 2 NaH</span> &nbsp;·&nbsp; <span class="chem">Ca + H₂ → CaH₂</span> &nbsp;·&nbsp; <span class="chem">2 Li + H₂ → 2 LiH</span></p>
+      <p><b>Vlastnosti:</b> všechny jsou to <b>bezbarvé krystalické látky</b> s&nbsp;typickým vzhledem iontových sloučenin — vysoké teploty tání (LiH taje při 688&nbsp;°C, CaH₂ při 816&nbsp;°C), v&nbsp;tavenině vedou elektrický proud.</p>
+      <p><b>Redoxní chování:</b> hydridové ionty patří mezi <b>mimořádně silná redukční činidla</b>. Elektrony uvolňují podle poloreakce</p>
+      <p class="eq"><span class="chem">2 H⁻ → H₂ + 2 e⁻</span></p>
+      <p><b>Reakce s&nbsp;vodou</b> je prudká a&nbsp;silně exotermická. Hydridový aniont zredukuje kation vodíku z&nbsp;vody na elementární vodík a&nbsp;sám se přitom také oxiduje na vodík:</p>
+      <p class="eq"><span class="chem">H⁻ + H₂O → H₂ + OH⁻</span> &nbsp;&nbsp;tedy prakticky &nbsp;&nbsp;<span class="chem">NaH + H₂O → NaOH + H₂</span><br>
+      <span class="chem">CaH₂ + 2 H₂O → Ca(OH)₂ + 2 H₂</span></p>
+      <div class="callout warn">
+        <span class="eyebrow">Past: odkud jsou ty dva atomy vodíku</span>
+        <p>V&nbsp;molekule H₂, která z&nbsp;téhle reakce vyjde, <b>není ani jeden atom stejného původu</b>. Jeden přišel z&nbsp;hydridu (měl −I) a&nbsp;druhý z&nbsp;vody (měl +I). Oba skončí na 0 — jde tedy o&nbsp;<b>synproporcionaci</b>. Kdo napíše, že „hydrid uvolní svůj vodík“, dostane špatnou bilanci. Zkontrolujte si to na CaH₂: dva hydridové vodíky plus dva vodíky ze dvou molekul vody dají <b>dvě</b> molekuly H₂, ne jednu.</p>
+      </div>
+      <p>Reakce je tak exotermická, že se některé iontové hydridy na vlhkém vzduchu <b>samovolně zapalují</b>. Hydrid draselný se proto skladuje jako suspenze v&nbsp;minerálním oleji.</p>
+      <p><b>Použití:</b> LiH a&nbsp;CaH₂ slouží jako <b>silná redukční činidla v&nbsp;preparativní chemii</b>, kde se pracuje v&nbsp;nevodných rozpouštědlech, a&nbsp;jako <b>sušidla</b> na odstranění posledních stop vlhkosti z&nbsp;rozpouštědel. Hydrid vápenatý se pro tenhle účel prodává pod obchodním názvem hydrolit. NaH se v&nbsp;organické syntéze používá jako velmi silná zásada: odtrhne proton a&nbsp;sám odejde jako plynný vodík, takže reakce je nevratná a&nbsp;produkt se nemusí čistit od zbytků báze.</p>
+
+      <h3>Kovalentní hydridy</h3>
+      <p>Kovalentní charakter najdeme u&nbsp;sloučenin vodíku se <b>všemi nekovy a&nbsp;polokovy</b> a&nbsp;také s&nbsp;některými nepřechodnými kovy. Většina z&nbsp;nich jsou <b>nízkomolekulární molekulové látky</b> s&nbsp;polární kovalentní vazbou, ve které má vodík kladné oxidační číslo <b>+I</b>.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Názvosloví — proč se neříká „hydrid chloru“</span>
+        <p>To, že vodík má v&nbsp;těchto látkách <b>kladné</b> oxidační číslo, se odráží i&nbsp;v&nbsp;názvu. Slovo „hydrid“ naznačuje přítomnost aniontu H⁻, takže se u&nbsp;kovalentních hydridů nepoužívá. Místo něj se používají buď <b>triviální názvy</b> (fluorovodík, chlorovodík, jodovodík, voda, amoniak), nebo <b>koncovka -an</b>: silan SiH₄, german GeH₄, stannan SnH₄, fosfan PH₃, arsan AsH₃, sulfan H₂S, boran BH₃. Starší česká literatura používala „fosforovodík“ a&nbsp;„sirovodík“ — dnešní IUPAC názvosloví je fosfan a&nbsp;sulfan.</p>
+      </div>
+      <p>Typickými zástupci jsou <b>halogenovodíky</b> (HF, HCl, HBr, HI), <b>chalkogenovodíky</b> (H₂O, H₂S, H₂Se, H₂Te), dále NH₃, PH₃, AsH₃, SbH₃, všechny <b>uhlovodíky</b>, SiH₄ a&nbsp;GeH₄. Převážně kovalentní charakter mají i&nbsp;SnH₄, PbH₄ a&nbsp;BiH₃, i&nbsp;když partnerem už je kov.</p>
+      <p><b>Těkavost:</b> molekulové kovalentní hydridy jsou <b>velmi těkavé látky</b> — mezimolekulové síly jsou slabé, takže vřou hluboko pod nulou. Výjimkou jsou ty nejpolárnější (HF, H₂O, NH₃), kterým těkavost snižují <b>vodíkové můstky</b>. Právě z&nbsp;tohoto srovnání je nejlépe vidět, jak silná vazba to je — podívejte se na graf níž.</p>
+
+      <h3>Přechodná oblast: BeH₂, MgH₂ a&nbsp;polymerní hydridy</h3>
+      <p>Hydridy beryllia a&nbsp;hořčíku mají <b>přechodný iontově kovalentní charakter</b>. Kdyby existovaly jako jednoduché molekuly BeH₂, byly by <b>elektronově deficitní</b> — beryllium by nemělo vytvořený oktet. Řeší to <b>polymerací</b>: vzniknou dlouhé řetězce, v&nbsp;nichž jsou vždy tři atomy vázány jediným elektronovým párem.</p>
+      <div class="callout def">
+        <span class="eyebrow">Třístředová dvouelektronová vazba</span>
+        <p>Vazba <span class="chem">Be–H–Be</span>, ve které jeden elektronový pár drží pohromadě <b>tři atomová jádra</b> místo obvyklých dvou. Vzniká vždy, když je elektronů příliš málo na to, aby každá dvojice atomů dostala vlastní pár. Vodík v&nbsp;ní vystupuje jako <b>můstkový atom</b> uvnitř molekuly — nezaměňujte s&nbsp;vodíkovým můstkem, který je <b>mezi</b> molekulami a&nbsp;je mnohem slabší.</p>
+      </div>
+      <p>Ještě pestřejší je situace u&nbsp;<b>boranů</b>. Nejjednodušší z&nbsp;nich, <b>diboran B₂H₆</b>, má jen dvanáct valenčních elektronů, tedy šest párů — a&nbsp;přitom osm atomů, které je třeba pospojovat. Čtyři koncové vazby B–H spotřebují čtyři páry a&nbsp;zbývající dva páry vytvoří <b>dvě třístředové vazby B–H–B</b>. Do skupiny polymerních kovalentních hydridů patří i&nbsp;sloučeniny vodíku s&nbsp;hliníkem (<b>alany</b>) a&nbsp;s&nbsp;galliem (<b>gallany</b>).</p>
+      <p>Většina polymerních hydridů jsou tuhé látky. Plynné nebo kapalné jsou jen ty s&nbsp;nízkým stupněm polymerace a&nbsp;malou relativní molekulovou hmotností — B₂H₆, B₄H₁₀ nebo Ga₂H₆.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">Past: čí je to redoxní vlastnost — podruhé</span>
+        <p>Kovalentní hydridy jsou až na výjimky spíš <b>redukčními než oxidačními</b> prostředky. Ale pozor na výklad:</p>
+        <p class="eq"><span class="chem">2 HI + H₂O₂ → 2 H₂O + I₂</span> &nbsp;·&nbsp; <span class="chem">2 H₂S + O₂ → 2 H₂O + 2 S</span></p>
+        <p>Redukční schopnost tady <b>nepatří vodíku</b>, ale snadno oxidovatelné elektronegativní části molekuly: jodidu I⁻ᴵ a&nbsp;sulfidu S⁻ᴵᴵ. Vodík v&nbsp;obou případech zůstane +I. Vůči <b>silným redukovadlům</b> se ovšem vodík v&nbsp;kovalentním hydridu chová jako oxidovadlo a&nbsp;klesne z&nbsp;+I na 0:</p>
+        <p class="eq"><span class="chem">2 Na + 2 H₂O → 2 NaOH + H₂</span> &nbsp;·&nbsp; <span class="chem">Mg + 2 HCl → MgCl₂ + H₂</span></p>
+      </div>
+
+      <h3>Kovové hydridy</h3>
+      <p>Přechodné kovy vytvářejí s&nbsp;vodíkem látky, které si zachovávají <b>charakter kovů, respektive slitin</b>. Atomy vodíku se svými orbitaly 1s zapojí do <b>vysoce delokalizované kovové vazby</b> celého krystalu. Někdy jsou atomy vodíku prostě usazeny ve volných prostorách původní kovové mřížky (proto název <b>intersticiální hydridy</b>), jindy vznikne sloučenina s&nbsp;vlastní krystalovou strukturou.</p>
+      <p><b>Stechiometrie bývá velmi proměnná.</b> Kov nebo už vzniklý hydrid rozpouští další vodík za vzniku tuhých roztoků, takže složení se popisuje jako <span class="chem">PdH<sub>x</sub></span> s&nbsp;proměnným <span class="q">x</span>. To je zásadní rozdíl proti iontovým a&nbsp;kovalentním hydridům, kde je poměr atomů pevný.</p>
+      <div class="grid3">
+        <div class="readout"><span class="k">Elektrická vodivost</span><span class="v">ano</span><span class="h">vodiče nebo polovodiče — kovová vazba zůstala</span></div>
+        <div class="readout"><span class="k">Těkavost</span><span class="v">netěkavé</span><span class="h">pevné látky kovového vzhledu</span></div>
+        <div class="readout"><span class="k">Pohltivost palladia</span><span class="v">až 900násobek objemu</span><span class="h">základ membrán na čištění vodíku</span></div>
+      </div>
+      <p style="margin-top:1rem"><b>Okraje</b> oblasti kovových hydridů tvoří hydridy přechodného typu: sloučeniny vodíku s&nbsp;kovy 13., 14. a&nbsp;15. skupiny jsou přechodem mezi iontovými a&nbsp;kovovými hydridy, zatímco hydridy zinku, kadmia a&nbsp;rtuti představují spíš přechod k&nbsp;polymerním kovalentním hydridům.</p>
+      <p><b>Praktický význam</b> mají kovové hydridy hned dvojí. Jednak jsou <b>zásobníky vodíku</b>: slitina LaNi₅ pohltí vodík při zvýšeném tlaku a&nbsp;při snížení tlaku ho zase vydá; na tom stojí záporná elektroda akumulátorů NiMH i&nbsp;metalhydridové nádrže. Jednak jsou klíčem k&nbsp;pochopení <b>katalytické hydrogenace</b> — právě povrchový kovový hydrid je ten meziprodukt, který na niklu nebo palladiu rozštěpí molekulu H₂ na jednotlivé atomy.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Teploty varu hydridů 14. až 17. skupiny — kde se schovávají vodíkové můstky</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:1rem">
+          <label>Zvýraznit skupinu</label>
+          <div class="segmented" id="bpSel" role="group" aria-label="Volba skupiny">
+            <button type="button" data-v="g14" aria-pressed="false">14. skupina</button>
+            <button type="button" data-v="g15" aria-pressed="false">15. skupina</button>
+            <button type="button" data-v="g16" aria-pressed="true">16. skupina</button>
+            <button type="button" data-v="g17" aria-pressed="false">17. skupina</button>
+          </div>
+        </div>
+        <div class="svgwrap" id="bpWrap" style="min-height:310px"></div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="bpRo1"></div>
+          <div class="readout" id="bpRo2"></div>
+          <div class="readout" id="bpRo3"></div>
+        </div>
+      </div>
+      <div class="panel-note" id="bpNote">Nejdřív si prohlédněte 14. skupinu — to je „normální“ chování bez vodíkových můstků: teplota varu roste plynule s&nbsp;molární hmotností. Pak přepněte na 16. skupinu a&nbsp;podívejte se, jak voda z&nbsp;té řady vyskočí. Rozdíl mezi extrapolovanou hodnotou a&nbsp;skutečností je <b>příspěvek vodíkových můstků</b>.</div>
+    </div>

@@ -1,0 +1,92 @@
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Koordinační sloučeniny</h1>
+      <p class="lead">Proč je roztok modré skalice bledě modrý, ale po přilití amoniaku se rozzáří sytou modří? Proč je jedna platinová sloučenina lék proti rakovině a&nbsp;její dvojče se stejným vzorcem naprosto neúčinné? A&nbsp;proč vás oxid uhelnatý zabije, i&nbsp;když v&nbsp;místnosti zbývá dost kyslíku? Všechny tři odpovědi má v&nbsp;ruce jedna kapitola — chemie komplexů. Není to dodatek k&nbsp;přechodným kovům; je to <b>nástroj, bez kterého se přechodné kovy vyložit nedají</b>, a&nbsp;proto stojí před nimi.</p>
+      <div class="hero-meta">
+        <span class="tag">Rychlokurz i&nbsp;plný kurz</span>
+        <span class="tag">Interaktivní modely</span>
+        <span class="tag">Trenažér názvosloví</span>
+        <span class="tag">Testy s&nbsp;vysvětlením</span>
+        <span class="tag">Tahák a&nbsp;slovníček</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">Na jedno odpoledne</span></span>
+        <span class="pt">Rychlokurz</span>
+        <span class="pd">Celé téma v&nbsp;kostce, blok po bloku. Každý blok má výklad, rámeček <b>Zapamatujte si</b> se vzorci a&nbsp;pravidly, upozornění na častou chybu a&nbsp;řešený příklad. Na konci věty, které musíte umět odříkat, kontrolní test a&nbsp;mapa pokrytí pojmů s&nbsp;odkazy do kapitol.</span>
+        <span class="pgo">Začít tady →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">Kapitolu po kapitole</span></span>
+        <span class="pt">Plný kurz</span>
+        <span class="pd">Podrobný výklad od stavby komplexu přes názvosloví a&nbsp;izomerii k&nbsp;teorii krystalového pole, barvě, magnetismu, chelataci a&nbsp;praktickému využití. Interaktivní modely, řešené příklady krok za krokem a&nbsp;mini‑test po každé kapitole.</span>
+        <span class="pgo">Přejít na kapitolu 00 →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stavebnice komplexu — jediný obrázek, který si musíte zapamatovat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:.9rem">
+          <label>Centrální atom a&nbsp;jeho oxidační číslo</label>
+          <div class="segmented" id="bxCenSeg" style="flex-wrap:wrap;max-width:100%">
+            <button type="button" data-v="0" aria-pressed="false">Fe<sup>II</sup></button>
+            <button type="button" data-v="1" aria-pressed="false">Fe<sup>III</sup></button>
+            <button type="button" data-v="2" aria-pressed="true">Co<sup>III</sup></button>
+            <button type="button" data-v="3" aria-pressed="false">Ni<sup>II</sup></button>
+            <button type="button" data-v="4" aria-pressed="false">Cu<sup>II</sup></button>
+            <button type="button" data-v="5" aria-pressed="false">Cr<sup>III</sup></button>
+            <button type="button" data-v="6" aria-pressed="false">Ag<sup>I</sup></button>
+            <button type="button" data-v="7" aria-pressed="false">Pt<sup>II</sup></button>
+          </div>
+        </div>
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="bxLig">Ligand v&nbsp;koordinační sféře</label>
+            <select id="bxLig"></select>
+          </div>
+          <div class="ctl">
+            <label>Koordinační číslo a&nbsp;tvar polyedru</label>
+            <div class="segmented" id="bxGeoSeg" style="flex-wrap:wrap;max-width:100%">
+              <button type="button" data-v="lin" aria-pressed="false">2 · lineární</button>
+              <button type="button" data-v="tet" aria-pressed="false">4 · tetraedr</button>
+              <button type="button" data-v="sq" aria-pressed="false">4 · čtverec</button>
+              <button type="button" data-v="okt" aria-pressed="true">6 · oktaedr</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="bxWrap" style="min-height:340px"></div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:var(--accent)"></span>centrální atom — akceptor elektronového páru</span>
+          <span class="li"><span class="sw" style="background:var(--cat2)"></span>ligand — donor elektronového páru</span>
+        </div>
+        <div class="grid3" style="margin-top:1.1rem">
+          <div class="readout" id="bxRo1"></div>
+          <div class="readout" id="bxRo2"></div>
+          <div class="readout" id="bxRo3"></div>
+        </div>
+        <p class="eq" id="bxVz" style="margin-top:1rem"></p>
+        <p class="eq" id="bxNazev"></p>
+      </div>
+      <div class="panel-note">Zkuste nastavit centrální atom <b>Co<sup>III</sup></b> a&nbsp;ligand <span class="chem">NH₃</span> — vyjde vám náboj +3, protože amoniak je nenabitý. Pak přepněte ligand na <span class="chem">CN⁻</span> a&nbsp;sledujte, jak náboj skočí na −3, přestože se na kobaltu nic nezměnilo. <b>Náboj komplexu není vlastnost kovu; je to součet.</b> A&nbsp;všimněte si, že u&nbsp;koordinačního čísla 4 si můžete vybrat mezi tetraedrem a&nbsp;čtvercem — právě na tomhle rozdílu stojí celá izomerie i&nbsp;magnetismus. Stavebnice vám dovolí složit i&nbsp;kombinace, které v&nbsp;lahvičce nikdy nepotkáte; jde tu o&nbsp;nácvik výpočtu náboje a&nbsp;stavby názvu, ne o&nbsp;katalog existujících látek.</div>
+    </div>
+
+    <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
+    <p class="lead" style="margin-top:.5rem;max-width:min(100%,100ch);font-size:1rem">Každý řádek osnovy má svou kapitolu. Klepněte na řádek a&nbsp;skočíte rovnou na ni.</p>
+    <div class="syllabus">
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Centrální atom a&nbsp;ligandy: co je koordinační sloučenina, donor-akceptorová vazba, vnitřní a&nbsp;vnější sféra, náboj komplexní částice a&nbsp;oxidační číslo centrálního atomu.</span><span class="go">Kap. 0</span></a>
+      <a class="syl-row" href="#k1"><span class="b">2</span><span>Koordinační číslo a&nbsp;geometrie: koordinační polyedr, koordinační sféra homogenní a&nbsp;heterogenní, jednodonorové a&nbsp;vícedonorové ligandy, cheláty, můstkové ligandy a&nbsp;klastry.</span><span class="go">Kap. 1</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Názvosloví komplexů: názvy ligandů, násobící předpony, pořadí ligandů, komplexní kation, anion a&nbsp;nenabitý komplex, celé soli — oběma směry, se&nbsp;trenažérem.</span><span class="go">Kap. 2</span></a>
+      <a class="syl-row" href="#k3"><span class="b">4</span><span>Izomerie: geometrická (cis-trans, fac-mer), optická (enantiomery a&nbsp;racemát), vazebná, ionizační, hydrátová a&nbsp;koordinační.</span><span class="go">Kap. 3</span></a>
+      <a class="syl-row" href="#k4"><span class="b">5</span><span>Teorie krystalového pole: proč se pět orbitalů d&nbsp;v&nbsp;poli ligandů rozštěpí, co je Δ, štěpení v&nbsp;oktaedrickém, tetraedrickém a&nbsp;čtvercovém poli, spektrochemická řada, π-donory a&nbsp;π-akceptory.</span><span class="go">Kap. 4</span></a>
+      <a class="syl-row" href="#k5"><span class="b">6</span><span>Magnetické chování: vysokospinové a&nbsp;nízkospinové komplexy, párovací energie, počet nepárových elektronů, paramagnetismus a&nbsp;diamagnetismus, magnetický moment.</span><span class="go">Kap. 5</span></a>
+      <a class="syl-row" href="#k6"><span class="b">7</span><span>Barevnost: přechody d–d, vztah mezi Δ a&nbsp;vlnovou délkou, doplňková barva, proč jsou komplexy přechodných kovů barevné a&nbsp;proč je jejich absorpce slabá.</span><span class="go">Kap. 6</span></a>
+      <a class="syl-row" href="#k7"><span class="b">8</span><span>Chelatace a&nbsp;stabilita: konsekutivní a&nbsp;celkové konstanty stability, chelátový efekt a&nbsp;jeho entropický původ, EDTA, termodynamická a&nbsp;kinetická stabilita, maskování iontů.</span><span class="go">Kap. 7</span></a>
+      <a class="syl-row" href="#k8"><span class="b">9</span><span>Praktické využití: hemoglobin a&nbsp;chlorofyl, cisplatina, EDTA v&nbsp;analýze i&nbsp;medicíně, galvanické pokovování, kyanidové loužení zlata, katalýza a&nbsp;analytické důkazy.</span><span class="go">Kap. 8</span></a>
+    </div>
+  </header>

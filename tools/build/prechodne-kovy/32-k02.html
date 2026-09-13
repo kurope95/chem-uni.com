@@ -1,0 +1,201 @@
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Barevnost a magnetismus">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · osnova, bod 3</span>
+      <h2>Barevnost a&nbsp;magnetismus</h2>
+      <p class="lead">Roztok síranu měďnatého je modrý, roztok síranu zinečnatého bezbarvý. Roztok manganistanu přitáhne bodovou jehlu magnetu, roztok chloridu zinečnatého ne. Obě dvojice se liší jednou jedinou věcí — počtem elektronů v&nbsp;orbitalech d. Barva i&nbsp;magnetismus jsou dva různé projevy téže příčiny.</p>
+
+      <h3>Než začneme: rozštěpení hladin d</h3>
+      <p>Ve volném iontu má všech pět orbitalů d&nbsp;stejnou energii. Jakmile se kolem něj rozmístí ligandy (nejčastěji šest do vrcholů oktaedru), přestane to platit: ligandy jsou zdroje záporného náboje a&nbsp;orbitaly, které míří přímo na ně, se energeticky zvednou víc než ty, které míří mezi ně.</p>
+      <div class="callout def">
+        <span class="eyebrow">Co potřebujeme z&nbsp;teorie krystalového pole</span>
+        <p>V&nbsp;oktaedrickém poli se pětice orbitalů d&nbsp;rozdělí na <b>dolní trojici <span class="chem">t₂g</span></b> (orbitaly mířící mezi ligandy) a&nbsp;<b>horní dvojici <span class="chem">e_g</span></b> (orbitaly mířící na ligandy). Energetický rozdíl mezi nimi se značí <span class="q">Δ</span><sub>o</sub> a&nbsp;říká se mu <b>rozštěpení v&nbsp;krystalovém poli</b>.</p>
+        <p style="margin-top:.5rem">Velikost <span class="q">Δ</span><sub>o</sub> roste s&nbsp;nábojem centrálního iontu, s&nbsp;přechodem do vyšší řady (3d &lt; 4d &lt; 5d) a&nbsp;se silou ligandu podle spektrochemické řady:</p>
+        <p class="eq" style="margin-top:.4rem"><span class="chem">I⁻ &lt; Br⁻ &lt; Cl⁻ &lt; F⁻ &lt; OH⁻ &lt; H₂O &lt; NH₃ &lt; en &lt; NO₂⁻ &lt; CN⁻ &lt; CO</span><br><span style="color:var(--ink-3)">slabé pole ←&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ silné pole</span></p>
+      </div>
+      <p>Podrobně se rozštěpením, tvary komplexů a&nbsp;jejich stabilitou zabývá okruh <b>Koordinační sloučeniny</b>. Tady nám stačí jediné číslo — velikost <span class="q">Δ</span><sub>o</sub> — a&nbsp;z&nbsp;něj odvodíme barvu i&nbsp;magnetické chování.</p>
+
+      <h3>Odkud se bere barva</h3>
+      <p>Pokud jsou v&nbsp;dolní trojici elektrony a&nbsp;v&nbsp;horní dvojici je volné místo, může elektron mezi hladinami přeskočit. Energii na skok si vezme z&nbsp;dopadajícího světla — <b>pohltí foton</b> s&nbsp;přesně odpovídající energií. Takovému ději se říká <span class="term">přechod d–d</span>.</p>
+      <div class="callout def">
+        <span class="eyebrow">Vztah mezi energií a&nbsp;vlnovou délkou</span>
+        <p class="eq" style="margin:0"><span class="q">λ</span> [nm] = 10⁷ / <span class="q">ν̃</span> [cm⁻¹] &nbsp;&nbsp;·&nbsp;&nbsp; <span class="q">E</span> [kJ·mol⁻¹] = 0,011963 · <span class="q">ν̃</span> [cm⁻¹]</p>
+        <p style="margin-top:.5rem"><span class="q">ν̃</span> je vlnočet (v&nbsp;praxi se rozštěpení udává právě v&nbsp;cm⁻¹), <span class="q">λ</span> vlnová délka pohlceného světla, <span class="q">E</span> energie potřebná na přechod jednoho molu elektronů. Viditelné světlo má 380 až 780&nbsp;nm, tedy zhruba 26 300 až 12 800&nbsp;cm⁻¹, což je 315 až 153&nbsp;kJ·mol⁻¹.</p>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Klíčová past</span>
+        <p>Látka má <b>doplňkovou barvu</b> k&nbsp;té, kterou pohltila. Když komplex pohltí zelené světlo (kolem 500&nbsp;nm), <b>projde purpurové</b> a&nbsp;my ho vidíme jako fialový. Studenti často odpovídají „pohlcuje modré světlo, takže je modrý“ — je to přesně naopak.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Od rozštěpení k&nbsp;barvě — proč je titanitý roztok fialový</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="bvSel">Reálný komplex</label>
+            <select id="bvSel"></select>
+          </div>
+          <div class="ctl">
+            <label for="bvD">Vlastní hodnota <span class="q">ν̃</span> <span class="val" id="bvDv">20 300 cm⁻¹</span></label>
+            <input type="range" id="bvD" min="11000" max="29000" step="100" value="20300">
+          </div>
+        </div>
+        <div class="svgwrap" id="bvWrap" style="min-height:330px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="bvRo1"></div>
+          <div class="readout" id="bvRo2"></div>
+          <div class="readout" id="bvRo3"></div>
+        </div>
+        <div id="bvList" style="margin-top:1rem"></div>
+      </div>
+      <div class="panel-note" id="bvNote">Vyberte titanitý komplex a&nbsp;pak přepněte na chromitý s&nbsp;vodou a&nbsp;s&nbsp;amoniakem. Uvidíte, že se změnou jediného ligandu se pás posune o&nbsp;víc než sto nanometrů a&nbsp;barva se převrátí z&nbsp;fialové do žluté. Posuvníkem si pak zkuste vyjet mimo viditelnou oblast — látka zbělá, ať už je rozštěpení příliš malé (infračervená oblast), nebo příliš velké (ultrafialová).</div>
+    </div>
+
+    <div class="prose">
+      <h3>Kdy je sloučenina přechodného kovu bezbarvá</h3>
+      <p>Přechod d–d potřebuje dvě věci: <b>elektron, který by skočil</b>, a&nbsp;<b>volné místo, kam by skočil</b>. Když jedna z&nbsp;nich chybí, barva zmizí.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Konfigurace</th><th>Je přechod d–d možný?</th><th>Barva</th><th>Příklady</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chem">d⁰</span></td><td>ne — není co posunout</td><td>bezbarvá</td><td><span class="chem">Sc³⁺</span>, <span class="chem">Ti⁴⁺</span>, <span class="chem">V⁵⁺</span> (v&nbsp;<span class="chem">TiO₂</span> proto bílá)</td></tr>
+            <tr><td><span class="chem">d¹</span> až <span class="chem">d⁹</span></td><td>ano</td><td>barevná</td><td><span class="chem">Ti³⁺</span> fialový, <span class="chem">Cu²⁺</span> modrý, <span class="chem">Ni²⁺</span> zelený</td></tr>
+            <tr><td><span class="chem">d¹⁰</span></td><td>ne — není kam skočit</td><td>bezbarvá</td><td><span class="chem">Zn²⁺</span>, <span class="chem">Cd²⁺</span>, <span class="chem">Cu⁺</span>, <span class="chem">Ag⁺</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="eyebrow">Nejzrádnější past celé kapitoly</span>
+        <p>Manganistan <span class="chem">MnO₄⁻</span> má mangan ve stavu VII, tedy konfiguraci <b>d⁰</b>. Chroman <span class="chem">CrO₄²⁻</span> má chrom ve stavu VI, taky <b>d⁰</b>. Podle tabulky výše by měly být bezbarvé — a&nbsp;přitom jsou to nejsytěji zbarvené anorganické ionty, jaké ve škole potkáte.</p>
+        <p style="margin-top:.5rem">Vysvětlení: jejich barva <b>nepochází z&nbsp;přechodu d–d</b>, ale z&nbsp;<span class="term">přenosu náboje</span> (anglicky charge transfer). Elektron přeskočí z&nbsp;orbitalu kyslíku na prázdný orbital kovu. Takový přechod je řádově intenzivnější, proto stačí zlomek gramu manganistanu na obarvení vany vody.</p>
+      </div>
+      <p class="eq">intenzita zbarvení (molární absorpční koeficient <span class="q">ε</span> [dm³·mol⁻¹·cm⁻¹]):<br>
+      přechod d–d: <span class="q">ε</span> ≈ 1 až 100 &nbsp;·&nbsp; přenos náboje: <span class="q">ε</span> ≈ 1000 až 20 000</p>
+      <p>Odtud plyne praktický rozdíl, který každý zná z&nbsp;laboratoře: aby byl roztok skalice modré pořádně modrý, musí být poměrně koncentrovaný, kdežto manganistan barví i&nbsp;při koncentraci tisíckrát nižší. Přesně proto se manganistan tak dobře hodí na titraci — je sám sobě indikátorem.</p>
+
+      <h3>Magnetismus: nepárové elektrony</h3>
+      <p>Elektron se chová jako maličký magnet. Ve spárované dvojici se oba magnetické momenty vyruší, ale <b>nepárový elektron zbude nevykompenzovaný</b> — a&nbsp;látka se pak chová magneticky.</p>
+      <div class="grid3" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Diamagnetismus</span>
+          <p>Žádný nepárový elektron. Látka je magnetickým polem velmi slabě <b>odpuzována</b>. Sem patří <span class="chem">Zn²⁺</span>, <span class="chem">Sc³⁺</span>, <span class="chem">Cu⁺</span>, <span class="chem">TiO₂</span>.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Paramagnetismus</span>
+          <p>Alespoň jeden nepárový elektron. Látka je do pole <b>vtahována</b>, ale po jeho vypnutí magnetismus zmizí. Sem patří většina solí přechodných kovů.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Feromagnetismus</span>
+          <p>Nepárové elektrony sousedních atomů se v&nbsp;doménách <b>srovnají rovnoběžně</b>. Efekt je řádově silnější a&nbsp;po vypnutí pole zůstává. Jen železo, kobalt, nikl a&nbsp;několik slitin.</p>
+        </div>
+      </div>
+      <div class="callout def">
+        <span class="eyebrow">Spinový magnetický moment</span>
+        <p class="eq" style="margin:0"><span class="q">μ</span> = √(<span class="q">n</span> · (<span class="q">n</span> + 2)) &nbsp;[μ<sub>B</sub>]</p>
+        <p style="margin-top:.5rem"><span class="q">n</span> je počet nepárových elektronů, <span class="q">μ</span><sub>B</sub> je Bohrův magneton (jednotka magnetického momentu). Vzorec počítá jen se spinem, dráhový příspěvek zanedbává — u&nbsp;iontů první přechodné řady to obvykle stačí na dvě platné číslice.</p>
+      </div>
+      <p class="eq">hodnoty, které se hodí znát zpaměti [μ<sub>B</sub>]:<br>
+      <span class="q">n</span> = 1 → <span class="q">μ</span> = 1,73 &nbsp;·&nbsp; <span class="q">n</span> = 2 → 2,83 &nbsp;·&nbsp; <span class="q">n</span> = 3 → 3,87<br>
+      <span class="q">n</span> = 4 → 4,90 &nbsp;·&nbsp; <span class="q">n</span> = 5 → 5,92 &nbsp;·&nbsp; <span class="q">n</span> = 0 → 0 (diamagnetická látka)</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Kolik nepárových elektronů má ion a&nbsp;jaký z&nbsp;toho plyne moment</h3>
+      </div>
+      <div class="panel-body">
+        <div class="grid2" style="margin-bottom:1rem">
+          <div class="ctl">
+            <label for="mgSel">Ion</label>
+            <select id="mgSel"></select>
+          </div>
+          <div class="ctl">
+            <label for="mgPole">Síla ligandového pole</label>
+            <div class="segmented" style="flex-wrap:wrap" id="mgSeg" role="group" aria-label="Síla pole">
+              <button type="button" data-mg="slabe" aria-pressed="true">Slabé pole</button>
+              <button type="button" data-mg="silne" aria-pressed="false">Silné pole</button>
+            </div>
+          </div>
+        </div>
+        <div class="svgwrap" id="mgWrap" style="min-height:300px"></div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="mgRo1"></div>
+          <div class="readout" id="mgRo2"></div>
+          <div class="readout" id="mgRo3"></div>
+        </div>
+        <p class="eq" id="mgVerd" style="margin-top:1rem"></p>
+      </div>
+      <div class="panel-note" id="mgNote">Vyberte <span class="chem">Fe³⁺</span> a&nbsp;přepínejte sílu pole. Ve slabém poli se elektrony rozestaví po jednom do všech pěti orbitalů (pět nepárových, moment 5,92&nbsp;μ<sub>B</sub>), v&nbsp;silném poli se natlačí do dolní trojice a&nbsp;zbude jediný nepárový (1,73&nbsp;μ<sub>B</sub>). U&nbsp;iontů d¹ až d³ a&nbsp;d⁸ až d¹⁰ se nic nezmění — tam je uspořádání jednoznačné.</div>
+    </div>
+
+    <div class="prose">
+      <h3>Feromagnetismus a&nbsp;Curieova teplota</h3>
+      <p>U&nbsp;železa, kobaltu a&nbsp;niklu se momenty sousedních atomů v&nbsp;malých oblastech (doménách) samovolně srovnají do jednoho směru. Vnější pole pak jen otočí celé domény — proto je efekt tak silný a&nbsp;proto po vypnutí pole zůstane. Nad určitou teplotou tepelný pohyb srovnání rozbije a&nbsp;látka se stane obyčejně paramagnetickou.</p>
+      <p class="eq">Curieova teplota <span class="q">T</span><sub>C</sub> [°C]:<br>
+      kobalt = 1115 &nbsp;·&nbsp; železo = 770 &nbsp;·&nbsp; nikl = 358 &nbsp;·&nbsp; gadolinium = 19</p>
+      <div class="callout tip">
+        <span class="eyebrow">Pokus, který si pamatujete navždy</span>
+        <p>Zavěste na drátek železný hřebík k&nbsp;magnetu a&nbsp;zahřejte ho kahanem. Při dosažení 770 °C hřebík <b>rázem odpadne</b>. Po vychladnutí se zase přitáhne. Gadolinium je feromagnetické jen do 19 °C — v&nbsp;ruce ho tedy „vypnete“ tělesným teplem.</p>
+      </div>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.1 · z&nbsp;naměřeného momentu na konfiguraci</span>
+          <p>U&nbsp;komplexu kobaltitého iontu byl naměřen magnetický moment 4,9&nbsp;μ<sub>B</sub>. Kolik má nepárových elektronů, jde o&nbsp;slabé, nebo silné pole, a&nbsp;jaký ligand mohl být přítomen?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Ze vzorce <span class="q">μ</span> = √(<span class="q">n</span>(<span class="q">n</span>+2)) dopočítáme <span class="q">n</span>. Nejrychlejší je porovnat s&nbsp;tabulkou hodnot:</p>
+              <p class="eq"><span class="q">n</span> = 4 → <span class="q">μ</span> = √(4·6) = √24 = <b>4,90</b> — sedí</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Kobalt ve stavu III má <span class="chem">3d⁶</span>. Rozmístíme šest elektronů do pětice orbitalů:</p>
+              <p class="eq">slabé pole: t₂g⁴ e_g² → <b>4 nepárové</b> (jeden pár v&nbsp;t₂g)<br>
+              silné pole: t₂g⁶ e_g⁰ → <b>0 nepárových</b>, diamagnetický</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>Naměřené 4,9&nbsp;μ<sub>B</sub> odpovídá čtyřem nepárovým, tedy <b>vysokospinovému uspořádání ve slabém poli</b>. Podle spektrochemické řady připadá v&nbsp;úvahu fluorid nebo voda.</p>
+              <p>Kdyby byl ligand kyanid nebo amoniak, komplex by byl diamagnetický — tak se chová <span class="chem">[Co(CN)₆]³⁻</span>.</p>
+              <span class="result"><span class="q">n</span> = 4, vysokospinový komplex ve slabém poli, například <span class="chem">[CoF₆]³⁻</span></span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2.2 · z&nbsp;rozštěpení na barvu</span>
+          <p>Hlavní absorpční pás komplexu <span class="chem">[Cr(NH₃)₆]³⁺</span> leží při vlnočtu 21&nbsp;600&nbsp;cm⁻¹. Jaká je vlnová délka pohlceného světla, jaká je energie přechodu a&nbsp;jakou barvu bude mít roztok?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p>Vlnová délka z&nbsp;vlnočtu:</p>
+              <p class="eq"><span class="q">λ</span> = 10⁷ / 21 600 = <b>463&nbsp;nm</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p>Energie na jeden mol:</p>
+              <p class="eq"><span class="q">E</span> = 0,011963 · 21 600 = <b>258&nbsp;kJ·mol⁻¹</b></p>
+              <p>To je srovnatelné s&nbsp;energií běžné jednoduché vazby — proto intenzivní světlo některé komplexy rozkládá.</p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p>463&nbsp;nm leží v&nbsp;<b>modré</b> části spektra. Doplňkovou barvou k&nbsp;modré je <b>oranžová</b>.</p>
+              <p>A&nbsp;skutečně: hexaamminchromitá sůl je žlutooranžová, kdežto akvakomplex <span class="chem">[Cr(H₂O)₆]³⁺</span> s&nbsp;pásem při 17 400&nbsp;cm⁻¹ (575&nbsp;nm, žlutozelená) je šedofialový. Amoniak štěpí silněji, pás se posune k&nbsp;modré a&nbsp;barva se převrátí.</p>
+              <span class="result"><span class="q">λ</span> = 463 nm, <span class="q">E</span> = 258 kJ·mol⁻¹, roztok je žlutooranžový</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: barevnost a magnetismus"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>
