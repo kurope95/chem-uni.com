@@ -4257,6 +4257,7 @@ function drawHab(){
   s += txt(x0-8, yT-12, "obj. % NH₃", {anchor:"end", size:10, w:600, fill:"var(--ink-3)"});
   s += txt((x0+xE)/2, yB+34, "teplota [°C]", {anchor:"middle", size:11, w:600, fill:"var(--ink-2)"});
   var PS = [{p:5,c:"var(--cat1)"},{p:10,c:"var(--cat3)"},{p:20,c:"var(--cat2)"},{p:40,c:"var(--accent)"}];
+  var pLbl = [];
   PS.forEach(function(o){
     var d = "", first = true;
     for(var t=Tmin; t<=Tmax; t+=8){
@@ -4265,14 +4266,19 @@ function drawHab(){
       first = false;
     }
     s += '<path d="'+d+'" style="fill:none;stroke:'+o.c+';stroke-width:2;stroke-opacity:.85"/>';
-    s += txt(xE+8, Y(habYield(Tmax, o.p))+4, o.p+" MPa", {size:10.5, w:600, fill:o.c});
+    pLbl.push({y:Y(habYield(Tmax, o.p))+4, t:o.p+" MPa", c:o.c});
   });
+  pLbl.sort(function(a,b){ return a.y-b.y; });
+  for(var pi=1; pi<pLbl.length; pi++){ if(pLbl[pi].y-pLbl[pi-1].y < 15) pLbl[pi].y = pLbl[pi-1].y+15; }
+  var pOv = pLbl[pLbl.length-1].y - (yB+2);
+  if(pOv > 0) pLbl.forEach(function(o){ o.y -= pOv; });
+  pLbl.forEach(function(o){ s += txt(xE+8, o.y, o.t, {size:10.5, w:600, fill:o.c}); });
   var yv = habYield(habState.T, habState.P);
   var mx = X(habState.T), my = Y(yv);
   s += line(mx, yB, mx, my, {c:"var(--ink-3)", w:1, dash:"4 3"});
   s += line(x0, my, mx, my, {c:"var(--ink-3)", w:1, dash:"4 3"});
   s += '<circle cx="'+mx+'" cy="'+my+'" r="6.5" style="fill:var(--accent);stroke:var(--surface);stroke-width:2.5"/>';
-  s += txt(mx+10, my-10, fmt(yv,1)+" %", {size:12, w:700, mono:true, fill:"var(--accent)"});
+  s += txt(mx+(mx>xE-120?-10:10), my-10, fmt(yv,1)+" %", {anchor:mx>xE-120?"end":"start", size:12, w:700, mono:true, fill:"var(--accent)"});
   s += rect(X(400)-1, yT, X(500)-X(400)+2, yB-yT, {r:0, fill:"var(--accent)", style:"fill-opacity:.07"});
   s += txt((X(400)+X(500))/2, yT+14, "provozní okno", {anchor:"middle", size:10, w:600, fill:"var(--accent)"});
   s += txt(x0, H-10, "Křivky jsou rovnovážný obsah amoniaku ve směsi vzniklé z výchozího poměru N₂ : H₂ = 1 : 3.",
@@ -4593,7 +4599,7 @@ function drawMet(){
            {size:11.5, w:600, fill:"var(--ink-2)"});
   if(d && d.ox===null){
     s += rect(x0, yB-30, W-x0-30-14, 46, {r:8, fill:"var(--surface)", style:"fill-opacity:.72"});
-    s += txt((x0+W-44)/2, yB, "kov se pasivuje nebo vůbec nereaguje", {anchor:"middle", size:14, w:700, fill:"var(--bad)"});
+    s += txt((x0+W-44)/2, yB-42, "kov se pasivuje nebo vůbec nereaguje", {anchor:"middle", size:14, w:700, fill:"var(--bad)"});
   }
   s += txt(x0, H-8, "Reálně vzniká vždycky směs plynů; uvedený produkt je ten, který v daných podmínkách převládá.",
            {size:10.5, fill:"var(--ink-3)"});
@@ -4667,7 +4673,7 @@ function initPrd(){
 var pstState = {k:"P4O10"};
 function pstGet(k){ for(var i=0;i<PBIN.length;i++) if(PBIN[i].k===k) return PBIN[i]; return PBIN[0]; }
 function drawPst(){
-  var d = pstGet(pstState.k), W=700, H=270, s="";
+  var d = pstGet(pstState.k), W=700, H=284, s="";
   var CP="var(--cat3)", CO="var(--exo)", CCl="var(--cat1)";
   var cx=350, cy=132;
   function tetra(scale){
@@ -4754,7 +4760,7 @@ function initPst(){
 var pacState = {k:"H3PO4"};
 function pacGet(k){ for(var i=0;i<PACID.length;i++) if(PACID[i].k===k) return PACID[i]; return PACID[0]; }
 function drawPac(){
-  var d = pacGet(pacState.k), W=720, H=280, s="";
+  var d = pacGet(pacState.k), W=720, H=300, s="";
   var CP="var(--cat3)", CO="var(--exo)", CA="var(--accent)", CH="var(--ink-3)";
 
   /* skip: index obsazený můstkem (0 = vlevo, 1 = vpravo, −1 = žádný) */
@@ -4802,12 +4808,12 @@ function drawPac(){
     s += unit(340, 116, d.oh, d.ph, -1);
     var lab = d.oh===1 ? "jedna skupina OH → jednosytná" :
               (d.oh===2 ? "dvě skupiny OH → dvojsytná" : "tři skupiny OH → trojsytná");
-    s += txt(340, 236, lab, {anchor:"middle", size:12.5, w:700, fill:CA});
+    s += txt(340, 262, lab, {anchor:"middle", size:12.5, w:700, fill:CA});
     if(d.ph>0)
-      s += txt(340, 256, "vodík"+(d.ph>1?"y":"")+" vázan"+(d.ph>1?"é":"ý")+" přímo na fosforu se neodštěpuje — do sytnosti se nepočítá",
+      s += txt(340, 282, "vodík"+(d.ph>1?"y":"")+" vázan"+(d.ph>1?"é":"ý")+" přímo na fosforu se neodštěpuje — do sytnosti se nepočítá",
                {anchor:"middle", size:11, w:600, fill:"var(--ink-3)"});
     else
-      s += txt(340, 256, "žádný vodík nesedí na fosforu — všechny tři jsou kyselé",
+      s += txt(340, 282, "žádný vodík nesedí na fosforu — všechny tři jsou kyselé",
                {anchor:"middle", size:11, w:600, fill:"var(--ink-3)"});
   }
   $("#pacWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Struktura kyseliny '+d.nm+'"');
@@ -4937,7 +4943,7 @@ function initTrd(){
    20 · RYCHLOKURZ — mini-grafy
    ============================================================ */
 function drawMnLad(){
-  var W=520, H=210, s="", top=34, rowH=19;
+  var W=520, H=220, s="", top=34, rowH=19;
   var NN = {5:"HNO₃",4:"NO₂",3:"HNO₂",2:"NO",1:"N₂O",0:"N₂","-1":"NH₂OH","-2":"N₂H₄","-3":"NH₃"};
   var PP = {5:"H₃PO₄",3:"H₃PO₃",1:"H₃PO₂",0:"P₄","-3":"PH₃",4:"H₄P₂O₆"};
   s += txt(168, 20, "DUSÍK", {anchor:"middle", size:11, w:700, fill:"var(--ink)"});
@@ -4956,7 +4962,7 @@ function drawMnLad(){
   $("#mnLad").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Přehled oxidačních stavů dusíku a fosforu"');
 }
 function drawMnBond(){
-  var W=520, H=190, s="";
+  var W=520, H=204, s="";
   var data = [
     {l:"N≡N", v:945, c:"var(--exo)"},
     {l:"3 × N—N", v:489, c:"var(--endo)"},
@@ -4995,6 +5001,7 @@ function drawMnHab(){
   }
   s += txt(x0-6, yT-10, "% NH₃", {anchor:"end", size:9.5, w:600, fill:"var(--ink-3)"});
   s += txt((x0+xE)/2, yB+30, "teplota [°C]", {anchor:"middle", size:10, w:600, fill:"var(--ink-3)"});
+  var mLbl = [];
   [{p:10,c:"var(--cat3)"},{p:30,c:"var(--accent)"}].forEach(function(o){
     var d="", first=true;
     for(var t=200;t<=600;t+=10){
@@ -5002,8 +5009,13 @@ function drawMnHab(){
       first=false;
     }
     s += '<path d="'+d+'" style="fill:none;stroke:'+o.c+';stroke-width:2"/>';
-    s += txt(xE+4, Y(habYield(600,o.p))+4, o.p+" MPa", {size:10, w:600, fill:o.c});
+    mLbl.push({y:Y(habYield(600,o.p))+4, t:o.p+" MPa", c:o.c});
   });
+  mLbl.sort(function(a,b){ return a.y-b.y; });
+  for(var mi=1; mi<mLbl.length; mi++){ if(mLbl[mi].y-mLbl[mi-1].y < 14) mLbl[mi].y = mLbl[mi-1].y+14; }
+  var mOv = mLbl[mLbl.length-1].y - (yB-6);
+  if(mOv > 0) mLbl.forEach(function(o){ o.y -= mOv; });
+  mLbl.forEach(function(o){ s += txt(xE+4, o.y, o.t, {size:10, w:600, fill:o.c}); });
   s += rect(X(400), yT, X(500)-X(400), yB-yT, {r:0, fill:"var(--accent)", style:"fill-opacity:.09"});
   s += txt((X(400)+X(500))/2, yT+12, "provoz", {anchor:"middle", size:9.5, w:600, fill:"var(--accent)"});
   s += txt(12, H-6, "Výtěžek klesá s teplotou a roste s tlakem. Provozní okno je kompromis mezi výtěžkem a rychlostí.",
@@ -5024,11 +5036,11 @@ function drawMnTrd(){
     s += rect(x0+i*colW+4, 26, colW-8, 30, {r:6, fill:c, style:"fill-opacity:.75"});
     s += txt(cxx, 47, e.s, {anchor:"middle", size:15, w:700, fill:"var(--accent-ink)"});
     rows.forEach(function(r, j){
-      s += txt(cxx, yB+j*24, r.v[i], {anchor:"middle", size:10.5, w:600, fill:"var(--ink-2)"});
+      s += txt(cxx, yB+j*30, r.v[i], {anchor:"middle", size:10.5, w:600, fill:"var(--ink-2)"});
     });
   });
   rows.forEach(function(r, j){
-    s += txt(x0, yB+j*24-13, r.lab, {size:9.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.06em"});
+    s += txt(x0, yB+j*30-13, r.lab, {size:9.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.06em"});
   });
   s += hArr(x0+30, W-40, 74, "var(--accent)", "dolů skupinou roste kovový charakter", false);
   s += txt(12, H-6, "Efekt inertního páru: u bismutu se pár 6s² vazby neúčastní, proto je stálý stav +III.",

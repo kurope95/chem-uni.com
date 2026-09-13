@@ -4167,16 +4167,16 @@ function drawBuffer(){
   s+=dot(xs,Y(pH0),"var(--ink-3)",5);
   s+=dot(xs,Y(pH2),"var(--accent)",6);
   s+=dot(xs,Y(pHw),"var(--bad)",5);
-  /* popisky u stupnice se nesmí překrýt — bod zůstává, text se rozestoupí */
-  var bl=[{y:Y(b.pKa+1)+4,x:xs+24,t:"pKa ± 1",o:{size:10,fill:"var(--ink-3)"}},
-          {y:Y(pH0)+4,x:xs+28,t:"pufr před: "+pf(pH0),o:{size:11,w:600,fill:"var(--ink-2)",mono:true},d:Y(pH0)},
-          {y:Y(pH2)+4,x:xs+28,t:"pufr po: "+pf(pH2),o:{size:11.5,w:600,fill:"var(--accent)",mono:true},d:Y(pH2)},
-          {y:Y(pHw)+4,x:xs+28,t:"voda po: "+pf(pHw),o:{size:11,w:600,fill:"var(--bad)",mono:true},d:Y(pHw)}];
+  /* popisek pásma zůstává u pásma, popisky bodů mají vlastní sloupec vpravo */
+  s+=txt(xs+24,Y(b.pKa+1)+4,"pKa ± 1",{size:10,fill:"var(--ink-3)"});
+  var bl=[{y:Y(pH0)+4,t:"pufr před: "+pf(pH0),o:{size:11,w:600,fill:"var(--ink-2)",mono:true},d:Y(pH0)},
+          {y:Y(pH2)+4,t:"pufr po: "+pf(pH2),o:{size:11.5,w:600,fill:"var(--accent)",mono:true},d:Y(pH2)},
+          {y:Y(pHw)+4,t:"voda po: "+pf(pHw),o:{size:11,w:600,fill:"var(--bad)",mono:true},d:Y(pHw)}];
   bl.sort(function(p,q){ return p.y-q.y; });
   var bly=spreadY(bl.map(function(p){ return p.y; }),16,yT+4,yB+18);
   bl.forEach(function(p,i){
-    if(p.d!==undefined && Math.abs(bly[i]-4-p.d)>2) s+=line(xs+7,p.d,xs+25,bly[i]-4,{c:"var(--line-strong)",w:0.8});
-    s+=txt(p.x,bly[i],p.t,p.o);
+    if(Math.abs(bly[i]-4-p.d)>2) s+=line(xs+7,p.d,xs+66,bly[i]-4,{c:"var(--line)",w:0.8});
+    s+=txt(xs+70,bly[i],p.t,p.o);
   });
   $("#bfWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Složení pufru před a po přídavku a srovnání pH s vodou"');
   $("#bfRV").textContent=fmt(r,2); $("#bfCV").textContent=fmt(c,2)+" mol·dm⁻³"; $("#bfAddV").textContent=sgn(n,3)+" mol";

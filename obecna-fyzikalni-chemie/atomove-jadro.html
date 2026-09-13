@@ -3263,7 +3263,7 @@ function sci(x,d){
 var heroState={hl:8,t:24,scale:"lin"};
 function drawHero(){
   var hl=heroState.hl, t=heroState.t, log=heroState.scale==="log";
-  var W=760,H=320,L=64,R=712,T0=28,B=268, Tmax=120;
+  var W=760,H=320,L=64,R=712,T0=52,B=268, Tmax=120;
   var x=function(tt){ return L+(tt/Tmax)*(R-L); };
   var y=function(f){ /* f = N/N0 */
     if(log){ var v=Math.max(f,1e-3); return B-(Math.log10(v)+3)/3*(B-T0); }
@@ -3288,15 +3288,16 @@ function drawHero(){
     if(tk>Tmax || (log&&fk<1e-3)) break;
     s+=line(x(tk),y(fk),x(tk),B,{c:"var(--line-strong)",w:1,dash:"3 3"});
     s+='<circle cx="'+x(tk)+'" cy="'+y(fk)+'" r="5" style="fill:var(--surface);stroke:var(--ink-2);stroke-width:2"/>';
-    s+=txt(x(tk)+8,y(fk)-8,labs[k-1]+" po "+k+" t½",{size:11,w:600,fill:"var(--ink-2)"});
+    s+=txt(x(tk)+8,y(fk)-10+(k-1)*5,labs[k-1]+" po "+k+" t½",{size:11,w:600,fill:"var(--ink-2)"});
   }
   /* aktuální čas */
   var fNow=Math.pow(0.5,t/hl), n=t/hl;
   if(!(log&&fNow<1e-3)){
-    s+=line(x(t),T0,x(t),B,{c:"var(--endo)",w:1.6,dash:"5 4"});
+    s+=line(x(t),30,x(t),B,{c:"var(--endo)",w:1.6,dash:"5 4"});
     s+='<circle cx="'+x(t)+'" cy="'+y(fNow)+'" r="6.5" style="fill:var(--endo);stroke:var(--surface);stroke-width:2"/>';
-    s+=rect(Math.min(x(t)+10,R-118),y(fNow)-30,108,20,{fill:"var(--endo)",r:5});
-    s+=txt(Math.min(x(t)+64,R-64),y(fNow)-16,"zbývá "+fmt(fNow*100,fNow<0.01?2:1)+" %",{anchor:"middle",size:11.5,w:600,fill:"var(--accent-ink)",mono:true});
+    var chipX=Math.max(L,Math.min(x(t)-54,R-108));
+    s+=rect(chipX,8,108,20,{fill:"var(--endo)",r:5});
+    s+=txt(chipX+54,22,"zbývá "+fmt(fNow*100,fNow<0.01?2:1)+" %",{anchor:"middle",size:11.5,w:600,fill:"var(--accent-ink)",mono:true});
   }
   s+=txt(R,T0-10,"t½ = "+hl+" d  ·  λ = "+fmt(LN2/hl,4)+" d⁻¹",{anchor:"end",size:11.5,w:600,fill:"var(--ink-2)",mono:true});
   $("#heroWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Rozpadová křivka"');
@@ -3362,8 +3363,10 @@ function drawNB(){
   var bx=300;
   s+=txt(bx-2,92,A,{anchor:"end",size:22,w:600,fill:"var(--ink)",mono:true});
   s+=txt(bx-2,140,Z,{anchor:"end",size:22,w:600,fill:"var(--ink)",mono:true});
-  s+=txt(bx+4,128,elSym(Z),{size:56,w:700,fill:"var(--accent)"});
-  if(Q!==0) s+=txt(bx+4+34*elSym(Z).length,92,Math.abs(Q)===1?(Q>0?"+":"−"):(Math.abs(Q)+(Q>0?"+":"−")),{size:20,w:600,fill:"var(--ink-2)",mono:true});
+  /* symbol i náboj v jednom textu — náboj se sám odsadí za symbol, ať je jakkoli široký */
+  s+='<text x="'+(bx+4)+'" y="128" style="fill:var(--accent);font-family:var(--f-ui);font-size:56px;font-weight:700">'+elSym(Z)+
+     (Q!==0 ? '<tspan dx="4" dy="-36" style="fill:var(--ink-2);font-family:var(--f-mono);font-size:20px;font-weight:600">'+
+       (Math.abs(Q)===1?(Q>0?"+":"−"):(Math.abs(Q)+(Q>0?"+":"−")))+'</tspan>' : '')+'</text>';
   s+=txt(bx-30,175,"A = "+A+" (nahoře)",{size:11,fill:"var(--ink-3)"});
   s+=txt(bx-30,191,"Z = "+Z+" (dole)",{size:11,fill:"var(--ink-3)"});
   s+=txt(bx-30,207,"N = A − Z = "+N,{size:11,fill:"var(--ink-3)"});
@@ -3515,7 +3518,9 @@ function drawRiv(){
   /* aktuální */
   if(Z<=Zmax&&N<=Nmax){
     s+='<circle cx="'+x(Z)+'" cy="'+y(N)+'" r="7" style="fill:var(--cat4);stroke:var(--surface);stroke-width:2.2"/>';
-    s+=txt(x(Z)+11,y(N)-9,nucTxt(Z,A),{size:13,w:700,fill:"var(--cat4)"});
+    var nlx=x(Z)+11, nla="start"; if(nlx>R-80){ nlx=x(Z)-11; nla="end"; }
+    var nly=y(N)-9; if(nly<T0+34) nly=y(N)+34;
+    s+=txt(nlx,nly,nucTxt(Z,A),{size:13,w:700,fill:"var(--cat4)",anchor:nla});
   }
   s+=txt((L+R)/2,B+34,"protonové číslo Z",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
   s+=vtxt(14,(T0+B)/2,"neutronové číslo N",{style:"letter-spacing:.08em;text-transform:uppercase"});
@@ -3564,13 +3569,13 @@ function drawBE(){
   s+=rect(x(200),T0,x(Amax)-x(200),B-T0,{fill:"var(--exo)",style:"fill-opacity:.07"});
   s+=txt(x(225),T0+14,"← ŠTĚPENÍ",{anchor:"middle",size:10.5,w:600,fill:"var(--exo)"});
   s+=line(x(56),y(8.79),x(56),B,{c:"var(--line-strong)",w:1,dash:"3 3"});
-  s+=txt(x(56)+6,y(8.79)+16,"maximum: ⁵⁶Fe = 8,79 MeV na nukleon",{size:11,w:600,fill:"var(--ink-2)"});
+  s+=txt(x(56)+6,B-10,"maximum: ⁵⁶Fe = 8,79 MeV na nukleon",{size:11,w:600,fill:"var(--ink-2)"});
   pts.forEach(function(p,i){
     var sel=BE.indexOf(p)===beState.i;
     s+='<circle cx="'+x(p.A)+'" cy="'+y(p.b)+'" r="'+(sel?7:3.4)+'" style="fill:'+(sel?"var(--cat4)":"var(--accent)")+';stroke:var(--surface);stroke-width:'+(sel?2.2:1)+'"/>';
-    if(sel) s+=txt(x(p.A)+(p.A>200?-12:12),y(p.b)-12,nucTxt(p.Z,p.A)+" = "+fmt(p.b,3)+" MeV",{anchor:p.A>200?"end":"start",size:12.5,w:700,fill:"var(--cat4)"});
+    if(sel) s+=txt(x(p.A)+(p.A>170?-12:12),y(p.b)+22,nucTxt(p.Z,p.A)+" = "+fmt(p.b,3)+" MeV",{anchor:p.A>170?"end":"start",size:12.5,w:700,fill:"var(--cat4)"});
   });
-  [["²H",2,1.112],["⁴He",4,7.074],["¹²C",12,7.68],["²³⁸U",238,7.57]].forEach(function(l){ if(BE.indexOf(BE[beState.i])>=0 && BE[beState.i].A===l[1]) return; s+=txt(x(l[1])+(l[1]>200?-8:6),y(l[2])+(l[1]<5?-8:14),l[0],{anchor:l[1]>200?"end":"start",size:10.5,fill:"var(--ink-3)"}); });
+  [["²H",2,1.112],["⁴He",4,7.074],["¹²C",12,7.68],["²³⁸U",238,7.57]].forEach(function(l){ if(BE.indexOf(BE[beState.i])>=0 && BE[beState.i].A===l[1]) return; s+=txt(x(l[1])+(l[1]>200?-8:6),y(l[2])+(l[1]===2?14:-8),l[0],{anchor:l[1]>200?"end":"start",size:10.5,fill:"var(--ink-3)"}); });
   s+=txt((L+R)/2,B+34,"nukleonové číslo A",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
   s+=vtxt(14,(T0+B)/2,"Eᵥ / A [MeV na nukleon]",{style:"letter-spacing:.06em"});
   $("#beWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Křivka vazebné energie na nukleon"');
@@ -3609,7 +3614,7 @@ function drawSh(){
   var x=function(z){ return L+(z-z0)/(z1-z0)*(R-L); }, y=function(n){ return B-(n-n0)/(n1-n0)*(B-T0); };
   var s='';
   for(var z=z0;z<=z1;z++){ s+=line(x(z),T0,x(z),B,{c:"var(--line)",w:1}); s+=txt(x(z),B+15,z>=1?z:"",{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true}); }
-  for(var n=n0;n<=n1;n++){ s+=line(L,y(n),R,y(n),{c:"var(--line)",w:1}); s+=txt(L-6,y(n)+4,n>=0?n:"",{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
+  for(var n=n0;n<=n1;n++){ s+=line(L,y(n),R,y(n),{c:"var(--line)",w:1}); s+=txt(L-12,y(n)+4,n>=0?n:"",{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
   /* stabilní v okolí */
   STABLE_LIST.forEach(function(q){ if(q.Z>=z0&&q.Z<=z1&&q.N>=n0&&q.N<=n1) s+='<circle cx="'+x(q.Z)+'" cy="'+y(q.N)+'" r="4" style="fill:var(--ok);fill-opacity:.55"/>'; });
   var col = t==="α"?"var(--exo)":(t==="β⁻"?"var(--endo)":(t==="γ"?"var(--cat2)":(t==="n"?"var(--cat3)":"var(--cat1)")));
@@ -3622,13 +3627,13 @@ function drawSh(){
     s+='<path d="M'+x2+' '+y2+' L'+(x2-14*Math.cos(ang-0.45))+' '+(y2-14*Math.sin(ang-0.45))+' L'+(x2-14*Math.cos(ang+0.45))+' '+(y2-14*Math.sin(ang+0.45))+' z" style="fill:'+col+'"/>';
   } else if(t==="γ"){
     s+='<circle cx="'+x(Z)+'" cy="'+y(N)+'" r="16" style="fill:none;stroke:'+col+';stroke-width:2;stroke-dasharray:3 3"/>';
-    s+=txt(x(Z)+20,y(N)-18,"jen deexcitace",{size:11,w:600,fill:col});
+    s+=txt(x(Z)+22,y(N)+30,"jen deexcitace",{size:11,w:600,fill:col});
   }
   s+='<circle cx="'+x(Z)+'" cy="'+y(N)+'" r="7" style="fill:var(--ink);stroke:var(--surface);stroke-width:2"/>';
-  s+=txt(x(Z)+10,y(N)+(t==="β⁻"||t==="n"?18:-10),nucTxt(Z,A,m===1)+(m===2?"*":""),{size:12.5,w:700,fill:"var(--ink)"});
+  s+=txt(x(Z)+10,y(N)+(t==="β⁻"?18:-10),nucTxt(Z,A,m===1)+(m===2?"*":""),{size:12.5,w:700,fill:"var(--ink)"});
   if(ok && t!=="γ"){
     s+='<circle cx="'+x(d.Z)+'" cy="'+y(dN)+'" r="7" style="fill:'+col+';stroke:var(--surface);stroke-width:2"/>';
-    s+=txt(x(d.Z)+10,y(dN)+(t==="β⁻"||t==="n"?-10:18),nucTxt(d.Z,d.A),{size:12.5,w:700,fill:col});
+    s+=txt(x(d.Z)+10,y(dN)+(t==="β⁻"?-10:18),nucTxt(d.Z,d.A),{size:12.5,w:700,fill:col});
   }
   s+=txt((L+R)/2,B+30,"Z →",{anchor:"middle",size:11,w:600,fill:"var(--ink-3)"});
   s+=vtxt(14,(T0+B)/2,"N ↑",{size:11});
@@ -3737,7 +3742,7 @@ function drawCh(){
   var x=function(z){ return L+(z-z0)/(z1-z0)*(R-L); }, y=function(n){ return B-(n-n0)/(n1-n0)*(B-T0); };
   var s='';
   for(var z=z0;z<=z1;z++){ s+=line(x(z),T0,x(z),B,{c:"var(--line)",w:1}); s+=txt(x(z),B+15,z,{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true}); s+=txt(x(z),T0-8,elSym(z),{anchor:"middle",size:10.5,w:600,fill:"var(--ink-2)"}); }
-  for(var n=n0;n<=n1;n+=2){ s+=line(L,y(n),R,y(n),{c:"var(--line)",w:1}); s+=txt(L-6,y(n)+4,n,{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
+  for(var n=n0;n<=n1;n+=2){ s+=line(L,y(n),R,y(n),{c:"var(--line)",w:1}); s+=txt(L-13,y(n)+4,n,{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
   s+=line(x(83.5),T0,x(83.5),B,{c:"var(--bad)",w:1.2,dash:"4 3"});
   s+=line(L,y(126),R,y(126),{c:"var(--accent)",w:1,dash:"2 4"}); s+=txt(R-4,y(126)-5,"N = 126 (magické)",{anchor:"end",size:10.5,fill:"var(--accent)"});
   s+=line(x(82),T0,x(82),B,{c:"var(--accent)",w:1,dash:"2 4"});
@@ -3961,7 +3966,7 @@ function initDc(){
    ============================================================ */
 var hlN=3;
 function drawHl(){
-  var n=hlN, W=420,H=260,L=40,R=400,T0=30,B=222;
+  var n=hlN, W=420,H=260,L=40,R=400,T0=44,B=222;
   var s='';
   var bw=(R-L)/21;
   s+=txt(L,18,"ZBYLÝ PODÍL PO k POLOČASECH",{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
@@ -3971,7 +3976,7 @@ function drawHl(){
     var on=k<=n;
     s+=rect(x+1,B-h,bw-2,h,{fill:on?(k===n?"var(--accent)":"var(--cat1)"):"var(--surface-3)",r:2});
     if(k%2===0) s+=txt(x+bw/2,B+13,k,{anchor:"middle",size:9.5,fill:"var(--ink-3)",mono:true});
-    if(on&&k<=4) s+=txt(x+bw/2,B-h-5,fmt(f*100,k>3?2:1)+"%",{anchor:"middle",size:9,w:600,fill:"var(--ink-2)",mono:true});
+    if(on&&k<=4) s+=txt(x+bw/2,B-h-5-(k===4?28:0),fmt(f*100,k>3?2:1)+"%",{anchor:"middle",size:9,w:600,fill:"var(--ink-2)",mono:true});
   }
   var fn=Math.pow(0.5,n);
   s+=txt(R,T0+4,"po "+n+" poločasech: "+fmt(fn*100,n>6?4:2)+" %",{anchor:"end",size:12,w:700,fill:"var(--accent)",mono:true});
@@ -4045,7 +4050,7 @@ function drawMiniRiver(){
   s+=txt(x(40),y(58),"N/Z: 1 → 1,5",{size:10,fill:"var(--ink-3)",mono:true});
   [[6,8,"¹⁴C","var(--endo)"],[9,9,"¹⁸F","var(--exo)"],[92,146,"²³⁸U","var(--bad)"],[82,126,"²⁰⁸Pb","var(--ink)"]].forEach(function(p){
     s+='<circle cx="'+x(p[0])+'" cy="'+y(p[1])+'" r="5" style="fill:'+p[3]+';stroke:var(--surface);stroke-width:1.5"/>';
-    s+=txt(x(p[0])+8,y(p[1])+(p[0]===9?14:-7),p[2],{size:11,w:700,fill:p[3]});
+    s+=txt(x(p[0])+8,y(p[1])+(p[0]===9||p[0]===92?14:-7),p[2],{size:11,w:700,fill:p[3]});
   });
   s+=txt((L+R)/2,B+28,"Z",{anchor:"middle",size:11,w:600,fill:"var(--ink-3)"});
   s+=txt(12,(T0+B)/2,"N",{anchor:"middle",size:11,w:600,fill:"var(--ink-3)"});
@@ -4061,7 +4066,7 @@ function drawMiniDecay(){
   var W=720,H=260,L=56,R=680,T0=26,B=214;
   var x=function(n){ return L+n/5*(R-L); }, y=function(f){ return B-f*(B-T0); };
   var s='';
-  for(var k=0;k<=5;k++){ s+=line(x(k),T0,x(k),B,{c:"var(--line)",w:1}); s+=txt(x(k),B+15,k+" t½",{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true}); }
+  for(var k=0;k<=5;k++){ s+=line(x(k),T0,x(k),B,{c:"var(--line)",w:1}); s+=txt(x(k),B+22,k+" t½",{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true}); }
   [1,0.5,0.25,0].forEach(function(f){ s+=line(L,y(f),R,y(f),{c:"var(--line)",w:1}); s+=txt(L-6,y(f)+4,fmt(f*100,0)+" %",{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); });
   var pts=[]; for(var t=0;t<=5;t+=0.05) pts.push(x(t).toFixed(1)+","+y(Math.pow(0.5,t)).toFixed(1));
   s+='<polyline points="'+pts.join(" ")+'" style="fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round"/>';

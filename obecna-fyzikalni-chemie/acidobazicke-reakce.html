@@ -877,7 +877,7 @@ p<span class="q">K</span><sub>b</sub>(HCO₃⁻) = 14 − p<span class="q">K</sp
             <p>Číst p<span class="q">K</span><sub>a</sub> jako sílu: „9 je víc než 4, takže HCN je silnější“. Je to naopak — je to <em>záporný</em> logaritmus. Velké p<span class="q">K</span><sub>a</sub> = slabá kyselina.</p></div>
         </div>
       </div>
-      <div class="svgwrap" id="miniLadderWrap" style="min-height:520px;margin-top:1.1rem"></div>
+      <div class="svgwrap" id="miniLadderWrap" style="min-height:330px;margin-top:1.1rem"></div>
       <div class="exbox">
         <span class="eyebrow">Příklad · z Ka na pKa a na konjugovanou bázi</span>
         <p class="task">HCN má <span class="q">K</span><sub>a</sub> = 6,2·10⁻¹⁰. Určete p<span class="q">K</span><sub>a</sub>, <span class="q">K</span><sub>b</sub> a p<span class="q">K</span><sub>b</sub> kyanidového aniontu a porovnejte ho jako bázi s amoniakem (p<span class="q">K</span><sub>b</sub> 4,75).</p>
@@ -2163,7 +2163,7 @@ pH 11: methyloranž <b>žlutá</b> · lakmus <b>modrý</b> · fenolftalein <b>r�
           </div>
         </div>
         <p class="eq" id="dirEq" style="font-size:1.08rem;text-align:center"></p>
-        <div class="svgwrap" id="dirWrap" style="min-height:300px"></div>
+        <div class="svgwrap" id="dirWrap" style="min-height:230px"></div>
         <div class="grid3" style="margin-top:1rem">
           <div class="readout" id="dirRo1"></div>
           <div class="readout" id="dirRo2"></div>
@@ -3864,7 +3864,7 @@ function initAl(){
 var cmpI=0;
 function drawCmp(){
   var c=CMP[cmpI];
-  var W=760, rowH=34, top=54, L=190, R=690;
+  var W=760, rowH=34, top=54, L=150, R=540;
   var H=top+rowH*c.items.length+40;
   var x=function(v){ return L+((v-c.lo)/(c.hi-c.lo))*(R-L); };
   var s='';
@@ -4028,7 +4028,7 @@ function drawHy(){
   var xp=x(s0.pH);
   g+='<path d="M'+xp+' '+(yBar-3)+' l-7 -11 l14 0 z" style="fill:'+col+'"/>';
   g+=line(xp,yBar-1,xp,yBar+hBar+1,{c:col,w:2.5});
-  g+=txt(xp,yBar-18,s0.f+" · pH ≈ "+fmt(s0.pH,1),{anchor:"middle",size:11.5,w:700,fill:col});
+  g+=txt(xp,yBar-13,s0.f+" · pH ≈ "+fmt(s0.pH,1),{anchor:"middle",size:11.5,w:700,fill:col});
   $("#hyWrap").innerHTML=svg("0 0 "+W+" "+H,g,'aria-label="Poloha pH roztoku soli na stupnici"');
   $("#hyNote").innerHTML=s0.note+" <b>Zkuste porovnat</b> NaHSO₄ s&nbsp;Na₂SO₄, nebo NaHCO₃ s&nbsp;Na₂CO₃ — táž kyselina, různé soli, pH se liší až o&nbsp;tři jednotky.";
 }

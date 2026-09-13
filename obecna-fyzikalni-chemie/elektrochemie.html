@@ -3926,8 +3926,8 @@ function drawElecSVG(o){
   s+=txt(exA,b.y+b.h+38,o.an,{anchor:"middle",size:10.5,fill:"var(--ink-2)",mono:true});
   s+=txt(exC,b.y+b.h+38,o.cat,{anchor:"middle",size:10.5,fill:"var(--ink-2)",mono:true});
   /* produkty */
-  s+=txt(exA+16,b.y+44,o.prodA,{size:11.5,w:600,fill:"var(--exo)"});
-  s+=txt(exC-16,b.y+44,o.prodC,{anchor:"end",size:11.5,w:600,fill:"var(--endo)"});
+  s+=txt(exA+12,b.y+44,o.prodA,{size:10.5,w:600,fill:"var(--exo)"});
+  s+=txt(exC-12,b.y+44,o.prodC,{anchor:"end",size:10.5,w:600,fill:"var(--endo)"});
   /* ionty */
   var ions=o.ions||[];
   s+=txt(cx,b.y+b.h-46,ions.join("   "),{anchor:"middle",size:12,w:600,fill:"var(--ink)",mono:true});

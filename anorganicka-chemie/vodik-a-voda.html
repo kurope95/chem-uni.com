@@ -5037,7 +5037,7 @@ function wmMolecule(cx, cy, sc, ang, col, lab){
     s += '<circle cx="'+h[0]+'" cy="'+h[1]+'" r="'+(11*sc)+'" style="fill:var(--accent)"/>';
     s += txt(h[0], h[1]+4*sc, "H", {anchor:"middle", size:11*sc, w:700, fill:"var(--accent-ink)"});
   });
-  if(lab) s += txt(cx, cy+44*sc, lab, {anchor:"middle", size:11, fill:"var(--ink-3)"});
+  if(lab) s += txt(cx - 44*sc*Math.cos(a), cy - 44*sc*Math.sin(a) + 4, lab, {anchor:"middle", size:11, fill:"var(--ink-3)"});
   return {s:s, h1:[h1x,h1y], h2:[h2x,h2y]};
 }
 function drawWm(){
