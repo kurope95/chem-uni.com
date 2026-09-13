@@ -589,6 +589,64 @@ svg{display:block;max-width:100%;height:auto}
 
 hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 </style>
+<style>
+/* ---- SITE-NAV: propojení s rozcestníkem ---- */
+.sitenav{display:flex;padding:0 .45rem .2rem}
+.sitenav a{display:inline-flex;align-items:center;gap:.45rem;width:100%;
+  font-family:var(--f-ui);font-weight:600;font-size:.83rem;text-decoration:none;
+  padding:.5rem .7rem;min-height:40px;border-radius:9px;border:1px solid var(--line-strong);
+  background:var(--surface-2);color:var(--ink-2);transition:background .15s,color .15s,border-color .15s}
+.sitenav a:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.sitenav svg{flex:none;transition:transform .18s}
+.sitenav a:hover svg{transform:translateX(-3px)}
+.sitenav-m{display:none}
+@media (max-width:1099px){
+  .sitenav-m{display:inline-flex;align-items:center;justify-content:center;width:40px;min-height:40px;
+    flex:none;border-radius:9px;border:1px solid var(--line-strong);background:var(--surface-2);
+    color:var(--ink-2);text-decoration:none}
+  .sitenav-m:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+}
+
+/* ---- levá lišta: ovládání nad seznam kapitol ---- */
+.rail{justify-content:flex-start}
+.rail .sitenav{order:0}
+.rail .rail-brand{order:1}
+.rail .rail-tools{order:2;margin-top:0;padding-bottom:.15rem}
+.rail .meter{order:3;padding-top:0}
+.rail nav{order:4}
+.rail .rail-tools .btn{flex:1;justify-content:center}
+
+/* ---- dlouhá rovnice se na úzkém displeji smí zalomit ---- */
+/* .chem má nowrap, což je správně pro jeden vzorec, ale ne pro celou rovnici.
+   Zalomí se jen v mezerách (kolem „+“ a „→“); vzorce mezery nemají, takže
+   se nikdy nerozlomí uprostřed. */
+@media (max-width:640px){ .chem{white-space:normal} }
+/* ---- oprava „osmi vět“: grid trhal větu s <span> na jednotlivé buňky ---- */
+.eight li{display:block!important;position:relative;grid-template-columns:none!important;
+  padding:.8rem 1rem .8rem 3.4rem!important;line-height:1.6}
+.eight li::before{position:absolute;left:.95rem;top:.78rem;margin:0}
+
+/* ---- testy a mini-testy: ať je student nepřehlédne ---- */
+.quiz{border:2px solid var(--accent);border-radius:16px;box-shadow:var(--shadow-2)}
+.quiz .quiz-toggle{min-height:70px;gap:.65rem;
+  background:linear-gradient(180deg,var(--accent-soft),color-mix(in srgb,var(--accent-soft) 45%,var(--surface)))}
+.quiz .quiz-toggle:hover{background:var(--accent-soft)}
+.quiz .qt-title{font-size:1.1rem;font-weight:700;letter-spacing:-.016em}
+.quiz .quiz-toggle > .tag{background:var(--accent);color:var(--accent-ink)}
+.quiz .qt-meta{color:var(--ink-2)}
+.quiz .chev{order:3;color:var(--accent)}
+.quiz .quiz-toggle::after{
+  content:"Spustit test";order:2;flex:none;font-family:var(--f-ui);font-weight:600;font-size:.83rem;
+  line-height:1;padding:.6rem .9rem;border-radius:9px;white-space:nowrap;
+  background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.quiz.open .quiz-toggle::after{content:"Skrýt test";background:transparent;color:var(--accent)}
+.quiz[data-final="1"]{border-width:3px}
+.quiz[data-final="1"] .quiz-toggle{min-height:84px}
+.quiz[data-final="1"] .qt-title{font-size:1.26rem}
+@media (max-width:620px){
+  .quiz .quiz-toggle::after{order:4;width:100%;text-align:center}
+}
+</style>
 </head>
 <body>
 
@@ -597,6 +655,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 
   <!-- ============ LEVÁ LIŠTA ============ -->
   <aside class="rail">
+    <div class="sitenav"><a href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span>Zpátky na okruhy</span></a></div>
     <div class="rail-brand">
       <span class="mark">Chemie</span>
       <span class="name">Koordinační sloučeniny</span>
@@ -616,6 +675,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
   <!-- ============ HLAVIČKA (tablet / mobil) ============ -->
   <div class="topbar">
     <div class="topbar-row">
+      <a class="sitenav-m" href="index.html" aria-label="Zpátky na okruhy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
       <div class="name">Koordinační sloučeniny<span>Studijní průvodce · <span id="mDone2">0</span>/<span data-tot>10</span> kapitol</span></div>
       <button class="btn btn-icon" id="themeBtn2" type="button" aria-label="Přepnout světlý a tmavý režim"></button>
     </div>
@@ -5621,5 +5681,23 @@ scrollspy();
 })();
 </script>
 
+<script>
+/* SITE-NAV — sjednocení světlého a tmavého režimu napříč webem */
+(function(){
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty"];
+  function mirror(){
+    try{
+      var t=document.documentElement.getAttribute("data-theme");
+      if(!t) return;
+      localStorage.setItem("site.theme",JSON.stringify(t));
+      KEYS.forEach(function(k){ localStorage.setItem(k+".theme",JSON.stringify(t)); });
+    }catch(e){}
+  }
+  ["themeBtn","themeBtn2"].forEach(function(id){
+    var b=document.getElementById(id);
+    if(b) b.addEventListener("click",function(){ setTimeout(mirror,0); });
+  });
+})();
+</script>
 </body>
 </html>

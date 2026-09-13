@@ -3880,15 +3880,15 @@ function drawKf(){
   /* levý sloupec */
   var lx=18, ly=58;
   s+=txt(lx,ly,p.s+" · "+p.n,{size:17,w:700,fill:"var(--accent)"});
-  s+=txt(lx,ly+28,"valenční sféra",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
-  s+=txt(lx,ly+48,p.core+" "+p.val,{size:14,w:600,fill:"var(--ink)"});
-  s+=txt(lx,ly+76,"pod valenční sférou",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
+  s+=txt(lx,ly+30,"valenční sféra",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
+  s+=txt(lx,ly+52,p.core+" "+p.val,{size:14,w:600,fill:"var(--ink)"});
+  s+=txt(lx,ly+82,"pod valenční sférou",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
   var pl=npLines(p.pod,30);
-  for(var q=0;q<pl.length && q<3;q++) s+=txt(lx,ly+96+q*18,pl[q],{size:11.5,fill:"var(--ink-2)"});
-  s+=txt(lx,ly+164,"valenčních elektronů",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
-  s+=txt(lx,ly+186,String(nv),{size:20,w:700,fill:"var(--exo)"});
-  s+=txt(lx,ly+214,"oxidační číslo ve sloučeninách",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
-  s+=txt(lx,ly+236,p.ox,{size:16,w:700,fill:"var(--ink)"});
+  for(var q=0;q<pl.length && q<3;q++) s+=txt(lx,ly+104+q*18,pl[q],{size:11.5,fill:"var(--ink-2)"});
+  s+=txt(lx,ly+172,"valenčních elektronů",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
+  s+=txt(lx,ly+204,String(nv),{size:20,w:700,fill:"var(--exo)"});
+  s+=txt(lx,ly+234,"oxidační číslo ve sloučeninách",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
+  s+=txt(lx,ly+258,p.ox,{size:16,w:700,fill:"var(--ink)"});
   /* graf */
   var gx=330, gw=390, base=272, top=84, maxv=Math.max.apply(null,vals);
   var bw=62, step=(gw-bw)/Math.max(1,vals.length-1);

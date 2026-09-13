@@ -3453,13 +3453,12 @@ var EPOT = [
    ============================================================ */
 var SPEKTRUM = [
  {od:380, do:430, poh:"fialová",   doP:"žlutozelená", hex:"#7b2fbe"},
- {od:430, do:480, poh:"modrá",     doP:"oranžová",    hex:"#2f5fd0"},
- {od:480, do:500, poh:"zelenomodrá", doP:"červená",   hex:"#1f9c9c"},
- {od:500, do:560, poh:"zelená",    doP:"purpurová",   hex:"#2f9e46"},
+ {od:430, do:490, poh:"modrá",     doP:"oranžová",    hex:"#2f5fd0"},
+ {od:490, do:560, poh:"zelená",    doP:"purpurová",   hex:"#2f9e46"},
  {od:560, do:580, poh:"žlutozelená", doP:"fialová",   hex:"#9db32a"},
  {od:580, do:595, poh:"žlutá",     doP:"modrá",       hex:"#e0b400"},
  {od:595, do:650, poh:"oranžová",  doP:"zelenomodrá", hex:"#e07000"},
- {od:650, do:790, poh:"červená",   doP:"zelená",      hex:"#cc2222"}
+ {od:650, do:780, poh:"červená",   doP:"zelená",      hex:"#cc2222"}
 ];
 
 /* reálné komplexy: poloha hlavního absorpčního maxima ve viditelné oblasti [cm⁻¹].
@@ -4164,7 +4163,7 @@ function drawBv(){
 
   /* --- pravý sloupec: spektrum --- */
   s+=capt(300,52,"pohlcené světlo");
-  var X=function(l){ return 300+(Math.max(380,Math.min(790,l))-380)/410*440; };
+  var X=function(l){ return 300+(Math.max(380,Math.min(780,l))-380)/400*440; };
   SPEKTRUM.forEach(function(b){
     s+=rect(X(b.od),70,X(b.do)-X(b.od),36,{fill:b.hex,style:"fill-opacity:.72"});
   });
@@ -4176,9 +4175,9 @@ function drawBv(){
   var xm=X(lam);
   s+='<path d="M'+xm+' 68 l-6 -10 l12 0 z" style="fill:var(--accent)"/>';
   s+=line(xm,70,xm,106,{c:"var(--accent)",w:2});
-  var mimo = (lam<380 || lam>790);
+  var mimo = (lam<380 || lam>780);
   s+=txt(300,152,"vlnová délka = "+fmt(lam,0)+" nm",{size:12.5,w:600,fill:"var(--ink)"});
-  s+=txt(300,176,"pohlcená barva = "+(band?band.poh:(lam>790?"infračervená oblast":"ultrafialová oblast")),
+  s+=txt(300,176,"pohlcená barva = "+(band?band.poh:(lam>780?"infračervená oblast":"ultrafialová oblast")),
         {size:12,fill:"var(--ink-2)"});
   s+=txt(300,200,"pozorovaná barva = "+(band?band.doP:"látka je bezbarvá"),{size:12,w:600,fill:"var(--accent)"});
   s+=circ(316,240,18,{fill:band?band.hex:"var(--surface-3)",stroke:"var(--line-strong)",sw:1.3,style:"fill-opacity:.8"});
@@ -4866,7 +4865,7 @@ function drawMiniOx(){
 function drawMiniBar(){
   var W=720, H=180, s='';
   s+=capt(10,20,"co látka pohltí a co uvidíme");
-  var X=function(l){ return 40+(l-380)/410*640; };
+  var X=function(l){ return 40+(l-380)/400*640; };
   SPEKTRUM.forEach(function(b){ s+=rect(X(b.od),40,X(b.do)-X(b.od),30,{fill:b.hex,style:"fill-opacity:.75"}); });
   s+=rect(40,40,640,30,{fill:"none",stroke:"var(--line-strong)",sw:1.2,r:3});
   [400,500,600,700].forEach(function(l){
@@ -5029,10 +5028,10 @@ BANK.q1=[
   e:"Ve skupině shora dolů je nejvyšší oxidační stav stále <b>stálejší</b>, a&nbsp;proto méně ochotný přejít na nižší — tedy méně oxidující. Je to opačný trend než v&nbsp;bloku p, kde dolů skupinou převáží nižší stav; právě záměna obou trendů je typická chyba."},
  {t:"single",q:"Proč neexistuje jodid měďnatý <span class=\"chem\">CuI₂</span>?",
   o:["Měď nikdy nedosahuje oxidačního čísla II.","Jodid je příliš velký a&nbsp;do mřížky se nevejde.","Jodidový aniont měď(II) rovnou zredukuje na měď(I) a&nbsp;sám se zoxiduje na jod.","Sloučenina je rozpustná a&nbsp;nedá se izolovat."],c:2,
-  e:"Platí pravidlo, že fluor stabilizuje vysoká oxidační čísla a&nbsp;jod nízká: <span class=\"chem\">2 Cu²⁺ + 4 I⁻ → 2 CuI + I₂</span>. Měď(II) je běžná, takže první odpověď je nesmysl; velikost aniontu tu nerozhoduje, rozhoduje redoxní chování."},
+  e:"Platí pravidlo, že fluor stabilizuje vysoká oxidační čísla a&nbsp;jod nízká: 2 Cu²⁺ + 4 I⁻ → 2 CuI + I₂. Měď(II) je běžná, takže první odpověď je nesmysl; velikost aniontu tu nerozhoduje, rozhoduje redoxní chování."},
  {t:"single",q:"Co se stane s&nbsp;chromanovým roztokem po přidání kyseliny?",
   o:["Chrom se zredukuje z&nbsp;VI na III.","Roztok se odbarví.","Vysráží se oxid chromitý.","Vznikne dichroman a&nbsp;roztok zoranžoví, oxidační číslo chromu se nezmění."],c:3,
-  e:"Jde o&nbsp;<b>kondenzaci</b>, ne o&nbsp;redoxní děj: <span class=\"chem\">2 CrO₄²⁻ + 2 H₃O⁺ → Cr₂O₇²⁻ + 3 H₂O</span>. Chrom má v&nbsp;obou částicích VI. Redukce na zelený <span class=\"chem\">Cr³⁺</span> nastane teprve tehdy, když je v&nbsp;roztoku redukovadlo."},
+  e:"Jde o&nbsp;<b>kondenzaci</b>, ne o&nbsp;redoxní děj: 2 CrO₄²⁻ + 2 H₃O⁺ → Cr₂O₇²⁻ + 3 H₂O. Chrom má v&nbsp;obou částicích VI. Redukce na zelený <span class=\"chem\">Cr³⁺</span> nastane teprve tehdy, když je v&nbsp;roztoku redukovadlo."},
  {t:"num",q:"Jaké je oxidační číslo manganu v&nbsp;aniontu <span class=\"chem\">MnO₄²⁻</span>? (Zadejte jako celé číslo, například 7.)",
   ans:6, tol:0.2, unit:"",
   e:"Kyslík má −II, součet se rovná náboji: <span class=\"q\">x</span> + 4·(−2) = −2, tedy <span class=\"q\">x</span> = VI. Jde o&nbsp;<b>manganan</b>, ne manganistan — ten má vzorec <span class=\"chem\">MnO₄⁻</span> a&nbsp;oxidační číslo VII. Rozdíl je jen v&nbsp;náboji aniontu a&nbsp;snadno se přehlédne."}
@@ -5068,7 +5067,7 @@ BANK.q3=[
   e:"Manganistan je natolik silné oxidovadlo, že chloridové ionty zoxiduje na chlor — spotřeba by pak neodpovídala množství stanovované látky. Kyselina dusičná by zase oxidovala sama; zbývá kyselina sírová, která je vůči manganistanu netečná."},
  {t:"single",q:"Co vznikne, když se zelený roztok mangananu okyselí?",
   o:["Kovový mangan a&nbsp;kyslík.","Jen bezbarvý roztok manganatých solí.","Nic se nestane, manganan je stálý v&nbsp;celém rozsahu pH.","Fialový manganistan a&nbsp;hnědá sraženina MnO₂ — manganan disproporcionuje."],c:3,
-  e:"Rovnice zní <span class=\"chem\">3 MnO₄²⁻ + 4 H₃O⁺ → 2 MnO₄⁻ + MnO₂ + 6 H₂O</span>. Mangan(VI) se rozdělí na mangan(VII) a&nbsp;mangan(IV) — to je typická <b>disproporcionace</b>. Manganan je proto stálý jedině v&nbsp;silně zásaditém prostředí."},
+  e:"Rovnice zní 3 MnO₄²⁻ + 4 H₃O⁺ → 2 MnO₄⁻ + MnO₂ + 6 H₂O. Mangan(VI) se rozdělí na mangan(VII) a&nbsp;mangan(IV) — to je typická <b>disproporcionace</b>. Manganan je proto stálý jedině v&nbsp;silně zásaditém prostředí."},
  {t:"single",q:"Čím se hydroxid chromitý liší od hydroxidu železitého?",
   o:["Cr(OH)₃ je amfoterní a&nbsp;rozpustí se i&nbsp;v&nbsp;hydroxidu, Fe(OH)₃ nikoli.","Cr(OH)₃ je rozpustný ve vodě.","Fe(OH)₃ je zelený, Cr(OH)₃ hnědý.","Cr(OH)₃ nereaguje s&nbsp;kyselinami."],c:0,
   e:"Hydroxid chromitý reaguje s&nbsp;kyselinami na chromité soli i&nbsp;se zásadami na hydroxidochromitany <span class=\"chem\">[Cr(OH)₄]⁻</span>, kdežto hydroxid železitý je jen zásaditý. Barvy jsou přesně opačné, než uvádí třetí možnost: Cr(OH)₃ je šedozelený, Fe(OH)₃ červenohnědý."},
@@ -5077,7 +5076,7 @@ BANK.q3=[
   e:"Bílý pigment nesmí pohlcovat žádnou vlnovou délku viditelného světla — to zajistí konfigurace d⁰ nebo d¹⁰. Titan(IV) má d⁰, kdežto železo(III) má d⁵, takže přechody d–d probíhají a&nbsp;hematit je barevný. Mřížka ani hmotnost prvku o&nbsp;barvě nerozhodují."},
  {t:"num",q:"Kolik molů železnatých iontů zoxiduje 1&nbsp;mol manganistanu draselného v&nbsp;kyselém prostředí?",
   ans:5, tol:0.2, unit:"mol",
-  e:"Manganistan přijme v&nbsp;kyselém prostředí pět elektronů a&nbsp;železnatý ion odevzdá jeden, takže poměr je 1&nbsp;:&nbsp;5 podle rovnice <span class=\"chem\">MnO₄⁻ + 5 Fe²⁺ + 8 H₃O⁺ → Mn²⁺ + 5 Fe³⁺ + 12 H₂O</span>. V&nbsp;zásaditém prostředí by poměr byl 1&nbsp;:&nbsp;3."}
+  e:"Manganistan přijme v&nbsp;kyselém prostředí pět elektronů a&nbsp;železnatý ion odevzdá jeden, takže poměr je 1&nbsp;:&nbsp;5 podle rovnice MnO₄⁻ + 5 Fe²⁺ + 8 H₃O⁺ → Mn²⁺ + 5 Fe³⁺ + 12 H₂O. V&nbsp;zásaditém prostředí by poměr byl 1&nbsp;:&nbsp;3."}
 ];
 
 /* ============================================================
@@ -5143,7 +5142,7 @@ BANK.q6=[
   e:"Karbonyl drží pohromadě zpětnou donací π&nbsp;— kov musí umět vrátit elektrony do orbitalu <span class=\"chem\">π*</span> ligandu. Zinková skupina má zaplněné d&nbsp;na příliš nízké energii, takže tuhle roli neplní. Volné orbitaly pro prostou donaci σ&nbsp;naopak má, a&nbsp;proto komplexy s&nbsp;donory σ&nbsp;tvoří ochotně."},
  {t:"num",q:"Kolik decimetrů krychlových vodíku za normálních podmínek vznikne rozpuštěním 6,54&nbsp;g zinku v&nbsp;nadbytku hydroxidu sodného? (<span class=\"q\">M</span>(Zn) = 65,38&nbsp;g·mol⁻¹, <span class=\"q\">V</span><sub>m</sub> = 22,41&nbsp;dm³·mol⁻¹.)",
   ans:2.24, tol:0.08, unit:"dm³",
-  e:"Podle rovnice <span class=\"chem\">Zn + 2 OH⁻ + 2 H₂O → [Zn(OH)₄]²⁻ + H₂</span> je poměr 1&nbsp;:&nbsp;1. Látkové množství zinku je 6,54 / 65,38 = 0,100&nbsp;mol, objem vodíku 0,100 · 22,41 = 2,24&nbsp;dm³. S&nbsp;kyselinou by vyšlo totéž — zinek v&nbsp;obou případech odevzdá dva elektrony."}
+  e:"Podle rovnice Zn + 2 OH⁻ + 2 H₂O → [Zn(OH)₄]²⁻ + H₂ je poměr 1&nbsp;:&nbsp;1. Látkové množství zinku je 6,54 / 65,38 = 0,100&nbsp;mol, objem vodíku 0,100 · 22,41 = 2,24&nbsp;dm³. S&nbsp;kyselinou by vyšlo totéž — zinek v&nbsp;obou případech odevzdá dva elektrony."}
 ];
 
 BANK.q7=[
@@ -5209,7 +5208,7 @@ BANK.final=[
   e:"Mangan má ve stavu VII a&nbsp;chrom ve stavu VI konfiguraci d⁰, takže není co posunout — přechod d–d nepřipadá v&nbsp;úvahu. Přenos náboje je navíc řádově intenzivnější, proto tyto ionty barví i&nbsp;ve velmi malé koncentraci."},
  {t:"single",q:"Kolik elektronů přijme manganistan v&nbsp;neutrálním až slabě zásaditém prostředí a&nbsp;co vznikne?",
   o:["pět, vzniká bezbarvý Mn²⁺","jeden, vzniká zelený manganan","sedm, vzniká kovový mangan","tři, vzniká hnědá sraženina MnO₂"],c:3,
-  e:"Rovnice zní <span class=\"chem\">MnO₄⁻ + 2 H₂O + 3 e⁻ → MnO₂ + 4 OH⁻</span>. Pět elektronů přijímá manganistan jen v&nbsp;kyselém prostředí, jeden v&nbsp;silně zásaditém. Hnědý zákal je důvod, proč se v&nbsp;neutrálním prostředí netitruje."},
+  e:"Rovnice zní MnO₄⁻ + 2 H₂O + 3 e⁻ → MnO₂ + 4 OH⁻. Pět elektronů přijímá manganistan jen v&nbsp;kyselém prostředí, jeden v&nbsp;silně zásaditém. Hnědý zákal je důvod, proč se v&nbsp;neutrálním prostředí netitruje."},
  {t:"single",q:"Jak se pozná, že přechod chromanu na dichroman není redoxní děj?",
   o:["Protože se nemění barva.","Protože reakce probíhá jen v&nbsp;kyselém prostředí.","Protože se uvolňuje voda.","Protože oxidační číslo chromu zůstává v&nbsp;obou částicích VI."],c:3,
   e:"V&nbsp;<span class=\"chem\">CrO₄²⁻</span> i&nbsp;v&nbsp;<span class=\"chem\">Cr₂O₇²⁻</span> je chrom ve stavu VI, mění se jen počet atomů v&nbsp;aniontu. Barva se naopak mění výrazně (žlutá na oranžovou) — a&nbsp;právě to svádí k&nbsp;chybnému závěru, že jde o&nbsp;redoxní reakci."},
@@ -5257,7 +5256,7 @@ BANK.final=[
   e:"Vysoký náboj na malém poloměru nemůže existovat volně, proto se stav realizuje kovalentními vazbami ke kyslíku a&nbsp;vzniká oxoaniont, který je zároveň oxidovadlem. Zásaditý oxid a&nbsp;jednoduchý hydratovaný kation patří naopak k&nbsp;<b>nízkým</b> oxidačním číslům."},
  {t:"multi",q:"Které rovnice jsou správně vyčíslené?",
   o:["2 CrO₄²⁻ + 2 H₃O⁺ → Cr₂O₇²⁻ + 3 H₂O","MnO₄⁻ + 8 H₃O⁺ + 5 e⁻ → Mn²⁺ + 12 H₂O","Zn + 2 OH⁻ → [Zn(OH)₄]²⁻ + H₂","4 Fe(OH)₂ + O₂ + 2 H₂O → 4 Fe(OH)₃","(NH₄)₂Cr₂O₇ → Cr₂O₃ + N₂ + 2 H₂O"],c:[0,1,3],
-  e:"Třetí rovnice nemá vyrovnaný vodík ani kyslík — chybí dvě molekuly vody na levé straně: <span class=\"chem\">Zn + 2 OH⁻ + 2 H₂O → [Zn(OH)₄]²⁻ + H₂</span>. Pátá má na pravé straně jen dvě vody místo čtyř; osm vodíků z&nbsp;amonných skupin musí někam odejít."},
+  e:"Třetí rovnice nemá vyrovnaný vodík ani kyslík — chybí dvě molekuly vody na levé straně: Zn + 2 OH⁻ + 2 H₂O → [Zn(OH)₄]²⁻ + H₂. Pátá má na pravé straně jen dvě vody místo čtyř; osm vodíků z&nbsp;amonných skupin musí někam odejít."},
  {t:"num",q:"Na 25,00&nbsp;cm³ roztoku železnaté soli se spotřebovalo 18,45&nbsp;cm³ manganistanu o&nbsp;koncentraci 0,0200&nbsp;mol·dm⁻³. Jaká je koncentrace železnatých iontů? (Zadejte v&nbsp;mol·dm⁻³.)",
   ans:0.0738, tol:0.002, unit:"mol·dm⁻³",
   e:"Poměr je 1&nbsp;:&nbsp;5, takže <span class=\"q\">n</span>(Fe²⁺) = 5 · 0,0200 · 0,01845 = 1,845·10⁻³&nbsp;mol a&nbsp;<span class=\"q\">c</span> = 1,845·10⁻³ / 0,02500 = 0,0738&nbsp;mol·dm⁻³. Kdo zapomene na násobek pěti, dostane 0,0148&nbsp;mol·dm⁻³."},
@@ -5293,7 +5292,7 @@ BANK.rychlo=[
   e:"Mangan(II) má <span class=\"chem\">3d⁵</span>, tedy pět orbitalů obsazených po jednom elektronu. Moment vyjde √(5·7) = 5,92&nbsp;μB — největší možný v&nbsp;první přechodné řadě. Stejnou hodnotu má i&nbsp;<span class=\"chem\">Fe³⁺</span>, který má také d⁵."},
  {t:"single",q:"Co vznikne redukcí manganistanu v&nbsp;kyselém prostředí a&nbsp;kolik elektronů se přitom přijme?",
   o:["MnO₂ a&nbsp;tři elektrony","Mn²⁺ a&nbsp;pět elektronů","MnO₄²⁻ a&nbsp;jeden elektron","kovový mangan a&nbsp;sedm elektronů"],c:1,
-  e:"V&nbsp;kyselém prostředí platí <span class=\"chem\">MnO₄⁻ + 8 H₃O⁺ + 5 e⁻ → Mn²⁺ + 12 H₂O</span>. Hnědý MnO₂ vzniká v&nbsp;neutrálním až slabě zásaditém prostředí a&nbsp;zelený manganan v&nbsp;silně zásaditém — právě proto se u&nbsp;titrace vždycky uvádí prostředí."},
+  e:"V&nbsp;kyselém prostředí platí MnO₄⁻ + 8 H₃O⁺ + 5 e⁻ → Mn²⁺ + 12 H₂O. Hnědý MnO₂ vzniká v&nbsp;neutrálním až slabě zásaditém prostředí a&nbsp;zelený manganan v&nbsp;silně zásaditém — právě proto se u&nbsp;titrace vždycky uvádí prostředí."},
  {t:"multi",q:"Které z&nbsp;uvedených látek jsou bezbarvé nebo bílé?",
   o:["TiO₂","KMnO₄","ZnO","CuSO₄·5H₂O","AgNO₃"],c:[0,2,4],
   e:"Bílý oxid titaničitý má Ti<sup>IV</sup> s&nbsp;konfigurací d⁰, bílý oxid zinečnatý má Zn<sup>II</sup> s&nbsp;d¹⁰ a&nbsp;dusičnan stříbrný má Ag<sup>I</sup> také s&nbsp;d¹⁰. Manganistan je fialový přenosem náboje a&nbsp;skalice modrá modrá přechodem d–d u&nbsp;Cu²⁺ (d⁹)."},
