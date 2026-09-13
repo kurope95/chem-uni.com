@@ -647,6 +647,19 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
   .quiz .quiz-toggle::after{order:4;width:100%;text-align:center}
 }
 </style>
+<style>
+/* Zlomek v otázce je vyšší než řádek, na úzkém displeji proto naráží
+   do zlomku na dalším řádku. Řádek musí být dost vysoký i pro složený zlomek. */
+.qbody{line-height:1.75}
+.qbody .frac{line-height:1.12}
+@media (max-width:760px){
+  .qbody{line-height:3.1}
+  .qbody .frac{font-size:.88em}
+  /* dvojitě vnořený zlomek (zlomek ve zlomku ve zlomku) je nejvyšší případ */
+  .qbody .frac .frac{font-size:.8em}
+  .qbody:has(.frac .frac){line-height:4.1}
+}
+</style>
 </head>
 <body>
 
@@ -759,6 +772,47 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 @media (max-width:640px){
   .twoup{grid-template-columns:minmax(0,1fr);gap:.45rem}
   .tu-rel{font-size:1.15rem}
+}
+
+/* ---- řádek s rovnicí, kterou sazeč zlomků prochází ----
+   Blok s vlastním svislým odsazením: vnořený zlomek je vysoký přes tři
+   řádky, takže by se v textu odděleném jen <br> dotýkal sousedního. */
+/* vsazený zlomek v běžném textu potřebuje svislou vůli, jinak se dva
+   zlomky na sousedních řádcích odstavce dotknou */
+.fx .frac{margin-top:.28em;margin-bottom:.28em}
+
+.fline{display:block;margin:.55em 0;line-height:1.3;
+  font-family:var(--f-mono);font-variant-numeric:lining-nums tabular-nums}
+.bq .fline:first-child{margin-top:0}
+.bq .fline:last-child{margin-bottom:0}
+.bqrow .fline{margin:0}
+
+/* ---- dvojice „tvar na řádku + týž vzorec jako zlomek“ v rámečku ---- */
+.bqrow{display:flex;flex-wrap:wrap;align-items:center;gap:.15rem .6rem;margin:.55em 0}
+.bqrow .bqk{flex:0 0 auto;font-family:var(--f-cond);font-weight:600;font-size:.68rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.bqrow .bqv{min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.12em 0}
+.bqrow .bqe{color:var(--ink-3);font-weight:600}
+.twoup + .twoup{margin-top:.6rem}
+
+/* ---- .eqlin: rovnice, která má zůstat na řádku ----
+   Vypadá jako .eq, ale sazeč zlomků ji neprochází, takže v ní zůstanou
+   vidět závorky. Používá se všude, kde věta mluví o řádkovém zápisu. */
+.eqlin{
+  font-family:var(--f-mono);font-size:1rem;background:var(--surface-2);
+  border:1px solid var(--line);border-left:3px solid var(--ink-3);
+  border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:0;color:var(--ink);
+  overflow-x:auto;font-variant-numeric:lining-nums tabular-nums;line-height:1.65;
+}
+.eqlin b{color:var(--accent);font-weight:600}
+.eqlin + .eq,.eq + .eqlin,.eqlin + .eqlin{margin-top:.55rem}
+.ddcard .eqlin{background:var(--surface);font-size:.95rem;padding:.5rem .7rem}
+
+/* ---- štítek nad rovnicí; ::before nezasahuje do innerHTML, sazeč o něm neví ---- */
+.eq[data-lbl]::before,.eqlin[data-lbl]::before{
+  display:block;font-family:var(--f-cond);font-weight:600;font-size:.68rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin-bottom:.4rem;content:attr(data-lbl);
 }
 
 /* ---- verdikt pod modelem ---- */
@@ -1035,7 +1089,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
   .cs-sym,.cs-val,.cs-line,.cs-ans,.cs-chk,.cs-note{color:#000}
   .cs-conv,.cs-line b,.cs-hi{color:#000;background:#fff;font-weight:700;text-decoration:underline}
   .cs-line{white-space:normal}
-  .bigeq,.tu-cell,.stepline{background:#fff;border:.5pt solid #000;color:#000}
+  .bigeq,.tu-cell,.stepline,.eqlin{background:#fff;border:.5pt solid #000;color:#000}
   .frac > .fn.hl,.frac > .fd.hl{background:#fff}
   .callout,.tablewrap,.worked,.readout,.ddcard{break-inside:avoid;page-break-inside:avoid}
   a{color:#000;text-decoration:none}
@@ -1046,7 +1100,17 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
   <header class="hero">
     <div class="hero-top">
       <h1>Zlomky a&nbsp;závorky</h1>
-      <p class="lead">Vzorec <span class="fx">c = m / (M · V)</span> a&nbsp;vzorec <span class="fx">c = m / M · V</span> se liší jedinou dvojicí závorek — a&nbsp;dávají úplně jiný výsledek. Tenhle průvodce je celý o&nbsp;tom jediném rozdílu: co dělá zlomková čára, kdy ji musíte nahradit napsanou závorkou, jak se ze zlomku ve zlomku stane jeden obyčejný zlomek a&nbsp;proč chemie píše mol·dm⁻³ místo mol/dm³. A&nbsp;hlavně: jak si <b>sám ověříte</b>, že jste vzorec opsali správně, aniž byste se musel ptát učitele.</p>
+      <p class="lead">Vzorec <span class="mono">c = m / (M · V)</span> a&nbsp;vzorec <span class="mono">c = m / M · V</span> se liší jedinou dvojicí závorek — a&nbsp;dávají úplně jiný výsledek. Tenhle průvodce je celý o&nbsp;tom jediném rozdílu: co dělá zlomková čára, kdy ji musíte nahradit napsanou závorkou, jak se ze zlomku ve zlomku stane jeden obyčejný zlomek a&nbsp;proč chemie píše mol·dm⁻³ místo mol/dm³. A&nbsp;hlavně: jak si <b>sám ověříte</b>, že jste vzorec opsali správně, aniž byste se musel ptát učitele.</p>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — se závorkou</span>c = m / (M · V)</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Týž vzorec jako zlomek — V&nbsp;je ve jmenovateli</span><span class="fline">c = m / (M · V)</span></div>
+      </div>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — bez závorky</span>c = m / M · V</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Týž vzorec jako zlomek — V&nbsp;je v&nbsp;čitateli</span><span class="fline">c = m / M · V</span></div>
+      </div>
       <div class="hero-meta">
         <span class="tag">Zlomková čára</span>
         <span class="tag">Závorky</span>
@@ -1096,15 +1160,15 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
         <div class="convgrid" id="pzVals" style="margin-top:.9rem"></div>
         <p class="stepnote" id="pzMsg" style="margin-top:.8rem"></p>
       </div>
-      <div class="panel-note">Zkuste napsat <span class="fx">m / M · V</span> a&nbsp;pak <span class="fx">m / (M · V)</span> a&nbsp;porovnat řádek „Hodnota výrazu“. Jsou to dva různé vzorce, které se liší jedinou dvojicí závorek — a&nbsp;jeden z&nbsp;nich je ten správný pro látkovou koncentraci. Model počítá s&nbsp;malými celými čísly místo veličin; přesně tak si přepis ověříte i&nbsp;na papíře.</div>
+      <div class="panel-note">Zkuste napsat <span class="mono">m / M · V</span> a&nbsp;pak <span class="mono">m / (M · V)</span> a&nbsp;porovnat řádek „Hodnota výrazu“. Jsou to dva různé vzorce, které se liší jedinou dvojicí závorek — a&nbsp;jeden z&nbsp;nich je ten správný pro látkovou koncentraci. Model počítá s&nbsp;malými celými čísly místo veličin; přesně tak si přepis ověříte i&nbsp;na papíře.</div>
     </div>
 
     <h2 style="margin-top:3.2rem;font-size:1.35rem">Co přesně tenhle materiál pokrývá</h2>
     <p class="lead" style="margin-top:.6rem;max-width:min(100%,100ch)">Každý řádek níž vede na kapitolu, která ho řeší. Průvodce navazuje na hlavní stránku sekce <b>Jak počítat chemii</b>, konkrétně na blok <b>Odvození</b> a&nbsp;blok <b>Dosazení</b> výpočtového listu — právě tam se se zlomky a&nbsp;závorkami pracuje nejvíc.</p>
     <div class="syllabus">
-      <a class="syl-row" href="#k0"><span class="b">1</span><span>Dva zápisy téhož vzorce: lineární <span class="fx">m / (M · V)</span> versus stohovaný zlomek. K&nbsp;čemu se hodí který a&nbsp;proč nejde o&nbsp;dvě různá pravidla.</span><span class="go">Kap. 00</span></a>
+      <a class="syl-row" href="#k0"><span class="b">1</span><span>Dva zápisy téhož vzorce: lineární <span class="mono">m / (M · V)</span> versus stohovaný zlomek. K&nbsp;čemu se hodí který a&nbsp;proč nejde o&nbsp;dvě různá pravidla.</span><span class="go">Kap. 00</span></a>
       <a class="syl-row" href="#k1"><span class="b">2</span><span>Zlomková čára je závorka: automaticky uzávorkuje celý čitatel i&nbsp;celý jmenovatel. Na řádku tytéž závorky musíte napsat ručně.</span><span class="go">Kap. 01</span></a>
-      <a class="syl-row" href="#k2"><span class="b">3</span><span>Pořadí operací: co má přednost, proč <span class="fx">2 / 3 · 4</span> není <span class="fx">2 / 12</span> a&nbsp;kde se chybuje nejčastěji.</span><span class="go">Kap. 02</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Pořadí operací: co má přednost, proč <span class="mono">2 / 3 · 4</span> není <span class="mono">2 / 12</span> a&nbsp;kde se chybuje nejčastěji.</span><span class="go">Kap. 02</span></a>
       <a class="syl-row" href="#k3"><span class="b">4</span><span>Ze stohovaného zápisu na řádek a&nbsp;zpátky: mechanický postup oběma směry, krok za krokem, s&nbsp;drilem.</span><span class="go">Kap. 03</span></a>
       <a class="syl-row" href="#k4"><span class="b">5</span><span>Složený zlomek — zlomek ve zlomku. Pravidlo „dělit zlomkem znamená násobit převrácenou hodnotou“ a&nbsp;jeho chemická podoba <span class="fx">c = n / V</span>, kde <span class="fx">n = m / M</span>.</span><span class="go">Kap. 04</span></a>
       <a class="syl-row" href="#k5"><span class="b">6</span><span>Záporný exponent místo zlomku: mol·dm⁻³ versus mol/dm³, převod oběma směry a&nbsp;krácení s&nbsp;exponenty.</span><span class="go">Kap. 05</span></a>
@@ -1139,17 +1203,19 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
       <div class="sb-head"><span class="sb-min">Blok 1</span><h3>Jeden vzorec, dva zápisy</h3></div>
       <div class="sb-grid">
         <div class="say">
-          <p>Vzorec pro látkovou koncentraci můžete napsat dvěma způsoby. Buď do jednoho řádku jako <span class="fx">c = m / (M · V)</span>, nebo svisle, s&nbsp;čitatelem nad jmenovatelem. Obojí je <b>tentýž vzorec</b>. Nejsou to dvě různá pravidla, jen dva obleky téže věci.</p>
+          <p>Vzorec pro látkovou koncentraci můžete napsat dvěma způsoby. Buď do jednoho řádku jako <span class="mono">c = m / (M · V)</span>, nebo svisle, s&nbsp;čitatelem nad jmenovatelem. Obojí je <b>tentýž vzorec</b>. Nejsou to dvě různá pravidla, jen dva obleky téže věci.</p>
           <p><b>Lineární (řádkový) zápis</b> se hodí všude, kde je jen jeden řádek: do věty v&nbsp;textu, do e‑mailu, do buňky tabulky a&nbsp;hlavně do kalkulačky. Kalkulačka svislé zlomky neumí; do ní se vždycky píše řádek.</p>
           <p><b>Stohovaný zápis</b>, tedy skutečný zlomek, se hodí na papír. Při odvození je v&nbsp;něm na první pohled vidět, co je nahoře a&nbsp;co dole, snadno se v&nbsp;něm krátí a&nbsp;nedá se v&nbsp;něm ztratit závorka — protože v&nbsp;něm žádné závorky nejsou potřeba.</p>
           <p>Umět plynule přecházet mezi oběma zápisy je celá dovednost, kterou se tady učíte. Odvozuje se ve zlomcích, počítá se na řádku.</p>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — kdy který zápis</span>
-            <div class="bq">na papír, k&nbsp;odvození &nbsp;→&nbsp; zlomek<br>
-            do řádku textu &nbsp;→&nbsp; lomítko<br>
-            do kalkulačky &nbsp;→&nbsp; lomítko<br><br>
-            <span class="fx">c = m / (M · V)</span></div></div>
+            <div class="bq"><b>TÝŽ VZOREC VE DVOU TVARECH</b><br>
+            Jeden a&nbsp;týž vzorec pro látkovou koncentraci ve dvou tvarech:
+            <div class="bqrow"><span class="bqk">na řádek</span><span class="bqv"><span class="mono">c = m / (M · V)</span></span></div>
+            <div class="bqrow"><span class="bqk">na papír</span><span class="bqv"><span class="fline">c = m / (M · V)</span></span></div>
+            Do věty, do e‑mailu a&nbsp;<b>do kalkulačky</b> jde jen řádek — závorku ve jmenovateli tam musíte napsat sami.
+            Na papír při odvození patří zlomek: je v&nbsp;něm vidět, co je nahoře, co dole a&nbsp;co se s&nbsp;čím vykrátí.</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>Myslet si, že zlomek a&nbsp;lomítko jsou dva různé vzorce. Jsou to dva zápisy jednoho vzorce — ale jen tehdy, když jsou v&nbsp;řádkovém zápisu správně napsané závorky.</p></div>
         </div>
@@ -1159,9 +1225,9 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
         <p class="task">Na tabuli je zlomek: nahoře <span class="q">m</span>, dole součin <span class="q">M</span>&nbsp;·&nbsp;<span class="q">V</span>. Zapište ho do jednoho řádku tak, aby znamenal totéž.</p>
         <div class="calc">celý jmenovatel = <b>(M · V)</b> — čára ho drží pohromadě<br>
 na řádku tu závorku musím napsat sám<br>
-výsledek: <span class="fx">m / (M · V)</span></div>
+výsledek: <span class="mono">m / (M · V)</span></div>
         <span class="res">m / (M · V)</span>
-        <p class="out">Bez závorky by vzniklo <span class="fx">m / M · V</span>, což se čte jako <span class="fx">(m / M) · V</span> — objem by se místo dělení násoboval. Pro <span class="q">m</span>&nbsp;=&nbsp;5,85&nbsp;g, <span class="q">M</span>&nbsp;=&nbsp;58,44&nbsp;g·mol⁻¹ a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;0,250&nbsp;dm³ vyjde správně 0,400&nbsp;mol·dm⁻³, špatně 0,0250&nbsp;mol·dm⁻³.</p>
+        <p class="out">Bez závorky by vzniklo <span class="mono">m / M · V</span>, což se čte jako <span class="mono">(m / M) · V</span> — objem by se místo dělení násoboval. Pro <span class="q">m</span>&nbsp;=&nbsp;5,85&nbsp;g, <span class="q">M</span>&nbsp;=&nbsp;58,44&nbsp;g·mol⁻¹ a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;0,250&nbsp;dm³ vyjde správně 0,400&nbsp;mol·dm⁻³, špatně 0,0250&nbsp;mol·dm⁻³.</p>
       </div>
       <div class="tchips"><b>Pojmy</b><span>lineární zápis</span><span>stohovaný zápis</span><span>zlomková čára</span><span>lomítko</span></div>
     </div>
@@ -1178,9 +1244,10 @@ výsledek: <span class="fx">m / (M · V)</span></div>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — dvojice závorek zdarma</span>
-            <div class="bq">čára = dělení + ( ) nahoře + ( ) dole<br><br>
-            svisle: závorky psát nemusím<br>
-            na řádku: musím je napsat</div></div>
+            <div class="bq"><b>CO DĚLÁ ZLOMKOVÁ ČÁRA</b><br>
+            Vodorovná čára ve zlomku je znak dělení a&nbsp;<b>zároveň</b> drží pohromadě celý čitatel a&nbsp;celý jmenovatel — jako by kolem každého z&nbsp;nich byla závorka.<br><br>
+            Ve zlomku závorky psát nemusíte, čára je udělá za vás.<br>
+            Na řádku tytéž závorky musíte napsat sami.</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>Opsat zlomek z&nbsp;tabule na řádek „jak jde po sobě“ a&nbsp;závorky vynechat. Vznikne jiný vzorec, který se navíc tváří naprosto věrohodně — chybu na něm nepoznáte, dokud nedosadíte čísla.</p></div>
         </div>
@@ -1188,7 +1255,7 @@ výsledek: <span class="fx">m / (M · V)</span></div>
       <div class="svgwrap" id="mg1"></div>
       <div class="exbox">
         <span class="eyebrow">Příklad · rozdíl na číslech</span>
-        <p class="task">Porovnejte hodnoty výrazů <span class="fx">12 / 3 · 2</span> a&nbsp;<span class="fx">12 / (3 · 2)</span>. Jsou stejné?</p>
+        <p class="task">Porovnejte hodnoty výrazů <span class="mono">12 / 3 · 2</span> a&nbsp;<span class="mono">12 / (3 · 2)</span>. Jsou stejné?</p>
         <div class="calc">bez závorky, zleva doprava: 12 / 3 = 4, pak 4 · 2 = <b>8</b><br>
 se závorkou: 3 · 2 = 6, pak 12 / 6 = <b>2</b><br>
 poměr výsledků = 4</div>
@@ -1210,10 +1277,12 @@ poměr výsledků = 4</div>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — dvě otázky před přepisem</span>
-            <div class="bq">nahoře víc než jeden člen? → ( )<br>
-            dole víc než jeden člen? → ( )<br><br>
-            <span class="fx">m / (M · V)</span> &nbsp;✓<br>
-            <span class="fx">(a + b) / (c + d)</span> &nbsp;✓</div></div>
+            <div class="bq"><b>KDY NAPSAT ZÁVORKU</b><br>
+            při přepisu zlomku na jeden řádek<br><br>
+            Je v&nbsp;čitateli víc než jeden člen — součin, součet nebo rozdíl? Napište kolem něj závorku. Ve jmenovateli platí totéž.
+            <div class="bqrow"><span class="bqk">dole jediná veličina</span><span class="bqv"><span class="mono">n = m / M</span></span></div>
+            <div class="bqrow"><span class="bqk">dole součin</span><span class="bqv"><span class="mono">c = m / (M · V)</span></span></div>
+            <div class="bqrow"><span class="bqk">nahoře i&nbsp;dole součet</span><span class="bqv"><span class="mono">c = (c₁ · V₁ + c₂ · V₂) / (V₁ + V₂)</span></span></div></div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>Napsat závorku jen nahoře a&nbsp;dole na ni zapomenout. Jmenovatel je nebezpečnější ze dvou míst, protože chybějící závorka tam vytáhne poslední činitel nahoru — a&nbsp;výsledek pak bývá o&nbsp;několik řádů vedle.</p></div>
         </div>
@@ -1223,7 +1292,7 @@ poměr výsledků = 4</div>
         <p class="task">Zapište do jednoho řádku zlomek, který má nahoře <span class="q">c</span>₁·<span class="q">V</span>₁&nbsp;+&nbsp;<span class="q">c</span>₂·<span class="q">V</span>₂ a&nbsp;dole <span class="q">V</span>₁&nbsp;+&nbsp;<span class="q">V</span>₂.</p>
         <div class="calc">nahoře součet dvou součinů → závorka<br>
 dole součet dvou objemů → závorka<br>
-výsledek: <span class="fx">(c₁ · V₁ + c₂ · V₂) / (V₁ + V₂)</span></div>
+výsledek: <span class="mono">(c₁ · V₁ + c₂ · V₂) / (V₁ + V₂)</span></div>
         <span class="res">dvě závorky, jedna nahoře a&nbsp;jedna dole</span>
         <p class="out">Pro <span class="q">c</span>₁&nbsp;=&nbsp;0,10&nbsp;mol·dm⁻³, <span class="q">V</span>₁&nbsp;=&nbsp;200&nbsp;cm³, <span class="q">c</span>₂&nbsp;=&nbsp;0,50&nbsp;mol·dm⁻³ a&nbsp;<span class="q">V</span>₂&nbsp;=&nbsp;300&nbsp;cm³ vyjde 0,34&nbsp;mol·dm⁻³. Bez spodní závorky by kalkulačka spočítala něco úplně jiného, protože by dělila jen prvním objemem a&nbsp;druhý by přičetla.</p>
       </div>
@@ -1237,24 +1306,29 @@ výsledek: <span class="fx">(c₁ · V₁ + c₂ · V₂) / (V₁ + V₂)</span>
         <div class="say">
           <p>Když v&nbsp;řádkovém zápisu závorky nejsou, rozhoduje pevné pořadí. Nejdřív <b>závorky</b>, pak <b>mocniny a&nbsp;odmocniny</b>, pak <b>násobení a&nbsp;dělení</b>, nakonec <b>sčítání a&nbsp;odčítání</b>.</p>
           <p>Klíčové je poslední pravidlo, na které se zapomíná: násobení a&nbsp;dělení mají <b>stejnou</b> přednost. Nepředbíhají se navzájem, takže se berou <b>zleva doprava</b>, v&nbsp;pořadí, v&nbsp;jakém stojí na řádku.</p>
-          <p>Proto <span class="fx">2 / 3 · 4</span> znamená <span class="fx">(2 / 3) · 4</span>, tedy přibližně 2,67 — a&nbsp;ne <span class="fx">2 / (3 · 4)</span>, což by bylo asi 0,167. Rozdíl je šestnáctinásobný. Stejné pravidlo platí pro dvě dělení za sebou: <span class="fx">36 / 6 / 3</span> je 2, ne 18.</p>
+          <p>Proto <span class="mono">2 / 3 · 4</span> znamená <span class="mono">(2 / 3) · 4</span>, tedy přibližně 2,67 — a&nbsp;ne <span class="mono">2 / (3 · 4)</span>, což by bylo asi 0,167. Rozdíl je šestnáctinásobný. Stejné pravidlo platí pro dvě dělení za sebou: <span class="mono">36 / 6 / 3</span> je 2, ne 18.</p>
           <p>Kalkulačka i&nbsp;tabulkový procesor počítají přesně podle tohohle pravidla. Nikdy se nechovají „jak by to asi mělo být“ — chovají se podle toho, co jste napsali.</p>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — čtyři patra přednosti</span>
-            <div class="bq">1. ( )<br>2. mocniny a&nbsp;odmocniny<br>3. · a&nbsp;/ &nbsp;— zleva doprava<br>4. + a&nbsp;− &nbsp;— zleva doprava<br><br>
-            <span class="fx">2 / 3 · 4</span> = <span class="fx">(2 / 3) · 4</span></div></div>
+            <div class="bq"><b>POŘADÍ OPERACÍ</b><br>
+            co se na řádku počítá dřív<br><br>
+            1. závorky<br>
+            2. mocniny a&nbsp;odmocniny<br>
+            3. násobení a&nbsp;dělení — zleva doprava<br>
+            4. sčítání a&nbsp;odčítání — zleva doprava<br><br>
+            Násobení <b>nemá</b> přednost před dělením, proto <span class="mono">2 / 3 · 4</span> znamená <span class="mono">(2 / 3) · 4</span>.</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
-            <p>Myslet si, že násobení má přednost před dělením, protože je „mocnější“. Nemá. Kdo počítá <span class="fx">2 / 3 · 4</span> jako <span class="fx">2 / 12</span>, vynásobil dřív, než měl — a&nbsp;výsledek je šestnáctkrát menší.</p></div>
+            <p>Myslet si, že násobení má přednost před dělením, protože je „mocnější“. Nemá. Kdo počítá <span class="mono">2 / 3 · 4</span> jako <span class="mono">2 / 12</span>, vynásobil dřív, než měl — a&nbsp;výsledek je šestnáctkrát menší.</p></div>
         </div>
       </div>
       <div class="svgwrap" id="mg2"></div>
       <div class="exbox">
         <span class="eyebrow">Příklad · stavová rovnice bez závorky</span>
-        <p class="task">Student zapsal látkové množství jako <span class="fx">n = p · V / R · T</span>. Kolik mu vyjde pro <span class="q">p</span>&nbsp;=&nbsp;101,325&nbsp;kPa, <span class="q">V</span>&nbsp;=&nbsp;2,50&nbsp;dm³, <span class="q">R</span>&nbsp;=&nbsp;8,314&nbsp;J·K⁻¹·mol⁻¹, <span class="q">T</span>&nbsp;=&nbsp;298,15&nbsp;K?</p>
-        <div class="calc">jak to čte kalkulačka: <span class="fx">((p · V) / R) · T</span><br>
+        <p class="task">Student zapsal látkové množství jako <span class="mono">n = p · V / R · T</span>. Kolik mu vyjde pro <span class="q">p</span>&nbsp;=&nbsp;101,325&nbsp;kPa, <span class="q">V</span>&nbsp;=&nbsp;2,50&nbsp;dm³, <span class="q">R</span>&nbsp;=&nbsp;8,314&nbsp;J·K⁻¹·mol⁻¹, <span class="q">T</span>&nbsp;=&nbsp;298,15&nbsp;K?</p>
+        <div class="calc">jak to čte kalkulačka: <span class="mono">((p · V) / R) · T</span><br>
 101,325 · 2,50 = 253,3 → / 8,314 = 30,47 → · 298,15 = <b>9084</b><br>
-správně <span class="fx">p · V / (R · T)</span> = <b>0,102</b> mol</div>
+správně <span class="mono">p · V / (R · T)</span> = <b>0,102</b> mol</div>
         <span class="res">9084 místo 0,102 mol</span>
         <p class="out">Chyba není v&nbsp;chemii ani v&nbsp;kalkulačce — je v&nbsp;jedné chybějící závorce. Výsledek je téměř stotisíckrát větší, a&nbsp;přitom by ho student bez rozměrové kontroly klidně opsal do odpovědi.</p>
       </div>
@@ -1273,24 +1347,29 @@ správně <span class="fx">p · V / (R · T)</span> = <b>0,102</b> mol</div>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — postup přepisu</span>
-            <div class="bq">na řádek:<br>
-            čitatel → (?) → / → jmenovatel → (?)<br><br>
-            na zlomek:<br>
-            najdi hlavní lomítko<br>
-            vlevo nahoru, vpravo dolů</div></div>
+            <div class="bq"><b>PŘEPIS MEZI ZLOMKEM A ŘÁDKEM</b><br><br>
+            <b>ze zlomku na řádek</b><br>
+            čitatel, lomítko, jmenovatel — a&nbsp;závorku kolem toho z&nbsp;nich, v&nbsp;němž je operace (součin, součet, rozdíl).<br><br>
+            <b>z&nbsp;řádku na zlomek</b><br>
+            najděte hlavní lomítko, tedy to, které není v&nbsp;žádné závorce: co je vlevo od něj, jde nad čáru, co je vpravo, pod ni.</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
-            <p>Při přepisu z&nbsp;řádku na zlomek strhnout pod čáru i&nbsp;to, co za lomítkem následuje až po dalším násobení. V&nbsp;<span class="fx">a / b · c</span> patří pod čáru jen <span class="q">b</span>; <span class="q">c</span> zůstává vedle zlomku, ne pod ním.</p></div>
+            <p>Při přepisu z&nbsp;řádku na zlomek strhnout pod čáru i&nbsp;to, co za lomítkem následuje až po dalším násobení. V&nbsp;<span class="mono">a / b · c</span> patří pod čáru jen <span class="q">b</span>; <span class="q">c</span> zůstává vedle zlomku, ne pod ním.</p></div>
         </div>
       </div>
       <div class="exbox">
         <span class="eyebrow">Příklad · najděte hlavní lomítko</span>
-        <p class="task">Přepište do zlomku výraz <span class="fx">M · I · t / (z · F)</span>, tedy vzorec pro hmotnost vyloučenou při elektrolýze.</p>
+        <p class="task">Přepište do zlomku výraz <span class="mono">M · I · t / (z · F)</span>, tedy vzorec pro hmotnost vyloučenou při elektrolýze.</p>
         <div class="calc">hlavní lomítko: to jediné, mimo závorky<br>
 vlevo od něj: M · I · t &nbsp;→ nad čáru<br>
 vpravo od něj: (z · F) &nbsp;→ pod čáru, závorka se zahodí<br>
 kontrola dosazením: 63,55 · 2,00 · 1800 / (2 · 96485) = <b>1,19</b></div>
+        <div class="twoup" style="margin-top:.7rem">
+          <div class="tu-cell"><span class="cap">Zadání — tvar na řádku</span>M · I · t / (z · F)</div>
+          <div class="tu-rel">→</div>
+          <div class="tu-cell ok"><span class="cap">Výsledek — týž vzorec jako zlomek</span><span class="fline">M · I · t / (z · F)</span></div>
+        </div>
         <span class="res">nahoře M · I · t, dole z · F</span>
-        <p class="out">Vyloučí se 1,19&nbsp;g mědi. Kdyby student psal <span class="fx">M · I · t / z · F</span> bez závorky, dostal by číslo o&nbsp;deset řádů větší — Faradayova konstanta ≈ 96&nbsp;500 by se místo dělení násobila.</p>
+        <p class="out">Vyloučí se 1,19&nbsp;g mědi. Kdyby student psal <span class="mono">M · I · t / z · F</span> bez závorky, dostal by číslo o&nbsp;deset řádů větší — Faradayova konstanta ≈ 96&nbsp;500 by se místo dělení násobila.</p>
       </div>
       <div class="tchips"><b>Pojmy</b><span>hlavní lomítko</span><span>přepis</span><span>čitatel</span><span>jmenovatel</span></div>
     </div>
@@ -1307,10 +1386,11 @@ kontrola dosazením: 63,55 · 2,00 · 1800 / (2 · 96485) = <b>1,19</b></div>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — dělení zlomkem</span>
-            <div class="bq">dělit = násobit převrácenou<br><br>
-            <span class="fx">a / (b / c)</span> = <span class="fx">(a · c) / b</span><br>
-            <span class="fx">(a / b) / c</span> = <span class="fx">a / (b · c)</span><br>
-            <span class="fx">(m / M) / V</span> = <span class="fx">m / (M · V)</span></div></div>
+            <div class="bq"><b>SLOŽENÝ ZLOMEK — JAK HO SBALIT</b><br>
+            Dělit něčím znamená násobit jeho převrácenou hodnotou. Písmena zastupují libovolné výrazy.
+            <div class="bqrow"><span class="bqk">zlomek byl dole</span><span class="bqv"><span class="mono">a / (b / c) = (a · c) / b</span></span></div>
+            <div class="bqrow"><span class="bqk">zlomek byl nahoře</span><span class="bqv"><span class="mono">(a / b) / c = a / (b · c)</span></span></div>
+            <div class="bqrow"><span class="bqk">v&nbsp;chemii</span><span class="bqv"><span class="mono">(m / M) / V</span></span><span class="bqe">=</span><span class="bqv"><span class="fline">m / (M · V)</span></span></div></div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>Zaměnit <span class="fx">(a / b) / c</span> za <span class="fx">a / (b / c)</span>. První dá <span class="fx">a / (b · c)</span>, druhý <span class="fx">(a · c) / b</span>. Pro <span class="q">a</span>&nbsp;=&nbsp;36, <span class="q">b</span>&nbsp;=&nbsp;6 a&nbsp;<span class="q">c</span>&nbsp;=&nbsp;3 to je 2 proti 18.</p></div>
         </div>
@@ -1340,11 +1420,11 @@ kontrola přímo: 0,6667 / 0,7143 = <b>0,9333</b> ✓</div>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — exponent přes čáru</span>
-            <div class="bq">x⁻¹ = 1 / x<br>
-            přes čáru → obrátit znaménko<br><br>
-            mol / dm³ = mol·dm⁻³<br>
-            J / (K · mol) = J·K⁻¹·mol⁻¹<br>
-            g · g⁻¹ = 1</div></div>
+            <div class="bq"><b>ZÁPORNÝ EXPONENT V&nbsp;JEDNOTKÁCH</b><br>
+            Záporný exponent je jen jiný zápis dělení: <span class="mono">x⁻¹ = 1 / x</span>. Co přeskočí zlomkovou čáru — shora dolů i&nbsp;zdola nahoru — otočí znaménko svého exponentu.
+            <div class="bqrow"><span class="bqk">koncentrace</span><span class="bqv"><span class="mono">mol / dm³ = mol·dm⁻³</span></span></div>
+            <div class="bqrow"><span class="bqk">plynová konstanta</span><span class="bqv"><span class="mono">J / (K · mol) = J·K⁻¹·mol⁻¹</span></span></div>
+            <div class="bqrow"><span class="bqk">krácení jednotek</span><span class="bqv"><span class="mono">g · g⁻¹ = 1</span></span></div></div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>Číst mol·dm⁻³ jako „mol krát dm³“ a&nbsp;znaménko exponentu přehlédnout. Rozdíl mezi dm³ a&nbsp;dm⁻³ je faktor milion, jakmile se do toho zamíchá převod mezi cm³ a&nbsp;dm³.</p></div>
         </div>
@@ -1375,11 +1455,13 @@ J·K⁻¹·mol⁻¹ = <b>J / (K · mol)</b></div>
         </div>
         <div class="aside">
           <div class="board"><span class="eyebrow">Zapamatujte si — dvě kontroly</span>
-            <div class="bq">A) dosaď a&nbsp;= 2, b&nbsp;= 3, c&nbsp;= 5<br>
-            &nbsp;&nbsp;&nbsp;liší se → přepis je špatně<br><br>
-            B) dosaď jednotky<br>
-            &nbsp;&nbsp;&nbsp;jiná jednotka → chyba v&nbsp;odvození<br><br>
-            nikdy nedosazuj 0 ani 1</div></div>
+            <div class="bq"><b>JAK OVĚŘÍM, ŽE JSEM VZOREC PŘEPSAL SPRÁVNĚ</b><br>
+            dvě nezávislé kontroly, každá do minuty<br><br>
+            <b>1 · dosazení čísel</b><br>
+            za každé písmeno jiné malé číslo (2, 3, 5), a&nbsp;to do <b>obou</b> zápisů; jiný výsledek znamená chybný přepis<br><br>
+            <b>2 · rozměrová kontrola</b><br>
+            místo písmen jejich jednotky; jiná jednotka znamená chybu v&nbsp;odvození<br><br>
+            Nikdy nedosazujte 0 ani&nbsp;1 — nula rozbije dělení, jednička chyby skryje.</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>Dosadit jednu trojici, vidět shodu a&nbsp;prohlásit přepis za správný. Někdy se dva různé výrazy na jedné konkrétní trojici čísel náhodou potkají. Proto vždycky dvě různé trojice.</p></div>
         </div>
@@ -1402,7 +1484,7 @@ závěr: rovnost neplatí</div>
         <li>Zlomek a&nbsp;řádkový zápis s&nbsp;lomítkem jsou dva zápisy téhož vzorce; odvozuje se ve zlomcích, počítá se na řádku.</li>
         <li>Zlomková čára je zároveň znak dělení a&nbsp;dvojice neviditelných závorek — jedna kolem celého čitatele, druhá kolem celého jmenovatele.</li>
         <li>Když zlomek přepisuji na řádek, obě tyhle závorky musím napsat ručně, protože čára, která je dělala, zmizela.</li>
-        <li>Násobení a&nbsp;dělení mají stejnou přednost a&nbsp;berou se zleva doprava, takže <span class="fx">2 / 3 · 4</span> znamená <span class="fx">(2 / 3) · 4</span>, a&nbsp;ne <span class="fx">2 / (3 · 4)</span>.</li>
+        <li>Násobení a&nbsp;dělení mají stejnou přednost a&nbsp;berou se zleva doprava, takže <span class="mono">2 / 3 · 4</span> znamená <span class="mono">(2 / 3) · 4</span>, a&nbsp;ne <span class="mono">2 / (3 · 4)</span>.</li>
         <li>Při přepisu z&nbsp;řádku na zlomek najdu hlavní lomítko mimo závorky; co je vlevo od něj, jde nad čáru, co je vpravo, pod ni.</li>
         <li>Dělit zlomkem znamená násobit jeho převrácenou hodnotou, takže <span class="fx">(m / M) / V</span> je totéž co <span class="fx">m / (M · V)</span>.</li>
         <li>Záporný exponent je jen jiný zápis dělení, a&nbsp;proto se mol/dm³ píše jako mol·dm⁻³; co přeskočí zlomkovou čáru, otočí znaménko exponentu.</li>
@@ -1464,8 +1546,14 @@ závěr: rovnost neplatí</div>
       <p class="lead">Než se pustíme do závorek, je potřeba mít jasno v&nbsp;jedné banální, a&nbsp;přesto pořád podceňované věci: <b>zlomek a&nbsp;lomítko jsou totéž</b>. Vzorec napsaný svisle a&nbsp;týž vzorec napsaný do řádku nejsou dvě různá pravidla, která by se student musel učit zvlášť. Je to jeden vztah ve dvou oblecích — a&nbsp;každý oblek se hodí jinam.</p>
 
       <h3>Zlomek je dělení, dělení je zlomek</h3>
-      <p>Vodorovná čára mezi dvěma výrazy znamená přesně a&nbsp;jedině „vyděl to nad čarou tím pod čarou“. Je to plnohodnotný znak dělení, stejně jako lomítko nebo dvojtečka. Když někdo napíše <span class="fx">n = m / M</span> a&nbsp;někdo jiný totéž svisle, napsali dvě stejné věty.</p>
+      <p>Vodorovná čára mezi dvěma výrazy znamená přesně a&nbsp;jedině „vyděl to nad čarou tím pod čarou“. Je to plnohodnotný znak dělení, stejně jako lomítko nebo dvojtečka. Když někdo napíše <span class="mono">n = m / M</span> a&nbsp;někdo jiný totéž svisle, napsali dvě stejné věty.</p>
       <p>Rozdíl je čistě typografický. Svislý zápis potřebuje dva řádky a&nbsp;neumí ho většina počítačových vstupů; řádkový se vejde kamkoli, ale musí si poradit bez čáry, která by mu držela pohromadě čitatel a&nbsp;jmenovatel. A&nbsp;právě tady začínají všechny potíže, kterým je věnovaný zbytek téhle stránky.</p>
+
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — do textu a&nbsp;do kalkulačky</span>n = m / M</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Svisle — na papír, k&nbsp;odvození</span><span class="fline">n = m / M</span></div>
+      </div>
 
       <div class="callout def">
         <span class="eyebrow">Definice — čitatel, jmenovatel, zlomková čára</span>
@@ -1531,7 +1619,8 @@ závěr: rovnost neplatí</div>
         <div class="worked-steps">
           <div class="step"><span class="step-n">1</span><div class="step-b">
             <p>Čitatel je jediná veličina, závorku nepotřebuje. Jmenovatel je součin dvou veličin, takže závorku potřebuje.</p>
-            <p class="eq">c = m / (M · V)</p>
+            <p class="eqlin" data-lbl="Tak se to napíše na řádek">c = m / (M · V)</p>
+            <p class="eq" data-lbl="Totéž jako zlomek">c = m / (M · V)</p>
           </div></div>
           <div class="step"><span class="step-n">2</span><div class="step-b">
             <p>Do kalkulačky se píše přesně tenhle řádek, jen s&nbsp;čísly místo písmen. Závorka se otevře před prvním činitelem jmenovatele a&nbsp;zavře za posledním.</p>
@@ -1547,7 +1636,7 @@ závěr: rovnost neplatí</div>
             <p><span class="result">c = 0,400 mol·dm⁻³</span></p>
           </div></div>
           <div class="step"><span class="step-n">5</span><div class="step-b">
-            <p>Kontrola: kdyby závorka chyběla, kalkulačka by spočítala <span class="fx">(5,85 / 58,44) · 0,250</span> = 0,0250. Řádová úvaha to odhalí — desetina molu ve čtvrtlitru nemůže dát pětadvacet tisícin molu na litr.</p>
+            <p>Kontrola: kdyby závorka chyběla, kalkulačka by spočítala <span class="mono">(5,85 / 58,44) · 0,250</span> = 0,0250. Řádová úvaha to odhalí — desetina molu ve čtvrtlitru nemůže dát pětadvacet tisícin molu na litr.</p>
           </div></div>
         </div>
       </div>
@@ -1556,7 +1645,7 @@ závěr: rovnost neplatí</div>
     <div class="worked" data-worked>
       <div class="worked-head">
         <span class="eyebrow">Příklad 0.2 · z&nbsp;řádku na tabuli</span>
-        <p>V&nbsp;tabulkách najdete zápis <span class="fx">Vm = R · T / p</span>. Nakreslete ho jako zlomek a&nbsp;řekněte, co je nahoře a&nbsp;co dole.</p>
+        <p>V&nbsp;tabulkách najdete zápis <span class="mono">Vm = R · T / p</span>. Nakreslete ho jako zlomek a&nbsp;řekněte, co je nahoře a&nbsp;co dole.</p>
       </div>
       <div class="worked-body">
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
@@ -1597,17 +1686,25 @@ závěr: rovnost neplatí</div>
 
       <div class="callout def">
         <span class="eyebrow">Definice — implicitní závorka</span>
-        <p><span class="term">Implicitní závorka</span> je závorka, kterou nikdo nenapsal, ale která ze zápisu jednoznačně vyplývá. Zlomková čára jich vytváří rovnou dvojici: <span class="fx">(čitatel) / (jmenovatel)</span>. Při přepisu na řádek se z&nbsp;implicitních závorek musí stát <b>napsané</b>, jinak se význam změní.</p>
+        <p><span class="term">Implicitní závorka</span> je závorka, kterou nikdo nenapsal, ale která ze zápisu jednoznačně vyplývá. Zlomková čára jich vytváří rovnou dvojici: na řádku je totéž co <span class="mono">(čitatel) / (jmenovatel)</span>. Při přepisu na řádek se z&nbsp;implicitních závorek musí stát <b>napsané</b>, jinak se význam změní.</p>
       </div>
 
       <h3>Totéž na řádku: závorky se musí napsat</h3>
       <p>Jakmile zmizí čára, zmizí i&nbsp;svorky. Řádkový zápis nemá jak poznat, kam až sahá jmenovatel — ví jen, že za lomítkem něco následuje. A&nbsp;podle pravidel o&nbsp;pořadí operací si vezme <b>jen nejbližší člen</b>, nic víc.</p>
       <p>Řádek <span class="mono">a / b · c</span> se proto čte jako <span class="mono">(a / b) · c</span> a&nbsp;vysází se takhle:</p>
       <p class="eq">(a / b) · c</p>
-      <p>To je něco úplně jiného než <span class="fx">a / (b · c)</span>. V&nbsp;prvním případě je <span class="q">c</span> v&nbsp;čitateli, ve druhém ve jmenovateli. Mezi těmi dvěma vzorci je rozdíl faktoru <span class="q">c</span>², což pro <span class="q">c</span>&nbsp;=&nbsp;10 znamená stonásobek.</p>
+      <p>To je něco úplně jiného než <span class="mono">a / (b · c)</span>, které se vysází s&nbsp;<span class="q">c</span> pod čarou. V&nbsp;prvním případě je <span class="q">c</span> v&nbsp;čitateli, ve druhém ve jmenovateli. Mezi těmi dvěma vzorci je rozdíl faktoru <span class="q">c</span>², což pro <span class="q">c</span>&nbsp;=&nbsp;10 znamená stonásobek.</p>
 
-      <div class="bigeq" data-lbl="Totéž, jen jinak zapsané">a / (b · c)</div>
-      <div class="bigeq" data-lbl="A tohle je něco jiného">a / b · c</div>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — závorka za lomítkem</span>a / (b · c)</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Jako zlomek — c&nbsp;je pod čarou</span><span class="fline">a / (b · c)</span></div>
+      </div>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Na řádku — bez závorky</span>a / b · c</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell"><span class="cap">Jako zlomek — c&nbsp;je vedle zlomku</span><span class="fline">a / b · c</span></div>
+      </div>
 
       <h3>Ukázka na číslech — rozdíl je vidět hned</h3>
       <p>Nejrychlejší způsob, jak si to jednou provždy zapamatovat, je dosadit. Nezáleží na tom, jaká čísla zvolíte; rozdíl je vždycky <span class="q">c</span>²‑násobný.</p>
@@ -1650,12 +1747,13 @@ závěr: rovnost neplatí</div>
     <div class="prose">
       <h3>Kdy závorka potřeba není</h3>
       <p>Pravidlo „raději závorku navíc“ platí, ale je dobré vědět, kdy je opravdu zbytečná. Závorku nepotřebujete, pokud je pod čarou (nebo nad ní) <b>jediný člen</b> — jedna veličina, jedno číslo, nic jiného.</p>
-      <p class="eq">c₂ = c₁ · V₁ / V₂ &nbsp;&nbsp;✓&nbsp;&nbsp; správně i&nbsp;bez závorky</p>
-      <p>Ve jmenovateli stojí jediný objem, takže lomítko nemá co jiného pohltit. Nahoře je součin, ale ten je celý vlevo od lomítka, a&nbsp;tam se čte zleva doprava — <span class="fx">c₁ · V₁ / V₂</span> se vyhodnotí jako <span class="fx">(c₁ · V₁) / V₂</span>, což je přesně to, co chceme.</p>
+      <p class="eqlin" data-lbl="Na řádku — a je to správně i bez závorky">c₂ = c₁ · V₁ / V₂ &nbsp;&nbsp;✓</p>
+      <p class="eq" data-lbl="Týž vzorec jako zlomek">c₂ = c₁ · V₁ / V₂</p>
+      <p>Ve jmenovateli stojí jediný objem, takže lomítko nemá co jiného pohltit. Nahoře je součin, ale ten je celý vlevo od lomítka, a&nbsp;tam se čte zleva doprava — <span class="mono">c₁ · V₁ / V₂</span> se vyhodnotí jako <span class="mono">(c₁ · V₁) / V₂</span>, což je přesně to, co chceme.</p>
 
       <div class="callout warn">
         <span class="eyebrow">Past — druhý činitel za lomítkem</span>
-        <p>Nebezpečí nastane, jakmile se za lomítko dostane <b>druhý</b> činitel. Zápis <span class="fx">c₁ · V₁ / V₂ · 2</span> už dělí jen objemem <span class="q">V</span>₂ a&nbsp;pak výsledek zdvojnásobí — ne, že by dělil dvojnásobným objemem. Kdykoli za lomítkem následuje další násobení, závorka je povinná.</p>
+        <p>Nebezpečí nastane, jakmile se za lomítko dostane <b>druhý</b> činitel. Zápis <span class="mono">c₁ · V₁ / V₂ · 2</span> už dělí jen objemem <span class="q">V</span>₂ a&nbsp;pak výsledek zdvojnásobí — ne, že by dělil dvojnásobným objemem. Kdykoli za lomítkem následuje další násobení, závorka je povinná.</p>
       </div>
 
       <h3>Proč se to nejvíc plete ve jmenovateli</h3>
@@ -1686,34 +1784,35 @@ závěr: rovnost neplatí</div>
         <div id="zrTab" style="margin-top:.9rem;overflow-x:auto"></div>
         <p class="verd" id="zrVerd" style="margin-top:.9rem">—</p>
       </div>
-      <div class="panel-note">Zkuste nastavit vlevo <span class="fx">a / b · c</span> a&nbsp;vpravo <span class="fx">a / (b · c)</span> a&nbsp;stisknout tlačítko několikrát za sebou. Porovnává se vždycky <b>číselně</b>, nikdy podle vzhledu zápisu — proto model pozná, že <span class="fx">(a · b) / a</span> a&nbsp;<span class="q">b</span> jsou totéž, přestože vypadají úplně jinak.</div>
+      <div class="panel-note">Zkuste nastavit vlevo <span class="mono">a / b · c</span> a&nbsp;vpravo <span class="mono">a / (b · c)</span> a&nbsp;stisknout tlačítko několikrát za sebou. Porovnává se vždycky <b>číselně</b>, nikdy podle vzhledu zápisu — proto model pozná, že <span class="fx">(a · b) / a</span> a&nbsp;<span class="q">b</span> jsou totéž, přestože vypadají úplně jinak.</div>
     </div>
 
     <div class="worked" data-worked>
       <div class="worked-head">
         <span class="eyebrow">Příklad 1.1 · stavová rovnice bez závorky</span>
-        <p>Student potřebuje látkové množství plynu a&nbsp;zapíše si <span class="fx">n = p · V / R · T</span>. Do kalkulačky zadá <span class="q">p</span>&nbsp;=&nbsp;101,325&nbsp;kPa, <span class="q">V</span>&nbsp;=&nbsp;2,50&nbsp;dm³, <span class="q">R</span>&nbsp;=&nbsp;8,314&nbsp;J·K⁻¹·mol⁻¹ a&nbsp;<span class="q">T</span>&nbsp;=&nbsp;298,15&nbsp;K. Co mu vyjde a&nbsp;proč?</p>
+        <p>Student potřebuje látkové množství plynu a&nbsp;zapíše si <span class="mono">n = p · V / R · T</span>. Do kalkulačky zadá <span class="q">p</span>&nbsp;=&nbsp;101,325&nbsp;kPa, <span class="q">V</span>&nbsp;=&nbsp;2,50&nbsp;dm³, <span class="q">R</span>&nbsp;=&nbsp;8,314&nbsp;J·K⁻¹·mol⁻¹ a&nbsp;<span class="q">T</span>&nbsp;=&nbsp;298,15&nbsp;K. Co mu vyjde a&nbsp;proč?</p>
       </div>
       <div class="worked-body">
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
         <div class="worked-steps">
           <div class="step"><span class="step-n">1</span><div class="step-b">
             <p>Nejdřív si přečteme, co student vlastně napsal. Násobení a&nbsp;dělení mají stejnou přednost, takže se jde zleva doprava.</p>
-            <p class="eq">p · V / R · T = ((p · V) / R) · T</p>
+            <p class="eqlin" data-lbl="Jak se ten řádek čte">p · V / R · T = ((p · V) / R) · T</p>
           </div></div>
           <div class="step"><span class="step-n">2</span><div class="step-b">
             <p>Teplota se tedy místo dělení násobí. Spočítáme, co kalkulačka opravdu vrátí.</p>
-            <p class="eq">101,325 · 2,50 = 253,3</p>
-            <p class="eq">253,3 / 8,314 = 30,47</p>
-            <p class="eq">30,47 · 298,15 = 9084</p>
+            <p class="eqlin">101,325 · 2,50 = 253,3</p>
+            <p class="eqlin">253,3 / 8,314 = 30,47</p>
+            <p class="eqlin">30,47 · 298,15 = 9084</p>
           </div></div>
           <div class="step"><span class="step-n">3</span><div class="step-b">
             <p>Správný zápis má ve jmenovateli součin, takže potřebuje závorku.</p>
-            <p class="eq">n = p · V / (R · T)</p>
+            <p class="eqlin" data-lbl="Na řádku — se závorkou">n = p · V / (R · T)</p>
+            <p class="eq" data-lbl="Týž vzorec jako zlomek">n = p · V / (R · T)</p>
           </div></div>
           <div class="step"><span class="step-n">4</span><div class="step-b">
             <p>Teď to samé s&nbsp;pořádně napsanou závorkou.</p>
-            <p class="eq">n = 253,3 / (8,314 · 298,15) = 253,3 / 2478,8 = 0,10219</p>
+            <p class="eqlin" data-lbl="Se závorkou — na řádku">n = 253,3 / (8,314 · 298,15) = 253,3 / 2478,8 = 0,10219</p>
             <p><span class="result">n = 0,102 mol</span></p>
           </div></div>
           <div class="step"><span class="step-n">5</span><div class="step-b">
@@ -1732,7 +1831,7 @@ závěr: rovnost neplatí</div>
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
         <div class="worked-steps">
           <div class="step"><span class="step-n">1</span><div class="step-b">
-            <p>Správný výpočet: nejdřív součet ve jmenovateli, pak dělení.</p>
+            <p>Správný výpočet: nejdřív součet ve jmenovateli, pak dělení. Na řádku se závorkou: <span class="mono">w = 20 / (20 + 80)</span>.</p>
             <p class="eq">w = 20 / (20 + 80) = 20 / 100 = 0,20</p>
             <p><span class="result">w = 0,20, tedy 20 %</span></p>
           </div></div>
@@ -1845,7 +1944,8 @@ závěr: rovnost neplatí</div>
         <div class="worked-steps">
           <div class="step"><span class="step-n">1</span><div class="step-b">
             <p>Se závorkou se nejdřív vyhodnotí jmenovatel.</p>
-            <p class="eq">v = 0,120 / (2 · 30) = 0,120 / 60 = 0,00200</p>
+            <p class="eqlin" data-lbl="Se závorkou — na řádku">v = 0,120 / (2 · 30) = 0,120 / 60 = 0,00200</p>
+            <p class="eq" data-lbl="Týž výpočet jako zlomek">v = 0,120 / (2 · 30) = 0,120 / 60 = 0,00200</p>
             <p><span class="result">v = 2,00·10⁻³ mol·dm⁻³·s⁻¹</span></p>
           </div></div>
           <div class="step"><span class="step-n">2</span><div class="step-b">
@@ -1911,7 +2011,11 @@ závěr: rovnost neplatí</div>
         </table>
       </div>
       <p>Výsledek vypadá takhle:</p>
-      <div class="bigeq" data-lbl="Po přepisu na zlomek">m = M · I · t / (z · F)</div>
+      <div class="twoup">
+        <div class="tu-cell"><span class="cap">Výchozí tvar na řádku</span>m = M · I · t / (z · F)</div>
+        <div class="tu-rel">→</div>
+        <div class="tu-cell ok"><span class="cap">Po přepisu na zlomek</span><span class="fline">m = M · I · t / (z · F)</span></div>
+      </div>
 
       <h3>Nejtěžší místo: co všechno jde pod čáru</h3>
       <p>Ve směru B se chybuje jedním jediným způsobem: pod čáru se strhne víc, než tam patří. Vodítko je jednoduché — <b>pod čáru jde přesně to, co následuje hned za hlavním lomítkem, a&nbsp;ani znak navíc</b>.</p>
@@ -1927,7 +2031,7 @@ závěr: rovnost neplatí</div>
 
       <div class="callout warn">
         <span class="eyebrow">Past — dvě lomítka za sebou</span>
-        <p>U&nbsp;zápisu <span class="mono">m / M / V</span> jsou lomítka dvě a&nbsp;obě jsou mimo závorky. Hlavní je to <b>druhé</b>, protože se čte zleva doprava a&nbsp;poslední dělení se provádí naposled. Nad čáru tedy jde celé <span class="mono">m / M</span> a&nbsp;pod ni <span class="q">V</span>. Vznikne složený zlomek, který se dá sbalit na <span class="fx">m / (M · V)</span> — o&nbsp;tom je celá kapitola 04.</p>
+        <p>U&nbsp;zápisu <span class="mono">m / M / V</span> jsou lomítka dvě a&nbsp;obě jsou mimo závorky. Hlavní je to <b>druhé</b>, protože se čte zleva doprava a&nbsp;poslední dělení se provádí naposled. Nad čáru tedy jde celé <span class="mono">m / M</span> a&nbsp;pod ni <span class="q">V</span>. Vznikne složený zlomek, který se dá sbalit na <span class="mono">m / (M · V)</span> — o&nbsp;tom je celá kapitola 04.</p>
       </div>
     </div>
 
@@ -1967,7 +2071,7 @@ závěr: rovnost neplatí</div>
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
         <div class="worked-steps">
           <div class="step"><span class="step-n">1</span><div class="step-b">
-            <p>V&nbsp;čitateli je součet dvou součinů, ve jmenovateli součet dvou objemů. Obojí je „víc než jeden člen“, takže obojí potřebuje závorku.</p>
+            <p>V&nbsp;čitateli je součet dvou součinů, ve jmenovateli součet dvou objemů. Obojí je „víc než jeden člen“, takže obojí potřebuje závorku. Na řádek se to zapíše takto: <span class="mono">c = (c₁ · V₁ + c₂ · V₂) / (V₁ + V₂)</span>.</p>
             <p class="eq">c = (c₁ · V₁ + c₂ · V₂) / (V₁ + V₂)</p>
           </div></div>
           <div class="step"><span class="step-n">2</span><div class="step-b">
@@ -1989,7 +2093,7 @@ závěr: rovnost neplatí</div>
     <div class="worked" data-worked>
       <div class="worked-head">
         <span class="eyebrow">Příklad 3.2 · Nernstův člen z&nbsp;tabulek na papír</span>
-        <p>V&nbsp;tabulkách je vzorec zapsaný na řádku jako <span class="fx">E = R · T / (z · F)</span>. Přepište ho jako zlomek a&nbsp;spočítejte jeho hodnotu pro <span class="q">T</span>&nbsp;=&nbsp;298,15&nbsp;K a&nbsp;<span class="q">z</span>&nbsp;=&nbsp;2.</p>
+        <p>V&nbsp;tabulkách je vzorec zapsaný na řádku jako <span class="mono">E = R · T / (z · F)</span>. Přepište ho jako zlomek a&nbsp;spočítejte jeho hodnotu pro <span class="q">T</span>&nbsp;=&nbsp;298,15&nbsp;K a&nbsp;<span class="q">z</span>&nbsp;=&nbsp;2.</p>
       </div>
       <div class="worked-body">
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
@@ -2051,17 +2155,18 @@ závěr: rovnost neplatí</div>
       <h3>Chemický případ: koncentrace z&nbsp;navážky</h3>
       <p>Aplikujme pravidlo na náš složený zlomek. Dělíme objemem <span class="q">V</span>, takže <span class="q">V</span> převrátíme a&nbsp;vynásobíme:</p>
       <div class="bigeq" data-lbl="Krok za krokem">(m / M) / V = (m / M) · (1 / V) = (m · 1) / (M · V) = m / (M · V)</div>
-      <p>Výsledek <span class="fx">c = m / (M · V)</span> je přesně ten vztah, který uvidíte v&nbsp;bloku <b>Odvození</b> vzorového výpočtového listu na hlavní stránce sekce. Teď víte, odkud se tam vzal — a&nbsp;proč je tam ve jmenovateli závorka.</p>
+      <p>Výsledek <span class="mono">c = m / (M · V)</span> je přesně ten vztah, který uvidíte v&nbsp;bloku <b>Odvození</b> vzorového výpočtového listu na hlavní stránce sekce. Teď víte, odkud se tam vzal — a&nbsp;proč je tam ve jmenovateli závorka.</p>
       <p>Ve svislém zápisu se přitom celé sbalení dá udělat „pohledem“: dva jmenovatele nad sebou se prostě vynásobí. Právě proto se odvozuje na papíře a&nbsp;ne v&nbsp;řádku.</p>
 
       <div class="callout warn">
         <span class="eyebrow">Past — záměna dvou tvarů</span>
-        <p>Nejčastější chyba u&nbsp;složených zlomků je záměna <span class="fx">(a / b) / c</span> za <span class="fx">a / (b / c)</span>. Vypadají skoro stejně, ale první dá <span class="fx">a / (b · c)</span> a&nbsp;druhý <span class="fx">(a · c) / b</span> — tedy převrácený poměr. Pro <span class="q">a</span>&nbsp;=&nbsp;36, <span class="q">b</span>&nbsp;=&nbsp;6, <span class="q">c</span>&nbsp;=&nbsp;3 vyjde 2 proti 18, tedy devítinásobný rozdíl. Kdykoli si nejste jistí, dosaďte právě tahle tři čísla.</p>
+        <p>Nejčastější chyba u&nbsp;složených zlomků je záměna <span class="mono">(a / b) / c</span> za <span class="mono">a / (b / c)</span> — liší se jen tím, kde stojí závorka. Vypadají skoro stejně, ale první dá <span class="fx">a / (b · c)</span> a&nbsp;druhý <span class="fx">(a · c) / b</span> — tedy převrácený poměr. Pro <span class="q">a</span>&nbsp;=&nbsp;36, <span class="q">b</span>&nbsp;=&nbsp;6, <span class="q">c</span>&nbsp;=&nbsp;3 vyjde 2 proti 18, tedy devítinásobný rozdíl. Kdykoli si nejste jistí, dosaďte právě tahle tři čísla.</p>
       </div>
 
       <h3>Zlomek děleno zlomkem — křížové pravidlo</h3>
       <p>Když je zlomek nahoře i&nbsp;dole, pravidlo se použije dvakrát a&nbsp;výsledek vypadá jako násobení „křížem“:</p>
       <div class="bigeq" data-lbl="Křížové pravidlo">(a / b) / (c / d) = (a · d) / (b · c)</div>
+      <div class="svgwrap" id="mg4"></div>
       <p>Není to nové pravidlo, jen zkratka pro postup, který už znáte: spodní zlomek se převrátí a&nbsp;vynásobí. Pro <span class="q">a</span>&nbsp;=&nbsp;2, <span class="q">b</span>&nbsp;=&nbsp;3, <span class="q">c</span>&nbsp;=&nbsp;5 a&nbsp;<span class="q">d</span>&nbsp;=&nbsp;7 dá levá strana 0,9333 a&nbsp;pravá 14/15, tedy také 0,9333.</p>
     </div>
 
@@ -2289,13 +2394,13 @@ závěr: rovnost neplatí</div>
     <div class="worked" data-worked>
       <div class="worked-head">
         <span class="eyebrow">Příklad 5.1 · rozměrová kontrola Nernstova členu</span>
-        <p>Ověřte, že výraz <span class="fx">R · T / (z · F)</span> má opravdu jednotku voltu. Jednotky: <span class="q">R</span> v&nbsp;J·K⁻¹·mol⁻¹, <span class="q">T</span> v&nbsp;K, <span class="q">z</span> bez jednotky, <span class="q">F</span> v&nbsp;C·mol⁻¹.</p>
+        <p>Ověřte, že výraz <span class="mono">R · T / (z · F)</span> má opravdu jednotku voltu. Jednotky: <span class="q">R</span> v&nbsp;J·K⁻¹·mol⁻¹, <span class="q">T</span> v&nbsp;K, <span class="q">z</span> bez jednotky, <span class="q">F</span> v&nbsp;C·mol⁻¹.</p>
       </div>
       <div class="worked-body">
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
         <div class="worked-steps">
           <div class="step"><span class="step-n">1</span><div class="step-b">
-            <p>Dosadíme místo veličin jejich jednotky. Struktura výrazu se nemění, včetně závorky.</p>
+            <p>Dosadíme místo veličin jejich jednotky. Struktura výrazu se nemění, včetně závorky: <span class="mono">J·K⁻¹·mol⁻¹ · K / (C·mol⁻¹)</span>.</p>
             <p class="eq">J·K⁻¹·mol⁻¹ · K / (C·mol⁻¹)</p>
           </div></div>
           <div class="step"><span class="step-n">2</span><div class="step-b">
@@ -2331,12 +2436,14 @@ závěr: rovnost neplatí</div>
       <div class="ddgrid">
         <div class="ddcard no">
           <span class="ddh">Zapomenutá závorka ve jmenovateli</span>
-          <p class="eq">m / M · V</p>
+          <p class="eqlin" data-lbl="Co se napsalo na řádek">m / M · V</p>
+          <p class="eq" data-lbl="A co to znamená">m / M · V</p>
           <p class="ddb">Nejčastější chyba vůbec. Poslední činitel jmenovatele vyskočí do čitatele. Pro <span class="q">m</span>&nbsp;=&nbsp;5,85, <span class="q">M</span>&nbsp;=&nbsp;58,44 a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;0,250 vyjde 0,0250 místo 0,400.</p>
         </div>
         <div class="ddcard do">
           <span class="ddh">Uzávorkovat celý jmenovatel</span>
-          <p class="eq">m / (M · V)</p>
+          <p class="eqlin" data-lbl="Co se napsalo na řádek">m / (M · V)</p>
+          <p class="eq" data-lbl="A co to znamená">m / (M · V)</p>
           <p class="ddb">Kdykoli je pod čarou víc než jeden člen, patří tam závorka. Když si nejste jistí, napište ji — nikdy nic nezkazí.</p>
         </div>
 
@@ -2381,7 +2488,7 @@ závěr: rovnost neplatí</div>
         <div class="tu-rel">vs</div>
         <div class="tu-cell no"><span class="cap">Nesmí se — a je sčítanec</span>(a + b) / a</div>
       </div>
-      <p>Vlevo se dá zlomek rozepsat jako <span class="fx">(a / a) · b</span>, a&nbsp;první závorka je jednička. Vpravo to nejde: <span class="fx">(a + b) / a</span> se rozpadá na <span class="mono">1 + b / a</span>, ne na <span class="q">b</span>.</p>
+      <p>Vlevo se dá zlomek rozepsat jako <span class="mono">(a / a) · b</span>, a&nbsp;první závorka je jednička. Vpravo to nejde: <span class="fx">(a + b) / a</span> se rozpadá na <span class="mono">1 + b / a</span>, ne na <span class="q">b</span>.</p>
       <div class="callout warn">
         <span class="eyebrow">Past — „vždyť tam to áčko je“</span>
         <p>Ano, je. Ale ne jako činitel. Rozhoduje <b>znaménko těsně vedle něj</b>: tečka znamená činitel a&nbsp;krátit se smí, plus nebo minus znamená sčítanec a&nbsp;krátit se nesmí. Jediný znak dělí správnou úpravu od nesmyslu.</p>
@@ -2471,7 +2578,8 @@ závěr: rovnost neplatí</div>
 
       <h3>Metoda A — dosaďte jednoduchá čísla</h3>
       <p>Postup: do <b>obou</b> zápisů, které mají být totožné, dosaďte tatáž malá čísla a&nbsp;porovnejte výsledky. Vyjde‑li něco jiného, přepis je špatně a&nbsp;není o&nbsp;čem diskutovat. Vyjde‑li totéž, zopakujte to ještě s&nbsp;jinou trojicí.</p>
-      <div class="bigeq" data-lbl="Ověřovaná rovnost">(m / M) / V = m / (M · V)</div>
+      <p class="eqlin" data-lbl="Ověřovaná rovnost na řádku — tady jsou vidět závorky">(m / M) / V = m / (M · V)</p>
+      <div class="bigeq" data-lbl="Táž ověřovaná rovnost jako zlomky">(m / M) / V = m / (M · V)</div>
       <p>Dosaďme <span class="q">m</span>&nbsp;=&nbsp;2, <span class="q">M</span>&nbsp;=&nbsp;3 a&nbsp;<span class="q">V</span>&nbsp;=&nbsp;5. Vlevo (2/3)/5&nbsp;=&nbsp;0,1333; vpravo 2/(3·5)&nbsp;=&nbsp;2/15&nbsp;=&nbsp;0,1333. Shoda. Pro jistotu ještě 3, 5, 7: vlevo (3/5)/7&nbsp;=&nbsp;0,08571; vpravo 3/35&nbsp;=&nbsp;0,08571. Dvě nezávislé shody — přepis je v&nbsp;pořádku.</p>
 
       <div class="callout def">
@@ -2566,7 +2674,7 @@ závěr: rovnost neplatí</div>
     <div class="worked" data-worked>
       <div class="worked-head">
         <span class="eyebrow">Příklad 7.1 · je ten přepis správný?</span>
-        <p>Student odvodil pro hmotnost vyloučenou při elektrolýze vztah <span class="mono">m = M · I · t / z · F</span> a&nbsp;tvrdí, že je totožný se zápisem <span class="fx">m = M · I · t / (z · F)</span>. Rozhodněte oběma metodami.</p>
+        <p>Student odvodil pro hmotnost vyloučenou při elektrolýze vztah <span class="mono">m = M · I · t / z · F</span> a&nbsp;tvrdí, že je totožný se zápisem <span class="mono">m = M · I · t / (z · F)</span>. Rozhodněte oběma metodami.</p>
       </div>
       <div class="worked-body">
         <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
@@ -2580,7 +2688,7 @@ závěr: rovnost neplatí</div>
           </div></div>
           <div class="step"><span class="step-n">3</span><div class="step-b">
             <p>Správný zápis dělí součinem.</p>
-            <p class="eq">2 · 3 · 5 / (7 · 4) = 30 / 28 = 1,071</p>
+            <p class="eqlin" data-lbl="Se závorkou — na řádku">2 · 3 · 5 / (7 · 4) = 30 / 28 = 1,071</p>
           </div></div>
           <div class="step"><span class="step-n">4</span><div class="step-b">
             <p>Hodnoty se liší, takže tvrzení neplatí. Jedna trojice čísel stačila — protipříklad je nalezen a&nbsp;dál se nic ověřovat nemusí.</p>
@@ -2660,7 +2768,7 @@ závěr: rovnost neplatí</div>
         <span class="cs-lbl">Odvození</span>
         <div class="cs-rows">
           <div class="cs-line">E = R · T / (z · F)</div>
-          <p class="cs-hint">Odvozovat není co — vztah je hotový. Zato je potřeba dát pozor na závorku ve jmenovateli, protože dole stojí součin dvou činitelů.</p>
+          <p class="cs-hint">Odvozovat není co — vztah je hotový. Zato je potřeba dát pozor na závorku ve jmenovateli, protože dole stojí součin dvou činitelů: na řádek se píše <span class="mono">E = R · T / (z · F)</span>, nikdy ne <span class="mono">E = R · T / z · F</span>.</p>
         </div>
       </div>
       <div class="cs-block">
@@ -2714,7 +2822,8 @@ závěr: rovnost neplatí</div>
       <div class="cheat">
         <div class="cheat-card">
           <h4>Zlomková čára</h4>
-          <p class="eq">(čitatel) / (jmenovatel)</p>
+          <p class="eqlin" data-lbl="Na řádku — závorky napsané">(čitatel) / (jmenovatel)</p>
+          <p class="eq" data-lbl="Ve zlomku — závorky dělá čára">(čitatel) / (jmenovatel)</p>
           <ul>
             <li>Čára je znak dělení <b>a&nbsp;zároveň</b> dvojice závorek.</li>
             <li>Ve svislém zápisu se závorky nepíšou — čára je udělá.</li>
@@ -2732,7 +2841,7 @@ závěr: rovnost neplatí</div>
             <li><b>4.</b> sčítání a&nbsp;odčítání — zleva doprava</li>
             <li>Násobení <b>nemá</b> přednost před dělením.</li>
           </ul>
-          <p class="eq">2 / 3 · 4 = (2 / 3) · 4</p>
+          <p class="eqlin">2 / 3 · 4 = (2 / 3) · 4</p>
         </div>
 
         <div class="cheat-card">
@@ -4218,7 +4327,7 @@ function drawZe(){
       "Z <span class=\"fx\">"+EX.esc(z.f)+"</span> se tak stane <b>"+EX.esc(z.n)+"</b>. Násobicí tečka mezi jednotkami zůstává, dělení mizí.";
   } else {
     msg.innerHTML = "<b>Z exponentu na zlomek:</b> každou jednotku se záporným exponentem sundejte pod čáru a znaménko otočte na kladné. "+
-      "Z <b>"+EX.esc(z.n)+"</b> se tak stane <span class=\"fx\">"+EX.esc(z.f)+"</span>. Pokud jdou dolů dvě jednotky, patří obě do jednoho jmenovatele — tedy do závorky.";
+      "Z <b>"+EX.esc(z.n)+"</b> se tak stane <span class=\"mono\">"+EX.esc(z.f)+"</span>. Pokud jdou dolů dvě jednotky, patří obě do jednoho jmenovatele — tedy do závorky.";
   }
   if(window.renderFractions) window.renderFractions(box);
 }
@@ -4511,6 +4620,44 @@ function drawMg2(){
     'aria-label="Pořadí operací: nejdřív závorky, pak mocniny, pak násobení a dělení, nakonec sčítání a odčítání. Uvnitř stejné úrovně se postupuje zleva doprava."');
 }
 
+function drawMg4(){
+  var w = 640, h = 274, s = "";
+  var OUT = "var(--accent)", IN = "var(--cat2)";
+  s += '<defs>'+
+    '<marker id="mg4o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">'+
+      '<path d="M0 0 L10 5 L0 10 z" style="fill:'+OUT+'"/></marker>'+
+    '<marker id="mg4i" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">'+
+      '<path d="M0 0 L10 5 L0 10 z" style="fill:'+IN+'"/></marker>'+
+    '</defs>';
+  s += txt(14, 20, "KŘÍŽOVÉ PRAVIDLO — zlomek dělený zlomkem", {size:10.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.11em"});
+  s += txt(626, 20, "hlavní čára je ta delší", {anchor:"end", size:9.5, fill:"var(--ink-3)"});
+  /* levá strana: složený zlomek (a / b) / (c / d) */
+  s += txt(112, 62, "a", {anchor:"middle", size:22, w:600, fill:OUT, mono:true});
+  s += line(88, 72, 136, 72, {c:"var(--ink-2)", w:1.6, cap:"round"});
+  s += txt(112, 98, "b", {anchor:"middle", size:22, w:600, fill:IN, mono:true});
+  s += line(48, 122, 176, 122, {c:"var(--ink)", w:3, cap:"round"});
+  s += txt(112, 152, "c", {anchor:"middle", size:22, w:600, fill:IN, mono:true});
+  s += line(88, 162, 136, 162, {c:"var(--ink-2)", w:1.6, cap:"round"});
+  s += txt(112, 188, "d", {anchor:"middle", size:22, w:600, fill:OUT, mono:true});
+  /* rovnítko */
+  s += txt(306, 122, "=", {anchor:"middle", size:24, w:600, fill:"var(--ink-3)", mono:true});
+  /* pravá strana: výsledek (a · d) / (b · c) */
+  s += txt(520, 108, "a · d", {anchor:"middle", size:22, w:600, fill:OUT, mono:true});
+  s += line(444, 122, 596, 122, {c:"var(--ink)", w:3, cap:"round"});
+  s += txt(520, 154, "b · c", {anchor:"middle", size:22, w:600, fill:IN, mono:true});
+  /* vnější dvojice a, d — nahoru do čitatele; d se přitom klene přes celý zlomek */
+  s += '<path d="M134 50 C 244 12, 370 32, 470 90" style="fill:none;stroke:'+OUT+';stroke-width:2.1;marker-end:url(#mg4o)"/>';
+  s += '<path d="M136 188 C 290 240, 400 214, 470 114" style="fill:none;stroke:'+OUT+';stroke-width:2.1;marker-end:url(#mg4o)"/>';
+  /* vnitřní dvojice b, c — dolů do jmenovatele */
+  s += '<path d="M136 94 C 232 152, 336 174, 470 142" style="fill:none;stroke:'+IN+';stroke-width:2.1;stroke-dasharray:6 4;marker-end:url(#mg4i)"/>';
+  s += '<path d="M136 150 C 254 202, 356 192, 470 160" style="fill:none;stroke:'+IN+';stroke-width:2.1;stroke-dasharray:6 4;marker-end:url(#mg4i)"/>';
+  /* legenda */
+  s += txt(320, 246, "vnější dvojice a, d — čitatel horního a jmenovatel dolního zlomku — jde nahoru", {anchor:"middle", size:10.5, w:600, fill:OUT});
+  s += txt(320, 266, "vnitřní dvojice b, c — jmenovatel horního a čitatel dolního zlomku — jde dolů", {anchor:"middle", size:10.5, w:600, fill:IN});
+  $("#mg4").innerHTML = svg("0 0 "+w+" "+h, s,
+    'aria-label="Křížové pravidlo: zlomek a lomeno b, to celé lomeno zlomkem c lomeno d, se rovná a krát d lomeno b krát c. Vnější členy a a d jdou do čitatele výsledku, vnitřní členy b a c do jmenovatele."');
+}
+
 function drawMg3(){
   var w = 560, h = 170, s = "";
   s += txt(14, 22, "co přeskočí čáru, otočí znaménko exponentu", {size:10.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.1em"});
@@ -4520,11 +4667,16 @@ function drawMg3(){
   s += rect(60, 92, 72, 28, {fill:"var(--endo-soft)", r:7});
   s += txt(96, 113, "dm³", {anchor:"middle", size:21, w:500, fill:"var(--endo)", mono:true});
   s += txt(96, 146, "jmenovatel", {anchor:"middle", size:10.5, fill:"var(--ink-3)"});
+  /* zlomková čára prodloužená doprava — přes ni šipka skáče
+     (stejná barva i tloušťka jako skutečná čára vlevo, aby bylo poznat,
+      že je to tatáž čára, jen natažená do prostoru mezi zlomek a výsledek) */
+  s += line(140, 86, 292, 86, {c:"var(--ink)", w:2.4, cap:"round"});
+  s += txt(216, 78, "tatáž zlomková čára, jen prodloužená", {anchor:"middle", size:9.5, fill:"var(--ink-3)"});
   /* šipka přes čáru */
-  s += '<path d="M182 104 C 230 104, 230 60, 278 60" style="fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:5 4"/>';
-  s += '<path d="M282 60 l-8 -4.5 l0 9 z" style="fill:var(--accent)"/>';
-  s += txt(230, 44, "nahoru přes čáru", {anchor:"middle", size:10.5, fill:"var(--accent)"});
-  s += txt(230, 128, "exponent 3 → −3", {anchor:"middle", size:10.5, fill:"var(--accent)"});
+  s += '<path d="M182 112 C 226 112, 232 58, 278 58" style="fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:5 4"/>';
+  s += '<path d="M282 58 l-8 -4.5 l0 9 z" style="fill:var(--accent)"/>';
+  s += txt(216, 40, "nahoru přes čáru", {anchor:"middle", size:10.5, fill:"var(--accent)"});
+  s += txt(216, 132, "exponent 3 → −3", {anchor:"middle", size:10.5, fill:"var(--accent)"});
   /* výsledek */
   s += rect(300, 62, 236, 50, {fill:"var(--surface-2)", r:11, stroke:"var(--line)", sw:1});
   s += txt(418, 94, "mol · dm⁻³", {anchor:"middle", size:23, w:600, fill:"var(--ink)", mono:true});
@@ -4545,7 +4697,7 @@ var GLOSS = [
   ["Stohovaný zápis", "svislý zlomek", "Zápis vzorce s čitatelem nad jmenovatelem. Hodí se na papír, k odvození a ke krácení, protože je v něm na první pohled vidět, co je nahoře a co dole."],
   ["Závorka", "( )", "Znak, který říká „tohle patří k sobě a počítá se jako první“. V početních úlohách má vždy nejvyšší přednost, před mocninami i před násobením."],
   ["Pořadí operací", "( ) → mocniny → · / → + −", "Pravidlo, které určuje, co se počítá dřív, když v zápisu nejsou závorky. Nejdřív závorky, pak mocniny a odmocniny, pak násobení a dělení, nakonec sčítání a odčítání."],
-  ["Asociativita zleva doprava", "a / b / c = (a / b) / c", "Pravidlo pro operace stejné přednosti: berou se v pořadí, v jakém stojí na řádku. Proto <span class=\"fx\">2 / 3 · 4</span> znamená (2 / 3) · 4, a ne 2 / (3 · 4)."],
+  ["Asociativita zleva doprava", "a / b / c = (a / b) / c", "Pravidlo pro operace stejné přednosti: berou se v pořadí, v jakém stojí na řádku. Proto <span class=\"mono\">2 / 3 · 4</span> znamená <span class=\"mono\">(2 / 3) · 4</span>, a ne <span class=\"mono\">2 / (3 · 4)</span>."],
   ["Implicitní závorka", "—", "Závorka, kterou nikdo nenapsal, ale která ze zápisu vyplývá. Zlomková čára jich dělá hned dvojici; při přepisu na řádek se z implicitních musí stát napsané."],
   ["Složený zlomek", "(a / b) / c", "Zlomek, který má zlomek v čitateli, ve jmenovateli, nebo v obou. Sbalí se na jediný zlomek pomocí pravidla o dělení převrácenou hodnotou."],
   ["Hlavní zlomková čára", "delší čára", "U složeného zlomku ta čára, která odděluje celý čitatel od celého jmenovatele. Kreslí se delší než ostatní a určuje, co se čím dělí."],
@@ -4592,7 +4744,7 @@ function initAll(){
   initDk();
   initRk();
   initZd();  drawZd();
-  drawMg1(); drawMg2(); drawMg3();
+  drawMg1(); drawMg2(); drawMg3(); drawMg4();
   if(window.renderFractions) window.renderFractions();
 }
 
@@ -4600,6 +4752,7 @@ function redrawAll(){
   try{ drawMg1(); }catch(e){}
   try{ drawMg2(); }catch(e){}
   try{ drawMg3(); }catch(e){}
+  try{ drawMg4(); }catch(e){}
   try{ if(window.renderFractions) window.renderFractions(); }catch(e){}
 }
 window.redrawAll = redrawAll;
