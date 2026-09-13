@@ -4988,8 +4988,8 @@ function drawCp(){
   function fy(pct){ return Y1-pct/100*(Y1-Y0); }
   /* praktické okno */
   s+=rect(fx(400),Y0,fx(450)-fx(400),Y1-Y0,{fill:"var(--ok-soft)",style:"fill-opacity:.55"});
-  s+=txt((fx(400)+fx(450))/2,Y0+34,"provozní",{anchor:"middle",size:10,w:700,fill:"var(--ok)"});
-  s+=txt((fx(400)+fx(450))/2,Y0+46,"okno",{anchor:"middle",size:10,w:700,fill:"var(--ok)"});
+  s+=txt((fx(400)+fx(450))/2,Y0+32,"provozní",{anchor:"middle",size:10,w:700,fill:"var(--ok)"});
+  s+=txt((fx(400)+fx(450))/2,Y0+50,"okno",{anchor:"middle",size:10,w:700,fill:"var(--ok)"});
   for(var p=0;p<=100;p+=25){
     s+=line(X0,fy(p),X1,fy(p),{c:"var(--grid)",w:1});
     s+=txt(X0-7,fy(p)+4,String(p),{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true});
@@ -5332,8 +5332,8 @@ function drawSt(){
     s+=txt(bx+118,by+170,"spirálové řetězce atomů",{anchor:"middle",size:11,w:600,fill:"var(--ink-2)"});
   }
   /* modifikace */
-  s+=rect(560,44,206,184,{fill:"var(--surface-2)",r:12,stroke:"var(--line)",sw:1.2});
-  s+=txt(663,68,"MODIFIKACE A ZDROJ",{anchor:"middle",size:10,w:700,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
+  s+=rect(552,36,214,208,{fill:"var(--surface-2)",r:12,stroke:"var(--line)",sw:1.2});
+  s+=txt(659,56,"MODIFIKACE A ZDROJ",{anchor:"middle",size:10,w:700,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
   function wrapT(text,x,y,maxc,size,fill,lh){
     var out="", words=text.replace(/<[^>]+>/g,"").split(" "), cur="", n=0;
     words.forEach(function(w){
@@ -5343,10 +5343,10 @@ function drawSt(){
     out+=txt(x,y+n*(lh||14),cur,{size:size||10.5,fill:fill||"var(--ink-2)"});
     return out;
   }
-  s+=wrapT(it.mods,574,88,30,10.5,"var(--ink-2)",14);
-  s+=line(574,164,752,164,{c:"var(--grid)",w:1});
-  s+=txt(574,182,"ZDROJ",{size:9.5,w:700,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
-  s+=wrapT(it.src,574,198,30,10.5,"var(--ink-2)",13);
+  s+=wrapT(it.mods,566,76,30,10.5,"var(--ink-2)",18);
+  s+=line(566,146,758,146,{c:"var(--grid)",w:1});
+  s+=txt(566,164,"ZDROJ",{size:9.5,w:700,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
+  s+=wrapT(it.src,566,182,30,10.5,"var(--ink-2)",18);
   return svg("0 0 "+W+" "+H,s,'aria-label="Karta těžkého chalkogenu"');
 }
 function refreshSt(){

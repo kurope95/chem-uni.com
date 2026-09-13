@@ -3540,8 +3540,8 @@ function drawHyb(){
       boxes.forEach(function(ne,bi){
         var x=bx+bi*(bw+3), y=yy;
         s+=rect(x,y,bw,20,{fill:isH?"var(--accent-soft)":"var(--surface-2)",r:3,stroke:isH?"var(--accent)":"var(--line-strong)",sw:1});
-        if(ne>=1) s+=txt(x+bw/2-(ne===2?4:0),y+15,"↑",{anchor:"middle",size:13,w:700,fill:"var(--ink)"});
-        if(ne===2) s+=txt(x+bw/2+4,y+15,"↓",{anchor:"middle",size:13,w:700,fill:"var(--ink)"});
+        /* dvojice šipek se musí vejít do políčka, jinak zasáhne do sousedního */
+        if(ne>=1) s+=txt(x+bw/2,y+15,ne===2?"↑↓":"↑",{anchor:"middle",size:(ne===2?Math.min(13,(bw+1)/1.8):13),w:700,fill:"var(--ink)"});
       });
       s+=txt(bx+boxes.length*(bw+3)+4,yy+14,lab,{size:11,w:600,fill:isH?"var(--accent)":"var(--ink-3)",mono:true});
       yy+=30;
@@ -3839,7 +3839,7 @@ function drawFaz(){
   s+='<circle cx="'+x(0).toFixed(1)+'" cy="'+y(Math.log10(101325)).toFixed(1)+'" r="3.5" style="fill:var(--ink)"/>';
   s+='<circle cx="'+x(100).toFixed(1)+'" cy="'+y(Math.log10(101325)).toFixed(1)+'" r="3.5" style="fill:var(--ink)"/>';
   s+=txt(x(0)-6,y(Math.log10(101325))-8,"0 °C",{anchor:"end",size:10,fill:"var(--ink)",mono:true});
-  s+=txt(x(100)+6,y(Math.log10(101325))-8,"100 °C",{size:10,fill:"var(--ink)",mono:true});
+  s+=txt(x(100)+6,y(Math.log10(101325))+16,"100 °C",{size:10,fill:"var(--ink)",mono:true});
   /* aktuální bod */
   var ph=fazPhase(T,p), pc=ph==="s"?"var(--cat2)":(ph==="l"?"var(--cat1)":"var(--cat3)");
   s+=line(x(T),T0,x(T),B,{c:"var(--ink)",w:1,dash:"3 3"});
@@ -3853,7 +3853,7 @@ function drawFaz(){
   s+=rect(px,T0,W-px-8,B-T0,{fill:"var(--surface-2)",r:10,stroke:"var(--line)",sw:1});
   s+=txt(px+12,T0+22,"KDE JSTE",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
   s+=txt(px+12,T0+44,fmt(T,0)+" °C",{size:16,w:700,fill:"var(--ink)",mono:true});
-  s+=txt(px+12,T0+64,(p>=1000?fmt(p/1000,p>=10000?0:1)+" kPa":fmt(p,0)+" Pa"),{size:16,w:700,fill:"var(--ink)",mono:true});
+  s+=txt(px+12,T0+70,(p>=1000?fmt(p/1000,p>=10000?0:1)+" kPa":fmt(p,0)+" Pa"),{size:16,w:700,fill:"var(--ink)",mono:true});
   s+=txt(px+12,T0+96,ph==="s"?"LED":(ph==="l"?"KAPALINA":"PÁRA"),{size:14,w:700,fill:pc});
   var lines=[];
   if(ph==="l"){ lines.push("tlak nasycené páry"); lines.push(fmt(pLiq(T)/1000,T<10?2:1)+" kPa"); lines.push("teplota varu při tomto p"); lines.push(fmt(Tboil(p),0)+" °C"); }
@@ -3976,7 +3976,7 @@ function drawKond(){
     s+=rect(px+90,y-5,xl(lg)-(px+90),10,{fill:on?"var(--accent)":(lg>0?"var(--cat1)":(lg>-8?"var(--cat3)":"var(--ink-3)")),r:5});
     if(on) s+=txt(xl(lg)+6,y+4,"10^"+fmt(lg,lg%1?1:0),{size:10,w:700,fill:"var(--accent)",mono:true});
   });
-  [-15,-10,-5,0,5].forEach(function(lg){ s+=line(xl(lg),ly0+8,xl(lg),ly0+16+COND.length*21-6,{c:"var(--line)",w:1,dash:"2 3"}); s+=txt(xl(lg),H-20,"10^"+lg,{anchor:"middle",size:9.5,fill:"var(--ink-3)",mono:true}); });
+  [-15,-10,-5,0,5].forEach(function(lg){ s+=line(xl(lg),ly0+8,xl(lg),ly0+16+COND.length*21-6,{c:"var(--line)",w:1,dash:"2 3"}); s+=txt(xl(lg),H-6,"10^"+lg,{anchor:"middle",size:9.5,fill:"var(--ink-3)",mono:true}); });
   $("#kondWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Vodivost a nosiče náboje — '+c.n+'"');
   function ro(id2,k,val,h){ var e=$(id2); e.innerHTML='<span class="k">'+k+'</span><span class="v" style="font-size:1rem">'+val+'</span><span class="h">'+h+'</span>'; }
   ro("#kondRo1","Nosič náboje",c.car,"co se v elektrickém poli pohybuje");
@@ -4088,7 +4088,7 @@ function drawSol(){
   s+='<circle cx="'+x(T).toFixed(1)+'" cy="'+y(solAt(O2SOL,T)*15).toFixed(1)+'" r="5" style="fill:var(--ink-3);stroke:var(--surface);stroke-width:2"/>';
   for(var mg=0;mg<=15;mg+=5){ s+=txt(R+6,y(mg*15)+(mg===0?-8:4),mg+" mg/L",{size:9.5,fill:"var(--ink-3)",mono:true,style:"opacity:.75"}); }
   s+=line(x(T),T0,x(T),B,{c:"var(--ink)",w:1.2,dash:"3 3"});
-  s+=rect(x(T)-26,T0-22,52,17,{fill:"var(--ink)",r:4}); s+=txt(x(T),T0-9,fmt(T,0)+" °C",{anchor:"middle",size:11,w:600,fill:"var(--paper)",mono:true});
+  s+=rect(x(T)-26,T0-27,52,17,{fill:"var(--ink)",r:4}); s+=txt(x(T),T0-14,fmt(T,0)+" °C",{anchor:"middle",size:11,w:600,fill:"var(--paper)",mono:true});
   s+=txt((L+R)/2,B+38,"teplota [°C]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
   s+=vtxt(18,(T0+B)/2,"rozpustnost [g na 100 g vody]",{style:"letter-spacing:.08em"});
   $("#solWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Křivky rozpustnosti"');
@@ -4171,7 +4171,8 @@ function drawCell(f,ox,oy){
       s+=water(x,y,a2+Math.PI/2+ (k%2?0.5:-0.5),1.1);
     }
     s+=txt(cx2,cy2+4,"šestičlenný kruh",{anchor:"middle",size:9.5,fill:"var(--ink-3)"});
-    s+=txt(ox+100,oy+195,"každá molekula 4 vodíkové můstky (čárkovaně) — otevřená struktura, led plave",{anchor:"middle",size:10,w:600,fill:"var(--accent)"});
+    s+=txt(ox+100,oy+186,"každá molekula 4 vodíkové můstky (čárkovaně)",{anchor:"middle",size:10,w:600,fill:"var(--accent)"});
+    s+=txt(ox+100,oy+201,"otevřená struktura, led plave",{anchor:"middle",size:10,w:600,fill:"var(--accent)"});
   } else if(f==="I₂"||f==="CO₂ (suchý led)"||f==="C₁₀H₈"){
     for(var i3=0;i3<3;i3++) for(var j3=0;j3<3;j3++){
       var mx2=ox+36+j3*66, my2=oy+30+i3*60, tilt=((i3+j3)%2?1:-1)*0.5;
@@ -4549,7 +4550,8 @@ function drawMiniAngle(){
     s+=txt(ox+12,28,it[3]+" · "+v.lab,{size:11.5,w:700,fill:"var(--ink)"});
     s+=txt(ox+212,28,it[5],{anchor:"end",size:10,fill:"var(--endo)",w:600});
     s+=drawGeom(v.geo,{cx:ox+112,cy:128,R:62,A:it[1],X:it[2],angle: it[0]==="AX4"?0:0, angleLabel:it[4]});
-    s+=txt(ox+112,H-18,"vazebný úhel = "+it[4]+(i?" — volný pár tlačí vazby k sobě":" — ideální tetraedr"),{anchor:"middle",size:10,w:600,fill:i?"var(--exo)":"var(--ink-3)"});
+    s+=txt(ox+112,H-30,"vazebný úhel = "+it[4],{anchor:"middle",size:10,w:600,fill:i?"var(--exo)":"var(--ink-3)"});
+    s+=txt(ox+112,H-14,i?"volný pár tlačí vazby k sobě":"ideální tetraedr",{anchor:"middle",size:10,w:600,fill:i?"var(--exo)":"var(--ink-3)"});
   });
   $("#miniAngleWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Vliv volných elektronových párů na vazebný úhel"');
 }

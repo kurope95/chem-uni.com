@@ -4160,9 +4160,9 @@ function drawHero(){
     s += rect(X(0.7), Y-34, X(1.25)-X(0.7), 68, {fill:"var(--exo)", r:8, style:"fill-opacity:.13"});
     s += rect(X(1.25), Y-34, X(1.85)-X(1.25), 68, {fill:"var(--cat3)", r:0, style:"fill-opacity:.13"});
     s += rect(X(1.85), Y-34, X(4.1)-X(1.85), 68, {fill:"var(--endo)", r:8, style:"fill-opacity:.13"});
-    s += txt(X(0.97), Y-44, "aniont H⁻", {anchor:"middle", size:11.5, w:700, fill:"var(--exo)"});
-    s += txt(X(1.55), Y-44, "přechod", {anchor:"middle", size:11.5, w:700, fill:"var(--cat3)"});
-    s += txt(X(3.0), Y-44, "kovalentní vazba, vodík má δ⁺", {anchor:"middle", size:11.5, w:700, fill:"var(--endo)"});
+    s += txt(X(0.97), Y-52, "aniont H⁻", {anchor:"middle", size:11.5, w:700, fill:"var(--exo)"});
+    s += txt(X(1.55), Y-52, "přechod", {anchor:"middle", size:11.5, w:700, fill:"var(--cat3)"});
+    s += txt(X(3.0), Y-52, "kovalentní vazba, vodík má δ⁺", {anchor:"middle", size:11.5, w:700, fill:"var(--endo)"});
     /* osa */
     s += line(L, Y+34, R, Y+34, {c:"var(--line-strong)", w:1.5});
     for(var v=1.0; v<=4.01; v+=0.5){
@@ -4175,11 +4175,11 @@ function drawHero(){
     s += rect(X(ENH)-30, Y-72, 60, 24, {fill:"var(--accent)", r:6});
     s += txt(X(ENH), Y-55, "H 2,20", {anchor:"middle", size:12, w:700, fill:"var(--accent-ink)", mono:true});
     /* ostatní prvky jako body */
-    PART.forEach(function(q){
+    PART.forEach(function(q, qi){
       var on = q.id===hbState.p;
       s += '<circle cx="'+X(q.en)+'" cy="'+Y+'" r="'+(on?12:6)+'" style="fill:'+(on?TYPNM[q.typ].c:"var(--ink-3)")+';fill-opacity:'+(on?1:.5)+';stroke:var(--surface);stroke-width:2"/>';
       if(on) s += txt(X(q.en), Y+5, q.id, {anchor:"middle", size:11, w:700, fill:"var(--paper)", mono:true});
-      else   s += txt(X(q.en), Y-16, q.id, {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
+      else   s += txt(X(q.en), Y-(qi%2?16:32), q.id, {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
     });
     /* šipka posunu elektronového páru */
     var x1 = X(ENH), x2 = X(p.en), my = Y+108;
@@ -4414,7 +4414,7 @@ function drawTd(){
   [1,2,3,4].forEach(function(k){
     var tt = k*THALF; if(tt>60) return;
     s += '<circle cx="'+X(tt)+'" cy="'+Y(Math.pow(0.5,k))+'" r="4" style="fill:var(--ink-3)"/>';
-    s += txt(X(tt), Y(Math.pow(0.5,k))-10, fmt(Math.pow(0.5,k)*100,1)+" %", {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
+    s += txt(X(tt), Y(Math.pow(0.5,k))+16, fmt(Math.pow(0.5,k)*100,1)+" %", {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
   });
   /* ukazatel */
   s += line(X(t), T0, X(t), B, {c:"var(--ink)", w:1.2, dash:"4 4"});
@@ -4881,7 +4881,7 @@ function drawBp(){
     s += '<circle cx="'+X(2)+'" cy="'+Y(pred)+'" r="5" style="fill:none;stroke:var(--bad);stroke-width:2"/>';
     s += txt(X(2)+10, Y(pred)+16, "kdyby nebyly můstky: "+fmt(pred,0)+" °C", {size:11, w:600, fill:"var(--bad)"});
     s += vArrow(X(2)-16, Y(pred), Y(100), "var(--bad)", "", "left");
-    s += txt(X(2)-24, (Y(pred)+Y(100))/2, "+"+fmt(100-pred,0)+" °C", {anchor:"end", size:11.5, w:700, fill:"var(--bad)", mono:true});
+    s += txt(X(2)-8, (Y(pred)+Y(100))/2, "+"+fmt(100-pred,0)+" °C", {anchor:"start", size:11.5, w:700, fill:"var(--bad)", mono:true});
   }
   s += txt(18, (T0+B)/2, "teplota varu [°C]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#bpWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Teploty varu hydridů 14. až 17. skupiny"');

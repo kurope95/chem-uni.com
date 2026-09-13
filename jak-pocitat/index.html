@@ -665,6 +665,19 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 .submod .go{display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;
   font-family:var(--f-ui);font-weight:600;font-size:.88rem;color:var(--accent)}
 </style>
+<style>
+/* pod-modul: karta v hero a trvalý odkaz v liště */
+.path.submod-path{border-color:var(--accent)}
+.path.submod-path .tag{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.rail-sub{order:1;padding:.55rem .45rem 0;margin-top:.5rem;border-top:1px solid var(--line)}
+.rail-sub a{display:flex;flex-direction:column;gap:.12rem;text-decoration:none;
+  padding:.55rem .7rem;border-radius:9px;border:1px solid var(--line-strong);
+  border-left:3px solid var(--accent);background:var(--surface-2);color:var(--ink)}
+.rail-sub a:hover{border-color:var(--accent);background:var(--surface)}
+.rail-sub .rs-k{font-family:var(--f-cond);font-size:.62rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.rail-sub .rs-t{font-family:var(--f-ui);font-weight:600;font-size:.84rem;letter-spacing:-.01em}
+</style>
 </head>
 <body>
 
@@ -684,6 +697,12 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
       <div class="meter-bar"><div class="meter-fill" id="mFill"></div></div>
     </div>
     <nav id="railNav" aria-label="Kapitoly"></nav>
+      <div class="rail-sub">
+        <a href="zlomky-a-zavorky/index.html">
+          <span class="rs-k">Pod-modul</span>
+          <span class="rs-t">Zlomky a závorky</span>
+        </a>
+      </div>
     <div class="rail-tools">
       <button class="btn btn-sm" id="themeBtn" type="button" aria-label="Přepnout světlý a tmavý režim"><span id="themeIcon" style="display:inline-flex"></span><span id="themeLbl">Tmavý</span></button>
       <button class="btn btn-sm" id="resetBtn" type="button">Vynulovat</button>
@@ -1055,6 +1074,14 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
         <span class="pt">Přehled vzorců</span>
         <span class="pd">Prohledávatelná kartotéka všech vztahů, které se v&nbsp;deseti okruzích počítají — u&nbsp;každého význam písmen, jednotka, kdy ho použít a&nbsp;na co si dát pozor. Plus tabulka konstant.</span>
         <span class="pgo">Kapitola 03 →</span>
+      </a>
+      <a class="path submod-path" href="zlomky-a-zavorky/index.html">
+        <span class="pk"><span class="tag">Samostatný pod-modul</span></span>
+        <span class="pt">Zlomky a závorky</span>
+        <span class="pd">Kdy zlomková čára nahrazuje závorku, jak přepsat stohovaný
+        zápis na řádek a&nbsp;zpátky, co se smí krátit a&nbsp;co ne — a&nbsp;jak si ověřit,
+        že jste přepsali správně. Devět kapitol s&nbsp;procvičováním a&nbsp;testem.</span>
+        <span class="pgo">Otevřít pod-modul →</span>
       </a>
     </div>
 
@@ -5203,13 +5230,13 @@ function drawSto(){
     s += line(x1, y + bh/2, x2, y + bh/2, {c:c, w: (j===1?2.4:1.8), cap:"round"});
     s += '<path d="M' + (xs[j+1] - 4) + ' ' + (y + bh/2) + ' l-9 -5 l0 10 z" style="fill:' + c + '"/>';
     if(opsB[j]){
-      s += txt(xm, y + bh/2 - 26, opsA[j], {anchor:"middle", size:11.5, w:700, mono:true, fill:c});
-      s += txt(xm, y + bh/2 - 12, opsB[j], {anchor:"middle", size:11.5, w:700, mono:true, fill:c});
+      s += txt(xm, y + bh/2 - 29, opsA[j], {anchor:"middle", size:11.5, w:700, mono:true, fill:c});
+      s += txt(xm, y + bh/2 - 11, opsB[j], {anchor:"middle", size:11.5, w:700, mono:true, fill:c});
     } else {
       s += txt(xm, y + bh/2 - 12, opsA[j], {anchor:"middle", size:12.5, w:700, mono:true, fill:c});
     }
-    s += txt(xm, y + bh/2 + 22, opn1[j], {anchor:"middle", size:10, fill:"var(--ink-3)"});
-    s += txt(xm, y + bh/2 + 34, opn2[j], {anchor:"middle", size:10, fill:"var(--ink-3)"});
+    s += txt(xm, y + bh/2 + 21, opn1[j], {anchor:"middle", size:10, fill:"var(--ink-3)"});
+    s += txt(xm, y + bh/2 + 37, opn2[j], {anchor:"middle", size:10, fill:"var(--ink-3)"});
   }
   /* pás pod schématem */
   s += line(26, 208, 754, 208, {c:"var(--line)", w:1, dash:"3 4"});

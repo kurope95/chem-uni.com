@@ -4697,7 +4697,7 @@ function drawPst(){
       });
     }
     if(d.k==="P4O10"){
-      var out = [[0,-40],[-38,26],[38,26],[26,-14]];
+      var out = [[0,-40],[-38,26],[38,26],[56,-34]];
       v.forEach(function(p,i){
         var ex = p[0]+out[i][0]*0.9, ey = p[1]+out[i][1]*0.9;
         s += bondN(p[0],p[1],ex,ey,2,{c:CO,w:1.8,gap:4});
@@ -4986,7 +4986,7 @@ function drawMnBond(){
   $("#mnBond").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Srovnání vazebných energií dusíku a fosforu"');
 }
 function drawMnHab(){
-  var W=520, H=200, s="";
+  var W=520, H=214, s="";
   var x0=54, xE=W-64, yB=148, yT=30;
   function X(T){ return x0 + (T-200)/400*(xE-x0); }
   function Y(y){ return yB - y/100*(yB-yT); }
@@ -4997,10 +4997,10 @@ function drawMnHab(){
     s += txt(x0-6, Y(p)+4, fmt(p,0), {anchor:"end", size:9.5, mono:true, fill:"var(--ink-3)"});
   }
   for(var T=200;T<=600;T+=100){
-    s += txt(X(T), yB+16, fmt(T,0), {anchor:"middle", size:9.5, mono:true, fill:"var(--ink-3)"});
+    s += txt(X(T), yB+20, fmt(T,0), {anchor:"middle", size:9.5, mono:true, fill:"var(--ink-3)"});
   }
   s += txt(x0-6, yT-10, "% NH₃", {anchor:"end", size:9.5, w:600, fill:"var(--ink-3)"});
-  s += txt((x0+xE)/2, yB+30, "teplota [°C]", {anchor:"middle", size:10, w:600, fill:"var(--ink-3)"});
+  s += txt((x0+xE)/2, yB+38, "teplota [°C]", {anchor:"middle", size:10, w:600, fill:"var(--ink-3)"});
   var mLbl = [];
   [{p:10,c:"var(--cat3)"},{p:30,c:"var(--accent)"}].forEach(function(o){
     var d="", first=true;
@@ -5036,11 +5036,11 @@ function drawMnTrd(){
     s += rect(x0+i*colW+4, 26, colW-8, 30, {r:6, fill:c, style:"fill-opacity:.75"});
     s += txt(cxx, 47, e.s, {anchor:"middle", size:15, w:700, fill:"var(--accent-ink)"});
     rows.forEach(function(r, j){
-      s += txt(cxx, yB+j*30, r.v[i], {anchor:"middle", size:10.5, w:600, fill:"var(--ink-2)"});
+      s += txt(cxx, yB+j*32, r.v[i], {anchor:"middle", size:10.5, w:600, fill:"var(--ink-2)"});
     });
   });
   rows.forEach(function(r, j){
-    s += txt(x0, yB+j*30-13, r.lab, {size:9.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.06em"});
+    s += txt(x0, yB+j*32-16, r.lab, {size:9.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.06em"});
   });
   s += hArr(x0+30, W-40, 74, "var(--accent)", "dolů skupinou roste kovový charakter", false);
   s += txt(12, H-6, "Efekt inertního páru: u bismutu se pár 6s² vazby neúčastní, proto je stálý stav +III.",

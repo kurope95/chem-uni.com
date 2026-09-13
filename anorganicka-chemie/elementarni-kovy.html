@@ -4667,7 +4667,7 @@ function drawEll(){
   });
   /* popisky na pravém okraji — rozestrčené, aby se nepřekrývaly */
   labels.sort(function(a,b){ return a.y-b.y; });
-  var MINGAP=11.5;
+  var MINGAP=14;
   for(var li=1;li<labels.length;li++){ if(labels[li].y < labels[li-1].y+MINGAP) labels[li].y = labels[li-1].y+MINGAP; }
   var over = labels[labels.length-1].y - (y0+gh);
   if(over>0){ labels.forEach(function(L){ L.y-=over; }); }
@@ -5069,11 +5069,11 @@ function drawKoroze(){
   s+='<path d="M'+(dx-dr)+' '+my+' a'+dr+' '+(dr*0.72)+' 0 0 1 '+(2*dr)+' 0 z" style="fill:var(--accent);fill-opacity:.14;stroke:var(--accent);stroke-width:1.2"/>';
   s+=txt(dx,my-52,"kapka vody s rozpuštěným O₂",{anchor:"middle",size:10.5,w:600,fill:"var(--accent)"});
   if(c.id==="bez"||c.id==="sn"){
-    s+=txt(dx,my+18,"ANODA",{anchor:"middle",size:11,w:700,fill:"var(--exo)"});
+    s+=txt(dx,my+14,"ANODA",{anchor:"middle",size:11,w:700,fill:"var(--exo)"});
     s+=txt(dx-dr+14,my-8,"KATODA",{anchor:"middle",size:10.5,w:700,fill:"var(--endo)"});
     s+=txt(dx+dr-14,my-8,"KATODA",{anchor:"middle",size:10.5,w:700,fill:"var(--endo)"});
-    s+=hArrow(dx-8,dx-dr+22,my+34,"var(--accent)","e⁻",false);
-    s+=hArrow(dx+8,dx+dr-22,my+34,"var(--accent)","e⁻",false);
+    s+=hArrow(dx-8,dx-dr+22,my+40,"var(--accent)","e⁻",false);
+    s+=hArrow(dx+8,dx+dr-22,my+40,"var(--accent)","e⁻",false);
     /* rez */
     for(var i=0;i<7;i++) s+=circ(dx-24+i*8,my-6+((i%2)?3:0),3.4,{fill:"var(--bad)",style:"fill-opacity:.8"});
     s+=txt(dx,my+52,c.id==="sn"?"železo v rýze je anodou → koroduje RYCHLEJI než bez povlaku":"železo se rozpouští → vzniká rez",{anchor:"middle",size:11.5,w:700,fill:"var(--bad)"});
@@ -5229,8 +5229,8 @@ function drawMiniCesty(){
   var mk=[["K",-2.93],["Na",-2.71],["Mg",-2.37],["Al",-1.66],["Ti",-1.63],["Zn",-0.76],["Cr",-0.74],["Fe",-0.44],["Ni",-0.26],["Sn",-0.14],["Cu",0.34],["Ag",0.80],["Hg",0.85],["Au",1.50]];
   mk.forEach(function(m,i){
     s+=circ(X(m[1]),y,5,{fill:"var(--ink-2)",stroke:"var(--paper)",sw:1.4});
-    s+=txt(X(m[1]),y+(i%2?22:36),m[0],{anchor:"middle",size:11,w:700,fill:"var(--ink)"});
-    s+=line(X(m[1]),y+5,X(m[1]),y+(i%2?12:26),{c:"var(--line)",w:1});
+    s+=txt(X(m[1]),y+(i%2?20:38),m[0],{anchor:"middle",size:11,w:700,fill:"var(--ink)"});
+    s+=line(X(m[1]),y+5,X(m[1]),y+(i%2?10:28),{c:"var(--line)",w:1});
   });
   for(var e=-3;e<=1.5;e+=0.5){ s+=txt(X(e),y-56,fmt(e,1),{anchor:"middle",size:9,mono:true,fill:"var(--ink-3)"}); }
   s+=txt(x0,H-10,"vlevo = neušlechtilé, drahá výroba",{size:10.5,w:600,fill:"var(--endo)"});

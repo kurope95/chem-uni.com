@@ -5104,12 +5104,12 @@ function drawEl(){
   s += line(mx+58, 21, kx+11, 21, {c:"var(--endo)",w:2});
   /* panel čísel vpravo */
   var px = 630;
-  s += txt(px, 70, "napětí", {size:10.5,w:600,fill:"var(--ink-3)"});
+  s += txt(px, 67, "napětí", {size:10.5,w:600,fill:"var(--ink-3)"});
   s += txt(px, 90, fmt(c.U,1) + " V", {size:17,w:700,fill:"var(--accent)",mono:true});
-  s += txt(px, 124, "spotřeba", {size:10.5,w:600,fill:"var(--ink-3)"});
+  s += txt(px, 121, "spotřeba", {size:10.5,w:600,fill:"var(--ink-3)"});
   s += txt(px, 144, fmt(c.kWh,0), {size:17,w:700,fill:"var(--accent)",mono:true});
-  s += txt(px, 160, "kWh na tunu Cl₂", {size:10,fill:"var(--ink-3)"});
-  s += txt(px, 192, "louh", {size:10.5,w:600,fill:"var(--ink-3)"});
+  s += txt(px, 165, "kWh na tunu Cl₂", {size:10,fill:"var(--ink-3)"});
+  s += txt(px, 189, "louh", {size:10.5,w:600,fill:"var(--ink-3)"});
   s += txt(px, 210, c.naoh.split(",")[0], {size:15,w:700,fill:"var(--endo)",mono:true});
   s += txt(px, 244, c.rok, {size:10,fill:"var(--ink-3)"});
   s += txt(14, 306, "celková rovnice: 2 NaCl + 2 H₂O → 2 NaOH + Cl₂ + H₂ · na tunu chloru vzniká 1,128 t louhu a 28,4 kg vodíku",
@@ -5290,10 +5290,10 @@ function drawMiniAcid(){
     var h2 = (e.oxid/2.0)*(y1-y0);
     s += rect(cx+4, y1-h2, 26, h2, {fill:"var(--exo)", r:4});
     s += txt(cx, y1+18, e.f, {size:11.5,w:700,anchor:"middle",fill:"var(--ink)"});
-    s += txt(cx, y1+32, "pKa " + fmt(e.pKa,1), {size:9.5,anchor:"middle",fill:"var(--endo)",mono:true});
-    s += txt(cx, y1+44, fmt(e.oxid,2) + " V", {size:9.5,anchor:"middle",fill:"var(--exo)",mono:true});
+    s += txt(cx, y1+33, "pKa " + fmt(e.pKa,1), {size:9.5,anchor:"middle",fill:"var(--endo)",mono:true});
+    s += txt(cx, y1+48, fmt(e.oxid,2) + " V", {size:9.5,anchor:"middle",fill:"var(--exo)",mono:true});
   });
-  s += txt(x0, y1+62, "modrá = kyselost (−pKa) · oranžová = oxidační síla (E° ve V)", {size:10,fill:"var(--ink-3)"});
+  s += txt(x0, y1+66, "modrá = kyselost (−pKa) · oranžová = oxidační síla (E° ve V)", {size:10,fill:"var(--ink-3)"});
   $("#miniAcidWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Mini-graf kyselosti a oxidační síly oxokyselin chloru"');
 }
 
