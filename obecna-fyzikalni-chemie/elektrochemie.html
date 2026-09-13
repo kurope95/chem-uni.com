@@ -3861,7 +3861,7 @@ function drawPH(){
   /* referenční čáry */
   [[1.36,"Cl₂/Cl⁻ 1,36"],[1.07,"Br₂/Br⁻ 1,07"],[0.54,"I₂/I⁻ 0,54"]].forEach(function(r){
     s+=line(L,y(r[0]),R,y(r[0]),{c:"var(--ink-3)",w:1,dash:"3 4"});
-    s+=txt(R+6,y(r[0])+4,r[1],{size:10,fill:"var(--ink-3)"});
+    s+=txt(R+6,y(r[0])-3,r[1],{size:10,fill:"var(--ink-3)"});
   });
   /* pásmo stability vody */
   s+='<polygon points="'+x(0)+','+y(PHSYS.H.f(0))+' '+x(14)+','+y(PHSYS.H.f(14))+' '+x(14)+','+y(PHSYS.O.f(14))+' '+x(0)+','+y(PHSYS.O.f(0))+'" style="fill:var(--endo);fill-opacity:.07"/>';

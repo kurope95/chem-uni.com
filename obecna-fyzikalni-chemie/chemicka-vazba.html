@@ -3657,7 +3657,7 @@ function morseE(m,r){ var e=Math.exp(-m.a*(r-m.re)); return m.De*((1-e)*(1-e)-1)
 function drawMorse(){
   var m=MORSE[morseState.i], r=morseState.r;
   var W=760,H=340,L=92,R=720,T=30,B=290;
-  var rmin=40,rmax=400, Emin=-1300, Emax=450;
+  var rmin=20,rmax=400, Emin=-1300, Emax=450;
   var x=function(v){return L+(v-rmin)/(rmax-rmin)*(R-L);};
   var y=function(E){return B-(E-Emin)/(Emax-Emin)*(B-T);};
   var s='';
@@ -4563,8 +4563,8 @@ function drawBP(){
     var x1=1,x2=3, y1=r[1][1], y2=r[3][1], slope=(y2-y1)/(x2-x1), y0p=y1-slope;
     s+=line(x(0),y(y0p),x(3),y(r[3][1]),{c:"var(--line-strong)",w:2,dash:"6 5"});
     s+=circ(x(0),y(y0p),6,{fill:"none",stroke:"var(--ink-3)",sw:2,style:"stroke-dasharray:3 3;"});
-    s+=txt(x(0)+12,y(y0p)-4,"„patřil by“ sem:",{size:11,w:600,fill:"var(--ink-3)"});
-    s+=txt(x(0)+12,y(y0p)+12,"≈ "+fmt(y0p,0)+" °C",{size:11,w:600,fill:"var(--ink-3)"});
+    s+=txt(x(0)+12,y(y0p)-6,"„patřil by“ sem:",{size:11,w:600,fill:"var(--ink-3)"});
+    s+=txt(x(0)+12,y(y0p)+14,"≈ "+fmt(y0p,0)+" °C",{size:11,w:600,fill:"var(--ink-3)"});
     s+=arrow(x(0),y(y0p)-10,x(0),y(r[0][1])+12,{c:"var(--accent)",w:2.5,ah:9});
     s+=txt(x(0)-12,(y(y0p)+y(r[0][1]))/2+4,"+"+fmt(r[0][1]-y0p,0)+" °C",{anchor:"end",size:12,w:700,fill:"var(--accent)",mono:true});
   }

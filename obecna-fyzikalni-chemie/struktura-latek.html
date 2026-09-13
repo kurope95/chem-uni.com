@@ -2917,6 +2917,17 @@ function txt(x,y,s,o){
     ';font-size:'+(o.size||12)+'px;font-weight:'+(o.w||400)+';'+(o.anchor?"text-anchor:"+o.anchor+";":"")+
     (o.style||"")+'">'+s+'</text>';
 }
+/* svislý popisek — vykreslen po dráze, takže má správný obalový obdélník */
+var VTXID=0;
+function vtxt(x,ymid,s,o){
+  o=o||{};
+  var pid="vlab"+(++VTXID), st=(o.anchor==="start");
+  var y1=st?ymid:(ymid+150), y2=st?(ymid-320):(ymid-150);
+  return '<defs><path id="'+pid+'" d="M '+x+' '+y1+' L '+x+' '+y2+'"/></defs>'+
+    '<text style="fill:'+(o.fill||"var(--ink-3)")+';font-family:var(--f-ui);font-size:'+(o.size||11.5)+
+    'px;font-weight:'+(o.w||600)+';'+(o.style||"")+'"><textPath href="#'+pid+'" startOffset="'+(st?"0":"50%")+
+    '" style="text-anchor:'+(st?"start":"middle")+'">'+s+'</textPath></text>';
+}
 function line(x1,y1,x2,y2,o){
   o=o||{};
   return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" style="stroke:'+(o.c||"var(--line)")+
@@ -3736,7 +3747,7 @@ function drawHeat(){
   s+=txt(x(QJ),T0-11,fmt(QJ/1000,0)+" kJ",{anchor:"middle",size:11,w:600,fill:"var(--paper)",mono:true});
   /* osy */
   s+=txt((L+R)/2,B+38,"dodané teplo Q [kJ] · hmotnost "+m+" g",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(18,(T0+B)/2,"teplota [°C]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px;letter-spacing:.08em"});
+  s+=vtxt(18,(T0+B)/2,"teplota [°C]",{style:"letter-spacing:.08em"});
   $("#heatWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Křivka ohřevu vody"');
 
   $("#heatQV").textContent=fmt(QJ/1000,0)+" kJ";
@@ -3794,7 +3805,7 @@ function drawFaz(){
   var y=function(lp){ return B-(lp-Lmin)/(Lmax-Lmin)*(B-T0); };
   var s='';
   for(var t=-50;t<=150;t+=25){ s+=line(x(t),T0,x(t),B,{c:"var(--line)",w:1}); s+=txt(x(t),B+16,t,{anchor:"middle",size:11,fill:"var(--ink-3)",mono:true}); }
-  for(var lp=2;lp<=7;lp++){ s+=line(L,y(lp),R,y(lp),{c:"var(--line)",w:1}); s+=txt(L-8,y(lp)+4,"10"+["","","²","³","⁴","⁵","⁶","⁷"][lp],{anchor:"end",size:11,fill:"var(--ink-3)",mono:true}); }
+  for(var lp=2;lp<=7;lp++){ s+=line(L,y(lp),R,y(lp),{c:"var(--line)",w:1}); s+=txt(L-15,y(lp)+4,"10"+["","","²","³","⁴","⁵","⁶","⁷"][lp],{anchor:"end",size:11,fill:"var(--ink-3)",mono:true}); }
   /* oblasti — polygony podle křivek */
   var subl=[], vap=[], melt=[];
   for(var t2=Tmin;t2<=0.01;t2+=1){ subl.push([x(t2),y(Math.log10(pIce(t2)))]); }
@@ -3818,7 +3829,7 @@ function drawFaz(){
   s+=txt(x(70),y(3.2),"PÁRA (g)",{size:12,w:700,fill:"var(--cat3)"});
   s+=txt(x(-30),y(3.35),"sublimační křivka",{size:10,fill:"var(--ink-3)",style:"transform:rotate(-38deg);transform-origin:"+x(-30)+"px "+y(3.35)+"px"});
   s+=txt(x(60),y(4.35),"křivka varu (tlak nasycené páry)",{size:10,fill:"var(--ink-3)",style:"transform:rotate(-30deg);transform-origin:"+x(60)+"px "+y(4.35)+"px"});
-  s+=txt(x(2),y(6.6),"křivka tání (záporný sklon!)",{size:10,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:"+x(2)+"px "+y(6.6)+"px"});
+  s+=vtxt(x(2),y(6.6),"křivka tání (záporný sklon!)",{size:10,w:400,anchor:"start"});
   /* trojný bod, 1 atm */
   var tpx=x(0.01), tpy=y(Math.log10(611.657));
   s+='<circle cx="'+tpx.toFixed(1)+'" cy="'+tpy.toFixed(1)+'" r="5" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"/>';
@@ -3836,7 +3847,7 @@ function drawFaz(){
   s+='<circle cx="'+x(T).toFixed(1)+'" cy="'+y(fazState.lp).toFixed(1)+'" r="8" style="fill:'+pc+';stroke:var(--surface);stroke-width:3"/>';
   /* osy */
   s+=txt((L+R)/2,B+36,"teplota [°C]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(20,(T0+B)/2,"tlak [Pa] — logaritmicky",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:20px "+((T0+B)/2)+"px;letter-spacing:.08em"});
+  s+=vtxt(20,(T0+B)/2,"tlak [Pa] — logaritmicky",{style:"letter-spacing:.08em"});
   /* pravý panel */
   var px=590;
   s+=rect(px,T0,W-px-8,B-T0,{fill:"var(--surface-2)",r:10,stroke:"var(--line)",sw:1});
@@ -3897,14 +3908,14 @@ function drawKond(){
     /* kationty v mřížce + elektrony */
     var rows=id==="graf"?3:5, cols=7;
     for(var i=0;i<rows;i++) for(var j=0;j<cols;j++){
-      var x=cx0+22+j*36, y=cy0+24+i*(id==="graf"?60:38);
+      var x=cx0+22+j*36, y=cy0+20+i*(id==="graf"?60:34);
       if(id==="graf"){ s+='<polygon points="'+[0,1,2,3,4,5].map(function(k){var a=k*Math.PI/3; return (x+11*Math.cos(a)).toFixed(1)+","+(y+11*Math.sin(a)).toFixed(1);}).join(" ")+'" style="fill:none;stroke:var(--ink-2);stroke-width:1.4"/>'; }
       else { s+='<circle cx="'+x+'" cy="'+y+'" r="9" style="fill:var(--surface-3);stroke:var(--ink-3);stroke-width:1"/>'; s+=txt(x,y+4,"+",{anchor:"middle",size:11,w:700,fill:"var(--ink-2)"}); }
     }
     var ne = id==="si"?3:(id==="graf"?10:16);
     for(var e=0;e<ne;e++){
       var ex=cx0+20+rnd()*(cw-60), ey=cy0+14+rnd()*(ch-28);
-      if(id==="graf"){ ey=cy0+24+Math.floor(rnd()*3)*60+(rnd()<.5?-18:18); }
+      if(id==="graf"){ ey=cy0+20+Math.floor(rnd()*3)*60+(rnd()<.5?-18:18); }
       s+='<circle cx="'+ex.toFixed(1)+'" cy="'+ey.toFixed(1)+'" r="3.5" style="fill:var(--accent)"/>';
       arrow(ex+5,ey,1,"var(--accent)");
     }
@@ -3912,24 +3923,30 @@ function drawKond(){
     if(id==="si"){ s+=txt(cx0+cw/2,cy0+ch-8,"jen málo tepelně uvolněných elektronů (a děr)",{anchor:"middle",size:10,fill:"var(--ink-3)"}); }
   } else if(id==="dia"){
     for(var i2=0;i2<5;i2++) for(var j2=0;j2<7;j2++){
-      var x2=cx0+22+j2*36, y2=cy0+24+i2*38;
+      var x2=cx0+22+j2*36, y2=cy0+20+i2*34;
       if(j2<6) s+=line(x2,y2,x2+36,y2,{c:"var(--ink-3)",w:1.4});
-      if(i2<4) s+=line(x2,y2,x2,y2+38,{c:"var(--ink-3)",w:1.4});
+      if(i2<4) s+=line(x2,y2,x2,y2+34,{c:"var(--ink-3)",w:1.4});
       s+='<circle cx="'+x2+'" cy="'+y2+'" r="8" style="fill:var(--surface-3);stroke:var(--ink-3);stroke-width:1"/>';
       s+=txt(x2,y2+3.5,"C",{anchor:"middle",size:9,w:700,fill:"var(--ink-2)"});
     }
     s+=txt(cx0+cw/2,cy0+ch-8,"všechny elektrony vázané v σ vazbách — nic se nehýbe",{anchor:"middle",size:10,fill:"var(--ink-3)"});
   } else if(id==="nacls"){
     for(var i3=0;i3<5;i3++) for(var j3=0;j3<7;j3++){
-      var x3=cx0+22+j3*36, y3=cy0+24+i3*38, pos=(i3+j3)%2===0;
+      var x3=cx0+22+j3*36, y3=cy0+20+i3*34, pos=(i3+j3)%2===0;
       s+='<circle cx="'+x3+'" cy="'+y3+'" r="'+(pos?7:11)+'" style="fill:'+(pos?"var(--endo-soft)":"var(--exo-soft)")+';stroke:'+(pos?"var(--endo)":"var(--exo)")+';stroke-width:1.2"/>';
       s+=txt(x3,y3+4,pos?"+":"−",{anchor:"middle",size:11,w:700,fill:pos?"var(--endo)":"var(--exo)"});
     }
     s+=txt(cx0+cw/2,cy0+ch-8,"ionty jsou, ale drží pevně v mřížce",{anchor:"middle",size:10,fill:"var(--ink-3)"});
   } else if(id==="naclm"||id==="nacla"||id==="hcla"||id==="sea"||id==="acoh"||id==="h2o"){
     var nI = id==="h2o"?2:(id==="acoh"?4:14);
+    var putIons=[];
     for(var k=0;k<nI;k++){
-      var xi=cx0+24+rnd()*(cw-48), yi=cy0+18+rnd()*(ch-46), pos2=k%2===0;
+      /* ionty se nesmí posadit na sebe — jinak splynou i jejich znaménka */
+      var xi,yi,tryN=0;
+      do{ xi=cx0+24+rnd()*(cw-48); yi=cy0+18+rnd()*(ch-56); tryN++; }
+      while(tryN<200 && putIons.some(function(q){ var qdx=q[0]-xi, qdy=q[1]-yi; return qdx*qdx+qdy*qdy < 34*34; }));
+      putIons.push([xi,yi]);
+      var pos2=k%2===0;
       var col=pos2?"var(--endo)":"var(--exo)";
       if(id!=="naclm"){ /* hydratační obal */
         for(var w=0;w<5;w++){ var a=w*1.257+rnd()*.4; s+='<circle cx="'+(xi+Math.cos(a)*15).toFixed(1)+'" cy="'+(yi+Math.sin(a)*15).toFixed(1)+'" r="3" style="fill:var(--cat1);fill-opacity:.55"/>'; }
@@ -4069,11 +4086,11 @@ function drawSol(){
   s+='<polyline points="'+pts2.join(" ")+'" style="fill:none;stroke:var(--ink-3);stroke-width:2;stroke-dasharray:6 4"/>';
   s+=txt(x(4),y(solAt(O2SOL,4)*15)-10,"O₂ (plyn, pravá stupnice)",{size:10.5,w:600,fill:"var(--ink-3)"});
   s+='<circle cx="'+x(T).toFixed(1)+'" cy="'+y(solAt(O2SOL,T)*15).toFixed(1)+'" r="5" style="fill:var(--ink-3);stroke:var(--surface);stroke-width:2"/>';
-  for(var mg=0;mg<=15;mg+=5){ s+=txt(R+6,y(mg*15)+4,mg+" mg/L",{size:9.5,fill:"var(--ink-3)",mono:true,style:"opacity:.75"}); }
+  for(var mg=0;mg<=15;mg+=5){ s+=txt(R+6,y(mg*15)+(mg===0?-8:4),mg+" mg/L",{size:9.5,fill:"var(--ink-3)",mono:true,style:"opacity:.75"}); }
   s+=line(x(T),T0,x(T),B,{c:"var(--ink)",w:1.2,dash:"3 3"});
   s+=rect(x(T)-26,T0-22,52,17,{fill:"var(--ink)",r:4}); s+=txt(x(T),T0-9,fmt(T,0)+" °C",{anchor:"middle",size:11,w:600,fill:"var(--paper)",mono:true});
   s+=txt((L+R)/2,B+38,"teplota [°C]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(18,(T0+B)/2,"rozpustnost [g na 100 g vody]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px;letter-spacing:.08em"});
+  s+=vtxt(18,(T0+B)/2,"rozpustnost [g na 100 g vody]",{style:"letter-spacing:.08em"});
   $("#solWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Křivky rozpustnosti"');
   $("#solTV").textContent=fmt(T,0)+" °C";
   $("#solBody").innerHTML=SOLCURVES.map(function(c){
@@ -4235,12 +4252,12 @@ function drawAmor(){
   nodes.forEach(function(nd){ s+='<circle cx="'+nd[0].toFixed(1)+'" cy="'+nd[1].toFixed(1)+'" r="7" style="fill:var(--surface-3);stroke:var(--ink-2);stroke-width:1.3"/>'; });
   s+=txt(188,H-22,am?"stejné stavební tetraedry SiO₄, ale bez periodicity — jako zmražená kapalina":"periodicky se opakující buňka, stejné okolí každého atomu",{anchor:"middle",size:10,fill:"var(--ink-3)"});
   /* pravý panel: T(t) */
-  var px=392, L=px+44, R=W-24, T0=40, B=H-50;
+  var px=392, L=px+44, R=W-24, T0=40, B=H-66;
   s+=rect(px-8,8,W-px,H-16,{fill:"var(--surface-2)",r:12,stroke:"var(--line)",sw:1});
   s+=txt(px+8,32,"TEPLOTA PŘI ROVNOMĚRNÉM OHŘEVU",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
   s+=line(L,T0,L,B,{c:"var(--line-strong)",w:1.5}); s+=line(L,B,R,B,{c:"var(--line-strong)",w:1.5});
   s+=txt((L+R)/2,B+20,"čas (dodané teplo) →",{anchor:"middle",size:10.5,w:600,fill:"var(--ink-3)"});
-  s+=txt(px+14,(T0+B)/2,"T",{anchor:"middle",size:12,w:700,fill:"var(--ink-3)",style:"font-style:italic"});
+  s+=txt(px+4,(T0+B)/2,"T",{anchor:"middle",size:12,w:700,fill:"var(--ink-3)",style:"font-style:italic"});
   var yTm=T0+(B-T0)*0.42;
   if(!am){
     var x1=L+(R-L)*0.32, x2=L+(R-L)*0.62;
@@ -4383,7 +4400,7 @@ function drawPol(){
     s+=line(ax0-px*3,ay0-py*3,ax0+px*3,ay0+py*3,{c:"var(--exo)",w:1.6});
     s+='<circle cx="'+ex.toFixed(1)+'" cy="'+ey.toFixed(1)+'" r="12" style="fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5"/>';
     s+=txt(ex,ey+4,it.X,{anchor:"middle",size:11,w:600,fill:"var(--ink)"});
-    s+=txt(ex+ux*22,ey+uy*22+4,it.d>0?"δ−":"δ+",{anchor:"middle",size:10,w:700,fill:"var(--exo)"});
+    s+=txt(ex+ux*27,ey+uy*27+4,it.d>0?"δ−":"δ+",{anchor:"middle",size:10,w:700,fill:"var(--exo)"});
   });
   s+='<circle cx="'+cx+'" cy="'+cy+'" r="16" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"/>';
   s+=txt(cx,cy+4.5,m.c,{anchor:"middle",size:12,w:700,fill:"var(--accent-ink)"});
@@ -4393,11 +4410,11 @@ function drawPol(){
     var rx=cx+rs[0]*L2, ry=cy+rs[1]*L2, rux=rs[0], ruy=rs[1], rpx=-ruy, rpy=rux;
     s+=line(cx,cy,rx,ry,{c:"var(--endo)",w:3.2,cap:"round"});
     s+='<path d="M'+rx.toFixed(1)+' '+ry.toFixed(1)+' l'+(-rux*11-rpx*6).toFixed(1)+' '+(-ruy*11-rpy*6).toFixed(1)+' l'+(rpx*12).toFixed(1)+' '+(rpy*12).toFixed(1)+' z" style="fill:var(--endo)"/>';
-    s+=txt(rx+rux*16,ry+ruy*16+4,"μ",{anchor:"middle",size:14,w:700,fill:"var(--endo)",style:"font-style:italic"});
+    s+=txt(rx+rux*14+rpx*22,ry+ruy*14+rpy*22+4,"μ",{anchor:"middle",size:14,w:700,fill:"var(--endo)",style:"font-style:italic"});
   } else {
     s+=txt(cx,cy+R+34,"Σ = 0 — dipóly se vyruší",{anchor:"middle",size:11.5,w:700,fill:"var(--ok)"});
   }
-  s+=txt(24,H-22,"tenké šipky = dipóly vazeb (Δχ), tlustá = výsledný dipól molekuly",{size:10,fill:"var(--ink-3)"});
+  s+=txt(24,H-6,"tenké šipky = dipóly vazeb (Δχ), tlustá = výsledný dipól molekuly",{size:10,fill:"var(--ink-3)"});
   /* pravý panel */
   var px2=392;
   s+=rect(px2-8,8,W-px2,H-16,{fill:"var(--surface-2)",r:12,stroke:"var(--line)",sw:1});

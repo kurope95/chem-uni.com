@@ -3367,9 +3367,13 @@ function drawHero(){
   r.sp.forEach(function(name,i){
     var d=pts.map(function(p){ return x(p.t).toFixed(1)+","+y(p.c[i]).toFixed(1); }).join(" ");
     s+='<polyline points="'+d+'" style="fill:none;stroke:'+r.cols[i]+';stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round"/>';
-    var last=pts[pts.length-1];
-    s+=txt(R+8,y(last.c[i])+4,name+" = "+fmt(last.c[i],2),{size:11.5,w:600,fill:r.cols[i]});
   });
+  /* popisky křivek vpravo — když mají látky stejnou koncentraci, rozestoupí se */
+  var lastP=pts[pts.length-1];
+  var endLabs=r.sp.map(function(name,i){ return {y:y(lastP.c[i])+4, s:name+" = "+fmt(lastP.c[i],2), c:r.cols[i]}; });
+  endLabs.sort(function(p,q){ return p.y-q.y; });
+  for(var q1=1;q1<endLabs.length;q1++){ if(endLabs[q1].y-endLabs[q1-1].y<17) endLabs[q1].y=endLabs[q1-1].y+17; }
+  endLabs.forEach(function(l){ s+=txt(R+8,l.y,l.s,{size:11.5,w:600,fill:l.c}); });
   if(heroState.rxn===1){
     var no2=sim.cEq[1]/2;
     s+=rect(L+14,T0+4,54,54,{fill:"var(--exo)",r:8,style:"fill-opacity:"+(0.08+0.85*no2).toFixed(2)+";stroke:var(--line-strong);stroke-width:1"});
@@ -3478,8 +3482,10 @@ function drawPM(){
   var eqA=PM_N*pmState.p2/(pmState.p1+pmState.p2), eqB=PM_N-eqA;
   s2+=line(L,y(eqA),R,y(eqA),{c:"var(--cat2)",w:1,dash:"4 4"});
   s2+=line(L,y(eqB),R,y(eqB),{c:"var(--cat1)",w:1,dash:"4 4"});
-  s2+=txt(R,y(eqB)-5,"očekávané B = "+fmt(eqB,0),{anchor:"end",size:10,fill:"var(--cat1)"});
-  s2+=txt(R,y(eqA)-5,"očekávané A = "+fmt(eqA,0),{anchor:"end",size:10,fill:"var(--cat2)"});
+  /* horní čára dostane popisek nad sebe, dolní pod sebe — ať se nepřekryjí, když se srovnají */
+  var aUp = y(eqA)<=y(eqB);
+  s2+=txt(R,y(eqB)+(aUp?15:-5),"očekávané B = "+fmt(eqB,0),{anchor:"end",size:10,fill:"var(--cat1)"});
+  s2+=txt(R,y(eqA)+(aUp?-5:15),"očekávané A = "+fmt(eqA,0),{anchor:"end",size:10,fill:"var(--cat2)"});
   if(n>1){
     var dA=pmState.hA.map(function(v,i){return x(i).toFixed(1)+","+y(v).toFixed(1);}).join(" ");
     var dB=pmState.hB.map(function(v,i){return x(i).toFixed(1)+","+y(v).toFixed(1);}).join(" ");
@@ -3578,7 +3584,7 @@ function drawGX(){
   for(var t=0;t<=1.0001;t+=0.25){ s+=line(x(t),T0,x(t),B,{c:"var(--line)",w:1}); s+=txt(x(t),B+18,fmt(t,2),{anchor:"middle",size:11,fill:"var(--ink-3)",mono:true}); }
   s+=line(L,B,R,B,{c:"var(--line-strong)",w:1.5}); s+=line(L,T0-6,L,B,{c:"var(--line-strong)",w:1.5});
   s+=line(L,y(0),R,y(0),{c:"var(--line)",w:1,dash:"3 4"}); s+=txt(L-8,y(0)+4,"0",{anchor:"end",size:11,fill:"var(--ink-3)",mono:true});
-  s+=txt(L-8,y(G0)+4,sgn(G0,1),{anchor:"end",size:11,fill:"var(--ink-3)",mono:true});
+  s+=txt(L-8,(Math.abs(y(G0)-y(0))<17?y(0)+22:y(G0)+4),sgn(G0,1),{anchor:"end",size:11,fill:"var(--ink-3)",mono:true});
   s+=line(L,y(G0),R,y(G0),{c:"var(--line)",w:1,dash:"3 4"});
   s+=txt((L+R)/2,B+38,"rozsah reakce ξ  (0 = čistá A, 1 = čistá B)",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.06em;text-transform:uppercase"});
   s+=vtxt(18,(T0+B)/2,"G směsi [kJ·mol⁻¹]",{size:11.5,style:"letter-spacing:.06em"});
@@ -3591,15 +3597,19 @@ function drawGX(){
   var gEq=gxG(xiEq,G0);
   s+=line(x(xiEq),y(gEq),x(xiEq),B,{c:"var(--ok)",w:1.5,dash:"4 4"});
   s+='<circle cx="'+x(xiEq).toFixed(1)+'" cy="'+y(gEq).toFixed(1)+'" r="6" style="fill:var(--ok);stroke:var(--surface);stroke-width:2"/>';
-  s+=txt(x(xiEq),y(gEq)+24,"rovnováha ξ = "+fmt(xiEq,3),{anchor:"middle",size:11.5,w:600,fill:"var(--ok)"});
-  s+=txt(x(xiEq),y(gEq)+38,"K = "+sci(K),{anchor:"middle",size:11,fill:"var(--ok)",mono:true});
+  var eqLx=Math.max(L+64,Math.min(x(xiEq),R-64));
+  var eqLy=Math.min(y(gEq)+24,B-44);
+  s+=txt(eqLx,eqLy,"rovnováha ξ = "+fmt(xiEq,3),{anchor:"middle",size:11.5,w:600,fill:"var(--ok)"});
+  s+=txt(eqLx,eqLy+16,"K = "+sci(K),{anchor:"middle",size:11,fill:"var(--ok)",mono:true});
   /* tečna */
   var Q=xi0/(1-xi0), dG=G0+RT*Math.log(Q), g0=gxG(xi0,G0);
   var dx=0.16, xa=Math.max(0.005,xi0-dx), xb=Math.min(0.995,xi0+dx);
   s+=line(x(xa),y(g0+dG*(xa-xi0)),x(xb),y(g0+dG*(xb-xi0)),{c:"var(--accent)",w:2.5,cap:"round"});
   s+='<circle cx="'+x(xi0).toFixed(1)+'" cy="'+y(g0).toFixed(1)+'" r="6" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"/>';
   var side = dG<-0.05 ? "→ reakce jde doprava" : (dG>0.05 ? "← reakce jde doleva" : "rovnováha");
-  s+=txt(x(xi0),y(g0)-14,"ΔG = "+sgn(dG,2)+" kJ·mol⁻¹  "+side,{anchor:xi0>0.6?"end":"start",size:11.5,w:600,fill:"var(--accent)"});
+  /* čtení tečny má vlastní pruh nahoře, spojnice vede k bodu — ať se nepotká s ostatními popisky */
+  s+=line(x(xi0),T0+22,x(xi0),y(g0)-9,{c:"var(--accent)",w:1,dash:"3 3"});
+  s+=txt(Math.max(L+6,Math.min(x(xi0),R-6)),T0+16,"ΔG = "+sgn(dG,2)+" kJ·mol⁻¹  "+side,{anchor:xi0>0.6?"end":"start",size:11.5,w:600,fill:"var(--accent)"});
   $("#gxWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Gibbsova energie podél reakce"');
 
   $("#gxGV").textContent=sgn(G0,1)+" kJ·mol⁻¹"; $("#gxXiV").textContent=fmt(xi0,2);
@@ -3992,7 +4002,7 @@ function drawVH(){
   var s='';
   [1500,1000,750,500,400,300,250].forEach(function(Tt){ s+=line(x(1/Tt),T0,x(1/Tt),B,{c:"var(--line)",w:1}); s+=txt(x(1/Tt),B+16,fmt(1000/Tt,2),{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true}); s+=txt(x(1/Tt),B+30,Tt+" K",{anchor:"middle",size:9.5,fill:"var(--ink-3)"}); });
   var step=Math.pow(10,Math.floor(Math.log10((lnMax-lnMin)/5)))*( (lnMax-lnMin)/5/Math.pow(10,Math.floor(Math.log10((lnMax-lnMin)/5)))>5?5:((lnMax-lnMin)/5/Math.pow(10,Math.floor(Math.log10((lnMax-lnMin)/5)))>2?2:1) );
-  for(var g=Math.ceil(lnMin/step)*step; g<=lnMax; g+=step){ s+=line(L,y(g),R,y(g),{c:"var(--line)",w:1}); s+=txt(L-8,y(g)+4,fmt(g,0),{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
+  for(var g=Math.ceil(lnMin/step)*step; g<=lnMax; g+=step){ s+=line(L,y(g),R,y(g),{c:"var(--line)",w:1}); s+=txt(L-16,y(g)+4,fmt(g,0),{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
   if(lnMin<0&&lnMax>0){ s+=line(L,y(0),R,y(0),{c:"var(--line-strong)",w:1.5,dash:"5 4"}); s+=txt(R-4,y(0)-6,"ln K = 0 → K = 1",{anchor:"end",size:10.5,w:600,fill:"var(--ink-3)"}); }
   s+=line(L,B,R,B,{c:"var(--line-strong)",w:1.5}); s+=line(L,T0-6,L,B,{c:"var(--line-strong)",w:1.5});
   s+=txt((L+R)/2,B+48,"1/T  [10⁻³ K⁻¹]   (vlevo horko, vpravo chladno)",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.06em;text-transform:uppercase"});
@@ -4004,7 +4014,9 @@ function drawVH(){
   s+=txt(x(1/T)+(T<500?-12:12),y(lnT)-12,"T = "+T+" K · K = "+sci(vhK(r,T)),{anchor:T<500?"end":"start",size:12,w:700,fill:r.c});
   /* 298 K bod */
   s+='<circle cx="'+x(1/T298).toFixed(1)+'" cy="'+y(Math.log(r.K298)).toFixed(1)+'" r="4" style="fill:var(--surface);stroke:'+r.c+';stroke-width:2"/>';
-  s+=txt(x(1/T298)-8,y(Math.log(r.K298))+16,"298 K",{anchor:"end",size:10,fill:"var(--ink-3)"});
+  var yTb=y(lnT)-12, y298b=y(Math.log(r.K298))+16;
+  if(Math.abs(x(1/T)-x(1/T298))<170 && y298b>yTb-34 && y298b<yTb+22) y298b=yTb+28;
+  s+=txt(x(1/T298)-8,y298b,"298 K",{anchor:"end",size:10,fill:"var(--ink-3)"});
   s+=txt(L,18,(r.dH<0?"EXOTERMICKÁ: přímka stoupá doprava (k nízkým T) → K roste s klesající T":"ENDOTERMICKÁ: přímka klesá doprava → K roste s rostoucí T"),{size:11,w:600,fill:r.c,style:"letter-spacing:.05em"});
   $("#vhWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Závislost ln K na 1/T"');
   $("#vhTV").textContent=T+" K ("+fmt(T-273.15,0)+" °C)";
@@ -4053,7 +4065,7 @@ function drawHB(){
   s+=line(x(hbState.P),T0,x(hbState.P),B,{c:"var(--ink-3)",w:1,dash:"3 4"});
   s+=line(L,y(xv),x(hbState.P),y(xv),{c:"var(--ink-3)",w:1,dash:"3 4"});
   s+='<circle cx="'+x(hbState.P).toFixed(1)+'" cy="'+y(xv).toFixed(1)+'" r="7" style="fill:var(--ink);stroke:var(--surface);stroke-width:2.5"/>';
-  s+=txt(x(hbState.P)+12,y(xv)-12,fmt(xv*100,1)+" % NH₃ při "+hbState.Tc+" °C a "+hbState.P+" atm",{size:12,w:700,fill:"var(--ink)",anchor:hbState.P>380?"end":"start"});
+  s+=txt(x(hbState.P)+(hbState.P>380?-12:12),y(xv)-12,fmt(xv*100,1)+" % NH₃ při "+hbState.Tc+" °C a "+hbState.P+" atm",{size:12,w:700,fill:"var(--ink)",anchor:hbState.P>380?"end":"start"});
   /* průmyslový bod */
   s+='<circle cx="'+x(200).toFixed(1)+'" cy="'+y(haberX(723.15,200)).toFixed(1)+'" r="5" style="fill:var(--surface);stroke:var(--accent);stroke-width:2.5"/>';
   s+=txt(x(200)+10,y(haberX(723.15,200))+18,"průmysl: 450 °C, 200 atm",{size:10.5,w:600,fill:"var(--accent)"});
@@ -4322,7 +4334,7 @@ function drawMiniRates(){
 
 /* (B) ΔG° → K na logaritmické ose */
 function drawMiniKG(){
-  var W=720,H=210,L=56,R=664,yb=112;
+  var W=720,H=210,L=78,R=664,yb=112;
   var x=function(e){ return L+(e+12)/24*(R-L); };
   var s='';
   s+=txt(L,20,"ΔG° = −RT ln K   ·   KAŽDÝCH 5,7 kJ·mol⁻¹ POSUNE K O JEDEN ŘÁD (298 K)",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
@@ -4338,8 +4350,8 @@ function drawMiniKG(){
     s+=txt(x(e),yb+22,"10"+supN(e),{anchor:"middle",size:11.5,fill:"var(--ink-2)",mono:true});
     s+=txt(x(e),yb+40,sgn(-e*5.708,0),{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true});
   }
-  s+=txt(L-8,yb+22,"K",{anchor:"end",size:11.5,w:700,fill:"var(--ink-2)"});
-  s+=txt(L-8,yb+40,"ΔG°",{anchor:"end",size:10.5,w:700,fill:"var(--ink-3)"});
+  s+=txt(L-26,yb+22,"K",{anchor:"end",size:11.5,w:700,fill:"var(--ink-2)"});
+  s+=txt(L-26,yb+40,"ΔG°",{anchor:"end",size:10.5,w:700,fill:"var(--ink-3)"});
   s+=txt((L+R)/2,H-8,"dolní řádek: ΔG° v kJ·mol⁻¹ při 298 K",{anchor:"middle",size:10.5,fill:"var(--ink-3)"});
   var marks=[[5.75,"NH₃ (298 K)","var(--cat1)"],[-0.83,"N₂O₄ ⇌ 2 NO₂","var(--cat3)"],[1.7,"H₂ + I₂ ⇌ 2 HI (448 °C)","var(--cat2)"],[-4.74,"CH₃COOH ⇌ H⁺ + A⁻","var(--cat4)"]];
   marks.forEach(function(m,i){

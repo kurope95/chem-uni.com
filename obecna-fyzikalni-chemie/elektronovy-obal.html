@@ -2974,7 +2974,7 @@ function ELS(sym){ for(var i=0;i<ELEMENTS.length;i++){ if(ELEMENTS[i].s===sym) r
    EXC   = známé výjimky (Cr, Cu, Nb, Mo, Ru, Rh, Pd, Ag, La, Ce, Gd, Pt, Au…)
    ------------------------------------------------------------ */
 var ORDER=[[1,0],[2,0],[2,1],[3,0],[3,1],[4,0],[3,2],[4,1],[5,0],[4,2],[5,1],[6,0],[4,3],[5,2],[6,1],[7,0],[5,3],[6,2],[7,1]];
-var LSYM=["s","p","d","f"];
+var LSYM=["s","p","d","f","g"];
 var SHELLS=["K","L","M","N","O","P","Q"];
 var EXC={
   24:{"3d":5,"4s":1}, 29:{"3d":10,"4s":1},
@@ -3235,7 +3235,7 @@ function ptPos(Z){
 /* ============================================================
    7 · SPOLEČNÉ KRESLICÍ POMOCNÍKY (rámečky, šipky spinů)
    ============================================================ */
-var LCOL={0:"var(--cat1)",1:"var(--cat3)",2:"var(--cat2)",3:"var(--cat4)"};
+var LCOL={0:"var(--cat1)",1:"var(--cat3)",2:"var(--cat2)",3:"var(--cat4)",4:"var(--ink-2)"};
 /* šipka spinu: up=true → ↑ */
 function spinArrow(x,y,up,color){
   var c=color||"var(--ink)";
@@ -3608,7 +3608,7 @@ function drawQN(){
     }
     var xe=bx+m*(bw+6)+10;
     s+=txt(xe,yy+16,m+" orbital"+(m===1?"":(m<5?"y":"ů"))+" (2l+1)",{size:11.5,w:600,fill:col});
-    s+=txt(xe,yy+30,"max. "+(2*m)+" e⁻ · tvar: "+["koule","činka","čtyřlístek","složitý"][l2],{size:10.5,fill:"var(--ink-3)"});
+    s+=txt(xe,yy+30,"max. "+(2*m)+" e⁻ · tvar: "+["koule","činka","čtyřlístek","složitý","velmi složitý"][l2],{size:10.5,fill:"var(--ink-3)"});
   }
   s+=line(14,H-8,W-14,H-8,{c:"var(--line-strong)",w:1.2});
   $("#qnWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Podslupky a orbitaly slupky n = '+n+'"');
