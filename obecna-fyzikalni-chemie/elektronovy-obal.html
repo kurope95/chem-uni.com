@@ -4137,7 +4137,9 @@ function drawMiniBohr(){
   s+=txt(xl+6,(ys[1]+ys[2])/2+4,"Lyman α 122 nm (UV)",{size:9.5,fill:"var(--cat2)",w:600});
   /* legenda vpravo — spektrum */
   var X0=420, X1=700, yb=120;
-  s+=txt(X0,60,"BALMEROVA SÉRIE (PŘESKOKY NA n = 2) — VIDITELNÉ ČÁRY",{size:10.5,w:700,fill:"var(--ink-3)",style:"letter-spacing:.06em"});
+  /* na jeden řádek se nadpis nevešel a konec se ořezával mimo viewBox */
+  s+=txt(X0,54,"BALMEROVA SÉRIE (PŘESKOKY NA n = 2)",{size:10.5,w:700,fill:"var(--ink-3)",style:"letter-spacing:.06em"});
+  s+=txt(X0,68,"VIDITELNÉ ČÁRY",{size:10.5,w:700,fill:"var(--ink-3)",style:"letter-spacing:.06em"});
   s+=rect(X0,yb-14,X1-X0,28,{fill:"var(--surface-3)",r:5});
   var xs=function(lam){ return X0+((lam-380)/(700-380))*(X1-X0); };
   bal.forEach(function(t,i){ var c=lambdaColor(t[1]).css; s+=line(xs(t[1]),yb-14,xs(t[1]),yb+14,{c:c,w:3}); s+=txt(xs(t[1]),yb+30+(i%2)*16,t[2]+" "+t[1],{anchor:"middle",size:10,w:600,fill:c,mono:true}); });
