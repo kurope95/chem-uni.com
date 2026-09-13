@@ -4346,6 +4346,9 @@ function drawFe(){
 var MRNM={kpc:"plošně centr.",hex:"hexagonální",kpr:"prostorově centr.",jina:"jiná"};
 var SUPCH={"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹","-":"⁻","+":"⁺"};
 function sup(n){ return String(n).split("").map(function(c){ return SUPCH[c]||c; }).join(""); }
+var SUBCH={"0":"₀","1":"₁","2":"₂","3":"₃","4":"₄","5":"₅","6":"₆","7":"₇","8":"₈","9":"₉"};
+/* vzorce se sázejí dolním indexem — Ag₂O, ne Ag²O */
+function sub(n){ return String(n).split("").map(function(c){ return SUBCH[c]||c; }).join(""); }
 function abFmt(a){
   if(a>=0.001) return fmt(a,3);
   var e=Math.floor(Math.log(a)/Math.LN10), m=a/Math.pow(10,e);
@@ -4663,7 +4666,7 @@ function drawEll(){
     var wdt = isC ? (e.id==="CO"?3:1.6) : 1.8;
     s+=line(X(TMIN),Y(Math.max(GMIN,Math.min(GMAX,g1))),X(TMAX),Y(Math.max(GMIN,Math.min(GMAX,g2))),{c:col,w:wdt,dash:isC&&e.id!=="CO"?"5 4":""});
     if(e.kov){ (below?notyet:reducible).push(e); }
-    labels.push({y:Y(Math.max(GMIN,Math.min(GMAX,g2))), t:e.id.replace(/(\d)/g,function(m){return sup(m);}), c:col});
+    labels.push({y:Y(Math.max(GMIN,Math.min(GMAX,g2))), t:e.id.replace(/(\d)/g,function(m){return sub(m);}), c:col});
   });
   /* popisky na pravém okraji — rozestrčené, aby se nepřekrývaly */
   labels.sort(function(a,b){ return a.y-b.y; });

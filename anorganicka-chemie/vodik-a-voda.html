@@ -5041,7 +5041,7 @@ function wmMolecule(cx, cy, sc, ang, col, lab){
   return {s:s, h1:[h1x,h1y], h2:[h2x,h2y]};
 }
 function drawWm(){
-  var W=760, H=300, s="", v=wmState.v;
+  var W=760, H=316, s="", v=wmState.v;
   if(v==="mol"){
     var m = wmMolecule(330, 150, 1.7, -90, "var(--cat1)", "");
     s += m.s;
@@ -5102,7 +5102,7 @@ function drawWm(){
       if(j%3===2) continue;
       s += line(seedx[j], seedy[j], seedx[j+1], seedy[j+1], {c:"var(--accent)", w:1.4, dash:"4 4"});
     }
-    s += txt(W/2, 288, "průměrně 3,4 až 3,6 můstku na molekulu · životnost jednoho můstku kolem 1 pikosekundy", {anchor:"middle", size:12, w:600, fill:"var(--ink-3)"});
+    s += txt(W/2, 306, "průměrně 3,4 až 3,6 můstku na molekulu · životnost jednoho můstku kolem 1 pikosekundy", {anchor:"middle", size:12, w:600, fill:"var(--ink-3)"});
   }
   $("#wmWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Molekula vody a vodíkové můstky"');
   var R = {
@@ -5479,7 +5479,7 @@ function drawPx(){
   }
   for(var g=0; g<=180; g+=45){
     s += line(X(g), T0, X(g), B, {c:"var(--line)", w:1});
-    s += txt(X(g), B+18, String(g)+"°", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
+    s += txt(X(g), B+22, String(g)+"°", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
   }
   var pts = [];
   for(var u=0; u<=180; u+=2) pts.push(X(u)+","+Y(Math.min(34, pxE(u))));
@@ -5652,9 +5652,9 @@ function drawMn1(){
   s += rect(X(0.7), Y-24, X(1.25)-X(0.7), 48, {fill:"var(--exo)", r:7, style:"fill-opacity:.15"});
   s += rect(X(1.85), Y-24, X(4.1)-X(1.85), 48, {fill:"var(--endo)", r:7, style:"fill-opacity:.15"});
   s += line(L, Y+24, R, Y+24, {c:"var(--line-strong)", w:1.4});
-  [["K",0.82],["Na",0.93],["Ca",1.00],["Mg",1.31],["Al",1.61],["B",2.04],["C",2.55],["N",3.04],["Cl",3.16],["O",3.44],["F",3.98]].forEach(function(e){
+  [["K",0.82],["Na",0.93],["Ca",1.00],["Mg",1.31],["Al",1.61],["B",2.04],["C",2.55],["N",3.04],["Cl",3.16],["O",3.44],["F",3.98]].forEach(function(e,ei){
     s += '<circle cx="'+X(e[1])+'" cy="'+Y+'" r="5" style="fill:var(--ink-3)"/>';
-    s += txt(X(e[1]), Y-14, e[0], {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
+    s += txt(X(e[1]), Y-(ei%2?14:30), e[0], {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
   });
   s += line(X(2.20), Y-38, X(2.20), Y+30, {c:"var(--accent)", w:2.4});
   s += '<circle cx="'+X(2.20)+'" cy="'+Y+'" r="9" style="fill:var(--accent)"/>';

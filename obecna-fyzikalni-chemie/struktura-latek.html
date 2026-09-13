@@ -3829,7 +3829,7 @@ function drawFaz(){
   s+=txt(x(70),y(3.2),"PÁRA (g)",{size:12,w:700,fill:"var(--cat3)"});
   s+=txt(x(-30),y(3.35),"sublimační křivka",{size:10,fill:"var(--ink-3)",style:"transform:rotate(-38deg);transform-origin:"+x(-30)+"px "+y(3.35)+"px"});
   s+=txt(x(60),y(4.35),"křivka varu (tlak nasycené páry)",{size:10,fill:"var(--ink-3)",style:"transform:rotate(-30deg);transform-origin:"+x(60)+"px "+y(4.35)+"px"});
-  s+=vtxt(x(2),y(6.6),"křivka tání (záporný sklon!)",{size:10,w:400,anchor:"start"});
+  s+=vtxt(x(6),y(5.2),"křivka tání (záporný sklon!)",{size:10,w:400});
   /* trojný bod, 1 atm */
   var tpx=x(0.01), tpy=y(Math.log10(611.657));
   s+='<circle cx="'+tpx.toFixed(1)+'" cy="'+tpy.toFixed(1)+'" r="5" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"/>';

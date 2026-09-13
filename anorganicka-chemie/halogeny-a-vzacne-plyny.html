@@ -5071,11 +5071,11 @@ function drawEl(){
     s += rect(mx-5, by+34, 10, bh-40, {fill:"var(--accent)", r:3});
     s += txt(mx, by+22, elCur === "memb" ? "iontoměničová membrána" : "porézní diafragma", {size:11,w:700,anchor:"middle",fill:"var(--accent)"});
     if(elCur === "memb"){
-      s += hArrow(mx-30, mx+30, by+96, "var(--accent)", "Na⁺ projde", true);
-      s += txt(mx, by+130, "Cl⁻ a OH⁻ neprojdou", {size:10.5,anchor:"middle",fill:"var(--accent)"});
+      s += hArrow(mx+8, mx+68, by+96, "var(--accent)", "Na⁺ projde", true);
+      s += txt(mx-10, by+130, "Cl⁻ a OH⁻ neprojdou", {size:10.5,anchor:"end",fill:"var(--accent)"});
     } else {
-      s += hArrow(mx-30, mx+30, by+96, "var(--accent)", "roztok protéká", true);
-      s += txt(mx, by+130, "sůl projde také → louh je znečištěný", {size:10.5,anchor:"middle",fill:"var(--accent)"});
+      s += hArrow(mx+8, mx+68, by+96, "var(--accent)", "roztok protéká", true);
+      s += txt(mx-10, by+130, "sůl projde také → louh je znečištěný", {size:10.5,anchor:"end",fill:"var(--accent)"});
     }
   }
   /* anoda */
