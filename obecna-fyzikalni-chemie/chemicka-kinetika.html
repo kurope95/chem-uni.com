@@ -3300,6 +3300,7 @@ function kUnit(n){
   return "dm"+sup(3*(n-1))+"·mol"+sup(-(n-1))+"·s⁻¹";
 }
 /* osy grafu */
+var GAXID=0;
 function gAxes(o){
   var s='';
   s+=line(o.L,o.T-6,o.L,o.B,{c:"var(--line-strong)",w:1.5});
@@ -3307,8 +3308,13 @@ function gAxes(o){
   s+='<path d="M'+o.L+' '+(o.T-12)+' l-4 8 l8 0 z" style="fill:var(--line-strong)"/>';
   s+='<path d="M'+(o.R+16)+' '+o.B+' l-8 -4 l0 8 z" style="fill:var(--line-strong)"/>';
   var yx = o.yx!==undefined ? o.yx : o.L-40;
-  if(o.yl) s+=txt(yx,(o.T+o.B)/2,o.yl,{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",
-      style:"transform:rotate(-90deg);transform-origin:"+yx+"px "+((o.T+o.B)/2)+"px;letter-spacing:.08em;text-transform:uppercase"});
+  if(o.yl){
+    var pid="gax"+(++GAXID);
+    s+='<defs><path id="'+pid+'" d="M '+yx+' '+(o.B+70)+' L '+yx+' '+(o.T-70)+'"/></defs>';
+    s+='<text style="fill:var(--ink-3);font-family:var(--f-ui);font-size:11.5px;font-weight:600;'+
+       'letter-spacing:.08em;text-transform:uppercase"><textPath href="#'+pid+
+       '" startOffset="50%" style="text-anchor:middle">'+o.yl+'</textPath></text>';
+  }
   if(o.xl) s+=txt((o.L+o.R)/2,o.B+(o.xly||32),o.xl,{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
   return s;
 }
