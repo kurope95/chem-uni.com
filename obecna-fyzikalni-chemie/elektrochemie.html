@@ -3366,7 +3366,7 @@ function hArrow(x1,x2,y,color,label,above){
 /* obecné schéma galvanického článku: anoda vlevo, katoda vpravo */
 function drawGalvSVG(o){
   /* o: {an, cat (ETAB záznamy), E, W, H, title, compact} */
-  var W=o.W||760, H=o.H||340, s='';
+  var W=o.W||760, H=Math.max(o.H||340,344), s='';
   var bw=Math.round(W*0.30), bL={x:60,y:118,w:bw,h:180}, bR={x:W-60-bw,y:118,w:bw,h:180};
   var exL=bL.x+bL.w/2, exR=bR.x+bR.w/2;
   function beaker(b,fill){
@@ -3410,8 +3410,8 @@ function drawGalvSVG(o){
   s+=txt(bR.x+bR.w-14,bR.y+bR.h-14,sideStr(o.cat.L)+" (aq)",{anchor:"end",size:11.5,w:600,fill:"var(--endo)"});
   s+=txt(bL.x+14,bL.y+bL.h-30,"E° = "+fmt(o.an.E,2)+" V",{size:11,fill:"var(--ink-3)",mono:true});
   s+=txt(bR.x+bR.w-14,bR.y+bR.h-30,"E° = "+fmt(o.cat.E,2)+" V",{anchor:"end",size:11,fill:"var(--ink-3)",mono:true});
-  if(o.title) s+=txt(16,18,o.title,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
-  return svg("0 0 "+W+" "+H,s,'aria-label="Schéma galvanického článku"');
+  if(o.title) s+=txt(16,-8,o.title,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
+  return svg("0 -24 "+W+" "+(H+24),s,'aria-label="Schéma galvanického článku"');
 }
 
 /* ============================================================
@@ -3656,13 +3656,13 @@ function drawBek(){
   var m=B_(bkState.m), p=B_(bkState.p), mode=bkState.mode;
   $("#bkPartnerCtl").style.display = mode==="salt" ? "" : "none";
   $$("#bkMode button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.v===mode); });
-  var W=760,H=170, x0=28, cw=(W-56)/BEK.length, y0=62, bh=46, s='';
+  var W=760,H=180, x0=28, cw=(W-56)/BEK.length, y0=72, bh=46, s='';
   s+=txt(x0,22,"NEUŠLECHTILÉ · E° < 0 · silná redukční činidla",{size:10.5,w:600,fill:"var(--endo)",style:"letter-spacing:.08em"});
   s+=txt(W-28,22,"UŠLECHTILÉ · E° > 0",{anchor:"end",size:10.5,w:600,fill:"var(--exo)",style:"letter-spacing:.08em"});
-  s+=hArrow(x0+250,x0+150,34,"var(--endo)","",true);
-  s+=txt(x0+300,38,"roste ochota oxidovat se",{anchor:"middle",size:10.5,fill:"var(--ink-3)"});
-  s+=hArrow(W-x0-250,W-x0-150,34,"var(--exo)","",true);
-  s+=txt(W-x0-300,38,"roste ochota redukovat se",{anchor:"middle",size:10.5,fill:"var(--ink-3)"});
+  s+=hArrow(x0+250,x0+150,38,"var(--endo)","",true);
+  s+=txt(x0+140,42,"roste ochota oxidovat se",{anchor:"end",size:10.5,fill:"var(--ink-3)"});
+  s+=hArrow(W-x0-250,W-x0-150,38,"var(--exo)","",true);
+  s+=txt(W-x0-140,42,"roste ochota redukovat se",{size:10.5,fill:"var(--ink-3)"});
   BEK.forEach(function(b,i){
     var x=x0+i*cw, isH=b.s==="H";
     var col = isH?"var(--accent)":(b.E<0?"var(--endo)":"var(--exo)");
@@ -3779,7 +3779,7 @@ function fmtC(l){ var c=Math.pow(10,l); return c>=0.1?fmt(c,1):(c>=0.01?fmt(c,2)
 function drawNernst(){
   var lCu=nrState.lCu, lZn=nrState.lZn, logQ=lZn-lCu, E0=1.10, E=E0-NERNST/2*logQ;
   $("#nrCuV").textContent=fmtC(lCu)+" mol·dm⁻³"; $("#nrZnV").textContent=fmtC(lZn)+" mol·dm⁻³";
-  var W=760,H=300,L=70,R=700,T0=30,B=240;
+  var W=760,H=300,L=92,R=700,T0=30,B=240;
   var qmin=-6,qmax=6, Emin=0.85, Emax=1.35;
   var x=function(q){ return L+(q-qmin)/(qmax-qmin)*(R-L); };
   var y=function(e){ return B-(e-Emin)/(Emax-Emin)*(B-T0); };
@@ -3851,7 +3851,7 @@ function drawPH(){
   var p=phState.pH, sysK=phState.sys, sys=PHSYS[sysK];
   $("#phV").textContent="pH "+fmt(p,1);
   $$("#phSys button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.v===sysK); });
-  var W=760,H=330,L=70,R=700,T0=28,B=270, Emin=-0.9, Emax=1.6;
+  var W=760,H=330,L=70,R=640,T0=28,B=270, Emin=-0.9, Emax=1.6;
   var x=function(v){ return L+v/14*(R-L); };
   var y=function(e){ return B-(e-Emin)/(Emax-Emin)*(B-T0); };
   var s='';
@@ -3861,7 +3861,7 @@ function drawPH(){
   /* referenční čáry */
   [[1.36,"Cl₂/Cl⁻ 1,36"],[1.07,"Br₂/Br⁻ 1,07"],[0.54,"I₂/I⁻ 0,54"]].forEach(function(r){
     s+=line(L,y(r[0]),R,y(r[0]),{c:"var(--ink-3)",w:1,dash:"3 4"});
-    s+=txt(R-4,y(r[0])-5,r[1],{anchor:"end",size:10.5,fill:"var(--ink-3)"});
+    s+=txt(R+6,y(r[0])+4,r[1],{size:10,fill:"var(--ink-3)"});
   });
   /* pásmo stability vody */
   s+='<polygon points="'+x(0)+','+y(PHSYS.H.f(0))+' '+x(14)+','+y(PHSYS.H.f(14))+' '+x(14)+','+y(PHSYS.O.f(14))+' '+x(0)+','+y(PHSYS.O.f(0))+'" style="fill:var(--endo);fill-opacity:.07"/>';
@@ -3926,16 +3926,16 @@ function drawElecSVG(o){
   s+=txt(exA,b.y+b.h+38,o.an,{anchor:"middle",size:10.5,fill:"var(--ink-2)",mono:true});
   s+=txt(exC,b.y+b.h+38,o.cat,{anchor:"middle",size:10.5,fill:"var(--ink-2)",mono:true});
   /* produkty */
-  s+=txt(exA+16,b.y+56,o.prodA,{size:11.5,w:600,fill:"var(--exo)"});
-  s+=txt(exC-16,b.y+56,o.prodC,{anchor:"end",size:11.5,w:600,fill:"var(--endo)"});
+  s+=txt(exA+16,b.y+44,o.prodA,{size:11.5,w:600,fill:"var(--exo)"});
+  s+=txt(exC-16,b.y+44,o.prodC,{anchor:"end",size:11.5,w:600,fill:"var(--endo)"});
   /* ionty */
   var ions=o.ions||[];
   s+=txt(cx,b.y+b.h-46,ions.join("   "),{anchor:"middle",size:12,w:600,fill:"var(--ink)",mono:true});
   s+=hArrow(cx+18,exC-22,b.y+b.h-24,"var(--endo)","kationty",false);
   s+=hArrow(cx-18,exA+22,b.y+b.h-24,"var(--exo)","anionty",false);
-  if(o.elec) s+=txt(b.x+b.w,b.y+b.h+38,"elektrody: "+o.elec,{anchor:"end",size:10,fill:"var(--ink-3)"});
-  if(o.title) s+=txt(14,16,o.title,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
-  return svg("0 0 "+W+" "+H,s,'aria-label="Schéma elektrolytického článku"');
+  if(o.elec) s+=txt(b.x+b.w,b.y+b.h+56,"elektrody: "+o.elec,{anchor:"end",size:10,fill:"var(--ink-3)"});
+  if(o.title) s+=txt(14,-8,o.title,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
+  return svg("0 -24 "+W+" "+(H+48),s,'aria-label="Schéma elektrolytického článku"');
 }
 
 /* ============================================================
@@ -3979,8 +3979,7 @@ function drawCells(){
   s+=txt(bx+100,by+bh/2+14,"anoda (−)",{anchor:"middle",size:10.5,w:600,fill:"var(--accent-ink)"});
   s+=txt(bx+bw-100,by+bh/2-4,c.catMat,{anchor:"middle",size:13,w:700,fill:"var(--accent-ink)"});
   s+=txt(bx+bw-100,by+bh/2+14,"katoda (+)",{anchor:"middle",size:10.5,w:600,fill:"var(--accent-ink)"});
-  s+=txt(bx+bw/2,by+bh/2+4,c.elyt,{anchor:"middle",size:11,w:600,fill:"var(--ink)"});
-  s+=txt(bx+bw/2,by+bh/2+20,"elektrolyt",{anchor:"middle",size:10,fill:"var(--ink-3)"});
+  s+=txt(bx+bw/2,by+bh-8,"elektrolyt: "+c.elyt,{anchor:"middle",size:10.5,w:600,fill:"var(--ink)"});
   s+=txt(bx+bw/2,by+bh+22,"kationty →   ← anionty (uvnitř), elektrony vnějším obvodem",{anchor:"middle",size:10.5,fill:"var(--ink-3)"});
   /* obvod */
   s+=line(bx+100,by+20,bx+100,40,{c:"var(--ink-2)",w:2}); s+=line(bx+bw-100,by+20,bx+bw-100,40,{c:"var(--ink-2)",w:2});
@@ -3989,8 +3988,8 @@ function drawCells(){
   s+=txt(W/2,45,"spotřebič",{anchor:"middle",size:11,w:600,fill:"var(--ink)"});
   s+=hArrow(bx+130,W/2-48,26,"var(--accent)","e⁻",true);
   s+=hArrow(W/2+48,bx+bw-130,26,"var(--accent)","e⁻",true);
-  s+=txt(bx,18,c.name.toUpperCase()+" — NAPĚTÍ "+c.U,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
-  $("#pcWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Schéma praktického článku"');
+  s+=txt(bx,-8,c.name.toUpperCase()+" — NAPĚTÍ "+c.U,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
+  $("#pcWrap").innerHTML=svg("0 -24 "+W+" "+(H+24),s,'aria-label="Schéma praktického článku"');
   function ro(id,k,v,h){ var e=$(id); e.className="readout"; e.innerHTML='<span class="k">'+k+'</span><span class="v" style="font-size:1rem">'+v+'</span><span class="h">'+h+'</span>'; }
   ro("#pcRo1","Napětí",c.U,"na jeden článek");
   ro("#pcRo2","Typ",c.type,c.type.indexOf("sekund")>=0?"lze nabíjet — nabíjení = elektrolýza":(c.type.indexOf("paliv")>=0?"reaktanty se dodávají zvenčí":"po vybití se vyhazuje"));
@@ -4080,7 +4079,7 @@ function drawCorr(){
   if(coat){
     if(scratch){
       s+=rect(xL,yFe-12,300,12,{fill:coat.c,r:2}); s+=rect(400,yFe-12,xR-400,12,{fill:coat.c,r:2});
-      s+=txt(350,yFe-18,"rýha",{anchor:"middle",size:10.5,w:600,fill:"var(--ink-3)"});
+      s+=txt(350,yFe-4,"rýha",{anchor:"middle",size:10.5,w:600,fill:"var(--ink-3)"});
     } else { s+=rect(xL,yFe-12,xR-xL,12,{fill:coat.c,r:2}); }
     s+=txt(xR-10,yFe-18,coat.lab,{anchor:"end",size:11,w:600,fill:coat.c});
   }
@@ -4113,7 +4112,7 @@ function drawCorr(){
     s+=txt(cx+rx-40,dropTop-60,"Fe²⁺ + 2 OH⁻ → Fe(OH)₂",{anchor:"middle",size:10.5,w:600,fill:"var(--cat3)",mono:true});
     s+=txt(cx+rx-40,dropTop-47,"→ rez Fe₂O₃·xH₂O",{anchor:"middle",size:10.5,w:600,fill:"var(--cat3)",mono:true});
     if(coId==="cu"){ s+=rect(xR-120,yFe-40,120,40,{fill:"var(--cat3)",r:4}); s+=txt(xR-60,yFe-16,"Cu (katoda)",{anchor:"middle",size:12,w:700,fill:"var(--accent-ink)"}); }
-    if(coId==="inh") s+=txt(cx,dropTop-72,"inhibitor blokuje povrch → děj zpomalen",{anchor:"middle",size:10.5,fill:"var(--cat1)"});
+    if(coId==="inh") s+=txt(cx,dropTop-ry-26,"inhibitor blokuje povrch → děj zpomalen",{anchor:"middle",size:10.5,fill:"var(--cat1)"});
   } else if(protectedFe){
     s+=txt(cx,dropTop-52,"CELÉ ŽELEZO JE KATODA",{anchor:"middle",size:10.5,w:700,fill:"var(--endo)",style:"letter-spacing:.08em"});
     s+=txt(cx,dropTop-36,"O₂ + 2 H₂O + 4 e⁻ → 4 OH⁻ (jen redukce)",{anchor:"middle",size:11.5,w:600,fill:"var(--endo)",mono:true});

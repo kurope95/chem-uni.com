@@ -589,6 +589,64 @@ svg{display:block;max-width:100%;height:auto}
 
 hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 </style>
+<style>
+/* ---- SITE-NAV: propojení s rozcestníkem ---- */
+.sitenav{display:flex;padding:0 .45rem .2rem}
+.sitenav a{display:inline-flex;align-items:center;gap:.45rem;width:100%;
+  font-family:var(--f-ui);font-weight:600;font-size:.83rem;text-decoration:none;
+  padding:.5rem .7rem;min-height:40px;border-radius:9px;border:1px solid var(--line-strong);
+  background:var(--surface-2);color:var(--ink-2);transition:background .15s,color .15s,border-color .15s}
+.sitenav a:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.sitenav svg{flex:none;transition:transform .18s}
+.sitenav a:hover svg{transform:translateX(-3px)}
+.sitenav-m{display:none}
+@media (max-width:1099px){
+  .sitenav-m{display:inline-flex;align-items:center;justify-content:center;width:40px;min-height:40px;
+    flex:none;border-radius:9px;border:1px solid var(--line-strong);background:var(--surface-2);
+    color:var(--ink-2);text-decoration:none}
+  .sitenav-m:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+}
+
+/* ---- levá lišta: ovládání nad seznam kapitol ---- */
+.rail{justify-content:flex-start}
+.rail .sitenav{order:0}
+.rail .rail-brand{order:1}
+.rail .rail-tools{order:2;margin-top:0;padding-bottom:.15rem}
+.rail .meter{order:3;padding-top:0}
+.rail nav{order:4}
+.rail .rail-tools .btn{flex:1;justify-content:center}
+
+/* ---- dlouhá rovnice se na úzkém displeji smí zalomit ---- */
+/* .chem má nowrap, což je správně pro jeden vzorec, ale ne pro celou rovnici.
+   Zalomí se jen v mezerách (kolem „+“ a „→“); vzorce mezery nemají, takže
+   se nikdy nerozlomí uprostřed. */
+@media (max-width:640px){ .chem{white-space:normal} }
+/* ---- oprava „osmi vět“: grid trhal větu s <span> na jednotlivé buňky ---- */
+.eight li{display:block!important;position:relative;grid-template-columns:none!important;
+  padding:.8rem 1rem .8rem 3.4rem!important;line-height:1.6}
+.eight li::before{position:absolute;left:.95rem;top:.78rem;margin:0}
+
+/* ---- testy a mini-testy: ať je student nepřehlédne ---- */
+.quiz{border:2px solid var(--accent);border-radius:16px;box-shadow:var(--shadow-2)}
+.quiz .quiz-toggle{min-height:70px;gap:.65rem;
+  background:linear-gradient(180deg,var(--accent-soft),color-mix(in srgb,var(--accent-soft) 45%,var(--surface)))}
+.quiz .quiz-toggle:hover{background:var(--accent-soft)}
+.quiz .qt-title{font-size:1.1rem;font-weight:700;letter-spacing:-.016em}
+.quiz .quiz-toggle > .tag{background:var(--accent);color:var(--accent-ink)}
+.quiz .qt-meta{color:var(--ink-2)}
+.quiz .chev{order:3;color:var(--accent)}
+.quiz .quiz-toggle::after{
+  content:"Spustit test";order:2;flex:none;font-family:var(--f-ui);font-weight:600;font-size:.83rem;
+  line-height:1;padding:.6rem .9rem;border-radius:9px;white-space:nowrap;
+  background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.quiz.open .quiz-toggle::after{content:"Skrýt test";background:transparent;color:var(--accent)}
+.quiz[data-final="1"]{border-width:3px}
+.quiz[data-final="1"] .quiz-toggle{min-height:84px}
+.quiz[data-final="1"] .qt-title{font-size:1.26rem}
+@media (max-width:620px){
+  .quiz .quiz-toggle::after{order:4;width:100%;text-align:center}
+}
+</style>
 </head>
 <body>
 
@@ -597,6 +655,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 
   <!-- ============ LEVÁ LIŠTA ============ -->
   <aside class="rail">
+    <div class="sitenav"><a href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span>Zpátky na okruhy</span></a></div>
     <div class="rail-brand">
       <span class="mark">Chemie</span>
       <span class="name">Dusík a fosfor</span>
@@ -616,6 +675,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
   <!-- ============ HLAVIČKA (tablet / mobil) ============ -->
   <div class="topbar">
     <div class="topbar-row">
+      <a class="sitenav-m" href="index.html" aria-label="Zpátky na okruhy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
       <div class="name">Dusík a fosfor<span>Studijní průvodce · <span id="mDone2">0</span>/<span data-tot>10</span> kapitol</span></div>
       <button class="btn btn-icon" id="themeBtn2" type="button" aria-label="Přepnout světlý a tmavý režim"></button>
     </div>
@@ -911,14 +971,12 @@ pH = 14 − 2,88</div>
               NH₃ ......... = 106,7<br>
               PH₃ ......... = 93,5<br><br>
               <b>TEPLOTA VARU [°C]</b><br>
-              NH₃ ......... = −33,3<br>
-              PH₃ ......... = −87,7<br>
+              NH₃ = −33,3 &nbsp;·&nbsp; PH₃ = −87,7<br>
               N₂H₄ ........ = +113,5<br><br>
-              <b>ACIDOBAZICKY</b><br>
-              NH₃ ..... zásada, pK<sub>b</sub> = 4,74<br>
-              N₂H₄ .... slabší zásada, pK<sub>b</sub> = 6,0<br>
-              PH₃ ..... prakticky nezásaditý<br>
-              HN₃ ..... slabá kyselina, pK<sub>a</sub> = 4,7</div></div>
+              <b>ZÁSADITOST (pK<sub>b</sub>)</b><br>
+              NH₃ = 4,74 &nbsp;·&nbsp; N₂H₄ = 6,0<br>
+              PH₃ ≈ 26, tedy prakticky žádná<br>
+              HN₃ je naopak kyselina, pK<sub>a</sub> = 4,7</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>„PH₃ je zásada jako NH₃, jen slabší.“ Rozdíl je řádově obrovský, ne jen „trochu“. Amoniak má pK<sub>b</sub> zhruba 4,7; fosfan má pK<sub>b</sub> kolem 26. To je rozdíl přes <b>dvacet řádů</b> — fosfoniová sůl vzniká jen se silnými kyselinami a&nbsp;vodou se hned rozkládá.</p></div>
         </div>
@@ -958,11 +1016,10 @@ rozhoduje <b>vodíková vazba</b>:<br>
               N₂O₃ .. = +III modrý<br>
               NO₂ ... = +IV &nbsp;hnědý<br>
               N₂O₅ .. = +V &nbsp;&nbsp;bezbarvý<br><br>
-              <b>ANHYDRIDY</b><br>
+              <b>ANHYDRIDY A KLÍČOVÁ ROVNICE</b><br>
               N₂O₃ ... anhydrid HNO₂<br>
               N₂O₅ ... anhydrid HNO₃<br>
-              N₂O .... anhydridem není<br><br>
-              <b>KLÍČOVÁ ROVNICE</b><br>
+              N₂O .... anhydridem není<br>
               3 NO₂ + H₂O → 2 HNO₃ + NO</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>„NO₂ je anhydrid kyseliny dusičné.“ Není. Anhydrid musí mít <b>stejné oxidační číslo</b> jako kyselina: HNO₃ má +V, takže jejím anhydridem je N₂O₅. Oxid dusičitý má +IV, tedy něco mezi — a&nbsp;proto s&nbsp;vodou disproporcionuje na dvě kyseliny naráz.</p></div>
@@ -1003,11 +1060,11 @@ elektronová bilance:<br>
               velmi zř. + Zn ... → NH₄⁺<br>
               Al, Fe, Cr v&nbsp;konc. → pasivace<br>
               Au, Pt ........... → jen lučavka<br><br>
-              <b>KONCENTRACE [%]</b><br>
-              azeotrop ......... = 68<br>
-              dýmavá kyselina .. = 98<br>
-              lučavka HNO₃ : HCl = 1 : 3<br><br>
-              <b>pK<sub>a</sub></b> &nbsp;HNO₃ ≈ −1,4 &nbsp;·&nbsp; HNO₂ = 3,25</div></div>
+              <b>KONCENTRACE A SÍLA KYSELINY</b><br>
+              azeotrop ......... = 68 %<br>
+              dýmavá kyselina .. = 98 %<br>
+              lučavka HNO₃ : HCl = 1 : 3<br>
+              pK<sub>a</sub>: HNO₃ ≈ −1,4 &nbsp;·&nbsp; HNO₂ = 3,25</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>„Kov plus kyselina dá vždycky vodík.“ U&nbsp;kyseliny dusičné nikdy. Vodík by se musel uvolnit redukcí protonu, jenže dusičnanový anion je mnohem lepší oxidovadlo než H⁺, takže se zredukuje on. Stejnou výjimkou je horká koncentrovaná kyselina sírová, která dává SO₂.</p></div>
         </div>
@@ -1081,14 +1138,12 @@ na jednu molekulu připadají dva odštěpené protony</div>
             <div class="bq"><b>OBSAH DUSÍKU V HNOJIVU [hm. %]</b><br>
               močovina CO(NH₂)₂ ... = 46,6<br>
               NH₄NO₃ .............. = 35,0<br>
-              (NH₄)₂SO₄ ........... = 21,2<br>
-              NaNO₃ ............... = 16,5<br><br>
+              (NH₄)₂SO₄ ........... = 21,2<br><br>
               <b>SUPERFOSFÁT</b><br>
               Ca₃(PO₄)₂ + 2 H₂SO₄ →<br>
               &nbsp;&nbsp;&nbsp;&nbsp;Ca(H₂PO₄)₂ + 2 CaSO₄<br><br>
               <b>TREND DOLŮ SKUPINOU 15</b><br>
-              N, P = nekov<br>
-              As, Sb = polokov<br>
+              N, P = nekov &nbsp;·&nbsp; As, Sb = polokov<br>
               Bi = kov, stálý stav +III</div></div>
           <div class="trap"><span class="eyebrow">Častá chyba</span>
             <p>„Superfosfát je nová sloučenina fosforu.“ Není — oxidační číslo fosforu se při výrobě vůbec nemění, zůstává +V. Mění se jen <b>rozpustnost</b>: z&nbsp;nerozpustného <span class="chem">PO₄³⁻</span> se stane rozpustný <span class="chem">H₂PO₄⁻</span>. Celá výroba fosforečných hnojiv je o&nbsp;rozpustnosti, ne o&nbsp;redoxu.</p></div>
@@ -5452,5 +5507,23 @@ scrollspy();
 })();
 </script>
 
+<script>
+/* SITE-NAV — sjednocení světlého a tmavého režimu napříč webem */
+(function(){
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty"];
+  function mirror(){
+    try{
+      var t=document.documentElement.getAttribute("data-theme");
+      if(!t) return;
+      localStorage.setItem("site.theme",JSON.stringify(t));
+      KEYS.forEach(function(k){ localStorage.setItem(k+".theme",JSON.stringify(t)); });
+    }catch(e){}
+  }
+  ["themeBtn","themeBtn2"].forEach(function(id){
+    var b=document.getElementById(id);
+    if(b) b.addEventListener("click",function(){ setTimeout(mirror,0); });
+  });
+})();
+</script>
 </body>
 </html>

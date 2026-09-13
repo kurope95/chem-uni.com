@@ -2735,7 +2735,7 @@ function drawPiston(){
    ============================================================ */
 var dhState={dH:-185};
 function drawDH(){
-  var dH=dhState.dH, W=700,H=290,L=70,R=630,yTop=40,yBot=240;
+  var dH=dhState.dH, W=700,H=290,L=88,R=630,yTop=40,yBot=240;
   var span=Math.max(220,Math.abs(dH)*1.35);
   var mid=(yTop+yBot)/2;
   var y=function(E){ return mid - (E/span)*((yBot-yTop)/2); };
@@ -2744,8 +2744,8 @@ function drawDH(){
   var s='';
   s+=line(L-14,yTop-8,L-14,yBot+8,{c:"var(--line-strong)",w:1.5});
   s+='<path d="M'+(L-14)+' '+(yTop-16)+' l-4 8 l8 0 z" style="fill:var(--line-strong)"/>';
-  s+=txt(L-30,mid,"enthalpie H",{anchor:"middle",size:12,w:600,fill:"var(--ink-3)",
-     style:"transform:rotate(-90deg);transform-origin:"+(L-30)+"px "+mid+"px;letter-spacing:.08em;text-transform:uppercase"});
+  s+=txt(40,mid,"enthalpie H",{anchor:"middle",size:12,w:600,fill:"var(--ink-3)",
+     style:"transform:rotate(-90deg);transform-origin:40px "+mid+"px;letter-spacing:.08em;text-transform:uppercase"});
   /* hladiny */
   s+=rect(L,yR-3,190,6,{fill:"var(--ink-2)",r:3});
   s+=rect(R-190,yP-3,190,6,{fill:col,r:3});
@@ -2973,7 +2973,7 @@ function drawFuel(){
     return {n:x.n,f:x.f,v: fuelMode==="mol" ? -x.dHc : -x.dHc/x.M};
   }).sort(function(a,b){return b.v-a.v;});
   var max=Math.max.apply(null,vals.map(function(v){return v.v;}));
-  var W=760,H=44+vals.length*34+46, L=150, R=650;
+  var W=760,H=44+vals.length*38+54, L=150, R=650;
   var s='';
   var unit = fuelMode==="mol" ? "kJ·mol⁻¹" : "kJ·g⁻¹";
   s+=txt(L,22,"UVOLNĚNÉ TEPLO PŘI DOKONALÉM SPÁLENÍ — "+unit,{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.09em"});
@@ -2981,18 +2981,18 @@ function drawFuel(){
   var ticks=4;
   for(var i=0;i<=ticks;i++){
     var xv=L+(R-L)*i/ticks, vv=max*i/ticks;
-    s+=line(xv,36,xv,H-30,{c:"var(--line)",w:1});
-    s+=txt(xv,H-14,fmt(vv,fuelMode==="mol"?0:0),{anchor:"middle",size:11,fill:"var(--ink-3)",mono:true});
+    s+=line(xv,36,xv,H-38,{c:"var(--line)",w:1});
+    s+=txt(xv,H-22,fmt(vv,fuelMode==="mol"?0:0),{anchor:"middle",size:11,fill:"var(--ink-3)",mono:true});
   }
   vals.forEach(function(v,i){
-    var y=44+i*34, bw=(R-L)*(v.v/max);
+    var y=44+i*38, bw=(R-L)*(v.v/max);
     var hi = (fuelMode==="gram" && v.f==="H₂") || (fuelMode==="mol" && v.f==="C₄H₁₀");
-    s+=txt(L-10,y+15,v.n,{anchor:"end",size:12.5,w:hi?600:400,fill:hi?"var(--ink)":"var(--ink-2)"});
-    s+=txt(L-10,y+27,v.f,{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true});
+    s+=txt(L-10,y+6,v.n,{anchor:"end",size:12.5,w:hi?600:400,fill:hi?"var(--ink)":"var(--ink-2)"});
+    s+=txt(L-10,y+23,v.f,{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true});
     s+=rect(L,y,bw,20,{fill:hi?"var(--accent)":"var(--cat2)",r:4});
     s+=txt(L+bw+8,y+15,fmt(v.v,fuelMode==="mol"?0:1),{size:12,w:600,fill:"var(--ink)",mono:true});
   });
-  s+=txt((L+R)/2,H-1,unit,{anchor:"middle",size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
+  s+=txt((L+R)/2,H-2,unit,{anchor:"middle",size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em"});
   $("#fuelWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Spalná tepla paliv"');
   $$("#fuelMode button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.v===fuelMode); });
 }
@@ -3060,7 +3060,7 @@ var GCASES=[
 var gT=298;
 function dG(c,T){ return c.dH - T*c.dS/1000; }
 function drawG(){
-  var W=760,H=380,L=64,R=620,T0=30,B=300;
+  var W=760,H=380,L=104,R=620,T0=30,B=300;
   var Tmin=0,Tmax=1500, Gmin=-320,Gmax=340;
   var x=function(T){ return L+(T-Tmin)/(Tmax-Tmin)*(R-L); };
   var y=function(G){ return B-(G-Gmin)/(Gmax-Gmin)*(B-T0); };
@@ -3091,7 +3091,7 @@ function drawG(){
     if(lastT>=Tmax){ lx=R+8; ly=y(vEnd)+4; anch="start"; }
     else { lx=x(lastT)+6; ly=y(vEnd)+(exit>0?16:-22); anch="start"; }
     s2.push(txt(lx,ly,c.k,{size:11.5,w:600,fill:c.c,mono:true,anchor:anch}));
-    s2.push(txt(lx,ly+13,c.lab,{size:10,fill:"var(--ink-3)",anchor:anch}));
+    s2.push(txt(lx,ly+17,c.lab,{size:10,fill:"var(--ink-3)",anchor:anch}));
     /* teplota zvratu */
     var Tz=c.dH/(c.dS/1000);
     if(Tz>Tmin&&Tz<Tmax){
@@ -3570,7 +3570,7 @@ function bondSums(r){
 
 function drawBonds(){
   var r=BONDRXNS[bondI], s0=bondSums(r), B=s0.B, F=s0.F, dH=s0.dH;
-  var W=720,H=350,yTop=54,yBot=286;
+  var W=760,H=350,yTop=54,yBot=286;
   var Emax=B*1.08, Emin=Math.min(0,dH)-Math.abs(B)*0.10;
   var y=function(E){ return yBot-(E-Emin)/(Emax-Emin)*(yBot-yTop); };
   var s='';
@@ -3588,27 +3588,27 @@ function drawBonds(){
   s+=rect(LB[0],yB-3,LB[1]-LB[0],6,{fill:"var(--endo)",r:3});
   s+=rect(LC[0],yC-3,LC[1]-LC[0],6,{fill:dH<0?"var(--exo)":"var(--endo)",r:3});
   s+=txt(LA[0],yA+20,"výchozí látky",{size:12.5,w:600,fill:"var(--ink)"});
-  s+=txt(LA[0],yA+34,"vazby celé",{size:11,fill:"var(--ink-3)"});
-  s+=txt((LB[0]+LB[1])/2,yB-14,"volné atomy",{anchor:"middle",size:12.5,w:600,fill:"var(--endo)"});
-  s+=txt((LB[0]+LB[1])/2,yB-28,"všechny vazby rozbité",{anchor:"middle",size:11,fill:"var(--ink-3)"});
+  s+=txt(LA[0],yA+38,"vazby celé",{size:11,fill:"var(--ink-3)"});
+  s+=txt((LB[0]+LB[1])/2,yB+22,"volné atomy",{anchor:"middle",size:12.5,w:600,fill:"var(--endo)"});
+  s+=txt((LB[0]+LB[1])/2,yB+40,"všechny vazby rozbité",{anchor:"middle",size:11,fill:"var(--ink-3)"});
   s+=txt(LC[1],yC+(dH<0?20:-14),"produkty",{anchor:"end",size:12.5,w:600,fill:dH<0?"var(--exo)":"var(--endo)"});
-  s+=txt(LC[1],yC+(dH<0?34:-28),"nové vazby hotové",{anchor:"end",size:11,fill:"var(--ink-3)"});
+  s+=txt(LC[1],yC+(dH<0?38:-32),"nové vazby hotové",{anchor:"end",size:11,fill:"var(--ink-3)"});
   /* krok 1 nahoru */
   s+=vArrow(245,yA,yB,"var(--endo)","","right");
-  s+=txt(252,(yA+yB)/2-6,"KROK 1 · rozbití vazeb",{size:11.5,w:600,fill:"var(--endo)",style:"letter-spacing:.04em"});
-  s+=txt(252,(yA+yB)/2+9,"+"+fmt(B,0)+" kJ  (endotermický)",{size:12,w:600,fill:"var(--endo)",mono:true});
+  s+=txt(252,(yA+yB)/2-8,"KROK 1 · rozbití vazeb",{size:11.5,w:600,fill:"var(--endo)",style:"letter-spacing:.04em"});
+  s+=txt(252,(yA+yB)/2+11,"+"+fmt(B,0)+" kJ  (endotermický)",{size:12,w:600,fill:"var(--endo)",mono:true});
   /* krok 2 dolu */
   s+=vArrow(475,yB,yC,"var(--exo)","","right");
-  s+=txt(482,(yB+yC)/2-6,"KROK 2 · vznik vazeb",{size:11.5,w:600,fill:"var(--exo)",style:"letter-spacing:.04em"});
-  s+=txt(482,(yB+yC)/2+9,"−"+fmt(F,0)+" kJ  (exotermický)",{size:12,w:600,fill:"var(--exo)",mono:true});
+  s+=txt(482,(yB+yC)/2-8,"KROK 2 · vznik vazeb",{size:11.5,w:600,fill:"var(--exo)",style:"letter-spacing:.04em"});
+  s+=txt(482,(yB+yC)/2+11,"−"+fmt(F,0)+" kJ  (exotermický)",{size:12,w:600,fill:"var(--exo)",mono:true});
   /* vysledna dH */
   var col=dH<0?"var(--exo)":"var(--endo)";
-  s+=vArrow(692,yA,yC,col,"","right");
-  s+=txt(688,(yA+yC)/2-6,"ΔH",{anchor:"end",size:12,w:700,fill:col});
-  s+=txt(688,(yA+yC)/2+9,sgn(dH,0),{anchor:"end",size:12,w:600,fill:col,mono:true});
+  s+=vArrow(700,yA,yC,col,"","right");
+  s+=txt(710,(yA+yC)/2-8,"ΔH",{size:12,w:700,fill:col});
+  s+=txt(710,(yA+yC)/2+11,sgn(dH,0),{size:12,w:600,fill:col,mono:true});
   /* titulek */
   s+=txt(70,26,"SOUČET DVOU KROKŮ DÁVÁ REAKČNÍ ENTHALPII",{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
-  s+=txt(70,42,r.eq,{size:12.5,w:600,fill:"var(--ink)"});
+  s+=txt(70,45,r.eq,{size:12.5,w:600,fill:"var(--ink)"});
   $("#bondWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Bilance vazebných enthalpií"');
 
   function rowsHTML(list,color){
@@ -3671,11 +3671,11 @@ function drawMiniBonds(){
   /* krok 1 — nahoru */
   s+=rect(cols[0].x,yB,cols[0].w,y0-yB,{fill:"var(--endo)",r:6});
   s+=txt(cols[0].x+cols[0].w/2,yB-28,"KROK 1 · ROZBITÍ VAZEB",{anchor:"middle",size:10.5,w:600,fill:"var(--endo)",style:"letter-spacing:.07em"});
-  s+=txt(cols[0].x+cols[0].w/2,yB-11,"+2648 kJ",{anchor:"middle",size:14,w:600,fill:"var(--endo)",mono:true});
+  s+=txt(cols[0].x+cols[0].w/2,yB-8,"+2648 kJ",{anchor:"middle",size:14,w:600,fill:"var(--endo)",mono:true});
   /* krok 2 — dolů, plovoucí */
   s+=rect(cols[1].x,yB,cols[1].w,yD-yB,{fill:"var(--exo)",r:6});
   s+=txt(cols[1].x+cols[1].w/2,yB-28,"KROK 2 · VZNIK VAZEB",{anchor:"middle",size:10.5,w:600,fill:"var(--exo)",style:"letter-spacing:.07em"});
-  s+=txt(cols[1].x+cols[1].w/2,yB-11,"−3450 kJ",{anchor:"middle",size:14,w:600,fill:"var(--exo)",mono:true});
+  s+=txt(cols[1].x+cols[1].w/2,yB-8,"−3450 kJ",{anchor:"middle",size:14,w:600,fill:"var(--exo)",mono:true});
   /* výsledek */
   s+=rect(cols[2].x,y0,cols[2].w,yD-y0,{fill:"var(--accent)",r:6});
   s+=txt(cols[2].x+cols[2].w/2,yD+24,"ΔH = −802 kJ·mol⁻¹",{anchor:"middle",size:13.5,w:600,fill:"var(--accent)",mono:true});
