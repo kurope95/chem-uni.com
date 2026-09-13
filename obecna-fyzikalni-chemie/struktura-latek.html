@@ -621,6 +621,14 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
    Zalomí se jen v mezerách (kolem „+“ a „→“); vzorce mezery nemají, takže
    se nikdy nerozlomí uprostřed. */
 @media (max-width:640px){ .chem{white-space:normal} }
+/* ---- hlavička řešeného příkladu se na mobilu ořezávala ---- */
+/* .worked-head je flex bez zalomení a štítek má flex:none, takže dlouhý
+   titulek přetekl mimo rámeček a konec se uřízl. */
+.worked-head{flex-wrap:wrap}
+.worked-head > *{min-width:0}
+.worked-head p{overflow-wrap:anywhere}
+/* štítek měl flex:none, takže se nesmrskl a dlouhý název příkladu přetekl */
+.worked-head .eyebrow{flex:0 1 auto;overflow-wrap:anywhere}
 /* ---- oprava „osmi vět“: grid trhal větu s <span> na jednotlivé buňky ---- */
 .eight li{display:block!important;position:relative;grid-template-columns:none!important;
   padding:.8rem 1rem .8rem 3.4rem!important;line-height:1.6}
