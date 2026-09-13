@@ -406,10 +406,10 @@ td.hl{color:var(--accent);font-weight:600}
   font-size:.9rem;font-weight:600}
 .catrow .ct .n{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-3);margin-left:auto;
   white-space:nowrap}
-.bar{height:7px;border-radius:99px;background:var(--surface-3);overflow:hidden}
-.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
-.bar i.good{background:var(--ok)}
-.bar i.mid{background:var(--warn)}
+.scorebar{height:7px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.scorebar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.scorebar i.good{background:var(--ok)}
+.scorebar i.mid{background:var(--warn)}
 
 /* ---------- kam dál ---------- */
 .golinks{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -1414,7 +1414,7 @@ function renderScore() {
     var cl = s.n === 0 ? "" : (p >= 80 ? " good" : (p >= 55 ? " mid" : ""));
     return '<div class="catrow"><div class="ct"><span>' + c.t + '</span>'
       + '<span class="n">' + (s.n ? s.ok + " / " + s.n + " · " + p + " %" : "zatím nic")
-      + '</span></div><div class="bar"><i class="' + cl.trim() + '" style="width:'
+      + '</span></div><div class="scorebar"><i class="' + cl.trim() + '" style="width:'
       + (s.n ? p : 0) + '%"></i></div></div>';
   }).join("");
 }
