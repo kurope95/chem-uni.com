@@ -3369,6 +3369,20 @@ function rect(x,y,w,h,o){
   return '<rect x="'+x+'" y="'+y+'" width="'+Math.max(0,w)+'" height="'+Math.max(0,h)+'" rx="'+(o.r||0)+
     '" style="fill:'+(o.fill||"var(--surface-2)")+';'+(o.stroke?"stroke:"+o.stroke+";stroke-width:"+(o.sw||1)+";":"")+(o.style||"")+'"/>';
 }
+/* rozestup popisků: vstup = pole souřadnic y (vzestupně seřazené),
+   výstup = pole y s minimální mezerou gap, držené v rozmezí lo–hi.
+   Body zůstávají na svých místech, posouvá se jen text. */
+function spreadY(ys,gap,lo,hi){
+  var n=ys.length, out=ys.slice(), i;
+  if(!n) return out;
+  if(out[0]<lo) out[0]=lo;
+  for(i=1;i<n;i++){ if(out[i]<out[i-1]+gap) out[i]=out[i-1]+gap; }
+  if(out[n-1]>hi){
+    out[n-1]=hi;
+    for(i=n-2;i>=0;i--){ if(out[i]>out[i+1]-gap) out[i]=out[i+1]-gap; }
+  }
+  return out;
+}
 /* svislá dvojšipka s popiskem */
 function vArrow(x,y1,y2,color,label,side){
   var s='';
@@ -3474,12 +3488,12 @@ function frame(o){
   }
   for(var w=o.y0; w<=o.y1+1e-9; w+=o.yt){
     s+=line(o.L,Y(w),o.R,Y(w),{c:"var(--line)"});
-    s+=txt(o.L-7,Y(w)+4,o.yf?o.yf(w):fmt(w,2),{anchor:"end",size:11,fill:"var(--ink-3)",mono:true});
+    s+=txt(o.L-20,Y(w)+4,o.yf?o.yf(w):fmt(w,2),{anchor:"end",size:11,fill:"var(--ink-3)",mono:true});
   }
   s+=line(o.L,o.T,o.L,o.B,{c:"var(--line-strong)",w:1.5})+line(o.L,o.B,o.R,o.B,{c:"var(--line-strong)",w:1.5});
   if(o.xl) s+=txt((o.L+o.R)/2,o.B+34,o.xl,{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  if(o.yl) s+=txt(16,(o.T+o.B)/2,o.yl,{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:16px "+((o.T+o.B)/2)+"px;letter-spacing:.08em;text-transform:uppercase"});
-  return {X:X,Y:Y,s:s};
+  if(o.yl) s+=txt(o.L+6,o.T-8,o.yl,{size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
+  return {X:X,Y:Y,s:s,L:o.L,R:o.R,T:o.T,B:o.B};
 }
 function poly(pts,color,w,dash){
   return '<polyline points="'+pts.join(" ")+'" style="fill:none;stroke:'+color+';stroke-width:'+(w||2.5)+
@@ -3807,13 +3821,13 @@ function drawHero(){
   s+=txt(L,y+h+38,"KYSELÉ · [H₃O⁺] > [OH⁻]",{size:10.5,w:600,fill:"var(--exo)",style:"letter-spacing:.07em"});
   s+=txt(X(7),y+h+38,"NEUTRÁLNÍ",{anchor:"middle",size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.07em"});
   s+=txt(Rr,y+h+38,"ZÁSADITÉ · [OH⁻] > [H₃O⁺]",{anchor:"end",size:10.5,w:600,fill:"var(--endo)",style:"letter-spacing:.07em"});
-  s+=txt(L-6,y-8,"pOH",{anchor:"end",size:10,w:600,fill:"var(--ink-3)"});
-  s+=txt(L-6,y+h+19,"pH",{anchor:"end",size:11,w:600,fill:"var(--ink-3)"});
+  s+=txt(L-13,y-8,"pOH",{anchor:"end",size:10,w:600,fill:"var(--ink-3)"});
+  s+=txt(L-13,y+h+19,"pH",{anchor:"end",size:11,w:600,fill:"var(--ink-3)"});
   var xm=X(R.pH);
   s+='<path d="M'+xm+' '+(y+h+2)+' l-7 11 l14 0 z" style="fill:var(--accent)"/>';
   s+=line(xm,y-2,xm,y+h+2,{c:"var(--accent)",w:2.5});
-  s+=rect(xm-40,y-30,80,19,{fill:"var(--accent)",r:5});
-  s+=txt(xm,y-16,"pH "+pf(R.pH),{anchor:"middle",size:12,w:600,fill:"var(--accent-ink)",mono:true});
+  s+=rect(xm-40,y-38,80,19,{fill:"var(--accent)",r:5});
+  s+=txt(xm,y-24,"pH "+pf(R.pH),{anchor:"middle",size:12,w:600,fill:"var(--accent-ink)",mono:true});
   $("#heroSvgWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Stupnice pH s vyznačenou hodnotou"');
   var acid=R.pH<7;
   ro("#heroRo1","pH",pf(R.pH),acid?"kyselý roztok":(R.pH>7?"zásaditý roztok":"neutrální"),acid?"neg":"pos");
@@ -3926,7 +3940,8 @@ function drawDil(){
   s+=line(fr.X(dilE),fr.Y(0),fr.X(dilE),fr.Y(8),{c:"var(--ink)",w:1,dash:"3 3"});
   if(pN<=8) s+=dot(fr.X(dilE),fr.Y(pN),"var(--ink-3)",5);
   s+=dot(fr.X(dilE),fr.Y(pE),"var(--accent)",6);
-  s+=txt(fr.X(dilE)+9,fr.Y(pE)+4,"pH "+pf(pE),{size:12,w:600,fill:"var(--accent)",mono:true});
+  var dRt=dilE>7;
+  s+=txt(fr.X(dilE)+(dRt?-9:9),fr.Y(pE)+(pE<1.2?-10:4),"pH "+pf(pE),{anchor:dRt?"end":"start",size:12,w:600,fill:"var(--accent)",mono:true});
   $("#dilWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="pH zředěné kyseliny — naivní a přesný výpočet"');
   $("#dilEV").textContent=fmt(dilE,1);
   ro("#dilRo1","Naivní pH = −log c",pf(pN),pN>7?"nesmysl — kyselina nad 7":"",pN>7?"pos":"");
@@ -3943,7 +3958,7 @@ function drawMix(){
   var ex=Math.abs(nH-nOH), acid=nH>nOH, eqv=Math.abs(nH-nOH)<1e-9, pH, cEx=V>0?ex/V:0;
   if(eqv||V===0) pH=7; else pH = acid ? -L10(cEx) : 14+L10(cEx);
   /* graf: dva sloupce */
-  var W=380,H=200, max=Math.max(nH,nOH,1e-9), bx=[90,230], y0=160, hmax=110;
+  var W=470,H=200, max=Math.max(nH,nOH,1e-9), bx=[90,230], y0=160, hmax=110;
   var s='';
   s+=txt(20,26,"LÁTKOVÁ MNOŽSTVÍ [mmol]",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
   s+=line(50,y0,350,y0,{c:"var(--line-strong)",w:1.5});
@@ -3955,7 +3970,7 @@ function drawMix(){
   });
   var hmin=Math.min(nH,nOH)/max*hmax;
   s+=line(50,y0-hmin,350,y0-hmin,{c:"var(--ink-3)",w:1,dash:"3 3"});
-  s+=txt(348,y0-hmin-5,"zneutralizováno",{anchor:"end",size:10.5,fill:"var(--ink-3)"});
+  s+=txt(358,y0-hmin+4,"zneutralizováno",{size:10.5,fill:"var(--ink-3)"});
   $("#mixWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Porovnání látkových množství H₃O⁺ a OH⁻"');
   $("#mixV1V").textContent=m.V1+" mL"; $("#mixV2V").textContent=m.V2+" mL";
   $("#mixC1V").textContent=fmt(m.c1,2)+" mol·dm⁻³"; $("#mixC2V").textContent=fmt(m.c2,2)+" mol·dm⁻³";
@@ -4016,7 +4031,7 @@ function drawWeak(){
   s+=line(fr.X(-5),fr.Y(5),fr.X(0),fr.Y(5),{c:"var(--warn)",w:1.5,dash:"5 4"});
   s+=txt(fr.X(-4.9),fr.Y(5)-6,"5 %",{size:11,w:600,fill:"var(--warn)"});
   s+=dot(fr.X(st.lc),fr.Y(ws.alpha*100),"var(--accent)",6);
-  s+=txt(fr.X(st.lc)+(st.lc>-1.2?-9:9),fr.Y(ws.alpha*100)-9,"α = "+fmt(ws.alpha*100,1)+" %",{anchor:st.lc>-1.2?"end":"start",size:11.5,w:600,fill:"var(--accent)",mono:true});
+  s+=txt(fr.X(0)-6,fr.T+16,"α = "+fmt(ws.alpha*100,1)+" %",{anchor:"end",size:11.5,w:600,fill:"var(--accent)",mono:true});
   $("#wkWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Stupeň disociace v závislosti na koncentraci"');
   $("#wkNote").innerHTML = ws.ok
     ? "Aproximace je v&nbsp;pořádku (x/c = "+fmt(ws.ratio*100,1)+" %). Zkuste zředit na 10⁻⁴ nebo snížit p<i>K</i> pod 3 — křivka α vyleze nad žlutou čáru a&nbsp;pH z&nbsp;odmocniny se začne lišit od přesného."
@@ -4149,10 +4164,20 @@ function drawBuffer(){
   s+=line(xs,yT,xs,yB,{c:"var(--line-strong)",w:1.5});
   for(var p=0;p<=14;p+=2){ s+=line(xs-4,Y(p),xs+4,Y(p),{c:"var(--ink-3)"}); s+=txt(xs-9,Y(p)+4,p,{anchor:"end",size:10.5,fill:"var(--ink-3)",mono:true}); }
   s+=rect(xs+2,Y(b.pKa+1),18,Y(b.pKa-1)-Y(b.pKa+1),{fill:"var(--endo)",style:"fill-opacity:.18"});
-  s+=txt(xs+24,Y(b.pKa+1)+4,"pKa ± 1",{size:10,fill:"var(--ink-3)"});
-  s+=dot(xs,Y(pH0),"var(--ink-3)",5); s+=txt(xs+28,Y(pH0)+4,"pufr před: "+pf(pH0),{size:11,w:600,fill:"var(--ink-2)",mono:true});
-  s+=dot(xs,Y(pH2),"var(--accent)",6); s+=txt(xs+28,Y(pH2)+(Math.abs(pH2-pH0)<0.6?18:4),"pufr po: "+pf(pH2),{size:11.5,w:600,fill:"var(--accent)",mono:true});
-  s+=dot(xs,Y(pHw),"var(--bad)",5); s+=txt(xs+28,Y(pHw)+(Math.abs(pHw-pH2)<0.6?-10:4),"voda po: "+pf(pHw),{size:11,w:600,fill:"var(--bad)",mono:true});
+  s+=dot(xs,Y(pH0),"var(--ink-3)",5);
+  s+=dot(xs,Y(pH2),"var(--accent)",6);
+  s+=dot(xs,Y(pHw),"var(--bad)",5);
+  /* popisky u stupnice se nesmí překrýt — bod zůstává, text se rozestoupí */
+  var bl=[{y:Y(b.pKa+1)+4,x:xs+24,t:"pKa ± 1",o:{size:10,fill:"var(--ink-3)"}},
+          {y:Y(pH0)+4,x:xs+28,t:"pufr před: "+pf(pH0),o:{size:11,w:600,fill:"var(--ink-2)",mono:true},d:Y(pH0)},
+          {y:Y(pH2)+4,x:xs+28,t:"pufr po: "+pf(pH2),o:{size:11.5,w:600,fill:"var(--accent)",mono:true},d:Y(pH2)},
+          {y:Y(pHw)+4,x:xs+28,t:"voda po: "+pf(pHw),o:{size:11,w:600,fill:"var(--bad)",mono:true},d:Y(pHw)}];
+  bl.sort(function(p,q){ return p.y-q.y; });
+  var bly=spreadY(bl.map(function(p){ return p.y; }),16,yT+4,yB+18);
+  bl.forEach(function(p,i){
+    if(p.d!==undefined && Math.abs(bly[i]-4-p.d)>2) s+=line(xs+7,p.d,xs+25,bly[i]-4,{c:"var(--line-strong)",w:0.8});
+    s+=txt(p.x,bly[i],p.t,p.o);
+  });
   $("#bfWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Složení pufru před a po přídavku a srovnání pH s vodou"');
   $("#bfRV").textContent=fmt(r,2); $("#bfCV").textContent=fmt(c,2)+" mol·dm⁻³"; $("#bfAddV").textContent=sgn(n,3)+" mol";
   ro("#bfRo1","pH pufru",pf(pH0),"pKa + log("+fmt(r,2)+")");
@@ -4329,7 +4354,7 @@ function drawQ(){
   for(var e=-60;e<=0;e+=10){ s+=line(X(e),y-5,X(e),y+5,{c:"var(--ink-3)"}); s+=txt(X(e),y+22,"10"+sup(e),{anchor:"middle",size:10.5,fill:"var(--ink-3)",mono:true}); }
   s+=txt(L,y-34,"LOGARITMICKÁ OSA — KDE LEŽÍ Q A KSP",{size:10.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
   s+=rect(X(L10(x.K)),y-14,X(hi)-X(L10(x.K)),28,{fill:"var(--bad)",style:"fill-opacity:.10"});
-  s+=txt(X(hi)-4,y-18,"vpravo od Ksp: přesyceno → sraženina",{anchor:"end",size:10,fill:"var(--bad)",w:600});
+  s+=txt(X(hi)-4,y-34,"vpravo od Ksp: přesyceno → sraženina",{anchor:"end",size:10,fill:"var(--bad)",w:600});
   s+=dot(X(L10(x.K)),y,"var(--ink)",7); s+=txt(X(L10(x.K)),y+40,"Ksp = "+sci(x.K,1),{anchor:"middle",size:11,w:600,fill:"var(--ink)",mono:true});
   s+=dot(X(L10(Q)),y,prec?"var(--bad)":"var(--ok)",7); s+=txt(X(L10(Q)),y-20,"Q = "+sci(Q,1),{anchor:"middle",size:11,w:600,fill:prec?"var(--bad)":"var(--ok)",mono:true});
   $("#qqWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Poloha Q a Ksp na logaritmické ose"');
@@ -4370,7 +4395,7 @@ function drawCi(){
   s+=poly(pa,"var(--exo)",1.5,"4 3");
   s+=poly(pe,"var(--accent)",2.8);
   s+=dot(fr.X(st.lx),fr.Y(clamp(L10(sE),ymin,ymax)),"var(--accent)",6);
-  s+=txt(fr.X(st.lx)+(st.lx>-1.5?-9:9),fr.Y(clamp(L10(sE),ymin,ymax))-9,"s = "+sci(sE,2),{anchor:st.lx>-1.5?"end":"start",size:11.5,w:600,fill:"var(--accent)",mono:true});
+  s+=txt(fr.X(st.lx)+(st.lx>-1.5?-9:9),fr.Y(clamp(L10(sE),ymin,ymax))+18,"s = "+sci(sE,2),{anchor:st.lx>-1.5?"end":"start",size:11.5,w:600,fill:"var(--accent)",mono:true});
   $("#ciWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Rozpustnost soli v závislosti na koncentraci společného iontu"');
   $("#ciXV").textContent=sci(cX,1)+" mol·dm⁻³";
   ro("#ciRo1","Rozpustnost s v&nbsp;čisté vodě",sci(s0,2)+" mol·dm⁻³",kspFormula(x));
@@ -4505,7 +4530,7 @@ function drawDs(){
   var st=dsState, x=kspFind(DS_SALTS[st.i]), lg=DS_LIG[st.lig], cL=Math.pow(10,st.lc);
   var R=dsSol(x.K,lg.b,cL), s0=solub(x);
   var W=760,H=320;
-  var fr=frame({L:66,R:720,T:24,B:262,x0:-2,x1:0.78,y0:-6,y1:1,xt:0.5,yt:1,
+  var fr=frame({L:66,R:720,T:24,B:262,x0:-2,x1:0.78,y0:-9,y1:1,xt:0.5,yt:1,
     xf:function(v){return fmt(Math.pow(10,v),2);},yf:function(v){return "10"+sup(v);},
     xl:"koncentrace činidla [mol·dm⁻³]",yl:"rozpuštěno s [mol·dm⁻³]"});
   var s=fr.s;
@@ -4514,11 +4539,11 @@ function drawDs(){
   var cols=["var(--cat3)","var(--cat2)","var(--cat1)"];
   DS_LIG.forEach(function(l,i){
     var pts=[];
-    for(var e=-2;e<=0.781;e+=0.02){ var c=Math.pow(10,e), v=dsSol(x.K,l.b,c).s; var lv=L10(v); if(lv>=-6&&lv<=1) pts.push(fr.X(e).toFixed(1)+","+fr.Y(lv).toFixed(1)); }
+    for(var e=-2;e<=0.781;e+=0.02){ var c=Math.pow(10,e), v=dsSol(x.K,l.b,c).s; var lv=L10(v); if(lv>=-9&&lv<=1) pts.push(fr.X(e).toFixed(1)+","+fr.Y(lv).toFixed(1)); }
     if(pts.length>1) s+=poly(pts,i===st.lig?"var(--accent)":cols[i],i===st.lig?3:1.6,i===st.lig?null:"5 4");
   });
-  s+=dot(fr.X(st.lc),fr.Y(clamp(L10(R.s),-6,1)),"var(--accent)",6);
-  s+=txt(fr.X(st.lc)+(st.lc>0.3?-9:9),fr.Y(clamp(L10(R.s),-6,1))-9,sci(R.s,2)+" M",{anchor:st.lc>0.3?"end":"start",size:11.5,w:600,fill:"var(--accent)",mono:true});
+  s+=dot(fr.X(st.lc),fr.Y(clamp(L10(R.s),-9,1)),"var(--accent)",6);
+  s+=txt(fr.X(st.lc)+(st.lc>0.3?-9:9),fr.Y(clamp(L10(R.s),-9,1))-9,sci(R.s,2)+" M",{anchor:st.lc>0.3?"end":"start",size:11.5,w:600,fill:"var(--accent)",mono:true});
   $("#dsWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Rozpuštěné množství sraženiny v závislosti na koncentraci komplexotvorného činidla"');
   $("#dsLegend").innerHTML=DS_LIG.map(function(l,i){ return '<span class="li"><span class="sw" style="background:'+(i===st.lig?"var(--accent)":cols[i])+'"></span>'+l.n+' (β = '+sci(l.b,1)+')</span>'; }).join("")+
     '<span class="li"><span class="sw" style="background:var(--ink-3)"></span>rozpustnost v čisté vodě</span>';
@@ -4662,8 +4687,8 @@ function drawMiniScale(){
     s+=txt(X(p),y+h+19,p,{anchor:"middle",size:11,fill:"var(--ink-2)",mono:true,w:600});
     s+=txt(X(p),y-8,"10"+sup(-p),{anchor:"middle",size:9.5,fill:"var(--ink-3)",mono:true});
   }
-  s+=txt(L-8,y-8,"[H₃O⁺]",{anchor:"end",size:10,w:600,fill:"var(--ink-3)"});
-  s+=txt(L-8,y+h+19,"pH",{anchor:"end",size:11,w:600,fill:"var(--ink-3)"});
+  s+=txt(L-16,y-8,"[H₃O⁺]",{anchor:"end",size:10,w:600,fill:"var(--ink-3)"});
+  s+=txt(L-16,y+h+19,"pH",{anchor:"end",size:11,w:600,fill:"var(--ink-3)"});
   var marks=[
     {p:1.0,t:"0,1 M HCl",up:true},{p:1.5,t:"žaludeční šťáva",up:false},
     {p:2.88,t:"0,1 M CH₃COOH",up:true},{p:4.76,t:"acetátový pufr 1 : 1",up:false},

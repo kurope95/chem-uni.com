@@ -3397,8 +3397,8 @@ function drawHero(){
   s+='<circle cx="'+x(t0)+'" cy="'+y(ct)+'" r="6" style="fill:var(--surface);stroke:var(--accent);stroke-width:2.5"/>';
   s+=txt(x(t0)+9,y(ct)-9,"t = "+fmt(t0,1)+" s",{size:11.5,w:600,fill:"var(--accent)",mono:true});
   /* popisky křivek */
-  s+=txt(R-4,y(st.c0-cOf(st.order,st.k,st.c0,TMAX))-8,"[P]",{anchor:"end",size:12,w:700,fill:"var(--endo)"});
-  s+=txt(R-4,y(cOf(st.order,st.k,st.c0,TMAX))+16,"[A]",{anchor:"end",size:12,w:700,fill:"var(--exo)"});
+  s+=txt(R-16,y(st.c0-cOf(st.order,st.k,st.c0,TMAX))-8,"[P]",{anchor:"end",size:12,w:700,fill:"var(--endo)"});
+  s+=txt(R-16,y(cOf(st.order,st.k,st.c0,TMAX))+16,"[A]",{anchor:"end",size:12,w:700,fill:"var(--exo)"});
   var ordName=["nultý řád: [A] = [A]₀ − k·t","první řád: [A] = [A]₀·e^(−k·t)","druhý řád: 1/[A] = 1/[A]₀ + k·t"][st.order];
   s+=txt(L+8,T+4,ordName,{size:11.5,w:600,fill:"var(--ink-2)",mono:true});
   $("#heroWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Koncentrace reaktantu a produktu v čase"');
@@ -3427,7 +3427,7 @@ function drawHero(){
 var stState={i:0,v:2e-4};
 function drawSt(){
   var r=STRXN[stState.i], v=stState.v;
-  var W=720, rowH=44, H=40+r.sp.length*rowH+20, L=150, mid=430, span=230;
+  var W=720, rowH=44, H=40+r.sp.length*rowH+20, L=150, mid=430, span=200;
   var maxNu=Math.max.apply(null,r.sp.map(function(p){return Math.abs(p.nu);}));
   var s='';
   s+=txt(L,22,r.eq,{size:13,w:600,fill:"var(--ink)"});
@@ -3437,7 +3437,7 @@ function drawSt(){
   r.sp.forEach(function(p,i){
     var yy=44+i*rowH, len=span*Math.abs(p.nu)/maxNu, col=p.nu<0?"var(--exo)":"var(--endo)";
     s+=txt(L-10,yy+18,p.f,{anchor:"end",size:13,w:600,fill:"var(--ink)"});
-    s+=txt(L-10,yy+31,(p.nu<0?"reaktant":"produkt")+" · ν = "+Math.abs(p.nu),{anchor:"end",size:10.5,fill:"var(--ink-3)"});
+    s+=txt(L-10,yy+35,(p.nu<0?"reaktant":"produkt")+" · ν = "+Math.abs(p.nu),{anchor:"end",size:10.5,fill:"var(--ink-3)"});
     if(p.nu<0) s+=rect(mid-len,yy+6,len,22,{fill:col,r:4}); else s+=rect(mid,yy+6,len,22,{fill:col,r:4});
     var lab=(p.nu<0?"−":"+")+sci(Math.abs(p.nu)*v,1);
     s+=txt(p.nu<0?mid-len-8:mid+len+8,yy+21,lab,{anchor:p.nu<0?"end":"start",size:12,w:600,fill:col,mono:true});
@@ -3932,14 +3932,14 @@ function drawMb(){
   s+=poly(c2,"var(--endo)",2,"6 4");
   s+=poly(c1,"var(--ink-2)",2.6,"");
   s+=line(x(xEa),T+6,x(xEa),B,{c:"var(--accent)",w:2,dash:"5 4"});
-  s+=txt(x(xEa)+6,T+16,"Eₐ = "+st.Ea+" kJ·mol⁻¹",{size:12,w:700,fill:"var(--accent)"});
-  s+=txt(x(xEa)+6,T+32,"vpravo: molekuly, které mohou reagovat",{size:10.5,fill:"var(--ink-3)"});
+  s+=txt(x(xEa)+6,B-26,"Eₐ = "+st.Ea+" kJ·mol⁻¹",{size:12,w:700,fill:"var(--accent)"});
+  s+=txt(x(xEa)+6,B-8,"vpravo: molekuly, které mohou reagovat",{size:10.5,fill:"var(--ink-3)"});
   /* popisky křivek */
   var m1=0; for(var a=0;a<c1.length;a++){ if(c1[a]>c1[m1]) m1=a; }
   var m2=0; for(var b=0;b<c2.length;b++){ if(c2[b]>c2[m2]) m2=b; }
   s+=txt(x(XMAX*m1/(c1.length-1)),y(c1[m1])-8,"T = "+st.T+" K",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-2)"});
   s+=txt(x(XMAX*m2/(c2.length-1))+40,y(c2[m2])-8,"T = "+(st.T+100)+" K",{anchor:"middle",size:11.5,w:600,fill:"var(--endo)"});
-  s+=txt(R-4,B-8,"schematicky — ocas je ve skutečnosti mnohem tenčí",{anchor:"end",size:9.5,fill:"var(--ink-3)"});
+  s+=txt(R-4,T+12,"schematicky — ocas je ve skutečnosti mnohem tenčí",{anchor:"end",size:9.5,fill:"var(--ink-3)"});
   $("#mbWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Maxwell–Boltzmannovo rozdělení energií"');
   $("#mbTV").textContent=st.T+" K ("+fmt(st.T-273.15,0)+" °C)";
   $("#mbEaV").textContent=st.Ea+" kJ·mol⁻¹";
@@ -4035,7 +4035,7 @@ function drawEp(){
   s+=gAxes({L:L,R:R,T:T,B:B,xl:"reakční koordináta",yl:"energie",yx:22,xly:28});
   s+=line(L,y(0),R,y(0),{c:"var(--line)",w:1,dash:"3 4"});
   s+=line(L,y(dH),R,y(dH),{c:"var(--line)",w:1,dash:"3 4"});
-  if(st.cat){ s+='<path d="'+smoothPath(g0.pts.map(toXY))+'" style="fill:none;stroke:var(--ink-3);stroke-width:1.8;stroke-dasharray:6 5"/>'; s+=txt(g0.pts[1][0],y(g0.pk[0])-12,"bez katalyzátoru",{anchor:"middle",size:10.5,fill:"var(--ink-3)"}); }
+  if(st.cat){ s+='<path d="'+smoothPath(g0.pts.map(toXY))+'" style="fill:none;stroke:var(--ink-3);stroke-width:1.8;stroke-dasharray:6 5"/>'; s+=txt(L+8,T+14,"bez katalyzátoru (čárkovaně)",{size:10.5,fill:"var(--ink-3)"}); }
   var col= st.cat?"var(--ok)":"var(--ink-2)";
   s+='<path d="'+smoothPath(g.pts.map(toXY))+'" style="fill:none;stroke:'+col+';stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round"/>';
   /* vrcholy a údolí */
@@ -4050,7 +4050,7 @@ function drawEp(){
   /* šipky */
   var xa=L+40;
   s+=vArrow(xa+70,y(0),y(maxPeak),"var(--accent)","Eₐ(→) = "+fmt(maxPeak,0),"left");
-  s+=vArrow(R-40,y(dH),y(maxPeak),"var(--cat3)","Eₐ(←) = "+fmt(maxPeak-dH,0),"left");
+  s+=vArrow(R-58,y(dH),y(maxPeak),"var(--cat3)","Eₐ(←) = "+fmt(maxPeak-dH,0),"left");
   var dcol = dH<0?"var(--exo)":"var(--endo)";
   s+=vArrow(R-120,y(0),y(dH),dcol,"ΔH = "+sgn(dH,0),"left");
   s+=txt(L+4,y(0)-8,"výchozí látky",{size:12,w:600,fill:"var(--ink)"});
@@ -4204,8 +4204,8 @@ function drawCat(){
   if(catStep===0){
     s+=ethene(230,70,false,false);
     s+=bond(470,60,510,60)+H_(470,60)+H_(510,60);
-    s+=txt(230,H-46,"C₂H₄ (g)",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-2)"});
-    s+=txt(490,H-46,"H₂ (g)",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-2)"});
+    s+=txt(230,124,"C₂H₄ (g)",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-2)"});
+    s+=txt(490,124,"H₂ (g)",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-2)"});
   } else if(catStep===1){
     s+=ethene(230,150,true,false);
     s+=line(230,166,230,176,{c:"var(--ink-3)",w:2,dash:"3 2"});
@@ -4215,14 +4215,14 @@ function drawCat(){
     s+=txt(230,100,"ethen adsorbovaný π-vazbou",{anchor:"middle",size:11,fill:"var(--ink-3)"});
   } else if(catStep===2){
     s+=ethene(300,150,true,false);
-    s+=H_(258,178)+H_(342,178);
-    s+='<path d="M258 168 q-10 -22 -18 -30" style="fill:none;stroke:var(--endo);stroke-width:2;stroke-dasharray:3 3"/>';
-    s+='<path d="M342 168 q10 -22 18 -30" style="fill:none;stroke:var(--endo);stroke-width:2;stroke-dasharray:3 3"/>';
+    s+=H_(258,192)+H_(342,192);
+    s+='<path d="M258 182 q-10 -28 -18 -44" style="fill:none;stroke:var(--endo);stroke-width:2;stroke-dasharray:3 3"/>';
+    s+='<path d="M342 182 q10 -28 18 -44" style="fill:none;stroke:var(--endo);stroke-width:2;stroke-dasharray:3 3"/>';
     s+=txt(300,100,"atomy H se přidávají na uhlíky · C=C → C–C",{anchor:"middle",size:11,w:600,fill:"var(--endo)"});
   } else if(catStep===3){
     s+=ethene(300,70,false,true);
     s+=line(300,120,300,150,{c:"var(--ok)",w:3,cap:"round"})+'<path d="M300 116 l-6 10 l12 0 z" style="fill:var(--ok)"/>';
-    s+=txt(300,H-46,"C₂H₆ (g) odchází · povrch je opět volný",{anchor:"middle",size:11.5,w:600,fill:"var(--ok)"});
+    s+=txt(300,170,"C₂H₆ (g) odchází · povrch je opět volný",{anchor:"middle",size:11.5,w:600,fill:"var(--ok)"});
   } else {
     s+=S_(141,174)+S_(303,174)+S_(465,174)+S_(627,174);
     s+=bond(470,60,510,60)+H_(470,60)+H_(510,60);
@@ -4361,7 +4361,7 @@ function drawMiniCt(){
   var s='';
   s+=txt(20,20,"TŘI ŘÁDY, TŘI TVARY KŘIVKY — VŠUDE [A]₀ = 1,0 mol·dm⁻³",{size:11,w:600,fill:"var(--ink-3)",style:"letter-spacing:.1em"});
   function pane(ox,order,k,title,note){
-    var L=ox+42,R=ox+228,T=44,B=190, TMAX=20, t='';
+    var L=ox+42,R=ox+228,T=62,B=190, TMAX=20, t='';
     var x=function(tt){ return L+(tt/TMAX)*(R-L); };
     var y=function(c){ return B-c*(B-T); };
     t+=rect(ox+6,32,236,H-52,{fill:"var(--surface-2)",r:10,stroke:"var(--line)",sw:1});

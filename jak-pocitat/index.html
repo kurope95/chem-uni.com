@@ -651,6 +651,20 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 .cs-line .frac{line-height:1.15}
 @media print{ .frac > .fd{border-top:1.5px solid #000} }
 </style>
+<style>
+/* odkaz na pod-modul */
+.submod{display:block;margin:1.6rem 0 0;padding:1.05rem 1.25rem;text-decoration:none;
+  border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:16px;
+  background:var(--surface);color:var(--ink);
+  box-shadow:0 1px 2px rgba(33,27,21,.07),0 6px 16px rgba(33,27,21,.09)}
+.submod:hover{border-color:var(--accent)}
+.submod .eyebrow{display:block;margin-bottom:.3rem}
+.submod strong{display:block;font-family:var(--f-ui);font-size:1.12rem;letter-spacing:-.02em;
+  margin-bottom:.35rem}
+.submod p{margin:0;color:var(--ink-2);font-size:.94rem;line-height:1.6;max-width:78ch}
+.submod .go{display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;
+  font-family:var(--f-ui);font-weight:600;font-size:.88rem;color:var(--accent)}
+</style>
 </head>
 <body>
 
@@ -1202,6 +1216,16 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
         <b>3. Dílčí body.</b> Správné odvození s&nbsp;chybou v&nbsp;aritmetice bývá hodnoceno mnohem líp než správný výsledek bez postupu.<br>
         <b>4. Znovupoužitelnost.</b> Když se v&nbsp;další části úlohy změní jedno číslo, dosadíte znovu do hotového vztahu místo počítání od začátku.</p>
       </div>
+
+      <a class="submod" href="zlomky-a-zavorky/index.html">
+        <span class="eyebrow">Samostatný pod-modul</span>
+        <strong>Zlomky a závorky</strong>
+        <p>Odvození výše skončilo u&nbsp;složeného zlomku. Jestli si nejste jistí, kdy zlomková
+        čára nahrazuje závorku, jak přepsat stohovaný zápis na řádek a&nbsp;zpátky, nebo jak si
+        ověřit, že jste přepsali správně, je na to celý samostatný průvodce: devět kapitol,
+        procvičování a&nbsp;závěrečný test.</p>
+        <span class="go">Otevřít Zlomky a závorky →</span>
+      </a>
 
       <h3>Blok 5 — Dosazení</h3>
       <p>Teprve tady čísla — a&nbsp;<b>vždy i&nbsp;s&nbsp;jednotkami</b>. Jeden řádek dosazení, pod ním řádek zkrácení jednotek, pod ním výsledek s&nbsp;plnou přesností kalkulačky (zaokrouhlí se až v&nbsp;odpovědi).</p>
@@ -3597,6 +3621,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 
     <div class="prose" style="margin-top:3rem">
       <h3>Kam pokračovat dál</h3>
+      <p>Jestli vás na téhle stránce nejvíc zdržely <b>zlomky a&nbsp;závorky</b> — kdy čára nahrazuje závorku, jak zápis přepsat na řádek a&nbsp;zpátky, co se smí krátit a&nbsp;co ne — je na to samostatný pod-modul <a href="zlomky-a-zavorky/index.html"><b>Zlomky a závorky</b></a> s&nbsp;procvičováním a&nbsp;testem.</p>
       <p>Řemeslo výpočtu je hotové — teď potřebuje látku, na které se dá použít. V&nbsp;sekci <b>Obecná a fyzikální chemie</b> najdete deset samostatných průvodců (termochemie, kinetika, rovnováha, elektrochemie, acidobazické reakce, atomové jádro, elektronový obal, chemická vazba, struktura látek a&nbsp;výpočty rovnovah), kde je ke každému tématu plná teorie i&nbsp;vlastní řešené příklady; zkuste si u&nbsp;nich přepsat každý výpočet do formátu výpočtového listu, i&nbsp;když je tam podaný jinak — je to nejrychlejší způsob, jak si formát zautomatizovat. Až budete mít okruhy za sebou, přejděte do sekce <b>Testy nanečisto</b> a&nbsp;projděte si celé zkouškové sady pod časovým tlakem: tam se teprve ukáže, jestli vám zápis šetří čas, nebo jestli ho ještě děláte pomalu. A&nbsp;na tuhle stránku se vracejte s&nbsp;taháklem výše kdykoli si nebudete jistí jednotkou, konstantou nebo počtem platných číslic.</p>
     </div>
 
@@ -4756,8 +4781,8 @@ function drawPx(){
       " = 10" + pcSup(pxState.exp) + " " + usym + "  (" + PXUNAME[pxState.unit] + ")",
       {anchor:an, size:11.5, fill:"var(--ink-3)", mono:true});
   /* popisky stran */
-  s += txt(L, 178, "menší než základ ←", {size:11, w:600, fill:"var(--endo)"});
-  s += txt(R, 178, "→ větší než základ", {size:11, w:600, fill:"var(--exo)", anchor:"end"});
+  s += txt(L, 189, "menší než základ ←", {size:11, w:600, fill:"var(--endo)"});
+  s += txt(R, 189, "→ větší než základ", {size:11, w:600, fill:"var(--exo)", anchor:"end"});
   $("#pxWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Osa předpon soustavy SI"');
 
   var sym = usym;
@@ -5281,17 +5306,17 @@ function drawDilSvg(res, mix, vTot){
          ' L' + (bx+bw) + ' ' + by + '" style="fill:none;stroke:var(--line-strong);stroke-width:1.8"/>';
     o += '<rect x="' + (bx+2) + '" y="' + (by+bh-fill) + '" width="' + (bw-4) + '" height="' + fill +
          '" rx="3" style="fill:var(--accent);opacity:' + alpha.toFixed(2) + '"/>';
-    o += txt(bx + bw/2, by - 10, lab, {anchor:"middle", size:12.5, w:700, fill:"var(--ink)"});
-    o += txt(bx + bw/2, by + bh + 26, sub, {anchor:"middle", size:11, mono:true, fill:"var(--ink-2)"});
+    o += txt(bx + bw/2, by - 5, lab, {anchor:"middle", size:12.5, w:700, fill:"var(--ink)"});
+    o += txt(bx + bw/2, by + bh + 22, sub, {anchor:"middle", size:11, mono:true, fill:"var(--ink-2)"});
     return o;
   }
   var s = "";
   s += beaker(20, 78, st.v1, st.c1, "A", fmt(st.c1,2) + " M");
-  s += txt(20 + 39, 216, st.v1 + " cm³", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
+  s += txt(20 + 39, 232, st.v1 + " cm³", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
   if(mix){
     s += txt(118, 128, "+", {anchor:"middle", size:22, w:700, fill:"var(--ink-3)"});
     s += beaker(140, 78, st.v2, st.c2, "B", fmt(st.c2,2) + " M");
-    s += txt(179, 216, st.v2 + " cm³", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
+    s += txt(179, 232, st.v2 + " cm³", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
   } else {
     s += txt(118, 122, "+ H₂O", {anchor:"middle", size:13, w:600, fill:"var(--endo)"});
     s += txt(118, 140, "doplnit", {anchor:"middle", size:10.5, fill:"var(--ink-3)"});
@@ -5300,8 +5325,8 @@ function drawDilSvg(res, mix, vTot){
   }
   s += txt(258, 128, "→", {anchor:"middle", size:22, w:700, fill:"var(--accent)"});
   s += beaker(288, 108, vTot, res, "výsledek", fmt(res,3) + " M");
-  s += txt(342, 216, vTot + " cm³", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
-  s += txt(210, 20, "sytost barvy odpovídá koncentraci", {anchor:"middle", size:10.5, fill:"var(--ink-3)",
+  s += txt(342, 232, vTot + " cm³", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
+  s += txt(210, 15, "sytost barvy odpovídá koncentraci", {anchor:"middle", size:10.5, fill:"var(--ink-3)",
     style:"letter-spacing:.06em;text-transform:uppercase"});
   $("#dlWrap").innerHTML = svg("0 0 " + W + " " + H, s, 'aria-label="Ředění a mísení roztoků"');
 }

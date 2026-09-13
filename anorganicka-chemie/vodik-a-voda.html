@@ -4331,7 +4331,7 @@ function initPT(){
 var izState = {i:"H"};
 function izFind(id){ for(var i=0;i<IZO.length;i++){ if(IZO[i].id===id) return IZO[i]; } return IZO[0]; }
 function drawIz(){
-  var it = izFind(izState.i), W=760, H=250, cx=250, cy=125, s="";
+  var it = izFind(izState.i), W=760, H=250, cx=190, cy=125, s="";
   /* obal */
   s += '<ellipse cx="'+cx+'" cy="'+cy+'" rx="96" ry="96" style="fill:var(--accent);fill-opacity:.07;stroke:var(--accent);stroke-width:1.6;stroke-dasharray:5 5"/>';
   s += '<circle cx="'+(cx+96)+'" cy="'+cy+'" r="8" style="fill:var(--accent)"/>';
@@ -4349,7 +4349,7 @@ function drawIz(){
     s += txt(px, py+5, q.t==="p"?"p⁺":"n", {anchor:"middle", size:11.5, w:700, fill:"var(--paper)", mono:true});
   });
   /* popis vpravo */
-  var TX = 430;
+  var TX = 320;
   s += txt(TX, 52, it.nuk + "   " + it.nm, {size:19, w:700, fill:"var(--ink)"});
   s += line(TX, 64, 730, 64, {c:"var(--line)", w:1});
   var rows = [
@@ -4422,7 +4422,7 @@ function drawTd(){
   s += rect(X(t)+(t>44?-112:10), Y(frac)-27, 102, 21, {fill:"var(--ink)", r:5});
   s += txt(X(t)+(t>44?-61:61), Y(frac)-12, fmt(frac*100,1)+" %", {anchor:"middle", size:11.5, w:600, fill:"var(--paper)", mono:true});
   s += txt((L+R)/2, B+40, "čas [roky]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.08em"});
-  s += txt(18, (T0+B)/2, "zbývající podíl tritia", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px"});
+  s += txt(18, (T0+B)/2, "zbývající podíl tritia", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#tdWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Radioaktivní přeměna tritia"');
   $("#tdTV").textContent = fmt(t,0) + " let";
   vvRo("#tdRo1", "Zbývá tritia", fmt(frac*100,1)+" %", "z&nbsp;původního množství", frac>0.5?"pos":"neg");
@@ -4468,7 +4468,7 @@ function drawMo(){
   s += '<circle cx="'+X(MO_RE)+'" cy="'+Y(-MO_DE)+'" r="5" style="fill:var(--endo)"/>';
   s += txt(X(MO_RE), Y(-MO_DE)+22, "74,1 pm", {anchor:"middle", size:11.5, w:700, fill:"var(--endo)", mono:true});
   /* pásma */
-  s += txt(X(52), T0+16, "odpuzování jader", {anchor:"middle", size:11, w:600, fill:"var(--exo)"});
+  s += txt(X(66), T0+16, "odpuzování jader", {anchor:"middle", size:11, w:600, fill:"var(--exo)"});
   s += txt(X(230), Y(-60), "přitahování slábne", {anchor:"middle", size:11, w:600, fill:"var(--ink-3)"});
   /* ukazatel */
   var Ec = Math.max(Emin+6, Math.min(Emax-6, E));
@@ -4482,7 +4482,7 @@ function drawMo(){
   s += line(jx-half, jy, jx+half, jy, {c:"var(--ink-3)", w:1, dash:"3 3"});
   s += txt(jx, jy+22, fmt(r,0)+" pm", {anchor:"middle", size:11, w:600, fill:"var(--ink-3)", mono:true});
   s += txt((L+R)/2, B+20, "", {});
-  s += txt(18, (T0+B)/2, "E [kJ·mol⁻¹]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px"});
+  s += txt(18, (T0+B)/2, "E [kJ·mol⁻¹]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#moWrap").innerHTML = svg("0 0 "+W+" "+(H+70), s, 'aria-label="Křivka potenciální energie molekuly vodíku"');
   $("#moRV").textContent = fmt(r,0) + " pm";
   var stav = r < MO_RE-3 ? "jádra se odpuzují" : (r > MO_RE+3 ? "atomy se přitahují" : "rovnovážná poloha");
@@ -4533,7 +4533,7 @@ function drawOp(){
   s += '<circle cx="'+X(T)+'" cy="'+Y(para)+'" r="6.5" style="fill:var(--endo);stroke:var(--surface);stroke-width:2.5"/>';
   s += '<circle cx="'+X(T)+'" cy="'+Y(ortho)+'" r="6.5" style="fill:var(--exo);stroke:var(--surface);stroke-width:2.5"/>';
   s += txt((L+R)/2, B+40, "teplota [K]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.08em"});
-  s += txt(18, (T0+B)/2, "rovnovážný podíl", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px"});
+  s += txt(18, (T0+B)/2, "rovnovážný podíl", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#opWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Rovnovážné zastoupení ortho a para vodíku"');
   $("#opTV").textContent = fmt(T,0) + " K";
   vvRo("#opRo1", "para-vodík", fmt(para*100,1)+" %", "sudá rotační čísla, spiny protilehlé", "pos");
@@ -4709,8 +4709,8 @@ function drawEl(){
   s += txt(89, 88, "V(H₂) = "+fmt(VH,2)+" dm³", {anchor:"middle", size:11.5, w:600, fill:"var(--exo)", mono:true});
   s += rect(24+65-32.5, 106, 65, 26, {fill:"var(--endo)", r:6, style:"fill-opacity:.2"});
   s += txt(89, 124, "V(O₂) = "+fmt(VO,2), {anchor:"middle", size:10.5, w:600, fill:"var(--endo)", mono:true});
-  s += txt(89, 152, "poměr objemů", {anchor:"middle", size:11, fill:"var(--ink-3)"});
-  s += txt(89, 170, "2 : 1", {anchor:"middle", size:16, w:700, fill:"var(--ink-2)", mono:true});
+  s += txt(89, 150, "poměr objemů", {anchor:"middle", size:11, fill:"var(--ink-3)"});
+  s += txt(89, 176, "2 : 1", {anchor:"middle", size:16, w:700, fill:"var(--ink-2)", mono:true});
   /* zdroj */
   s += txt(660, 90, "zdroj", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)"});
   s += txt(660, 116, fmt(I,1)+" A", {anchor:"middle", size:15, w:700, fill:"var(--ink)", mono:true});
@@ -4858,7 +4858,8 @@ function drawBp(){
     s += txt(X(p), B+20, String(p) + ". perioda", {anchor:"middle", size:11, fill:"var(--ink-3)"});
   }
   s += line(L, Y(0), R, Y(0), {c:"var(--line-strong)", w:1.4, dash:"5 4"});
-  s += txt(L+4, Y(0)-7, "0 °C", {size:10.5, fill:"var(--ink-3)", mono:true});
+  s += txt((L+R)/2, Y(0)-7, "0 °C", {anchor:"middle", size:10.5, fill:"var(--ink-3)", mono:true});
+  var endLbl = [];
   Object.keys(BODY).forEach(function(k){
     var G = BODY[k], on = (k===bpState.g);
     var pts = G.d.map(function(d){ return X(d[1])+","+Y(d[2]); });
@@ -4867,8 +4868,11 @@ function drawBp(){
       s += '<circle cx="'+X(d[1])+'" cy="'+Y(d[2])+'" r="'+(on?6:3.5)+'" style="fill:'+G.c+';fill-opacity:'+(on?1:0.42)+';stroke:var(--surface);stroke-width:'+(on?2:1)+'"/>';
       if(on) s += txt(X(d[1]), Y(d[2])-14, d[0]+" "+fmt(d[2],1), {anchor:"middle", size:11, w:700, fill:G.c, mono:true});
     });
-    s += txt(X(G.d[G.d.length-1][1])+10, Y(G.d[G.d.length-1][2])+4, G.lab.split(" ")[0], {size:10.5, w:600, fill:G.c, style:on?"":"opacity:.5"});
+    endLbl.push({y:Y(G.d[G.d.length-1][2])+4, t:G.lab.split(" ")[0], c:G.c, on:on});
   });
+  endLbl.sort(function(a,b){ return a.y-b.y; });
+  for(var q=1; q<endLbl.length; q++){ if(endLbl[q].y-endLbl[q-1].y < 16) endLbl[q].y = endLbl[q-1].y+16; }
+  endLbl.forEach(function(o){ s += txt(672, o.y, o.t, {size:10.5, w:600, fill:o.c, style:o.on?"":"opacity:.5"}); });
   /* extrapolace u 16. skupiny */
   if(bpState.g==="g16"){
     var a = (BODY.g16.d[3][2] - BODY.g16.d[1][2]) / (BODY.g16.d[3][1] - BODY.g16.d[1][1]);
@@ -4879,7 +4883,7 @@ function drawBp(){
     s += vArrow(X(2)-16, Y(pred), Y(100), "var(--bad)", "", "left");
     s += txt(X(2)-24, (Y(pred)+Y(100))/2, "+"+fmt(100-pred,0)+" °C", {anchor:"end", size:11.5, w:700, fill:"var(--bad)", mono:true});
   }
-  s += txt(18, (T0+B)/2, "teplota varu [°C]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px"});
+  s += txt(18, (T0+B)/2, "teplota varu [°C]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#bpWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Teploty varu hydridů 14. až 17. skupiny"');
   var G = BODY[bpState.g];
   var lo = G.d[0][2], hi = G.d[G.d.length-1][2];
@@ -5061,10 +5065,10 @@ function drawWm(){
     var a2 = wmMolecule(520, 190, 1.4, 170, "var(--cat1)", "akceptor");
     s += a1.s + a2.s;
     s += line(a1.h2[0], a1.h2[1], 520, 190, {c:"var(--accent)", w:2.6, dash:"6 5", cap:"round"});
-    s += txt(390, 140, "vodíkový můstek O–H···O", {anchor:"middle", size:13, w:700, fill:"var(--accent)"});
-    s += txt(390, 162, "energie asi 20 kJ·mol⁻¹", {anchor:"middle", size:11.5, fill:"var(--ink-3)", mono:true});
-    s += txt(390, 250, "vodík s&nbsp;δ⁺ míří přesně na volný elektronový pár sousedního kyslíku", {anchor:"middle", size:12, fill:"var(--ink-3)"});
-    s += txt(390, 274, "je to desetkrát slabší než kovalentní vazba, ale desetkrát silnější než van der Waals", {anchor:"middle", size:11.5, fill:"var(--ink-3)"});
+    s += txt(390, 106, "vodíkový můstek O–H···O", {anchor:"middle", size:13, w:700, fill:"var(--accent)"});
+    s += txt(390, 128, "energie asi 20 kJ·mol⁻¹", {anchor:"middle", size:11.5, fill:"var(--ink-3)", mono:true});
+    s += txt(390, 272, "vodík s&nbsp;δ⁺ míří přesně na volný elektronový pár sousedního kyslíku", {anchor:"middle", size:12, fill:"var(--ink-3)"});
+    s += txt(390, 292, "je to desetkrát slabší než kovalentní vazba, ale desetkrát silnější než van der Waals", {anchor:"middle", size:11.5, fill:"var(--ink-3)"});
   } else if(v==="led"){
     /* tetraedrická síť */
     var cx=330, cy=150, R0=92;
@@ -5172,7 +5176,7 @@ function drawDn(){
   var rr = (t<0) ? rho : rho;
   s += '<circle cx="'+X(t)+'" cy="'+Y(rr)+'" r="7" style="fill:var(--accent);stroke:var(--surface);stroke-width:2.5"/>';
   s += txt((L+R)/2, B+42, "teplota [°C]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.08em"});
-  s += txt(18, (T0+B)/2, "hustota [kg·m⁻³]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px"});
+  s += txt(18, (T0+B)/2, "hustota [kg·m⁻³]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#dnWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Hustota vody v závislosti na teplotě"');
   $("#dnTV").textContent = fmt(t,0)+" °C";
   vvRo("#dnRo1", "Hustota vody", fmt(rho,2)+" kg·m⁻³", t<0 ? "podchlazená kapalina" : "kapalná voda", "");
@@ -5286,7 +5290,7 @@ function drawKw(){
   s += rect(X(t)+(t>72?-124:10), Y(pk)-27, 114, 21, {fill:"var(--ink)", r:5});
   s += txt(X(t)+(t>72?-67:67), Y(pk)-12, "pKv = "+fmt(pk,2), {anchor:"middle", size:11.5, w:600, fill:"var(--paper)", mono:true});
   s += txt((L+R)/2, B+42, "teplota [°C]", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"letter-spacing:.08em"});
-  s += txt(18, (T0+B)/2, "pKv", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"transform:rotate(-90deg);transform-origin:18px "+((T0+B)/2)+"px"});
+  s += txt(18, (T0+B)/2, "pKv", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)", style:"writing-mode:sideways-lr"});
   $("#kwWrap").innerHTML = svg("0 0 "+W+" "+H, s, 'aria-label="Iontový součin vody v závislosti na teplotě"');
   $("#kwTV").textContent = fmt(t,0)+" °C";
   var kv = Math.pow(10,-pk);
@@ -5318,7 +5322,7 @@ function drawTv(){
     s += txt(X(g), B+30, String(g), {anchor:"middle", size:11, fill:"var(--ink-3)", mono:true});
     s += txt(X(g), T0-20, fmt(g*MCAO/10,1), {anchor:"middle", size:10, fill:"var(--ink-3)", mono:true});
   }
-  s += txt(L, T0-38, "°dH", {size:10.5, w:600, fill:"var(--ink-3)"});
+  s += txt(L-14, T0-20, "°dH", {anchor:"end", size:10.5, w:600, fill:"var(--ink-3)"});
   /* pásma tvrdosti */
   var zones = [[0,1.25,"měkká","var(--ok)"],[1.25,2.5,"středně tvrdá","var(--warn)"],[2.5,3.75,"tvrdá","var(--exo)"],[3.75,6,"velmi tvrdá","var(--bad)"]];
   zones.forEach(function(z){
@@ -5446,7 +5450,7 @@ function drawPx(){
   /* zadní O–H (natočený o d) */
   var a2 = (-90 + d)*Math.PI/180;
   var bx = cx + R0*Math.cos(a2), by = cy + R0*Math.sin(a2);
-  var bx2 = cx + (R0+34)*Math.cos(a2), by2 = cy + (R0+34)*Math.sin(a2);
+  var bx2 = cx + (R0+54)*Math.cos(a2), by2 = cy + (R0+54)*Math.sin(a2);
   s += line(bx, by, bx2, by2, {c:"var(--ink-3)", w:3, cap:"round"});
   s += '<circle cx="'+bx2+'" cy="'+by2+'" r="12" style="fill:var(--ink-3)"/>';
   s += txt(bx2, by2+4, "H", {anchor:"middle", size:11, w:700, fill:"var(--paper)"});
@@ -5463,8 +5467,8 @@ function drawPx(){
   var bx3 = cx + 40*Math.cos(a2), by3 = cy + 40*Math.sin(a2);
   s += '<path d="M '+ax+' '+ay+' A 40 40 0 '+sweep+' 1 '+bx3+' '+by3+'" style="fill:none;stroke:var(--endo);stroke-width:2"/>';
   s += txt(cx+18, cy-46, fmt(d,0)+"°", {size:13, w:700, fill:"var(--endo)", mono:true});
-  s += txt(cx, cy+R0+34, "pohled podél vazby O–O", {anchor:"middle", size:11.5, w:600, fill:"var(--ink-3)"});
-  s += txt(cx, cy+R0+54, "přední O–H barevně, zadní šedě", {anchor:"middle", size:10.5, fill:"var(--ink-3)"});
+  s += txt(8, cy+R0+34, "pohled podél vazby O–O", {size:11.5, w:600, fill:"var(--ink-3)"});
+  s += txt(8, cy+R0+54, "přední O–H barevně, zadní šedě", {size:10.5, fill:"var(--ink-3)"});
   /* --- torzní křivka vpravo --- */
   var L=390, R=730, T0=40, B=200;
   var X = function(v){ return L + v/180*(R-L); };
@@ -5517,7 +5521,7 @@ function prFill(){
 }
 function drawPr(){
   var p = prFind(prState.id);
-  var W=760, H=230, s="";
+  var W=760, H=250, s="";
   var L=170, R=590, Y=126;
   s += line(L, Y, R, Y, {c:"var(--line-strong)", w:2});
   [["−II", L, "voda"], ["−I", (L+R)/2, "peroxid"], ["0", R, "kyslík O₂"]].forEach(function(m){
@@ -5546,7 +5550,7 @@ function drawPr(){
     s += line(mid, Y+72, R, Y+72, {c:"var(--exo)", w:3, cap:"round"});
     s += '<path d="M'+R+' '+(Y+72)+' l-11 -6 l0 12 z" style="fill:var(--exo)"/>';
     s += txt((mid+R)/2, Y+90, "druhá polovina se oxiduje", {anchor:"middle", size:12, w:700, fill:"var(--exo)"});
-    s += txt(W/2, 214, "DISPROPORCIONACE — látka reaguje sama se sebou", {anchor:"middle", size:12.5, w:700, fill:"var(--cat2)", style:"letter-spacing:.08em"});
+    s += txt(W/2, 236, "DISPROPORCIONACE — látka reaguje sama se sebou", {anchor:"middle", size:12.5, w:700, fill:"var(--cat2)", style:"letter-spacing:.08em"});
   }
   s += txt(64, Y+6, "H₂O₂", {anchor:"middle", size:16, w:700, fill:"var(--accent)"});
   s += txt(672, Y+6, "+", {anchor:"middle", size:16, w:700, fill:"var(--ink-3)"});
@@ -5642,7 +5646,7 @@ function initPk(){
    12 · MINI-GRAFY RYCHLOKURZU
    ============================================================ */
 function drawMn1(){
-  var W=740, H=150, L=90, R=690, Y=76, s="";
+  var W=740, H=166, L=90, R=690, Y=92, s="";
   var xmin=0.7, xmax=4.1;
   var X = function(v){ return L + (v-xmin)/(xmax-xmin)*(R-L); };
   s += rect(X(0.7), Y-24, X(1.25)-X(0.7), 48, {fill:"var(--exo)", r:7, style:"fill-opacity:.15"});
@@ -5690,6 +5694,7 @@ function drawMn3(){
     s += line(L, Y(t), R, Y(t), {c:"var(--line)", w:1});
     s += txt(L-8, Y(t)+4, String(t), {anchor:"end", size:10, fill:"var(--ink-3)", mono:true});
   }
+  var mnL = [];
   ["g14","g15","g16","g17"].forEach(function(k){
     var G = BODY[k], on = (k==="g16");
     var pts = G.d.map(function(d){ return X(d[1])+","+Y(d[2]); });
@@ -5697,8 +5702,11 @@ function drawMn3(){
     G.d.forEach(function(d){
       s += '<circle cx="'+X(d[1])+'" cy="'+Y(d[2])+'" r="'+(on?4.5:2.8)+'" style="fill:'+G.c+';fill-opacity:'+(on?1:.45)+'"/>';
     });
-    s += txt(X(G.d[3][1])+8, Y(G.d[3][2])+4, G.d[3][0], {size:10, w:600, fill:G.c, style:on?"":"opacity:.5"});
+    mnL.push({y:Y(G.d[3][2])+4, t:G.d[3][0], c:G.c, on:on});
   });
+  mnL.sort(function(a,b){ return a.y-b.y; });
+  for(var q=1; q<mnL.length; q++){ if(mnL[q].y-mnL[q-1].y < 14) mnL[q].y = mnL[q-1].y+14; }
+  mnL.forEach(function(o){ s += txt(X(5)+8, o.y, o.t, {size:10, w:600, fill:o.c, style:o.on?"":"opacity:.5"}); });
   s += txt(X(2)+8, Y(100)+4, "H₂O 100 °C", {size:11, w:700, fill:"var(--accent)"});
   s += '<circle cx="'+X(2)+'" cy="'+Y(100)+'" r="6" style="fill:var(--accent)"/>';
   s += txt(X(2)+8, Y(-161.5)+4, "CH₄ −161,5 °C", {size:10, fill:"var(--ink-3)"});

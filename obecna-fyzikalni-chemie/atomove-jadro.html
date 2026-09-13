@@ -3002,6 +3002,16 @@ function txt(x,y,s,o){
     ';font-size:'+(o.size||12)+'px;font-weight:'+(o.w||400)+';'+(o.anchor?"text-anchor:"+o.anchor+";":"")+
     (o.style||"")+'">'+s+'</text>';
 }
+/* svislý popisek osy — vykreslen po dráze, takže má správný obalový obdélník */
+var VTXID=0;
+function vtxt(x,ymid,s,o){
+  o=o||{};
+  var pid="vlab"+(++VTXID);
+  return '<defs><path id="'+pid+'" d="M '+x+' '+(ymid+150)+' L '+x+' '+(ymid-150)+'"/></defs>'+
+    '<text style="fill:'+(o.fill||"var(--ink-3)")+';font-family:var(--f-ui);font-size:'+(o.size||11.5)+
+    'px;font-weight:'+(o.w||600)+';'+(o.style||"")+'"><textPath href="#'+pid+
+    '" startOffset="50%" style="text-anchor:middle">'+s+'</textPath></text>';
+}
 function line(x1,y1,x2,y2,o){
   o=o||{};
   return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" style="stroke:'+(o.c||"var(--line)")+
@@ -3266,7 +3276,7 @@ function drawHero(){
   ticks.forEach(function(f){ s+=line(L,y(f),R,y(f),{c:"var(--line)",w:1}); s+=txt(L-8,y(f)+4,(log?fmt(f*100,f<0.01?1:0):fmt(f*100,0))+" %",{anchor:"end",size:11,fill:"var(--ink-3)",mono:true}); });
   s+=line(L,T0-4,L,B,{c:"var(--line-strong)",w:1.5}); s+=line(L,B,R,B,{c:"var(--line-strong)",w:1.5});
   s+=txt((L+R)/2,B+36,"čas t [dny]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(16,(T0+B)/2,(log?"N/N₀ (log)":"N/N₀"),{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:16px "+((T0+B)/2)+"px;letter-spacing:.08em"});
+  s+=vtxt(16,(T0+B)/2,(log?"N/N₀ (log)":"N/N₀"),{style:"letter-spacing:.08em"});
   /* křivka */
   var pts=[];
   for(var tt=0;tt<=Tmax;tt+=0.5){ var f=Math.pow(0.5,tt/hl); if(log&&f<1e-3) break; pts.push(x(tt).toFixed(1)+","+y(f).toFixed(1)); }
@@ -3508,7 +3518,7 @@ function drawRiv(){
     s+=txt(x(Z)+11,y(N)-9,nucTxt(Z,A),{size:13,w:700,fill:"var(--cat4)"});
   }
   s+=txt((L+R)/2,B+34,"protonové číslo Z",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(14,(T0+B)/2,"neutronové číslo N",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:14px "+((T0+B)/2)+"px;letter-spacing:.08em;text-transform:uppercase"});
+  s+=vtxt(14,(T0+B)/2,"neutronové číslo N",{style:"letter-spacing:.08em;text-transform:uppercase"});
   $("#rivWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Mapa nuklidů s řekou stability"');
   $("#rivZV").textContent=Z; $("#rivNV").textContent=N;
   var st=stabilityInfo(Z,N), ns=nStab(Z), dlt=N-ns;
@@ -3562,7 +3572,7 @@ function drawBE(){
   });
   [["²H",2,1.112],["⁴He",4,7.074],["¹²C",12,7.68],["²³⁸U",238,7.57]].forEach(function(l){ if(BE.indexOf(BE[beState.i])>=0 && BE[beState.i].A===l[1]) return; s+=txt(x(l[1])+(l[1]>200?-8:6),y(l[2])+(l[1]<5?-8:14),l[0],{anchor:l[1]>200?"end":"start",size:10.5,fill:"var(--ink-3)"}); });
   s+=txt((L+R)/2,B+34,"nukleonové číslo A",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(14,(T0+B)/2,"Eᵥ / A [MeV na nukleon]",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:14px "+((T0+B)/2)+"px;letter-spacing:.06em"});
+  s+=vtxt(14,(T0+B)/2,"Eᵥ / A [MeV na nukleon]",{style:"letter-spacing:.06em"});
   $("#beWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Křivka vazebné energie na nukleon"');
   var p=BE[beState.i], Ev=p.b*p.A, dm=Ev/U_MEV;
   function ro(id,k,v,h){ $(id).innerHTML='<span class="k">'+k+'</span><span class="v">'+v+'</span><span class="h">'+h+'</span>'; }
@@ -3621,7 +3631,7 @@ function drawSh(){
     s+=txt(x(d.Z)+10,y(dN)+(t==="β⁻"||t==="n"?-10:18),nucTxt(d.Z,d.A),{size:12.5,w:700,fill:col});
   }
   s+=txt((L+R)/2,B+30,"Z →",{anchor:"middle",size:11,w:600,fill:"var(--ink-3)"});
-  s+=txt(14,(T0+B)/2,"N ↑",{anchor:"middle",size:11,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:14px "+((T0+B)/2)+"px"});
+  s+=vtxt(14,(T0+B)/2,"N ↑",{size:11});
   $("#shWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Posun nuklidu na mapě při přeměně"');
   $$("#shType button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.v===t); });
   var partR = {"α":' + <span class="chem"><sup>4</sup><sub>2</sub>He</span>', "β⁻":' + <span class="chem"><sup>0</sup><sub>−1</sub>e</span> + ν̄', "β⁺":' + <span class="chem"><sup>0</sup><sub>+1</sub>e</span> + ν', "EC":' + ν', "γ":' + γ', "n":' + <span class="chem"><sup>1</sup><sub>0</sub>n</span>'}[t];
@@ -3752,7 +3762,7 @@ function drawCh(){
     if(cur||i===0||last) s+=txt(x(p[0])+(p[0]>=92?-12:11),y(p[1]-p[0])-10,nucTxt(p[0],p[1]),{anchor:p[0]>=92?"end":"start",size:12.5,w:700,fill:cur?"var(--accent)":"var(--ink-2)"});
   });
   s+=txt((L+R)/2,B+34,"protonové číslo Z",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"letter-spacing:.08em;text-transform:uppercase"});
-  s+=txt(14,(T0+B)/2,"neutronové číslo N",{anchor:"middle",size:11.5,w:600,fill:"var(--ink-3)",style:"transform:rotate(-90deg);transform-origin:14px "+((T0+B)/2)+"px;letter-spacing:.08em;text-transform:uppercase"});
+  s+=vtxt(14,(T0+B)/2,"neutronové číslo N",{style:"letter-spacing:.08em;text-transform:uppercase"});
   $("#chWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Rozpadová řada na mapě nuklidů"');
   var cur=st[k], first=st[0], lastN=st[st.length-1];
   var totA=st.filter(function(p){return p[2]==="α";}).length, totB=st.filter(function(p){return p[2]==="β⁻";}).length;
