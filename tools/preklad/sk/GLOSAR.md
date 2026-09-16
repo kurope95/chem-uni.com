@@ -114,6 +114,7 @@ spisovnou podobu, použijte ji a zapište sem.
 ## Doplněno při překladu
 | česky | slovensky | poznámka |
 |---|---|---|
+| převodní zlomek | prevodný zlomok | ne „prevodový“ (to je převodový poměr u strojů); převodní faktor = prevodný faktor |
 | mol (název jednotky jako slovo) | mól, mólu, móly, mólov, móloch, mólom, mólmi | **značka** zůstává `mol` (2 mol, g·mol⁻¹); jako slovo se píše s dlhým ó („jeden mól“, „koľko mólov“) |
 | molární zlomek | mólový zlomok | |
 | poločas (rozpadu, reakce) | polčas | |

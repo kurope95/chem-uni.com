@@ -1220,8 +1220,14 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
     </div>
 
     <div class="paths">
-      <a class="path primary" href="#k0">
-        <span class="pk"><span class="tag">Začnite tu</span></span>
+      <a class="path primary" href="#r0">
+        <span class="pk"><span class="tag">45 minút čítania</span></span>
+        <span class="pt">Rýchlokurz</span>
+        <span class="pd">Celé remeslo výpočtu v&nbsp;kocke: osem blokov — výpočtový list, jednotky, prevody, mól, stechiometria, roztoky a&nbsp;plyny, platné číslice a&nbsp;kontrola výsledku. V&nbsp;každom výklad, rámček s&nbsp;tým najdôležitejším, častá chyba a&nbsp;riešený príklad; na konci osem viet a&nbsp;rýchlotest.</span>
+        <span class="pgo">Začať tu →</span>
+      </a>
+      <a class="path" href="#k0">
+        <span class="pk"><span class="tag">Plný kurz · kapitola 00</span></span>
         <span class="pt">Naučiť sa zápis</span>
         <span class="pd">Šesť blokov výpočtového listu — zadanie, hľadáme, vzťahy, odvodenie, dosadenie, odpoveď — vysvetlených jeden po druhom, s&nbsp;porovnaním „takto nie / takto áno“ a&nbsp;trenažérom, v&nbsp;ktorom si poradie blokov naklikáte sami.</span>
         <span class="pgo">Kapitola 00 →</span>
@@ -1235,7 +1241,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       <a class="path submod-path" href="zlomky-a-zavorky/index.html">
         <span class="pk"><span class="tag">Samostatný pod-modul</span></span>
         <span class="pt">Zlomky a zátvorky</span>
-        <span class="pd">Kedy zlomková čiara nahrádza zátvorku, ako prepísať stohovaný
+        <span class="pd">Kedy zlomková čiara nahrádza zátvorku, ako prepísať poschodový
         zápis do riadku a&nbsp;späť, čo sa smie krátiť a&nbsp;čo nie — a&nbsp;ako si overiť,
         že ste prepísali správne. Deväť kapitol s&nbsp;precvičovaním a&nbsp;testom.</span>
         <span class="pgo">Otvoriť pod-modul →</span>
@@ -1278,7 +1284,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
     <div class="syllabus">
       <a class="syl-row" href="#k0"><span class="b">1</span><span>Ako zapísať výpočet: zadanie → hľadáme → vzťahy → odvodenie → dosadenie → odpoveď. Prečo sa dosadzuje až na konci.</span><span class="go">Kap. 00</span></a>
       <a class="syl-row" href="#k1"><span class="b">2</span><span>Jednotky: sústava SI a&nbsp;to, v&nbsp;čom chémia reálne počíta (g, dm³, kPa, kJ, mol·dm⁻³, °C, u, Da). Predpony a&nbsp;pravidlá písania.</span><span class="go">Kap. 01</span></a>
-      <a class="syl-row" href="#k2"><span class="b">3</span><span>Prevody metódou prevodového zlomku a&nbsp;rozmerová analýza — kontrola vzorca podľa jednotiek.</span><span class="go">Kap. 02</span></a>
+      <a class="syl-row" href="#k2"><span class="b">3</span><span>Prevody metódou prevodného zlomku a&nbsp;rozmerová analýza — kontrola vzorca podľa jednotiek.</span><span class="go">Kap. 02</span></a>
       <a class="syl-row" href="#k3"><span class="b">4</span><span>Prehľad veličín a&nbsp;vzorcov zo všetkých desiatich okruhov + tabuľka konštánt (<span class="q">R</span>, <span class="q">N</span><sub>A</sub>, <span class="q">F</span>, <span class="q">k</span><sub>B</sub>, <span class="q">c</span>, <span class="q">h</span>).</span><span class="go">Kap. 03</span></a>
       <a class="syl-row" href="#k4"><span class="b">5</span><span>Platné číslice, zaokrúhľovanie, vedecký tvar a&nbsp;„presné čísla“.</span><span class="go">Kap. 04</span></a>
       <a class="syl-row" href="#k5"><span class="b">6</span><span>Stechiometria krok za krokom: m&nbsp;→&nbsp;n&nbsp;→&nbsp;n&nbsp;→&nbsp;m, limitujúci reaktant, výťažok, čistota, nadbytok.</span><span class="go">Kap. 05</span></a>
@@ -1289,6 +1295,403 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       <a class="syl-row" href="#k10"><span class="b">11</span><span>Ťahák na&nbsp;vytlačenie a&nbsp;slovníček veličín, symbolov a&nbsp;jednotiek.</span><span class="go">Kap. 10</span></a>
     </div>
   </header>
+
+  <!-- ============ RYCHLOKURZ ============ -->
+  <section class="chapter" id="r0" data-title="Rýchlokurz za 45 minút">
+    <div class="prose wide">
+      <span class="eyebrow">Rýchlokurz · celé remeslo výpočtu v&nbsp;kocke</span>
+      <h2>Ako počítať chémiu za 45 minút</h2>
+      <p class="lead" style="max-width:min(100%,100ch)">Osem blokov, spolu asi tri štvrte hodiny čítania. Každý blok má výklad, rámček <b>Zapamätajte si</b> s&nbsp;tým najdôležitejším, rámček <b>Častá chyba</b> a&nbsp;riešený príklad s&nbsp;číslami. Pod každým blokom sú vypísané jeho pojmy. Podrobný výklad ku každému pojmu nájdete v&nbsp;kapitolách plného kurzu; prehľad odkazov je na konci rýchlokurzu, hneď za rýchlotestom.</p>
+    </div>
+
+    <div class="timeplan">
+      <a href="#s1"><b>6′</b> Výpočtový list</a>
+      <a href="#s2"><b>5′</b> Jednotky</a>
+      <a href="#s3"><b>6′</b> Prevody</a>
+      <a href="#s4"><b>6′</b> Mól</a>
+      <a href="#s5"><b>6′</b> Stechiometria</a>
+      <a href="#s6"><b>6′</b> Roztoky a&nbsp;plyny</a>
+      <a href="#s7"><b>5′</b> Platné číslice</a>
+      <a href="#s8"><b>5′</b> Kontrola</a>
+    </div>
+
+    <!-- 1 -->
+    <div class="sblock" id="s1">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Výpočtový list — šesť blokov v&nbsp;pevnom poradí</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Výpočtové úlohy sa v&nbsp;chémii kazia hlavne zápisom, nie chémiou. Preto sa každý výpočet píše do rovnakej kostry so šiestimi blokmi, vždy v&nbsp;rovnakom poradí: <b>zadanie</b>, <b>hľadáme</b>, <b>vzťahy</b>, <b>odvodenie</b>, <b>dosadenie</b> a&nbsp;<b>odpoveď</b>.</p>
+          <p><b>Zadanie</b> vypíše každú známu veličinu na samostatný riadok a&nbsp;hneď ju prevedie na jednotku, v&nbsp;ktorej sa bude počítať. <b>Hľadáme</b> je symbol, otáznik a&nbsp;jednotka, napríklad <span class="mono">m = ? g</span>. <b>Vzťahy</b> sú vzorce, ktoré použijete, zatiaľ len písmenami.</p>
+          <p>V&nbsp;<b>odvodení</b> vzorce spojíte a&nbsp;upravíte na jediný vzťah pre hľadanú veličinu — <b>bez jediného čísla</b>. Čísla aj s&nbsp;jednotkami prídu na rad až pri&nbsp;<b>dosadení</b>. <b>Odpoveď</b> je celá veta s&nbsp;jednotkou a&nbsp;rozumným počtom platných číslic.</p>
+          <p>Prečo čísla až tak neskoro? Na jedinom konečnom vzťahu urobíte rozmerovú kontrolu, zaokrúhľujete len raz a&nbsp;za správne odvodenie dostanete body, aj keď sa pomýlite pri&nbsp;násobení.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — kostra každého výpočtu</span>
+            <div class="bq"><b>VÝPOČTOVÝ LIST</b><br>
+            šesť blokov, vždy v&nbsp;tomto poradí<br><br>
+            1 · zadanie — veličiny, hneď prevedené<br>
+            2 · hľadáme — symbol = ? jednotka<br>
+            3 · vzťahy — vzorce písmenami<br>
+            4 · odvodenie — jeden vzťah, žiadne čísla<br>
+            5 · dosadenie — čísla aj jednotky<br>
+            6 · odpoveď — veta, jednotka, platné číslice</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Dosadzovať čísla hneď do prvého vzorca a&nbsp;medzivýsledky zaokrúhľovať. Chyba sa potom nedá nájsť, rozmerová kontrola sa nedá urobiť a&nbsp;zaokrúhlenie sa nazbiera do poslednej číslice výsledku.</p></div>
+        </div>
+      </div>
+      <div class="calcsheet">
+        <div class="cs-head">
+          <span class="cs-id">Príklad</span>
+          <span class="cs-topic">Navážka na roztok s&nbsp;danou koncentráciou</span>
+          <span class="cs-kind">Roztoky</span>
+        </div>
+        <p class="cs-task">Koľko gramov hydroxidu sodného treba navážiť na prípravu 500&nbsp;cm³ roztoku s&nbsp;koncentráciou 0,200&nbsp;mol·dm⁻³?</p>
+        <div class="cs-block">
+          <span class="cs-lbl">Zadanie</span>
+          <div class="cs-rows">
+            <div class="cs-row"><span class="cs-sym">V</span><span class="cs-val">= 500 cm³ <span class="cs-conv">= 0,500 dm³</span></span><span class="cs-note">objem roztoku, hneď prevedený</span></div>
+            <div class="cs-row"><span class="cs-sym">c</span><span class="cs-val">= 0,200 mol·dm⁻³</span><span class="cs-note">požadovaná koncentrácia</span></div>
+            <div class="cs-row"><span class="cs-sym">M</span><span class="cs-val">= 40,00 g·mol⁻¹</span><span class="cs-note">M(NaOH) z&nbsp;tabuliek</span></div>
+          </div>
+        </div>
+        <div class="cs-block find">
+          <span class="cs-lbl">Hľadáme</span>
+          <div class="cs-rows">
+            <div class="cs-row"><span class="cs-sym">m</span><span class="cs-val">= ? g</span><span class="cs-note">navážka NaOH</span></div>
+          </div>
+        </div>
+        <div class="cs-block">
+          <span class="cs-lbl">Vzťahy</span>
+          <div class="cs-rows">
+            <div class="cs-line">c = n / V</div>
+            <div class="cs-line">n = m / M</div>
+          </div>
+        </div>
+        <div class="cs-block">
+          <span class="cs-lbl">Odvodenie</span>
+          <div class="cs-rows">
+            <div class="cs-line">n = c · V</div>
+            <div class="cs-line">m = n · M = <b>c · V · M</b></div>
+            <p class="cs-hint">Ani jedno číslo. Odvodenie končí jediným vzťahom, do ktorého sa bude dosadzovať.</p>
+          </div>
+        </div>
+        <div class="cs-block">
+          <span class="cs-lbl">Dosadenie</span>
+          <div class="cs-rows">
+            <div class="cs-line">m = 0,200 mol·dm⁻³ · 0,500 dm³ · 40,00 g·mol⁻¹</div>
+            <div class="cs-line units">jednotky: mol·dm⁻³ · dm³ · g·mol⁻¹ = <b>g</b> ✓ sedí s&nbsp;blokom „hľadáme“</div>
+            <div class="cs-line">m = 4,000 g</div>
+          </div>
+        </div>
+        <div class="cs-block res">
+          <span class="cs-lbl">Odpoveď</span>
+          <div class="cs-rows">
+            <p class="cs-ans">Treba navážiť <b class="cs-hi">m = 4,00 g</b> hydroxidu sodného. (Tri platné číslice podľa koncentrácie 0,200 a&nbsp;objemu 0,500.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>výpočtový list</span><span>zadanie</span><span>hľadáme</span><span>vzťahy</span><span>odvodenie</span><span>dosadenie</span><span>odpoveď</span></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sblock" id="s2">
+      <div class="sb-head"><span class="sb-min">5 min</span><h3>Počítacie jednotky — dm³, kPa, kelviny a&nbsp;gramy</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Sústava SI má pre objem kubický meter a&nbsp;pre hmotnosť kilogram. Chémia však v&nbsp;praxi počíta v&nbsp;<b>menších jednotkách</b>, pretože laboratórium pracuje s&nbsp;gramami a&nbsp;mililitrami. Ustálená sada, s&nbsp;ktorou sa počíta najbezpečnejšie, je: objem v&nbsp;<b>dm³</b>, tlak v&nbsp;<b>kPa</b>, teplota v&nbsp;<b>kelvinoch</b>, hmotnosť v&nbsp;<b>gramoch</b> a&nbsp;molárna hmotnosť v&nbsp;<b>g·mol⁻¹</b>.</p>
+          <p>Táto sada do seba zapadá. Koncentrácia vyjde v&nbsp;mol·dm⁻³, presne ako ju uvádzajú tabuľky, a&nbsp;súčin kPa·dm³ je presne jeden joule. Plynová konštanta <span class="q">R</span>&nbsp;= 8,314 preto platí bez zmeny v&nbsp;J·K⁻¹·mol⁻¹ aj v&nbsp;kPa·dm³·K⁻¹·mol⁻¹.</p>
+          <p>Teplotu do vzorcov dosadzujte vždy v&nbsp;kelvinoch: <span class="mono">T = t + 273,15</span>. Výnimkou je len <b>rozdiel</b> teplôt, ktorý je v&nbsp;kelvinoch aj v&nbsp;stupňoch Celzia číselne rovnaký.</p>
+          <p>Pri predponách pozor na mocniny. Predpona sa umocňuje spolu s&nbsp;jednotkou: centimeter je 10⁻² m, takže kubický centimeter je (10⁻²)³&nbsp;m³ = <b>10⁻⁶&nbsp;m³</b>. Preto 1&nbsp;dm³ = 1000&nbsp;cm³, a&nbsp;nie 10&nbsp;cm³.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — v&nbsp;čom sa počíta</span>
+            <div class="bq"><b>POČÍTACIE JEDNOTKY</b><br>
+            objem → dm³ &nbsp;(1 dm³ = 1 L = 1000 cm³)<br>
+            tlak → kPa &nbsp;(1 atm = 101,325 kPa)<br>
+            teplota → K &nbsp;(T = t + 273,15)<br>
+            hmotnosť → g<br>
+            molárna hmotnosť → g·mol⁻¹<br><br>
+            <b>PREDPONY</b><br>
+            k = 10³ · m = 10⁻³ · μ = 10⁻⁶ · n = 10⁻⁹<br>
+            pri&nbsp;kubických jednotkách sa mocnina strojnásobí: 1 cm³ = 10⁻⁶ m³</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Dosadiť do stavovej rovnice teplotu v&nbsp;stupňoch Celzia. Pri 25&nbsp;°C vyjde výsledok zhruba dvanásťkrát inak (298&nbsp;K oproti 25) a&nbsp;pri 0&nbsp;°C sa dokonca delí nulou.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · pripravte hodnoty na&nbsp;dosadenie</span>
+        <p class="task">Plyn zaberá 1,20&nbsp;L pri tlaku 740&nbsp;Torr a&nbsp;teplote 23&nbsp;°C. Preveďte všetky tri údaje na počítacie jednotky pre stavovú rovnicu.</p>
+        <div class="calc">V = 1,20 L = <b>1,20 dm³</b><br>
+        <span class="eqline">p = 740 Torr · (101,325 kPa / 760 Torr) = <b>98,7 kPa</b></span><br>
+        T = 23 + 273,15 = <b>296,15 K</b></div>
+        <span class="res">V = 1,20 dm³ · p = 98,7 kPa · T = 296,15 K</span>
+        <p class="out">S&nbsp;týmito hodnotami a&nbsp;<span class="q">R</span>&nbsp;= 8,314&nbsp;kPa·dm³·K⁻¹·mol⁻¹ vyjde látkové množstvo rovno v&nbsp;móloch: <span class="mono">n = p · V / (R · T)</span> = 0,0481&nbsp;mol. Žiadny ďalší prevod nie je potrebný.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>počítacie jednotky</span><span>predpony SI</span><span>kelvin</span><span>kilopascal</span><span>kubický decimeter</span></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sblock" id="s3">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Prevodný zlomok a&nbsp;rozmerová analýza</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Každý prevod jednotiek sa dá urobiť jedinou metódou. <b>Prevodný zlomok</b> má hore aj dole tú istú veličinu v&nbsp;rôznych jednotkách, napríklad 1000&nbsp;cm³ nad 1&nbsp;dm³. Jeho hodnota je presne jedna, a&nbsp;preto ním smiete vynásobiť čokoľvek bez toho, aby sa hodnota zmenila.</p>
+          <p>Zlomok otočte tak, aby <b>nechcená jednotka stála na opačnej strane čiary</b> ako v&nbsp;prevádzanej hodnote — potom sa vykráti. Viac prevodov za sebou je jednoducho viac zlomkov vedľa seba.</p>
+          <p>Rovnakú logiku má <b>rozmerová analýza</b>. Jednotky prejdú výpočtom úplne rovnakými operáciami ako čísla. Keď do konečného vzťahu dosadíte namiesto čísel len jednotky a&nbsp;vykrátite ich, musí vyjsť jednotka z&nbsp;bloku „hľadáme“.</p>
+          <p>Keď vyjde iná, sú dve možnosti. Ak vyjde rovnaká veličina s&nbsp;inou predponou (kg namiesto g), chýba prevod. Ak vyjde úplne iná veličina (mol namiesto g), je chyba v&nbsp;odvodení a&nbsp;počítať nemá zmysel, kým ju nenájdete.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — prevod a&nbsp;kontrola jednotiek</span>
+            <div class="bq"><b>PREVODNÝ ZLOMOK</b><br>
+            hore aj dole tá istá veličina, hodnota = 1<br>
+            <span class="eqline">1000 cm³ / 1 dm³ = 1</span><br>
+            nechcená jednotka musí stáť na opačnej strane čiary, potom sa vykráti<br><br>
+            <b>ROZMEROVÁ ANALÝZA</b><br>
+            do konečného vzťahu dosaďte jednotky a&nbsp;vykráťte:<br>
+            vyjde hľadaná jednotka → vzťah sedí<br>
+            iná predpona (kg namiesto g) → chýba prevod<br>
+            iná veličina (mol namiesto g) → chyba v&nbsp;odvodení</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Postaviť prevodný zlomok obrátene. Kto prevádza 250&nbsp;cm³ a&nbsp;vynásobí ich zlomkom 1000&nbsp;cm³ nad 1&nbsp;dm³, dostane cm⁶·dm⁻³ — nezmyselná jednotka hneď ukáže, že je zlomok hore nohami.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · hustota v&nbsp;iných jednotkách a&nbsp;kontrola vzorca</span>
+        <p class="task">Koncentrovaná kyselina sírová má hustotu 1,84&nbsp;g·cm⁻³. Vyjadrite ju v&nbsp;kg·m⁻³ a&nbsp;rozmerovou analýzou overte vzorec pre koncentráciu <span class="mono">c = m / (M · V)</span>.</p>
+        <div class="calc"><span class="eqline">ρ = 1,84 g·cm⁻³ · (1 kg / 1000 g) · (10⁶ cm³ / 1 m³) = <b>1840 kg·m⁻³</b></span><br>
+        kontrola vzorca: <span class="eqline">g / (g·mol⁻¹ · dm³) = <b>mol·dm⁻³</b></span> ✓</div>
+        <span class="res">ρ = 1840 kg·m⁻³ · vzorec sedí</span>
+        <p class="out">Gramy sa vykrátili s&nbsp;gramami a&nbsp;kubické centimetre s&nbsp;kubickými centimetrami. Pri vzorci sa gramy vykrátia, mol⁻¹ v&nbsp;menovateli sa prevráti na mol v&nbsp;čitateli a&nbsp;dm³ zostane dole — vyjde jednotka koncentrácie, takže vzorec je zostavený správne.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>prevodný zlomok</span><span>rozmerová analýza</span><span>rozmerová kontrola</span><span>krátenie jednotiek</span></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sblock" id="s4">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Látkové množstvo — všetko ide cez mól</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Chemická rovnica počíta v&nbsp;<b>móloch</b>, nie v&nbsp;gramoch ani v&nbsp;litroch. Takmer každý výpočet preto začína tým, že zadanú veličinu prevediete na látkové množstvo <span class="q">n</span>, a&nbsp;končí tým, že látkové množstvo prevediete na to, na čo sa úloha pýta.</p>
+          <p>Cesty k&nbsp;mólu sú štyri a&nbsp;líšia sa len tým, čo poznáte: z&nbsp;<b>hmotnosti</b> cez molárnu hmotnosť, z&nbsp;<b>roztoku</b> cez koncentráciu a&nbsp;objem, z&nbsp;<b>plynu</b> cez molárny objem a&nbsp;z&nbsp;<b>počtu častíc</b> cez Avogadrovu konštantu.</p>
+          <p>Molárnu hmotnosť <span class="q">M</span> nájdete v&nbsp;tabuľkách, alebo ju sčítate z&nbsp;relatívnych atómových hmotností: je s&nbsp;nimi číselne rovnaká, len má jednotku g·mol⁻¹. Molárny objem <span class="q">V</span><sub>m</sub> platí len pre plyn a&nbsp;len za daných podmienok.</p>
+          <p>Keď neviete, ako začať, opýtajte sa: <b>viem zo zadania vypočítať móly?</b> Takmer vždy áno — a&nbsp;zvyšok úlohy je už len cesta z&nbsp;mólov von.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — štyri cesty k&nbsp;mólu</span>
+            <div class="bq"><b>LÁTKOVÉ MNOŽSTVO n [mol]</b><br>
+            z&nbsp;hmotnosti &nbsp;<span class="eqline">n = m / M</span><br>
+            z&nbsp;roztoku &nbsp;n = c · V &nbsp;(V v&nbsp;dm³)<br>
+            z&nbsp;plynu &nbsp;<span class="eqline">n = V / V<sub>m</sub></span><br>
+            z&nbsp;počtu častíc &nbsp;<span class="eqline">n = N / N<sub>A</sub></span><br><br>
+            N<sub>A</sub> = 6,022·10²³ mol⁻¹<br>
+            V<sub>m</sub> = 22,414 dm³·mol⁻¹ (0 °C, 101,325 kPa)</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Dosadiť do <span class="mono">n = m / M</span> hmotnosť v&nbsp;kilogramoch a&nbsp;molárnu hmotnosť v&nbsp;g·mol⁻¹. Výsledok vyjde tisíckrát menší; jednotky kg a&nbsp;g sa nevykrátia a&nbsp;presne to by rozmerová kontrola ukázala.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · počet molekúl</span>
+        <p class="task">Koľko molekúl je v&nbsp;9,0&nbsp;g vody? <span class="q">M</span>(H₂O) = 18,02&nbsp;g·mol⁻¹, <span class="q">N</span><sub>A</sub> = 6,022·10²³&nbsp;mol⁻¹.</p>
+        <div class="calc"><span class="eqline">n = m / M = 9,0 g / 18,02 g·mol⁻¹ = 0,4994 mol</span><br>
+        N = n · N<sub>A</sub> = 0,4994 mol · 6,022·10²³ mol⁻¹ = <b>3,0·10²³</b></div>
+        <span class="res">N = 3,0·10²³ molekúl</span>
+        <p class="out">Dve platné číslice, pretože hmotnosť 9,0&nbsp;g má dve. Kontrola rádom: 9&nbsp;g vody je pol mólu a&nbsp;pol mólu je polovica Avogadrovho čísla, teda asi 3·10²³.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>látkové množstvo</span><span>molárna hmotnosť</span><span>molárny objem</span><span>Avogadrova konštanta</span></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sblock" id="s5">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Stechiometria — gramy → móly → móly → gramy</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Rovnica hovorí, v&nbsp;akom <b>pomere mólov</b> látky reagujú. Koeficienty v&nbsp;rovnici <span class="chem">2 H₂ + O₂ → 2 H₂O</span> znamenajú dva móly vodíka na jeden mól kyslíka — o&nbsp;gramoch nehovoria nič.</p>
+          <p>Postup je preto vždy rovnaký a&nbsp;má tri kroky. Zadanú látku preveďte na <b>móly</b>. Móly preveďte na móly hľadanej látky <b>pomerom koeficientov</b>. Móly hľadanej látky preveďte na to, na čo sa úloha pýta.</p>
+          <p>Keď sú zadané dva reaktanty, nemusia zreagovať oba celé. Pre každý vypočítajte jeho móly vydelené koeficientom, <span class="mono">n / ν</span>. Pri ktorom vyjde menšie číslo, to je <b>limitujúci reaktant</b>: spotrebuje sa prvý a&nbsp;určuje, koľko produktu vznikne.</p>
+          <p>Skutočne získané množstvo býva menšie ako teoretické. <b>Výťažok</b> v&nbsp;percentách je získaná hmotnosť vydelená teoretickou, krát sto.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — prechod medzi dvoma látkami</span>
+            <div class="bq"><b>STECHIOMETRIA</b><br>
+            gramy A → móly A → móly B → gramy B<br><br>
+            pomer koeficientov ν z&nbsp;vyčíslenej rovnice:<br>
+            <span class="eqline">n(B) = n(A) · ν(B) / ν(A)</span><br><br>
+            dva reaktanty: limitujúci je ten s&nbsp;menším <span class="eqline">n / ν</span><br>
+            výťažok: <span class="eqline">η = m<sub>získ</sub> / m<sub>teor</sub> · 100 %</span></div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Prepočítavať gramy jednej látky rovno na gramy druhej pomerom koeficientov. Koeficienty udávajú pomer mólov, nie hmotností; cez rovnicu sa vždy prechádza v&nbsp;móloch.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · horenie metánu</span>
+        <p class="task">Koľko gramov oxidu uhličitého vznikne spálením 8,0&nbsp;g metánu podľa rovnice <span class="chem">CH₄ + 2 O₂ → CO₂ + 2 H₂O</span>? <span class="q">M</span>(CH₄) = 16,04&nbsp;g·mol⁻¹, <span class="q">M</span>(CO₂) = 44,01&nbsp;g·mol⁻¹.</p>
+        <div class="calc"><span class="eqline">n(CH₄) = 8,0 g / 16,04 g·mol⁻¹ = 0,4988 mol</span><br>
+        pomer CH₄ : CO₂ = 1 : 1 → n(CO₂) = 0,4988 mol<br>
+        m(CO₂) = 0,4988 mol · 44,01 g·mol⁻¹ = 21,95 g → <b>22 g</b></div>
+        <span class="res">m(CO₂) = 22 g</span>
+        <p class="out">Dve platné číslice podľa navážky 8,0&nbsp;g. Z&nbsp;ôsmich gramov metánu vznikne viac ako dvakrát toľko gramov CO₂, a&nbsp;to nie je chyba: každý atóm uhlíka si pri horení priberie dva ťažké atómy kyslíka.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>stechiometria</span><span>stechiometrický koeficient</span><span>limitujúci reaktant</span><span>výťažok</span></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="sblock" id="s6">
+      <div class="sb-head"><span class="sb-min">6 min</span><h3>Roztoky a&nbsp;plyny — koncentrácia, riedenie a&nbsp;stavová rovnica</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Pri roztokoch sa počíta hlavne s&nbsp;<b>látkovou koncentráciou</b> <span class="mono">c = n / V</span> v&nbsp;mol·dm⁻³ a&nbsp;s&nbsp;<b>hmotnostným zlomkom</b> <span class="mono">w = m(látky) / m(roztoku)</span>, ktorý je bez jednotky, alebo v&nbsp;percentách. Medzi nimi prevádza hustota roztoku.</p>
+          <p>Pri <b>riedení</b> sa pridáva len rozpúšťadlo, takže látkové množstvo rozpustenej látky zostáva rovnaké: <span class="mono">c₁ · V₁ = c₂ · V₂</span>. Objemy tu smiete nechať v&nbsp;cm³, pretože stoja na oboch stranách rovnice a&nbsp;jednotka sa vykráti.</p>
+          <p>Pre plyny stačí jediná <b>stavová rovnica ideálneho plynu</b> <span class="mono">p · V = n · R · T</span>. S&nbsp;tlakom v&nbsp;kPa, objemom v&nbsp;dm³ a&nbsp;teplotou v&nbsp;kelvinoch platí <span class="q">R</span>&nbsp;= 8,314&nbsp;kPa·dm³·K⁻¹·mol⁻¹ a&nbsp;nič ďalšie sa prevádzať nemusí.</p>
+          <p>Molárny objem je skratka pre dvoje pevné podmienky: <b>22,414&nbsp;dm³·mol⁻¹</b> platí pri 0&nbsp;°C a&nbsp;101,325&nbsp;kPa, <b>24,790&nbsp;dm³·mol⁻¹</b> pri 25&nbsp;°C a&nbsp;100&nbsp;kPa. Za iných podmienok použite stavovú rovnicu.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — roztoky a&nbsp;plyny</span>
+            <div class="bq"><b>ROZTOKY</b><br>
+            <span class="eqline">c = n / V</span> &nbsp;[mol·dm⁻³]<br>
+            <span class="eqline">w = m<sub>B</sub> / m<sub>roztoku</sub></span><br>
+            riedenie: c₁ · V₁ = c₂ · V₂<br><br>
+            <b>PLYNY</b><br>
+            p · V = n · R · T<br>
+            R = 8,314 kPa·dm³·K⁻¹·mol⁻¹<br>
+            V<sub>m</sub> = 22,414 dm³·mol⁻¹ (0 °C, 101,325 kPa)<br>
+            V<sub>m</sub> = 24,790 dm³·mol⁻¹ (25 °C, 100 kPa)</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Použiť molárny objem 22,4&nbsp;dm³·mol⁻¹ pre plyn pri izbovej teplote. Pri 25&nbsp;°C a&nbsp;100&nbsp;kPa je molárny objem 24,8&nbsp;dm³·mol⁻¹, takže výsledok vyjde o&nbsp;10&nbsp;% vedľa — viac, ako väčšina testov toleruje.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · riedenie zásobného roztoku</span>
+        <p class="task">Koľko cm³ kyseliny chlorovodíkovej s&nbsp;koncentráciou 2,00&nbsp;mol·dm⁻³ treba na prípravu 250&nbsp;cm³ roztoku s&nbsp;koncentráciou 0,100&nbsp;mol·dm⁻³?</p>
+        <div class="calc">c₁ · V₁ = c₂ · V₂ &nbsp;→&nbsp; <span class="eqline">V₁ = c₂ · V₂ / c₁</span><br>
+        <span class="eqline">V₁ = 0,100 mol·dm⁻³ · 250 cm³ / 2,00 mol·dm⁻³ = <b>12,5 cm³</b></span></div>
+        <span class="res">V₁ = 12,5 cm³ zásobnej kyseliny</span>
+        <p class="out">Odmerajte 12,5&nbsp;cm³ zásobnej kyseliny a&nbsp;doplňte vodou na 250&nbsp;cm³. Kontrola: koncentrácia klesá dvadsaťkrát, takže objem zásobného roztoku musí byť dvadsatina konečného objemu — a&nbsp;dvadsatina z&nbsp;250&nbsp;cm³ je 12,5&nbsp;cm³.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>látková koncentrácia</span><span>hmotnostný zlomok</span><span>riedenie</span><span>stavová rovnica</span><span>molárny objem</span></div>
+    </div>
+
+    <!-- 7 -->
+    <div class="sblock" id="s7">
+      <div class="sb-head"><span class="sb-min">5 min</span><h3>Platné číslice — koľko číslic smiete napísať</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Výsledok nemôže byť presnejší ako údaje, z&nbsp;ktorých vznikol. Kalkulačka vypíše desať číslic, ale do odpovede ich patrí len toľko, koľko dovolí <b>najmenej presný vstup</b>.</p>
+          <p>Platia dve rôzne pravidlá. Pri <b>násobení a&nbsp;delení</b> má výsledok toľko platných číslic, koľko ich má vstup s&nbsp;najmenším počtom. Pri <b>sčítaní a&nbsp;odčítaní</b> rozhoduje najmenší počet <b>desatinných miest</b>.</p>
+          <p>Nuly na začiatku čísla, ako v&nbsp;0,0025, len udávajú rád a&nbsp;platné nie sú. Nuly vnútri čísla a&nbsp;nuly na konci za desatinnou čiarkou platné sú: 2,500 má štyri platné číslice. Vedecký zápis, napríklad 2,50·10⁻³, ukazuje počet platných číslic jednoznačne.</p>
+          <p>Zaokrúhľuje sa <b>len raz, až v&nbsp;odpovedi</b>; medzivýsledky nechajte v&nbsp;kalkulačke celé. <b>Presné čísla</b> — stechiometrické koeficienty a&nbsp;definičné prevody ako 1&nbsp;dm³ = 1000&nbsp;cm³ — počet platných číslic neobmedzujú.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — pravidlá platných číslic</span>
+            <div class="bq"><b>PLATNÉ ČÍSLICE VÝSLEDKU</b><br>
+            × a&nbsp;÷ → najmenší počet platných číslic<br>
+            + a&nbsp;− → najmenší počet desatinných miest<br><br>
+            nuly vľavo neplatia: 0,0025 má 2<br>
+            nuly vpravo za čiarkou platia: 2,500 má 4<br>
+            koeficienty a&nbsp;definičné prevody neobmedzujú<br>
+            zaokrúhľuje sa raz, v&nbsp;odpovedi</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Zaokrúhliť medzivýsledok, napríklad látkové množstvo, a&nbsp;počítať ďalej so zaokrúhleným číslom. Odchýlky sa sčítajú a&nbsp;posledná platná číslica odpovede vyjde zle, aj keď je celý postup správny.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · dve pravidlá, dva výsledky</span>
+        <p class="task">K&nbsp;12,5&nbsp;g roztoku pridáte 0,237&nbsp;g soli. Koľko váži zmes? A&nbsp;koľko mólov rozpustenej látky je v&nbsp;0,020&nbsp;dm³ roztoku s&nbsp;koncentráciou 0,1250&nbsp;mol·dm⁻³?</p>
+        <div class="calc">sčítanie: 12,5 + 0,237 = 12,737 → jedno desatinné miesto → <b>12,7 g</b><br>
+        násobenie: 0,1250 · 0,020 = 0,0025 → dve platné číslice → <b>2,5·10⁻³ mol</b></div>
+        <span class="res">12,7 g a&nbsp;2,5·10⁻³ mol</span>
+        <p class="out">Pri súčte rozhoduje 12,5&nbsp;g s&nbsp;jediným desatinným miestom. Pri súčine rozhoduje objem 0,020&nbsp;dm³, ktorý má len dve platné číslice; štyri platné číslice koncentrácie tu nepomôžu.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>platné číslice</span><span>zaokrúhľovanie</span><span>vedecký tvar</span><span>presné čísla</span></div>
+    </div>
+
+    <!-- 8 -->
+    <div class="sblock" id="s8">
+      <div class="sb-head"><span class="sb-min">5 min</span><h3>Kontrola výsledku a&nbsp;najdrahšie chyby</h3></div>
+      <div class="sb-grid">
+        <div class="say">
+          <p>Hotový výsledok ešte neodovzdávajte. Tri rýchle kontroly zaberú pol minúty a&nbsp;odhalia väčšinu chýb, ktoré stoja najviac bodov.</p>
+          <p><b>Jednotka.</b> Vyšla tá, ktorá je v&nbsp;bloku „hľadáme“? <b>Rád.</b> Zaokrúhlite vstupy na jednu číslicu a&nbsp;vypočítajte odhad spamäti; ak sa výsledok od odhadu líši tisíckrát, chyba je takmer isto v&nbsp;jednotkách. <b>Zmysel.</b> Výťažok nad 100&nbsp;%, záporný objem alebo roztok so stovkami mol·dm⁻³ neexistujú — aj koncentrovaná kyselina sírová má len asi 18&nbsp;mol·dm⁻³.</p>
+          <p>Tisícnásobná chyba má takmer vždy rovnakú príčinu: <b>cm³ namiesto dm³</b>, <b>g namiesto kg</b> alebo <b>J namiesto kJ</b>. Dvojnásobná alebo trojnásobná chyba je zabudnutý <b>stechiometrický koeficient</b>. Chyba zhruba 2,3-krát je prirodzený logaritmus namiesto dekadického.</p>
+          <p>Teplota v&nbsp;stupňoch Celzia namiesto kelvinov dá pri izbovej teplote chybu zhruba dvanásťkrát a&nbsp;molárny objem 22,4 namiesto 24,8 chybu 10&nbsp;%. Podľa veľkosti chyby tak často spoznáte aj jej príčinu.</p>
+        </div>
+        <div class="aside">
+          <div class="board"><span class="eyebrow">Zapamätajte si — podľa veľkosti chyby spoznáte príčinu</span>
+            <div class="bq"><b>O KOĽKO JE VÝSLEDOK VEDĽA → PREČO</b><br>
+            1000× → cm³ a&nbsp;dm³, g a&nbsp;kg, J a&nbsp;kJ<br>
+            2× alebo 3× → zabudnutý koeficient<br>
+            2,303× → ln namiesto log<br>
+            asi 12× → °C namiesto K<br>
+            o&nbsp;10&nbsp;% → V<sub>m</sub> 22,4 namiesto 24,8<br>
+            iná jednotka → chyba v&nbsp;odvodení</div></div>
+          <div class="trap"><span class="eyebrow">Častá chyba</span>
+            <p>Veriť výsledku len preto, že vyšiel „pekne“. Okrúhle číslo neznamená správne číslo; bez rádového odhadu prejde aj tisícnásobná chyba bez povšimnutia.</p></div>
+        </div>
+      </div>
+      <div class="exbox">
+        <span class="eyebrow">Príklad · nájdite chybu podľa rádu</span>
+        <p class="task">Študent rozpustil 5,85&nbsp;g NaCl (<span class="q">M</span>&nbsp;= 58,44&nbsp;g·mol⁻¹) a&nbsp;doplnil vodou na 250&nbsp;cm³. Ako koncentráciu odovzdal 0,000400&nbsp;mol·dm⁻³. Je to správne?</p>
+        <div class="calc">odhad: 5,85 g ≈ 0,1 mol; 250 cm³ = 0,25 dm³ → c ≈ 0,1 : 0,25 = <b>0,4 mol·dm⁻³</b><br>
+        výsledok študenta je tisíckrát menší → objem dosadený v&nbsp;cm³<br>
+        <span class="eqline">správne: c = 5,85 g / (58,44 g·mol⁻¹ · 0,250 dm³) = <b>0,400 mol·dm⁻³</b></span></div>
+        <span class="res">c = 0,400 mol·dm⁻³, nie 0,000400</span>
+        <p class="out">Odhad spamäti trval pár sekúnd a&nbsp;ukázal nielen, že je výsledok zlý, ale aj prečo: tisícnásobný rozdiel znamená objem dosadený v&nbsp;cm³ namiesto v&nbsp;dm³.</p>
+      </div>
+      <div class="tchips"><b>Pojmy</b><span>rádový odhad</span><span>kontrola výsledku</span><span>časté chyby</span></div>
+    </div>
+
+    <div class="prose wide">
+      <h3>Osem viet, ktoré musíte vedieť odrecitovať</h3>
+      <ol class="eight">
+        <li>Výpočet píšem do výpočtového listu: zadanie, hľadáme, vzťahy, odvodenie, dosadenie a&nbsp;odpoveď — a&nbsp;čísla dosadzujem až v&nbsp;piatom bloku.</li>
+        <li>Veličiny prevádzam hneď v&nbsp;zadaní na počítacie jednotky: objem v&nbsp;dm³, tlak v&nbsp;kPa, teplotu v&nbsp;kelvinoch a&nbsp;hmotnosť v&nbsp;gramoch.</li>
+        <li>Prevodný zlomok má hodnotu jedna, takže ním smiem násobiť kedykoľvek; staviam ho tak, aby sa nechcená jednotka vykrátila.</li>
+        <li>Jednotky prejdú výpočtom rovnakými operáciami ako čísla; keď nevyjde hľadaná jednotka, chýba prevod, alebo je chyba v&nbsp;odvodení.</li>
+        <li>Takmer všetky výpočty idú cez látkové množstvo: z&nbsp;hmotnosti, z&nbsp;roztoku, z&nbsp;plynu alebo z&nbsp;počtu častíc.</li>
+        <li>Medzi dvoma látkami v&nbsp;rovnici prechádzam len cez móly a&nbsp;pomer stechiometrických koeficientov, nikdy cez gramy.</li>
+        <li>Pri násobení a&nbsp;delení rozhoduje najmenší počet platných číslic, pri sčítaní a&nbsp;odčítaní najmenší počet desatinných miest, a&nbsp;zaokrúhľujem len raz, v&nbsp;odpovedi.</li>
+        <li>Každý výsledok skontrolujem jednotkou a&nbsp;rádovým odhadom; tisícnásobná chyba takmer vždy znamená cm³ namiesto dm³ alebo g namiesto kg.</li>
+      </ol>
+    </div>
+
+    <div class="quiz" data-quiz="rychlo" data-title="Rýchlotest — ako počítať chémiu"></div>
+
+    <div class="prose wide">
+      <h3>Kontrola pokrytia — kde nájdete ktorý pojem</h3>
+      <p>Každý pojem z&nbsp;rýchlokurzu má v&nbsp;plnom kurze vlastný podrobný výklad. Ťuknite na pojem a&nbsp;preskočíte do kapitoly, kde je vysvetlený.</p>
+      <div class="covermap">
+        <a href="#k0">výpočtový list</a>
+        <a href="#k0">zadanie a&nbsp;hľadáme</a>
+        <a href="#k0">vzťahy a&nbsp;odvodenie</a>
+        <a href="#k0">dosadenie a&nbsp;odpoveď</a>
+        <a href="#k1">počítacie jednotky</a>
+        <a href="#k1">predpony SI</a>
+        <a href="#k1">kelvin</a>
+        <a href="#k1">kilopascal</a>
+        <a href="#k2">prevodný zlomok</a>
+        <a href="#k2">rozmerová analýza</a>
+        <a href="#k2">krátenie jednotiek</a>
+        <a href="#k3">látkové množstvo</a>
+        <a href="#k3">molárna hmotnosť</a>
+        <a href="#k3">molárny objem</a>
+        <a href="#k3">Avogadrova konštanta</a>
+        <a href="#k4">platné číslice</a>
+        <a href="#k4">zaokrúhľovanie</a>
+        <a href="#k4">vedecký tvar</a>
+        <a href="#k4">presné čísla</a>
+        <a href="#k5">stechiometria</a>
+        <a href="#k5">limitujúci reaktant</a>
+        <a href="#k5">výťažok</a>
+        <a href="#k6">látková koncentrácia</a>
+        <a href="#k6">hmotnostný zlomok</a>
+        <a href="#k6">riedenie</a>
+        <a href="#k6">stavová rovnica</a>
+        <a href="#k8">rádový odhad</a>
+        <a href="#k8">časté chyby</a>
+      </div>
+    </div>
+
+    <div class="chapter-done" data-done="r0"></div>
+  </section>
 
   <!-- ============ KAPITOLA 0 — JAK ZAPSAT VÝPOČET ============ -->
   <section class="chapter" id="k0" data-title="Ako zapísať výpočet">
@@ -1772,10 +2175,10 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
   <section class="chapter" id="k2" data-title="Prevody a rozmerová analýza">
     <div class="prose">
       <span class="eyebrow">Kapitola 02 · prevody</span>
-      <h2>Prevodový zlomok a&nbsp;rozmerová analýza</h2>
+      <h2>Prevodný zlomok a&nbsp;rozmerová analýza</h2>
       <p class="lead">Prevádzať jednotky „z&nbsp;hlavy“ znamená hádať, či sa násobí, alebo delí. Existuje metóda, pri&nbsp;ktorej sa hádať nemusí vôbec: jednotky sa v&nbsp;zápise krátia ako čísla, a&nbsp;keď vám na konci zostane tá správna, prevod je nutne správny. Ten istý trik potom dokáže skontrolovať celý vzorec skôr, než doň niečo dosadíte.</p>
 
-      <h3>Prevodový zlomok — jediná metóda, ktorú potrebujete</h3>
+      <h3>Prevodný zlomok — jediná metóda, ktorú potrebujete</h3>
       <p>Každá rovnosť medzi jednotkami sa dá napísať ako <b>zlomok, ktorý sa rovná jednej</b>.
       Z&nbsp;rovnosti <span class="mono">1 dm³ = 1000 cm³</span> sa dajú zostaviť <b>dva</b> takéto
       zlomky. Oba sa rovnajú jednej a&nbsp;oba sú správne. Líšia sa len tým,
@@ -1807,7 +2210,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
 
       <div class="callout tip">
         <span class="eyebrow">Reťazenie — kde metóda naozaj vynikne</span>
-        <p>Prevodové zlomky môžete <b>reťaziť za sebou</b>, kým nedostanete cieľovú jednotku. Koľko molekúl je v&nbsp;1,0&nbsp;mg vody?</p>
+        <p>Prevodné zlomky môžete <b>reťaziť za sebou</b>, kým nedostanete cieľovú jednotku. Koľko molekúl je v&nbsp;1,0&nbsp;mg vody?</p>
         <p class="eq" style="margin-top:.3rem">1,0 mg · <span style="color:var(--accent)">(1 g / 10³ mg)</span> · <span style="color:var(--accent)">(1 mol / 18,02 g)</span> · <span style="color:var(--accent)">(6,022·10²³ / 1 mol)</span> = 3,3·10¹⁹ molekúl</p>
         <p>Každý zlomok vyškrtne jednu jednotku a&nbsp;prinesie ďalšiu. Na konci zostane „molekúl“ — presne to, čo sme chceli. Týmto spôsobom sa dá vyriešiť aj&nbsp;úloha, pri&nbsp;ktorej vôbec netušíte, ako na ňu: jednoducho reťazíte, kým nezostane správna jednotka.</p>
       </div>
@@ -1951,7 +2354,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
           <div class="calcsheet">
             <div class="cs-head">
               <span class="cs-id">Príklad 2.1</span>
-              <span class="cs-topic">Reťazenie prevodových zlomkov: objem → počet častíc</span>
+              <span class="cs-topic">Reťazenie prevodných zlomkov: objem → počet častíc</span>
               <span class="cs-kind">Prevody</span>
             </div>
             <div class="cs-block">
@@ -2479,7 +2882,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
         <b>2. Prejdite na móly hľadanej látky stechiometrickým pomerom.</b> <span class="mono">n(B) = n(A) · ν(B)/ν(A)</span>, kde ν sú koeficienty z&nbsp;rovnice.<br>
         <b>3. Móly prevoďte na to, na čo sa pýtajú.</b> Späť cez <span class="mono">m = n·M</span>, <span class="mono">V = n·V<sub>m</sub></span>, <span class="mono">c = n/V</span> alebo <span class="mono">N = n·N<sub>A</sub></span>.</p>
       </div>
-      <p>Ten druhý krok je jadro. Stechiometrický koeficient je <b>presný prevodový zlomok medzi látkami</b>: rovnica <span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span> hovorí, že z&nbsp;jedného mólu oxidu vzniknú dva móly železa, teda <span class="mono">n(Fe)/n(Fe₂O₃) = 2/1</span>. Nič viac v&nbsp;tom nie je — a&nbsp;napriek tomu je zabudnutý koeficient najčastejšou chybou v&nbsp;celej stredoškolskej chémii.</p>
+      <p>Ten druhý krok je jadro. Stechiometrický koeficient je <b>presný prevodný zlomok medzi látkami</b>: rovnica <span class="chem">Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂</span> hovorí, že z&nbsp;jedného mólu oxidu vzniknú dva móly železa, teda <span class="mono">n(Fe)/n(Fe₂O₃) = 2/1</span>. Nič viac v&nbsp;tom nie je — a&nbsp;napriek tomu je zabudnutý koeficient najčastejšou chybou v&nbsp;celej stredoškolskej chémii.</p>
       <div class="callout warn">
         <span class="eyebrow">Nikdy nepočítajte pomer z&nbsp;hmotností</span>
         <p>Koeficienty platia <b>pre móly, nie pre gramy</b>. Z&nbsp;rovnice <span class="chem">2 H₂ + O₂ → 2 H₂O</span> nevyplýva, že „na 2&nbsp;g vodíka pripadne 1&nbsp;g kyslíka“ — v&nbsp;skutočnosti pripadá 16&nbsp;g. Kto pomer aplikuje na hmotnosti, dostane úplný nezmysel a&nbsp;väčšinou si to ani nevšimne.</p>
@@ -2800,7 +3203,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       <h3>Riedenie: jediné, čo sa nemení, je látkové množstvo</h3>
       <p>Keď roztok riedite, prilievate rozpúšťadlo — rozpustenej látky nepribudne ani neubudne. Z&nbsp;toho vyplýva celá riediaca rovnica:</p>
       <p class="eq"><span class="q">n</span>₁ = <span class="q">n</span>₂ &nbsp;→&nbsp; <b><span class="q">c</span>₁<span class="q">V</span>₁ = <span class="q">c</span>₂<span class="q">V</span>₂</b> &nbsp;&nbsp;·&nbsp;&nbsp; obdobne pre hmotnosti: <span class="q">m</span>₁<span class="q">w</span>₁ = <span class="q">m</span>₂<span class="q">w</span>₂</p>
-      <p>Objemy sa v&nbsp;tejto rovnici môžu dosadzovať v&nbsp;akýchkoľvek jednotkách, <b>keď sú na oboch stranách rovnaké</b> — sú v&nbsp;podiele, takže sa prevodový faktor vykráti. To je vzácna úľava; skoro nikde inde si to dovoliť nemôžete.</p>
+      <p>Objemy sa v&nbsp;tejto rovnici môžu dosadzovať v&nbsp;akýchkoľvek jednotkách, <b>keď sú na oboch stranách rovnaké</b> — sú v&nbsp;podiele, takže sa prevodný faktor vykráti. To je vzácna úľava; skoro nikde inde si to dovoliť nemôžete.</p>
 
       <h3>Miešanie a&nbsp;zmiešavací kríž</h3>
       <p>Ak miešate dva roztoky tej istej látky, sčítajú sa látkové množstvá i&nbsp;objemy:</p>
@@ -5751,6 +6154,45 @@ function initAll(){
 /* ============================================================
    40 · BANKA OTÁZEK — kapitoly 00 až 04
    ============================================================ */
+BANK.rychlo = [
+ {t:"single",q:"V ktorom bloku výpočtového listu sa do vzťahu prvýkrát dosadzujú čísla?",
+  o:["Zadanie","Vzťahy","Odvodenie","Dosadenie"],c:3,
+  e:"Čísla sa do vzťahu dosadzujú až v bloku <b>dosadenie</b>. V zadaní sa hodnoty len vypíšu a prevedú, vzťahy aj odvodenie sú čisto symbolické. Vďaka tomu sa dá na konečnom vzťahu urobiť rozmerová kontrola a zaokrúhľuje sa len raz."},
+ {t:"single",q:"Objem 350 cm³ prevedený na počítaciu jednotku je",
+  o:["3,50 dm³","0,350 dm³","0,0350 dm³","350 dm³"],c:1,
+  e:"1 dm³ = 1000 cm³, takže 350 cm³ = <b>0,350 dm³</b>. Pri kubickej jednotke sa predpona umocní na tretiu: 1 cm³ je tisícina dm³, nie desatina."},
+ {t:"single",q:"Akú hodnotu teploty dosadíte do stavovej rovnice, keď je teplota 27 °C?",
+  o:["27","300,15","246,15","27, pretože plynová konštanta je v jouloch"],c:1,
+  e:"Stavová rovnica pracuje s absolútnou teplotou: T = 27 + 273,15 = <b>300,15 K</b>. S hodnotou 27 by výsledok vyšiel zhruba jedenásťkrát inak."},
+ {t:"single",q:"Čo vyjde rozmerovou kontrolou vzťahu c = m / (M · V), keď dosadíte m v g, M v g·mol⁻¹ a V v dm³?",
+  o:["g·dm⁻³","mol·dm⁻³","mol·g⁻¹·dm⁻³","mol"],c:1,
+  e:"g / (g·mol⁻¹ · dm³): gramy sa vykrátia, mol⁻¹ v menovateli sa prevráti na mol v čitateli a dm³ zostane dole. Vyjde <b>mol·dm⁻³</b>, teda jednotka koncentrácie — vzťah je zostavený správne."},
+ {t:"num",q:"Koľko mólov je 36,0 g vody? <span class=\"chem\">M</span>(H₂O) = 18,02 g·mol⁻¹. (Zadajte na tri platné číslice.)",
+  ans:2.00,tol:0.01,unit:"mol",
+  e:"n = m / M = 36,0 / 18,02 = 1,998 → <b>2,00 mol</b>. Tri platné číslice podľa hmotnosti 36,0 g. Rádová kontrola: 18 g vody je jeden mól, 36 g sú dva."},
+ {t:"single",q:"Podľa rovnice 2 H₂ + O₂ → 2 H₂O zreaguje 3,0 mol vodíka. Koľko mólov kyslíka sa spotrebuje?",
+  o:["3,0 mol","1,5 mol","6,0 mol","0,67 mol"],c:1,
+  e:"Pomer koeficientov H₂ : O₂ = 2 : 1, takže n(O₂) = 3,0 mol · 1/2 = <b>1,5 mol</b>. Cez rovnicu sa vždy prechádza v móloch a pomerom koeficientov."},
+ {t:"multi",q:"Ktoré prevody sú správne?",
+  o:["1 dm³ = 1 L","1 cm³ = 1 mL","1 m³ = 100 dm³","1 kPa·dm³ = 1 J","1 bar = 101,325 kPa"],c:[0,1,3],
+  e:"Správny je prvý, druhý a štvrtý prevod. Kubický meter má <b>1000</b> dm³, nie sto. A 101,325 kPa je jedna <b>atmosféra</b>; bar je presne 100 kPa."},
+ {t:"num",q:"Koľko cm³ roztoku s koncentráciou 1,00 mol·dm⁻³ potrebujete na prípravu 200 cm³ roztoku s koncentráciou 0,150 mol·dm⁻³?",
+  ans:30.0,tol:0.3,unit:"cm³",
+  e:"Pri riedení sa nemení látkové množstvo: c₁V₁ = c₂V₂, takže V₁ = c₂V₂/c₁ = 0,150 · 200 / 1,00 = <b>30,0 cm³</b>. Objemy smú zostať v cm³, pretože sa jednotka na oboch stranách vykráti."},
+ {t:"single",q:"Kalkulačka ukazuje pre delenie 22,0 : 7,0 výsledok 3,142857. Ako ho zapíšete?",
+  o:["3,142857","3,14","3,1","3"],c:2,
+  e:"Pri delení rozhoduje najmenší počet platných číslic. 22,0 má tri, 7,0 len dve, takže výsledok má dve: <b>3,1</b>."},
+ {t:"single",q:"Z 5,85 g NaCl rozpustených na 250 cm³ vám vyšlo c = 0,000400 mol·dm⁻³. Čo je najpravdepodobnejšia príčina?",
+  o:["Objem dosadený v cm³ namiesto v dm³","Zlá molárna hmotnosť NaCl","Zaokrúhlenie uprostred výpočtu","Zabudnutý stechiometrický koeficient"],c:0,
+  e:"Odhad: 5,85 g NaCl je asi desatina mólu v štvrťlitri, teda asi 0,4 mol·dm⁻³. Výsledok je <b>tisíckrát</b> menší a tisícnásobná chyba takmer vždy znamená cm³ namiesto dm³ alebo g namiesto kg."},
+ {t:"single",q:"Molárny objem ideálneho plynu 22,414 dm³·mol⁻¹ platí",
+  o:["pri 25 °C a 100 kPa","pri 0 °C a 101,325 kPa","pri 20 °C a 101,325 kPa","za akýchkoľvek podmienok"],c:1,
+  e:"22,414 dm³·mol⁻¹ platí pri <b>0 °C a 101,325 kPa</b>. Pri 25 °C a 100 kPa je molárny objem 24,790 dm³·mol⁻¹. Za iných podmienok sa počíta stavovou rovnicou pV = nRT."},
+ {t:"multi",q:"Ktoré z týchto čísel neobmedzujú počet platných číslic výsledku?",
+  o:["stechiometrický koeficient 2 z rovnice","prevod 1 dm³ = 1000 cm³","navážka 2,5 g","odmeraný objem 12,5 cm³"],c:[0,1],
+  e:"Koeficienty v rovnici a definičné prevody sú <b>presné čísla</b>, takže počet platných číslic neurčujú. Namerané hodnoty — navážka aj odmeraný objem — ho obmedzujú."}
+];
+
 BANK.q0 = [
  {t:"single",q:"Ktorý blok výpočtového listu nesmie obsahovať ani jedno číslo?",
   o:["Zadanie","Hľadáme","Odvodenie","Dosadenie"],c:2,
