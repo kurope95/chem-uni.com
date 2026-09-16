@@ -1,0 +1,4749 @@
+{
+ "page": "pocitame-spolu/index.html",
+ "lang": "sk",
+ "segments": {
+  "h-a0a43e44b4": {
+   "kind": "html",
+   "q": "",
+   "src": "<span class=\"eyebrow\">Trenažér výpočtů · klepáním, ne psaním</span>",
+   "ctx": "div.hero-in",
+   "n": 1,
+   "sk": "<span class=\"eyebrow\">Trenažér výpočtov · ťukaním, nie písaním</span>",
+   "keep_czech": false
+  },
+  "h-5ba648171b": {
+   "kind": "html",
+   "q": "",
+   "src": "Počítáme spolu",
+   "ctx": "h1",
+   "n": 1,
+   "sk": "Počítame spolu",
+   "keep_czech": false
+  },
+  "h-cc9482870e": {
+   "kind": "html",
+   "q": "",
+   "src": "Úlohu si poskládáte vlastníma rukama: vypíšete zadané veličiny i s převody, vyberete vztahy a klepáním dosadíte jeden do druhého. Zlomky kreslí aplikace, algebru nepíšete. A hlavně — během řešení vám nikdo nekouká přes rameno. Verdikt přijde až po odevzdání, i s tím, kde přesně se to zlomilo.",
+   "ctx": "p.lead",
+   "n": 1,
+   "sk": "Úlohu si poskladáte vlastnými rukami: vypíšete zadané veličiny aj s prevodmi, vyberiete vzťahy a ťuknutím dosadíte jeden do druhého. Zlomky kreslí aplikácia, algebru nepíšete. A hlavne — počas riešenia vám nikto nepozerá cez rameno. Verdikt príde až po odovzdaní, aj s tým, kde presne sa to pokazilo.",
+   "keep_czech": false
+  },
+  "h-655e382d1c": {
+   "kind": "html",
+   "q": "",
+   "src": "Začít počítat",
+   "ctx": "button.btn",
+   "n": 1,
+   "sk": "Začať počítať",
+   "keep_czech": false
+  },
+  "h-e61da221d3": {
+   "kind": "html",
+   "q": "",
+   "src": "Nejdřív rozcvička",
+   "ctx": "button.btn",
+   "n": 1,
+   "sk": "Najprv rozcvička",
+   "keep_czech": false
+  },
+  "h-bfe593ba35": {
+   "kind": "html",
+   "q": "",
+   "src": "Jak to tady chodí",
+   "ctx": "h2",
+   "n": 1,
+   "sk": "Ako to tu funguje",
+   "keep_czech": false
+  },
+  "h-420c90e774": {
+   "kind": "html",
+   "q": "",
+   "src": "Skládáte, nepíšete",
+   "ctx": "h3",
+   "n": 1,
+   "sk": "Skladáte, nepíšete",
+   "keep_czech": false
+  },
+  "h-b6350c2e30": {
+   "kind": "html",
+   "q": "",
+   "src": "Zadané veličiny vyberete z nabídky, vztahy z police karet. Dosazení proběhne klepnutím: nejdřív na veličinu ve výrazu, pak na kartu. Složené zlomky se kreslí samy.",
+   "ctx": "p",
+   "n": 1,
+   "sk": "Zadané veličiny vyberiete z ponuky, vzťahy z police kariet. Dosadenie prebehne ťuknutím: najprv na veličinu vo výraze, potom na kartu. Zložené zlomky sa kreslia samy.",
+   "keep_czech": false
+  },
+  "h-cf1a94a8d4": {
+   "kind": "html",
+   "q": "",
+   "src": "Nikdo vás během řešení neopravuje",
+   "ctx": "h3",
+   "n": 1,
+   "sk": "Nikto vás počas riešenia neopravuje",
+   "keep_czech": false
+  },
+  "h-0b554cc53c": {
+   "kind": "html",
+   "q": "",
+   "src": "Aplikace vám nedá zelenou fajfku ani červený křížek, dokud neodevzdáte odpověď. Zabrání jen krokům, které nejdou provést — a řekne proč. Chybnou cestu si dojdete až na konec.",
+   "ctx": "p",
+   "n": 1,
+   "sk": "Aplikácia vám nedá zelenú fajku ani červený krížik, kým neodovzdáte odpoveď. Zabráni len krokom, ktoré sa nedajú vykonať — a povie prečo. Nesprávnu cestu si dôjdete až do konca.",
+   "keep_czech": false
+  },
+  "h-70926e8e61": {
+   "kind": "html",
+   "q": "",
+   "src": "Na konci se dozvíte kde, ne jen jestli",
+   "ctx": "h3",
+   "n": 1,
+   "sk": "Na konci sa dozviete kde, nielen či",
+   "keep_czech": false
+  },
+  "h-1b2e12f046": {
+   "kind": "html",
+   "q": "",
+   "src": "Po odevzdání se ukáže verdikt a dvě tlačítka: „Kde jsem udělal chybu?“ najde první místo, kde se to rozešlo, a „Ukázat správné řešení“ rozbalí celý vzorový list.",
+   "ctx": "p",
+   "n": 1,
+   "sk": "Po odovzdaní sa ukáže verdikt a dve tlačidlá: „Kde som urobil chybu?“ nájde prvé miesto, kde sa to pokazilo, a „Ukázať správne riešenie“ rozbalí celý vzorový list.",
+   "keep_czech": false
+  },
+  "h-356a13eb3a": {
+   "kind": "html",
+   "q": "",
+   "src": "Rozcvička",
+   "ctx": "h2",
+   "n": 1,
+   "sk": "Rozcvička",
+   "keep_czech": false
+  },
+  "h-824f3d7345": {
+   "kind": "html",
+   "q": "",
+   "src": "Než se pustíte do počítání, projděte si jednu jednoduchou úlohu s vysvětlivkami u každé fáze. Trvá to tři minuty a potom už budete vědět, co která obrazovka chce. Rozcvička se nepočítá do pokroku.",
+   "ctx": "p",
+   "n": 1,
+   "sk": "Skôr než sa pustíte do počítania, prejdite si jednu jednoduchú úlohu s vysvetlivkami pri každej fáze. Trvá to tri minúty a potom už budete vedieť, čo ktorá obrazovka chce. Rozcvička sa nepočíta do pokroku.",
+   "keep_czech": false
+  },
+  "h-f5b245a7e4": {
+   "kind": "html",
+   "q": "",
+   "src": "Projít rozcvičku",
+   "ctx": "button.btn",
+   "n": 1,
+   "sk": "Prejsť rozcvičku",
+   "keep_czech": false
+  },
+  "h-db82c41d44": {
+   "kind": "html",
+   "q": "",
+   "src": "Váš pokrok",
+   "ctx": "h2",
+   "n": 1,
+   "sk": "Váš pokrok",
+   "keep_czech": false
+  },
+  "h-c4b670b8d4": {
+   "kind": "html",
+   "q": "",
+   "src": "Poradit",
+   "ctx": "button.btn",
+   "n": 1,
+   "sk": "Poradiť",
+   "keep_czech": false
+  },
+  "h-4854e0d3a4": {
+   "kind": "html",
+   "q": "",
+   "src": "Ukončit",
+   "ctx": "button.btn",
+   "n": 1,
+   "sk": "Ukončiť",
+   "keep_czech": false
+  },
+  "j-a7938e02e2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnost",
+   "ctx": "…0.0}},\"syms\":{\"m|\":{\"disp\":\"<i>m</i>\",\"name\":⟦\"⟧,\"canon\":\"g\",\"units\":[\"g\",\"kg\",\"mg\",\"ug\"…",
+   "n": 11,
+   "sk": "Hmotnosť",
+   "keep_czech": false
+  },
+  "j-bad182df88": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Molární hmotnost",
+   "ctx": "…\",\"mg\",\"ug\"]},\"M|\":{\"disp\":\"<i>M</i>\",\"name\":⟦\"⟧,\"canon\":\"g/mol\",\"units\":[\"g/mol\",\"kg/mo…",
+   "n": 6,
+   "sk": "Molárna hmotnosť",
+   "keep_czech": false
+  },
+  "j-7f91618e70": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Látkové množství",
+   "ctx": "…l\",\"kg/mol\"]},\"n|\":{\"disp\":\"<i>n</i>\",\"name\":⟦\"⟧,\"canon\":\"mol\",\"units\":[\"mol\",\"mmol\"]},\"…",
+   "n": 11,
+   "sk": "Látkové množstvo",
+   "keep_czech": false
+  },
+  "j-282610f3f4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Látková koncentrace",
+   "ctx": "…mol\",\"mmol\"]},\"c|\":{\"disp\":\"<i>c</i>\",\"name\":⟦\"⟧,\"canon\":\"mol/dm3\",\"units\":[\"mol/dm3\",\"m…",
+   "n": 4,
+   "sk": "Látková koncentrácia",
+   "keep_czech": false
+  },
+  "j-34bc02a72c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Objem",
+   "ctx": "…3\",\"mol/m3\"]},\"V|\":{\"disp\":\"<i>V</i>\",\"name\":⟦\"⟧,\"canon\":\"dm3\",\"units\":[\"dm3\",\"cm3\",\"m3\"…",
+   "n": 5,
+   "sk": "Objem",
+   "keep_czech": false
+  },
+  "j-4b7b23489a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Počet částic",
+   "ctx": "…3\",\"L\",\"mL\"]},\"N|\":{\"disp\":\"<i>N</i>\",\"name\":⟦\"⟧,\"canon\":\"one\",\"units\":[\"one\"]},\"ρ|\":{\"d…",
+   "n": 1,
+   "sk": "Počet častíc",
+   "keep_czech": false
+  },
+  "j-1f6ffde8f4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hustota",
+   "ctx": "…its\":[\"one\"]},\"ρ|\":{\"disp\":\"<i>ρ</i>\",\"name\":⟦\"⟧,\"canon\":\"g/dm3\",\"units\":[\"g/dm3\",\"mg/dm…",
+   "n": 1,
+   "sk": "Hustota",
+   "keep_czech": false
+  },
+  "j-fa010725f0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnostní zlomek",
+   "ctx": "…m3\",\"kg/m3\"]},\"w|\":{\"disp\":\"<i>w</i>\",\"name\":⟦\"⟧,\"canon\":\"one\",\"units\":[\"one\",\"pct\"]},\"m…",
+   "n": 2,
+   "sk": "Hmotnostný zlomok",
+   "keep_czech": false
+  },
+  "j-f7f9025464": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Měrná tepelná kapacita vody",
+   "ctx": "…H₂O\":{\"disp\":\"<i>c</i><sub>H₂O</sub>\",\"name\":⟦\"⟧,\"canon\":\"J/g*K\",\"units\":[\"J/g*K\"]},\"T|1…",
+   "n": 1,
+   "sk": "Merná tepelná kapacita vody",
+   "keep_czech": false
+  },
+  "j-67d884803c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Termodynamická teplota",
+   "ctx": "…,\"T|1\":{\"disp\":\"<i>T</i><sub>1</sub>\",\"name\":⟦\"⟧,\"canon\":\"K\",\"units\":[\"K\",\"degC\"]},\"T|2\"…",
+   "n": 3,
+   "sk": "Termodynamická teplota",
+   "keep_czech": false
+  },
+  "j-b51d400791": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Teplo",
+   "ctx": "…[\"K\",\"degC\"]},\"Q|\":{\"disp\":\"<i>Q</i>\",\"name\":⟦\"⟧,\"canon\":\"J\",\"units\":[\"J\",\"kJ\"]},\"ΔT|\":{…",
+   "n": 1,
+   "sk": "Teplo",
+   "keep_czech": false
+  },
+  "j-2f9d31ad1d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Změna teploty",
+   "ctx": "…[\"J\",\"kJ\"]},\"ΔT|\":{\"disp\":\"Δ<i>T</i>\",\"name\":⟦\"⟧,\"canon\":\"K\",\"units\":[\"K\"]},\"Vm|\":{\"disp…",
+   "n": 1,
+   "sk": "Zmena teploty",
+   "keep_czech": false
+  },
+  "j-3d7d4d692c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Molární objem",
+   "ctx": "…,\"Vm|\":{\"disp\":\"<i>V</i><sub>m</sub>\",\"name\":⟦\"⟧,\"canon\":\"dm3/mol\",\"units\":[\"dm3/mol\"]},…",
+   "n": 1,
+   "sk": "Molárny objem",
+   "keep_czech": false
+  },
+  "j-aa87c9dc2d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tlak",
+   "ctx": "…[\"K\",\"degC\"]},\"p|\":{\"disp\":\"<i>p</i>\",\"name\":⟦\"⟧,\"canon\":\"kPa\",\"units\":[\"kPa\",\"Pa\",\"MPa\"…",
+   "n": 1,
+   "sk": "Tlak",
+   "keep_czech": false
+  },
+  "j-ea0322447a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Poločas přeměny",
+   "ctx": "…,\"Tp|\":{\"disp\":\"<i>T</i><sub>½</sub>\",\"name\":⟦\"⟧,\"canon\":\"s\",\"units\":[\"s\",\"min\",\"hod\",\"d…",
+   "n": 1,
+   "sk": "Polčas premeny",
+   "keep_czech": false
+  },
+  "j-56b24f326c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Čas",
+   "ctx": "…\"den\",\"rok\"]},\"t|\":{\"disp\":\"<i>t</i>\",\"name\":⟦\"⟧,\"canon\":\"s\",\"units\":[\"s\",\"min\",\"hod\",\"d…",
+   "n": 1,
+   "sk": "Čas",
+   "keep_czech": false
+  },
+  "j-6b585b00f0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Přeměnová konstanta",
+   "ctx": "…\"den\",\"rok\"]},\"λ|\":{\"disp\":\"<i>λ</i>\",\"name\":⟦\"⟧,\"canon\":\"one/s\",\"units\":[\"one/s\"]},\"A|\"…",
+   "n": 1,
+   "sk": "Premenová konštanta",
+   "keep_czech": false
+  },
+  "j-6e09d29968": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Aktivita zářiče",
+   "ctx": "…s\":[\"one/s\"]},\"A|\":{\"disp\":\"<i>A</i>\",\"name\":⟦\"⟧,\"canon\":\"Bq\",\"units\":[\"Bq\",\"GBq\"]},\"c|1…",
+   "n": 1,
+   "sk": "Aktivita žiariča",
+   "keep_czech": false
+  },
+  "j-2078609aab": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výtěžek reakce",
+   "ctx": "…l\",\"kg/mol\"]},\"η|\":{\"disp\":\"<i>η</i>\",\"name\":⟦\"⟧,\"canon\":\"one\",\"units\":[\"one\",\"pct\"]},\"m…",
+   "n": 1,
+   "sk": "Výťažok reakcie",
+   "keep_czech": false
+  },
+  "j-d9f9cf64df": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vodíkový exponent",
+   "ctx": "…s\":[\"mol\",\"mmol\"]},\"pH|\":{\"disp\":\"pH\",\"name\":⟦\"⟧,\"canon\":\"one\",\"units\":[\"one\"]},\"Ka|\":{\"…",
+   "n": 1,
+   "sk": "Vodíkový exponent",
+   "keep_czech": false
+  },
+  "j-fa8185a66e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Konstanta acidity",
+   "ctx": "…,\"Ka|\":{\"disp\":\"<i>K</i><sub>a</sub>\",\"name\":⟦\"⟧,\"canon\":\"one\",\"units\":[\"one\"]},\"ΔHf|CH₄…",
+   "n": 1,
+   "sk": "Konštanta acidity",
+   "keep_czech": false
+  },
+  "j-577505e31b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Slučovací enthalpie",
+   "ctx": "…\"Δ<i>H</i><sub>f</sub><sub>CH₄</sub>\",\"name\":⟦\"⟧,\"canon\":\"kJ/mol\",\"units\":[\"kJ/mol\",\"J/m…",
+   "n": 3,
+   "sk": "Zlučovacia entalpia",
+   "keep_czech": false
+  },
+  "j-dfd464527f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Reakční enthalpie",
+   "ctx": "…ΔHr|\":{\"disp\":\"Δ<i>H</i><sub>r</sub>\",\"name\":⟦\"⟧,\"canon\":\"kJ/mol\",\"units\":[\"kJ/mol\",\"J/m…",
+   "n": 2,
+   "sk": "Reakčná entalpia",
+   "keep_czech": false
+  },
+  "j-24e956d6e0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součet slučovacích enthalpií produktů",
+   "ctx": "…|\":{\"disp\":\"Δ<i>H</i><sub>prod</sub>\",\"name\":⟦\"⟧,\"canon\":\"kJ/mol\",\"units\":[\"kJ/mol\",\"J/m…",
+   "n": 1,
+   "sk": "Súčet zlučovacích entalpií produktov",
+   "keep_czech": false
+  },
+  "j-5fed4f2dc5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Δ<i>H</i><sub>výc</sub>",
+   "ctx": "…\",\"units\":[\"kJ/mol\",\"J/mol\"]},\"ΔHv|\":{\"disp\":⟦\"⟧,\"name\":\"Součet slučovacích enthalpií vý…",
+   "n": 1,
+   "sk": "Δ<i>H</i><sub>vých</sub>",
+   "keep_czech": false
+  },
+  "j-884e73d308": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součet slučovacích enthalpií výchozích látek",
+   "ctx": "…v|\":{\"disp\":\"Δ<i>H</i><sub>výc</sub>\",\"name\":⟦\"⟧,\"canon\":\"kJ/mol\",\"units\":[\"kJ/mol\",\"J/m…",
+   "n": 1,
+   "sk": "Súčet zlučovacích entalpií východiskových látok",
+   "keep_czech": false
+  },
+  "j-ee793ea0c7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Reakční entropie",
+   "ctx": "…\",\"J/mol\"]},\"ΔS|\":{\"disp\":\"Δ<i>S</i>\",\"name\":⟦\"⟧,\"canon\":\"kJ/K*mol\",\"units\":[\"J/K*mol\",\"…",
+   "n": 1,
+   "sk": "Reakčná entropia",
+   "keep_czech": false
+  },
+  "j-f36f0738d7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Gibbsova energie",
+   "ctx": "…\",\"J/mol\"]},\"ΔG|\":{\"disp\":\"Δ<i>G</i>\",\"name\":⟦\"⟧,\"canon\":\"kJ/mol\",\"units\":[\"kJ/mol\",\"J/m…",
+   "n": 1,
+   "sk": "Gibbsova energia",
+   "keep_czech": false
+  },
+  "j-268df468ab": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Teplota zvratu",
+   "ctx": "…,\"Tz|\":{\"disp\":\"<i>T</i><sub>z</sub>\",\"name\":⟦\"⟧,\"canon\":\"K\",\"units\":[\"K\",\"degC\"]},\"m|Zn…",
+   "n": 2,
+   "sk": "Teplota zvratu",
+   "keep_czech": false
+  },
+  "j-7cdf638b26": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<i>V</i><sub>HCl</sub>",
+   "ctx": "…l/dm3\",\"mmol/dm3\",\"mol/m3\"]},\"V|HCl\":{\"disp\":⟦\"⟧,\"name\":\"Objem\",\"canon\":\"dm3\",\"units\":[\"…",
+   "n": 1,
+   "sk": "<i>V</i><sub>HCl</sub>",
+   "keep_czech": false
+  },
+  "j-2dd7792ebc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<i>V</i><sub>H₂</sub>",
+   "ctx": "…:[\"dm3\",\"cm3\",\"m3\",\"L\",\"mL\"]},\"V|H₂\":{\"disp\":⟦\"⟧,\"name\":\"Objem\",\"canon\":\"dm3\",\"units\":[\"…",
+   "n": 1,
+   "sk": "<i>V</i><sub>H₂</sub>",
+   "keep_czech": false
+  },
+  "j-f345015be7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Koncentrace oxoniových kationtů",
+   "ctx": "…\"cH|\":{\"disp\":\"<i>c</i><sub>H⁺</sub>\",\"name\":⟦\"⟧,\"canon\":\"mol/dm3\",\"units\":[\"mol/dm3\",\"m…",
+   "n": 1,
+   "sk": "Koncentrácia oxóniových katiónov",
+   "keep_czech": false
+  },
+  "j-a583622039": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součin rozpustnosti",
+   "ctx": "…\"Ksp|\":{\"disp\":\"<i>K</i><sub>s</sub>\",\"name\":⟦\"⟧,\"canon\":\"mol2/dm6\",\"units\":[\"mol2/dm6\"]…",
+   "n": 1,
+   "sk": "Súčin rozpustnosti",
+   "keep_czech": false
+  },
+  "j-14ea59901b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnostní koncentrace",
+   "ctx": "…[\"mol2/dm6\"]},\"γ|\":{\"disp\":\"<i>γ</i>\",\"name\":⟦\"⟧,\"canon\":\"g/dm3\",\"units\":[\"g/dm3\",\"mg/dm…",
+   "n": 1,
+   "sk": "Hmotnostná koncentrácia",
+   "keep_czech": false
+  },
+  "j-5f32214663": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozpustnost",
+   "ctx": "…3\",\"mg/dm3\"]},\"s|\":{\"disp\":\"<i>s</i>\",\"name\":⟦\"⟧,\"canon\":\"mol/dm3\",\"units\":[\"mol/dm3\",\"m…",
+   "n": 1,
+   "sk": "Rozpustnosť",
+   "keep_czech": false
+  },
+  "j-2dc1a2d768": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Standardní elektrodový potenciál",
+   "ctx": "…,\"mol/m3\"]},\"E0|\":{\"disp\":\"<i>E</i>°\",\"name\":⟦\"⟧,\"canon\":\"V\",\"units\":[\"V\"]},\"z|\":{\"disp\"…",
+   "n": 1,
+   "sk": "Štandardný elektródový potenciál",
+   "keep_czech": false
+  },
+  "j-f317e76876": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Počet vyměněných elektronů",
+   "ctx": "…units\":[\"V\"]},\"z|\":{\"disp\":\"<i>z</i>\",\"name\":⟦\"⟧,\"canon\":\"one\",\"units\":[\"one\"]},\"E|\":{\"d…",
+   "n": 1,
+   "sk": "Počet vymenených elektrónov",
+   "keep_czech": false
+  },
+  "j-48f1124416": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Elektrodový potenciál",
+   "ctx": "…its\":[\"one\"]},\"E|\":{\"disp\":\"<i>E</i>\",\"name\":⟦\"⟧,\"canon\":\"V\",\"units\":[\"V\"]},\"Qel|\":{\"dis…",
+   "n": 1,
+   "sk": "Elektródový potenciál",
+   "keep_czech": false
+  },
+  "j-478aaf3cae": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Elektrický náboj",
+   "ctx": "…its\":[\"V\"]},\"Qel|\":{\"disp\":\"<i>Q</i>\",\"name\":⟦\"⟧,\"canon\":\"C\",\"units\":[\"C\"]},\"I|\":{\"disp\"…",
+   "n": 1,
+   "sk": "Elektrický náboj",
+   "keep_czech": false
+  },
+  "j-e4fb52c6de": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Elektrický proud",
+   "ctx": "…units\":[\"C\"]},\"I|\":{\"disp\":\"<i>I</i>\",\"name\":⟦\"⟧,\"canon\":\"A\",\"units\":[\"A\"]}},\"consts\":{\"…",
+   "n": 1,
+   "sk": "Elektrický prúd",
+   "keep_czech": false
+  },
+  "j-101141aa90": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Molární plynová konstanta",
+   "ctx": "…\"<i>R</i>\",\"v\":8.314,\"unit\":\"J/K*mol\",\"name\":⟦\"⟧,\"note\":\"8,314 J·K⁻¹·mol⁻¹ = 8,314 kPa·d…",
+   "n": 1,
+   "sk": "Molárna plynová konštanta",
+   "keep_czech": false
+  },
+  "j-5318776d52": {
+   "kind": "js",
+   "q": "\"",
+   "src": "8,314 J·K⁻¹·mol⁻¹ = 8,314 kPa·dm³·K⁻¹·mol⁻¹",
+   "ctx": "…l\",\"name\":\"Molární plynová konstanta\",\"note\":⟦\"⟧},\"N_A\":{\"disp\":\"<i>N</i><sub>A</sub>\",\"…",
+   "n": 1,
+   "sk": "8,314 J·K⁻¹·mol⁻¹ = 8,314 kPa·dm³·K⁻¹·mol⁻¹",
+   "keep_czech": false
+  },
+  "j-1ce550d27b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Avogadrova konstanta",
+   "ctx": "…/sub>\",\"v\":6.022e+23,\"unit\":\"one/mol\",\"name\":⟦\"⟧,\"note\":\"6,022·10²³ mol⁻¹\"},\"F\":{\"disp\":…",
+   "n": 1,
+   "sk": "Avogadrova konštanta",
+   "keep_czech": false
+  },
+  "j-c58e83a256": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Faradayova konstanta",
+   "ctx": "…\"<i>F</i>\",\"v\":96485.0,\"unit\":\"C/mol\",\"name\":⟦\"⟧,\"note\":\"96 485 C·mol⁻¹\"}},\"warm\":\"n-mgo…",
+   "n": 1,
+   "sk": "Faradayova konštanta",
+   "keep_czech": false
+  },
+  "j-7534b2b492": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Látkové množství z hmotnosti",
+   "ctx": "…\"level\":1,\"topic\":\"Látkové množství\",\"title\":⟦\"⟧,\"short\":\"V kelímku je navážka 12,0 g ox…",
+   "n": 1,
+   "sk": "Látkové množstvo z hmotnosti",
+   "keep_czech": false
+  },
+  "j-557370a858": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V kelímku je navážka 12,0 g oxidu hořečnatého MgO.",
+   "ctx": "…itle\":\"Látkové množství z hmotnosti\",\"short\":⟦\"⟧,\"task\":\"V kelímku je navážka 12,0 g oxi…",
+   "n": 1,
+   "sk": "V kelímku je navážka 12,0 g oxidu horečnatého MgO.",
+   "keep_czech": false
+  },
+  "j-06a54dca08": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V kelímku je navážka 12,0 g oxidu hořečnatého <span class=\\\"chem\\\">MgO</span>. Kolik molů oxidu hořečnatého to je? Molární hmotnost <span class=\\\"chem\\\">MgO</span> je 40,30 g·mol⁻¹.",
+   "ctx": "…avážka 12,0 g oxidu hořečnatého MgO.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|\",\"val\":12.0,\"unit\":\"…",
+   "n": 1,
+   "sk": "V kelímku je navážka 12,0 g oxidu horečnatého <span class=\\\"chem\\\">MgO</span>. Koľko mólov oxidu horečnatého to je? Molárna hmotnosť <span class=\\\"chem\\\">MgO</span> je 40,30 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-70fadae8ff": {
+   "kind": "js",
+   "q": "\"",
+   "src": "z periodické tabulky",
+   "ctx": "…,{\"sk\":\"M|\",\"val\":40.3,\"unit\":\"g/mol\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"n|\",\"unit\":\"mol\"},\"shel…",
+   "n": 2,
+   "sk": "z periodickej tabuľky",
+   "keep_czech": false
+  },
+  "j-4286188c16": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Správný vztah, ale pro koncentraci. V téhle úloze žádný objem roztoku nemáte.",
+   "ctx": "…\",\"s\":\"V\"}},\"src\":\"c = n/V\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"m|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Správny vzťah, ale pre koncentráciu. V tejto úlohe žiadny objem roztoku nemáte.",
+   "keep_czech": false
+  },
+  "j-f3ca8d7409": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hustota ani objem v zadání nejsou.",
+   "ctx": "…\",\"s\":\"V\"}},\"src\":\"m = ρ*V\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Hustota ani objem v zadaní nie sú.",
+   "keep_czech": false
+  },
+  "j-7430af0f7f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kdybyste hmotnost molární hmotností násobil, vyjdou vám gramy na druhou dělené molem. Látkové množství říká, kolikrát se hmotnost jednoho molu vejde do navážky — tedy dělíme.",
+   "ctx": "…\",\"s\":\"M\"}},\"src\":\"n = m*M\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Keby ste hmotnosť molárnou hmotnosťou násobili, vyjdú vám gramy na druhú delené mólom. Látkové množstvo hovorí, koľkokrát sa hmotnosť jedného mólu zmestí do navážky — teda delíme.",
+   "keep_czech": false
+  },
+  "j-afd22ff637": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Také správný vztah, jenže vychází z počtu částic. Ten v zadání není.",
+   "ctx": "…\":\"N_A\"}},\"src\":\"n = N/N_A\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\"],\"sets\":[[\"f0\"]],\"optIds…",
+   "n": 1,
+   "sk": "Tiež správny vzťah, lenže vychádza z počtu častíc. Ten v zadaní nie je.",
+   "keep_czech": false
+  },
+  "j-9252cfcae7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hledáte látkové množství a v zadání máte hmotnost a molární hmotnost. Existuje jediný vztah, který tyhle tři veličiny spojuje.",
+   "ctx": "…\":{\"val\":0.298,\"tol\":0.003,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Tenhle jediný krok je základ …",
+   "n": 1,
+   "sk": "Hľadáte látkové množstvo a v zadaní máte hmotnosť a molárnu hmotnosť. Existuje jediný vzťah, ktorý tieto tri veličiny spája.",
+   "keep_czech": false
+  },
+  "j-a0b5014477": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tenhle jediný krok je základ skoro každého chemického výpočtu. Kdykoli v zadání vidíte gramy a v otázce moly (nebo naopak), sáhnete po <span class=\\\"nowrap\\\"><i>n</i> = <i>m</i>/<i>M</i></span>.",
+   "ctx": "… který tyhle tři veličiny spojuje.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Tento jediný krok je základ takmer každého chemického výpočtu. Kedykoľvek v zadaní vidíte gramy a v otázke móly (alebo naopak), siahnete po <span class=\\\"nowrap\\\"><i>n</i> = <i>m</i>/<i>M</i></span>.",
+   "keep_czech": false
+  },
+  "j-735b752c4b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "výchozí vztah",
+   "ctx": "…:{\"k\":\"sym\",\"s\":\"M\"}},\"src\":\"n = m/M\",\"note\":⟦\"⟧}]}},{\"id\":\"c-nacl\",\"level\":1,\"topic\":\"R…",
+   "n": 20,
+   "sk": "východiskový vzťah",
+   "keep_czech": false
+  },
+  "j-5916d9a7cf": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Roztoky",
+   "ctx": "… vztah\"}]}},{\"id\":\"c-nacl\",\"level\":1,\"topic\":⟦\"⟧,\"title\":\"Koncentrace roztoku chloridu s…",
+   "n": 3,
+   "sk": "Roztoky",
+   "keep_czech": false
+  },
+  "j-3739304681": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Koncentrace roztoku chloridu sodného",
+   "ctx": "…\"c-nacl\",\"level\":1,\"topic\":\"Roztoky\",\"title\":⟦\"⟧,\"short\":\"V odměrné baňce je rozpuštěno …",
+   "n": 1,
+   "sk": "Koncentrácia roztoku chloridu sodného",
+   "keep_czech": false
+  },
+  "j-24ebdd48db": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V odměrné baňce je rozpuštěno 5,85 g chloridu sodného a roztok je doplněn vodou na 250 cm³.",
+   "ctx": "…oncentrace roztoku chloridu sodného\",\"short\":⟦\"⟧,\"task\":\"V odměrné baňce je rozpuštěno 5…",
+   "n": 1,
+   "sk": "V odmernej banke je rozpustených 5,85 g chloridu sodného a roztok je doplnený vodou na 250 cm³.",
+   "keep_czech": false
+  },
+  "j-51ece27a4b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V odměrné baňce je rozpuštěno 5,85 g chloridu sodného a roztok je doplněn vodou na 250 cm³. Jaká je látková koncentrace tohoto roztoku? M(<span class=\\\"chem\\\">NaCl</span>) = 58,44 g·mol⁻¹.",
+   "ctx": "… roztok je doplněn vodou na 250 cm³.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|\",\"val\":5.85,\"unit\":\"…",
+   "n": 1,
+   "sk": "V odmernej banke je rozpustených 5,85 g chloridu sodného a roztok je doplnený vodou na 250 cm³. Aká je látková koncentrácia tohto roztoku? M(<span class=\\\"chem\\\">NaCl</span>) = 58,44 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-0dfc0554bd": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Koncentrace je látkové množství <b>na jednotku objemu</b>. Kdyby se násobilo, vycházelo by, že zředěním roztoku koncentrace roste.",
+   "ctx": "…\",\"s\":\"V\"}},\"src\":\"c = n*V\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Koncentrácia je látkové množstvo <b>na jednotku objemu</b>. Keby sa násobilo, vychádzalo by, že zriedením roztoku koncentrácia rastie.",
+   "keep_czech": false
+  },
+  "j-a3280d8478": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Násobení místo dělení — jednotky by nesouhlasily.",
+   "ctx": "…\",\"s\":\"M\"}},\"src\":\"n = m*M\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"c|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Násobenie namiesto delenia — jednotky by nesúhlasili.",
+   "keep_czech": false
+  },
+  "j-43821ef90d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tohle je hmotnostní koncentrace <i>γ</i> v g·dm⁻³. Vyjde vám číslo, které vypadá věrohodně, ale má jinou jednotku.",
+   "ctx": "…\",\"s\":\"V\"}},\"src\":\"c = m/V\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"w|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Toto je hmotnostná koncentrácia <i>γ</i> v g·dm⁻³. Vyjde vám číslo, ktoré vyzerá vierohodne, ale má inú jednotku.",
+   "keep_czech": false
+  },
+  "j-5a1e71fd31": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnostní zlomek. Hmotnost celého roztoku ale neznáte.",
+   "ctx": "…t\"}},\"src\":\"w = m/m_{rozt}\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\"],\"sets\":[[\"f0\",\"f1\"…",
+   "n": 1,
+   "sk": "Hmotnostný zlomok. Hmotnosť celého roztoku ale nepoznáte.",
+   "keep_czech": false
+  },
+  "j-2942572147": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Koncentrace potřebuje látkové množství a objem. Objem máte, látkové množství musíte teprve z hmotnosti vyrobit.",
+   "ctx": "…er\":{\"val\":0.4,\"tol\":0.005,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Klasická past téhle úlohy nej…",
+   "n": 1,
+   "sk": "Koncentrácia potrebuje látkové množstvo a objem. Objem máte, látkové množstvo musíte ešte z hmotnosti vyrobiť.",
+   "keep_czech": false
+  },
+  "j-0008abff04": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Klasická past téhle úlohy nejsou vzorce, ale jednotky: 250 cm³ je 0,250 dm³, ne 250 dm³. Kdo si objem nepřevede, vyjde mu koncentrace tisíckrát menší.",
+   "ctx": "…musíte teprve z hmotnosti vyrobit.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Klasická pasca tejto úlohy nie sú vzorce, ale jednotky: 250 cm³ je 0,250 dm³, nie 250 dm³. Kto si objem neprevedie, vyjde mu koncentrácia tisíckrát menšia.",
+   "keep_czech": false
+  },
+  "j-a049322b82": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za n",
+   "ctx": "…:{\"k\":\"sym\",\"s\":\"V\"}},\"src\":\"n = m/M\",\"note\":⟦\"⟧}]}},{\"id\":\"w-glukoza\",\"level\":1,\"topic\"…",
+   "n": 6,
+   "sk": "dosadenie za n",
+   "keep_czech": false
+  },
+  "j-b16928ad4b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnostní zlomek glukózy",
+   "ctx": "…glukoza\",\"level\":1,\"topic\":\"Roztoky\",\"title\":⟦\"⟧,\"short\":\"V 175 g vody rozpustíme 25,0 g…",
+   "n": 1,
+   "sk": "Hmotnostný zlomok glukózy",
+   "keep_czech": false
+  },
+  "j-aa43ef8aec": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V 175 g vody rozpustíme 25,0 g glukózy.",
+   "ctx": "…,\"title\":\"Hmotnostní zlomek glukózy\",\"short\":⟦\"⟧,\"task\":\"V 175 g vody rozpustíme 25,0 g …",
+   "n": 1,
+   "sk": "V 175 g vody rozpustíme 25,0 g glukózy.",
+   "keep_czech": false
+  },
+  "j-08175ab6b6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V 175 g vody rozpustíme 25,0 g glukózy. Jaký je hmotnostní zlomek glukózy ve vzniklém roztoku? Odpověď vyjádřete v procentech.",
+   "ctx": "…75 g vody rozpustíme 25,0 g glukózy.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|gl\",\"val\":25.0,\"unit\"…",
+   "n": 1,
+   "sk": "V 175 g vody rozpustíme 25,0 g glukózy. Aký je hmotnostný zlomok glukózy vo vzniknutom roztoku? Odpoveď vyjadrite v percentách.",
+   "keep_czech": false
+  },
+  "j-3a6c9a3971": {
+   "kind": "js",
+   "q": "\"",
+   "src": "rozpuštěná látka",
+   "ctx": "…\":[{\"sk\":\"m|gl\",\"val\":25.0,\"unit\":\"g\",\"note\":⟦\"⟧},{\"sk\":\"m|H₂O\",\"val\":175.0,\"unit\":\"g\",\"…",
+   "n": 1,
+   "sk": "rozpustená látka",
+   "keep_czech": false
+  },
+  "j-a8751a9cc9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "rozpouštědlo",
+   "ctx": "…,{\"sk\":\"m|H₂O\",\"val\":175.0,\"unit\":\"g\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"w|gl\",\"unit\":\"pct\"},\"sh…",
+   "n": 1,
+   "sk": "rozpúšťadlo",
+   "keep_czech": false
+  },
+  "j-62b0155853": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Objem roztoku v zadání není.",
+   "ctx": "…\",\"s\":\"V\"}},\"src\":\"c = n/V\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Objem roztoku v zadaní nie je.",
+   "keep_czech": false
+  },
+  "j-f29b3c8dbe": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Molární hmotnost glukózy v zadání není a k hmotnostnímu zlomku ji nepotřebujete.",
+   "ctx": "…:\"M\"}},\"src\":\"n = m_{gl}/M\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"w|gl\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Molárna hmotnosť glukózy v zadaní nie je a na hmotnostný zlomok ju nepotrebujete.",
+   "keep_czech": false
+  },
+  "j-973dd82580": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve jmenovateli musí být hmotnost <b>celého roztoku</b>, tedy i s rozpuštěnou látkou. Tenhle vztah dává poměr látka : rozpouštědlo, ne zlomek.",
+   "ctx": "…\":\"w_{gl} = m_{gl}/m_{H₂O}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"m|rozt\",\"lhs\":{\"k\":\"…",
+   "n": 1,
+   "sk": "V menovateli musí byť hmotnosť <b>celého roztoku</b>, teda aj s rozpustenou látkou. Tento vzťah dáva pomer látka : rozpúšťadlo, nie zlomok.",
+   "keep_czech": false
+  },
+  "j-7dd52c3704": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozpuštěním se hmotnost roztoku zvětšuje, ne zmenšuje.",
+   "ctx": "…_{rozt} = m_{H₂O} - m_{gl}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"m|rozt\",\"lhs\":{\"k\":\"…",
+   "n": 1,
+   "sk": "Rozpustením sa hmotnosť roztoku zväčšuje, nie zmenšuje.",
+   "keep_czech": false
+  },
+  "j-6f942d091e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnostní zlomek je podíl hmotnosti látky a hmotnosti roztoku. Hmotnost roztoku v zadání přímo není — musíte ji nejdřív sestavit.",
+   "ctx": "…wer\":{\"val\":12.5,\"tol\":0.2,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Hmotnost roztoku = rozpuštěná…",
+   "n": 1,
+   "sk": "Hmotnostný zlomok je podiel hmotnosti látky a hmotnosti roztoku. Hmotnosť roztoku v zadaní priamo nie je — musíte ju najprv zostaviť.",
+   "keep_czech": false
+  },
+  "j-425c0e0943": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnost roztoku = rozpuštěná látka + rozpouštědlo. Zní to samozřejmě, ale právě na tomhle se u písemek ztrácí nejvíc bodů.",
+   "ctx": "…není — musíte ji nejdřív sestavit.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Hmotnosť roztoku = rozpustená látka + rozpúšťadlo. Znie to samozrejme, ale práve na tomto sa pri písomkách stráca najviac bodov.",
+   "keep_czech": false
+  },
+  "j-b3d9021867": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za mrozt",
+   "ctx": "…},\"src\":\"m_{rozt} = m_{gl} + m_{H₂O}\",\"note\":⟦\"⟧}]}},{\"id\":\"q-voda\",\"level\":1,\"topic\":\"T…",
+   "n": 1,
+   "sk": "dosadenie za mrozt",
+   "keep_czech": false
+  },
+  "j-0950a10490": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Termochemie",
+   "ctx": "… mrozt\"}]}},{\"id\":\"q-voda\",\"level\":1,\"topic\":⟦\"⟧,\"title\":\"Teplo potřebné k ohřátí vody\",…",
+   "n": 2,
+   "sk": "Termochémia",
+   "keep_czech": false
+  },
+  "j-8963c3912b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Teplo potřebné k ohřátí vody",
+   "ctx": "…oda\",\"level\":1,\"topic\":\"Termochemie\",\"title\":⟦\"⟧,\"short\":\"Kolik tepla musíme dodat, abyc…",
+   "n": 1,
+   "sk": "Teplo potrebné na ohriatie vody",
+   "keep_czech": false
+  },
+  "j-ac0e83fc1e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kolik tepla musíme dodat, abychom 250 g vody ohřáli z 20,0 °C na 80,0 °C?",
+   "ctx": "…itle\":\"Teplo potřebné k ohřátí vody\",\"short\":⟦\"⟧,\"task\":\"Kolik tepla musíme dodat, abych…",
+   "n": 1,
+   "sk": "Koľko tepla musíme dodať, aby sme 250 g vody ohriali z 20,0 °C na 80,0 °C?",
+   "keep_czech": false
+  },
+  "j-73085cdcdb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kolik tepla musíme dodat, abychom 250 g vody ohřáli z 20,0 °C na 80,0 °C? Měrná tepelná kapacita vody je 4,18 J·g⁻¹·K⁻¹. Odpověď uveďte v kJ.",
+   "ctx": "… g vody ohřáli z 20,0 °C na 80,0 °C?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|H₂O\",\"val\":250.0,\"uni…",
+   "n": 1,
+   "sk": "Koľko tepla musíme dodať, aby sme 250 g vody ohriali z 20,0 °C na 80,0 °C? Merná tepelná kapacita vody je 4,18 J·g⁻¹·K⁻¹. Odpoveď uveďte v kJ.",
+   "keep_czech": false
+  },
+  "j-64ea7974e8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "měrná tepelná kapacita",
+   "ctx": "…sk\":\"c|H₂O\",\"val\":4.18,\"unit\":\"J/g*K\",\"note\":⟦\"⟧},{\"sk\":\"T|1\",\"val\":20.0,\"unit\":\"degC\",\"…",
+   "n": 1,
+   "sk": "merná tepelná kapacita",
+   "keep_czech": false
+  },
+  "j-a37382531e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "počáteční teplota",
+   "ctx": "…,{\"sk\":\"T|1\",\"val\":20.0,\"unit\":\"degC\",\"note\":⟦\"⟧},{\"sk\":\"T|2\",\"val\":80.0,\"unit\":\"degC\",\"…",
+   "n": 1,
+   "sk": "počiatočná teplota",
+   "keep_czech": false
+  },
+  "j-66728e3f6d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "konečná teplota",
+   "ctx": "…,{\"sk\":\"T|2\",\"val\":80.0,\"unit\":\"degC\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"Q|\",\"unit\":\"kJ\"},\"shelf…",
+   "n": 1,
+   "sk": "konečná teplota",
+   "keep_czech": false
+  },
+  "j-4ce3deaa6a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Změna se počítá vždy konec minus začátek. Takhle vám vyjde záporné teplo, tedy že se voda ochlazuje.",
+   "ctx": "…2\"}},\"src\":\"ΔT = T_1 - T_2\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"Q|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Zmena sa počíta vždy koniec mínus začiatok. Takto vám vyjde záporné teplo, teda že sa voda ochladzuje.",
+   "keep_czech": false
+  },
+  "j-fd85ad58ea": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Bez hmotnosti by na množství vody nezáleželo — hrnec i kapka by potřebovaly stejné teplo.",
+   "ctx": "…T\"}},\"src\":\"Q = c_{H₂O}*ΔT\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"Q|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Bez hmotnosti by na množstve vody nezáležalo — hrniec aj kvapka by potrebovali rovnaké teplo.",
+   "keep_czech": false
+  },
+  "j-5a08fa5d39": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Látkové množství vody tu k ničemu není, měrná tepelná kapacita je vztažená na gram.",
+   "ctx": "…\"M\"}},\"src\":\"n = m_{H₂O}/M\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"Q|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Látkové množstvo vody tu na nič nie je, merná tepelná kapacita je vzťahovaná na gram.",
+   "keep_czech": false
+  },
+  "j-cde0ec3e3f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Do vzorce patří <b>rozdíl</b> teplot, ne konečná teplota. Jinak by na tom, odkud ohříváte, nezáleželo.",
+   "ctx": "…\":\"Q = m_{H₂O}*c_{H₂O}*T_2\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\"],\"sets\":[[\"f0\",\"f1\"…",
+   "n": 1,
+   "sk": "Do vzorca patrí <b>rozdiel</b> teplôt, nie konečná teplota. Inak by na tom, odkiaľ ohrievate, nezáležalo.",
+   "keep_czech": false
+  },
+  "j-83a41a3b99": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kalorimetrická rovnice potřebuje hmotnost, měrnou tepelnou kapacitu a změnu teploty. Změna teploty v zadání přímo není.",
+   "ctx": "…wer\":{\"val\":62.7,\"tol\":0.5,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Rozdíl teplot vyjde stejně ve…",
+   "n": 1,
+   "sk": "Kalorimetrická rovnica potrebuje hmotnosť, mernú tepelnú kapacitu a zmenu teploty. Zmena teploty v zadaní priamo nie je.",
+   "keep_czech": false
+  },
+  "j-cb1354eccb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozdíl teplot vyjde stejně ve stupních Celsia i v kelvinech — dílek je stejně velký. Absolutní teplotu ale nikdy v Celsiích nedosazujte.",
+   "ctx": "…Změna teploty v zadání přímo není.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Rozdiel teplôt vyjde rovnako v stupňoch Celzia aj v kelvinoch — dielik je rovnako veľký. Absolútnu teplotu ale nikdy v Celziách nedosadzujte.",
+   "keep_czech": false
+  },
+  "j-306f8db9aa": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za ΔT",
+   "ctx": "…\",\"sub\":\"1\"}}},\"src\":\"ΔT = T_2 - T_1\",\"note\":⟦\"⟧}]}},{\"id\":\"v-kyslik\",\"level\":1,\"topic\":…",
+   "n": 1,
+   "sk": "dosadenie za ΔT",
+   "keep_czech": false
+  },
+  "j-a6070accc8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Plyny",
+   "ctx": "…a ΔT\"}]}},{\"id\":\"v-kyslik\",\"level\":1,\"topic\":⟦\"⟧,\"title\":\"Objem plynu za normálních podm…",
+   "n": 2,
+   "sk": "Plyny",
+   "keep_czech": false
+  },
+  "j-813fce09b8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Objem plynu za normálních podmínek",
+   "ctx": "…\"v-kyslik\",\"level\":1,\"topic\":\"Plyny\",\"title\":⟦\"⟧,\"short\":\"Jaký objem zaujme 8,00 g kyslí…",
+   "n": 1,
+   "sk": "Objem plynu za normálnych podmienok",
+   "keep_czech": false
+  },
+  "j-809427c478": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaký objem zaujme 8,00 g kyslíku O₂ za normálních podmínek (0 °C, 101,325 kPa)?",
+   "ctx": "…\"Objem plynu za normálních podmínek\",\"short\":⟦\"⟧,\"task\":\"Jaký objem zaujme 8,00 g kyslík…",
+   "n": 1,
+   "sk": "Aký objem zaujme 8,00 g kyslíka O₂ za normálnych podmienok (0 °C, 101,325 kPa)?",
+   "keep_czech": false
+  },
+  "j-35fe8ad168": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaký objem zaujme 8,00 g kyslíku <span class=\\\"chem\\\">O₂</span> za normálních podmínek (0 °C, 101,325 kPa)? Molární objem za normálních podmínek je 22,414 dm³·mol⁻¹, M(<span class=\\\"chem\\\">O₂</span>) = 32,00 g·mol⁻¹.",
+   "ctx": "…álních podmínek (0 °C, 101,325 kPa)?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|\",\"val\":8.0,\"unit\":\"g…",
+   "n": 1,
+   "sk": "Aký objem zaujme 8,00 g kyslíka <span class=\\\"chem\\\">O₂</span> za normálnych podmienok (0 °C, 101,325 kPa)? Molárny objem za normálnych podmienok je 22,414 dm³·mol⁻¹, M(<span class=\\\"chem\\\">O₂</span>) = 32,00 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-5bed54ff13": {
+   "kind": "js",
+   "q": "\"",
+   "src": "molární objem za normálních podmínek",
+   "ctx": "…\":\"Vm|\",\"val\":22.414,\"unit\":\"dm3/mol\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"V|\",\"unit\":\"dm3\"},\"shel…",
+   "n": 1,
+   "sk": "molárny objem za normálnych podmienok",
+   "keep_czech": false
+  },
+  "j-935b3bc2e7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V = n*Vm",
+   "ctx": "…ym\",\"s\":\"n\"},\"b\":{\"k\":\"sym\",\"s\":\"Vm\"}},\"src\":⟦\"⟧,\"ok\":true,\"why\":\"\"},{\"id\":\"f4\",\"key\":\"V…",
+   "n": 3,
+   "sk": "V = n*Vm",
+   "keep_czech": false
+  },
+  "j-428a3a2119": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Správný vztah, jen zbytečný: molární objem za daných podmínek už máte v zadání.",
+   "ctx": "…\"p\"}},\"src\":\"V = (n*R*T)/p\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"c|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Správny vzťah, len zbytočný: molárny objem za daných podmienok už máte v zadaní.",
+   "keep_czech": false
+  },
+  "j-a1c8eff5a6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Koncentraci tu nikdo nechce.",
+   "ctx": "…\",\"s\":\"V\"}},\"src\":\"c = n/V\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"V|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Koncentráciu tu nikto nechce.",
+   "keep_czech": false
+  },
+  "j-7f3332fc0c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V = m*Vm",
+   "ctx": "…ym\",\"s\":\"m\"},\"b\":{\"k\":\"sym\",\"s\":\"Vm\"}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Molární objem je vzta…",
+   "n": 1,
+   "sk": "V = m*Vm",
+   "keep_czech": false
+  },
+  "j-21882a49aa": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Molární objem je vztažený na mol, ne na gram.",
+   "ctx": "…\"s\":\"Vm\"}},\"src\":\"V = m*Vm\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Molárny objem je vzťahovaný na mol, nie na gram.",
+   "keep_czech": false
+  },
+  "j-001d174436": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V = n/Vm",
+   "ctx": "…ym\",\"s\":\"n\"},\"b\":{\"k\":\"sym\",\"s\":\"Vm\"}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Jednotky by daly mol²…",
+   "n": 1,
+   "sk": "V = n/Vm",
+   "keep_czech": false
+  },
+  "j-f0f2ce7904": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jednotky by daly mol²·dm⁻³. Molární objem říká, kolik dm³ připadá na jeden mol — počtem molů se tedy násobí.",
+   "ctx": "…\"s\":\"Vm\"}},\"src\":\"V = n/Vm\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\"],\"sets\":[[\"f0\",\"f1\"…",
+   "n": 1,
+   "sk": "Jednotky by dali mol²·dm⁻³. Molárny objem hovorí, koľko dm³ pripadá na jeden mól — počtom mólov sa teda násobí.",
+   "keep_czech": false
+  },
+  "j-40ff43841b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Osm gramů kyslíku je čtvrtina molu. Nejdřív z hmotnosti udělejte moly, pak z molů objem.",
+   "ctx": "…wer\":{\"val\":5.6,\"tol\":0.05,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Číslo 22,4 dm³·mol⁻¹ platí je…",
+   "n": 1,
+   "sk": "Osem gramov kyslíka je štvrtina mólu. Najprv z hmotnosti urobte móly, potom z mólov objem.",
+   "keep_czech": false
+  },
+  "j-5021f1d3e9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Číslo 22,4 dm³·mol⁻¹ platí jen za normálních podmínek (0 °C). Při 25 °C je molární objem 24,79 dm³·mol⁻¹ — na to se u přijímaček rádo chytá.",
+   "ctx": "…i udělejte moly, pak z molů objem.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Číslo 22,4 dm³·mol⁻¹ platí len za normálnych podmienok (0 °C). Pri 25 °C je molárny objem 24,79 dm³·mol⁻¹ — na to sa pri prijímačkách rado chytá.",
+   "keep_czech": false
+  },
+  "j-c56b7e2c72": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaderná chemie",
+   "ctx": "… n\"}]}},{\"id\":\"rozpad-jod\",\"level\":1,\"topic\":⟦\"⟧,\"title\":\"Kolik radionuklidu zbude\",\"sho…",
+   "n": 2,
+   "sk": "Jadrová chémia",
+   "keep_czech": false
+  },
+  "j-f7d8c6fd3e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kolik radionuklidu zbude",
+   "ctx": "…\",\"level\":1,\"topic\":\"Jaderná chemie\",\"title\":⟦\"⟧,\"short\":\"Vzorek obsahuje 40,0 mg jodu 1…",
+   "n": 1,
+   "sk": "Koľko rádionuklidu zostane",
+   "keep_czech": false
+  },
+  "j-7ca90c1d49": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vzorek obsahuje 40,0 mg jodu 13153I, jehož poločas přeměny je 8,02 dne.",
+   "ctx": "…\",\"title\":\"Kolik radionuklidu zbude\",\"short\":⟦\"⟧,\"task\":\"Vzorek obsahuje 40,0 mg jodu <s…",
+   "n": 1,
+   "sk": "Vzorka obsahuje 40,0 mg jódu 13153I, ktorého polčas premeny je 8,02 dňa.",
+   "keep_czech": false
+  },
+  "j-571a10f58b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vzorek obsahuje 40,0 mg jodu <span class=\\\"chem\\\"><sup>131</sup><sub>53</sub>I</span>, jehož poločas přeměny je 8,02 dne. Kolik miligramů jodu ve vzorku zbude po 24,06 dnech?",
+   "ctx": "…, jehož poločas přeměny je 8,02 dne.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|0\",\"val\":40.0,\"unit\":…",
+   "n": 1,
+   "sk": "Vzorka obsahuje 40,0 mg jódu <span class=\\\"chem\\\"><sup>131</sup><sub>53</sub>I</span>, ktorého polčas premeny je 8,02 dňa. Koľko miligramov jódu vo vzorke zostane po 24,06 dňoch?",
+   "keep_czech": false
+  },
+  "j-cbbaf576a0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "počáteční hmotnost",
+   "ctx": "…\":[{\"sk\":\"m|0\",\"val\":40.0,\"unit\":\"mg\",\"note\":⟦\"⟧},{\"sk\":\"Tp|\",\"val\":8.02,\"unit\":\"den\",\"n…",
+   "n": 1,
+   "sk": "počiatočná hmotnosť",
+   "keep_czech": false
+  },
+  "j-5bf0b191be": {
+   "kind": "js",
+   "q": "\"",
+   "src": "poločas přeměny",
+   "ctx": "…},{\"sk\":\"Tp|\",\"val\":8.02,\"unit\":\"den\",\"note\":⟦\"⟧},{\"sk\":\"t|\",\"val\":24.06,\"unit\":\"den\",\"n…",
+   "n": 2,
+   "sk": "polčas premeny",
+   "keep_czech": false
+  },
+  "j-ec4981dc19": {
+   "kind": "js",
+   "q": "\"",
+   "src": "doba přeměny",
+   "ctx": "…},{\"sk\":\"t|\",\"val\":24.06,\"unit\":\"den\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"m|\",\"unit\":\"mg\"},\"shelf…",
+   "n": 1,
+   "sk": "čas premeny",
+   "keep_czech": false
+  },
+  "j-a9b033e3d8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Správný vztah pro přeměnovou konstantu, tady ho ale nepotřebujete.",
+   "ctx": "…\"Tp\"}},\"src\":\"λ = ln(2)/Tp\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"m|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Správny vzťah pre premenovú konštantu, tu ho ale nepotrebujete.",
+   "keep_czech": false
+  },
+  "j-76e4ac4d4a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Takhle by radioaktivního materiálu přibývalo. Po každém poločase zbude polovina, takže se dělí.",
+   "ctx": "…}},\"src\":\"m = m_0*2^(t/Tp)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"m|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Takto by rádioaktívneho materiálu pribúdalo. Po každom polčase zostane polovica, takže sa delí.",
+   "keep_czech": false
+  },
+  "j-868937ff05": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Odečítání času od hmotnosti nedává smysl ani rozměrově.",
+   "ctx": "…\"}}},\"src\":\"m = m_0 - t/Tp\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f2\",\"key\":\"m|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Odčítanie času od hmotnosti nedáva zmysel ani rozmerovo.",
+   "keep_czech": false
+  },
+  "j-7b9bfa9fbb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pokles není přímo úměrný počtu poločasů, ale exponenciální. Po deseti poločasech nezbude desetina, ale tisícina.",
+   "ctx": "…}},\"src\":\"m = m_0/(2*t/Tp)\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\"],\"sets\":[[\"f0\"]],\"optIds…",
+   "n": 1,
+   "sk": "Pokles nie je priamo úmerný počtu polčasov, ale exponenciálny. Po desiatich polčasoch nezostane desatina, ale tisícina.",
+   "keep_czech": false
+  },
+  "j-772446f2f9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Spočítejte si, kolik poločasů se do 24,06 dne vejde. Po každém z nich zbude polovina.",
+   "ctx": "…wer\":{\"val\":5.0,\"tol\":0.05,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"24,06 dne jsou přesně tři pol…",
+   "n": 1,
+   "sk": "Spočítajte si, koľko polčasov sa do 24,06 dňa zmestí. Po každom z nich zostane polovica.",
+   "keep_czech": false
+  },
+  "j-d72335b0ad": {
+   "kind": "js",
+   "q": "\"",
+   "src": "24,06 dne jsou přesně tři poločasy, takže zbude polovina z poloviny z poloviny, tedy osmina. Kdo tohle vidí, spočítá úlohu z hlavy.",
+   "ctx": "…. Po každém z nich zbude polovina.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "24,06 dňa sú presne tri polčasy, takže zostane polovica z polovice z polovice, teda osmina. Kto toto vidí, spočíta úlohu spamäti.",
+   "keep_czech": false
+  },
+  "j-5e1cd89f9a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ředění zásobního roztoku",
+   "ctx": "…eni-hcl\",\"level\":2,\"topic\":\"Roztoky\",\"title\":⟦\"⟧,\"short\":\"Máte zásobní roztok kyseliny c…",
+   "n": 1,
+   "sk": "Riedenie zásobného roztoku",
+   "keep_czech": false
+  },
+  "j-543247427d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Máte zásobní roztok kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³.",
+   "ctx": "…\",\"title\":\"Ředění zásobního roztoku\",\"short\":⟦\"⟧,\"task\":\"Máte zásobní roztok kyseliny ch…",
+   "n": 1,
+   "sk": "Máte zásobný roztok kyseliny chlorovodíkovej s koncentráciou 2,00 mol·dm⁻³.",
+   "keep_czech": false
+  },
+  "j-c9f5375269": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Máte zásobní roztok kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³. Kolik cm³ tohoto roztoku odměříte, chcete-li připravit 250 cm³ roztoku o koncentraci 0,150 mol·dm⁻³?",
+   "ctx": "…odíkové o koncentraci 2,00 mol·dm⁻³.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"c|1\",\"val\":2.0,\"unit\":\"…",
+   "n": 1,
+   "sk": "Máte zásobný roztok kyseliny chlorovodíkovej s koncentráciou 2,00 mol·dm⁻³. Koľko cm³ tohto roztoku odmeriate, ak chcete pripraviť 250 cm³ roztoku s koncentráciou 0,150 mol·dm⁻³?",
+   "keep_czech": false
+  },
+  "j-e1f88e3116": {
+   "kind": "js",
+   "q": "\"",
+   "src": "zásobní roztok",
+   "ctx": "…\"sk\":\"c|1\",\"val\":2.0,\"unit\":\"mol/dm3\",\"note\":⟦\"⟧},{\"sk\":\"c|2\",\"val\":0.15,\"unit\":\"mol/dm3…",
+   "n": 1,
+   "sk": "zásobný roztok",
+   "keep_czech": false
+  },
+  "j-c1b5a488d8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "připravovaný roztok",
+   "ctx": "…sk\":\"c|2\",\"val\":0.15,\"unit\":\"mol/dm3\",\"note\":⟦\"⟧},{\"sk\":\"V|2\",\"val\":250,\"unit\":\"cm3\",\"no…",
+   "n": 1,
+   "sk": "pripravovaný roztok",
+   "keep_czech": false
+  },
+  "j-014e2de333": {
+   "kind": "js",
+   "q": "\"",
+   "src": "objem připravovaného roztoku",
+   "ctx": "…\"},{\"sk\":\"V|2\",\"val\":250,\"unit\":\"cm3\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"V|1\",\"unit\":\"cm3\"},\"she…",
+   "n": 1,
+   "sk": "objem pripravovaného roztoku",
+   "keep_czech": false
+  },
+  "j-11ebb23b7f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Převrácený zlomek. Vyjde vám dm⁻⁶ na mol².",
+   "ctx": "…\"1\"}},\"src\":\"V_1 = c_1/n_1\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"n|1\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Prevrátený zlomok. Vyjde vám dm⁻⁶ na mol².",
+   "keep_czech": false
+  },
+  "j-69991a22d9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ředěním se látkové množství nemění, jen se rozprostře do většího objemu.",
+   "ctx": "…\":\"2\"}},\"src\":\"n_1 = 2*n_2\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f2\",\"key\":\"n|2\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Riedením sa látkové množstvo nemení, len sa rozprestrie do väčšieho objemu.",
+   "keep_czech": false
+  },
+  "j-2ba5ad6098": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Látkové množství je koncentrace <b>krát</b> objem. Jinak by v litru roztoku bylo méně látky než v mililitru.",
+   "ctx": "…\"2\"}},\"src\":\"n_2 = c_2/V_2\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f6\",\"key\":\"V|1\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Látkové množstvo je koncentrácia <b>krát</b> objem. Inak by v litri roztoku bolo menej látky než v mililitri.",
+   "keep_czech": false
+  },
+  "j-e06693a0ce": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Poměr koncentrací je obrácený. Ze silnějšího roztoku se odebírá <b>méně</b>, ne více.",
+   "ctx": "…\"src\":\"V_1 = (c_1*V_2)/c_2\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\",\"f2\"],\"sets\":[[\"f0\"…",
+   "n": 1,
+   "sk": "Pomer koncentrácií je obrátený. Zo silnejšieho roztoku sa odoberá <b>menej</b>, nie viac.",
+   "keep_czech": false
+  },
+  "j-1b9e1ff93e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Při ředění se přidává jen rozpouštědlo. Látkové množství kyseliny v odměřeném podílu a ve výsledném roztoku je tedy stejné.",
+   "ctx": "…wer\":{\"val\":18.8,\"tol\":0.3,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Celé ředění stojí na jediné m…",
+   "n": 1,
+   "sk": "Pri riedení sa pridáva len rozpúšťadlo. Látkové množstvo kyseliny v odmeranom podiele a vo výslednom roztoku je teda rovnaké.",
+   "keep_czech": false
+  },
+  "j-69d04db6c3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Celé ředění stojí na jediné myšlence: <i>n</i>₁ = <i>n</i>₂. Odtud plyne i školní vzorec <i>c</i>₁·<i>V</i>₁ = <i>c</i>₂·<i>V</i>₂ — ale je lepší rozumět mu, než si ho pamatovat.",
+   "ctx": "… výsledném roztoku je tedy stejné.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Celé riedenie stojí na jedinej myšlienke: <i>n</i>₁ = <i>n</i>₂. Odtiaľ vyplýva aj školský vzorec <i>c</i>₁·<i>V</i>₁ = <i>c</i>₂·<i>V</i>₂ — ale je lepšie mu rozumieť, než si ho pamätať.",
+   "keep_czech": false
+  },
+  "j-fc74c60c6a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za n1",
+   "ctx": "…\"s\":\"c\",\"sub\":\"1\"}},\"src\":\"n_1 = n_2\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k\":\"op…",
+   "n": 1,
+   "sk": "dosadenie za n1",
+   "keep_czech": false
+  },
+  "j-871cd0efcc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za n2",
+   "ctx": "…\"c\",\"sub\":\"1\"}},\"src\":\"n_2 = c_2*V_2\",\"note\":⟦\"⟧}]}},{\"id\":\"pv-co2\",\"level\":2,\"topic\":\"P…",
+   "n": 1,
+   "sk": "dosadenie za n2",
+   "keep_czech": false
+  },
+  "j-7e377c1b6d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Objem plynu ze stavové rovnice",
+   "ctx": "…\":\"pv-co2\",\"level\":2,\"topic\":\"Plyny\",\"title\":⟦\"⟧,\"short\":\"Jaký objem zaujme 5,00 g oxidu…",
+   "n": 1,
+   "sk": "Objem plynu zo stavovej rovnice",
+   "keep_czech": false
+  },
+  "j-3054cfc3dd": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaký objem zaujme 5,00 g oxidu uhličitého CO₂ při teplotě 25 °C a tlaku 101,3 kPa?",
+   "ctx": "…le\":\"Objem plynu ze stavové rovnice\",\"short\":⟦\"⟧,\"task\":\"Jaký objem zaujme 5,00 g oxidu …",
+   "n": 1,
+   "sk": "Aký objem zaujme 5,00 g oxidu uhličitého CO₂ pri teplote 25 °C a tlaku 101,3 kPa?",
+   "keep_czech": false
+  },
+  "j-5b3cceb7f1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaký objem zaujme 5,00 g oxidu uhličitého <span class=\\\"chem\\\">CO₂</span> při teplotě 25 °C a tlaku 101,3 kPa? M(<span class=\\\"chem\\\">CO₂</span>) = 44,01 g·mol⁻¹, R = 8,314 J·K⁻¹·mol⁻¹.",
+   "ctx": "…při teplotě 25 °C a tlaku 101,3 kPa?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|\",\"val\":5.0,\"unit\":\"g…",
+   "n": 1,
+   "sk": "Aký objem zaujme 5,00 g oxidu uhličitého <span class=\\\"chem\\\">CO₂</span> pri teplote 25 °C a tlaku 101,3 kPa? M(<span class=\\\"chem\\\">CO₂</span>) = 44,01 g·mol⁻¹, R = 8,314 J·K⁻¹·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-95a3226507": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Molární objem v zadání není a za daných podmínek ho neznáte.",
+   "ctx": "…\"s\":\"Vm\"}},\"src\":\"V = n*Vm\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Molárny objem v zadaní nie je a za daných podmienok ho nepoznáte.",
+   "keep_czech": false
+  },
+  "j-a9b52c50c1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Násobení místo dělení.",
+   "ctx": "…\",\"s\":\"M\"}},\"src\":\"n = m*M\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"V|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 3,
+   "sk": "Násobenie namiesto delenia.",
+   "keep_czech": false
+  },
+  "j-090cf3b0cb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Objem a tlak jsou nepřímo úměrné — v součinu je nepřímá úměra ztracená.",
+   "ctx": "…\":\"p\"}},\"src\":\"V = n*R*T*p\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f2\",\"key\":\"V|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Objem a tlak sú nepriamo úmerné — v súčine je nepriama úmera stratená.",
+   "keep_czech": false
+  },
+  "j-97500e1bc6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tlak a látkové množství jsou prohozené. Při vyšším tlaku by plyn zabíral větší objem, což je naopak.",
+   "ctx": "…\"n\"}},\"src\":\"V = (p*R*T)/n\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Tlak a látkové množstvo sú prehodené. Pri vyššom tlaku by plyn zaberal väčší objem, čo je naopak.",
+   "keep_czech": false
+  },
+  "j-617c5a034b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Stavová rovnice se počítá s látkovým množstvím, ne s hmotností. Nejdřív tedy gramy na moly.",
+   "ctx": "…er\":{\"val\":2.78,\"tol\":0.04,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Pozor na teplotu: do stavové …",
+   "n": 1,
+   "sk": "Stavová rovnica sa počíta s látkovým množstvom, nie s hmotnosťou. Najprv teda gramy na móly.",
+   "keep_czech": false
+  },
+  "j-de3dbcc62d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pozor na teplotu: do stavové rovnice patří kelviny, tedy 298,15 K. S dosazenými 25 se spletete dvanáctkrát. A pokud dosadíte tlak v kPa a objem počítáte v dm³, R má hodnotu 8,314 — jednotky si sednou samy.",
+   "ctx": "…ností. Nejdřív tedy gramy na moly.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Pozor na teplotu: do stavovej rovnice patria kelviny, teda 298,15 K. S dosadenými 25 sa pomýlite dvanásťkrát. A ak dosadíte tlak v kPa a objem počítate v dm³, R má hodnotu 8,314 — jednotky si sadnú samy.",
+   "keep_czech": false
+  },
+  "j-9037cbe334": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Stechiometrie",
+   "ctx": "… n\"}]}},{\"id\":\"stech-agcl\",\"level\":2,\"topic\":⟦\"⟧,\"title\":\"Kolik sraženiny vznikne\",\"shor…",
+   "n": 2,
+   "sk": "Stechiometria",
+   "keep_czech": false
+  },
+  "j-b94c9ea03c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kolik sraženiny vznikne",
+   "ctx": "…l\",\"level\":2,\"topic\":\"Stechiometrie\",\"title\":⟦\"⟧,\"short\":\"K roztoku obsahujícímu 8,50 g …",
+   "n": 1,
+   "sk": "Koľko zrazeniny vznikne",
+   "keep_czech": false
+  },
+  "j-ee5ba282c7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "K roztoku obsahujícímu 8,50 g dusičnanu stříbrného přidáme nadbytek chloridu sodného.",
+   "ctx": "…e\",\"title\":\"Kolik sraženiny vznikne\",\"short\":⟦\"⟧,\"task\":\"K roztoku obsahujícímu 8,50 g d…",
+   "n": 1,
+   "sk": "K roztoku obsahujúcemu 8,50 g dusičnanu strieborného pridáme nadbytok chloridu sodného.",
+   "keep_czech": false
+  },
+  "j-87cd8db442": {
+   "kind": "js",
+   "q": "\"",
+   "src": "K roztoku obsahujícímu 8,50 g dusičnanu stříbrného přidáme nadbytek chloridu sodného. Kolik gramů chloridu stříbrného se vysráží? Reakce: <span class=\\\"chem\\\">AgNO₃ + NaCl → AgCl + NaNO₃</span>. M(<span class=\\\"chem\\\">AgNO₃</span>) = 169,87 g·mol⁻¹, M(<span class=\\\"chem\\\">AgCl</span>) = 143,32 g·mol⁻¹.",
+   "ctx": "…o přidáme nadbytek chloridu sodného.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|AgNO₃\",\"val\":8.5,\"uni…",
+   "n": 1,
+   "sk": "K roztoku obsahujúcemu 8,50 g dusičnanu strieborného pridáme nadbytok chloridu sodného. Koľko gramov chloridu strieborného sa vyzráža? Reakcia: <span class=\\\"chem\\\">AgNO₃ + NaCl → AgCl + NaNO₃</span>. M(<span class=\\\"chem\\\">AgNO₃</span>) = 169,87 g·mol⁻¹, M(<span class=\\\"chem\\\">AgCl</span>) = 143,32 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-02eae484a3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hmotnosti se v reakci nepřenášejí, přenášejí se látková množství. Molární hmotnosti obou solí jsou navíc různé.",
+   "ctx": "…src\":\"m_{AgCl} = m_{AgNO₃}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f6\",\"key\":\"n|AgNO₃\",\"lhs\":{\"k\":…",
+   "n": 1,
+   "sk": "Hmotnosti sa v reakcii neprenášajú, prenášajú sa látkové množstvá. Molárne hmotnosti oboch solí sú navyše rôzne.",
+   "keep_czech": false
+  },
+  "j-80f76846aa": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Stechiometrické koeficienty jsou 1 : 1. Dvojka by patřila do rovnice typu <span class=\\\"chem\\\">2 AgNO₃ + …</span>.",
+   "ctx": "…c\":\"n_{AgCl} = 2*n_{AgNO₃}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"m|AgCl\",\"lhs\":{\"k\":\"…",
+   "n": 1,
+   "sk": "Stechiometrické koeficienty sú 1 : 1. Dvojka by patrila do rovnice typu <span class=\\\"chem\\\">2 AgNO₃ + …</span>.",
+   "keep_czech": false
+  },
+  "j-a42ca4b9bc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dělení místo násobení — vyšlo by mol² na gram.",
+   "ctx": "…{AgCl} = n_{AgCl}/M_{AgCl}\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\",\"f2\"],\"sets\":[[\"f0\"…",
+   "n": 1,
+   "sk": "Delenie namiesto násobenia — vyšlo by mol² na gram.",
+   "keep_czech": false
+  },
+  "j-bfb1018480": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Stechiometrie se vždycky odehrává v molech. Cesta je: gramy → moly → moly druhé látky → gramy.",
+   "ctx": "…er\":{\"val\":7.17,\"tol\":0.06,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Nadbytek chloridu sodného v z…",
+   "n": 1,
+   "sk": "Stechiometria sa vždy odohráva v móloch. Cesta je: gramy → móly → móly druhej látky → gramy.",
+   "keep_czech": false
+  },
+  "j-5f751a5c6c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nadbytek chloridu sodného v zadání znamená jediné: o tom, kolik sraženiny vznikne, rozhoduje výhradně dusičnan stříbrný.",
+   "ctx": "…→ moly → moly druhé látky → gramy.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Nadbytok chloridu sodného v zadaní znamená jediné: o tom, koľko zrazeniny vznikne, rozhoduje výhradne dusičnan strieborný.",
+   "keep_czech": false
+  },
+  "j-ec29a523f2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za nAgCl",
+   "ctx": "…\"AgCl\"}},\"src\":\"n_{AgCl} = n_{AgNO₃}\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k\":\"op…",
+   "n": 1,
+   "sk": "dosadenie za nAgCl",
+   "keep_czech": false
+  },
+  "j-9ff54eb6fd": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za nAgNO₃",
+   "ctx": "…rc\":\"n_{AgNO₃} = m_{AgNO₃}/M_{AgNO₃}\",\"note\":⟦\"⟧}]}},{\"id\":\"vytezek-cao\",\"level\":2,\"topi…",
+   "n": 1,
+   "sk": "dosadenie za nAgNO₃",
+   "keep_czech": false
+  },
+  "j-7f81d9abda": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výtěžek",
+   "ctx": "…₃\"}]}},{\"id\":\"vytezek-cao\",\"level\":2,\"topic\":⟦\"⟧,\"title\":\"Skutečný výtěžek žíhání vápenc…",
+   "n": 1,
+   "sk": "Výťažok",
+   "keep_czech": false
+  },
+  "j-0897ee8c4d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Skutečný výtěžek žíhání vápence",
+   "ctx": "…zek-cao\",\"level\":2,\"topic\":\"Výtěžek\",\"title\":⟦\"⟧,\"short\":\"Žíháním 20,0 g uhličitanu vápe…",
+   "n": 1,
+   "sk": "Skutočný výťažok žíhania vápenca",
+   "keep_czech": false
+  },
+  "j-3cc265fb8f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Žíháním 20,0 g uhličitanu vápenatého (CaCO₃ → CaO + CO₂) jsme získali oxid vápenatý s výtěžkem 85,0 %.",
+   "ctx": "…e\":\"Skutečný výtěžek žíhání vápence\",\"short\":⟦\"⟧,\"task\":\"Žíháním 20,0 g uhličitanu vápen…",
+   "n": 1,
+   "sk": "Žíhaním 20,0 g uhličitanu vápenatého (CaCO₃ → CaO + CO₂) sme získali oxid vápenatý s výťažkom 85,0 %.",
+   "keep_czech": false
+  },
+  "j-c2d66ff210": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Žíháním 20,0 g uhličitanu vápenatého (<span class=\\\"chem\\\">CaCO₃ → CaO + CO₂</span>) jsme získali oxid vápenatý s výtěžkem 85,0 %. Kolik gramů <span class=\\\"chem\\\">CaO</span> jsme skutečně získali? M(<span class=\\\"chem\\\">CaCO₃</span>) = 100,09 g·mol⁻¹, M(<span class=\\\"chem\\\">CaO</span>) = 56,08 g·mol⁻¹.",
+   "ctx": "…ali oxid vápenatý s výtěžkem 85,0 %.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|CaCO₃\",\"val\":20.0,\"un…",
+   "n": 1,
+   "sk": "Žíhaním 20,0 g uhličitanu vápenatého (<span class=\\\"chem\\\">CaCO₃ → CaO + CO₂</span>) sme získali oxid vápenatý s výťažkom 85,0 %. Koľko gramov <span class=\\\"chem\\\">CaO</span> sme skutočne získali? M(<span class=\\\"chem\\\">CaCO₃</span>) = 100,09 g·mol⁻¹, M(<span class=\\\"chem\\\">CaO</span>) = 56,08 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-acb414ecb2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "výtěžek reakce",
+   "ctx": "…\"},{\"sk\":\"η|\",\"val\":85.0,\"unit\":\"pct\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"m|skut\",\"unit\":\"g\"},\"sh…",
+   "n": 1,
+   "sk": "výťažok reakcie",
+   "keep_czech": false
+  },
+  "j-6fc60a3593": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Z jednoho uhličitanu vzniká jeden oxid, poměr je 1 : 1.",
+   "ctx": "…rc\":\"n_{CaO} = 2*n_{CaCO₃}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f7\",\"key\":\"m|skut\",\"lhs\":{\"k\":\"…",
+   "n": 1,
+   "sk": "Z jedného uhličitanu vzniká jeden oxid, pomer je 1 : 1.",
+   "keep_czech": false
+  },
+  "j-3797840b3d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výtěžek se vztahuje k teoretickému množství <b>produktu</b>, ne k navážce výchozí látky.",
+   "ctx": "…c\":\"m_{skut} = η*m_{CaCO₃}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"m|skut\",\"lhs\":{\"k\":\"…",
+   "n": 1,
+   "sk": "Výťažok sa vzťahuje na teoretické množstvo <b>produktu</b>, nie na navážku východiskovej látky.",
+   "keep_czech": false
+  },
+  "j-a8bf005b30": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dělením výtěžkem menším než jedna by skutečný zisk vyšel <b>větší</b> než teoretický. To nejde.",
+   "ctx": "…rc\":\"m_{skut} = m_{teor}/η\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"n|CaCO₃\",\"lhs\":{\"k\":…",
+   "n": 1,
+   "sk": "Delením výťažkom menším ako jedna by skutočný zisk vyšiel <b>väčší</b> ako teoretický. To nejde.",
+   "keep_czech": false
+  },
+  "j-a003338dc4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dělení místo násobení.",
+   "ctx": "…m_{teor} = n_{CaO}/M_{CaO}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"m|teor\",\"lhs\":{\"k\":\"…",
+   "n": 2,
+   "sk": "Delenie namiesto násobenia.",
+   "keep_czech": false
+  },
+  "j-4601130355": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nejdřív spočítejte, kolik oxidu by vzniklo, kdyby reakce proběhla beze zbytku. Teprve to číslo se násobí výtěžkem.",
+   "ctx": "…er\":{\"val\":9.53,\"tol\":0.08,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Výtěžek je bezrozměrný poměr.…",
+   "n": 1,
+   "sk": "Najprv spočítajte, koľko oxidu by vzniklo, keby reakcia prebehla bezo zvyšku. Až potom sa to číslo násobí výťažkom.",
+   "keep_czech": false
+  },
+  "j-d77b4f9d68": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výtěžek je bezrozměrný poměr. Osmdesát pět procent znamená v dosazení 0,850 — kdo dosadí 85, splete se stokrát.",
+   "ctx": "…eprve to číslo se násobí výtěžkem.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Výťažok je bezrozmerný pomer. Osemdesiat päť percent znamená pri dosadení 0,850 — kto dosadí 85, pomýli sa stokrát.",
+   "keep_czech": false
+  },
+  "j-453b811af1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za mteor",
+   "ctx": "…}},\"src\":\"m_{teor} = n_{CaO}*M_{CaO}\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "dosadenie za mteor",
+   "keep_czech": false
+  },
+  "j-9f56cd26ab": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za nCaO",
+   "ctx": "…:\"CaO\"}}},\"src\":\"n_{CaO} = n_{CaCO₃}\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "dosadenie za nCaO",
+   "keep_czech": false
+  },
+  "j-b3670a1eb9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za nCaCO₃",
+   "ctx": "…rc\":\"n_{CaCO₃} = m_{CaCO₃}/M_{CaCO₃}\",\"note\":⟦\"⟧}]}},{\"id\":\"ph-hcl\",\"level\":2,\"topic\":\"p…",
+   "n": 1,
+   "sk": "dosadenie za nCaCO₃",
+   "keep_czech": false
+  },
+  "j-09470e43de": {
+   "kind": "js",
+   "q": "\"",
+   "src": "pH roztoku silné kyseliny",
+   "ctx": "…\"id\":\"ph-hcl\",\"level\":2,\"topic\":\"pH\",\"title\":⟦\"⟧,\"short\":\"V 500 cm³ roztoku je rozpuštěn…",
+   "n": 1,
+   "sk": "pH roztoku silnej kyseliny",
+   "keep_czech": false
+  },
+  "j-523cb8e596": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V 500 cm³ roztoku je rozpuštěno 0,365 g chlorovodíku.",
+   "ctx": "…,\"title\":\"pH roztoku silné kyseliny\",\"short\":⟦\"⟧,\"task\":\"V 500 cm³ roztoku je rozpuštěno…",
+   "n": 1,
+   "sk": "V 500 cm³ roztoku je rozpustených 0,365 g chlorovodíka.",
+   "keep_czech": false
+  },
+  "j-50b53d0d10": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V 500 cm³ roztoku je rozpuštěno 0,365 g chlorovodíku. Jaké je pH tohoto roztoku? <span class=\\\"chem\\\">HCl</span> je silná kyselina, disociuje tedy úplně. M(<span class=\\\"chem\\\">HCl</span>) = 36,46 g·mol⁻¹.",
+   "ctx": "… je rozpuštěno 0,365 g chlorovodíku.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|\",\"val\":0.365,\"unit\":…",
+   "n": 1,
+   "sk": "V 500 cm³ roztoku je rozpustených 0,365 g chlorovodíka. Aké je pH tohto roztoku? <span class=\\\"chem\\\">HCl</span> je silná kyselina, disociuje teda úplne. M(<span class=\\\"chem\\\">HCl</span>) = 36,46 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-2a2886db40": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Bez minusu by kyselý roztok měl záporné pH. Logaritmus čísla menšího než jedna je záporný, minus ho otočí.",
+   "ctx": "…\":\"c\"}},\"src\":\"pH = log(c)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f6\",\"key\":\"pH|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Bez mínusu by kyslý roztok mal záporné pH. Logaritmus čísla menšieho ako jeden je záporný, mínus ho otočí.",
+   "keep_czech": false
+  },
+  "j-5a5a09b873": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V definici pH je dekadický logaritmus, ne přirozený. Lišily by se 2,303krát.",
+   "ctx": "…:\"c\"}}},\"src\":\"pH = -ln(c)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"c|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "V definícii pH je dekadický logaritmus, nie prirodzený. Líšili by sa 2,303-krát.",
+   "keep_czech": false
+  },
+  "j-ba07080275": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tohle je nakřivo přepsaný vztah pro pOH. Ze zadané koncentrace kyseliny se počítá pH přímo.",
+   "ctx": "…}},\"src\":\"pH = 14 - log(c)\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\",\"f2\"],\"sets\":[[\"f0\"…",
+   "n": 1,
+   "sk": "Toto je nakrivo prepísaný vzťah pre pOH. Zo zadanej koncentrácie kyseliny sa počíta pH priamo.",
+   "keep_czech": false
+  },
+  "j-bf00182495": {
+   "kind": "js",
+   "q": "\"",
+   "src": "pH se počítá z koncentrace oxoniových kationtů. U silné jednosytné kyseliny je stejná jako koncentrace kyseliny.",
+   "ctx": "…wer\":{\"val\":1.7,\"tol\":0.03,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Desetina molu chlorovodíku v …",
+   "n": 1,
+   "sk": "pH sa počíta z koncentrácie oxóniových katiónov. Pri silnej jednosýtnej kyseline je rovnaká ako koncentrácia kyseliny.",
+   "keep_czech": false
+  },
+  "j-260e4e7068": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Desetina molu chlorovodíku v půl litru dává koncentraci 0,0200 mol·dm⁻³. pH kolem 1,7 je tedy zcela v pořádku — silné kyseliny mají pH pod 2.",
+   "ctx": "… stejná jako koncentrace kyseliny.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"neg\",\"a\":{\"k\":\"fn\",…",
+   "n": 1,
+   "sk": "Desatina mólu chlorovodíka v pol litri dáva koncentráciu 0,0200 mol·dm⁻³. pH okolo 1,7 je teda úplne v poriadku — silné kyseliny majú pH pod 2.",
+   "keep_czech": false
+  },
+  "j-da7627b49d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za c",
+   "ctx": "…\"k\":\"sym\",\"s\":\"V\"}}}},\"src\":\"c = n/V\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"neg\",\"a\":{\"k\":\"fn\",\"f\":\"…",
+   "n": 1,
+   "sk": "dosadenie za c",
+   "keep_czech": false
+  },
+  "j-f05351405e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Reakční enthalpie ze slučovacích",
+   "ctx": "…ch4\",\"level\":2,\"topic\":\"Termochemie\",\"title\":⟦\"⟧,\"short\":\"Vypočítejte reakční enthalpii …",
+   "n": 1,
+   "sk": "Reakčná entalpia zo zlučovacích",
+   "keep_czech": false
+  },
+  "j-0884866723": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vypočítejte reakční enthalpii spalování methanu CH₄ + 2 O₂ → CO₂ + 2 H₂O(l).",
+   "ctx": "…\":\"Reakční enthalpie ze slučovacích\",\"short\":⟦\"⟧,\"task\":\"Vypočítejte reakční enthalpii s…",
+   "n": 1,
+   "sk": "Vypočítajte reakčnú entalpiu spaľovania metánu CH₄ + 2 O₂ → CO₂ + 2 H₂O(l).",
+   "keep_czech": false
+  },
+  "j-c9fefcfff3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vypočítejte reakční enthalpii spalování methanu <span class=\\\"chem\\\">CH₄ + 2 O₂ → CO₂ + 2 H₂O(l)</span>. Slučovací enthalpie: Δ<i>H</i>°<sub>f</sub>(<span class=\\\"chem\\\">CH₄</span>) = −74,6 kJ·mol⁻¹, Δ<i>H</i>°<sub>f</sub>(<span class=\\\"chem\\\">CO₂</span>) = −393,5 kJ·mol⁻¹, Δ<i>H</i>°<sub>f</sub>(<span class=\\\"chem\\\">H₂O</span>, l) = −285,8 kJ·mol⁻¹. Slučovací enthalpie kyslíku je z definice nulová.",
+   "ctx": "…methanu CH₄ + 2 O₂ → CO₂ + 2 H₂O(l).\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"ΔHf|CH₄\",\"val\":-74.6,\"u…",
+   "n": 1,
+   "sk": "Vypočítajte reakčnú entalpiu spaľovania metánu <span class=\\\"chem\\\">CH₄ + 2 O₂ → CO₂ + 2 H₂O(l)</span>. Zlučovacie entalpie: Δ<i>H</i>°<sub>f</sub>(<span class=\\\"chem\\\">CH₄</span>) = −74,6 kJ·mol⁻¹, Δ<i>H</i>°<sub>f</sub>(<span class=\\\"chem\\\">CO₂</span>) = −393,5 kJ·mol⁻¹, Δ<i>H</i>°<sub>f</sub>(<span class=\\\"chem\\\">H₂O</span>, l) = −285,8 kJ·mol⁻¹. Zlučovacia entalpia kyslíka je z definície nulová.",
+   "keep_czech": false
+  },
+  "j-b683f80d2c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Obráceně. Hessův zákon zní produkty minus výchozí látky; takhle byste spalování methanu udělal endotermické.",
+   "ctx": "…\"}},\"src\":\"ΔHr = ΔHv - ΔHp\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f6\",\"key\":\"ΔHr|\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Obrátene. Hessov zákon znie produkty mínus východiskové látky; takto by ste spaľovanie metánu urobili endotermické.",
+   "keep_czech": false
+  },
+  "j-3dc2660e3c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součet místo rozdílu.",
+   "ctx": "…\"}},\"src\":\"ΔHr = ΔHp + ΔHv\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"ΔHr|\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Súčet namiesto rozdielu.",
+   "keep_czech": false
+  },
+  "j-39010134f5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vody vznikají dvě. Stechiometrickým koeficientem se slučovací enthalpie násobí.",
+   "ctx": "…Hp = ΔHf_{CO₂} + ΔHf_{H₂O}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"ΔHv|\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Vody vznikajú dve. Stechiometrickým koeficientom sa zlučovacia entalpia násobí.",
+   "keep_czech": false
+  },
+  "j-83da468a83": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Oxid uhličitý je produkt, ne výchozí látka.",
+   "ctx": "…Hv = ΔHf_{CH₄} + ΔHf_{CO₂}\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\",\"f2\"],\"sets\":[[\"f0\"…",
+   "n": 1,
+   "sk": "Oxid uhličitý je produkt, nie východisková látka.",
+   "keep_czech": false
+  },
+  "j-08836977ae": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hessův zákon: součet slučovacích enthalpií produktů minus součet slučovacích enthalpií výchozích látek, každá násobená svým koeficientem.",
+   "ctx": "…r\":{\"val\":-890.5,\"tol\":1.0,\"sig\":4},\"hints\":[⟦\"⟧],\"outro\":\"Minus 890 kJ·mol⁻¹ je tabulko…",
+   "n": 1,
+   "sk": "Hessov zákon: súčet zlučovacích entalpií produktov mínus súčet zlučovacích entalpií východiskových látok, každá násobená svojím koeficientom.",
+   "keep_czech": false
+  },
+  "j-705d9a3196": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Minus 890 kJ·mol⁻¹ je tabulková spalná enthalpie methanu — číslo, které stojí za zapamatování, protože se objevuje v úlohách o zemním plynu.",
+   "ctx": "… každá násobená svým koeficientem.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"-\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Mínus 890 kJ·mol⁻¹ je tabuľková spalná entalpia metánu — číslo, ktoré stojí za zapamätanie, pretože sa objavuje v úlohách o zemnom plyne.",
+   "keep_czech": false
+  },
+  "j-cb3bf6fa55": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za ΔHprod",
+   "ctx": "…\"src\":\"ΔHp = ΔHf_{CO₂} + 2*ΔHf_{H₂O}\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"-\",\"a\":{\"k\":\"op…",
+   "n": 1,
+   "sk": "dosadenie za ΔHprod",
+   "keep_czech": false
+  },
+  "j-0b645bdb39": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za ΔHvýc",
+   "ctx": "…\"sub\":\"CH₄\"}},\"src\":\"ΔHv = ΔHf_{CH₄}\",\"note\":⟦\"⟧}]}},{\"id\":\"gibbs-dg\",\"level\":2,\"topic\":…",
+   "n": 1,
+   "sk": "dosadenie za ΔHvých",
+   "keep_czech": false
+  },
+  "j-c121efc9d3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Termodynamika",
+   "ctx": "…Hvýc\"}]}},{\"id\":\"gibbs-dg\",\"level\":2,\"topic\":⟦\"⟧,\"title\":\"Gibbsova energie rozkladu vápe…",
+   "n": 2,
+   "sk": "Termodynamika",
+   "keep_czech": false
+  },
+  "j-19c24e540a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Gibbsova energie rozkladu vápence",
+   "ctx": "…g\",\"level\":2,\"topic\":\"Termodynamika\",\"title\":⟦\"⟧,\"short\":\"Rozklad vápence CaCO₃ → CaO + …",
+   "n": 1,
+   "sk": "Gibbsova energia rozkladu vápenca",
+   "keep_czech": false
+  },
+  "j-3153c49161": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozklad vápence CaCO₃ → CaO + CO₂ má ΔH° = +178,3 kJ·mol⁻¹ a ΔS° = +160,6 J·K⁻¹·mol⁻¹.",
+   "ctx": "…:\"Gibbsova energie rozkladu vápence\",\"short\":⟦\"⟧,\"task\":\"Rozklad vápence <span class=\\\"c…",
+   "n": 1,
+   "sk": "Rozklad vápenca CaCO₃ → CaO + CO₂ má ΔH° = +178,3 kJ·mol⁻¹ a ΔS° = +160,6 J·K⁻¹·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-8aa29b7d35": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozklad vápence <span class=\\\"chem\\\">CaCO₃ → CaO + CO₂</span> má Δ<i>H</i>° = +178,3 kJ·mol⁻¹ a Δ<i>S</i>° = +160,6 J·K⁻¹·mol⁻¹. Jaká je Gibbsova energie této reakce při 25 °C? Poběží reakce za těchto podmínek samovolně?",
+   "ctx": "…kJ·mol⁻¹ a ΔS° = +160,6 J·K⁻¹·mol⁻¹.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"ΔH|\",\"val\":178.3,\"unit\"…",
+   "n": 1,
+   "sk": "Rozklad vápenca <span class=\\\"chem\\\">CaCO₃ → CaO + CO₂</span> má Δ<i>H</i>° = +178,3 kJ·mol⁻¹ a Δ<i>S</i>° = +160,6 J·K⁻¹·mol⁻¹. Aká je Gibbsova energia tejto reakcie pri 25 °C? Pobeží reakcia za týchto podmienok samovoľne?",
+   "keep_czech": false
+  },
+  "j-1403df8bcc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Znaménko u entropického členu je záporné. Kdyby bylo plus, rostoucí neuspořádanost by reakci brzdila.",
+   "ctx": "…\"}}},\"src\":\"ΔG = ΔH + T*ΔS\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"ΔG|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Znamienko pri entropickom člene je záporné. Keby bolo plus, rastúca neusporiadanosť by reakciu brzdila.",
+   "keep_czech": false
+  },
+  "j-e1b97e43d1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Entropie se násobí teplotou, nedělí se jí. Jinak by rozměr nevyšel na kJ·mol⁻¹.",
+   "ctx": "…\"}}},\"src\":\"ΔG = ΔH - ΔS/T\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"Tz|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Entropia sa násobí teplotou, nedelí sa ňou. Inak by rozmer nevyšiel na kJ·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-f7aac29bdd": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Teplota zvratu — správný vztah, jenže na jinou otázku.",
+   "ctx": "…\":\"ΔS\"}},\"src\":\"Tz = ΔH/ΔS\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"ΔG|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Teplota zvratu — správny vzťah, len na inú otázku.",
+   "keep_czech": false
+  },
+  "j-fc6c6777e2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Celý výraz s obráceným znaménkem.",
+   "ctx": "…H\"}},\"src\":\"ΔG = T*ΔS - ΔH\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\"],\"sets\":[[\"f0\"]],\"optIds…",
+   "n": 1,
+   "sk": "Celý výraz s obráteným znamienkom.",
+   "keep_czech": false
+  },
+  "j-9de99e384e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dosazujete do jediného vztahu. Dejte ale pozor, v jakých jednotkách je entropie oproti enthalpii.",
+   "ctx": "…er\":{\"val\":130.4,\"tol\":1.0,\"sig\":4},\"hints\":[⟦\"⟧],\"outro\":\"Past téhle úlohy je v jednotk…",
+   "n": 1,
+   "sk": "Dosadzujete do jediného vzťahu. Dajte si ale pozor, v akých jednotkách je entropia oproti entalpii.",
+   "keep_czech": false
+  },
+  "j-467480a232": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Past téhle úlohy je v jednotkách: enthalpie v kilojoulech, entropie v joulech. Kladné Δ<i>G</i> znamená, že za pokojové teploty vápenec sám od sebe nerozloží nic.",
+   "ctx": "…kách je entropie oproti enthalpii.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"-\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Pasca tejto úlohy je v jednotkách: entalpia v kilojouloch, entropia v jouloch. Kladné Δ<i>G</i> znamená, že pri izbovej teplote sa vápenec sám od seba vôbec nerozloží.",
+   "keep_czech": false
+  },
+  "j-8cdd268b19": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Reaktant v nedostatku",
+   "ctx": "…t\",\"level\":3,\"topic\":\"Stechiometrie\",\"title\":⟦\"⟧,\"short\":\"K 5,00 g zinku přilijeme 30,0 …",
+   "n": 1,
+   "sk": "Reaktant v nedostatku",
+   "keep_czech": false
+  },
+  "j-e5a9d4660f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "K 5,00 g zinku přilijeme 30,0 cm³ kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³.",
+   "ctx": "…rie\",\"title\":\"Reaktant v nedostatku\",\"short\":⟦\"⟧,\"task\":\"K 5,00 g zinku přilijeme 30,0 c…",
+   "n": 1,
+   "sk": "K 5,00 g zinku prilejeme 30,0 cm³ kyseliny chlorovodíkovej s koncentráciou 2,00 mol·dm⁻³.",
+   "keep_czech": false
+  },
+  "j-53a4378e0f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "K 5,00 g zinku přilijeme 30,0 cm³ kyseliny chlorovodíkové o koncentraci 2,00 mol·dm⁻³. Reakce: <span class=\\\"chem\\\">Zn + 2 HCl → ZnCl₂ + H₂</span>. Jaký objem vodíku se uvolní, měříme-li při 25 °C a 101,325 kPa (<i>V</i><sub>m</sub> = 24,790 dm³·mol⁻¹)? M(<span class=\\\"chem\\\">Zn</span>) = 65,38 g·mol⁻¹. <b>Nejdřív rozmyslete, která látka je v nedostatku.</b>",
+   "ctx": "…odíkové o koncentraci 2,00 mol·dm⁻³.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|Zn\",\"val\":5.0,\"unit\":…",
+   "n": 1,
+   "sk": "K 5,00 g zinku prilejeme 30,0 cm³ kyseliny chlorovodíkovej s koncentráciou 2,00 mol·dm⁻³. Reakcia: <span class=\\\"chem\\\">Zn + 2 HCl → ZnCl₂ + H₂</span>. Aký objem vodíka sa uvoľní, ak meriame pri 25 °C a 101,325 kPa (<i>V</i><sub>m</sub> = 24,790 dm³·mol⁻¹)? M(<span class=\\\"chem\\\">Zn</span>) = 65,38 g·mol⁻¹. <b>Najprv si premyslite, ktorá látka je v nedostatku.</b>",
+   "keep_czech": false
+  },
+  "j-cd1a87a22f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "molární objem při 25 °C",
+   "ctx": "…k\":\"Vm|\",\"val\":24.79,\"unit\":\"dm3/mol\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"V|H₂\",\"unit\":\"dm3\"},\"sh…",
+   "n": 1,
+   "sk": "molárny objem pri 25 °C",
+   "keep_czech": false
+  },
+  "j-e47ac5595d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Látkové množství je koncentrace krát objem.",
+   "ctx": "…\"n_{HCl} = c_{HCl}/V_{HCl}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"n|H₂\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Látkové množstvo je koncentrácia krát objem.",
+   "keep_czech": false
+  },
+  "j-2e5d7ceec5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Poměr je obrácený: na jednu molekulu vodíku jsou potřeba dvě molekuly kyseliny, takže vodíku vznikne polovina.",
+   "ctx": "…,\"src\":\"n_{H₂} = 2*n_{HCl}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"n|H₂\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Pomer je obrátený: na jednu molekulu vodíka sú potrebné dve molekuly kyseliny, takže vodíka vznikne polovica.",
+   "keep_czech": false
+  },
+  "j-e568a9ba2c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Převrácený zlomek.",
+   "ctx": "…,\"src\":\"V_{H₂} = n_{H₂}/Vm\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"V|H₂\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Prevrátený zlomok.",
+   "keep_czech": false
+  },
+  "j-42fc9650cb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tenhle vztah platí jen tehdy, když je v nedostatku zinek. Zinku je 0,0765 mol, kyseliny jen 0,0600 mol — a na rozpuštění všeho zinku by bylo potřeba 0,153 mol <span class=\\\"chem\\\">HCl</span>. V nedostatku je tedy kyselina.",
+   "ctx": "…n\"},\"src\":\"n_{H₂} = n_{Zn}\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"n|Zn\",\"lhs\":{\"k\":\"sy…",
+   "n": 1,
+   "sk": "Tento vzťah platí len vtedy, keď je v nedostatku zinok. Zinku je 0,0765 mol, kyseliny len 0,0600 mol — a na rozpustenie všetkého zinku by bolo treba 0,153 mol <span class=\\\"chem\\\">HCl</span>. V nedostatku je teda kyselina.",
+   "keep_czech": false
+  },
+  "j-0c84620d19": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Spočítejte si stranou obě látková množství a porovnejte je s poměrem z rovnice 1 : 2. Ta látka, které je poměrově méně, řídí celou reakci.",
+   "ctx": "…r\":{\"val\":0.744,\"tol\":0.01,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Zinku je 0,0765 mol, kyseliny…",
+   "n": 1,
+   "sk": "Spočítajte si bokom obe látkové množstvá a porovnajte ich s pomerom z rovnice 1 : 2. Tá látka, ktorej je pomerovo menej, riadi celú reakciu.",
+   "keep_czech": false
+  },
+  "j-a05f35320b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Zinku je 0,0765 mol, kyseliny 0,0600 mol. Podle rovnice připadají na jeden zinek dvě kyseliny, takže by bylo potřeba 0,153 mol <span class=\\\"chem\\\">HCl</span> — kyselina dojde první a zinek zůstane nerozpuštěný.",
+   "ctx": "… poměrově méně, řídí celou reakci.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Zinku je 0,0765 mol, kyseliny 0,0600 mol. Podľa rovnice pripadajú na jeden zinok dve kyseliny, takže by bolo treba 0,153 mol <span class=\\\"chem\\\">HCl</span> — kyselina dôjde prvá a zinok zostane nerozpustený.",
+   "keep_czech": false
+  },
+  "j-da5b5f9219": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za nH₂",
+   "ctx": "…\"s\":\"Vm\"}},\"src\":\"n_{H₂} = n_{HCl}/2\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k\":\"op…",
+   "n": 1,
+   "sk": "dosadenie za nH₂",
+   "keep_czech": false
+  },
+  "j-95745b4072": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za nHCl",
+   "ctx": "…\"}},\"src\":\"n_{HCl} = c_{HCl}*V_{HCl}\",\"note\":⟦\"⟧}]}},{\"id\":\"gibbs-tz\",\"level\":3,\"topic\":…",
+   "n": 1,
+   "sk": "dosadenie za nHCl",
+   "keep_czech": false
+  },
+  "j-f83c565bdf": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Od jaké teploty začne být rozklad vápence CaCO₃ → CaO + CO₂ samovolný?",
+   "ctx": "…modynamika\",\"title\":\"Teplota zvratu\",\"short\":⟦\"⟧,\"task\":\"Od jaké teploty začne být rozkl…",
+   "n": 1,
+   "sk": "Od akej teploty začne byť rozklad vápenca CaCO₃ → CaO + CO₂ samovoľný?",
+   "keep_czech": false
+  },
+  "j-a82da75a96": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Od jaké teploty začne být rozklad vápence <span class=\\\"chem\\\">CaCO₃ → CaO + CO₂</span> samovolný? Δ<i>H</i>° = +178,3 kJ·mol⁻¹, Δ<i>S</i>° = +160,6 J·K⁻¹·mol⁻¹. Teplota zvratu je ta, při které je Δ<i>G</i> = 0. Odpověď v kelvinech.",
+   "ctx": "…vápence CaCO₃ → CaO + CO₂ samovolný?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"ΔH|\",\"val\":178.3,\"unit\"…",
+   "n": 1,
+   "sk": "Od akej teploty začne byť rozklad vápenca <span class=\\\"chem\\\">CaCO₃ → CaO + CO₂</span> samovoľný? Δ<i>H</i>° = +178,3 kJ·mol⁻¹, Δ<i>S</i>° = +160,6 J·K⁻¹·mol⁻¹. Teplota zvratu je tá, pri ktorej je Δ<i>G</i> = 0. Odpoveď v kelvinoch.",
+   "keep_czech": false
+  },
+  "j-780eddac49": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Převrácený zlomek — vyjde vám kelvin na mínus prvou.",
+   "ctx": "…\":\"ΔH\"}},\"src\":\"Tz = ΔS/ΔH\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"ΔG|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Prevrátený zlomok — vyjde vám kelvin na mínus prvú.",
+   "keep_czech": false
+  },
+  "j-09ab4e211a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součin místo podílu. Z rovnice 0 = Δ<i>H</i> − <i>T</i>·Δ<i>S</i> plyne <i>T</i> = Δ<i>H</i>/Δ<i>S</i>.",
+   "ctx": "…\":\"ΔS\"}},\"src\":\"Tz = ΔH*ΔS\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"Tz|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Súčin namiesto podielu. Z rovnice 0 = Δ<i>H</i> − <i>T</i>·Δ<i>S</i> vyplýva <i>T</i> = Δ<i>H</i>/Δ<i>S</i>.",
+   "keep_czech": false
+  },
+  "j-fdd341e2be": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vztah už dává rovnou kelviny, žádný převod ze stupňů se nekoná.",
+   "ctx": "…\"src\":\"Tz = 273.15 + ΔH/ΔS\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"Tz|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Vzťah už dáva rovno kelviny, žiadny prevod zo stupňov sa nekoná.",
+   "keep_czech": false
+  },
+  "j-9c784aae42": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Teplota nemůže být zároveň vlevo i vpravo.",
+   "ctx": "…\"}}},\"src\":\"Tz = ΔH/(T*ΔS)\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\"],\"sets\":[[\"f0\"]],\"optIds…",
+   "n": 1,
+   "sk": "Teplota nemôže byť zároveň vľavo aj vpravo.",
+   "keep_czech": false
+  },
+  "j-786ef3df25": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Položte Δ<i>G</i> = 0 v Gibbsově rovnici a vyjádřete teplotu. Ve vztazích na polici je ten výsledek už hotový.",
+   "ctx": "…\":{\"val\":1110.0,\"tol\":10.0,\"sig\":4},\"hints\":[⟦\"⟧],\"outro\":\"1110 K je asi 837 °C — a skut…",
+   "n": 1,
+   "sk": "Položte Δ<i>G</i> = 0 v Gibbsovej rovnici a vyjadrite teplotu. Vo vzťahoch na polici je ten výsledok už hotový.",
+   "keep_czech": false
+  },
+  "j-ce0071395e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "1110 K je asi 837 °C — a skutečně, vápenka pálí vápno kolem 900 °C. Tohle je hezký příklad výpočtu, který se dá ověřit realitou.",
+   "ctx": "… polici je ten výsledek už hotový.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"/\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "1110 K je asi 837 °C — a skutočne, vápenka páli vápno okolo 900 °C. Toto je pekný príklad výpočtu, ktorý sa dá overiť realitou.",
+   "keep_czech": false
+  },
+  "j-fbf91199c8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "pH slabé kyseliny",
+   "ctx": "…d\":\"ph-slaba\",\"level\":3,\"topic\":\"pH\",\"title\":⟦\"⟧,\"short\":\"Jaké je pH roztoku kyseliny oc…",
+   "n": 1,
+   "sk": "pH slabej kyseliny",
+   "keep_czech": false
+  },
+  "j-e5d192ec0e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaké je pH roztoku kyseliny octové o koncentraci 0,100 mol·dm⁻³?",
+   "ctx": "…ic\":\"pH\",\"title\":\"pH slabé kyseliny\",\"short\":⟦\"⟧,\"task\":\"Jaké je pH roztoku kyseliny oct…",
+   "n": 1,
+   "sk": "Aké je pH roztoku kyseliny octovej s koncentráciou 0,100 mol·dm⁻³?",
+   "keep_czech": false
+  },
+  "j-377dfaf79b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaké je pH roztoku kyseliny octové o koncentraci 0,100 mol·dm⁻³? Disociační konstanta <i>K</i><sub>a</sub> = 1,75·10⁻⁵. Použijte přiblížení pro slabé kyseliny, tedy že disociovaný podíl je proti celkové koncentraci zanedbatelný.",
+   "ctx": "…octové o koncentraci 0,100 mol·dm⁻³?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"c|\",\"val\":0.1,\"unit\":\"m…",
+   "n": 1,
+   "sk": "Aké je pH roztoku kyseliny octovej s koncentráciou 0,100 mol·dm⁻³? Disociačná konštanta <i>K</i><sub>a</sub> = 1,75·10⁻⁵. Použite priblíženie pre slabé kyseliny, teda že disociovaný podiel je oproti celkovej koncentrácii zanedbateľný.",
+   "keep_czech": false
+  },
+  "j-b60aed463d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "analytická koncentrace kyseliny",
+   "ctx": "…{\"sk\":\"c|\",\"val\":0.1,\"unit\":\"mol/dm3\",\"note\":⟦\"⟧},{\"sk\":\"Ka|\",\"val\":1.75e-05,\"unit\":\"one…",
+   "n": 1,
+   "sk": "analytická koncentrácia kyseliny",
+   "keep_czech": false
+  },
+  "j-a64cabb8a5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "pište jako 1,75e-5",
+   "ctx": "…sk\":\"Ka|\",\"val\":1.75e-05,\"unit\":\"one\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"pH|\",\"unit\":\"one\"},\"she…",
+   "n": 1,
+   "sk": "píšte ako 1,75e-5",
+   "keep_czech": false
+  },
+  "j-414a90a1ab": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozměrově i početně mimo — vyšlo by 1,75·10⁻⁶ a pH kolem 5,8, tedy skoro neutrální roztok.",
+   "ctx": "…\"s\":\"c\"}},\"src\":\"cH = Ka*c\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"cH|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Rozmerovo aj počtovo mimo — vyšlo by 1,75·10⁻⁶ a pH okolo 5,8, teda takmer neutrálny roztok.",
+   "keep_czech": false
+  },
+  "j-dca56d1728": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Podíl místo součinu. Zředěním by pak kyselost rostla.",
+   "ctx": "…}}},\"src\":\"cH = sqrt(Ka/c)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"cH|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Podiel namiesto súčinu. Zriedením by potom kyslosť rástla.",
+   "keep_czech": false
+  },
+  "j-654f4e668e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Převrácená úvaha; vyšlo by 1,75·10⁻⁴.",
+   "ctx": "…\"s\":\"c\"}},\"src\":\"cH = Ka/c\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"cH|\",\"lhs\":{\"k\":\"sym…",
+   "n": 1,
+   "sk": "Prevrátená úvaha; vyšlo by 1,75·10⁻⁴.",
+   "keep_czech": false
+  },
+  "j-631fe94043": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tenhle vztah platí pro silnou kyselinu, která disociuje úplně. Kyselina octová disociuje z necelého procenta.",
+   "ctx": "…\"c\"}}},\"src\":\"pH = -log(c)\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\"],\"sets\":[[\"f0\",\"f1\"…",
+   "n": 1,
+   "sk": "Tento vzťah platí pre silnú kyselinu, ktorá disociuje úplne. Kyselina octová disociuje z necelého percenta.",
+   "keep_czech": false
+  },
+  "j-a1ed054f36": {
+   "kind": "js",
+   "q": "\"",
+   "src": "U slabé kyseliny se koncentrace oxoniových kationtů nerovná koncentraci kyseliny. Musíte ji nejdřív spočítat z disociační konstanty.",
+   "ctx": "…er\":{\"val\":2.88,\"tol\":0.03,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Kyselina octová o koncentraci…",
+   "n": 1,
+   "sk": "Pri slabej kyseline sa koncentrácia oxóniových katiónov nerovná koncentrácii kyseliny. Musíte ju najprv vypočítať z disociačnej konštanty.",
+   "keep_czech": false
+  },
+  "j-1c80744562": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Kyselina octová o koncentraci 0,1 mol·dm⁻³ má pH 2,88, zatímco stejně koncentrovaná <span class=\\\"chem\\\">HCl</span> má pH 1,00. Skoro dva řády rozdílu v kyselosti — a přitom „stejně koncentrovaná“ kyselina.",
+   "ctx": "…v spočítat z disociační konstanty.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"neg\",\"a\":{\"k\":\"fn\",…",
+   "n": 1,
+   "sk": "Kyselina octová s koncentráciou 0,1 mol·dm⁻³ má pH 2,88, zatiaľ čo rovnako koncentrovaná <span class=\\\"chem\\\">HCl</span> má pH 1,00. Takmer dva rády rozdielu v kyslosti — a pritom „rovnako koncentrovaná“ kyselina.",
+   "keep_czech": false
+  },
+  "j-f567be8d0e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za cH⁺",
+   "ctx": "…,\"s\":\"c\"}}}}},\"src\":\"cH = sqrt(Ka*c)\",\"note\":⟦\"⟧}]}},{\"id\":\"ksp-agcl\",\"level\":3,\"topic\":…",
+   "n": 1,
+   "sk": "dosadenie za cH⁺",
+   "keep_czech": false
+  },
+  "j-f4a09e7484": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Srážecí rovnováhy",
+   "ctx": "… cH⁺\"}]}},{\"id\":\"ksp-agcl\",\"level\":3,\"topic\":⟦\"⟧,\"title\":\"Rozpustnost ze součinu rozpust…",
+   "n": 1,
+   "sk": "Zrážacie rovnováhy",
+   "keep_czech": false
+  },
+  "j-f1c35b8b09": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozpustnost ze součinu rozpustnosti",
+   "ctx": "…level\":3,\"topic\":\"Srážecí rovnováhy\",\"title\":⟦\"⟧,\"short\":\"Součin rozpustnosti chloridu s…",
+   "n": 1,
+   "sk": "Rozpustnosť zo súčinu rozpustnosti",
+   "keep_czech": false
+  },
+  "j-4bc54aa51d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součin rozpustnosti chloridu stříbrného je Ks = 1,77·10⁻¹⁰.",
+   "ctx": "…Rozpustnost ze součinu rozpustnosti\",\"short\":⟦\"⟧,\"task\":\"Součin rozpustnosti chloridu st…",
+   "n": 1,
+   "sk": "Súčin rozpustnosti chloridu strieborného je Ks = 1,77·10⁻¹⁰.",
+   "keep_czech": false
+  },
+  "j-acdc6a8b32": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součin rozpustnosti chloridu stříbrného je <i>K</i><sub>s</sub> = 1,77·10⁻¹⁰. Kolik miligramů <span class=\\\"chem\\\">AgCl</span> se rozpustí v jednom litru vody? M(<span class=\\\"chem\\\">AgCl</span>) = 143,32 g·mol⁻¹.",
+   "ctx": "…oridu stříbrného je Ks = 1,77·10⁻¹⁰.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"Ksp|\",\"val\":1.77e-10,\"u…",
+   "n": 1,
+   "sk": "Súčin rozpustnosti chloridu strieborného je <i>K</i><sub>s</sub> = 1,77·10⁻¹⁰. Koľko miligramov <span class=\\\"chem\\\">AgCl</span> sa rozpustí v jednom litri vody? M(<span class=\\\"chem\\\">AgCl</span>) = 143,32 g·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-3c5ed969f7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "pište jako 1,77e-10",
+   "ctx": "…sp|\",\"val\":1.77e-10,\"unit\":\"mol2/dm6\",\"note\":⟦\"⟧},{\"sk\":\"M|\",\"val\":143.32,\"unit\":\"g/mol\"…",
+   "n": 1,
+   "sk": "píšte ako 1,77e-10",
+   "keep_czech": false
+  },
+  "j-5f3c092084": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ksp",
+   "ctx": "…rhs\":{\"k\":\"fn\",\"f\":\"sqrt\",\"a\":{\"k\":\"sym\",\"s\":⟦\"⟧}},\"src\":\"s = sqrt(Ksp)\",\"ok\":true,\"why\"…",
+   "n": 6,
+   "sk": "Ksp",
+   "keep_czech": false
+  },
+  "j-0850d1e333": {
+   "kind": "js",
+   "q": "\"",
+   "src": "s = sqrt(Ksp)",
+   "ctx": "…,\"f\":\"sqrt\",\"a\":{\"k\":\"sym\",\"s\":\"Ksp\"}},\"src\":⟦\"⟧,\"ok\":true,\"why\":\"\"},{\"id\":\"f5\",\"key\":\"s…",
+   "n": 2,
+   "sk": "s = sqrt(Ksp)",
+   "keep_czech": false
+  },
+  "j-458d3fd350": {
+   "kind": "js",
+   "q": "\"",
+   "src": "s = Ksp*M",
+   "ctx": "…m\",\"s\":\"Ksp\"},\"b\":{\"k\":\"sym\",\"s\":\"M\"}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Míchá dohromady dva r…",
+   "n": 1,
+   "sk": "s = Ksp*M",
+   "keep_czech": false
+  },
+  "j-85328820de": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Míchá dohromady dva různé kroky a rozměrově nedává smysl.",
+   "ctx": "…\"s\":\"M\"}},\"src\":\"s = Ksp*M\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"s|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Mieša dohromady dva rôzne kroky a rozmerovo nedáva zmysel.",
+   "keep_czech": false
+  },
+  "j-55f96c79e2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "s = sqrt(Ksp/4)",
+   "ctx": "…\",\"s\":\"Ksp\"},\"b\":{\"k\":\"num\",\"v\":4.0}}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Čtyřka patří do vzorc…",
+   "n": 1,
+   "sk": "s = sqrt(Ksp/4)",
+   "keep_czech": false
+  },
+  "j-819a70b138": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Čtyřka patří do vzorců typu <span class=\\\"chem\\\">MX₂</span>, kde jsou dva anionty na jeden kationt. <span class=\\\"chem\\\">AgCl</span> je v poměru 1 : 1.",
+   "ctx": "…}}},\"src\":\"s = sqrt(Ksp/4)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f2\",\"key\":\"s|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Štvorka patrí do vzorcov typu <span class=\\\"chem\\\">MX₂</span>, kde sú dva anióny na jeden katión. <span class=\\\"chem\\\">AgCl</span> je v pomere 1 : 1.",
+   "keep_czech": false
+  },
+  "j-7ef1736726": {
+   "kind": "js",
+   "q": "\"",
+   "src": "s = Ksp/2",
+   "ctx": "…m\",\"s\":\"Ksp\"},\"b\":{\"k\":\"num\",\"v\":2.0}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Součin rozpustnosti j…",
+   "n": 1,
+   "sk": "s = Ksp/2",
+   "keep_czech": false
+  },
+  "j-80990fe389": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součin rozpustnosti je součin dvou koncentrací, ne dvojnásobek jedné. Rozpustnost se z něj dostane odmocninou.",
+   "ctx": "…\"v\":2.0}},\"src\":\"s = Ksp/2\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"γ|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Súčin rozpustnosti je súčin dvoch koncentrácií, nie dvojnásobok jednej. Rozpustnosť sa z neho získa odmocninou.",
+   "keep_czech": false
+  },
+  "j-2df477e527": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dělení místo násobení — koncentrace v molech se na gramy převádí násobením molární hmotností.",
+   "ctx": "…\",\"s\":\"M\"}},\"src\":\"γ = s/M\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\"],\"sets\":[[\"f0\",\"f1\"…",
+   "n": 1,
+   "sk": "Delenie namiesto násobenia — koncentrácia v móloch sa na gramy prevádza násobením molárnou hmotnosťou.",
+   "keep_czech": false
+  },
+  "j-42bb590f76": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pro sůl typu <span class=\\\"chem\\\">AgCl</span> platí <i>K</i><sub>s</sub> = <i>s</i>², protože rozpuštěním vznikne stejně kationtů jako aniontů.",
+   "ctx": "…er\":{\"val\":1.91,\"tol\":0.03,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Necelé dva miligramy na litr …",
+   "n": 1,
+   "sk": "Pre soľ typu <span class=\\\"chem\\\">AgCl</span> platí <i>K</i><sub>s</sub> = <i>s</i>², pretože rozpustením vznikne rovnako katiónov ako aniónov.",
+   "keep_czech": false
+  },
+  "j-2de9715efe": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Necelé dva miligramy na litr — proto se chlorid stříbrný považuje za nerozpustný. Nerozpustný ale v chemii nikdy neznamená „vůbec žádný“.",
+   "ctx": "…ikne stejně kationtů jako aniontů.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Necelé dva miligramy na liter — preto sa chlorid strieborný považuje za nerozpustný. Nerozpustný ale v chémii nikdy neznamená „vôbec žiadny“.",
+   "keep_czech": false
+  },
+  "j-4daf58b18f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za s",
+   "ctx": "…\"sym\",\"s\":\"M\"}},\"src\":\"s = sqrt(Ksp)\",\"note\":⟦\"⟧}]}},{\"id\":\"nernst-cu\",\"level\":3,\"topic\"…",
+   "n": 1,
+   "sk": "dosadenie za s",
+   "keep_czech": false
+  },
+  "j-eb386bcb15": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Elektrochemie",
+   "ctx": "…a s\"}]}},{\"id\":\"nernst-cu\",\"level\":3,\"topic\":⟦\"⟧,\"title\":\"Nernstova rovnice\",\"short\":\"Ja…",
+   "n": 2,
+   "sk": "Elektrochémia",
+   "keep_czech": false
+  },
+  "j-5e038a8c81": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nernstova rovnice",
+   "ctx": "…u\",\"level\":3,\"topic\":\"Elektrochemie\",\"title\":⟦\"⟧,\"short\":\"Jaký je potenciál měděné elekt…",
+   "n": 1,
+   "sk": "Nernstova rovnica",
+   "keep_czech": false
+  },
+  "j-0e07c14025": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaký je potenciál měděné elektrody ponořené do roztoku Cu²⁺ o koncentraci 0,0100 mol·dm⁻³ při 25 °C?",
+   "ctx": "…ochemie\",\"title\":\"Nernstova rovnice\",\"short\":⟦\"⟧,\"task\":\"Jaký je potenciál měděné elektr…",
+   "n": 1,
+   "sk": "Aký je potenciál medenej elektródy ponorenej do roztoku Cu²⁺ s koncentráciou 0,0100 mol·dm⁻³ pri 25 °C?",
+   "keep_czech": false
+  },
+  "j-206a4f4224": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jaký je potenciál měděné elektrody ponořené do roztoku <span class=\\\"chem\\\">Cu²⁺</span> o koncentraci 0,0100 mol·dm⁻³ při 25 °C? <i>E</i>°(<span class=\\\"chem\\\">Cu²⁺/Cu</span>) = +0,34 V, počet vyměněných elektronů <i>z</i> = 2. Použijte tvar Nernstovy rovnice s dekadickým logaritmem a členem 0,0592 V.",
+   "ctx": "…ncentraci 0,0100 mol·dm⁻³ při 25 °C?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"E0|\",\"val\":0.34,\"unit\":…",
+   "n": 1,
+   "sk": "Aký je potenciál medenej elektródy ponorenej do roztoku <span class=\\\"chem\\\">Cu²⁺</span> s koncentráciou 0,0100 mol·dm⁻³ pri 25 °C? <i>E</i>°(<span class=\\\"chem\\\">Cu²⁺/Cu</span>) = +0,34 V, počet vymenených elektrónov <i>z</i> = 2. Použite tvar Nernstovej rovnice s dekadickým logaritmom a členom 0,0592 V.",
+   "keep_czech": false
+  },
+  "j-7c9c638d10": {
+   "kind": "js",
+   "q": "\"",
+   "src": "standardní potenciál",
+   "ctx": "…n\":[{\"sk\":\"E0|\",\"val\":0.34,\"unit\":\"V\",\"note\":⟦\"⟧},{\"sk\":\"c|\",\"val\":0.01,\"unit\":\"mol/dm3\"…",
+   "n": 1,
+   "sk": "štandardný potenciál",
+   "keep_czech": false
+  },
+  "j-2336726e69": {
+   "kind": "js",
+   "q": "\"",
+   "src": "koncentrace kationtů",
+   "ctx": "…\"sk\":\"c|\",\"val\":0.01,\"unit\":\"mol/dm3\",\"note\":⟦\"⟧},{\"sk\":\"z|\",\"val\":2,\"unit\":\"one\",\"note\"…",
+   "n": 1,
+   "sk": "koncentrácia katiónov",
+   "keep_czech": false
+  },
+  "j-d3c4574adb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "počet vyměněných elektronů",
+   "ctx": "…ntů\"},{\"sk\":\"z|\",\"val\":2,\"unit\":\"one\",\"note\":⟦\"⟧}],\"find\":{\"sk\":\"E|\",\"unit\":\"V\"},\"shelf\"…",
+   "n": 1,
+   "sk": "počet vymenených elektrónov",
+   "keep_czech": false
+  },
+  "j-7d27974d5d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "E = E0 - (0.0592/z)*log(c)",
+   "ctx": "…\",\"f\":\"log\",\"a\":{\"k\":\"sym\",\"s\":\"c\"}}}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Znaménko platí pro tv…",
+   "n": 1,
+   "sk": "E = E0 - (0.0592/z)*log(c)",
+   "keep_czech": false
+  },
+  "j-99d2a9573a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Znaménko platí pro tvar s logaritmem převrácené zlomku. V téhle podobě, s koncentrací oxidované formy v čitateli, je před členem plus.",
+   "ctx": "…E = E0 - (0.0592/z)*log(c)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f4\",\"key\":\"E|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Znamienko platí pre tvar s logaritmom prevráteného zlomku. V tejto podobe, s koncentráciou oxidovanej formy v čitateli, je pred členom plus.",
+   "keep_czech": false
+  },
+  "j-da63cd72be": {
+   "kind": "js",
+   "q": "\"",
+   "src": "E = E0 + (0.0592/z)*ln(c)",
+   "ctx": "…n\",\"f\":\"ln\",\"a\":{\"k\":\"sym\",\"s\":\"c\"}}}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Člen 0,0592 už v sobě…",
+   "n": 1,
+   "sk": "E = E0 + (0.0592/z)*ln(c)",
+   "keep_czech": false
+  },
+  "j-32ba5519f1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Člen 0,0592 už v sobě má převod na dekadický logaritmus. S přirozeným by tam patřilo 0,0257.",
+   "ctx": "…\"E = E0 + (0.0592/z)*ln(c)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f0\",\"key\":\"E|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Člen 0,0592 už v sebe má prevod na dekadický logaritmus. S prirodzeným by tam patrilo 0,0257.",
+   "keep_czech": false
+  },
+  "j-80a2de412d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "E = E0 + (0.0592/z)*log(c)",
+   "ctx": "…\",\"f\":\"log\",\"a\":{\"k\":\"sym\",\"s\":\"c\"}}}},\"src\":⟦\"⟧,\"ok\":true,\"why\":\"\"},{\"id\":\"f2\",\"key\":\"E…",
+   "n": 2,
+   "sk": "E = E0 + (0.0592/z)*log(c)",
+   "keep_czech": false
+  },
+  "j-b4b048090a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "E = E0 + (0.0592*z)*log(c)",
+   "ctx": "…\",\"f\":\"log\",\"a\":{\"k\":\"sym\",\"s\":\"c\"}}}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Počtem elektronů se d…",
+   "n": 1,
+   "sk": "E = E0 + (0.0592*z)*log(c)",
+   "keep_czech": false
+  },
+  "j-9f238c76b9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Počtem elektronů se dělí, ne násobí — čím víc elektronů, tím menší vliv koncentrace.",
+   "ctx": "…E = E0 + (0.0592*z)*log(c)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"E|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Počtom elektrónov sa delí, nie násobí — čím viac elektrónov, tým menší vplyv koncentrácie.",
+   "keep_czech": false
+  },
+  "j-1f805e829a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chybí dělení počtem elektronů; platilo by jen pro <i>z</i> = 1.",
+   "ctx": "…c\":\"E = E0 + 0.0592*log(c)\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\"],\"sets\":[[\"f0\"]],\"optIds…",
+   "n": 1,
+   "sk": "Chýba delenie počtom elektrónov; platilo by len pre <i>z</i> = 1.",
+   "keep_czech": false
+  },
+  "j-658b0d1c7c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dosazujete do jediného vztahu. Logaritmus setiny je −2, takže se potenciál oproti standardnímu sníží.",
+   "ctx": "…\":{\"val\":0.281,\"tol\":0.005,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Stokrát zředěný roztok posune…",
+   "n": 1,
+   "sk": "Dosadzujete do jediného vzťahu. Logaritmus stotiny je −2, takže sa potenciál oproti štandardnému zníži.",
+   "keep_czech": false
+  },
+  "j-b58c4b4bca": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Stokrát zředěný roztok posune potenciál o 0,0592/2 · 2 = 0,0592 V dolů. Jeden desítkový řád koncentrace tedy u dvouelektronového děje znamená necelých 30 mV.",
+   "ctx": "…tenciál oproti standardnímu sníží.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"+\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Stokrát zriedený roztok posunie potenciál o 0,0592/2 · 2 = 0,0592 V nadol. Jeden desiatkový rád koncentrácie teda pri dvojelektrónovom deji znamená necelých 30 mV.",
+   "keep_czech": false
+  },
+  "j-0c587edf72": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Faradayovy zákony elektrolýzy",
+   "ctx": "…u\",\"level\":3,\"topic\":\"Elektrochemie\",\"title\":⟦\"⟧,\"short\":\"Roztokem síranu měďnatého proc…",
+   "n": 1,
+   "sk": "Faradayove zákony elektrolýzy",
+   "keep_czech": false
+  },
+  "j-c70a3b14cf": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Roztokem síranu měďnatého prochází proud 2,00 A po dobu 30,0 minut.",
+   "ctx": "…tle\":\"Faradayovy zákony elektrolýzy\",\"short\":⟦\"⟧,\"task\":\"Roztokem síranu měďnatého proch…",
+   "n": 1,
+   "sk": "Roztokom síranu meďnatého prechádza prúd 2,00 A po dobu 30,0 minút.",
+   "keep_czech": false
+  },
+  "j-effcfb31cf": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Roztokem síranu měďnatého prochází proud 2,00 A po dobu 30,0 minut. Kolik gramů mědi se vyloučí na katodě? M(<span class=\\\"chem\\\">Cu</span>) = 63,55 g·mol⁻¹, <i>z</i> = 2, F = 96 485 C·mol⁻¹.",
+   "ctx": "…ází proud 2,00 A po dobu 30,0 minut.\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"I|\",\"val\":2.0,\"unit\":\"A…",
+   "n": 1,
+   "sk": "Roztokom síranu meďnatého prechádza prúd 2,00 A po dobu 30,0 minút. Koľko gramov medi sa vylúči na katóde? M(<span class=\\\"chem\\\">Cu</span>) = 63,55 g·mol⁻¹, <i>z</i> = 2, F = 96 485 C·mol⁻¹.",
+   "keep_czech": false
+  },
+  "j-7021ae02c8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Qel",
+   "ctx": "…b\":{\"k\":\"const\",\"s\":\"F\"}},\"b\":{\"k\":\"sym\",\"s\":⟦\"⟧}},\"src\":\"n = (z*F)/Qel\",\"ok\":false,\"why…",
+   "n": 6,
+   "sk": "Qel",
+   "keep_czech": false
+  },
+  "j-9c6e525c02": {
+   "kind": "js",
+   "q": "\"",
+   "src": "n = (z*F)/Qel",
+   "ctx": "…\",\"s\":\"F\"}},\"b\":{\"k\":\"sym\",\"s\":\"Qel\"}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Převrácený zlomek. Čí…",
+   "n": 1,
+   "sk": "n = (z*F)/Qel",
+   "keep_czech": false
+  },
+  "j-cdfd2a0678": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Převrácený zlomek. Čím větší náboj projde, tím víc látky se vyloučí — v čitateli tedy musí být náboj.",
+   "ctx": "…el\"}},\"src\":\"n = (z*F)/Qel\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f5\",\"key\":\"m|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Prevrátený zlomok. Čím väčší náboj prejde, tým viac látky sa vylúči — v čitateli teda musí byť náboj.",
+   "keep_czech": false
+  },
+  "j-50556851c2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chybí počet elektronů. Na jeden atom mědi jsou potřeba dva.",
+   "ctx": "…\"s\":\"F\"}},\"src\":\"n = Qel/F\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Chýba počet elektrónov. Na jeden atóm medi sú potrebné dva.",
+   "keep_czech": false
+  },
+  "j-63b4b0092d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "n = Qel/(z*F)",
+   "ctx": "…\",\"s\":\"z\"},\"b\":{\"k\":\"const\",\"s\":\"F\"}}},\"src\":⟦\"⟧,\"ok\":true,\"why\":\"\"},{\"id\":\"f2\",\"key\":\"Q…",
+   "n": 2,
+   "sk": "n = Qel/(z*F)",
+   "keep_czech": false
+  },
+  "j-aef6941477": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Qel = I*t",
+   "ctx": "…sym\",\"s\":\"I\"},\"b\":{\"k\":\"sym\",\"s\":\"t\"}},\"src\":⟦\"⟧,\"ok\":true,\"why\":\"\"},{\"id\":\"f4\",\"key\":\"Q…",
+   "n": 2,
+   "sk": "Qel = I*t",
+   "keep_czech": false
+  },
+  "j-a7a5101399": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Qel = I/t",
+   "ctx": "…sym\",\"s\":\"I\"},\"b\":{\"k\":\"sym\",\"s\":\"t\"}},\"src\":⟦\"⟧,\"ok\":false,\"why\":\"Náboj je proud krát č…",
+   "n": 1,
+   "sk": "Qel = I/t",
+   "keep_czech": false
+  },
+  "j-1777e20c03": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Náboj je proud krát čas. Dvojnásobná doba znamená dvojnásobný náboj.",
+   "ctx": "…\"s\":\"t\"}},\"src\":\"Qel = I/t\",\"ok\":false,\"why\":⟦\"⟧}],\"need\":[\"f0\",\"f1\",\"f2\"],\"sets\":[[\"f0\"…",
+   "n": 1,
+   "sk": "Náboj je prúd krát čas. Dvojnásobná doba znamená dvojnásobný náboj.",
+   "keep_czech": false
+  },
+  "j-81b26d6604": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Postupujte odzadu: hmotnost potřebuje látkové množství, látkové množství potřebuje náboj a náboj se počítá z proudu a času.",
+   "ctx": "…er\":{\"val\":1.19,\"tol\":0.02,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Pozor na minuty: do vzorce pa…",
+   "n": 1,
+   "sk": "Postupujte odzadu: hmotnosť potrebuje látkové množstvo, látkové množstvo potrebuje náboj a náboj sa počíta z prúdu a času.",
+   "keep_czech": false
+  },
+  "j-0319f6dfb6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pozor na minuty: do vzorce patří sekundy, tedy 1800 s. Kdo dosadí 30, vyjde mu šedesátkrát méně mědi.",
+   "ctx": "…a náboj se počítá z proudu a času.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Pozor na minúty: do vzorca patria sekundy, teda 1800 s. Kto dosadí 30, vyjde mu šesťdesiatkrát menej medi.",
+   "keep_czech": false
+  },
+  "j-5c1bfaccb6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za Q",
+   "ctx": "…\"k\":\"sym\",\"s\":\"M\"}},\"src\":\"Qel = I*t\",\"note\":⟦\"⟧}]}},{\"id\":\"aktivita-co60\",\"level\":3,\"to…",
+   "n": 1,
+   "sk": "dosadenie za Q",
+   "keep_czech": false
+  },
+  "j-f54933587e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Aktivita radioaktivního zářiče",
+   "ctx": "…\",\"level\":3,\"topic\":\"Jaderná chemie\",\"title\":⟦\"⟧,\"short\":\"Jakou aktivitu má 1,00 mg koba…",
+   "n": 1,
+   "sk": "Aktivita rádioaktívneho žiariča",
+   "keep_czech": false
+  },
+  "j-f57e08c9ec": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jakou aktivitu má 1,00 mg kobaltu 6027Co?",
+   "ctx": "…le\":\"Aktivita radioaktivního zářiče\",\"short\":⟦\"⟧,\"task\":\"Jakou aktivitu má 1,00 mg kobal…",
+   "n": 1,
+   "sk": "Akú aktivitu má 1,00 mg kobaltu 6027Co?",
+   "keep_czech": false
+  },
+  "j-93ca29e821": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jakou aktivitu má 1,00 mg kobaltu <span class=\\\"chem\\\"><sup>60</sup><sub>27</sub>Co</span>? Poločas přeměny je 5,2712 roku, M(<span class=\\\"chem\\\"><sup>60</sup>Co</span>) = 59,93 g·mol⁻¹, N<sub>A</sub> = 6,022·10²³ mol⁻¹. Výsledek uveďte v GBq.",
+   "ctx": "… aktivitu má 1,00 mg kobaltu 6027Co?\",\"task\":⟦\"⟧,\"given\":[{\"sk\":\"m|\",\"val\":1.0,\"unit\":\"m…",
+   "n": 1,
+   "sk": "Akú aktivitu má 1,00 mg kobaltu <span class=\\\"chem\\\"><sup>60</sup><sub>27</sub>Co</span>? Polčas premeny je 5,2712 roka, M(<span class=\\\"chem\\\"><sup>60</sup>Co</span>) = 59,93 g·mol⁻¹, N<sub>A</sub> = 6,022·10²³ mol⁻¹. Výsledok uveďte v GBq.",
+   "keep_czech": false
+  },
+  "j-2faf72e3b7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Převrácený zlomek. Čím delší poločas, tím <b>menší</b> přeměnová konstanta.",
+   "ctx": "…2.0}}},\"src\":\"λ = Tp/ln(2)\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f1\",\"key\":\"λ|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Prevrátený zlomok. Čím dlhší polčas, tým <b>menšia</b> premenová konštanta.",
+   "keep_czech": false
+  },
+  "j-0304ceedc5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Aktivita roste s počtem jader, takže se násobí.",
+   "ctx": "…\",\"s\":\"N\"}},\"src\":\"A = λ/N\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f6\",\"key\":\"N|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Aktivita rastie s počtom jadier, takže sa násobí.",
+   "keep_czech": false
+  },
+  "j-58383f1266": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Avogadrovou konstantou se moly na částice násobí, ne dělí.",
+   "ctx": "…\":\"N_A\"}},\"src\":\"N = n/N_A\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f7\",\"key\":\"λ|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Avogadrovou konštantou sa móly na častice násobia, nie delia.",
+   "keep_czech": false
+  },
+  "j-b52590dafd": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Součin místo podílu.",
+   "ctx": "…\"Tp\"}},\"src\":\"λ = ln(2)*Tp\",\"ok\":false,\"why\":⟦\"⟧},{\"id\":\"f3\",\"key\":\"n|\",\"lhs\":{\"k\":\"sym\"…",
+   "n": 1,
+   "sk": "Súčin namiesto podielu.",
+   "keep_czech": false
+  },
+  "j-3418e655c6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Aktivita je přeměnová konstanta krát počet dosud nepřeměněných jader. Obojí musíte teprve vyrobit ze zadání.",
+   "ctx": "…wer\":{\"val\":41.9,\"tol\":0.4,\"sig\":3},\"hints\":[⟦\"⟧],\"outro\":\"Necelých 42 GBq z jednoho mil…",
+   "n": 1,
+   "sk": "Aktivita je premenová konštanta krát počet doteraz nepremenených jadier. Oboje musíte ešte vyrobiť zo zadania.",
+   "keep_czech": false
+  },
+  "j-a68efb8a7c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Necelých 42 GBq z jednoho miligramu — a to je kobaltový zářič, jaký se používá v radioterapii. Poločas 5,27 roku znamená, že se zdroj musí zhruba jednou za pět let vyměnit.",
+   "ctx": "…í musíte teprve vyrobit ze zadání.\"],\"outro\":⟦\"⟧,\"ref\":{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k…",
+   "n": 1,
+   "sk": "Necelých 42 GBq z jedného miligramu — a to je kobaltový žiarič, aký sa používa v rádioterapii. Polčas 5,27 roka znamená, že zdroj sa musí zhruba raz za päť rokov vymeniť.",
+   "keep_czech": false
+  },
+  "j-fd2d343224": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za λ",
+   "ctx": "…:\"sym\",\"s\":\"N\"}},\"src\":\"λ = ln(2)/Tp\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k\":\"op…",
+   "n": 1,
+   "sk": "dosadenie za λ",
+   "keep_czech": false
+  },
+  "j-c907c8b6d4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dosazení za N",
+   "ctx": "…const\",\"s\":\"N_A\"}}},\"src\":\"N = n*N_A\",\"note\":⟦\"⟧},{\"expr\":{\"k\":\"op\",\"o\":\"*\",\"a\":{\"k\":\"op…",
+   "n": 1,
+   "sk": "dosadenie za N",
+   "keep_czech": false
+  },
+  "j-5dd4183201": {
+   "kind": "js",
+   "q": "\"",
+   "src": "bezrozměrné",
+   "ctx": "…tr(d[k]):\"\"));   return s.length?s.join(\"·\"):⟦\"⟧; } /* převod mezi jednotkami (nesouhlas…",
+   "n": 1,
+   "sk": "bezrozmerné",
+   "keep_czech": false
+  },
+  "j-aff6358e0e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "chybí hodnota ",
+   "ctx": "…y(n);       if(!(k in vals)) throw new Error(⟦\"⟧+k);       return vals[k];     }     cas…",
+   "n": 1,
+   "sk": "chýba hodnota ",
+   "keep_czech": false
+  },
+  "j-dcc0705210": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozvinout složený zlomek",
+   "ctx": "…ull;   }); } var SIMPS=[   {id:\"flatten\",lbl:⟦\"⟧,fn:opFlatten,    no:\"Ve výrazu není zlo…",
+   "n": 1,
+   "sk": "Rozvinúť zložený zlomok",
+   "keep_czech": false
+  },
+  "j-707fc17750": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve výrazu není zlomek ve zlomku. Rozvinout jde jen podíl, který má zlomek ",
+   "ctx": "…ozvinout složený zlomek\",fn:opFlatten,    no:⟦\"⟧+       \"v čitateli nebo ve jmenovateli.…",
+   "n": 1,
+   "sk": "Vo výraze nie je zlomok v zlomku. Rozvinúť sa dá len podiel, ktorý má zlomok ",
+   "keep_czech": false
+  },
+  "j-77c28ceab0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "v čitateli nebo ve jmenovateli.",
+   "ctx": "…nout jde jen podíl, který má zlomek \"+       ⟦\"⟧},   {id:\"cancel\",lbl:\"Vykrátit stejný č…",
+   "n": 1,
+   "sk": "v čitateli alebo v menovateli.",
+   "keep_czech": false
+  },
+  "j-1e6ccfcb73": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vykrátit stejný činitel",
+   "ctx": "…i nebo ve jmenovateli.\"},   {id:\"cancel\",lbl:⟦\"⟧,fn:opCancel,    no:\"V žádném zlomku nen…",
+   "n": 1,
+   "sk": "Vykrátiť rovnaký činiteľ",
+   "keep_czech": false
+  },
+  "j-8a21f11aa7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V žádném zlomku není stejný činitel nahoře i dole. Krátit se dá jen to, ",
+   "ctx": "…\"Vykrátit stejný činitel\",fn:opCancel,    no:⟦\"⟧+       \"co se v čitateli i jmenovateli …",
+   "n": 1,
+   "sk": "V žiadnom zlomku nie je rovnaký činiteľ hore i dole. Krátiť sa dá len to, ",
+   "keep_czech": false
+  },
+  "j-ed1a17bdc8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "co se v čitateli i jmenovateli objevuje jako celý činitel.",
+   "ctx": "…nahoře i dole. Krátit se dá jen to, \"+       ⟦\"⟧},   {id:\"pow\",lbl:\"Sloučit stejné činit…",
+   "n": 1,
+   "sk": "čo sa v čitateli aj menovateli objavuje ako celý činiteľ.",
+   "keep_czech": false
+  },
+  "j-51047a0ea9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Sloučit stejné činitele na mocninu",
+   "ctx": "…jevuje jako celý činitel.\"},   {id:\"pow\",lbl:⟦\"⟧,fn:opMergePow,    no:\"Ve výrazu se žádn…",
+   "n": 1,
+   "sk": "Zlúčiť rovnaké činitele na mocninu",
+   "keep_czech": false
+  },
+  "j-4e364f8974": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve výrazu se žádný činitel neopakuje dvakrát v součinu, takže není co ",
+   "ctx": "…né činitele na mocninu\",fn:opMergePow,    no:⟦\"⟧+       \"sloučit na mocninu.\"} ];   /* =…",
+   "n": 1,
+   "sk": "Vo výraze sa žiadny činiteľ neopakuje dvakrát v súčine, takže nie je čo ",
+   "keep_czech": false
+  },
+  "j-9bc6c2ce66": {
+   "kind": "js",
+   "q": "\"",
+   "src": "sloučit na mocninu.",
+   "ctx": "…je dvakrát v součinu, takže není co \"+       ⟦\"⟧} ];   /* ==============================…",
+   "n": 1,
+   "sk": "zlúčiť na mocninu.",
+   "keep_czech": false
+  },
+  "j-593cc98e31": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Zadání",
+   "ctx": "…UNDO=[], TOOLS=null; var PH=[{id:\"given\",lbl:⟦\"⟧},{id:\"find\",lbl:\"Hledáme\"},{id:\"fml\",lb…",
+   "n": 3,
+   "sk": "Zadanie",
+   "keep_czech": false
+  },
+  "j-4af1dff0c6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hledáme",
+   "ctx": "…PH=[{id:\"given\",lbl:\"Zadání\"},{id:\"find\",lbl:⟦\"⟧},{id:\"fml\",lbl:\"Vztahy\"},         {id:\"…",
+   "n": 3,
+   "sk": "Hľadáme",
+   "keep_czech": false
+  },
+  "j-92e8fd783c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vztahy",
+   "ctx": "…ní\"},{id:\"find\",lbl:\"Hledáme\"},{id:\"fml\",lbl:⟦\"⟧},         {id:\"der\",lbl:\"Odvození\"},{id…",
+   "n": 3,
+   "sk": "Vzťahy",
+   "keep_czech": false
+  },
+  "j-6ff13daa15": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Odvození",
+   "ctx": "…d:\"fml\",lbl:\"Vztahy\"},         {id:\"der\",lbl:⟦\"⟧},{id:\"ans\",lbl:\"Dosazení a odpověď\"}]; …",
+   "n": 3,
+   "sk": "Odvodenie",
+   "keep_czech": false
+  },
+  "j-8e8c7ab045": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dosazení a odpověď",
+   "ctx": "…     {id:\"der\",lbl:\"Odvození\"},{id:\"ans\",lbl:⟦\"⟧}]; var COACH=[  \"<b>Fáze 1 — Zadání.</b…",
+   "n": 1,
+   "sk": "Dosadenie a odpoveď",
+   "keep_czech": false
+  },
+  "j-18e6ac0d79": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<b>Fáze 1 — Zadání.</b> Přečtěte si úlohu a vypište z ní veličiny. U každé klepnete na symbol, ",
+   "ctx": "…ns\",lbl:\"Dosazení a odpověď\"}]; var COACH=[  ⟦\"⟧+  \"opíšete číslo a vyberete jednotku, <…",
+   "n": 1,
+   "sk": "<b>Fáza 1 — Zadanie.</b> Prečítajte si úlohu a vypíšte z nej veličiny. Pri každej ťuknete na symbol, ",
+   "keep_czech": false
+  },
+  "j-24ee5a7ae7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "opíšete číslo a vyberete jednotku, <b>ve které se bude počítat</b>. Právě tady se dělá převod: ",
+   "ctx": "…ní veličiny. U každé klepnete na symbol, \"+  ⟦\"⟧+  \"250 cm³ zapíšete buď jako 250 cm³, n…",
+   "n": 1,
+   "sk": "opíšete číslo a vyberiete jednotku, <b>v ktorej sa bude počítať</b>. Práve tu sa robí prevod: ",
+   "keep_czech": false
+  },
+  "j-f9b37e33e4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "250 cm³ zapíšete buď jako 250 cm³, nebo jako 0,250 dm³ — obojí je totéž. V nabídce jsou ",
+   "ctx": "… počítat</b>. Právě tady se dělá převod: \"+  ⟦\"⟧+  \"schválně i veličiny, které v zadání …",
+   "n": 1,
+   "sk": "250 cm³ zapíšete buď ako 250 cm³, alebo ako 0,250 dm³ — oboje je to isté. V ponuke sú ",
+   "keep_czech": false
+  },
+  "j-6245fdfb75": {
+   "kind": "js",
+   "q": "\"",
+   "src": "schválně i veličiny, které v zadání nejsou.",
+   "ctx": "…250 dm³ — obojí je totéž. V nabídce jsou \"+  ⟦\"⟧,  \"<b>Fáze 2 — Hledáme.</b> Označte vel…",
+   "n": 1,
+   "sk": "schválne aj veličiny, ktoré v zadaní nie sú.",
+   "keep_czech": false
+  },
+  "j-b4cdcc8860": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<b>Fáze 2 — Hledáme.</b> Označte veličinu, na kterou se úloha ptá, a jednotku, ve které ",
+   "ctx": "…hválně i veličiny, které v zadání nejsou.\",  ⟦\"⟧+  \"chcete odpovědět. Tímhle symbolem za…",
+   "n": 1,
+   "sk": "<b>Fáza 2 — Hľadáme.</b> Označte veličinu, na ktorú sa úloha pýta, a jednotku, v ktorej ",
+   "keep_czech": false
+  },
+  "j-6349cd6239": {
+   "kind": "js",
+   "q": "\"",
+   "src": "chcete odpovědět. Tímhle symbolem začne odvození.",
+   "ctx": "…terou se úloha ptá, a jednotku, ve které \"+  ⟦\"⟧,  \"<b>Fáze 3 — Vztahy.</b> Z police vyb…",
+   "n": 1,
+   "sk": "chcete odpovedať. Týmto symbolom začne odvodenie.",
+   "keep_czech": false
+  },
+  "j-d70098a179": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<b>Fáze 3 — Vztahy.</b> Z police vyberte vzorce, které budete potřebovat. Jsou tam i takové, ",
+   "ctx": "…dpovědět. Tímhle symbolem začne odvození.\",  ⟦\"⟧+  \"které vypadají věrohodně, ale platí …",
+   "n": 1,
+   "sk": "<b>Fáza 3 — Vzťahy.</b> Z police vyberte vzorce, ktoré budete potrebovať. Sú tam aj také, ",
+   "keep_czech": false
+  },
+  "j-7f184a4209": {
+   "kind": "js",
+   "q": "\"",
+   "src": "které vypadají věrohodně, ale platí pro něco jiného. Aplikace vám teď neřekne, jestli jste ",
+   "ctx": "…ré budete potřebovat. Jsou tam i takové, \"+  ⟦\"⟧+  \"vybral dobře — to poznáte až na konc…",
+   "n": 1,
+   "sk": "ktoré vyzerajú vierohodne, ale platia pre niečo iné. Aplikácia vám teraz nepovie, či ste ",
+   "keep_czech": false
+  },
+  "j-c615c26cc4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "vybral dobře — to poznáte až na konci.",
+   "ctx": "…o. Aplikace vám teď neřekne, jestli jste \"+  ⟦\"⟧,  \"<b>Fáze 4 — Odvození.</b> Začnete vz…",
+   "n": 1,
+   "sk": "vybrali dobre — to zistíte až na konci.",
+   "keep_czech": false
+  },
+  "j-14af3bd3dc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<b>Fáze 4 — Odvození.</b> Začnete vztahem, který má vlevo hledanou veličinu. Pak klepnete ",
+   "ctx": "…  \"vybral dobře — to poznáte až na konci.\",  ⟦\"⟧+  \"na veličinu ve výrazu, kterou chcete…",
+   "n": 1,
+   "sk": "<b>Fáza 4 — Odvodenie.</b> Začnete vzťahom, ktorý má vľavo hľadanú veličinu. Potom ťuknete ",
+   "keep_czech": false
+  },
+  "j-6c9157b9f4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "na veličinu ve výrazu, kterou chcete nahradit, a potom na kartu vztahu. Aplikace dosadí ",
+   "ctx": "…má vlevo hledanou veličinu. Pak klepnete \"+  ⟦\"⟧+  \"za vás. Žádnou algebru nepíšete a <b…",
+   "n": 1,
+   "sk": "na veličinu vo výraze, ktorú chcete nahradiť, a následne na kartu vzťahu. Aplikácia dosadí ",
+   "keep_czech": false
+  },
+  "j-25e6c652d5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "za vás. Žádnou algebru nepíšete a <b>žádná čísla se tu neobjeví</b>. Hotovo je, když ve výrazu ",
+   "ctx": "…a potom na kartu vztahu. Aplikace dosadí \"+  ⟦\"⟧+  \"zůstanou jen veličiny ze zadání a ko…",
+   "n": 1,
+   "sk": "za vás. Žiadnu algebru nepíšete a <b>žiadne čísla sa tu neobjavia</b>. Hotovo je, keď vo výraze ",
+   "keep_czech": false
+  },
+  "j-f52226ef7c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "zůstanou jen veličiny ze zadání a konstanty.",
+   "ctx": "… neobjeví</b>. Hotovo je, když ve výrazu \"+  ⟦\"⟧,  \"<b>Fáze 5 — Dosazení a odpověď.</b> …",
+   "n": 1,
+   "sk": "zostanú len veličiny zo zadania a konštanty.",
+   "keep_czech": false
+  },
+  "j-1a2811475b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "<b>Fáze 5 — Dosazení a odpověď.</b> Čísla se doplní sama z fáze 1. Vy sestavíte jednotku ",
+   "ctx": "…tanou jen veličiny ze zadání a konstanty.\",  ⟦\"⟧+  \"výsledku z dlaždic, spočítáte hodnot…",
+   "n": 1,
+   "sk": "<b>Fáza 5 — Dosadenie a odpoveď.</b> Čísla sa doplnia samy z fázy 1. Vy zostavíte jednotku ",
+   "keep_czech": false
+  },
+  "j-1c44da1621": {
+   "kind": "js",
+   "q": "\"",
+   "src": "výsledku z dlaždic, spočítáte hodnotu na kalkulačce a zapíšete ji. Teprve po odevzdání ",
+   "ctx": "…lní sama z fáze 1. Vy sestavíte jednotku \"+  ⟦\"⟧+  \"se dozvíte, jak jste dopadl.\" ];  fu…",
+   "n": 1,
+   "sk": "výsledku z dlaždíc, vypočítate hodnotu na kalkulačke a zapíšete ju. Až po odovzdaní ",
+   "keep_czech": false
+  },
+  "j-1194b9b358": {
+   "kind": "js",
+   "q": "\"",
+   "src": "se dozvíte, jak jste dopadl.",
+   "ctx": "…lačce a zapíšete ji. Teprve po odevzdání \"+  ⟦\"⟧ ];  function snap(){ try{UNDO.push(JSON…",
+   "n": 1,
+   "sk": "sa dozviete, ako ste dopadli.",
+   "keep_czech": false
+  },
+  "j-55013a7907": {
+   "kind": "js",
+   "q": "'",
+   "src": "<div class=\"cs-head\"><span class=\"cs-id\">Úloha ",
+   "ctx": "…,i){ if(t.id===TASK.id) idx=i+1; });   var h=⟦'⟧+(idx<10?\"0\":\"\")+idx+\"</span>\"+     '<sp…",
+   "n": 1,
+   "sk": "<div class=\"cs-head\"><span class=\"cs-id\">Úloha ",
+   "keep_czech": false
+  },
+  "j-6f09887818": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Základ",
+   "ctx": "…+\"</span>\"+     '<span class=\"cs-kind\">'+[\"\",⟦\"⟧,\"Střední\",\"Přijímačky\"][TASK.level]+\" ·…",
+   "n": 3,
+   "sk": "Základ",
+   "keep_czech": false
+  },
+  "j-645e146e36": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Střední",
+   "ctx": "…\"+     '<span class=\"cs-kind\">'+[\"\",\"Základ\",⟦\"⟧,\"Přijímačky\"][TASK.level]+\" · \"+     es…",
+   "n": 3,
+   "sk": "Stredná",
+   "keep_czech": false
+  },
+  "j-4a86eb5ecb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Přijímačky",
+   "ctx": "…pan class=\"cs-kind\">'+[\"\",\"Základ\",\"Střední\",⟦\"⟧][TASK.level]+\" · \"+     esc(TASK.topic)…",
+   "n": 3,
+   "sk": "Prijímačky",
+   "keep_czech": false
+  },
+  "j-40c1bfecde": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dosazení",
+   "ctx": "…der\",\"Odvození\",bodyDer());   h+=blk(\"subst\",⟦\"⟧,bodySubst());   h+=blk(\"ans\",\"Odpověď\",…",
+   "n": 2,
+   "sk": "Dosadenie",
+   "keep_czech": false
+  },
+  "j-11006f30c4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Odpověď",
+   "ctx": "…bst\",\"Dosazení\",bodySubst());   h+=blk(\"ans\",⟦\"⟧,bodyAns(),\"res\");   $(\"#sheet\").innerHT…",
+   "n": 2,
+   "sk": "Odpoveď",
+   "keep_czech": false
+  },
+  "j-e85c7e7a1e": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"cs-hint\">Zatím jste nevypsal žádnou veličinu.</p>",
+   "ctx": "…on bodyGiven(){   if(!S.given.length) return ⟦'⟧;   return S.given.map(function(g,i){   …",
+   "n": 1,
+   "sk": "<p class=\"cs-hint\">Zatiaľ ste nevypísali žiadnu veličinu.</p>",
+   "keep_czech": false
+  },
+  "j-e42361ba88": {
+   "kind": "js",
+   "q": "'",
+   "src": "<input type=\"text\" class=\"gval\" inputmode=\"decimal\" data-i=\"",
+   "ctx": "…       '<span class=\"cs-val inputs\">'+       ⟦'⟧+i+'\" value=\"'+         esc(g.val)+'\" pl…",
+   "n": 1,
+   "sk": "<input type=\"text\" class=\"gval\" inputmode=\"decimal\" data-i=\"",
+   "keep_czech": false
+  },
+  "j-62bc051315": {
+   "kind": "js",
+   "q": "'",
+   "src": "\" placeholder=\"číslo\" aria-label=\"Hodnota: ",
+   "ctx": "… data-i=\"'+i+'\" value=\"'+         esc(g.val)+⟦'⟧+esc(info.name)+'\"'+ro+\">\"+       '<sele…",
+   "n": 1,
+   "sk": "\" placeholder=\"číslo\" aria-label=\"Hodnota: ",
+   "keep_czech": false
+  },
+  "j-d6a2125726": {
+   "kind": "js",
+   "q": "'",
+   "src": "<select class=\"gunit\" data-i=\"",
+   "ctx": "…\"Hodnota: '+esc(info.name)+'\"'+ro+\">\"+       ⟦'⟧+i+'\" aria-label=\"Jednotka\"'+ro+\">\"+    …",
+   "n": 1,
+   "sk": "<select class=\"gunit\" data-i=\"",
+   "keep_czech": false
+  },
+  "j-41cf954f7f": {
+   "kind": "js",
+   "q": "'",
+   "src": "\" aria-label=\"Odebrat řádek\">✕</button>",
+   "ctx": "…e=\"button\" class=\"grm\" data-rm=\"'+i+         ⟦'⟧)+       '</span><span class=\"cs-note\">'…",
+   "n": 1,
+   "sk": "\" aria-label=\"Odobrať riadok\">✕</button>",
+   "keep_czech": false
+  },
+  "j-dc476143a1": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"cs-hint\">Zatím jste neoznačil hledanou veličinu.</p>",
+   "ctx": "… function bodyFind(){   if(!S.find.k) return ⟦'⟧;   var info=symInfo(S.find.k);   return…",
+   "n": 1,
+   "sk": "<p class=\"cs-hint\">Zatiaľ ste neoznačili hľadanú veličinu.</p>",
+   "keep_czech": false
+  },
+  "j-f3074c040c": {
+   "kind": "js",
+   "q": "'",
+   "src": "<select class=\"gunit\" id=\"findUnit\" aria-label=\"Jednotka výsledku\"",
+   "ctx": "…l inputs\"><span class=\"qmark\">?</span>'+     ⟦'⟧+       (S.done?\" disabled\":\"\")+\">\"+    …",
+   "n": 1,
+   "sk": "<select class=\"gunit\" id=\"findUnit\" aria-label=\"Jednotka výsledku\"",
+   "keep_czech": false
+  },
+  "j-f4dceff259": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"cs-hint\">Zatím jste nevybral žádný vztah.</p>",
+   "ctx": "…ion bodyFml(){   if(!S.picked.length) return ⟦'⟧;   var mk=(S.mark&&S.mark.row===\"fml\")?…",
+   "n": 1,
+   "sk": "<p class=\"cs-hint\">Zatiaľ ste nevybrali žiadny vzťah.</p>",
+   "keep_czech": false
+  },
+  "j-fff8f2f7ae": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"cs-hint\">Odvození zatím nezačalo.</p>",
+   "ctx": "… */ function bodyDer(){   if(!S.expr) return ⟦'⟧;   var info=symInfo(S.find.k), out=[]; …",
+   "n": 1,
+   "sk": "<p class=\"cs-hint\">Odvodenie zatiaľ nezačalo.</p>",
+   "keep_czech": false
+  },
+  "j-d04de05dba": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"cs-hint\">Nejdřív dokončete odvození.</p>",
+   "ctx": "…n bodySubst(){   if(!S.expr||S.max<5) return ⟦'⟧;   var num={}, prevod=false;   S.given.…",
+   "n": 1,
+   "sk": "<p class=\"cs-hint\">Najprv dokončite odvodenie.</p>",
+   "keep_czech": false
+  },
+  "j-5256c9434b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Čísla jsou přepsaná do jednotek, které jste u veličin zvolil, a sjednocená tak, ",
+   "ctx": "…     '<div class=\"cs-hint\">'+(prevod       ? ⟦\"⟧+         \"aby vzorec seděl rozměrově. T…",
+   "n": 1,
+   "sk": "Čísla sú prepísané do jednotiek, ktoré ste pri veličinách zvolili, a zjednotené tak, ",
+   "keep_czech": false
+  },
+  "j-98f3908016": {
+   "kind": "js",
+   "q": "\"",
+   "src": "aby vzorec seděl rozměrově. Takhle to spočítáte na kalkulačce přímo.",
+   "ctx": "…veličin zvolil, a sjednocená tak, \"+         ⟦\"⟧       : \"Takhle to zadáte do kalkulačky…",
+   "n": 1,
+   "sk": "aby vzorec sedel rozmerovo. Takto to vypočítate na kalkulačke priamo.",
+   "keep_czech": false
+  },
+  "j-55f3948283": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Takhle to zadáte do kalkulačky.",
+   "ctx": "…e to spočítáte na kalkulačce přímo.\"       : ⟦\"⟧)+\"</div>\"; } /* ---------------- řádek:…",
+   "n": 1,
+   "sk": "Takto to zadáte do kalkulačky.",
+   "keep_czech": false
+  },
+  "j-cb2d2241aa": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"cs-hint\">Odpověď zapíšete na konci.</p>",
+   "ctx": "… */ function bodyAns(){   if(S.max<5) return ⟦'⟧;   var info=symInfo(S.find.k);   var mk…",
+   "n": 1,
+   "sk": "<p class=\"cs-hint\">Odpoveď zapíšete na konci.</p>",
+   "keep_czech": false
+  },
+  "j-008619e527": {
+   "kind": "js",
+   "q": "'",
+   "src": "\" placeholder=\"číslo\" aria-label=\"Číselná odpověď\"",
+   "ctx": "…utmode=\"decimal\" value=\"'+esc(S.ansVal)+     ⟦'⟧+(S.done?\" disabled\":\"\")+\">\"+     '<span…",
+   "n": 1,
+   "sk": "\" placeholder=\"číslo\" aria-label=\"Číselná odpoveď\"",
+   "keep_czech": false
+  },
+  "j-e6ddfb1a1c": {
+   "kind": "js",
+   "q": "'",
+   "src": "<span>nápovědy: ",
+   "ctx": "…an>\"+esc(TASK.topic)+\"</span>\"+     (S.hints?⟦'⟧+S.hints+\"</span>\":\"\");   $(\"#steps\").in…",
+   "n": 1,
+   "sk": "<span>nápovede: ",
+   "keep_czech": false
+  },
+  "j-1e0436c85c": {
+   "kind": "js",
+   "q": "'",
+   "src": "\">← Předchozí fáze</button>",
+   "ctx": "…ass=\"btn btn-sm\" data-go=\"'+(S.phase-1)+     ⟦'⟧;   h+='<button type=\"button\" class=\"btn…",
+   "n": 1,
+   "sk": "\">← Predchádzajúca fáza</button>",
+   "keep_czech": false
+  },
+  "j-61f3d07372": {
+   "kind": "js",
+   "q": "'",
+   "src": "<button type=\"button\" class=\"btn btn-sm\" id=\"undoBtn\">Zpět o krok</button>",
+   "ctx": "…-1)+     '\">← Předchozí fáze</button>';   h+=⟦'⟧;   h+='<span class=\"sp\"></span>';   if(…",
+   "n": 1,
+   "sk": "<button type=\"button\" class=\"btn btn-sm\" id=\"undoBtn\">Späť o krok</button>",
+   "keep_czech": false
+  },
+  "j-24e09b4d47": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pokračovat na „",
+   "ctx": "…\"btn btn-primary btn-sm\" id=\"nextBtn\">'+     ⟦\"⟧+PH[S.phase].lbl+\"“ →</button>\";   h+=\"<…",
+   "n": 1,
+   "sk": "Pokračovať na „",
+   "keep_czech": false
+  },
+  "j-25e5263f33": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h\">Vypište ze zadání veličiny, se kterými budete počítat.</p>",
+   "ctx": "…(\"\")+\"</div>\"; } function tGiven(){   return ⟦'⟧+     shelfSyms()+     '<p class=\"tb-n\">…",
+   "n": 1,
+   "sk": "<p class=\"tb-h\">Vypíšte zo zadania veličiny, s ktorými budete počítať.</p>",
+   "keep_czech": false
+  },
+  "j-0cb0f3b511": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-n\">Klepnutím přidáte řádek do výpočtového listu. Do něj opíšete hodnotu ",
+   "ctx": "…i budete počítat.</p>'+     shelfSyms()+     ⟦'⟧+     'a vyberete jednotku, <b>ve které …",
+   "n": 1,
+   "sk": "<p class=\"tb-n\">Ťuknutím pridáte riadok do výpočtového listu. Doňho opíšete hodnotu ",
+   "keep_czech": false
+  },
+  "j-8984db16d0": {
+   "kind": "js",
+   "q": "'",
+   "src": "a vyberete jednotku, <b>ve které se bude počítat</b> — tím provedete převod. ",
+   "ctx": "…čtového listu. Do něj opíšete hodnotu '+     ⟦'⟧+     'V nabídce jsou i veličiny, které …",
+   "n": 1,
+   "sk": "a vyberiete jednotku, <b>v ktorej sa bude počítať</b> — tým vykonáte prevod. ",
+   "keep_czech": false
+  },
+  "j-29683fb1e3": {
+   "kind": "js",
+   "q": "'",
+   "src": "V nabídce jsou i veličiny, které v této úloze nepotřebujete.</p>",
+   "ctx": "…e počítat</b> — tím provedete převod. '+     ⟦'⟧; } function tFind(){   return '<p class…",
+   "n": 1,
+   "sk": "V ponuke sú aj veličiny, ktoré v tejto úlohe nepotrebujete.</p>",
+   "keep_czech": false
+  },
+  "j-6cd44ff513": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h\">Označte veličinu, na kterou se úloha ptá.</p>",
+   "ctx": "…řebujete.</p>'; } function tFind(){   return ⟦'⟧+shelfSyms()+     '<p class=\"tb-n\">Jedno…",
+   "n": 1,
+   "sk": "<p class=\"tb-h\">Označte veličinu, na ktorú sa úloha pýta.</p>",
+   "keep_czech": false
+  },
+  "j-7f7235f493": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-n\">Jednotku výsledku vyberete v listu u řádku „Hledáme“.</p>",
+   "ctx": "…a kterou se úloha ptá.</p>'+shelfSyms()+     ⟦'⟧; } function tFml(){   var mk=(S.mark&&S…",
+   "n": 1,
+   "sk": "<p class=\"tb-n\">Jednotku výsledku vyberiete v liste pri riadku „Hľadáme“.</p>",
+   "keep_czech": false
+  },
+  "j-ec9ef294b8": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h\">Vyberte z police vztahy, které budete potřebovat.</p>",
+   "ctx": "…mark.row===\"fml\")?S.mark.card:null;   return ⟦'⟧+     '<div class=\"rack\">'+TASK.cards.ma…",
+   "n": 1,
+   "sk": "<p class=\"tb-h\">Vyberte z police vzťahy, ktoré budete potrebovať.</p>",
+   "keep_czech": false
+  },
+  "j-ab13a26832": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-n\">Vybrat můžete i víc vztahů, než nakonec použijete. Některé vzorce ",
+   "ctx": "…\"false\")+'\"');     }).join(\"\")+\"</div>\"+     ⟦'⟧+     'na polici platí obecně, ale pro t…",
+   "n": 1,
+   "sk": "<p class=\"tb-n\">Vybrať môžete aj viac vzťahov, než napokon použijete. Niektoré vzorce ",
+   "keep_czech": false
+  },
+  "j-f2932bc223": {
+   "kind": "js",
+   "q": "'",
+   "src": "na polici platí obecně, ale pro tuhle úlohu se nehodí — a některé neplatí vůbec. ",
+   "ctx": "…než nakonec použijete. Některé vzorce '+     ⟦'⟧+     'Aplikace teď mlčí, hodnotí se až …",
+   "n": 1,
+   "sk": "na polici platia všeobecne, ale pre túto úlohu sa nehodia — a niektoré neplatia vôbec. ",
+   "keep_czech": false
+  },
+  "j-6bfbdd4e2c": {
+   "kind": "js",
+   "q": "'",
+   "src": "Aplikace teď mlčí, hodnotí se až konečná odpověď.</p>",
+   "ctx": "… se nehodí — a některé neplatí vůbec. '+     ⟦'⟧; } function tDer(){   var info=symInfo(…",
+   "n": 1,
+   "sk": "Aplikácia teraz mlčí, hodnotí sa až konečná odpoveď.</p>",
+   "keep_czech": false
+  },
+  "j-9e9d91e6c1": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h\">Odvození začíná vztahem, jehož levá strana je hledaná veličina ",
+   "ctx": "…find.k;});     if(!elig.length)       return ⟦'⟧+         '<span class=\"math\">'+info.dis…",
+   "n": 1,
+   "sk": "<p class=\"tb-h\">Odvodenie začína vzťahom, ktorého ľavá strana je hľadaná veličina ",
+   "keep_czech": false
+  },
+  "j-780772692b": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-n\">Mezi vybranými vztahy takový není. Vraťte se o fázi zpět ",
+   "ctx": "…s=\"math\">'+info.disp+'</span>.</p>'+         ⟦'⟧+         'a vyberte vztah, který má <sp…",
+   "n": 1,
+   "sk": "<p class=\"tb-n\">Medzi vybranými vzťahmi taký nie je. Vráťte sa o fázu späť ",
+   "keep_czech": false
+  },
+  "j-a0ce6fbf43": {
+   "kind": "js",
+   "q": "'",
+   "src": "a vyberte vztah, který má <span class=\"math\">",
+   "ctx": "…akový není. Vraťte se o fázi zpět '+         ⟦'⟧+info.disp+'</span> vlevo.</p>';     ret…",
+   "n": 1,
+   "sk": "a vyberte vzťah, ktorý má <span class=\"math\">",
+   "keep_czech": false
+  },
+  "j-24ca903f51": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h\">Začněte vztahem, jehož levá strana je hledaná veličina.</p>",
+   "ctx": "…'+info.disp+'</span> vlevo.</p>';     return ⟦'⟧+       '<div class=\"rack\">'+elig.map(fu…",
+   "n": 1,
+   "sk": "<p class=\"tb-h\">Začnite vzťahom, ktorého ľavá strana je hľadaná veličina.</p>",
+   "keep_czech": false
+  },
+  "j-da4a2e1d0f": {
+   "kind": "js",
+   "q": "'",
+   "src": "Vybraná veličina: <span class=\"math selmark\">",
+   "ctx": "… }   var h='<p class=\"tb-h\">'+(S.sel       ? ⟦'⟧+symInfo(S.sel).disp+         \"</span> —…",
+   "n": 1,
+   "sk": "Vybraná veličina: <span class=\"math selmark\">",
+   "keep_czech": false
+  },
+  "j-ea237bdb52": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</span> — teď klepněte na vztah, kterým ji chcete nahradit.",
+   "ctx": "…math selmark\">'+symInfo(S.sel).disp+         ⟦\"⟧       : \"Klepněte ve výrazu na veličinu…",
+   "n": 1,
+   "sk": "</span> — teraz ťuknite na vzťah, ktorým ju chcete nahradiť.",
+   "keep_czech": false
+  },
+  "j-80df281bb0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Klepněte ve výrazu na veličinu, kterou chcete nahradit.",
+   "ctx": "…a vztah, kterým ji chcete nahradit.\"       : ⟦\"⟧)+\"</p>\";   h+='<div class=\"rack\">'+S.pi…",
+   "n": 1,
+   "sk": "Ťuknite vo výraze na veličinu, ktorú chcete nahradiť.",
+   "keep_czech": false
+  },
+  "j-10d0290904": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h2\">Úpravy výrazu</p><div class=\"simps\">",
+   "ctx": "…b=\"'+c.id+'\"');   }).join(\"\")+\"</div>\";   h+=⟦'⟧+SIMPS.map(function(s){     var can=!!s.…",
+   "n": 1,
+   "sk": "<p class=\"tb-h2\">Úpravy výrazu</p><div class=\"simps\">",
+   "keep_czech": false
+  },
+  "j-ce622d7083": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve výrazu jsou ještě veličiny, které nemáte v zadání: ",
+   "ctx": "…;   h+='<p class=\"tb-n\">'+(left.length     ? ⟦\"⟧+       left.map(function(k){return '<sp…",
+   "n": 1,
+   "sk": "Vo výraze sú ešte veličiny, ktoré nemáte v zadaní: ",
+   "keep_czech": false
+  },
+  "j-ec415b7d33": {
+   "kind": "js",
+   "q": "\"",
+   "src": ". Dokud tam jsou, nejde dosadit čísla.",
+   "ctx": "…mInfo(k).disp+\"</span>\";}).join(\", \")+       ⟦\"⟧     : \"Ve výrazu jsou už jen veličiny z…",
+   "n": 1,
+   "sk": ". Kým tam sú, nedá sa dosadiť čísla.",
+   "keep_czech": false
+  },
+  "j-f730fe2c59": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve výrazu jsou už jen veličiny ze zadání a konstanty. Můžete pokračovat na dosazení.",
+   "ctx": "… Dokud tam jsou, nejde dosadit čísla.\"     : ⟦\"⟧)+     \"</p>\";   return h; } var TILES=[…",
+   "n": 1,
+   "sk": "Vo výraze sú už len veličiny zo zadania a konštanty. Môžete pokračovať na dosadenie.",
+   "keep_czech": false
+  },
+  "j-273b4f01fc": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-h\">Sestavte jednotku výsledku a zapište číslo.</p>",
+   "ctx": "…<span class=\"uempty\">—</span>';   };   var h=⟦'⟧;   h+='<div class=\"ucomp\"><div class=\"u…",
+   "n": 1,
+   "sk": "<p class=\"tb-h\">Zostavte jednotku výsledku a zapíšte číslo.</p>",
+   "keep_czech": false
+  },
+  "j-b45f119473": {
+   "kind": "js",
+   "q": "'",
+   "src": "\" data-z=\"n\" tabindex=\"0\" ",
+   "ctx": "…mp\"><div class=\"uz'+(S.uzone===\"n\"?\" on\":\"\")+⟦'⟧+      'role=\"button\" aria-pressed=\"'+(S…",
+   "n": 1,
+   "sk": "\" data-z=\"n\" tabindex=\"0\" ",
+   "keep_czech": false
+  },
+  "j-a66b48cab6": {
+   "kind": "js",
+   "q": "'",
+   "src": "\"><span class=\"uzl\">Čitatel</span>",
+   "ctx": "…ole=\"button\" aria-pressed=\"'+(S.uzone===\"n\")+⟦'⟧+      '<span class=\"uzc\">'+chips(S.un,\"…",
+   "n": 1,
+   "sk": "\"><span class=\"uzl\">Čitateľ</span>",
+   "keep_czech": false
+  },
+  "j-3fa5e27dcf": {
+   "kind": "js",
+   "q": "'",
+   "src": "\" data-z=\"d\" tabindex=\"0\" role=\"button\" ",
+   "ctx": "…h+='<div class=\"uz'+(S.uzone===\"d\"?\" on\":\"\")+⟦'⟧+      'aria-pressed=\"'+(S.uzone===\"d\")+…",
+   "n": 1,
+   "sk": "\" data-z=\"d\" tabindex=\"0\" role=\"button\" ",
+   "keep_czech": false
+  },
+  "j-46b6dd4a2a": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"tb-n\">Klepněte na čitatele nebo jmenovatele a pak na dlaždici. Hotová jednotka: ",
+   "ctx": "…))+\"</button>\";   }).join(\"\")+\"</div>\";   h+=⟦'⟧+      '<b class=\"math\">'+(ansUnit()===\"…",
+   "n": 1,
+   "sk": "<p class=\"tb-n\">Ťuknite na čitateľa alebo menovateľa a potom na dlaždicu. Hotová jednotka: ",
+   "keep_czech": false
+  },
+  "j-17ef66a9b4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Číslo zapište do listu k řádku „Odpověď“ — desetinnou čárkou, mocniny deseti třeba ",
+   "ctx": "…ednotky\":unitText(ansUnit()))+\"</b>. \"+      ⟦\"⟧+      \"jako <span class=\\\"mono\\\">1,77e-…",
+   "n": 1,
+   "sk": "Číslo zapíšte do listu k riadku „Odpoveď“ — desatinnou čiarkou, mocniny desiatich napríklad ",
+   "keep_czech": false
+  },
+  "j-6b78930767": {
+   "kind": "js",
+   "q": "\"",
+   "src": "jako <span class=\\\"mono\\\">1,77e-10</span>.</p>",
+   "ctx": "…etinnou čárkou, mocniny deseti třeba \"+      ⟦\"⟧;   h+='<div class=\"subrow\"><button type…",
+   "n": 1,
+   "sk": "ako <span class=\\\"mono\\\">1,77e-10</span>.</p>",
+   "keep_czech": false
+  },
+  "j-cfa227325b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Odevzdat odpověď</button></div>",
+   "ctx": "…ass=\"btn btn-primary\" id=\"submitBtn\">'+      ⟦\"⟧;   return h; }  /* ====================…",
+   "n": 1,
+   "sk": "Odovzdať odpoveď</button></div>",
+   "keep_czech": false
+  },
+  "j-caaa5f61a3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Není co vracet, jste na začátku.",
+   "ctx": "…lick\",function(){     if(!UNDO.length){ note(⟦\"⟧); return; }     S=JSON.parse(UNDO.pop()…",
+   "n": 1,
+   "sk": "Nie je čo vracať, ste na začiatku.",
+   "keep_czech": false
+  },
+  "j-409c59909e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Změnou hledané veličiny se odvození vynulovalo — začíná se vztahem, ",
+   "ctx": "…expr=null; S.hist=[]; S.sel=null;       note(⟦\"⟧+            \"který má vlevo právě ji.\")…",
+   "n": 1,
+   "sk": "Zmenou hľadanej veličiny sa odvodenie vynulovalo — začína sa vzťahom, ",
+   "keep_czech": false
+  },
+  "j-5d82d6f27c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "který má vlevo právě ji.",
+   "ctx": "…ynulovalo — začíná se vztahem, \"+            ⟦\"⟧);     }   }   render(); } function togg…",
+   "n": 1,
+   "sk": "ktorý má vľavo práve ju.",
+   "keep_czech": false
+  },
+  "j-6f96b99ba6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tenhle vztah už je v odvození použitý. Nejdřív vraťte krok, ve kterém ",
+   "ctx": "…nction(h){return h.card===id;})){       note(⟦\"⟧+            \"jste ho dosadil.\");       …",
+   "n": 1,
+   "sk": "Tento vzťah je v odvodení už použitý. Najprv vráťte krok, v ktorom ",
+   "keep_czech": false
+  },
+  "j-bacbd7ec21": {
+   "kind": "js",
+   "q": "\"",
+   "src": "jste ho dosadil.",
+   "ctx": "…Nejdřív vraťte krok, ve kterém \"+            ⟦\"⟧);       UNDO.pop(); return;     }     S…",
+   "n": 1,
+   "sk": "ste ho dosadili.",
+   "keep_czech": false
+  },
+  "j-54a4f6fafe": {
+   "kind": "js",
+   "q": "\"",
+   "src": "výchozí vztah ",
+   "ctx": "…);   S.hist=[{expr:clone(c.rhs),card:id,note:⟦\"⟧+plain(c)}];   S.sel=null;   render(); }…",
+   "n": 1,
+   "sk": "východiskový vzťah ",
+   "keep_czech": false
+  },
+  "j-7b54cfb64e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nejdřív klepněte ve výrazu na veličinu, kterou chcete nahradit.",
+   "ctx": "…d){   var c=cardById(id);   if(!S.sel){ note(⟦\"⟧); return; }   if(c.key!==S.sel){     no…",
+   "n": 1,
+   "sk": "Najprv ťuknite vo výraze na veličinu, ktorú chcete nahradiť.",
+   "keep_czech": false
+  },
+  "j-62d9b12646": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vztah <b class=\\\"math\\\">",
+   "ctx": "….\"); return; }   if(c.key!==S.sel){     note(⟦\"⟧+plainHtml(c)+\"</b> má vlevo <span class…",
+   "n": 1,
+   "sk": "Vzťah <b class=\\\"math\\\">",
+   "keep_czech": false
+  },
+  "j-9e107bc55f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b> má vlevo <span class=\\\"math\\\">",
+   "ctx": "…note(\"Vztah <b class=\\\"math\\\">\"+plainHtml(c)+⟦\"⟧+       symInfo(c.key).disp+\"</span>, ne…",
+   "n": 1,
+   "sk": "</b> má vľavo <span class=\\\"math\\\">",
+   "keep_czech": false
+  },
+  "j-b11b75f4d7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</span>. Dosadit ho lze jen za <span class=\\\"math\\\">",
+   "ctx": "… class=\\\"math\\\">\"+symInfo(S.sel).disp+       ⟦\"⟧+symInfo(c.key).disp+\"</span>.\");     re…",
+   "n": 1,
+   "sk": "</span>. Dosadiť ho možno len za <span class=\\\"math\\\">",
+   "keep_czech": false
+  },
+  "j-b69a7abd53": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tahle veličina už ve výrazu není.",
+   "ctx": "…n;   }   if(!hasSym(S.expr,S.sel)){     note(⟦\"⟧); return;   }   if(hasSym(c.rhs,S.sel))…",
+   "n": 1,
+   "sk": "Táto veličina už vo výraze nie je.",
+   "keep_czech": false
+  },
+  "j-19a34c2721": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pravá strana tohoto vztahu obsahuje zase <span class=\\\"math\\\">",
+   "ctx": "…urn;   }   if(hasSym(c.rhs,S.sel)){     note(⟦\"⟧+       symInfo(S.sel).disp+\"</span>. Do…",
+   "n": 1,
+   "sk": "Pravá strana tohto vzťahu obsahuje zase <span class=\\\"math\\\">",
+   "keep_czech": false
+  },
+  "j-b3b8655b04": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</span>. Dosazením byste se točil v kruhu.",
+   "ctx": "… class=\\\"math\\\">\"+       symInfo(S.sel).disp+⟦\"⟧);     return;   }   snap();   S.expr=su…",
+   "n": 1,
+   "sk": "</span>. Dosadením by ste sa točili v kruhu.",
+   "keep_czech": false
+  },
+  "j-edf3b49dd7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výraz zatím není.",
+   "ctx": "…{ if(x.id===id) s=x; });   if(!S.expr){ note(⟦\"⟧); return; }   var r=s.fn(S.expr);   if(…",
+   "n": 1,
+   "sk": "Výraz zatiaľ nie je.",
+   "keep_czech": false
+  },
+  "j-a5dc24aa80": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Zapište aspoň jednu veličinu i s hodnotou.",
+   "ctx": "…al)!==null; });     if(!filled.length){ note(⟦\"⟧); return; }     var bad=S.given.filter(…",
+   "n": 1,
+   "sk": "Zapíšte aspoň jednu veličinu aj s hodnotou.",
+   "keep_czech": false
+  },
+  "j-690e57f5ea": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Některou hodnotu neumím přečíst. Číslo pište s desetinnou čárkou, ",
+   "ctx": "…(g.val)===null; });     if(bad.length){ note(⟦\"⟧+       \"mocniny deseti jako <span class…",
+   "n": 1,
+   "sk": "Niektorú hodnotu neviem prečítať. Číslo píšte s desatinnou čiarkou, ",
+   "keep_czech": false
+  },
+  "j-0112cc7ece": {
+   "kind": "js",
+   "q": "\"",
+   "src": "mocniny deseti jako <span class=\\\"mono\\\">1,77e-10</span>.",
+   "ctx": "…t. Číslo pište s desetinnou čárkou, \"+       ⟦\"⟧); return; }   }   if(S.phase===2&&!S.fi…",
+   "n": 1,
+   "sk": "mocniny desiatich ako <span class=\\\"mono\\\">1,77e-10</span>.",
+   "keep_czech": false
+  },
+  "j-38d47ccefd": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Označte hledanou veličinu.",
+   "ctx": "…rn; }   }   if(S.phase===2&&!S.find.k){ note(⟦\"⟧); return; }   if(S.phase===3&&!S.picked…",
+   "n": 1,
+   "sk": "Označte hľadanú veličinu.",
+   "keep_czech": false
+  },
+  "j-31eb7e7b6c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vyberte aspoň jeden vztah.",
+   "ctx": "… }   if(S.phase===3&&!S.picked.length){ note(⟦\"⟧); return; }   if(S.phase===4){     if(!…",
+   "n": 1,
+   "sk": "Vyberte aspoň jeden vzťah.",
+   "keep_czech": false
+  },
+  "j-3a5760828d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Odvození ještě nezačalo.",
+   "ctx": "…; }   if(S.phase===4){     if(!S.expr){ note(⟦\"⟧); return; }     if(!exprDone()){       …",
+   "n": 1,
+   "sk": "Odvodenie ešte nezačalo.",
+   "keep_czech": false
+  },
+  "j-9ffea1da4d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve výrazu zůstávají veličiny, které nemáte mezi zadanými: ",
+   "ctx": "…ion(k){return kn.indexOf(k)<0;});       note(⟦\"⟧+         left.map(function(k){return tx…",
+   "n": 1,
+   "sk": "Vo výraze zostávajú veličiny, ktoré nemáte medzi zadanými: ",
+   "keep_czech": false
+  },
+  "j-1afe34b89f": {
+   "kind": "js",
+   "q": "\"",
+   "src": ". Za ně čísla dosadit nejde — nahraďte je dalším vztahem, nebo je doplňte ",
+   "ctx": "…n(k){return txtSym(k);}).join(\", \")+         ⟦\"⟧+         \"do zadaných veličin.\");      …",
+   "n": 1,
+   "sk": ". Za ne čísla dosadiť nejde — nahraďte ich ďalším vzťahom, alebo ich doplňte ",
+   "keep_czech": false
+  },
+  "j-7b536f5abb": {
+   "kind": "js",
+   "q": "\"",
+   "src": "do zadaných veličin.",
+   "ctx": "…e dalším vztahem, nebo je doplňte \"+         ⟦\"⟧);       return;     }   }   gotoPhase(S…",
+   "n": 1,
+   "sk": "do zadaných veličín.",
+   "keep_czech": false
+  },
+  "j-2a83b461d7": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Projděte si zadání ještě jednou a hledejte, které veličiny v něm jsou.",
+   "ctx": "…l, h=\"\";   if(lvl===1){     h=TASK.hints[0]||⟦\"⟧;   } else if(lvl===2){     h=hint2();  …",
+   "n": 1,
+   "sk": "Prejdite si zadanie ešte raz a hľadajte, ktoré veličiny sú v ňom.",
+   "keep_czech": false
+  },
+  "j-c6aee8bc29": {
+   "kind": "js",
+   "q": "'",
+   "src": "<b>Nápověda ",
+   "ctx": "…int2();   } else {     h=hint3();   }   note(⟦'⟧+lvl+\"/3.</b> \"+h);   renderBar(); } fun…",
+   "n": 1,
+   "sk": "<b>Nápoveda ",
+   "keep_czech": false
+  },
+  "j-b31af7259a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ze zadání ještě chybí ",
+   "ctx": "…k;});     });     return miss.length       ? ⟦\"⟧+miss.map(function(g){return txtSym(g.sk…",
+   "n": 1,
+   "sk": "Zo zadania ešte chýba ",
+   "keep_czech": false
+  },
+  "j-4b9ffaf42f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Všechny potřebné veličiny už v listu máte. Zkontrolujte jednotky.",
+   "ctx": "…eturn txtSym(g.sk);}).join(\", \")+\".\"       : ⟦\"⟧;   }   if(S.phase===2) return \"Úloha se…",
+   "n": 1,
+   "sk": "Všetky potrebné veličiny už v liste máte. Skontrolujte jednotky.",
+   "keep_czech": false
+  },
+  "j-16a4f4809b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Úloha se ptá na veličinu ",
+   "ctx": "…jte jednotky.\";   }   if(S.phase===2) return ⟦\"⟧+txtSym(TASK.find.sk)+\".\";   if(S.phase=…",
+   "n": 1,
+   "sk": "Úloha sa pýta na veličinu ",
+   "keep_czech": false
+  },
+  "j-576f4df1c3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chybí vztah, který vyjádří ",
+   "ctx": "…Of(id)<0; });     return need.length       ? ⟦\"⟧+txtSym(cardById(need[0]).key)+\".\"      …",
+   "n": 1,
+   "sk": "Chýba vzťah, ktorý vyjadrí ",
+   "keep_czech": false
+  },
+  "j-f09c336bbe": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Potřebné vztahy už vybrané máte.",
+   "ctx": "… \"+txtSym(cardById(need[0]).key)+\".\"       : ⟦\"⟧;   }   if(S.phase===4){     var nx=next…",
+   "n": 1,
+   "sk": "Potrebné vzťahy už vybrané máte.",
+   "keep_czech": false
+  },
+  "j-22e28c2887": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výraz je hotový, pokračujte na dosazení.",
+   "ctx": "…){     var nx=nextStep();     if(!nx) return ⟦\"⟧;     return \"Teď je na řadě \"+txtSym(nx…",
+   "n": 1,
+   "sk": "Výraz je hotový, pokračujte na dosadenie.",
+   "keep_czech": false
+  },
+  "j-2da29e62d5": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Teď je na řadě ",
+   "ctx": "…hotový, pokračujte na dosazení.\";     return ⟦\"⟧+txtSym(nx.key)+\" — nahraďte ji vztahem …",
+   "n": 1,
+   "sk": "Teraz je na rade ",
+   "keep_czech": false
+  },
+  "j-c6af32e63a": {
+   "kind": "js",
+   "q": "\"",
+   "src": " — nahraďte ji vztahem ",
+   "ctx": "…     return \"Teď je na řadě \"+txtSym(nx.key)+⟦\"⟧+plain(cardById(nx.card))+\".\";   }   var…",
+   "n": 1,
+   "sk": " — nahraďte ju vzťahom ",
+   "keep_czech": false
+  },
+  "j-2f134ee146": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jednotka výsledku je ",
+   "ctx": "…var u=unitLabel(TASK.find.unit);   return u?(⟦\"⟧+u+\".\"):     \"Výsledek je bezrozměrný — …",
+   "n": 1,
+   "sk": "Jednotka výsledku je ",
+   "keep_czech": false
+  },
+  "j-60236e2607": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výsledek je bezrozměrný — v dlaždicích použijte 1.",
+   "ctx": "…eturn u?(\"Jednotka výsledku je \"+u+\".\"):     ⟦\"⟧; } function hint3(){   var i;   if(S.ph…",
+   "n": 1,
+   "sk": "Výsledok je bezrozmerný — v dlaždiciach použite 1.",
+   "keep_czech": false
+  },
+  "j-c40d793e2d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Doplnil jsem řádek ",
+   "ctx": "…\",\"),unit:g.unit});         render(); return ⟦\"⟧+txtSym(g.sk)+\" = \"+           withU(fmt…",
+   "n": 1,
+   "sk": "Doplnil som riadok ",
+   "keep_czech": false
+  },
+  "j-bd84bf6e6f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Opravil jsem řádek ",
+   "ctx": "…); row.unit=g.unit; render();         return ⟦\"⟧+txtSym(g.sk)+\" na \"+           withU(fm…",
+   "n": 1,
+   "sk": "Opravil som riadok ",
+   "keep_czech": false
+  },
+  "j-9a301e55f2": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V zadaných veličinách už není co doplnit.",
+   "ctx": "…val,6),g.unit)+\".\";       }     }     return ⟦\"⟧;   }   if(S.phase===2){     snap();    …",
+   "n": 1,
+   "sk": "V zadaných veličinách už nie je čo doplniť.",
+   "keep_czech": false
+  },
+  "j-b64ec7b294": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nastavil jsem hledanou veličinu i jednotku.",
+   "ctx": "…nd.unit).d.slice();     render();     return ⟦\"⟧;   }   if(S.phase===3){     var need=TA…",
+   "n": 1,
+   "sk": "Nastavil som hľadanú veličinu aj jednotku.",
+   "keep_czech": false
+  },
+  "j-2029f6524c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Všechny potřebné vztahy už vybrané jsou.",
+   "ctx": "…dexOf(id)<0; });     if(!need.length) return ⟦\"⟧;     snap(); S.picked.push(need[0]); re…",
+   "n": 1,
+   "sk": "Všetky potrebné vzťahy už vybrané sú.",
+   "keep_czech": false
+  },
+  "j-da9908f949": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Přidal jsem vztah ",
+   "ctx": "…S.picked.push(need[0]); render();     return ⟦\"⟧+plain(cardById(need[0]))+\".\";   }   if(…",
+   "n": 1,
+   "sk": "Pridal som vzťah ",
+   "keep_czech": false
+  },
+  "j-86d7c9a47a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Výraz je hotový.",
+   "ctx": "…){     var nx=nextStep();     if(!nx) return ⟦\"⟧;     if(!S.expr){ startDeriv(nx.card); …",
+   "n": 1,
+   "sk": "Výraz je hotový.",
+   "keep_czech": false
+  },
+  "j-bc440ffb9d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Začal jsem vztahem ",
+   "ctx": "…    if(!S.expr){ startDeriv(nx.card); return ⟦\"⟧+plain(cardById(nx.card))+\".\"; }     sna…",
+   "n": 1,
+   "sk": "Začal som vzťahom ",
+   "keep_czech": false
+  },
+  "j-7e211a359c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Dosadil jsem za ",
+   "ctx": "…n(c)});     S.sel=null; render();     return ⟦\"⟧+txtSym(nx.key)+\".\";   }   snap();   S.u…",
+   "n": 1,
+   "sk": "Dosadil som za ",
+   "keep_czech": false
+  },
+  "j-d5ff855a3c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Sestavil jsem jednotku výsledku. Číslo si spočítejte sám.",
+   "ctx": "…K.find.unit).d.slice();   render();   return ⟦\"⟧; } /* další krok podle vzorového řešení…",
+   "n": 1,
+   "sk": "Zostavil som jednotku výsledku. Číslo si vypočítajte sami.",
+   "keep_czech": false
+  },
+  "j-16c586fd77": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Zapište číselnou odpověď do listu k řádku „Odpověď“.",
+   "ctx": "…r v=parseVal(S.ansVal);   if(v===null){ note(⟦\"⟧); return; }   if(!S.un.length&&!S.ud.le…",
+   "n": 1,
+   "sk": "Zapíšte číselnú odpoveď do listu k riadku „Odpoveď“.",
+   "keep_czech": false
+  },
+  "j-14c84c2775": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Sestavte ještě jednotku výsledku. Pokud je výsledek bezrozměrný, ",
+   "ctx": "…}   if(!S.un.length&&!S.ud.length){     note(⟦\"⟧+          \"použijte dlaždici <b>1</b>.\"…",
+   "n": 1,
+   "sk": "Zostavte ešte jednotku výsledku. Ak je výsledok bezrozmerný, ",
+   "keep_czech": false
+  },
+  "j-e62f048ecc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "použijte dlaždici <b>1</b>.",
+   "ctx": "…. Pokud je výsledek bezrozměrný, \"+          ⟦\"⟧); return; }   var fi=findInfo(), au=ans…",
+   "n": 1,
+   "sk": "použite dlaždicu <b>1</b>.",
+   "keep_czech": false
+  },
+  "j-0f7fb59380": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Správně",
+   "ctx": "…k?\"✓\":\"✕\")+\"</span><div>\"+      \"<h2>\"+(v.ok?⟦\"⟧:\"Špatně\")+\"</h2><p>\"+      (v.ok?\"Vaše …",
+   "n": 1,
+   "sk": "Správne",
+   "keep_czech": false
+  },
+  "j-ebca049298": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Špatně",
+   "ctx": "…+\"</span><div>\"+      \"<h2>\"+(v.ok?\"Správně\":⟦\"⟧)+\"</h2><p>\"+      (v.ok?\"Vaše odpověď s…",
+   "n": 1,
+   "sk": "Nesprávne",
+   "keep_czech": false
+  },
+  "j-53d2426108": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vaše odpověď sedí i po stránce jednotek.",
+   "ctx": "…k?\"Správně\":\"Špatně\")+\"</h2><p>\"+      (v.ok?⟦\"⟧:            \"Odpověď neodpovídá tomu, c…",
+   "n": 1,
+   "sk": "Vaša odpoveď sedí aj po stránke jednotiek.",
+   "keep_czech": false
+  },
+  "j-444922da99": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Odpověď neodpovídá tomu, co má vyjít. Kde přesně se to zlomilo, ",
+   "ctx": "…věď sedí i po stránce jednotek.\":            ⟦\"⟧+            \"vám aplikace ukáže — stačí…",
+   "n": 1,
+   "sk": "Odpoveď nezodpovedá tomu, čo má vyjsť. Kde presne sa to pokazilo, ",
+   "keep_czech": false
+  },
+  "j-1c5ff209df": {
+   "kind": "js",
+   "q": "\"",
+   "src": "vám aplikace ukáže — stačí říct.",
+   "ctx": "…jít. Kde přesně se to zlomilo, \"+            ⟦\"⟧)+\"</p></div></div>\";   h+='<div class=\"…",
+   "n": 1,
+   "sk": "vám aplikácia ukáže — stačí povedať.",
+   "keep_czech": false
+  },
+  "j-5fc19b9304": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>čas</span>",
+   "ctx": "…iv class=\"vstats\"><span><b>'+fmtSecs(S.secs)+⟦\"⟧+      \"<span><b>\"+S.hints+\"</b>nápověd<…",
+   "n": 1,
+   "sk": "</b>čas</span>",
+   "keep_czech": false
+  },
+  "j-546e515914": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>nápověd</span>",
+   "ctx": "…)+\"</b>čas</span>\"+      \"<span><b>\"+S.hints+⟦\"⟧+      \"<span><b>\"+withU(fmtNum(v.typed,…",
+   "n": 1,
+   "sk": "</b>nápovede</span>",
+   "keep_czech": false
+  },
+  "j-1e8908e69a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>vaše odpověď</span></div>",
+   "ctx": "…n><b>\"+withU(fmtNum(v.typed,6),v.unit)+      ⟦\"⟧;   if(v.ok&&v.sig!==TASK.answer.sig)   …",
+   "n": 1,
+   "sk": "</b>vaša odpoveď</span></div>",
+   "keep_czech": false
+  },
+  "j-e32c5a2eae": {
+   "kind": "js",
+   "q": "'",
+   "src": "<p class=\"vnote\">Poznámka k zápisu: zadání vede na ",
+   "ctx": "…;   if(v.ok&&v.sig!==TASK.answer.sig)     h+=⟦'⟧+TASK.answer.sig+        \" platné číslic…",
+   "n": 1,
+   "sk": "<p class=\"vnote\">Poznámka k zápisu: zadanie vedie na ",
+   "keep_czech": false
+  },
+  "j-92468508ec": {
+   "kind": "js",
+   "q": "\"",
+   "src": " platné číslice, vy jste zapsal ",
+   "ctx": "…su: zadání vede na '+TASK.answer.sig+        ⟦\"⟧+v.sig+\". Za chybu se to nepočítá, \"+   …",
+   "n": 1,
+   "sk": " platné číslice, vy ste zapísali ",
+   "keep_czech": false
+  },
+  "j-66e32094bb": {
+   "kind": "js",
+   "q": "\"",
+   "src": ". Za chybu se to nepočítá, ",
+   "ctx": "…    \" platné číslice, vy jste zapsal \"+v.sig+⟦\"⟧+        \"ale u zkoušky se na počet plat…",
+   "n": 1,
+   "sk": ". Za chybu sa to nepočíta, ",
+   "keep_czech": false
+  },
+  "j-4b2fe71156": {
+   "kind": "js",
+   "q": "\"",
+   "src": "ale u zkoušky se na počet platných číslic hledí.",
+   "ctx": "…+v.sig+\". Za chybu se to nepočítá, \"+        ⟦\"⟧;   h+='<div class=\"vacts\">'+      '<but…",
+   "n": 1,
+   "sk": "ale pri skúške sa na počet platných číslic hľadí.",
+   "keep_czech": false
+  },
+  "j-1824716d42": {
+   "kind": "js",
+   "q": "'",
+   "src": "<button type=\"button\" class=\"btn\" id=\"whyBtn\">Kde jsem udělal chybu?</button>",
+   "ctx": "…ic hledí.\";   h+='<div class=\"vacts\">'+      ⟦'⟧+      '<button type=\"button\" class=\"btn…",
+   "n": 1,
+   "sk": "<button type=\"button\" class=\"btn\" id=\"whyBtn\">Kde som urobil chybu?</button>",
+   "keep_czech": false
+  },
+  "j-cce1778bbb": {
+   "kind": "js",
+   "q": "'",
+   "src": "<button type=\"button\" class=\"btn\" id=\"modelBtn\">Ukázat správné řešení</button>",
+   "ctx": "…yBtn\">Kde jsem udělal chybu?</button>'+      ⟦'⟧+      '<button type=\"button\" class=\"btn…",
+   "n": 1,
+   "sk": "<button type=\"button\" class=\"btn\" id=\"modelBtn\">Ukázať správne riešenie</button>",
+   "keep_czech": false
+  },
+  "j-519eb0eda0": {
+   "kind": "js",
+   "q": "'",
+   "src": "<button type=\"button\" class=\"btn\" id=\"retryBtn\">Zkusit znovu</button>",
+   "ctx": "…elBtn\">Ukázat správné řešení</button>'+      ⟦'⟧+      '<button type=\"button\" class=\"btn…",
+   "n": 1,
+   "sk": "<button type=\"button\" class=\"btn\" id=\"retryBtn\">Skúsiť znova</button>",
+   "keep_czech": false
+  },
+  "j-3d8444e0a8": {
+   "kind": "js",
+   "q": "'",
+   "src": "<button type=\"button\" class=\"btn\" id=\"nextTaskBtn\">Další úloha →</button>",
+   "ctx": "…\" id=\"retryBtn\">Zkusit znovu</button>'+      ⟦'⟧+      '<button type=\"button\" class=\"btn…",
+   "n": 1,
+   "sk": "<button type=\"button\" class=\"btn\" id=\"nextTaskBtn\">Ďalšia úloha →</button>",
+   "keep_czech": false
+  },
+  "j-5e10b92a06": {
+   "kind": "js",
+   "q": "'",
+   "src": "<button type=\"button\" class=\"btn\" id=\"backBtn\">Zpátky na výběr</button></div>",
+   "ctx": "…=\"nextTaskBtn\">Další úloha →</button>'+      ⟦'⟧;   if(S.diag) h+='<div class=\"diag\"><h3…",
+   "n": 1,
+   "sk": "<button type=\"button\" class=\"btn\" id=\"backBtn\">Späť na výber</button></div>",
+   "keep_czech": false
+  },
+  "j-9e441fadab": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chybí údaj ze zadání",
+   "ctx": "…{       S.mark={row:\"given\"};       return D(⟦\"⟧,         \"Ve výpočtovém listu není veli…",
+   "n": 1,
+   "sk": "Chýba údaj zo zadania",
+   "keep_czech": false
+  },
+  "j-49c5bfa8d0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Ve výpočtovém listu není veličina <b>",
+   "ctx": "…    return D(\"Chybí údaj ze zadání\",         ⟦\"⟧+txtSym(g.sk)+\"</b>, kterou zadání uvádí…",
+   "n": 1,
+   "sk": "Vo výpočtovom liste nie je veličina <b>",
+   "keep_czech": false
+  },
+  "j-bbf5902b2b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>, kterou zadání uvádí (",
+   "ctx": "…čtovém listu není veličina <b>\"+txtSym(g.sk)+⟦\"⟧+         fmtNum(g.val,6)+\" \"+unitText(g…",
+   "n": 1,
+   "sk": "</b>, ktorú zadanie uvádza (",
+   "keep_czech": false
+  },
+  "j-42798e12be": {
+   "kind": "js",
+   "q": "\"",
+   "src": "). Bez ní se ke správnému výsledku dojít nedá.",
+   "ctx": "…        fmtNum(g.val,6)+\" \"+unitText(g.unit)+⟦\"⟧);     }     sv=rowCanon(row);     if(sv…",
+   "n": 1,
+   "sk": "). Bez nej sa k správnemu výsledku dôjsť nedá.",
+   "keep_czech": false
+  },
+  "j-68a113847f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nečitelná hodnota",
+   "ctx": "…S.mark={row:\"given\",idx:idx};       return D(⟦\"⟧,         \"Hodnotu u veličiny <b>\"+txtSy…",
+   "n": 1,
+   "sk": "Nečitateľná hodnota",
+   "keep_czech": false
+  },
+  "j-eaae0bc310": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Hodnotu u veličiny <b>",
+   "ctx": "…       return D(\"Nečitelná hodnota\",         ⟦\"⟧+txtSym(g.sk)+\"</b> neumím přečíst jako …",
+   "n": 1,
+   "sk": "Hodnotu pri veličine <b>",
+   "keep_czech": false
+  },
+  "j-a1da0ba16a": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b> neumím přečíst jako číslo.",
+   "ctx": "…       \"Hodnotu u veličiny <b>\"+txtSym(g.sk)+⟦\"⟧);     }     if(!closeTo(sv,TASK.ref.val…",
+   "n": 1,
+   "sk": "</b> neviem prečítať ako číslo.",
+   "keep_czech": false
+  },
+  "j-09b94d753b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chyba je hned v zadaných hodnotách",
+   "ctx": "…S.mark={row:\"given\",idx:idx};       return D(⟦\"⟧,         \"U veličiny <b>\"+txtSym(g.sk)+…",
+   "n": 1,
+   "sk": "Chyba je hneď v zadaných hodnotách",
+   "keep_czech": false
+  },
+  "j-79022ec1d8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "U veličiny <b>",
+   "ctx": "…Chyba je hned v zadaných hodnotách\",         ⟦\"⟧+txtSym(g.sk)+\"</b> jste zapsal <b>\"+esc…",
+   "n": 1,
+   "sk": "Pri veličine <b>",
+   "keep_czech": false
+  },
+  "j-8bd7b3ebe4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>. To je po převodu <b>",
+   "ctx": "…sc(row.val)+\" \"+         unitLabel(row.unit)+⟦\"⟧+         withU(fmtNum(sv,6),symInfo(g.s…",
+   "n": 1,
+   "sk": "</b>. To je po prevode <b>",
+   "keep_czech": false
+  },
+  "j-3b89941a51": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>, ale ze zadání ",
+   "ctx": "…     withU(fmtNum(sv,6),symInfo(g.sk).canon)+⟦\"⟧+         \"vychází <b>\"+withU(fmtNum(TAS…",
+   "n": 1,
+   "sk": "</b>, ale zo zadania ",
+   "keep_czech": false
+  },
+  "j-3be6a2e374": {
+   "kind": "js",
+   "q": "\"",
+   "src": "vychází <b>",
+   "ctx": "…g.sk).canon)+\"</b>, ale ze zadání \"+         ⟦\"⟧+withU(fmtNum(TASK.ref.vals[g.sk],6),sym…",
+   "n": 1,
+   "sk": "vychádza <b>",
+   "keep_czech": false
+  },
+  "j-5285bfacdc": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>. Zadání uvádí ",
+   "ctx": "….vals[g.sk],6),symInfo(g.sk).canon)+         ⟦\"⟧+withU(fmtNum(g.val,6),g.unit)+         …",
+   "n": 1,
+   "sk": "</b>. Zadanie uvádza ",
+   "keep_czech": false
+  },
+  "j-6611b99827": {
+   "kind": "js",
+   "q": "\"",
+   "src": ". Zkontrolujte převod jednotek — v tom je celá chyba, dál už bylo všechno jedno.",
+   "ctx": "…ádí \"+withU(fmtNum(g.val,6),g.unit)+         ⟦\"⟧);     }   }   /* --- 2. a 3. vztahy a o…",
+   "n": 1,
+   "sk": ". Skontrolujte prevod jednotiek — v tom je celá chyba, ďalej už na tom nezáležalo.",
+   "keep_czech": false
+  },
+  "j-cc9d858dc1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chyba je ve výběru vztahu",
+   "ctx": "…S.mark={row:\"fml\",card:c.id};       return D(⟦\"⟧,         \"Vztah <span class=\\\"math\\\">\"+…",
+   "n": 1,
+   "sk": "Chyba je vo výbere vzťahu",
+   "keep_czech": false
+  },
+  "j-bc0894ab5c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vztah <span class=\\\"math\\\">",
+   "ctx": "…eturn D(\"Chyba je ve výběru vztahu\",         ⟦\"⟧+plainHtml(c)+\"</span> v řešení téhle úl…",
+   "n": 1,
+   "sk": "Vzťah <span class=\\\"math\\\">",
+   "keep_czech": false
+  },
+  "j-563d2698a0": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</span> v řešení téhle úlohy nemá co ",
+   "ctx": "…  \"Vztah <span class=\\\"math\\\">\"+plainHtml(c)+⟦\"⟧+         \"dělat. \"+(c.why||\"Pro tuhle ú…",
+   "n": 1,
+   "sk": "</span> v riešení tejto úlohy nemá čo ",
+   "keep_czech": false
+  },
+  "j-678444818c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "dělat. ",
+   "ctx": "…pan> v řešení téhle úlohy nemá co \"+         ⟦\"⟧+(c.why||\"Pro tuhle úlohu neplatí.\")+   …",
+   "n": 1,
+   "sk": "robiť. ",
+   "keep_czech": false
+  },
+  "j-9dee3a3f94": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Pro tuhle úlohu neplatí.",
+   "ctx": "…e úlohy nemá co \"+         \"dělat. \"+(c.why||⟦\"⟧)+         (usedInDeriv(c.id)?\" Právě jí…",
+   "n": 1,
+   "sk": "Pre túto úlohu neplatí.",
+   "keep_czech": false
+  },
+  "j-a5edb80dc6": {
+   "kind": "js",
+   "q": "\"",
+   "src": " Právě jím se odvození rozešlo se správným řešením.",
+   "ctx": "…úlohu neplatí.\")+         (usedInDeriv(c.id)?⟦\"⟧:\"\"));     }     var missing=TASK.need.f…",
+   "n": 1,
+   "sk": " Práve pri ňom sa odvodenie rozišlo so správnym riešením.",
+   "keep_czech": false
+  },
+  "j-c0abe1ce3b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chybí potřebný vztah",
+   "ctx": "…]);       S.mark={row:\"fml\"};       return D(⟦\"⟧,         \"V řešení chybí vztah, kterým …",
+   "n": 1,
+   "sk": "Chýba potrebný vzťah",
+   "keep_czech": false
+  },
+  "j-4070710438": {
+   "kind": "js",
+   "q": "\"",
+   "src": "V řešení chybí vztah, kterým se vyjádří <b>",
+   "ctx": "…    return D(\"Chybí potřebný vztah\",         ⟦\"⟧+txtSym(mc.key)+         \"</b>. Bez něj …",
+   "n": 1,
+   "sk": "V riešení chýba vzťah, ktorým sa vyjadrí <b>",
+   "keep_czech": false
+  },
+  "j-8b640eeb5b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>. Bez něj se výraz nedá dotáhnout jen na zadané veličiny.",
+   "ctx": "…erým se vyjádří <b>\"+txtSym(mc.key)+         ⟦\"⟧);     }     for(i=0;i<S.hist.length;i++…",
+   "n": 1,
+   "sk": "</b>. Bez neho sa výraz nedá dotiahnuť len na zadané veličiny.",
+   "keep_czech": false
+  },
+  "j-ab0c487796": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Rozešlo se to hned na začátku: výchozí vztah ",
+   "ctx": "…):null;         var lead=(i===0)           ? ⟦\"⟧+             (cc?\"<span class=\\\"math\\\">…",
+   "n": 1,
+   "sk": "Rozišlo sa to hneď na začiatku: východiskový vzťah ",
+   "keep_czech": false
+  },
+  "j-abe9467a4b": {
+   "kind": "js",
+   "q": "\"",
+   "src": " nevede k výsledku.",
+   "ctx": "…class=\\\"math\\\">\"+plainHtml(cc)+\"</span>\":\"\")+⟦\"⟧           : \"Do \"+i+\". kroku byl výraz …",
+   "n": 1,
+   "sk": " nevedie k výsledku.",
+   "keep_czech": false
+  },
+  "j-9941ddcfc8": {
+   "kind": "js",
+   "q": "\"",
+   "src": ". kroku byl výraz v pořádku. Rozešel se se správným řešením až v kroku <b>",
+   "ctx": "…\")+\" nevede k výsledku.\"           : \"Do \"+i+⟦\"⟧+             (i+1)+\" — \"+esc(S.hist[i].…",
+   "n": 1,
+   "sk": ". kroku bol výraz v poriadku. Rozišiel sa so správnym riešením až v kroku <b>",
+   "keep_czech": false
+  },
+  "j-4a86c3dab1": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chyba je v odvození",
+   "ctx": "…sc(S.hist[i].note)+\"</b>.\";         return D(⟦\"⟧,           lead+(cc&&cc.why?\" \"+cc.why:…",
+   "n": 2,
+   "sk": "Chyba je v odvodení",
+   "keep_czech": false
+  },
+  "j-650705b9c5": {
+   "kind": "js",
+   "q": "\"",
+   "src": " Ostatní kroky byly v pořádku, opravovat je nemusíte.",
+   "ctx": "…  lead+(cc&&cc.why?\" \"+cc.why:\"\")+           ⟦\"⟧);       }     }     S.mark={row:\"der\"};…",
+   "n": 1,
+   "sk": " Ostatné kroky boli v poriadku, opravovať ich nemusíte.",
+   "keep_czech": false
+  },
+  "j-25402363ad": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Sestavený výraz nedává správný výsledek ani s referenčními hodnotami. ",
+   "ctx": "…};     return D(\"Chyba je v odvození\",       ⟦\"⟧+       \"Porovnejte ho se vzorovým řešen…",
+   "n": 1,
+   "sk": "Zostavený výraz nedáva správny výsledok ani s referenčnými hodnotami. ",
+   "keep_czech": false
+  },
+  "j-e66ca68b06": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Porovnejte ho se vzorovým řešením.",
+   "ctx": "…ledek ani s referenčními hodnotami. \"+       ⟦\"⟧);   }   /* --- 4. jednotka --- */   var…",
+   "n": 1,
+   "sk": "Porovnajte ho so vzorovým riešením.",
+   "keep_czech": false
+  },
+  "j-17394c7872": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chyba je v jednotce výsledku",
+   "ctx": "…refU)){     S.mark={row:\"ans\"};     return D(⟦\"⟧,       \"Sestavil jste jednotku <b>\"+uni…",
+   "n": 1,
+   "sk": "Chyba je v jednotke výsledku",
+   "keep_czech": false
+  },
+  "j-58899f88d4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Sestavil jste jednotku <b>",
+   "ctx": "…turn D(\"Chyba je v jednotce výsledku\",       ⟦\"⟧+unitText(ansUnit())+\"</b> s rozměrem <b…",
+   "n": 1,
+   "sk": "Zostavili ste jednotku <b>",
+   "keep_czech": false
+  },
+  "j-e124ab2bb4": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b> s rozměrem <b>",
+   "ctx": "…tavil jste jednotku <b>\"+unitText(ansUnit())+⟦\"⟧+       dimText(myU.d)+\"</b>. Výsledek t…",
+   "n": 1,
+   "sk": "</b> s rozmerom <b>",
+   "keep_czech": false
+  },
+  "j-650c332e69": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>. Výsledek téhle úlohy má rozměr <b>",
+   "ctx": "…+\"</b> s rozměrem <b>\"+       dimText(myU.d)+⟦\"⟧+dimText(refU.d)+       \"</b>, například…",
+   "n": 1,
+   "sk": "</b>. Výsledok tejto úlohy má rozmer <b>",
+   "keep_czech": false
+  },
+  "j-e9f70ee9e8": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>, například ",
+   "ctx": "… úlohy má rozměr <b>\"+dimText(refU.d)+       ⟦\"⟧+unitText(TASK.find.unit)+       \". Čísl…",
+   "n": 1,
+   "sk": "</b>, napríklad ",
+   "keep_czech": false
+  },
+  "j-5bd85ae95b": {
+   "kind": "js",
+   "q": "\"",
+   "src": ". Číslo přitom může být spočítané správně — chybná jednotka je vlastní druh chyby ",
+   "ctx": "… například \"+unitText(TASK.find.unit)+       ⟦\"⟧+       \"a u zkoušky stojí bod.\");   }  …",
+   "n": 1,
+   "sk": ". Číslo pritom môže byť vypočítané správne — chybná jednotka je samostatný druh chyby ",
+   "keep_czech": false
+  },
+  "j-f58bae318b": {
+   "kind": "js",
+   "q": "\"",
+   "src": "a u zkoušky stojí bod.",
+   "ctx": "…ybná jednotka je vlastní druh chyby \"+       ⟦\"⟧);   }   /* --- 5. číselná odpověď --- *…",
+   "n": 1,
+   "sk": "a pri skúške stojí bod.",
+   "keep_czech": false
+  },
+  "j-e314a77e46": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Chyba je v aritmetice, ne v pochopení",
+   "ctx": "….004)){     S.mark={row:\"ans\"};     return D(⟦\"⟧,       \"Váš výraz i zadané hodnoty jsou…",
+   "n": 1,
+   "sk": "Chyba je v aritmetike, nie v pochopení",
+   "keep_czech": false
+  },
+  "j-ff81e80cf3": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Váš výraz i zadané hodnoty jsou v pořádku. Kdybyste do svého výrazu dosadil svoje ",
+   "ctx": "…hyba je v aritmetice, ne v pochopení\",       ⟦\"⟧+       \"čísla, vyjde <b>\"+withU(fmtNum(…",
+   "n": 1,
+   "sk": "Váš výraz aj zadané hodnoty sú v poriadku. Keby ste do svojho výrazu dosadili svoje ",
+   "keep_czech": false
+  },
+  "j-4bf0b608cf": {
+   "kind": "js",
+   "q": "\"",
+   "src": "čísla, vyjde <b>",
+   "ctx": "…byste do svého výrazu dosadil svoje \"+       ⟦\"⟧+withU(fmtNum(shown,5),ansUnit())+\"</b>,…",
+   "n": 1,
+   "sk": "čísla, vyjde <b>",
+   "keep_czech": false
+  },
+  "j-b56cab6b43": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>, vy jste ale zapsal <b>",
+   "ctx": "… vyjde <b>\"+withU(fmtNum(shown,5),ansUnit())+⟦\"⟧+       esc(S.ansVal)+\"</b>. To je chyba…",
+   "n": 1,
+   "sk": "</b>, vy ste ale zapísali <b>",
+   "keep_czech": false
+  },
+  "j-8e9b0a9f06": {
+   "kind": "js",
+   "q": "\"",
+   "src": "</b>. To je chyba v počítání nebo v zaokrouhlení — postup jste ",
+   "ctx": "…vy jste ale zapsal <b>\"+       esc(S.ansVal)+⟦\"⟧+       \"měl správně. To je podstatný ro…",
+   "n": 1,
+   "sk": "</b>. To je chyba vo výpočte alebo v zaokrúhlení — postup ste ",
+   "keep_czech": false
+  },
+  "j-0e081ae952": {
+   "kind": "js",
+   "q": "\"",
+   "src": "měl správně. To je podstatný rozdíl: rozumíte úloze, jen jste se překlepl.",
+   "ctx": "…í nebo v zaokrouhlení — postup jste \"+       ⟦\"⟧);   }   return D(\"Nikde\",     \"Zadané h…",
+   "n": 1,
+   "sk": "mali správne. To je podstatný rozdiel: rozumiete úlohe, len ste sa preklepli.",
+   "keep_czech": false
+  },
+  "j-278221b999": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Nikde",
+   "ctx": "…oze, jen jste se překlepl.\");   }   return D(⟦\"⟧,     \"Zadané hodnoty, vybrané vztahy, o…",
+   "n": 1,
+   "sk": "Nikde",
+   "keep_czech": false
+  },
+  "j-470b265e07": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Zadané hodnoty, vybrané vztahy, odvození, jednotka i číslo souhlasí.",
+   "ctx": "… se překlepl.\");   }   return D(\"Nikde\",     ⟦\"⟧+     (S.verdict.ok?\"\":\" Rozdíl je nejsp…",
+   "n": 1,
+   "sk": "Zadané hodnoty, vybrané vzťahy, odvodenie, jednotka aj číslo súhlasia.",
+   "keep_czech": false
+  },
+  "j-8a12c914b1": {
+   "kind": "js",
+   "q": "\"",
+   "src": " Rozdíl je nejspíš jen v zaokrouhlení.",
+   "ctx": "…tka i číslo souhlasí.\"+     (S.verdict.ok?\"\":⟦\"⟧)); } function usedInDeriv(id){   return…",
+   "n": 1,
+   "sk": " Rozdiel je asi len v zaokrúhlení.",
+   "keep_czech": false
+  },
+  "j-8ec6765a37": {
+   "kind": "js",
+   "q": "'",
+   "src": "<span class=\"cs-id\">Vzorové řešení</span>",
+   "ctx": "…calcsheet model\"><div class=\"cs-head\">'+     ⟦'⟧+     '<span class=\"cs-topic\">'+esc(TASK…",
+   "n": 1,
+   "sk": "<span class=\"cs-id\">Vzorové riešenie</span>",
+   "keep_czech": false
+  },
+  "j-ba7997cb82": {
+   "kind": "js",
+   "q": "'",
+   "src": "<span class=\"cs-kind\">jedna z možných cest</span></div>",
+   "ctx": "…=\"cs-topic\">'+esc(TASK.title)+\"</span>\"+     ⟦'⟧+     '<div class=\"cs-task\">Pokud jste š…",
+   "n": 1,
+   "sk": "<span class=\"cs-kind\">jedna z možných ciest</span></div>",
+   "keep_czech": false
+  },
+  "j-953e7cbf7f": {
+   "kind": "js",
+   "q": "'",
+   "src": "<div class=\"cs-task\">Pokud jste šel jinudy a došel ke stejnému číslu, je vaše řešení ",
+   "ctx": "…ind\">jedna z možných cest</span></div>'+     ⟦'⟧+     \"stejně dobré — pořadí činitelů an…",
+   "n": 1,
+   "sk": "<div class=\"cs-task\">Ak ste išli inou cestou a došli k rovnakému číslu, je vaše riešenie ",
+   "keep_czech": false
+  },
+  "j-a360dd6593": {
+   "kind": "js",
+   "q": "\"",
+   "src": "stejně dobré — pořadí činitelů ani způsob uzávorkování na správnosti nic nemění.</div>",
+   "ctx": "…šel ke stejnému číslu, je vaše řešení '+     ⟦\"⟧;   h+=mrow(\"Zadání\",TASK.given.map(func…",
+   "n": 1,
+   "sk": "rovnako dobré — poradie činiteľov ani spôsob uzátvorkovania na správnosti nič nemení.</div>",
+   "keep_czech": false
+  },
+  "j-654a6a949c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Jeden až dva kroky. Rozehřátí a jistota v jednotkách.",
+   "ctx": "…== výběr úlohy */ var LV=[null,{n:\"Základ\",d:⟦\"⟧},         {n:\"Střední\",d:\"Tři až čtyři …",
+   "n": 1,
+   "sk": "Jeden až dva kroky. Rozohriatie a istota v jednotkách.",
+   "keep_czech": false
+  },
+  "j-e733700f49": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Tři až čtyři kroky, řetěz vztahů, past v jednotkách.",
+   "ctx": "…tota v jednotkách.\"},         {n:\"Střední\",d:⟦\"⟧},         {n:\"Přijímačky\",d:\"Delší odvo…",
+   "n": 1,
+   "sk": "Tri až štyri kroky, reťaz vzťahov, pasca v jednotkách.",
+   "keep_czech": false
+  },
+  "j-b7ace0e84f": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Delší odvození, odmocniny a logaritmy, rozhodování navíc.",
+   "ctx": "…t v jednotkách.\"},         {n:\"Přijímačky\",d:⟦\"⟧}]; function renderPick(){   var rec=sto…",
+   "n": 1,
+   "sk": "Dlhšie odvodenie, odmocniny a logaritmy, rozhodovanie navyše.",
+   "keep_czech": false
+  },
+  "j-a446355561": {
+   "kind": "js",
+   "q": "\"",
+   "src": "hotovo bez nápovědy",
+   "ctx": "…ried\":\"\");       var lbl=st.ok?(st.hints===0?⟦\"⟧:\"hotovo\"):              (st.tries?\"zkou…",
+   "n": 1,
+   "sk": "hotovo bez nápovede",
+   "keep_czech": false
+  },
+  "j-6fe7537bf6": {
+   "kind": "js",
+   "q": "\"",
+   "src": "zkoušeno",
+   "ctx": "… nápovědy\":\"hotovo\"):              (st.tries?⟦\"⟧:\"nezkoušeno\");       return '<button ty…",
+   "n": 1,
+   "sk": "skúšané",
+   "keep_czech": false
+  },
+  "j-9af5d42f1d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "nezkoušeno",
+   "ctx": "…\"hotovo\"):              (st.tries?\"zkoušeno\":⟦\"⟧);       return '<button type=\"button\" c…",
+   "n": 1,
+   "sk": "neskúšané",
+   "keep_czech": false
+  },
+  "j-9200304370": {
+   "kind": "js",
+   "q": "\"",
+   "src": "úloh vyřešeno</span></div>",
+   "ctx": "…TASKS.length+'</span><span class=\"pk\">'+     ⟦\"⟧+     '<div class=\"pb\"><span class=\"pv\">…",
+   "n": 1,
+   "sk": "úloh vyriešených</span></div>",
+   "keep_czech": false
+  },
+  "j-9a0e934fe9": {
+   "kind": "js",
+   "q": "\"",
+   "src": "z toho bez nápovědy</span></div>",
+   "ctx": "…\"pv\">'+clean+'</span><span class=\"pk\">'+     ⟦\"⟧+     '<div class=\"pb\"><span class=\"pv\">…",
+   "n": 1,
+   "sk": "z toho bez nápovede</span></div>",
+   "keep_czech": false
+  },
+  "j-953bb0c940": {
+   "kind": "js",
+   "q": "\"",
+   "src": "úloh otevřeno</span></div></div>",
+   "ctx": "…\"pv\">'+tried+'</span><span class=\"pk\">'+     ⟦\"⟧;   var rows=Object.keys(byTopic).map(fu…",
+   "n": 1,
+   "sk": "úloh otvorených</span></div></div>",
+   "keep_czech": false
+  },
+  "j-988b44c010": {
+   "kind": "js",
+   "q": "'",
+   "src": "<div class=\"tablewrap\"><table class=\"brk\"><thead><tr><th>Okruh</th>",
+   "ctx": "…unction(a,b){ return a.rate-b.rate; });   h+=⟦'⟧+      '<th class=\"n\">Hotovo</th><th sty…",
+   "n": 1,
+   "sk": "<div class=\"tablewrap\"><table class=\"brk\"><thead><tr><th>Okruh</th>",
+   "keep_czech": false
+  },
+  "j-9636648c2b": {
+   "kind": "js",
+   "q": "'",
+   "src": "<th class=\"n\">Hotovo</th><th style=\"width:38%\">Stav</th><th>Co s tím</th>",
+   "ctx": "…class=\"brk\"><thead><tr><th>Okruh</th>'+      ⟦'⟧+      \"</tr></thead><tbody>\";   h+=rows…",
+   "n": 1,
+   "sk": "<th class=\"n\">Hotovo</th><th style=\"width:38%\">Stav</th><th>Čo s tým</th>",
+   "keep_czech": false
+  },
+  "j-bbc8cd2718": {
+   "kind": "js",
+   "q": "\"",
+   "src": "máte hotovo",
+   "ctx": "…:\"var(--line-strong)\";     var rec2=pct>=100?⟦\"⟧:(r.o.tries?\"vraťte se k tomu\":\"zatím ne…",
+   "n": 1,
+   "sk": "máte hotovo",
+   "keep_czech": false
+  },
+  "j-16a304092d": {
+   "kind": "js",
+   "q": "\"",
+   "src": "vraťte se k tomu",
+   "ctx": "…  var rec2=pct>=100?\"máte hotovo\":(r.o.tries?⟦\"⟧:\"zatím nezkoušeno\");     return \"<tr><t…",
+   "n": 1,
+   "sk": "vráťte sa k tomu",
+   "keep_czech": false
+  },
+  "j-d676657a55": {
+   "kind": "js",
+   "q": "\"",
+   "src": "zatím nezkoušeno",
+   "ctx": "…?\"máte hotovo\":(r.o.tries?\"vraťte se k tomu\":⟦\"⟧);     return \"<tr><td>\"+esc(r.k)+'</td>…",
+   "n": 1,
+   "sk": "zatiaľ neskúšané",
+   "keep_czech": false
+  },
+  "j-a60fa617d9": {
+   "kind": "js",
+   "q": "'",
+   "src": "<td><span class=\"bar\"><i style=\"width:",
+   "ctx": "…lass=\"n\">'+r.o.ok+\" / \"+r.o.n+\"</td>\"+       ⟦'⟧+pct+\"%;background:\"+col+'\"></i></span><…",
+   "n": 1,
+   "sk": "<td><span class=\"bar\"><i style=\"width:",
+   "keep_czech": false
+  },
+  "j-a4130cd479": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Vynulovat pokrok</button></div>",
+   "ctx": "…ton\" class=\"btn btn-sm\" id=\"clearBtn\">'+     ⟦\"⟧;   $(\"#progress\").innerHTML=h;   var cb…",
+   "n": 1,
+   "sk": "Vynulovať pokrok</button></div>",
+   "keep_czech": false
+  },
+  "j-ee3c53fa5c": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Opravdu smazat uložený pokrok?",
+   "ctx": "…tListener(\"click\",function(){     if(confirm(⟦\"⟧)){ store.del(\"done\"); renderPick(); }  …",
+   "n": 1,
+   "sk": "Naozaj vymazať uložený pokrok?",
+   "keep_czech": false
+  },
+  "j-c66974fa3e": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Opustit rozpracovanou úlohu?",
+   "ctx": "…click\",function(){   if(S&&!S.done&&!confirm(⟦\"⟧)) return;   backToPick(); }); renderPic…",
+   "n": 1,
+   "sk": "Opustiť rozpracovanú úlohu?",
+   "keep_czech": false
+  },
+  "j-a795663323": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Přepnout na světlý režim",
+   "ctx": "…UN:MOON;       b.setAttribute(\"aria-label\",d?⟦\"⟧:\"Přepnout na tmavý režim\");}}   try{var…",
+   "n": 1,
+   "sk": "Prepnúť na svetlý režim",
+   "keep_czech": false
+  },
+  "j-ce0adf4f45": {
+   "kind": "js",
+   "q": "\"",
+   "src": "Přepnout na tmavý režim",
+   "ctx": "…te(\"aria-label\",d?\"Přepnout na světlý režim\":⟦\"⟧);}}   try{var s=localStorage.getItem(\"s…",
+   "n": 1,
+   "sk": "Prepnúť na tmavý režim",
+   "keep_czech": false
+  }
+ }
+}

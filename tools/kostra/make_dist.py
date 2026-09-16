@@ -201,6 +201,17 @@ def main():
         else:
             missing.append(sub + "/index.html")
 
+    # přeložené kopie obsahu (index.sk.html vedle index.html) jdou tam, kde je jejich česká stránka
+    for p, cl, _ in i18n.page_variants():
+        if cl == "cs":
+            continue
+        rel = os.path.relpath(p, SRC)
+        cz_dst = os.path.join(DST, rel[:-len(".sk.html")] + ".html")
+        if os.path.exists(cz_dst):
+            shutil.copy2(p, os.path.join(DST, rel)); n += 1
+        else:
+            missing.append(rel.replace("\\", "/") + " (česká stránka ve web/ chybí)")
+
     for name, content in (("404.html", NOT_FOUND), ("_headers", HEADERS), ("robots.txt", ROBOTS)):
         io.open(os.path.join(DST, name), "w", encoding="utf-8", newline="\n").write(content)
         n += 1

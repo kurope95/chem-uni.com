@@ -326,6 +326,12 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
     return stored()||"cs";
   }
   var lang=initial(), csTitle=null;
+  /* stránka s obsahem v jiném jazyce (např. index.sk.html) — přesměrovat na verzi pro zvolený jazyk */
+  var CL=D.getAttribute("data-content-lang")||"cs", ALT={}, al=document.querySelectorAll('link[rel="alternate"][hreflang]');
+  for(k=0;k<al.length;k++) ALT[al[k].getAttribute("hreflang")]=al[k].getAttribute("href");
+  function target(l){ if(l===CL) return null; if(ALT[l]) return ALT[l]; return (CL!=="cs"&&ALT.cs)?ALT.cs:null; }
+  function go(l){ var t=target(l); if(t){ location.replace(t+location.hash); return true; } return false; }
+  if(go(lang)) return;
   D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
   /* text psaný skriptem stránky (vždy česky) nebo už přeložený → text v aktuálním jazyce */
   function tx(s){ if(s==null) return null; s=String(s);
@@ -342,7 +348,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
       v=(lang==="cs")?null:el.getAttribute("data-"+lang+"-aria-label");
       el.setAttribute("aria-label",v||el.getAttribute("data-cs-aria-label")); }
-    if(csTitle===null) csTitle=document.title;
+    if(csTitle===null){ var mc=document.querySelector('meta[name="title-cs"]'); csTitle=mc?mc.getAttribute("content"):document.title; }
     var meta=(lang==="cs")?null:document.querySelector('meta[name="title-'+lang+'"]');
     document.title=meta?meta.getAttribute("content"):csTitle;
     liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
@@ -350,7 +356,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
     els=document.querySelectorAll("[data-set-lang]");
     for(i=0;i<els.length;i++) els[i].setAttribute("aria-checked",els[i].getAttribute("data-set-lang")===lang?"true":"false");
   }
-  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} if(go(l)) return; apply(); }
   /* rozbalovací nabídka jazyků */
   function open_(w,on){ if(!w) return; var b=w.querySelector(".langsw-btn"), m=w.querySelector(".langsw-menu");
     if(!b||!m) return; b.setAttribute("aria-expanded",on?"true":"false");
@@ -383,9 +389,9 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       if(el) new MutationObserver(function(){ liveAria(el); }).observe(el,{attributes:true,attributeFilter:["aria-label"]}); });
   }
   document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
-  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; apply(); } });
+  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; if(!go(v)) apply(); } });
   window.addEventListener("storage",function(e){
-    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; apply(); } });
+    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; if(!go(lang)) apply(); } });
 })();
 </script>
 <!--/SITE-LANG-->

@@ -358,6 +358,12 @@ LANG_JS = """
     return stored()||"cs";
   }
   var lang=initial(), csTitle=null;
+  /* stránka s obsahem v jiném jazyce (např. index.sk.html) — přesměrovat na verzi pro zvolený jazyk */
+  var CL=D.getAttribute("data-content-lang")||"cs", ALT={}, al=document.querySelectorAll('link[rel="alternate"][hreflang]');
+  for(k=0;k<al.length;k++) ALT[al[k].getAttribute("hreflang")]=al[k].getAttribute("href");
+  function target(l){ if(l===CL) return null; if(ALT[l]) return ALT[l]; return (CL!=="cs"&&ALT.cs)?ALT.cs:null; }
+  function go(l){ var t=target(l); if(t){ location.replace(t+location.hash); return true; } return false; }
+  if(go(lang)) return;
   D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
   /* text psaný skriptem stránky (vždy česky) nebo už přeložený → text v aktuálním jazyce */
   function tx(s){ if(s==null) return null; s=String(s);
@@ -374,7 +380,7 @@ LANG_JS = """
       if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
       v=(lang==="cs")?null:el.getAttribute("data-"+lang+"-aria-label");
       el.setAttribute("aria-label",v||el.getAttribute("data-cs-aria-label")); }
-    if(csTitle===null) csTitle=document.title;
+    if(csTitle===null){ var mc=document.querySelector('meta[name="title-cs"]'); csTitle=mc?mc.getAttribute("content"):document.title; }
     var meta=(lang==="cs")?null:document.querySelector('meta[name="title-'+lang+'"]');
     document.title=meta?meta.getAttribute("content"):csTitle;
     liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
@@ -382,7 +388,7 @@ LANG_JS = """
     els=document.querySelectorAll("[data-set-lang]");
     for(i=0;i<els.length;i++) els[i].setAttribute("aria-checked",els[i].getAttribute("data-set-lang")===lang?"true":"false");
   }
-  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} if(go(l)) return; apply(); }
   /* rozbalovací nabídka jazyků */
   function open_(w,on){ if(!w) return; var b=w.querySelector(".langsw-btn"), m=w.querySelector(".langsw-menu");
     if(!b||!m) return; b.setAttribute("aria-expanded",on?"true":"false");
@@ -415,21 +421,26 @@ LANG_JS = """
       if(el) new MutationObserver(function(){ liveAria(el); }).observe(el,{attributes:true,attributeFilter:["aria-label"]}); });
   }
   document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
-  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; apply(); } });
+  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; if(!go(v)) apply(); } });
   window.addEventListener("storage",function(e){
-    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; apply(); } });
+    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; if(!go(lang)) apply(); } });
 })();
 """.replace("%LIVE%", json.dumps(LIVE, ensure_ascii=False)).replace(
     "%LANGS%", json.dumps(["cs"] + list(LANGS)))
 
 
-def head_block(cs_title, titles=None):
-    """Vkládá se těsně před </head>: přeložené titulky, ikona záložky, styl a skript přepínače."""
+def head_block(cs_title, titles=None, alternates=None, content_lang="cs"):
+    """Vkládá se těsně před </head>: přeložené titulky, odkazy na jazykové verze obsahu,
+    ikona záložky, styl a skript přepínače (odkazy musí stát před skriptem — ten podle nich přesměrovává)."""
     titles = titles or {lg: tr(cs_title, lg) for lg in LANGS}
     metas = "".join('<meta name="title-%s" content="%s">\n' % (lg, html.escape(titles[lg], quote=True))
                     for lg in LANGS)
-    return ('<!--SITE-LANG-->\n%s%s<style>%s</style>\n<script>%s</script>\n<!--/SITE-LANG-->\n'
-            % (metas, brand.favicon_links(), LANG_CSS, LANG_JS))
+    if content_lang != "cs":
+        metas += '<meta name="title-cs" content="%s">\n' % html.escape(cs_title, quote=True)
+    alts = "".join('<link rel="alternate" hreflang="%s" href="%s">\n' % (lg, href)
+                   for lg, href in sorted((alternates or {}).items()))
+    return ('<!--SITE-LANG-->\n%s%s%s<style>%s</style>\n<script>%s</script>\n<!--/SITE-LANG-->\n'
+            % (metas, alts, brand.favicon_links(), LANG_CSS, LANG_JS))
 
 
 def toggle(marked=True):
@@ -523,13 +534,22 @@ def _region(s, start_pat, end_pat):
     return m.start(), m.start() + e.end()
 
 
-def localize_html(s):
-    """Vrátí (nový html, chybějící překlady, nenalezená místa). Idempotentní."""
+def localize_html(s, content_lang="cs", alternates=None):
+    """Vrátí (nový html, chybějící překlady, nenalezená místa). Idempotentní.
+
+    content_lang — jazyk obsahu stránky ("cs", nebo "sk" u přeložené kopie index.sk.html)
+    alternates   — {"cs": "index.html", "sk": "index.sk.html"}, když existuje jazyková verze obsahu
+    """
+    mt = re.search(r'<meta name="title-cs" content="([^"]*)">', s)
+    cs_title = html.unescape(mt.group(1)) if mt else None
     s = re.sub(r"<!--SITE-LANG-->.*?<!--/SITE-LANG-->\n?", "", s, flags=re.S)
     s = re.sub(r"<!--SL-->.*?<!--/SL-->(?:\n[ \t]*)?", "", s, flags=re.S)
-    s = s.replace('<main id="obsah" lang="cs">', '<main id="obsah">')
-    s = s.replace('<nav id="railNav" lang="cs"', '<nav id="railNav"')
-    s = s.replace('<div class="chiprow" id="chipNav" lang="cs">', '<div class="chiprow" id="chipNav">')
+    s = re.sub(r"<html\b[^>]*>", '<html lang="cs">', s, count=1)
+    if cs_title is not None:
+        s = re.sub(r"<title>.*?</title>", lambda m: "<title>%s</title>" % cs_title, s, count=1, flags=re.S)
+    s = re.sub(r'<main id="obsah" lang="[a-z]{2}">', '<main id="obsah">', s)
+    s = re.sub(r'<nav id="railNav" lang="[a-z]{2}"', '<nav id="railNav"', s)
+    s = re.sub(r'<div class="chiprow" id="chipNav" lang="[a-z]{2}">', '<div class="chiprow" id="chipNav">', s)
     P = Page(s)
     kind = "rail" if '<aside class="rail">' in s else "bar" if '<header class="bar">' in s else None
     if kind is None:
@@ -550,8 +570,9 @@ def localize_html(s):
         frag = P.text(frag, r'(<span class="sub">)([^<]+)(</span>)', "rail sub")
         frag = P.text(frag, r'(<div class="meter-top"><span>)([^<]+)(</span>)', "meter")
         frag = P.attr(frag, r'(<nav id="railNav" aria-label=")([^"]+)(")', "railNav")
-        frag = frag.replace('<nav id="railNav"', '<nav id="railNav" lang="cs"', 1)
-        frag = frag.replace('<div class="chiprow" id="chipNav">', '<div class="chiprow" id="chipNav" lang="cs">', 1)
+        frag = frag.replace('<nav id="railNav"', '<nav id="railNav" lang="%s"' % content_lang, 1)
+        frag = frag.replace('<div class="chiprow" id="chipNav">',
+                            '<div class="chiprow" id="chipNav" lang="%s">' % content_lang, 1)
         frag = P.text(frag, r'(<span class="rs-k">)([^<]+)(</span>)', "rail-sub k", need=0)
         frag = P.text(frag, r'(<span class="rs-t">)([^<]+)(</span>)', "rail-sub t", need=0)
         frag = P.text(frag, r'(<button class="btn btn-sm" id="resetBtn" type="button">)([^<]+)(</button>)', "reset")
@@ -581,15 +602,17 @@ def localize_html(s):
                           lambda m: toggle() + "\n  " + m.group(1), frag, count=1)
         if not n:
             P.failed.append("přepínač v horní liště")
-        frag, n = re.subn(r'</header>\n', lambda m: "</header>\n" + note("bar") + "\n", frag, count=1)
-        if not n:
-            P.failed.append("poznámka pod lištou")
+        if content_lang == "cs":
+            frag, n = re.subn(r'</header>\n', lambda m: "</header>\n" + note("bar") + "\n", frag, count=1)
+            if not n:
+                P.failed.append("poznámka pod lištou")
     s = s[:a] + frag + s[b:]
 
-    # --- obsah je česky
-    main = '<main id="obsah" lang="cs">'
+    # --- jazyk obsahu (česky: poznámka pro cizí jazyky; přeložená kopie ji nemá)
+    main = '<main id="obsah" lang="%s">' % content_lang
     if kind == "rail":
-        main += note("rail") + "\n"
+        main += (note("rail") if content_lang == "cs" else
+                 "<!--SL--><div class=\"langbar\">%s</div><!--/SL-->" % toggle(marked=False)) + "\n"
     s = s.replace('<main id="obsah">', main, 1)
 
     # --- autor dole na stránce (průvodce nemají patičku: poslední řádek v <main>)
@@ -626,9 +649,16 @@ def localize_html(s):
             except MissingTranslation as e:
                 P.missing.append(str(e))
     if t and len(titles) == len(LANGS):
-        s, n = re.subn(r"\n</head>", lambda m: "\n" + head_block(t.group(1), titles) + "</head>", s, count=1)
+        cs_t = t.group(1)
+        s, n = re.subn(r"\n</head>", lambda m: "\n" + head_block(cs_t, titles, alternates, content_lang)
+                       + "</head>", s, count=1)
         if not n:
             P.failed.append("</head>")
+        if content_lang != "cs":
+            s = re.sub(r"<title>.*?</title>", lambda m: "<title>%s</title>" % titles[content_lang], s,
+                       count=1, flags=re.S)
+            s = s.replace('<html lang="cs">', '<html lang="%s" data-content-lang="%s">'
+                          % (content_lang, content_lang), 1)
     return s, P.missing, P.failed
 
 
@@ -651,11 +681,38 @@ def hub_pages():
                                             "anorganicka-chemie/index.html", "pocitani/index.html")]
 
 
+def lang_sibling(p, lg):
+    """Přeložená kopie obsahu vedle české stránky (index.html → index.<lg>.html)."""
+    return p[:-5] + "." + lg + ".html"
+
+
+def sk_sibling(p):
+    return lang_sibling(p, "sk")
+
+
+def page_variants():
+    """[(cesta, jazyk obsahu, alternates)] — české obsahové stránky a jejich přeložené kopie."""
+    out = []
+    for p in content_pages():
+        alts = {"cs": os.path.basename(p)}
+        for lg in LANGS:
+            if os.path.exists(lang_sibling(p, lg)):
+                alts[lg] = os.path.basename(lang_sibling(p, lg))
+        if len(alts) == 1:
+            out.append((p, "cs", None))
+            continue
+        out.append((p, "cs", alts))
+        for lg in alts:
+            if lg != "cs":
+                out.append((lang_sibling(p, lg), lg, alts))
+    return out
+
+
 def localize_all(check=False):
     ok = True
-    for p in content_pages():
+    for p, cl, alts in page_variants():
         s = io.open(p, encoding="utf-8").read()
-        new, missing, failed = localize_html(s)
+        new, missing, failed = localize_html(s, cl, alts)
         rel = os.path.relpath(p, ROOT).replace("\\", "/")
         if missing or failed:
             ok = False
@@ -744,8 +801,16 @@ def check_page(p, hub):
         frags = []
         for pat in CHROME_RE:
             frags += re.findall(pat, s, flags=re.S)
-        if '<main id="obsah" lang="cs">' not in s:
-            problems.append('obsah není označený lang="cs"')
+        cm = re.search(r"\.([a-z]{2})\.html$", p)
+        cl = cm.group(1) if cm and cm.group(1) in LANGS else "cs"
+        if '<main id="obsah" lang="%s">' % cl not in s:
+            problems.append('obsah není označený lang="%s"' % cl)
+        if cl != "cs" and 'data-content-lang="%s"' % cl not in s:
+            problems.append("přeložená kopie nemá data-content-lang")
+        if cl == "cs":
+            for lg in LANGS:
+                if os.path.exists(lang_sibling(p, lg)) and 'hreflang="%s"' % lg not in s:
+                    problems.append("česká stránka neodkazuje na verzi %s" % lg)
     for fr in frags:
         for t in _leftover_text(fr):
             problems.append("nepřeložený text: %r" % t[:90])
@@ -764,7 +829,7 @@ def check_all():
         print("chybějící překlady v datech:")
         for m in miss:
             print("   ", m)
-    pages = [(p, True) for p in hub_pages()] + [(p, False) for p in content_pages()]
+    pages = [(p, True) for p in hub_pages()] + [(p, False) for p, _, _ in page_variants()]
     for p, hub in pages:
         if not os.path.exists(p):
             continue

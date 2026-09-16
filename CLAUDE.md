@@ -32,6 +32,20 @@ text needs that language too.
   examples, tests, trainers).
 - The chapter list in a guide's left rail (it mirrors the chapter headings).
 
+### Translated content pages (Slovak copies)
+Some modules also have their **content** translated into Slovak, as a separate file
+next to the Czech page (`index.html` → `index.sk.html`, `slug.html` → `slug.sk.html`).
+The language runtime redirects between them. As of 2026-09-16 these are `jak-pocitat/`,
+`jak-pocitat/zlomky-a-zavorky/`, `pocitame-spolu/` and `periodicka-tabulka/`.
+- The Czech page is the source of truth. Never edit a `.sk.html` file by hand; it is
+  rebuilt from the Czech page plus the catalog `tools/preklad/sk/<page>.json` with
+  `tools/kostra/preklad.py` (see its docstring and `tools/preklad/sk/GLOSAR.md`).
+- **Whenever you change the content of a Czech page that has a Slovak copy**, in the same
+  change run `preklad.py extract <page>`, translate the new or changed segments
+  (`todo` / `put`), then `preklad.py apply <page>` and `preklad.py check <page>`. The
+  check must end with `VÝSLEDEK: v pořádku`. A Czech fix without the Slovak update
+  leaves Slovak students on stale content.
+
 ### Where the translations go
 | Text | Put SK and EN in |
 |---|---|

@@ -31,6 +31,13 @@ Menu a ovládání webu jsou česky, slovensky i anglicky, obsah modulů zatím 
 **Každý nový nebo změněný text menu musí mít zároveň slovenskou i anglickou verzi** — pravidlo pro agenty je
 v `CLAUDE.md` v kořeni repozitáře, technika v hlavičce `kostra/i18n.py`.
 
+## Přeložený obsah (slovenské kopie stránek)
+Vybrané moduly mají slovensky i obsah, jako samostatný soubor vedle české stránky
+(`index.sk.html`). Vzniká z české stránky a katalogu `preklad/sk/<stránka>.json` nástrojem
+`kostra/preklad.py` (extract → todo/put → apply → check); terminologie je v `preklad/sk/GLOSAR.md`.
+Po každé změně obsahu české stránky, která má slovenskou kopii, je potřeba katalog
+aktualizovat a kopii znovu sestavit — viz `CLAUDE.md`.
+
 Generátory mají cílovou složku projektu zapsanou napevno
 (`C:\Claude Code\Claude Code\Doučovanie`). Při přesunu jinam ji uprav v `make_site.py`,
 `make_dist.py` a `build.py`.

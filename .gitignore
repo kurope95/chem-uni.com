@@ -44,3 +44,9 @@ BRIEF*.md
 # mezisoubory Pythonu
 __pycache__/
 *.pyc
+
+# rozpracované dávky překladu (katalogy v tools/preklad/sk/ se commitují)
+tools/preklad/_davky/
+
+# texty k překladu pro externí překladač (Gemini) — pracovní soubory
+Translation strings/
