@@ -15,6 +15,7 @@ except Exception:
     pass
 
 from make_site import TOKENS, head, theme_script, ARL
+import brand
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 POOL = os.path.join(HERE, "pool.json")
@@ -299,9 +300,9 @@ def build():
     css = TOKENS + CSS
     h = head("Kontrola otázek — soukromý klíč",
              "Všech %d otázek se správnými odpověďmi a vysvětlením, k odborné kontrole." % len(pool),
-             css)
+             css, titles={"en": "Question check — private key", "sk": "Kontrola otázok — súkromný kľúč"})
     h += '<header class="top"><div class="top-in">'
-    h += ('<a class="brand" href="../index.html"><span class="dot">Ch</span>'
+    h += ('<a class="brand" href="../index.html"><span class="dot">' + brand.logo_svg() + '</span>'
           '<span>Kontrola otázek</span></a><span class="sp"></span>')
     h += '<span class="count" id="count"></span>'
     h += '<button class="btn" id="exp" type="button">Vypsat nalezené chyby</button>'

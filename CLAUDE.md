@@ -67,6 +67,9 @@ text needs that language too.
 - **Author line.** Every page shows "Autor: Ing. Marek Kurťák" at the bottom: in the
   footer on pages with one, and as the last line of `<main>` in the guides. Keep it
   on any new page; the checker fails without it.
+- **Logo and tab icon.** The benzene-ring logo and the favicon come from
+  `tools/kostra/brand.py` (`logo_svg()`, `favicon_links()`). Never hand-write a logo
+  (the old "Ch" badge) into a page. If you change `FAVICON_SVG`, re-render `FAVICON_PNG_32`.
 - **Public repo.** Never commit the textbook PDF or page renders (`kniha/`), `DIGEST.md`,
   `BRIEF*.md`, `pool.json`, `qa_payload.json`, `kontrola-otazek/` or syllabus photos.
   `.gitignore` blocks them; do not weaken it. Also check staged files for local

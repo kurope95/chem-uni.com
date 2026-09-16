@@ -18,6 +18,7 @@ except Exception:
 from site_data import (SITE, GROUPS, TOPICS, PREFIXES, PAIRS,
                        ANORG_TOPICS, ANORG_PREFIXES)
 import i18n
+import brand
 from i18n import L, Lk
 
 OUT = r"C:\Claude Code\Claude Code\Doučovanie"
@@ -331,13 +332,13 @@ def theme_script():
 def topbar(home, crumb_html="", back=None):
     b = ('<a class="back" href="%s">%s<span>%s</span></a>' % (back[0], ARL, L(back[1]))) if back else ""
     return """<header class="bar"><div class="bar-in">
-  %s<a class="brand" href="%s"><span class="dot">Ch</span><span>%s</span></a>
+  %s<a class="brand" href="%s"><span class="dot">%s</span><span>%s</span></a>
   <span class="sp"></span>
   %s
   %s
   <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
 </div></header>
-""" % (b, home, Lk(SITE, "name"), crumb_html, i18n.toggle())
+""" % (b, home, brand.logo_svg(), Lk(SITE, "name"), crumb_html, i18n.toggle())
 
 
 def crumb(*items):

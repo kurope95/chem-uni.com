@@ -92,7 +92,7 @@ p{margin:0;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
 @@LANG@@</head>
 <body>
 <header class="bar"><div class="bar-in">
-  <a class="brand" href="/"><span class="dot">Ch</span><span>@@BRAND@@</span></a>
+  <a class="brand" href="/"><span class="dot">@@LOGO@@</span><span>@@BRAND@@</span></a>
   <span class="sp"></span>
   @@TOGGLE@@
   <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
@@ -114,6 +114,7 @@ p{margin:0;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
 _G = {g["id"]: g for g in GROUPS}
 for _k, _v in (
     ("@@LANG@@", i18n.head_block("Stránka nenalezena — Chemie")),
+    ("@@LOGO@@", i18n.brand.logo_svg()),
     ("@@BRAND@@", L("Chemie")),
     ("@@TOGGLE@@", i18n.toggle()),
     ("@@H1@@", L("Tuhle stránku tu nemáme", "We don’t have this page", "Túto stránku tu nemáme")),

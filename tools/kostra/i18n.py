@@ -37,6 +37,7 @@ try:
 except Exception:
     pass
 from site_data import SITE, GROUPS, PAIRS, TOPICS, ANORG_TOPICS
+import brand
 
 ROOT = r"C:\Claude Code\Claude Code\Doučovanie"
 
@@ -423,12 +424,12 @@ LANG_JS = """
 
 
 def head_block(cs_title, titles=None):
-    """Vkládá se těsně před </head>: přeložené titulky, styl a skript přepínače."""
+    """Vkládá se těsně před </head>: přeložené titulky, ikona záložky, styl a skript přepínače."""
     titles = titles or {lg: tr(cs_title, lg) for lg in LANGS}
     metas = "".join('<meta name="title-%s" content="%s">\n' % (lg, html.escape(titles[lg], quote=True))
                     for lg in LANGS)
-    return ('<!--SITE-LANG-->\n%s<style>%s</style>\n<script>%s</script>\n<!--/SITE-LANG-->\n'
-            % (metas, LANG_CSS, LANG_JS))
+    return ('<!--SITE-LANG-->\n%s%s<style>%s</style>\n<script>%s</script>\n<!--/SITE-LANG-->\n'
+            % (metas, brand.favicon_links(), LANG_CSS, LANG_JS))
 
 
 def toggle(marked=True):
@@ -563,7 +564,12 @@ def localize_html(s):
             P.failed.append("přepínač v mobilní hlavičce")
     else:
         frag = P.text(frag, r'(<a class="back" href="[^"]*">.*?<span>)([^<]+)(</span></a>)', "back", need=0)
-        frag = P.text(frag, r'(<a class="brand" href="[^"]*"><span class="dot">Ch</span><span>)([^<]+)(</span></a>)', "brand")
+        # logo: ať v liště bylo cokoli (dřív „Ch“), dosadí se aktuální z brand.py
+        frag, n = re.subn(r'(<a class="brand" href="[^"]*"><span class="dot">).*?(</span><span>)',
+                          lambda m: m.group(1) + brand.logo_svg() + m.group(2), frag, count=1)
+        if not n:
+            P.failed.append("logo v liště")
+        frag = P.text(frag, r'(<a class="brand" href="[^"]*"><span class="dot"><svg class="logo".*?</svg></span><span>)([^<]+)(</span></a>)', "brand")
         frag = P.attr(frag, r'(<nav class="crumb" aria-label=")([^"]+)(")', "crumb", need=0)
         c = _region(frag, r'<nav class="crumb"', r'</nav>')
         if c:
