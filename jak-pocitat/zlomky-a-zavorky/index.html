@@ -662,22 +662,61 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 </style>
 <!--SITE-LANG-->
 <meta name="title-en" content="Fractions and brackets">
+<meta name="title-sk" content="Zlomky a zátvorky">
 <style>
-/* SITE-LANG: dvojice CZ/EN — ukáže se jen ta, která odpovídá html[data-lang] */
-html[data-lang="en"] lang-cs, html:not([data-lang="en"]) lang-en,
-html:not([data-lang="en"]) [data-only="en"]{display:none!important}
-.langsw{display:inline-flex;align-items:stretch;flex:none;box-sizing:border-box;height:40px;padding:3px;gap:2px;
-  border-radius:10px;border:1px solid var(--line-strong);background:var(--surface)}
-.langsw button{-webkit-appearance:none;appearance:none;margin:0;border:0;border-radius:7px;min-width:34px;
-  padding:0 .5rem;background:transparent;color:var(--ink-2);font-family:var(--f-ui);font-weight:600;
-  font-size:.74rem;line-height:1;letter-spacing:.08em;cursor:pointer;-webkit-tap-highlight-color:transparent;
-  transition:background .15s,color .15s}
-.langsw button:hover{background:var(--surface-2);color:var(--ink)}
-html:not([data-lang="en"]) .langsw button[data-set-lang="cs"],
-html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent);color:var(--accent-ink)}
-.topbar-row .langsw{height:44px}
-/* úzký telefon: vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
-@media (max-width:420px){ .bar-in .back ~ .brand > span:not(.dot){display:none} }
+/* SITE-LANG: přeložené texty — ukáže se jen ten, který odpovídá html[data-lang] */
+html[data-lang="en"] lang-cs,
+html[data-lang="sk"] lang-cs,
+html:not([data-lang="en"]) lang-en,
+html:not([data-lang="sk"]) lang-sk,
+html:not([data-lang="en"]):not([data-lang="sk"]) [data-only="foreign"]{display:none!important}
+/* nabídka jazyků: tlačítko s aktuální vlajkou a zkratkou, po klepnutí rozbalovací seznam */
+.langsw{position:relative;display:inline-flex;flex:none}
+.langsw-btn{-webkit-appearance:none;appearance:none;margin:0;display:inline-flex;align-items:center;gap:.42rem;
+  box-sizing:border-box;height:40px;padding:0 .6rem 0 .68rem;border-radius:10px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);font-family:var(--f-ui);font-weight:600;font-size:.78rem;line-height:1;
+  letter-spacing:.06em;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s}
+.langsw-btn:hover,.langsw-btn[aria-expanded="true"]{background:var(--surface-2);border-color:var(--ink-3)}
+.topbar-row .langsw-btn{height:44px}
+.langsw-cur{display:inline-flex;align-items:center;gap:.42rem}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-cur:not([data-l="cs"]),
+html[data-lang="sk"] .langsw-cur:not([data-l="sk"]),
+html[data-lang="en"] .langsw-cur:not([data-l="en"]){display:none}
+.langsw svg.flag{display:block;flex:none;width:18px;height:12px;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.langsw-chev{display:block;flex:none;width:11px;height:11px;color:var(--ink-3);transition:transform .15s}
+.langsw-btn[aria-expanded="true"] .langsw-chev{transform:rotate(180deg)}
+.langsw-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:300;display:flex;flex-direction:column;gap:2px;
+  min-width:172px;padding:5px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);
+  box-shadow:0 14px 30px rgba(0,0,0,.2),0 2px 6px rgba(0,0,0,.1)}
+.langsw-menu[hidden]{display:none!important}
+.langsw-menu button{-webkit-appearance:none;appearance:none;margin:0;display:flex;align-items:center;gap:.62rem;
+  width:100%;min-height:42px;padding:.45rem .7rem;border:0;border-radius:8px;background:transparent;color:var(--ink);
+  font-family:var(--f-ui);font-size:.88rem;font-weight:500;line-height:1.2;text-align:left;cursor:pointer}
+.langsw-menu button:hover{background:var(--surface-2)}
+.langsw-menu button:focus-visible{background:var(--surface-2);outline:2px solid var(--accent);outline-offset:-2px}
+.langsw-code{font-weight:700;font-size:.76rem;letter-spacing:.06em}
+.langsw-menu .langsw-code{min-width:1.9em}
+.langsw-name{color:var(--ink-2)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"],
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"],
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]{background:var(--accent-soft)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"]::after,
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"]::after,
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";margin-left:auto;width:9px;height:5px;border-left:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);transform:translateY(-2px) rotate(-45deg)}
+@media (max-width:420px){
+  /* vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
+  .bar-in .back ~ .brand > span:not(.dot){display:none}
+  /* název průvodce v mobilní hlavičce: raději výpustka než přetečení přes přepínač */
+  .topbar-row .name{overflow:hidden}
+  .topbar-row .name > lang-cs, .topbar-row .name > lang-en, .topbar-row .name > lang-sk{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:360px){ .bar-in .brand > span:not(.dot){display:none}
+  .langsw-btn .langsw-code{display:none} .langsw-btn{padding:0 .5rem} }
+/* autor dole na stránce */
+.authorline{margin:3.2rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);font-family:var(--f-ui);
+  font-size:.84rem;color:var(--ink-3)}
 .langnote{margin:0;font-family:var(--f-ui);font-size:.86rem;line-height:1.5;color:var(--ink-2);
   background:var(--surface);border:1px solid var(--line-strong);border-left:4px solid var(--accent);
   border-radius:10px;padding:.6rem .9rem}
@@ -687,43 +726,69 @@ html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent)
   padding-top:clamp(.9rem,2vw,1.4rem)}
 .langbar .langnote{flex:1 1 320px}
 @media (min-width:1100px){ .langbar + .hero{padding-top:clamp(1.2rem,2.4vw,2rem)} }
-@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]) .langbar{display:none} }
+@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]):not([data-lang="sk"]) .langbar{display:none} }
 </style>
 <script>
-/* SITE-LANG: přepínač CZ/EN pro menu a ovládání (obsah modulů zůstává česky) */
+/* SITE-LANG: přepínač jazyka pro menu a ovládání (obsah modulů zůstává česky) */
 (function(){
-  var D=document.documentElement, K="site.lang", LIVE={"Tmavý": "Dark", "Světlý": "Light", "Přepnout režim": "Toggle theme", "Přepnout na světlý režim": "Switch to light mode", "Přepnout na tmavý režim": "Switch to dark mode", "Přepnout světlý a tmavý režim": "Toggle light and dark mode", "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": "Reset your progress in all chapters? Your theme setting will be kept.", "Pokrok vynulován.": "Progress reset."}, REV={}, k;
-  for(k in LIVE) if(Object.prototype.hasOwnProperty.call(LIVE,k)) REV[LIVE[k]]=k;
-  function stored(){ try{ var v=localStorage.getItem(K); return (v==="cs"||v==="en")?v:null; }catch(e){ return null; } }
+  var D=document.documentElement, K="site.lang", LANGS=["cs", "en", "sk"], LIVE={"Tmavý": {"en": "Dark", "sk": "Tmavý"}, "Světlý": {"en": "Light", "sk": "Svetlý"}, "Přepnout režim": {"en": "Toggle theme", "sk": "Prepnúť režim"}, "Přepnout na světlý režim": {"en": "Switch to light mode", "sk": "Prepnúť na svetlý režim"}, "Přepnout na tmavý režim": {"en": "Switch to dark mode", "sk": "Prepnúť na tmavý režim"}, "Přepnout světlý a tmavý režim": {"en": "Toggle light and dark mode", "sk": "Prepnúť svetlý a tmavý režim"}, "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": {"en": "Reset your progress in all chapters? Your theme setting will be kept.", "sk": "Naozaj vynulovať pokrok vo všetkých kapitolách? Nastavenie motívu zostane."}, "Pokrok vynulován.": {"en": "Progress reset.", "sk": "Pokrok bol vynulovaný."}}, REV={}, k, g;
+  for(k in LIVE) for(g in LIVE[k]) REV[LIVE[k][g]]=k;
+  function ok(v){ return LANGS.indexOf(v)>=0; }
+  function stored(){ try{ var v=localStorage.getItem(K); return ok(v)?v:null; }catch(e){ return null; } }
   function initial(){
-    var m=/[?&]lang=(cs|en)(?:&|$)/.exec(location.search);
-    if(m){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
+    var m=/[?&]lang=([a-z]{2})(?:&|$)/.exec(location.search);
+    if(m&&ok(m[1])){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
     return stored()||"cs";
   }
   var lang=initial(), csTitle=null;
   D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
-  function tx(s){ if(s==null) return null; s=String(s); return lang==="en" ? (LIVE[s]||null) : (REV[s]||null); }
+  /* text psaný skriptem stránky (vždy česky) nebo už přeložený → text v aktuálním jazyce */
+  function tx(s){ if(s==null) return null; s=String(s);
+    var cs=LIVE[s]?s:REV[s]; if(!cs) return null;
+    var t=(lang==="cs")?cs:LIVE[cs][lang]; return (t&&t!==s)?t:null; }
   var oc=window.confirm;
-  window.confirm=function(m){ return oc.call(window,(lang==="en"&&LIVE[m])||m); };
+  window.confirm=function(m){ return oc.call(window,(lang!=="cs"&&LIVE[m]&&LIVE[m][lang])||m); };
   function liveText(el){ if(!el) return; var t=tx(el.textContent); if(t) el.textContent=t; }
   function liveAria(el){ if(!el) return; var t=tx(el.getAttribute("aria-label")); if(t) el.setAttribute("aria-label",t); }
   function apply(){
     D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
-    var i, el, els=document.querySelectorAll("[data-en-aria-label]");
+    var i, el, v, els=document.querySelectorAll("[data-en-aria-label],[data-sk-aria-label]");
     for(i=0;i<els.length;i++){ el=els[i];
       if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
-      el.setAttribute("aria-label",el.getAttribute(lang==="en"?"data-en-aria-label":"data-cs-aria-label")); }
-    var meta=document.querySelector('meta[name="title-en"]');
-    if(meta){ if(csTitle===null) csTitle=document.title; document.title=(lang==="en")?meta.getAttribute("content"):csTitle; }
+      v=(lang==="cs")?null:el.getAttribute("data-"+lang+"-aria-label");
+      el.setAttribute("aria-label",v||el.getAttribute("data-cs-aria-label")); }
+    if(csTitle===null) csTitle=document.title;
+    var meta=(lang==="cs")?null:document.querySelector('meta[name="title-'+lang+'"]');
+    document.title=meta?meta.getAttribute("content"):csTitle;
     liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
     liveAria(document.getElementById("themeBtn")); liveAria(document.getElementById("themeBtn2"));
     els=document.querySelectorAll("[data-set-lang]");
-    for(i=0;i<els.length;i++) els[i].setAttribute("aria-pressed",els[i].getAttribute("data-set-lang")===lang?"true":"false");
+    for(i=0;i<els.length;i++) els[i].setAttribute("aria-checked",els[i].getAttribute("data-set-lang")===lang?"true":"false");
   }
-  function set(l){ if(l!=="cs"&&l!=="en") return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  /* rozbalovací nabídka jazyků */
+  function open_(w,on){ if(!w) return; var b=w.querySelector(".langsw-btn"), m=w.querySelector(".langsw-menu");
+    if(!b||!m) return; b.setAttribute("aria-expanded",on?"true":"false");
+    if(on) m.removeAttribute("hidden"); else m.setAttribute("hidden",""); }
+  function closeAll(keep){ var ws=document.querySelectorAll(".langsw"); for(var i=0;i<ws.length;i++) if(ws[i]!==keep) open_(ws[i],false); }
+  function up(el,sel){ return (el&&el.closest)?el.closest(sel):null; }
   document.addEventListener("click",function(e){
-    var b=(e.target&&e.target.closest)?e.target.closest("[data-set-lang]"):null;
-    if(b) set(b.getAttribute("data-set-lang"));
+    var it=up(e.target,"[data-set-lang]"), w;
+    if(it){ w=up(it,".langsw"); set(it.getAttribute("data-set-lang")); closeAll(null);
+      if(w&&w.querySelector(".langsw-btn")) w.querySelector(".langsw-btn").focus(); return; }
+    var b=up(e.target,".langsw-btn");
+    if(b){ w=up(b,".langsw"); var on=b.getAttribute("aria-expanded")!=="true"; closeAll(w); open_(w,on);
+      if(on){ var c=w.querySelector('[data-set-lang="'+lang+'"]'); if(c) c.focus(); } return; }
+    if(!up(e.target,".langsw")) closeAll(null);
+  });
+  document.addEventListener("keydown",function(e){
+    var w=up(e.target,".langsw"); if(!w) return;
+    var b=w.querySelector(".langsw-btn"), on=b&&b.getAttribute("aria-expanded")==="true";
+    var its=[].slice.call(w.querySelectorAll("[data-set-lang]")), i=its.indexOf(document.activeElement), n=its.length;
+    if(e.key==="Escape"&&on){ open_(w,false); b.focus(); e.preventDefault(); }
+    else if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); if(!on) open_(w,true);
+      var d=(e.key==="ArrowDown")?1:n-1; its[i<0?(d===1?0:n-1):(i+d)%n].focus(); }
+    else if(e.key==="Tab"&&on){ open_(w,false); }
   });
   function watch(){
     if(!window.MutationObserver) return;
@@ -735,48 +800,48 @@ html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent)
   document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
   window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; apply(); } });
   window.addEventListener("storage",function(e){
-    if(e.key===K&&(e.newValue==="cs"||e.newValue==="en")&&e.newValue!==lang){ lang=e.newValue; apply(); } });
+    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; apply(); } });
 })();
 </script>
 <!--/SITE-LANG-->
 </head>
 <body>
 
-<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en></a>
+<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en><lang-sk lang="sk">Preskočiť na obsah</lang-sk></a>
 <div class="app">
 
   <!-- ============ LEVÁ LIŠTA ============ -->
   <aside class="rail">
-    <div class="sitenav"><a href="../../pocitani/index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na Počítání</lang-cs><lang-en lang="en">Back to Calculating</lang-en></span></a></div>
+    <div class="sitenav"><a href="../../pocitani/index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na Počítání</lang-cs><lang-en lang="en">Back to Calculating</lang-en><lang-sk lang="sk">Späť na Počítanie</lang-sk></span></a></div>
     <div class="rail-brand">
-      <span class="mark"><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en></span>
-      <span class="name"><lang-cs>Zlomky a závorky</lang-cs><lang-en lang="en">Fractions and brackets</lang-en></span>
-      <span class="sub"><lang-cs>Studijní průvodce s procvičováním</lang-cs><lang-en lang="en">Study guide with practice</lang-en></span>
+      <span class="mark"><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en><lang-sk lang="sk">Chémia</lang-sk></span>
+      <span class="name"><lang-cs>Zlomky a závorky</lang-cs><lang-en lang="en">Fractions and brackets</lang-en><lang-sk lang="sk">Zlomky a zátvorky</lang-sk></span>
+      <span class="sub"><lang-cs>Studijní průvodce s procvičováním</lang-cs><lang-en lang="en">Study guide with practice</lang-en><lang-sk lang="sk">Študijný sprievodca s precvičovaním</lang-sk></span>
     </div>
     <div class="meter">
-      <div class="meter-top"><span><lang-cs>Splněno kapitol</lang-cs><lang-en lang="en">Chapters completed</lang-en></span><b><span id="mDone">0</span>&thinsp;/&thinsp;<span data-tot>10</span></b></div>
+      <div class="meter-top"><span><lang-cs>Splněno kapitol</lang-cs><lang-en lang="en">Chapters completed</lang-en><lang-sk lang="sk">Splnené kapitoly</lang-sk></span><b><span id="mDone">0</span>&thinsp;/&thinsp;<span data-tot>10</span></b></div>
       <div class="meter-bar"><div class="meter-fill" id="mFill"></div></div>
     </div>
-    <nav id="railNav" lang="cs" aria-label="Kapitoly" data-en-aria-label="Chapters"></nav>
+    <nav id="railNav" lang="cs" aria-label="Kapitoly" data-en-aria-label="Chapters" data-sk-aria-label="Kapitoly"></nav>
     <div class="rail-tools">
       <button class="btn btn-sm" id="themeBtn" type="button" aria-label="Přepnout světlý a tmavý režim"><span id="themeIcon" style="display:inline-flex"></span><span id="themeLbl">Tmavý</span></button>
-      <button class="btn btn-sm" id="resetBtn" type="button"><lang-cs>Vynulovat</lang-cs><lang-en lang="en">Reset</lang-en></button>
+      <button class="btn btn-sm" id="resetBtn" type="button"><lang-cs>Vynulovat</lang-cs><lang-en lang="en">Reset</lang-en><lang-sk lang="sk">Vynulovať</lang-sk></button>
     </div>
   </aside>
 
   <!-- ============ HLAVIČKA (tablet / mobil) ============ -->
   <div class="topbar">
     <div class="topbar-row">
-      <a class="sitenav-m" href="../../pocitani/index.html" aria-label="Zpátky na Počítání" data-en-aria-label="Back to Calculating"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
-      <div class="name"><lang-cs>Zlomky a závorky</lang-cs><lang-en lang="en">Fractions and brackets</lang-en><span><lang-cs>Studijní průvodce · </lang-cs><lang-en lang="en">Study guide · </lang-en><span id="mDone2">0</span>/<span data-tot>10</span><lang-cs> kapitol</lang-cs><lang-en lang="en"> chapters</lang-en></span></div>
-      <!--SL--><div class="langsw" role="group" aria-label="Jazyk / Language"><button type="button" data-set-lang="cs" lang="cs" title="Čeština">CZ</button><button type="button" data-set-lang="en" lang="en" title="English">EN</button></div><!--/SL-->
+      <a class="sitenav-m" href="../../pocitani/index.html" aria-label="Zpátky na Počítání" data-en-aria-label="Back to Calculating" data-sk-aria-label="Späť na Počítanie"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
+      <div class="name"><lang-cs>Zlomky a závorky</lang-cs><lang-en lang="en">Fractions and brackets</lang-en><lang-sk lang="sk">Zlomky a zátvorky</lang-sk><span><lang-cs>Studijní průvodce · </lang-cs><lang-en lang="en">Study guide · </lang-en><lang-sk lang="sk">Študijný sprievodca · </lang-sk><span id="mDone2">0</span>/<span data-tot>10</span><lang-cs> kapitol</lang-cs><lang-en lang="en"> chapters</lang-en><lang-sk lang="sk"> kapitol</lang-sk></span></div>
+      <!--SL--><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div><!--/SL-->
       <button class="btn btn-icon" id="themeBtn2" type="button" aria-label="Přepnout světlý a tmavý režim"></button>
     </div>
     <div class="chiprow" id="chipNav" lang="cs"></div>
     <div class="meter-bar"><div class="meter-fill" id="mFill2"></div></div>
   </div>
 
-  <main id="obsah" lang="cs"><!--SL--><div class="langbar"><p class="langnote" data-only="en" lang="en">The content of this page is in Czech. So far, only the menus and navigation have been translated into English.</p><div class="langsw" role="group" aria-label="Jazyk / Language"><button type="button" data-set-lang="cs" lang="cs" title="Čeština">CZ</button><button type="button" data-set-lang="en" lang="en" title="English">EN</button></div></div><!--/SL-->
+  <main id="obsah" lang="cs"><!--SL--><div class="langbar"><p class="langnote" data-only="foreign"><lang-en lang="en">The content of this page is in Czech. So far, only the menus and navigation have been translated into English.</lang-en><lang-sk lang="sk">Obsah tejto stránky je v češtine. Do slovenčiny sú zatiaľ preložené iba menu a navigácia.</lang-sk></p><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div></div><!--/SL-->
 
 
   <style>
@@ -3006,6 +3071,7 @@ závěr: rovnost neplatí</div>
 
     <div class="chapter-done" data-done="k9"></div>
   </section>
+  <!--SL--><p class="authorline"><lang-cs>Autor: Ing. Marek Kurťák</lang-cs><lang-en lang="en">Author: Ing. Marek Kurťák</lang-en><lang-sk lang="sk">Autor: Ing. Marek Kurťák</lang-sk></p><!--/SL-->
   </main>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -8,7 +8,7 @@ výstup těchto nástrojů.
   (`make_site.py`, `site_data.py`), balení k nasazení (`make_dist.py`), generátory
   samostatných sekcí (`make_tabulka.py`, `make_spolu.py`, `make_testy.py`,
   `make_nazvoslovi.py`), sazba zlomků (`add_fractions.py`), tiskový klíč
-  (`extract_pool.js` + `make_kontrola.py`), přepínač CZ/EN pro menu (`i18n.py`)
+  (`extract_pool.js` + `make_kontrola.py`), jazykovou nabídku CZ/SK/EN pro menu (`i18n.py`)
   a kontroly (`qa.js`, `overlap.js`).
 - `build/<okruh>/` — zdrojové díly jednotlivých průvodců (data, modely, kapitoly).
 - `eqcheck.py` — ověří bilanci atomů a náboje u všech rovnic ve stránce.
@@ -19,16 +19,16 @@ výstup těchto nástrojů.
 ## Jak se web sestaví
 1. `python tools/kostra/build.py tools/build/<okruh>` — sestaví jednoho průvodce.
 2. `python tools/kostra/make_site.py` — rozcestníky, navigace ve všech průvodcích a na konci
-   přepínač CZ/EN s anglickou lištou na všech obsahových stránkách. Spustit i po každém
+   nabídka jazyků CZ/SK/EN, přeložená lišta a řádek s autorem na všech obsahových stránkách. Spustit i po každém
    generátoru samostatné sekce. Je idempotentní, opakovaný běh nic nezmění.
-3. `python tools/kostra/i18n.py --check` — musí skončit „všechno přeložené“.
+3. `python tools/kostra/i18n.py --check` — musí skončit „všechno přeložené (cs, en, sk)“.
 4. `python tools/kostra/make_dist.py` — složí čistou složku `web/` k nahrání
    (bez úplného překladu menu odmítne pokračovat).
 5. `npx wrangler deploy` — nasadí `web/` na Cloudflare.
 
-## Dvojjazyčné menu (CZ/EN)
-Menu a ovládání webu jsou česky i anglicky, obsah modulů zatím jen česky. **Každý nový
-nebo změněný text menu musí mít zároveň anglickou verzi** — pravidlo pro agenty je
+## Trojjazyčné menu (CZ/SK/EN)
+Menu a ovládání webu jsou česky, slovensky i anglicky, obsah modulů zatím jen česky.
+**Každý nový nebo změněný text menu musí mít zároveň slovenskou i anglickou verzi** — pravidlo pro agenty je
 v `CLAUDE.md` v kořeni repozitáře, technika v hlavičce `kostra/i18n.py`.
 
 Generátory mají cílovou složku projektu zapsanou napevno

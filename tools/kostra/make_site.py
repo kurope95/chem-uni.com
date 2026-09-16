@@ -18,7 +18,7 @@ except Exception:
 from site_data import (SITE, GROUPS, TOPICS, PREFIXES, PAIRS,
                        ANORG_TOPICS, ANORG_PREFIXES)
 import i18n
-from i18n import L
+from i18n import L, Lk
 
 OUT = r"C:\Claude Code\Claude Code\Doučovanie"
 SUB = os.path.join(OUT, "obecna-fyzikalni-chemie")
@@ -301,7 +301,7 @@ THEME_JS = """
 """
 
 
-def head(title, desc, css, title_en=None):
+def head(title, desc, css, titles=None):
     return """<!doctype html>
 <html lang="cs">
 <head>
@@ -317,7 +317,7 @@ def head(title, desc, css, title_en=None):
 %s</head>
 <body>
 <a class="skip" href="#obsah">%s</a>
-""" % (desc.replace('"', "&quot;"), title, css, i18n.head_block(title, title_en),
+""" % (desc.replace('"', "&quot;"), title, css, i18n.head_block(title, titles),
        L("Přeskočit na obsah"))
 
 
@@ -337,26 +337,27 @@ def topbar(home, crumb_html="", back=None):
   %s
   <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
 </div></header>
-""" % (b, home, L(SITE["name"], SITE["name_en"]), crumb_html, i18n.toggle())
+""" % (b, home, Lk(SITE, "name"), crumb_html, i18n.toggle())
 
 
 def crumb(*items):
-    """Drobečková navigace: (česky, anglicky, odkaz — nebo None u aktuální stránky)."""
+    """Drobečková navigace: (přeložený text z L()/Lk(), odkaz — nebo None u aktuální stránky)."""
     h = '<nav class="crumb" %s>' % i18n.aria("Drobečková navigace")
-    for k, (cs, en, href) in enumerate(items):
+    for k, (text, href) in enumerate(items):
         if k:
             h += "<span>/</span>"
-        h += ('<a href="%s">%s</a>' % (href, L(cs, en))) if href else "<b>%s</b>" % L(cs, en)
+        h += ('<a href="%s">%s</a>' % (href, text)) if href else "<b>%s</b>" % text
     return h + "</nav>"
 
 
 def foot():
     return """<footer class="foot"><div class="foot-in">
   <span>%s</span>
+  <!--SL-->%s<!--/SL-->
   <span class="sp"></span>
   <span>%s</span>
 </div></footer>
-""" % (L(SITE["name"] + " — " + SITE["tagline"], SITE["name_en"] + " — " + SITE["tagline_en"]),
+""" % (L(SITE["name"] + " — " + SITE["tagline"]), i18n.author_html(),
        L("Materiály fungují i bez připojení. Pokrok se ukládá ve vašem prohlížeči."))
 
 
@@ -467,7 +468,7 @@ def build_hex_art():
 
 def tile_texts(g):
     """(štítek, název, popis, výzva) dlaždice skupiny — každý česky i anglicky."""
-    return tuple(L(g[k], g[k + "_en"]) for k in ("kicker", "title", "sub", "cta"))
+    return tuple(Lk(g, k) for k in ("kicker", "title", "sub", "cta"))
 
 
 def build_index():
@@ -478,11 +479,11 @@ def build_index():
     h += '<section class="hero"><div class="hero-bg"></div>' + HERO_ART + '<div class="hero-in">'
     h += '<span class="eyebrow">%s</span>' % L("Chemie pro střední školu a přípravu na vysokou")
     h += '<h1>%s</h1>' % L("Chemie, kterou si můžete osahat.")
-    h += '<p class="lead">%s</p>' % L(SITE["lead"], SITE["lead_en"])
+    h += '<p class="lead">%s</p>' % Lk(SITE, "lead")
     okr = [g for g in GROUPS if g["id"] == "okruhy"][0]
     h += ('<div class="cta">'
           '<a class="btn btn-primary" href="obecna-fyzikalni-chemie/index.html">%s %s</a>'
-          '</div>' % (L(okr["title"], okr["title_en"]), ARR))
+          '</div>' % (Lk(okr, "title"), ARR))
     h += '</div></section>\n'
     h += ('<div class="wrap"><section class="sec">'
           '<div class="sec-head"><h2>%s</h2></div><div class="pairs">' % L("Kde chcete začít?"))
@@ -492,9 +493,9 @@ def build_index():
         if not items:
             continue
         h += '<section class="pair %s">' % {1: "one", 2: "two", 3: "three"}.get(len(items), "two")
-        h += '<div class="pair-head"><span class="pl">%s</span>' % L(pr["label"], pr["label_en"])
+        h += '<div class="pair-head"><span class="pl">%s</span>' % Lk(pr, "label")
         if pr.get("note"):
-            h += '<span class="pn">%s</span>' % L(pr["note"], pr["note_en"])
+            h += '<span class="pn">%s</span>' % Lk(pr, "note")
         h += '</div><div class="pair-grid">'
         for k, g in enumerate(items):
             if k and pr.get("flow", True):
@@ -521,8 +522,10 @@ HUBS = {
     "pocitani": {
         "title": "Počítání",
         "title_en": "Calculating",
+        "title_sk": "Počítanie",
         "eyebrow": "Tři moduly · od zápisu k procvičení",
         "eyebrow_en": "Three modules · from notation to practice",
+        "eyebrow_sk": "Tri moduly · od zápisu k precvičeniu",
         "desc": "Počítání v chemii: jak výpočet zapsat, jak zacházet se zlomky "
                 "a závorkami a jak si ho natrénovat na úlohách.",
         "lead": "Tři moduly, které na sebe navazují. Nejdřív se naučte, jak výpočet "
@@ -533,6 +536,10 @@ HUBS = {
                    "a calculation down and derive it. If fractions and brackets slow you down, "
                    "there is a separate module for them. Finally, practise the whole process "
                    "on problems where you put the relationships together yourself.",
+        "lead_sk": "Tri moduly, ktoré na seba nadväzujú. Najprv sa naučte, ako výpočet "
+                   "zapísať a odvodiť. Keď vás pri tom zdržia zlomky a zátvorky, je na ne "
+                   "samostatný modul. A nakoniec si celý postup natrénujte na úlohách, "
+                   "kde vzťahy skladáte vy.",
         "items": ["pocitat", "zlomky", "spolu"],
     },
 }
@@ -544,14 +551,14 @@ def build_hub(slug):
     css = TOKENS + CHROME + TILES + HERO
     h = head(cfg["title"] + " \u2014 " + SITE["name"], cfg["desc"], css)
     h += topbar("../index.html",
-                crumb(("Úvod", "Home", "../index.html"), (cfg["title"], cfg["title_en"], None)),
+                crumb((L("Úvod"), "../index.html"), (Lk(cfg, "title"), None)),
                 back=("../index.html", "Zpátky na úvod"))
     h += '<main id="obsah">\n'
     h += ('<section class="hero sub"><div class="hero-bg alt"></div>' + build_hex_art()
           + '<div class="hero-in">')
-    h += '<span class="eyebrow">%s</span>' % L(cfg["eyebrow"], cfg["eyebrow_en"])
-    h += '<h1>%s</h1>' % L(cfg["title"], cfg["title_en"])
-    h += '<p class="lead">%s</p>' % L(cfg["lead"], cfg["lead_en"])
+    h += '<span class="eyebrow">%s</span>' % Lk(cfg, "eyebrow")
+    h += '<h1>%s</h1>' % Lk(cfg, "title")
+    h += '<p class="lead">%s</p>' % Lk(cfg, "lead")
     h += '</div></section>\n'
     h += '<div class="wrap"><section class="sec">'
     h += '<div class="sec-head"><h2>%s</h2></div><div class="tiles g2 hubtiles">' % L("Moduly")
@@ -571,22 +578,28 @@ GROUP_PAGES = {
     "obecna-fyzikalni-chemie": {
         "title": "Obecná a fyzikální chemie",
         "title_en": "General and physical chemistry",
+        "title_sk": "Všeobecná a fyzikálna chémia",
         "eyebrow": "Deset okruhů \u00b7 podle školní osnovy",
         "eyebrow_en": "Ten topics \u00b7 following the school syllabus",
+        "eyebrow_sk": "Desať okruhov \u00b7 podľa školských osnov",
         "desc": "Obecná a fyzikální chemie: atomové jádro, elektronový obal, chemická vazba, "
                 "struktura látek, termochemie, kinetika, rovnováha, elektrochemie, "
                 "acidobazické reakce a výpočty.",
         "lead": SITE["group_lead"],
         "lead_en": SITE["group_lead_en"],
+        "lead_sk": SITE["group_lead_sk"],
         "topics": TOPICS,
         "credit": None,
         "credit_en": None,
+        "credit_sk": None,
     },
     "anorganicka-chemie": {
         "title": "Anorganická chemie",
         "title_en": "Inorganic chemistry",
+        "title_sk": "Anorganická chémia",
         "eyebrow": "Devět okruhů \u00b7 popisná chemie prvků",
         "eyebrow_en": "Nine topics \u00b7 descriptive chemistry of the elements",
+        "eyebrow_sk": "Deväť okruhov \u00b7 opisná chémia prvkov",
         "desc": "Anorganická chemie: vodík a voda, halogeny, chalkogeny, dusík a fosfor, "
                 "uhlík a křemík, kovy, koordinační sloučeniny a přechodné prvky.",
         "lead": "Devět okruhů popisné chemie. U každé skupiny prvků jdeme stejnou cestou: "
@@ -596,6 +609,9 @@ GROUP_PAGES = {
                    "the same path: what follows from its position in the periodic table, what "
                    "the element itself is like, which compounds it forms, how it is produced "
                    "and what it is used for.",
+        "lead_sk": "Deväť okruhov opisnej chémie. Pri každej skupine prvkov ideme rovnakou "
+                   "cestou: čo vyplýva z postavenia v periodickej tabuľke, aký je samotný prvok, "
+                   "aké tvorí zlúčeniny, ako sa vyrába a na čo sa používa.",
         "topics": ANORG_TOPICS,
         "credit": ("Členění a pořadí výkladu v tomto modulu sleduje učebnici "
                    "<b>Klikorka J., Hájek B., Votinský J.: Obecná a anorganická chemie</b>, "
@@ -606,6 +622,10 @@ GROUP_PAGES = {
                       "(General and Inorganic Chemistry), 2nd edition, SNTL, Prague 1989. "
                       "The explanations, examples, figures and tests are original, and all data "
                       "have been checked against current tables."),
+        "credit_sk": ("Členenie a poradie výkladu v tomto module sleduje učebnicu "
+                      "<b>Klikorka J., Hájek B., Votinský J.: Obecná a anorganická chemie</b>, "
+                      "2. vydanie, SNTL, Praha 1989. Výklad, príklady, obrázky aj testy sú "
+                      "pôvodné a všetky údaje sú overené podľa súčasných tabuliek."),
     },
 }
 
@@ -615,36 +635,42 @@ def build_group(slug, found):
     css = TOKENS + CHROME + TILES + HERO + GROUP_CSS
     h = head(cfg["title"] + " \u2014 " + SITE["name"], cfg["desc"], css)
     h += topbar("../index.html",
-                crumb(("Úvod", "Home", "../index.html"), (cfg["title"], cfg["title_en"], None)),
+                crumb((L("Úvod"), "../index.html"), (Lk(cfg, "title"), None)),
                 back=("../index.html", "Zpátky na úvod"))
     h += '<main id="obsah">\n'
     h += ('<section class="hero sub"><div class="hero-bg alt"></div>' + build_hex_art()
           + '<div class="hero-in">')
-    h += '<span class="eyebrow">%s</span>' % L(cfg["eyebrow"], cfg["eyebrow_en"])
-    h += '<h1>%s</h1>' % L(cfg["title"], cfg["title_en"])
-    h += '<p class="lead">%s</p>' % L(cfg["lead"], cfg["lead_en"])
+    h += '<span class="eyebrow">%s</span>' % Lk(cfg, "eyebrow")
+    h += '<h1>%s</h1>' % Lk(cfg, "title")
+    h += '<p class="lead">%s</p>' % Lk(cfg, "lead")
     h += '</div></section>\n'
     h += '<div class="wrap">'
     h += ('<section class="sec"><div class="sec-head"><h2>%s</h2></div>'
           % L("Jak je každý okruh postavený"))
     cards = [
-        ("1", ("Rychlokurz na hodinu", "A one-hour crash course"),
+        ("1", ("Rychlokurz na hodinu", "A one-hour crash course", "Rýchlokurz na hodinu"),
          ("Celá látka v kostce: výklad, rámeček se vzorci, upozornění na častou chybu a řešený "
           "příklad s čísly. Na konci osm vět, které musíte umět odříkat, a kontrolní test.",
           "The whole topic in a nutshell: explanation, a box of formulas, a warning about "
           "a common mistake and a worked example with numbers. At the end, eight sentences "
-          "you must be able to recite, and a check test.")),
-        ("2", ("Plný kurz s modely", "The full course with models"),
+          "you must be able to recite, and a check test.",
+          "Celá látka v kocke: výklad, rámček so vzorcami, upozornenie na častú chybu a riešený "
+          "príklad s číslami. Na konci osem viet, ktoré musíte vedieť odrecitovať, a kontrolný test.")),
+        ("2", ("Plný kurz s modely", "The full course with models", "Plný kurz s modelmi"),
          ("Podrobný výklad rozdělený do kapitol. V každé je interaktivní model, se kterým si "
           "můžete pohrát, řešené příklady krok za krokem a test s vysvětlením u každé otázky.",
           "A detailed explanation divided into chapters. Each has an interactive model to "
           "play with, worked examples step by step and a test with an explanation for every "
-          "question.")),
-        ("3", ("Tahák a slovníček", "Cheat sheet and glossary"),
+          "question.",
+          "Podrobný výklad rozdelený do kapitol. V každej je interaktívny model, s ktorým sa "
+          "môžete pohrať, riešené príklady krok za krokom a test s vysvetlením pri každej otázke.")),
+        ("3", ("Tahák a slovníček", "Cheat sheet and glossary", "Ťahák a slovníček"),
          ("Na konci každého okruhu je tahák na jednu obrazovku a slovníček všech pojmů z osnovy. "
           "Pokrok v kapitolách se ukládá ve vašem prohlížeči.",
           "Every topic ends with a one-screen cheat sheet and a glossary of all the terms "
-          "in the syllabus. Your progress through the chapters is saved in your browser.")),
+          "in the syllabus. Your progress through the chapters is saved in your browser.",
+          "Na konci každého okruhu je ťahák na jednu obrazovku a slovníček všetkých pojmov "
+          "z osnov. Pokrok v kapitolách sa ukladá vo vašom prehliadači.")),
     ]
     h += '<div class="how">'
     for ic, t, p in cards:
@@ -654,9 +680,10 @@ def build_group(slug, found):
     h += ('<section class="sec"><div class="sec-head"><h2>%s</h2></div><div class="tiles g2">'
           % L("Okruhy"))
     for t in cfg["topics"]:
-        chips = "".join("<span>%s</span>" % L(c, e) for c, e in zip(t["chips"], t["chips_en"]))
-        num = L("Okruh %s" % t["n"], "Topic %s" % t["n"])
-        title, sub = L(t["title"], t["title_en"]), L(t["sub"], t["sub_en"])
+        chips = "".join("<span>%s</span>" % L(c, e, k)
+                        for c, e, k in zip(t["chips"], t["chips_en"], t["chips_sk"]))
+        num = L("Okruh %s" % t["n"], "Topic %s" % t["n"], "Okruh %s" % t["n"])
+        title, sub = Lk(t, "title"), Lk(t, "sub")
         if t["slug"] in found:
             h += ('<a class="tile" href="%s.html"><span class="n">%s</span>'
                   '<h3>%s</h3><p class="desc">%s</p><span class="chips">%s</span>'
@@ -672,7 +699,7 @@ def build_group(slug, found):
     if cfg.get("credit"):
         h += ('<section class="sec"><div class="credit">'
               '<span class="eyebrow">%s</span><p>%s</p></div></section>\n'
-              % (L("Odkud bereme osnovu"), L(cfg["credit"], cfg["credit_en"])))
+              % (L("Odkud bereme osnovu"), Lk(cfg, "credit")))
     h += '</div></main>\n' + foot() + theme_script()
     return h
 

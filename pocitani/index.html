@@ -239,22 +239,61 @@ footer.foot{border-top:1px solid var(--line);margin-top:clamp(4rem,9vw,7rem);pad
 </style>
 <!--SITE-LANG-->
 <meta name="title-en" content="Calculating — Chemistry">
+<meta name="title-sk" content="Počítanie — Chémia">
 <style>
-/* SITE-LANG: dvojice CZ/EN — ukáže se jen ta, která odpovídá html[data-lang] */
-html[data-lang="en"] lang-cs, html:not([data-lang="en"]) lang-en,
-html:not([data-lang="en"]) [data-only="en"]{display:none!important}
-.langsw{display:inline-flex;align-items:stretch;flex:none;box-sizing:border-box;height:40px;padding:3px;gap:2px;
-  border-radius:10px;border:1px solid var(--line-strong);background:var(--surface)}
-.langsw button{-webkit-appearance:none;appearance:none;margin:0;border:0;border-radius:7px;min-width:34px;
-  padding:0 .5rem;background:transparent;color:var(--ink-2);font-family:var(--f-ui);font-weight:600;
-  font-size:.74rem;line-height:1;letter-spacing:.08em;cursor:pointer;-webkit-tap-highlight-color:transparent;
-  transition:background .15s,color .15s}
-.langsw button:hover{background:var(--surface-2);color:var(--ink)}
-html:not([data-lang="en"]) .langsw button[data-set-lang="cs"],
-html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent);color:var(--accent-ink)}
-.topbar-row .langsw{height:44px}
-/* úzký telefon: vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
-@media (max-width:420px){ .bar-in .back ~ .brand > span:not(.dot){display:none} }
+/* SITE-LANG: přeložené texty — ukáže se jen ten, který odpovídá html[data-lang] */
+html[data-lang="en"] lang-cs,
+html[data-lang="sk"] lang-cs,
+html:not([data-lang="en"]) lang-en,
+html:not([data-lang="sk"]) lang-sk,
+html:not([data-lang="en"]):not([data-lang="sk"]) [data-only="foreign"]{display:none!important}
+/* nabídka jazyků: tlačítko s aktuální vlajkou a zkratkou, po klepnutí rozbalovací seznam */
+.langsw{position:relative;display:inline-flex;flex:none}
+.langsw-btn{-webkit-appearance:none;appearance:none;margin:0;display:inline-flex;align-items:center;gap:.42rem;
+  box-sizing:border-box;height:40px;padding:0 .6rem 0 .68rem;border-radius:10px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);font-family:var(--f-ui);font-weight:600;font-size:.78rem;line-height:1;
+  letter-spacing:.06em;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s}
+.langsw-btn:hover,.langsw-btn[aria-expanded="true"]{background:var(--surface-2);border-color:var(--ink-3)}
+.topbar-row .langsw-btn{height:44px}
+.langsw-cur{display:inline-flex;align-items:center;gap:.42rem}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-cur:not([data-l="cs"]),
+html[data-lang="sk"] .langsw-cur:not([data-l="sk"]),
+html[data-lang="en"] .langsw-cur:not([data-l="en"]){display:none}
+.langsw svg.flag{display:block;flex:none;width:18px;height:12px;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.langsw-chev{display:block;flex:none;width:11px;height:11px;color:var(--ink-3);transition:transform .15s}
+.langsw-btn[aria-expanded="true"] .langsw-chev{transform:rotate(180deg)}
+.langsw-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:300;display:flex;flex-direction:column;gap:2px;
+  min-width:172px;padding:5px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);
+  box-shadow:0 14px 30px rgba(0,0,0,.2),0 2px 6px rgba(0,0,0,.1)}
+.langsw-menu[hidden]{display:none!important}
+.langsw-menu button{-webkit-appearance:none;appearance:none;margin:0;display:flex;align-items:center;gap:.62rem;
+  width:100%;min-height:42px;padding:.45rem .7rem;border:0;border-radius:8px;background:transparent;color:var(--ink);
+  font-family:var(--f-ui);font-size:.88rem;font-weight:500;line-height:1.2;text-align:left;cursor:pointer}
+.langsw-menu button:hover{background:var(--surface-2)}
+.langsw-menu button:focus-visible{background:var(--surface-2);outline:2px solid var(--accent);outline-offset:-2px}
+.langsw-code{font-weight:700;font-size:.76rem;letter-spacing:.06em}
+.langsw-menu .langsw-code{min-width:1.9em}
+.langsw-name{color:var(--ink-2)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"],
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"],
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]{background:var(--accent-soft)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"]::after,
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"]::after,
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";margin-left:auto;width:9px;height:5px;border-left:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);transform:translateY(-2px) rotate(-45deg)}
+@media (max-width:420px){
+  /* vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
+  .bar-in .back ~ .brand > span:not(.dot){display:none}
+  /* název průvodce v mobilní hlavičce: raději výpustka než přetečení přes přepínač */
+  .topbar-row .name{overflow:hidden}
+  .topbar-row .name > lang-cs, .topbar-row .name > lang-en, .topbar-row .name > lang-sk{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:360px){ .bar-in .brand > span:not(.dot){display:none}
+  .langsw-btn .langsw-code{display:none} .langsw-btn{padding:0 .5rem} }
+/* autor dole na stránce */
+.authorline{margin:3.2rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);font-family:var(--f-ui);
+  font-size:.84rem;color:var(--ink-3)}
 .langnote{margin:0;font-family:var(--f-ui);font-size:.86rem;line-height:1.5;color:var(--ink-2);
   background:var(--surface);border:1px solid var(--line-strong);border-left:4px solid var(--accent);
   border-radius:10px;padding:.6rem .9rem}
@@ -264,43 +303,69 @@ html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent)
   padding-top:clamp(.9rem,2vw,1.4rem)}
 .langbar .langnote{flex:1 1 320px}
 @media (min-width:1100px){ .langbar + .hero{padding-top:clamp(1.2rem,2.4vw,2rem)} }
-@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]) .langbar{display:none} }
+@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]):not([data-lang="sk"]) .langbar{display:none} }
 </style>
 <script>
-/* SITE-LANG: přepínač CZ/EN pro menu a ovládání (obsah modulů zůstává česky) */
+/* SITE-LANG: přepínač jazyka pro menu a ovládání (obsah modulů zůstává česky) */
 (function(){
-  var D=document.documentElement, K="site.lang", LIVE={"Tmavý": "Dark", "Světlý": "Light", "Přepnout režim": "Toggle theme", "Přepnout na světlý režim": "Switch to light mode", "Přepnout na tmavý režim": "Switch to dark mode", "Přepnout světlý a tmavý režim": "Toggle light and dark mode", "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": "Reset your progress in all chapters? Your theme setting will be kept.", "Pokrok vynulován.": "Progress reset."}, REV={}, k;
-  for(k in LIVE) if(Object.prototype.hasOwnProperty.call(LIVE,k)) REV[LIVE[k]]=k;
-  function stored(){ try{ var v=localStorage.getItem(K); return (v==="cs"||v==="en")?v:null; }catch(e){ return null; } }
+  var D=document.documentElement, K="site.lang", LANGS=["cs", "en", "sk"], LIVE={"Tmavý": {"en": "Dark", "sk": "Tmavý"}, "Světlý": {"en": "Light", "sk": "Svetlý"}, "Přepnout režim": {"en": "Toggle theme", "sk": "Prepnúť režim"}, "Přepnout na světlý režim": {"en": "Switch to light mode", "sk": "Prepnúť na svetlý režim"}, "Přepnout na tmavý režim": {"en": "Switch to dark mode", "sk": "Prepnúť na tmavý režim"}, "Přepnout světlý a tmavý režim": {"en": "Toggle light and dark mode", "sk": "Prepnúť svetlý a tmavý režim"}, "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": {"en": "Reset your progress in all chapters? Your theme setting will be kept.", "sk": "Naozaj vynulovať pokrok vo všetkých kapitolách? Nastavenie motívu zostane."}, "Pokrok vynulován.": {"en": "Progress reset.", "sk": "Pokrok bol vynulovaný."}}, REV={}, k, g;
+  for(k in LIVE) for(g in LIVE[k]) REV[LIVE[k][g]]=k;
+  function ok(v){ return LANGS.indexOf(v)>=0; }
+  function stored(){ try{ var v=localStorage.getItem(K); return ok(v)?v:null; }catch(e){ return null; } }
   function initial(){
-    var m=/[?&]lang=(cs|en)(?:&|$)/.exec(location.search);
-    if(m){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
+    var m=/[?&]lang=([a-z]{2})(?:&|$)/.exec(location.search);
+    if(m&&ok(m[1])){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
     return stored()||"cs";
   }
   var lang=initial(), csTitle=null;
   D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
-  function tx(s){ if(s==null) return null; s=String(s); return lang==="en" ? (LIVE[s]||null) : (REV[s]||null); }
+  /* text psaný skriptem stránky (vždy česky) nebo už přeložený → text v aktuálním jazyce */
+  function tx(s){ if(s==null) return null; s=String(s);
+    var cs=LIVE[s]?s:REV[s]; if(!cs) return null;
+    var t=(lang==="cs")?cs:LIVE[cs][lang]; return (t&&t!==s)?t:null; }
   var oc=window.confirm;
-  window.confirm=function(m){ return oc.call(window,(lang==="en"&&LIVE[m])||m); };
+  window.confirm=function(m){ return oc.call(window,(lang!=="cs"&&LIVE[m]&&LIVE[m][lang])||m); };
   function liveText(el){ if(!el) return; var t=tx(el.textContent); if(t) el.textContent=t; }
   function liveAria(el){ if(!el) return; var t=tx(el.getAttribute("aria-label")); if(t) el.setAttribute("aria-label",t); }
   function apply(){
     D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
-    var i, el, els=document.querySelectorAll("[data-en-aria-label]");
+    var i, el, v, els=document.querySelectorAll("[data-en-aria-label],[data-sk-aria-label]");
     for(i=0;i<els.length;i++){ el=els[i];
       if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
-      el.setAttribute("aria-label",el.getAttribute(lang==="en"?"data-en-aria-label":"data-cs-aria-label")); }
-    var meta=document.querySelector('meta[name="title-en"]');
-    if(meta){ if(csTitle===null) csTitle=document.title; document.title=(lang==="en")?meta.getAttribute("content"):csTitle; }
+      v=(lang==="cs")?null:el.getAttribute("data-"+lang+"-aria-label");
+      el.setAttribute("aria-label",v||el.getAttribute("data-cs-aria-label")); }
+    if(csTitle===null) csTitle=document.title;
+    var meta=(lang==="cs")?null:document.querySelector('meta[name="title-'+lang+'"]');
+    document.title=meta?meta.getAttribute("content"):csTitle;
     liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
     liveAria(document.getElementById("themeBtn")); liveAria(document.getElementById("themeBtn2"));
     els=document.querySelectorAll("[data-set-lang]");
-    for(i=0;i<els.length;i++) els[i].setAttribute("aria-pressed",els[i].getAttribute("data-set-lang")===lang?"true":"false");
+    for(i=0;i<els.length;i++) els[i].setAttribute("aria-checked",els[i].getAttribute("data-set-lang")===lang?"true":"false");
   }
-  function set(l){ if(l!=="cs"&&l!=="en") return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  /* rozbalovací nabídka jazyků */
+  function open_(w,on){ if(!w) return; var b=w.querySelector(".langsw-btn"), m=w.querySelector(".langsw-menu");
+    if(!b||!m) return; b.setAttribute("aria-expanded",on?"true":"false");
+    if(on) m.removeAttribute("hidden"); else m.setAttribute("hidden",""); }
+  function closeAll(keep){ var ws=document.querySelectorAll(".langsw"); for(var i=0;i<ws.length;i++) if(ws[i]!==keep) open_(ws[i],false); }
+  function up(el,sel){ return (el&&el.closest)?el.closest(sel):null; }
   document.addEventListener("click",function(e){
-    var b=(e.target&&e.target.closest)?e.target.closest("[data-set-lang]"):null;
-    if(b) set(b.getAttribute("data-set-lang"));
+    var it=up(e.target,"[data-set-lang]"), w;
+    if(it){ w=up(it,".langsw"); set(it.getAttribute("data-set-lang")); closeAll(null);
+      if(w&&w.querySelector(".langsw-btn")) w.querySelector(".langsw-btn").focus(); return; }
+    var b=up(e.target,".langsw-btn");
+    if(b){ w=up(b,".langsw"); var on=b.getAttribute("aria-expanded")!=="true"; closeAll(w); open_(w,on);
+      if(on){ var c=w.querySelector('[data-set-lang="'+lang+'"]'); if(c) c.focus(); } return; }
+    if(!up(e.target,".langsw")) closeAll(null);
+  });
+  document.addEventListener("keydown",function(e){
+    var w=up(e.target,".langsw"); if(!w) return;
+    var b=w.querySelector(".langsw-btn"), on=b&&b.getAttribute("aria-expanded")==="true";
+    var its=[].slice.call(w.querySelectorAll("[data-set-lang]")), i=its.indexOf(document.activeElement), n=its.length;
+    if(e.key==="Escape"&&on){ open_(w,false); b.focus(); e.preventDefault(); }
+    else if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); if(!on) open_(w,true);
+      var d=(e.key==="ArrowDown")?1:n-1; its[i<0?(d===1?0:n-1):(i+d)%n].focus(); }
+    else if(e.key==="Tab"&&on){ open_(w,false); }
   });
   function watch(){
     if(!window.MutationObserver) return;
@@ -312,27 +377,28 @@ html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent)
   document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
   window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; apply(); } });
   window.addEventListener("storage",function(e){
-    if(e.key===K&&(e.newValue==="cs"||e.newValue==="en")&&e.newValue!==lang){ lang=e.newValue; apply(); } });
+    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; apply(); } });
 })();
 </script>
 <!--/SITE-LANG-->
 </head>
 <body>
-<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en></a>
+<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en><lang-sk lang="sk">Preskočiť na obsah</lang-sk></a>
 <header class="bar"><div class="bar-in">
-  <a class="back" href="../index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na úvod</lang-cs><lang-en lang="en">Back to home</lang-en></span></a><a class="brand" href="../index.html"><span class="dot">Ch</span><span><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en></span></a>
+  <a class="back" href="../index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na úvod</lang-cs><lang-en lang="en">Back to home</lang-en><lang-sk lang="sk">Späť na úvod</lang-sk></span></a><a class="brand" href="../index.html"><span class="dot">Ch</span><span><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en><lang-sk lang="sk">Chémia</lang-sk></span></a>
   <span class="sp"></span>
-  <nav class="crumb" aria-label="Drobečková navigace" data-en-aria-label="Breadcrumb"><a href="../index.html"><lang-cs>Úvod</lang-cs><lang-en lang="en">Home</lang-en></a><span>/</span><b><lang-cs>Počítání</lang-cs><lang-en lang="en">Calculating</lang-en></b></nav>
-  <!--SL--><div class="langsw" role="group" aria-label="Jazyk / Language"><button type="button" data-set-lang="cs" lang="cs" title="Čeština">CZ</button><button type="button" data-set-lang="en" lang="en" title="English">EN</button></div><!--/SL-->
+  <nav class="crumb" aria-label="Drobečková navigace" data-en-aria-label="Breadcrumb" data-sk-aria-label="Navigačná cesta"><a href="../index.html"><lang-cs>Úvod</lang-cs><lang-en lang="en">Home</lang-en><lang-sk lang="sk">Úvod</lang-sk></a><span>/</span><b><lang-cs>Počítání</lang-cs><lang-en lang="en">Calculating</lang-en><lang-sk lang="sk">Počítanie</lang-sk></b></nav>
+  <!--SL--><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div><!--/SL-->
   <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
 </div></header>
 <main id="obsah">
-<section class="hero sub"><div class="hero-bg alt"></div><svg class="hero-art alt" width="430" height="430" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round" aria-hidden="true"><polygon points="12.00,-20.00 12.00,-5.00 -0.99,2.50 -13.98,-5.00 -13.98,-20.00 -0.99,-27.50"/><polygon points="37.98,-20.00 37.98,-5.00 24.99,2.50 12.00,-5.00 12.00,-20.00 24.99,-27.50"/><polygon points="63.96,-20.00 63.96,-5.00 50.97,2.50 37.98,-5.00 37.98,-20.00 50.97,-27.50"/><polygon points="89.94,-20.00 89.94,-5.00 76.95,2.50 63.96,-5.00 63.96,-20.00 76.95,-27.50"/><polygon points="115.92,-20.00 115.92,-5.00 102.93,2.50 89.94,-5.00 89.94,-20.00 102.93,-27.50"/><polygon points="141.90,-20.00 141.90,-5.00 128.91,2.50 115.92,-5.00 115.92,-20.00 128.91,-27.50"/><polygon points="-0.99,2.50 -0.99,17.50 -13.98,25.00 -26.97,17.50 -26.97,2.50 -13.98,-5.00"/><polygon points="24.99,2.50 24.99,17.50 12.00,25.00 -0.99,17.50 -0.99,2.50 12.00,-5.00"/><polygon points="50.97,2.50 50.97,17.50 37.98,25.00 24.99,17.50 24.99,2.50 37.98,-5.00"/><polygon points="76.95,2.50 76.95,17.50 63.96,25.00 50.97,17.50 50.97,2.50 63.96,-5.00"/><polygon points="102.93,2.50 102.93,17.50 89.94,25.00 76.95,17.50 76.95,2.50 89.94,-5.00"/><polygon points="128.91,2.50 128.91,17.50 115.92,25.00 102.93,17.50 102.93,2.50 115.92,-5.00"/><polygon points="12.00,25.00 12.00,40.00 -0.99,47.50 -13.98,40.00 -13.98,25.00 -0.99,17.50"/><polygon points="37.98,25.00 37.98,40.00 24.99,47.50 12.00,40.00 12.00,25.00 24.99,17.50"/><polygon points="63.96,25.00 63.96,40.00 50.97,47.50 37.98,40.00 37.98,25.00 50.97,17.50"/><polygon points="89.94,25.00 89.94,40.00 76.95,47.50 63.96,40.00 63.96,25.00 76.95,17.50"/><polygon points="115.92,25.00 115.92,40.00 102.93,47.50 89.94,40.00 89.94,25.00 102.93,17.50"/><polygon points="141.90,25.00 141.90,40.00 128.91,47.50 115.92,40.00 115.92,25.00 128.91,17.50"/><polygon points="-0.99,47.50 -0.99,62.50 -13.98,70.00 -26.97,62.50 -26.97,47.50 -13.98,40.00"/><polygon points="24.99,47.50 24.99,62.50 12.00,70.00 -0.99,62.50 -0.99,47.50 12.00,40.00"/><polygon points="50.97,47.50 50.97,62.50 37.98,70.00 24.99,62.50 24.99,47.50 37.98,40.00"/><polygon points="76.95,47.50 76.95,62.50 63.96,70.00 50.97,62.50 50.97,47.50 63.96,40.00"/><polygon points="102.93,47.50 102.93,62.50 89.94,70.00 76.95,62.50 76.95,47.50 89.94,40.00"/><polygon points="128.91,47.50 128.91,62.50 115.92,70.00 102.93,62.50 102.93,47.50 115.92,40.00"/><polygon points="12.00,70.00 12.00,85.00 -0.99,92.50 -13.98,85.00 -13.98,70.00 -0.99,62.50"/><polygon points="37.98,70.00 37.98,85.00 24.99,92.50 12.00,85.00 12.00,70.00 24.99,62.50"/><polygon points="63.96,70.00 63.96,85.00 50.97,92.50 37.98,85.00 37.98,70.00 50.97,62.50"/><polygon points="89.94,70.00 89.94,85.00 76.95,92.50 63.96,85.00 63.96,70.00 76.95,62.50"/><polygon points="115.92,70.00 115.92,85.00 102.93,92.50 89.94,85.00 89.94,70.00 102.93,62.50"/><polygon points="141.90,70.00 141.90,85.00 128.91,92.50 115.92,85.00 115.92,70.00 128.91,62.50"/><polygon points="-0.99,92.50 -0.99,107.50 -13.98,115.00 -26.97,107.50 -26.97,92.50 -13.98,85.00"/><polygon points="24.99,92.50 24.99,107.50 12.00,115.00 -0.99,107.50 -0.99,92.50 12.00,85.00"/><polygon points="50.97,92.50 50.97,107.50 37.98,115.00 24.99,107.50 24.99,92.50 37.98,85.00"/><polygon points="76.95,92.50 76.95,107.50 63.96,115.00 50.97,107.50 50.97,92.50 63.96,85.00"/><polygon points="102.93,92.50 102.93,107.50 89.94,115.00 76.95,107.50 76.95,92.50 89.94,85.00"/><polygon points="128.91,92.50 128.91,107.50 115.92,115.00 102.93,107.50 102.93,92.50 115.92,85.00"/><circle cx="51.0" cy="32.5" r="7.6" stroke-dasharray="2.6 3.4"/><circle cx="89.9" cy="55.0" r="7.6" stroke-dasharray="2.6 3.4"/></svg><div class="hero-in"><span class="eyebrow"><lang-cs>Tři moduly · od zápisu k procvičení</lang-cs><lang-en lang="en">Three modules · from notation to practice</lang-en></span><h1><lang-cs>Počítání</lang-cs><lang-en lang="en">Calculating</lang-en></h1><p class="lead"><lang-cs>Tři moduly, které na sebe navazují. Nejdřív se naučte, jak výpočet zapsat a odvodit. Když vás na tom zdrží zlomky a závorky, je na ně samostatný modul. A nakonec si celý postup natrénujte na úlohách, kde skládáte vztahy vy.</lang-cs><lang-en lang="en">Three modules that build on each other. First learn how to write a calculation down and derive it. If fractions and brackets slow you down, there is a separate module for them. Finally, practise the whole process on problems where you put the relationships together yourself.</lang-en></p></div></section>
-<div class="wrap"><section class="sec"><div class="sec-head"><h2><lang-cs>Moduly</lang-cs><lang-en lang="en">Modules</lang-en></h2></div><div class="tiles g2 hubtiles"><a class="tile big" href="../jak-pocitat/index.html"><svg class="ic" width="210" height="210" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 50h64"/><text x="50" y="40" text-anchor="middle" font-size="24" font-family="serif" font-style="italic" fill="currentColor" stroke="none">m</text><text x="50" y="80" text-anchor="middle" font-size="24" font-family="serif" font-style="italic" fill="currentColor" stroke="none">M·V</text></svg><span class="n"><lang-cs>Naučit se</lang-cs><lang-en lang="en">Learn</lang-en></span><h3><lang-cs>Jak počítat chemii</lang-cs><lang-en lang="en">How to do chemistry calculations</lang-en></h3><p class="desc"><lang-cs>Jak zapsat zadání, odvodit vztah a teprve pak dosadit. Jednotky, převody, přehled vzorců a řešené příklady.</lang-cs><lang-en lang="en">How to write down what is given, derive the relationship and only then substitute. Units, conversions, an overview of formulas and worked examples.</lang-en></p><span class="go"><lang-cs>Naučit se zápis</lang-cs><lang-en lang="en">Learn the notation</lang-en> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></span></a><a class="tile big" href="../jak-pocitat/zlomky-a-zavorky/index.html"><svg class="ic" width="210" height="210" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 20c-9 8-13 18-13 30s4 22 13 30"/><path d="M70 20c9 8 13 18 13 30s-4 22-13 30"/><path d="M34 50h32" stroke-width="2.6"/><circle cx="50" cy="37" r="4.5" fill="currentColor" stroke="none"/><circle cx="50" cy="63" r="4.5" fill="currentColor" stroke="none"/></svg><span class="n"><lang-cs>Doladit si</lang-cs><lang-en lang="en">Fine-tune</lang-en></span><h3><lang-cs>Zlomky a závorky</lang-cs><lang-en lang="en">Fractions and brackets</lang-en></h3><p class="desc"><lang-cs>Kdy zlomková čára nahrazuje závorku, jak přepsat stohovaný zápis na řádek a zpátky a jak si ověřit, že jste přepsali správně.</lang-cs><lang-en lang="en">When the fraction bar replaces brackets, how to rewrite stacked notation on one line and back, and how to check that you rewrote it correctly.</lang-en></p><span class="go"><lang-cs>Otevřít modul</lang-cs><lang-en lang="en">Open module</lang-en> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></span></a><a class="tile big" href="../pocitame-spolu/index.html"><svg class="ic" width="210" height="210" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="18" width="32" height="22" rx="4"/><rect x="58" y="18" width="32" height="22" rx="4"/><rect x="34" y="62" width="32" height="22" rx="4"/><path d="M26 40v9h48v-9M50 49v13"/></svg><span class="n"><lang-cs>Procvičit si</lang-cs><lang-en lang="en">Practise</lang-en></span><h3><lang-cs>Počítáme spolu</lang-cs><lang-en lang="en">Let’s calculate together</lang-en></h3><p class="desc"><lang-cs>Výpočet skládáte vy: vyberete vztahy, klepáním dosadíte jeden do druhého a čísla přijdou na řadu až úplně nakonec.</lang-cs><lang-en lang="en">You build the calculation: pick the relationships, tap to substitute one into another, and the numbers come in only at the very end.</lang-en></p><span class="go"><lang-cs>Začít počítat</lang-cs><lang-en lang="en">Start calculating</lang-en> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></span></a></div></section></div></main>
+<section class="hero sub"><div class="hero-bg alt"></div><svg class="hero-art alt" width="430" height="430" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round" aria-hidden="true"><polygon points="12.00,-20.00 12.00,-5.00 -0.99,2.50 -13.98,-5.00 -13.98,-20.00 -0.99,-27.50"/><polygon points="37.98,-20.00 37.98,-5.00 24.99,2.50 12.00,-5.00 12.00,-20.00 24.99,-27.50"/><polygon points="63.96,-20.00 63.96,-5.00 50.97,2.50 37.98,-5.00 37.98,-20.00 50.97,-27.50"/><polygon points="89.94,-20.00 89.94,-5.00 76.95,2.50 63.96,-5.00 63.96,-20.00 76.95,-27.50"/><polygon points="115.92,-20.00 115.92,-5.00 102.93,2.50 89.94,-5.00 89.94,-20.00 102.93,-27.50"/><polygon points="141.90,-20.00 141.90,-5.00 128.91,2.50 115.92,-5.00 115.92,-20.00 128.91,-27.50"/><polygon points="-0.99,2.50 -0.99,17.50 -13.98,25.00 -26.97,17.50 -26.97,2.50 -13.98,-5.00"/><polygon points="24.99,2.50 24.99,17.50 12.00,25.00 -0.99,17.50 -0.99,2.50 12.00,-5.00"/><polygon points="50.97,2.50 50.97,17.50 37.98,25.00 24.99,17.50 24.99,2.50 37.98,-5.00"/><polygon points="76.95,2.50 76.95,17.50 63.96,25.00 50.97,17.50 50.97,2.50 63.96,-5.00"/><polygon points="102.93,2.50 102.93,17.50 89.94,25.00 76.95,17.50 76.95,2.50 89.94,-5.00"/><polygon points="128.91,2.50 128.91,17.50 115.92,25.00 102.93,17.50 102.93,2.50 115.92,-5.00"/><polygon points="12.00,25.00 12.00,40.00 -0.99,47.50 -13.98,40.00 -13.98,25.00 -0.99,17.50"/><polygon points="37.98,25.00 37.98,40.00 24.99,47.50 12.00,40.00 12.00,25.00 24.99,17.50"/><polygon points="63.96,25.00 63.96,40.00 50.97,47.50 37.98,40.00 37.98,25.00 50.97,17.50"/><polygon points="89.94,25.00 89.94,40.00 76.95,47.50 63.96,40.00 63.96,25.00 76.95,17.50"/><polygon points="115.92,25.00 115.92,40.00 102.93,47.50 89.94,40.00 89.94,25.00 102.93,17.50"/><polygon points="141.90,25.00 141.90,40.00 128.91,47.50 115.92,40.00 115.92,25.00 128.91,17.50"/><polygon points="-0.99,47.50 -0.99,62.50 -13.98,70.00 -26.97,62.50 -26.97,47.50 -13.98,40.00"/><polygon points="24.99,47.50 24.99,62.50 12.00,70.00 -0.99,62.50 -0.99,47.50 12.00,40.00"/><polygon points="50.97,47.50 50.97,62.50 37.98,70.00 24.99,62.50 24.99,47.50 37.98,40.00"/><polygon points="76.95,47.50 76.95,62.50 63.96,70.00 50.97,62.50 50.97,47.50 63.96,40.00"/><polygon points="102.93,47.50 102.93,62.50 89.94,70.00 76.95,62.50 76.95,47.50 89.94,40.00"/><polygon points="128.91,47.50 128.91,62.50 115.92,70.00 102.93,62.50 102.93,47.50 115.92,40.00"/><polygon points="12.00,70.00 12.00,85.00 -0.99,92.50 -13.98,85.00 -13.98,70.00 -0.99,62.50"/><polygon points="37.98,70.00 37.98,85.00 24.99,92.50 12.00,85.00 12.00,70.00 24.99,62.50"/><polygon points="63.96,70.00 63.96,85.00 50.97,92.50 37.98,85.00 37.98,70.00 50.97,62.50"/><polygon points="89.94,70.00 89.94,85.00 76.95,92.50 63.96,85.00 63.96,70.00 76.95,62.50"/><polygon points="115.92,70.00 115.92,85.00 102.93,92.50 89.94,85.00 89.94,70.00 102.93,62.50"/><polygon points="141.90,70.00 141.90,85.00 128.91,92.50 115.92,85.00 115.92,70.00 128.91,62.50"/><polygon points="-0.99,92.50 -0.99,107.50 -13.98,115.00 -26.97,107.50 -26.97,92.50 -13.98,85.00"/><polygon points="24.99,92.50 24.99,107.50 12.00,115.00 -0.99,107.50 -0.99,92.50 12.00,85.00"/><polygon points="50.97,92.50 50.97,107.50 37.98,115.00 24.99,107.50 24.99,92.50 37.98,85.00"/><polygon points="76.95,92.50 76.95,107.50 63.96,115.00 50.97,107.50 50.97,92.50 63.96,85.00"/><polygon points="102.93,92.50 102.93,107.50 89.94,115.00 76.95,107.50 76.95,92.50 89.94,85.00"/><polygon points="128.91,92.50 128.91,107.50 115.92,115.00 102.93,107.50 102.93,92.50 115.92,85.00"/><circle cx="51.0" cy="32.5" r="7.6" stroke-dasharray="2.6 3.4"/><circle cx="89.9" cy="55.0" r="7.6" stroke-dasharray="2.6 3.4"/></svg><div class="hero-in"><span class="eyebrow"><lang-cs>Tři moduly · od zápisu k procvičení</lang-cs><lang-en lang="en">Three modules · from notation to practice</lang-en><lang-sk lang="sk">Tri moduly · od zápisu k precvičeniu</lang-sk></span><h1><lang-cs>Počítání</lang-cs><lang-en lang="en">Calculating</lang-en><lang-sk lang="sk">Počítanie</lang-sk></h1><p class="lead"><lang-cs>Tři moduly, které na sebe navazují. Nejdřív se naučte, jak výpočet zapsat a odvodit. Když vás na tom zdrží zlomky a závorky, je na ně samostatný modul. A nakonec si celý postup natrénujte na úlohách, kde skládáte vztahy vy.</lang-cs><lang-en lang="en">Three modules that build on each other. First learn how to write a calculation down and derive it. If fractions and brackets slow you down, there is a separate module for them. Finally, practise the whole process on problems where you put the relationships together yourself.</lang-en><lang-sk lang="sk">Tri moduly, ktoré na seba nadväzujú. Najprv sa naučte, ako výpočet zapísať a odvodiť. Keď vás pri tom zdržia zlomky a zátvorky, je na ne samostatný modul. A nakoniec si celý postup natrénujte na úlohách, kde vzťahy skladáte vy.</lang-sk></p></div></section>
+<div class="wrap"><section class="sec"><div class="sec-head"><h2><lang-cs>Moduly</lang-cs><lang-en lang="en">Modules</lang-en><lang-sk lang="sk">Moduly</lang-sk></h2></div><div class="tiles g2 hubtiles"><a class="tile big" href="../jak-pocitat/index.html"><svg class="ic" width="210" height="210" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 50h64"/><text x="50" y="40" text-anchor="middle" font-size="24" font-family="serif" font-style="italic" fill="currentColor" stroke="none">m</text><text x="50" y="80" text-anchor="middle" font-size="24" font-family="serif" font-style="italic" fill="currentColor" stroke="none">M·V</text></svg><span class="n"><lang-cs>Naučit se</lang-cs><lang-en lang="en">Learn</lang-en><lang-sk lang="sk">Naučiť sa</lang-sk></span><h3><lang-cs>Jak počítat chemii</lang-cs><lang-en lang="en">How to do chemistry calculations</lang-en><lang-sk lang="sk">Ako počítať chémiu</lang-sk></h3><p class="desc"><lang-cs>Jak zapsat zadání, odvodit vztah a teprve pak dosadit. Jednotky, převody, přehled vzorců a řešené příklady.</lang-cs><lang-en lang="en">How to write down what is given, derive the relationship and only then substitute. Units, conversions, an overview of formulas and worked examples.</lang-en><lang-sk lang="sk">Ako zapísať zadanie, odvodiť vzťah a až potom dosadiť. Jednotky, prevody, prehľad vzorcov a riešené príklady.</lang-sk></p><span class="go"><lang-cs>Naučit se zápis</lang-cs><lang-en lang="en">Learn the notation</lang-en><lang-sk lang="sk">Naučiť sa zápis</lang-sk> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></span></a><a class="tile big" href="../jak-pocitat/zlomky-a-zavorky/index.html"><svg class="ic" width="210" height="210" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 20c-9 8-13 18-13 30s4 22 13 30"/><path d="M70 20c9 8 13 18 13 30s-4 22-13 30"/><path d="M34 50h32" stroke-width="2.6"/><circle cx="50" cy="37" r="4.5" fill="currentColor" stroke="none"/><circle cx="50" cy="63" r="4.5" fill="currentColor" stroke="none"/></svg><span class="n"><lang-cs>Doladit si</lang-cs><lang-en lang="en">Fine-tune</lang-en><lang-sk lang="sk">Doladiť si</lang-sk></span><h3><lang-cs>Zlomky a závorky</lang-cs><lang-en lang="en">Fractions and brackets</lang-en><lang-sk lang="sk">Zlomky a zátvorky</lang-sk></h3><p class="desc"><lang-cs>Kdy zlomková čára nahrazuje závorku, jak přepsat stohovaný zápis na řádek a zpátky a jak si ověřit, že jste přepsali správně.</lang-cs><lang-en lang="en">When the fraction bar replaces brackets, how to rewrite stacked notation on one line and back, and how to check that you rewrote it correctly.</lang-en><lang-sk lang="sk">Kedy zlomková čiara nahrádza zátvorku, ako prepísať poschodový zápis do jedného riadku a späť a ako si overiť, že ste prepísali správne.</lang-sk></p><span class="go"><lang-cs>Otevřít modul</lang-cs><lang-en lang="en">Open module</lang-en><lang-sk lang="sk">Otvoriť modul</lang-sk> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></span></a><a class="tile big" href="../pocitame-spolu/index.html"><svg class="ic" width="210" height="210" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="18" width="32" height="22" rx="4"/><rect x="58" y="18" width="32" height="22" rx="4"/><rect x="34" y="62" width="32" height="22" rx="4"/><path d="M26 40v9h48v-9M50 49v13"/></svg><span class="n"><lang-cs>Procvičit si</lang-cs><lang-en lang="en">Practise</lang-en><lang-sk lang="sk">Precvičiť si</lang-sk></span><h3><lang-cs>Počítáme spolu</lang-cs><lang-en lang="en">Let’s calculate together</lang-en><lang-sk lang="sk">Počítame spolu</lang-sk></h3><p class="desc"><lang-cs>Výpočet skládáte vy: vyberete vztahy, klepáním dosadíte jeden do druhého a čísla přijdou na řadu až úplně nakonec.</lang-cs><lang-en lang="en">You build the calculation: pick the relationships, tap to substitute one into another, and the numbers come in only at the very end.</lang-en><lang-sk lang="sk">Výpočet skladáte vy: vyberiete vzťahy, ťuknutím dosadíte jeden do druhého a čísla prídu na rad až úplne na konci.</lang-sk></p><span class="go"><lang-cs>Začít počítat</lang-cs><lang-en lang="en">Start calculating</lang-en><lang-sk lang="sk">Začať počítať</lang-sk> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12.5 5.5L19 12l-6.5 6.5"/></svg></span></a></div></section></div></main>
 <footer class="foot"><div class="foot-in">
-  <span><lang-cs>Chemie — Interaktivní studijní materiály z chemie</lang-cs><lang-en lang="en">Chemistry — Interactive chemistry study materials</lang-en></span>
+  <span><lang-cs>Chemie — Interaktivní studijní materiály z chemie</lang-cs><lang-en lang="en">Chemistry — Interactive chemistry study materials</lang-en><lang-sk lang="sk">Chémia — Interaktívne študijné materiály z chémie</lang-sk></span>
+  <!--SL--><span class="author"><lang-cs>Autor: Ing. Marek Kurťák</lang-cs><lang-en lang="en">Author: Ing. Marek Kurťák</lang-en><lang-sk lang="sk">Autor: Ing. Marek Kurťák</lang-sk></span><!--/SL-->
   <span class="sp"></span>
-  <span><lang-cs>Materiály fungují i bez připojení. Pokrok se ukládá ve vašem prohlížeči.</lang-cs><lang-en lang="en">The materials work offline too. Your progress is saved in your browser.</lang-en></span>
+  <span><lang-cs>Materiály fungují i bez připojení. Pokrok se ukládá ve vašem prohlížeči.</lang-cs><lang-en lang="en">The materials work offline too. Your progress is saved in your browser.</lang-en><lang-sk lang="sk">Materiály fungujú aj bez pripojenia. Pokrok sa ukladá vo vašom prehliadači.</lang-sk></span>
 </div></footer>
 <script>
 (function(){

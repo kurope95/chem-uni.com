@@ -16,7 +16,7 @@ except Exception:
     pass
 from site_data import TOPICS, PREFIXES, GROUPS, ANORG_TOPICS, ANORG_PREFIXES
 import i18n
-from i18n import L
+from i18n import L, Lk
 
 SRC = r"C:\Claude Code\Claude Code\Doučovanie"
 DST = os.path.join(SRC, "web")
@@ -87,6 +87,7 @@ p{margin:0;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
   border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
 .acts a.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .acts a.primary:hover{background:var(--accent-hover)}
+.author404{margin-top:1.6rem;font-family:"IBM Plex Sans",sans-serif;font-size:.84rem;color:var(--ink-3)}
 </style>
 @@LANG@@</head>
 <body>
@@ -105,6 +106,7 @@ p{margin:0;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
   <a href="/obecna-fyzikalni-chemie/index.html">@@OBECNA@@</a>
   <a href="/anorganicka-chemie/index.html">@@ANORG@@</a>
 </div>
+<p class="author404">@@AUTHOR@@</p>
 </div></main>
 <script>@@THEME@@</script>
 </body></html>
@@ -114,14 +116,17 @@ for _k, _v in (
     ("@@LANG@@", i18n.head_block("Stránka nenalezena — Chemie")),
     ("@@BRAND@@", L("Chemie")),
     ("@@TOGGLE@@", i18n.toggle()),
-    ("@@H1@@", L("Tuhle stránku tu nemáme", "We don’t have this page")),
+    ("@@H1@@", L("Tuhle stránku tu nemáme", "We don’t have this page", "Túto stránku tu nemáme")),
     ("@@P@@", L("Odkaz je nejspíš zastaralý nebo překlepnutý. Zkuste to od začátku — "
                 "všechno najdete na úvodní stránce.",
                 "The link is probably out of date or mistyped. Start again from the beginning — "
-                "you will find everything on the home page.")),
+                "you will find everything on the home page.",
+                "Odkaz je zrejme zastaraný alebo s preklepom. Skúste to od začiatku — "
+                "všetko nájdete na úvodnej stránke.")),
     ("@@HOME@@", L("Zpátky na úvod")),
-    ("@@OBECNA@@", L(_G["okruhy"]["title"], _G["okruhy"]["title_en"])),
-    ("@@ANORG@@", L(_G["anorganika"]["title"], _G["anorganika"]["title_en"])),
+    ("@@OBECNA@@", Lk(_G["okruhy"], "title")),
+    ("@@ANORG@@", Lk(_G["anorganika"], "title")),
+    ("@@AUTHOR@@", i18n.author_html()),
     ("@@THEME@@", THEME),
 ):
     NOT_FOUND = NOT_FOUND.replace(_k, _v)
