@@ -3,7 +3,7 @@
 
     Doučovanie/zlomky-a-zavorky.html  →  Doučovanie/jak-pocitat/zlomky-a-zavorky/index.html
 
-Odkaz zpět míří o úroveň výš (`../index.html`), protože pod-modul stojí ve vlastní složce.
+Odkaz zpět míří na rozcestník Počítání (`../../pocitani/index.html`), jehož je pod-modul jednou ze tří dlaždic.
 """
 import io, os, re, shutil, sys
 
@@ -21,8 +21,9 @@ SRC = os.path.join(ROOT, "zlomky-a-zavorky.html")
 DSTDIR = os.path.join(ROOT, "jak-pocitat", "zlomky-a-zavorky")
 DST = os.path.join(DSTDIR, "index.html")
 
-BACK_HREF = "../index.html"
-BACK_TEXT = "Zpátky na Jak počítat"
+# pod-modul je jedna ze tří dlaždic rozcestníku Počítání, zpátky vede tam
+BACK_HREF = "../../pocitani/index.html"
+BACK_TEXT = "Zpátky na Počítání"
 
 
 def inject(s):

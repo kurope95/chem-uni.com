@@ -15,6 +15,8 @@ try:
 except Exception:
     pass
 from site_data import TOPICS, PREFIXES, GROUPS, ANORG_TOPICS, ANORG_PREFIXES
+import i18n
+from i18n import L
 
 SRC = r"C:\Claude Code\Claude Code\Doučovanie"
 DST = os.path.join(SRC, "web")
@@ -48,7 +50,7 @@ NOT_FOUND = """<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400&display=swap">
 <style>
-:root{--paper:#efe8dc;--surface:#faf6ee;--surface-2:#f3ece0;--ink:#211b15;--ink-2:#5c5146;--ink-3:#8f8375;
+:root{--f-ui:"IBM Plex Sans",system-ui,sans-serif;--paper:#efe8dc;--surface:#faf6ee;--surface-2:#f3ece0;--ink:#211b15;--ink-2:#5c5146;--ink-3:#8f8375;
   --line:#e0d6c6;--line-strong:#c8baa5;--accent:#9b3320;--accent-hover:#7e2718;--accent-ink:#fff7f2;--grid:#e6dccb}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#15110d;--surface:#1d1813;--surface-2:#251f19;
   --ink:#f0e8dc;--ink-2:#bfb2a1;--ink-3:#8f8376;--line:#332b23;--line-strong:#4a4036;
@@ -85,26 +87,44 @@ p{margin:0;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
   border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
 .acts a.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .acts a.primary:hover{background:var(--accent-hover)}
-</style></head>
+</style>
+@@LANG@@</head>
 <body>
 <header class="bar"><div class="bar-in">
-  <a class="brand" href="/"><span class="dot">Ch</span><span>Chemie</span></a>
+  <a class="brand" href="/"><span class="dot">Ch</span><span>@@BRAND@@</span></a>
   <span class="sp"></span>
+  @@TOGGLE@@
   <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
 </div></header>
 <main><div class="box">
 <span class="code">404</span>
-<h1>Tuhle stránku tu nemáme</h1>
-<p>Odkaz je nejspíš zastaralý nebo překlepnutý. Zkuste to od začátku — všechno najdete na úvodní stránce.</p>
+<h1>@@H1@@</h1>
+<p>@@P@@</p>
 <div class="acts">
-  <a class="primary" href="/">Zpátky na úvod</a>
-  <a href="/obecna-fyzikalni-chemie/index.html">Obecná a fyzikální chemie</a>
-  <a href="/anorganicka-chemie/index.html">Anorganická chemie</a>
+  <a class="primary" href="/">@@HOME@@</a>
+  <a href="/obecna-fyzikalni-chemie/index.html">@@OBECNA@@</a>
+  <a href="/anorganicka-chemie/index.html">@@ANORG@@</a>
 </div>
 </div></main>
-<script>%s</script>
+<script>@@THEME@@</script>
 </body></html>
-""" % THEME
+"""
+_G = {g["id"]: g for g in GROUPS}
+for _k, _v in (
+    ("@@LANG@@", i18n.head_block("Stránka nenalezena — Chemie")),
+    ("@@BRAND@@", L("Chemie")),
+    ("@@TOGGLE@@", i18n.toggle()),
+    ("@@H1@@", L("Tuhle stránku tu nemáme", "We don’t have this page")),
+    ("@@P@@", L("Odkaz je nejspíš zastaralý nebo překlepnutý. Zkuste to od začátku — "
+                "všechno najdete na úvodní stránce.",
+                "The link is probably out of date or mistyped. Start again from the beginning — "
+                "you will find everything on the home page.")),
+    ("@@HOME@@", L("Zpátky na úvod")),
+    ("@@OBECNA@@", L(_G["okruhy"]["title"], _G["okruhy"]["title_en"])),
+    ("@@ANORG@@", L(_G["anorganika"]["title"], _G["anorganika"]["title_en"])),
+    ("@@THEME@@", THEME),
+):
+    NOT_FOUND = NOT_FOUND.replace(_k, _v)
 
 HEADERS = """/*
   X-Content-Type-Options: nosniff
@@ -119,6 +139,9 @@ ROBOTS = "User-agent: *\nAllow: /\n"
 
 
 def main():
+    if not i18n.check_all():
+        print("\nSTOP: menu není celé přeložené do angličtiny (viz CLAUDE.md). Web se neskládá.")
+        sys.exit(1)
     if os.path.isdir(DST):
         shutil.rmtree(DST)
     os.makedirs(os.path.join(DST, "obecna-fyzikalni-chemie"))
@@ -175,6 +198,10 @@ def main():
     for name, content in (("404.html", NOT_FOUND), ("_headers", HEADERS), ("robots.txt", ROBOTS)):
         io.open(os.path.join(DST, name), "w", encoding="utf-8", newline="\n").write(content)
         n += 1
+    probs = i18n.check_page(os.path.join(DST, "404.html"), True)
+    if probs:
+        print("STOP: 404.html není celá přeložená:", "; ".join(probs))
+        sys.exit(1)
 
     total = 0
     print("složka k nahrání:", DST)

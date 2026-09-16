@@ -655,43 +655,124 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
   .quiz .quiz-toggle::after{order:4;width:100%;text-align:center}
 }
 </style>
+<!--SITE-LANG-->
+<meta name="title-en" content="Acid–base reactions">
+<style>
+/* SITE-LANG: dvojice CZ/EN — ukáže se jen ta, která odpovídá html[data-lang] */
+html[data-lang="en"] lang-cs, html:not([data-lang="en"]) lang-en,
+html:not([data-lang="en"]) [data-only="en"]{display:none!important}
+.langsw{display:inline-flex;align-items:stretch;flex:none;box-sizing:border-box;height:40px;padding:3px;gap:2px;
+  border-radius:10px;border:1px solid var(--line-strong);background:var(--surface)}
+.langsw button{-webkit-appearance:none;appearance:none;margin:0;border:0;border-radius:7px;min-width:34px;
+  padding:0 .5rem;background:transparent;color:var(--ink-2);font-family:var(--f-ui);font-weight:600;
+  font-size:.74rem;line-height:1;letter-spacing:.08em;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:background .15s,color .15s}
+.langsw button:hover{background:var(--surface-2);color:var(--ink)}
+html:not([data-lang="en"]) .langsw button[data-set-lang="cs"],
+html[data-lang="en"] .langsw button[data-set-lang="en"]{background:var(--accent);color:var(--accent-ink)}
+.topbar-row .langsw{height:44px}
+/* úzký telefon: vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
+@media (max-width:420px){ .bar-in .back ~ .brand > span:not(.dot){display:none} }
+.langnote{margin:0;font-family:var(--f-ui);font-size:.86rem;line-height:1.5;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line-strong);border-left:4px solid var(--accent);
+  border-radius:10px;padding:.6rem .9rem}
+.langnote-wrap{max-width:1220px;margin:1rem auto 0;padding:0 clamp(1.1rem,4vw,3rem)}
+/* průvodce: řádek nad úvodem — přepínač vpravo (na počítači), poznámka vlevo */
+.langbar{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:.8rem 1.2rem;
+  padding-top:clamp(.9rem,2vw,1.4rem)}
+.langbar .langnote{flex:1 1 320px}
+@media (min-width:1100px){ .langbar + .hero{padding-top:clamp(1.2rem,2.4vw,2rem)} }
+@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]) .langbar{display:none} }
+</style>
+<script>
+/* SITE-LANG: přepínač CZ/EN pro menu a ovládání (obsah modulů zůstává česky) */
+(function(){
+  var D=document.documentElement, K="site.lang", LIVE={"Tmavý": "Dark", "Světlý": "Light", "Přepnout režim": "Toggle theme", "Přepnout na světlý režim": "Switch to light mode", "Přepnout na tmavý režim": "Switch to dark mode", "Přepnout světlý a tmavý režim": "Toggle light and dark mode", "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": "Reset your progress in all chapters? Your theme setting will be kept.", "Pokrok vynulován.": "Progress reset."}, REV={}, k;
+  for(k in LIVE) if(Object.prototype.hasOwnProperty.call(LIVE,k)) REV[LIVE[k]]=k;
+  function stored(){ try{ var v=localStorage.getItem(K); return (v==="cs"||v==="en")?v:null; }catch(e){ return null; } }
+  function initial(){
+    var m=/[?&]lang=(cs|en)(?:&|$)/.exec(location.search);
+    if(m){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
+    return stored()||"cs";
+  }
+  var lang=initial(), csTitle=null;
+  D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
+  function tx(s){ if(s==null) return null; s=String(s); return lang==="en" ? (LIVE[s]||null) : (REV[s]||null); }
+  var oc=window.confirm;
+  window.confirm=function(m){ return oc.call(window,(lang==="en"&&LIVE[m])||m); };
+  function liveText(el){ if(!el) return; var t=tx(el.textContent); if(t) el.textContent=t; }
+  function liveAria(el){ if(!el) return; var t=tx(el.getAttribute("aria-label")); if(t) el.setAttribute("aria-label",t); }
+  function apply(){
+    D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
+    var i, el, els=document.querySelectorAll("[data-en-aria-label]");
+    for(i=0;i<els.length;i++){ el=els[i];
+      if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
+      el.setAttribute("aria-label",el.getAttribute(lang==="en"?"data-en-aria-label":"data-cs-aria-label")); }
+    var meta=document.querySelector('meta[name="title-en"]');
+    if(meta){ if(csTitle===null) csTitle=document.title; document.title=(lang==="en")?meta.getAttribute("content"):csTitle; }
+    liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
+    liveAria(document.getElementById("themeBtn")); liveAria(document.getElementById("themeBtn2"));
+    els=document.querySelectorAll("[data-set-lang]");
+    for(i=0;i<els.length;i++) els[i].setAttribute("aria-pressed",els[i].getAttribute("data-set-lang")===lang?"true":"false");
+  }
+  function set(l){ if(l!=="cs"&&l!=="en") return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} apply(); }
+  document.addEventListener("click",function(e){
+    var b=(e.target&&e.target.closest)?e.target.closest("[data-set-lang]"):null;
+    if(b) set(b.getAttribute("data-set-lang"));
+  });
+  function watch(){
+    if(!window.MutationObserver) return;
+    ["themeLbl","toast"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) new MutationObserver(function(){ liveText(el); }).observe(el,{childList:true,characterData:true,subtree:true}); });
+    ["themeBtn","themeBtn2"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) new MutationObserver(function(){ liveAria(el); }).observe(el,{attributes:true,attributeFilter:["aria-label"]}); });
+  }
+  document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
+  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; apply(); } });
+  window.addEventListener("storage",function(e){
+    if(e.key===K&&(e.newValue==="cs"||e.newValue==="en")&&e.newValue!==lang){ lang=e.newValue; apply(); } });
+})();
+</script>
+<!--/SITE-LANG-->
 </head>
 <body>
 
-<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en></a>
 <div class="app">
 
   <!-- ============ LEVÁ LIŠTA ============ -->
   <aside class="rail">
-    <div class="sitenav"><a href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span>Zpátky na okruhy</span></a></div>
+    <div class="sitenav"><a href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na okruhy</lang-cs><lang-en lang="en">Back to topics</lang-en></span></a></div>
     <div class="rail-brand">
-      <span class="mark">Chemie</span>
-      <span class="name">Acidobazické reakce</span>
-      <span class="sub">Studijní průvodce s procvičováním</span>
+      <span class="mark"><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en></span>
+      <span class="name"><lang-cs>Acidobazické reakce</lang-cs><lang-en lang="en">Acid–base reactions</lang-en></span>
+      <span class="sub"><lang-cs>Studijní průvodce s procvičováním</lang-cs><lang-en lang="en">Study guide with practice</lang-en></span>
     </div>
     <div class="meter">
-      <div class="meter-top"><span>Splněno kapitol</span><b><span id="mDone">0</span>&thinsp;/&thinsp;<span data-tot>10</span></b></div>
+      <div class="meter-top"><span><lang-cs>Splněno kapitol</lang-cs><lang-en lang="en">Chapters completed</lang-en></span><b><span id="mDone">0</span>&thinsp;/&thinsp;<span data-tot>10</span></b></div>
       <div class="meter-bar"><div class="meter-fill" id="mFill"></div></div>
     </div>
-    <nav id="railNav" aria-label="Kapitoly"></nav>
+    <nav id="railNav" lang="cs" aria-label="Kapitoly" data-en-aria-label="Chapters"></nav>
     <div class="rail-tools">
       <button class="btn btn-sm" id="themeBtn" type="button" aria-label="Přepnout světlý a tmavý režim"><span id="themeIcon" style="display:inline-flex"></span><span id="themeLbl">Tmavý</span></button>
-      <button class="btn btn-sm" id="resetBtn" type="button">Vynulovat</button>
+      <button class="btn btn-sm" id="resetBtn" type="button"><lang-cs>Vynulovat</lang-cs><lang-en lang="en">Reset</lang-en></button>
     </div>
   </aside>
 
   <!-- ============ HLAVIČKA (tablet / mobil) ============ -->
   <div class="topbar">
     <div class="topbar-row">
-      <a class="sitenav-m" href="index.html" aria-label="Zpátky na okruhy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
-      <div class="name">Acidobazické reakce<span>Studijní průvodce · <span id="mDone2">0</span>/<span data-tot>10</span> kapitol</span></div>
+      <a class="sitenav-m" href="index.html" aria-label="Zpátky na okruhy" data-en-aria-label="Back to topics"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
+      <div class="name"><lang-cs>Acidobazické reakce</lang-cs><lang-en lang="en">Acid–base reactions</lang-en><span><lang-cs>Studijní průvodce · </lang-cs><lang-en lang="en">Study guide · </lang-en><span id="mDone2">0</span>/<span data-tot>10</span><lang-cs> kapitol</lang-cs><lang-en lang="en"> chapters</lang-en></span></div>
+      <!--SL--><div class="langsw" role="group" aria-label="Jazyk / Language"><button type="button" data-set-lang="cs" lang="cs" title="Čeština">CZ</button><button type="button" data-set-lang="en" lang="en" title="English">EN</button></div><!--/SL-->
       <button class="btn btn-icon" id="themeBtn2" type="button" aria-label="Přepnout světlý a tmavý režim"></button>
     </div>
-    <div class="chiprow" id="chipNav"></div>
+    <div class="chiprow" id="chipNav" lang="cs"></div>
     <div class="meter-bar"><div class="meter-fill" id="mFill2"></div></div>
   </div>
 
-  <main id="obsah">
+  <main id="obsah" lang="cs"><!--SL--><div class="langbar"><p class="langnote" data-only="en" lang="en">The content of this page is in Czech. So far, only the menus and navigation have been translated into English.</p><div class="langsw" role="group" aria-label="Jazyk / Language"><button type="button" data-set-lang="cs" lang="cs" title="Čeština">CZ</button><button type="button" data-set-lang="en" lang="en" title="English">EN</button></div></div><!--/SL-->
+
 
   <!-- ============ HERO ============ -->
   <header class="hero">
