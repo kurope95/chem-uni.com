@@ -1,0 +1,142 @@
+
+  <!-- ============ V. TITRAČNÍ KŘIVKY ============ -->
+  <section class="chapter" id="k4" data-title="Titrační křivky">
+    <div class="prose">
+      <span class="eyebrow">V · jak se mění pH</span>
+      <h2>Titrační křivky</h2>
+      <p class="lead"><b>Titrační křivka</b> je graf pH titrovaného roztoku v&nbsp;závislosti na objemu přidaného titrantu. Z&nbsp;jejího tvaru poznáte, jak silná je kyselina a&nbsp;zásada, kde leží bod ekvivalence a&nbsp;<b>který indikátor se hodí</b>.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Vyzkoušejte si</span>
+        <h3>Vyberte titraci a indikátor, pak přidávejte titrant</h3>
+      </div>
+      <div class="panel-body">
+        <div class="abt-ctl">
+          <div class="ctl wide">
+            <label>Titrace (25,00&nbsp;ml vzorku 0,100&nbsp;mol/l, titrant 0,100&nbsp;mol/l)</label>
+            <div class="segmented" id="tcType" role="group" aria-label="Typ titrace">
+              <button type="button" data-v="sasb" aria-pressed="true">HCl + NaOH</button>
+              <button type="button" data-v="wasb" aria-pressed="false">CH₃COOH + NaOH</button>
+              <button type="button" data-v="sawb" aria-pressed="false">NH₃ + HCl</button>
+              <button type="button" data-v="wawb" aria-pressed="false">CH₃COOH + NH₃</button>
+            </div>
+          </div>
+          <div class="ctl">
+            <label for="tcInd">Indikátor</label>
+            <select id="tcInd" autocomplete="off"></select>
+          </div>
+          <div class="ctl">
+            <label for="tcV">Přidaný titrant — <span class="val" id="tcVV">0,00 ml</span></label>
+            <input type="range" autocomplete="off" id="tcV" min="0" max="50" step="0.05" value="0">
+          </div>
+        </div>
+        <div class="abt-sim">
+          <div class="svgwrap" id="tcWrap"></div>
+          <div class="abt-fl"><div class="svgwrap" id="tcFlask"></div></div>
+        </div>
+        <div class="abt-leg">
+          <span><i id="tcBandSw"></i><span id="tcBandLab">funkční oblast zvoleného indikátoru</span></span>
+          <span><i style="background:var(--accent);border-radius:50%;width:.7rem"></i>bod ekvivalence</span>
+          <span><i style="border:2px solid var(--endo);border-radius:50%;width:.55rem;height:.55rem;background:var(--surface)"></i>polovina cesty: pH = pKₐ</span>
+          <span><i style="background:var(--ink);border-radius:50%;width:.7rem"></i>kde právě jste</span>
+          <span><i style="background:var(--warn);clip-path:polygon(50% 0,100% 100%,0 100%)"></i>kde indikátor změní barvu</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="tcRo1"></div>
+          <div class="readout" id="tcRo2"></div>
+          <div class="readout" id="tcRo3"></div>
+        </div>
+        <div class="jd-msg" id="tcMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+      <p class="panel-note">Dobrý indikátor má svůj barevný pás tam, kde křivka v&nbsp;bodě ekvivalence skáče svisle. Zkuste ke kyselině octové methyloranž a&nbsp;pak fenolftalein. Křivky jsou spočítané, ne nakreslené od oka.</p>
+    </div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Silná kyselina / silná zásada (HCl titrovaná NaOH)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka začíná při <b>nízkém pH</b> (silná kyselina).</li>
+            <li>pH se zpočátku mění pomalu, pak následuje <b>velmi prudký skok pH</b> kolem bodu ekvivalence.</li>
+            <li><b>Bod ekvivalence je přesně při pH = 7</b> (vzniká neutrální sůl NaCl a&nbsp;voda).</li>
+            <li>Za bodem ekvivalence pH roste pomaleji, v&nbsp;oblasti nadbytku silné zásady.</li>
+          </ul>
+          <p><b>Indikátor:</b> vyhoví téměř každý s&nbsp;přechodem mezi pH 4 a&nbsp;10 (methylčerveň, bromthymolová modř, fenolftalein), protože skok pH je velmi velký.</p>
+        </div>
+      </details>
+      <details class="jd-more">
+        <summary>Slabá kyselina / silná zásada (CH₃COOH titrovaná NaOH)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka začíná při <b>vyšším pH</b> než u&nbsp;silné kyseliny (slabá kyselina je méně disociovaná).</li>
+            <li>Po přidání zásady vzniká <span class="jd-tip" tabindex="0">pufrační oblast<span class="jd-tt">Část křivky, kde je v roztoku směs slabé kyseliny a její konjugované zásady. Roztok tu odolává změnám pH. Nejlépe pufruje při pH = pKa.</span></span> (směs CH₃COOH/CH₃COO⁻), kde se pH mění jen pomalu.</li>
+            <li>Skok pH kolem bodu ekvivalence je <b>menší</b> než u&nbsp;titrace silné kyseliny silnou zásadou.</li>
+            <li><b>Bod ekvivalence je při pH &gt; 7</b>: vzniká CH₃COONa, jehož anion hydrolyzuje zásaditě: <span class="chem">CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻</span>.</li>
+            <li>Za bodem ekvivalence křivka připomíná titraci silné kyseliny (určuje ji nadbytek silné zásady).</li>
+          </ul>
+          <p><b>Indikátor:</b> nutný přechod v&nbsp;zásadité oblasti (pH &gt; 7), např. <b>fenolftalein</b>.</p>
+        </div>
+      </details>
+      <details class="jd-more">
+        <summary>Silná kyselina / slabá zásada (NH₃ titrovaný HCl)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka začíná při <b>vysokém pH</b>, ale nižším než u&nbsp;silné zásady.</li>
+            <li>Po přidání kyseliny vzniká pufrační oblast (směs NH₃/NH₄⁺).</li>
+            <li>Skok pH kolem bodu ekvivalence je <b>menší</b> než u&nbsp;titrace silných látek.</li>
+            <li><b>Bod ekvivalence je při pH &lt; 7</b>: vzniká NH₄Cl, jehož kation hydrolyzuje kysele: <span class="chem">NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺</span>.</li>
+            <li>Za bodem ekvivalence křivka připomíná titraci silné zásady (určuje ji nadbytek silné kyseliny).</li>
+          </ul>
+          <p><b>Indikátor:</b> nutný přechod v&nbsp;kyselé oblasti (pH &lt; 7), např. <b>methyloranž</b> nebo methylčerveň.</p>
+        </div>
+      </details>
+      <details class="jd-more">
+        <summary>Slabá kyselina / slabá zásada (CH₃COOH titrovaná NH₃)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka má <b>velmi malý nebo žádný</b> prudký skok pH kolem bodu ekvivalence.</li>
+            <li>pH v&nbsp;bodě ekvivalence závisí na poměru sil kyseliny a&nbsp;zásady (může být ≈ 7, &gt; 7 i&nbsp;&lt; 7).</li>
+          </ul>
+          <p><b>Indikace:</b> vizuální titrace s&nbsp;indikátorem je obvykle nemožná nebo velmi nepřesná, protože chybí ostrý skok pH. Používají se instrumentální metody (např. potenciometrie).</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Graf</span>
+        <h3>Všechny čtyři typy v jednom grafu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="svgwrap" id="cmpWrap"></div>
+        <div class="legend" id="cmpLeg"></div>
+      </div>
+      <p class="panel-note">Vždy 25,00&nbsp;ml vzorku 0,100&nbsp;mol/l a&nbsp;titrant 0,100&nbsp;mol/l, bod ekvivalence je tedy u&nbsp;všech při 25&nbsp;ml. Titrace amoniaku kyselinou jde shora dolů, protože titrujeme zásadu. Nejvyšší skok má silná kyselina se silnou zásadou, téměř žádný slabá se slabou.</p>
+    </div>
+
+    <div class="jd-q" data-q="q41"></div>
+    <div class="jd-q" data-q="q42"></div>
+
+    <div class="prose">
+      <h3>Čtení z grafu</h3>
+      <p>Tři grafy titračních křivek. U&nbsp;každého rozhodněte podle tvaru křivky.</p>
+    </div>
+    <div class="jd-q" data-q="g1"></div>
+    <div class="jd-q" data-q="g2"></div>
+    <div class="jd-q" data-q="g3"></div>
+    <div class="jd-q" data-q="g4"></div>
+
+    <div class="prose">
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>U&nbsp;titrace slabé kyseliny je v&nbsp;polovině spotřeby do bodu ekvivalence pH rovno pK<sub>a</sub> kyseliny. Proč právě tam?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p>V&nbsp;polovině cesty je zneutralizovaná přesně polovina kyseliny, takže [HA] = [A⁻]. Podle Hendersonovy–Hasselbalchovy rovnice je pak log([A⁻]/[HA]) = log 1 = 0 a&nbsp;<b>pH = pK<sub>a</sub></b>. Tady má pufr největší kapacitu, a&nbsp;proto je křivka v&nbsp;tomto místě nejplošší.</p></div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

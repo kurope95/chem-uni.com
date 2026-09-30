@@ -1,0 +1,82 @@
+
+  <!-- ============ III. INDIKÁTORY ============ -->
+  <section class="chapter" id="k2" data-title="Acidobazické indikátory">
+    <div class="prose">
+      <span class="eyebrow">III · jak poznat bod ekvivalence</span>
+      <h2>Acidobazické indikátory</h2>
+      <p class="lead">Bod ekvivalence ukáže <b>acidobazický indikátor</b>: slabá organická kyselina nebo zásada, jejíž dvě formy mají různou barvu. Barvu mění v&nbsp;určitém rozmezí pH, své <span class="jd-tip" tabindex="0">funkční oblasti<span class="jd-tt">Rozsah pH, ve kterém indikátor viditelně mění barvu. Obvykle je to přibližně pKa ± 1 jednotka pH.</span></span>.</p>
+
+      <div class="jd-key jd-a">
+        <h3>Klíčové pravidlo výběru indikátoru</h3>
+        <p class="jd-sub">Funkční oblast indikátoru musí ležet ve <b>skoku pH</b> kolem bodu ekvivalence, tedy pK<sub>a</sub> indikátoru ≈ pH v&nbsp;bodě ekvivalence</p>
+        <div class="abt-rule">
+          <div class="abt-rc"><span class="abt-rt">silná kyselina / silná zásada</span><span class="abt-rp">pH = 7</span><span class="abt-rw">neutrální sůl (NaCl)</span><span class="abt-ri">→ bromthymolová modř, díky velkému skoku i&nbsp;fenolftalein nebo methyloranž</span></div>
+          <div class="abt-rc"><span class="abt-rt">slabá kyselina / silná zásada</span><span class="abt-rp">pH &gt; 7</span><span class="abt-rw">sůl slabé kyseliny hydrolyzuje zásaditě</span><span class="abt-ri">→ <b>fenolftalein</b>, thymolftalein</span></div>
+          <div class="abt-rc"><span class="abt-rt">silná kyselina / slabá zásada</span><span class="abt-rp">pH &lt; 7</span><span class="abt-rw">sůl slabé zásady hydrolyzuje kysele</span><span class="abt-ri">→ <b>methyloranž</b>, methylčerveň</span></div>
+          <div class="abt-rc"><span class="abt-rt">slabá kyselina / slabá zásada</span><span class="abt-rp">podle síly obou</span><span class="abt-rw">skok pH je velmi malý</span><span class="abt-ri">→ vizuálně obvykle nelze (potenciometrie)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Sedm indikátorů na jedné stupnici pH — posuňte pH</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:.9rem">
+          <label for="icPH">pH roztoku — <span class="val" id="icPHV">7,0</span></label>
+          <input type="range" autocomplete="off" id="icPH" min="0" max="14" step="0.1" value="7">
+        </div>
+        <div class="svgwrap" id="icWrap"></div>
+        <div class="jd-msg" id="icMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+      <p class="panel-note">Každý pruh ukazuje barvu indikátoru při daném pH: vlevo kyselá forma, vpravo zásaditá, mezi svislými čárkami je funkční oblast (barevný přechod). Černá svislá čára je pH, které jste nastavili.</p>
+    </div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Princip funkce indikátorů</summary>
+        <div class="jd-body">
+          <p>Acidobazický indikátor je obvykle <b>slabá organická kyselina nebo zásada</b>, jejíž nedisociovaná forma (HIn) má jinou barvu než konjugovaná forma (In⁻). V&nbsp;roztoku je rovnováha:</p>
+          <p class="eq"><span class="chem">HIn (barva 1) ⇌ H⁺ + In⁻ (barva 2)</span></p>
+          <p>Poměr koncentrací obou forem, a&nbsp;tedy výsledná barva, závisí na koncentraci H⁺ (na pH) podle Hendersonovy–Hasselbalchovy rovnice:</p>
+          <p class="eq">pH = pK<sub>a</sub>(HIn) + log ( [In⁻] / [HIn] )</p>
+          <p>Viditelná změna barvy nastává v&nbsp;určitém intervalu pH, <b>funkční oblasti indikátoru</b>. Její střed je přibližně roven pK<sub>a</sub> indikátoru.</p>
+        </div>
+      </details>
+
+      <details class="jd-more">
+        <summary>Přehled běžných indikátorů (tabulka)</summary>
+        <div class="jd-body">
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th>Indikátor</th><th class="n">Oblast pH</th><th>Kyselá forma (HIn)</th><th>Zásaditá forma (In⁻)</th><th>Typické použití</th></tr></thead>
+              <tbody id="indTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <div class="jd-fill" data-ans='[["pKa","pka","pKₐ","pK a"],["> 7",">7","vyšší než 7","větší než 7","nad 7"]]'>
+        <span class="eyebrow">Doplňte chybějící slova</span>
+        <p>Acidobazický indikátor mění barvu v&nbsp;oblasti pH, která je blízko jeho hodnotě <input type="text" autocomplete="off" aria-label="první chybějící slovo" placeholder="…">. Při titraci slabé kyseliny silnou zásadou bude pH v&nbsp;bodě ekvivalence <input type="text" autocomplete="off" aria-label="druhé chybějící slovo" placeholder="&lt; 7, = 7, &gt; 7">.</p>
+        <button class="btn btn-sm btn-primary" type="button">Zkontrolovat</button><span class="jd-fb" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div class="jd-q" data-q="q31"></div>
+    <div class="jd-q" data-q="q32"></div>
+
+    <div class="prose">
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>Kyselinu octovou jste omylem titrovali hydroxidem na <b>methyloranž</b> místo na fenolftalein. Vyjde vám kyseliny víc, nebo míň, než jí ve vzorku skutečně je?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p><b>Míň.</b> Methyloranž přechází už kolem pH 3,1–4,4, tedy dávno před bodem ekvivalence (ten je při pH &gt; 7). Titraci ukončíte předčasně s&nbsp;menší spotřebou NaOH, a&nbsp;proto vypočtete méně kyseliny. Vyzkoušejte si to v&nbsp;modelu titrační křivky v&nbsp;kapitole V.</p></div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

@@ -100,3 +100,20 @@ function initCalc(){
       (Math.abs(r-0.5)>1e-6?'<span style="display:block;color:var(--bad);margin-top:.3rem">Pozor na poměr: z rovnice 2S₂O₃²⁻ + I₂ plyne n(I₂) / n(S₂O₃²⁻) = 1/2 = 0,5.</span>':'');
   });
 }
+
+/* ============================================================
+   VYSVĚTLIVKY — při zobrazení nesmí přesáhnout okno
+   ============================================================ */
+function initTips(){
+  function fit(t){
+    var tt=t.querySelector(".jd-tt"); if(!tt) return;
+    tt.style.left="0"; tt.style.right="auto";
+    var r=tt.getBoundingClientRect(), W=document.documentElement.clientWidth;
+    if(r.right>W-8) tt.style.left=Math.round(W-8-r.right)+"px";
+    r=tt.getBoundingClientRect(); if(r.left<8) tt.style.left=(parseFloat(tt.style.left)||0)+Math.round(8-r.left)+"px";
+  }
+  $$(".jd-tip").forEach(function(t){
+    t.addEventListener("mouseenter",function(){ fit(t); });
+    t.addEventListener("focus",function(){ fit(t); });
+  });
+}

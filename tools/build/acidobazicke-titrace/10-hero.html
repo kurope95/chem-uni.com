@@ -1,5 +1,5 @@
-  <style>
-  /* ---- jodometrie v2: klíčové věci na očích, podrobnosti sbalené (předpona jd-) ---- */
+<style>
+  /* ---- acidobazické titrace (stejné rámečky jako jodometrie): klíčové věci na očích, podrobnosti sbalené (předpona jd-) ---- */
   :root{--jd-d:#2456b8;--jd-d-soft:#eaf0fc;--jd-d-line:#9fb8ea;--jd-i:#b3302a;--jd-i-soft:#fcecea;--jd-i-line:#e8a7a1;
     --jd-y:#8a6100;--jd-y-soft:#fdf5dc;--jd-y-line:#e7cf85;--jd-g:#1d7a4c;--jd-g-soft:#e8f6ee;--jd-g-line:#9fd4b7}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--jd-d:#8fb0f4;--jd-d-soft:#18233a;--jd-d-line:#35507f;
@@ -249,31 +249,71 @@
   .readout,.jd-msg,.jd-ans,.tablewrap,.chapter-done,.svgwrap{border:2px solid var(--line-strong)}
   .jd-msg.ok{border-color:var(--ok)} .jd-msg.bad{border-color:var(--bad)} .jd-msg.warn{border-color:var(--warn)}
   .jd-ans{border-color:var(--jd-g)}
+  </style>
+  <style>
+  /* ---- model titrační křivky ---- */
+  .abt-sim{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr) minmax(0,12rem);align-items:start}
+  @media (max-width:760px){ .abt-sim{grid-template-columns:minmax(0,1fr)} .abt-sim .abt-fl{max-width:13rem;margin:0 auto;width:100%} }
+  .abt-sim .svgwrap{width:100%;box-sizing:border-box} .abt-sim .svgwrap svg{width:100%}
+  .abt-ctl{display:grid;gap:.9rem;grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-bottom:1rem;align-items:end}
+  @media (max-width:640px){ .abt-ctl{grid-template-columns:minmax(0,1fr)} }
+  .abt-ctl .wide{grid-column:1 / -1}
+  .abt-ctl .segmented{flex-wrap:wrap}
+  .abt-sw{display:inline-block;width:.85em;height:.85em;border-radius:3px;vertical-align:-.08em;margin-right:.25em;border:1px solid var(--line-strong)}
+  .abt-leg{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.6rem;font-family:var(--f-ui);font-size:.82rem;color:var(--ink-2)}
+  .abt-leg span{display:inline-flex;align-items:center;gap:.35rem}
+  .abt-leg i{display:inline-block;width:1rem;height:.7rem;border-radius:3px}
+  /* tři pilíře v úvodu */
+  .abt-pil{display:grid;gap:1rem;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1.4rem}
+  @media (max-width:760px){ .abt-pil{grid-template-columns:minmax(0,1fr)} }
+  .abt-pil a{display:flex;flex-direction:column;gap:.35rem;text-decoration:none;color:var(--ink);background:var(--surface);
+    border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:16px;padding:1rem 1.1rem;box-shadow:var(--jd-shadow)}
+  .abt-pil a:hover{border-color:var(--accent)}
+  .abt-pil .n{font-family:var(--f-ui);font-weight:700;font-size:1.6rem;color:var(--accent);line-height:1}
+  .abt-pil b{font-family:var(--f-ui);font-size:1.02rem}
+  .abt-pil span{font-size:.92rem;color:var(--ink-2)}
+  .abt-pil em{font-style:normal;font-family:var(--f-ui);font-size:.84rem;font-weight:600;color:var(--accent);margin-top:auto}
+  /* vzorec v klíčovém rámečku */
+  .abt-f{font-family:var(--f-mono);font-size:clamp(1.05rem,.9rem + .7vw,1.35rem);text-align:center;background:var(--surface);
+    border:2px solid var(--jd-c-line);border-radius:12px;padding:.9rem .8rem;margin:.6rem 0;color:var(--ink);overflow-x:auto}
+  .abt-f b{color:var(--jd-c)}
+  .jd-key table td,.jd-key table th{background:var(--surface)}
+  .jd-a{--jd-c:var(--accent);--jd-c-soft:var(--accent-soft);--jd-c-line:var(--line-strong)}
+  .jd-ex.abt-b{border-color:var(--jd-d-line);border-top-color:var(--jd-d);background:var(--jd-d-soft)}
+  .jd-ex.abt-b > h3,.jd-ex.abt-b details.jd-more > summary,.jd-ex.abt-b .jd-ra,.jd-ex.abt-b .jd-rf,.jd-ex.abt-b .jd-ans{color:var(--jd-d)}
+  .jd-ex.abt-b details.jd-more{border-color:var(--jd-d-line);border-top-color:var(--jd-d)}
+  .jd-ex.abt-b .jd-rb,.jd-ex.abt-b .jd-ans{border-color:var(--jd-d-line)} .jd-ex.abt-b .jd-rb.jd-rt{border-color:var(--jd-d);background:var(--jd-d-soft)}
+  .jd-ex.abt-r{border-color:var(--jd-i-line);border-top-color:var(--jd-i);background:var(--jd-i-soft)}
+  .jd-ex.abt-r > h3,.jd-ex.abt-r details.jd-more > summary,.jd-ex.abt-r .jd-ra,.jd-ex.abt-r .jd-rf,.jd-ex.abt-r .jd-ans{color:var(--jd-i)}
+  .jd-ex.abt-r details.jd-more{border-color:var(--jd-i-line);border-top-color:var(--jd-i)}
+  .jd-ex.abt-r .jd-rb,.jd-ex.abt-r .jd-ans{border-color:var(--jd-i-line)} .jd-ex.abt-r .jd-rb.jd-rt{border-color:var(--jd-i);background:var(--jd-i-soft)}
+  .jd-q .jd-qg{margin:.2rem 0 .8rem}
+  .jd-err .jd-btns .btn{flex:1 1 auto}
   /* všechny vnitřní okraje aspoň 2px (pravidlo v CLAUDE.md) */
   .jd-steps > li,.segmented,.jd-rb,.qcard{border-width:2px}
   .qcard{border-style:solid;border-color:var(--line-strong)}
   /* vysvětlivka mimo hover/fokus vůbec nezabírá místo (nesmí rozšířit stránku) */
   .jd-tip .jd-tt{display:none}
   .jd-tip:hover .jd-tt,.jd-tip:focus .jd-tt{display:block}
+  /* klíčové pravidlo jako čtyři karty */
+  .abt-rule{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:640px){ .abt-rule{grid-template-columns:minmax(0,1fr)} }
+  .abt-rc{background:var(--surface);border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:14px;
+    padding:.8rem .95rem;display:flex;flex-direction:column;gap:.25rem;box-shadow:var(--jd-shadow)}
+  .abt-rt{font-family:var(--f-ui);font-weight:700;font-size:.95rem}
+  .abt-rp{font-family:var(--f-ui);font-weight:700;font-size:1.45rem;color:var(--accent);line-height:1.15}
+  .abt-rw{font-size:.88rem;color:var(--ink-2)}
+  .abt-ri{font-size:.93rem}
   </style>
 
   <header class="hero">
     <div class="hero-top">
-      <h1>Jodometrie</h1>
-      <p class="lead">Redoxní titrace s&nbsp;jodem. Jedna redoxní dvojice <span class="chem">I₂ / 2I⁻</span>, <b>dva postupy</b> podle toho, co stanovujete, a&nbsp;škrob, který ukáže konec titrace. Všechno podstatné je v&nbsp;barevných rámečcích, podrobnosti si rozbalíte, až je budete potřebovat.</p>
+      <h1>Acidobazické titrace</h1>
+      <p class="lead">Neutralizace jako měřicí nástroj: ke vzorku po kapkách přidáváme kyselinu nebo zásadu o&nbsp;přesně známé koncentraci, dokud se obě navzájem přesně nezneutralizují, a&nbsp;z&nbsp;objemu spočítáme, kolik látky ve vzorku bylo. Celé téma stojí na třech věcech:</p>
     </div>
-    <div class="paths">
-      <a class="path jd-pd" href="#k1">
-        <span class="pk"><span class="tag">Stanovuji redukovadlo</span></span>
-        <span class="pt">Přímá jodometrie</span>
-        <span class="pd">Titruji <b>roztokem jodu</b>. Škrob na začátku, konec = roztok <b>zmodrá</b>.</span>
-        <span class="pgo">Klíčový postup →</span>
-      </a>
-      <a class="path jd-pi" href="#k2">
-        <span class="pk"><span class="tag">Stanovuji oxidovadlo</span></span>
-        <span class="pt">Nepřímá jodometrie</span>
-        <span class="pd">Uvolním jod z&nbsp;KI a&nbsp;titruji ho <b>thiosíranem</b>. Škrob až ke konci, konec = modrá <b>zmizí</b>.</span>
-        <span class="pgo">Klíčový postup →</span>
-      </a>
+    <div class="abt-pil">
+      <a href="#k1"><span class="n">1</span><b>Titrant o přesné koncentraci</b><span>Silná kyselina nebo zásada, jejíž koncentraci zjistíme standardizací.</span><em>Odměrné roztoky →</em></a>
+      <a href="#k2"><span class="n">2</span><b>Indikátor podle pH v bodě ekvivalence</b><span>To pH závisí na tom, jak silná je kyselina a zásada.</span><em>Indikátory a křivky →</em></a>
+      <a href="#k6"><span class="n">3</span><b>Pohlídat chyby</b><span>Hlavně CO₂ v roztocích zásad a špatně zvolený indikátor.</span><em>Chyby a vyhodnocení →</em></a>
     </div>
   </header>

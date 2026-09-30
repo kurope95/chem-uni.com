@@ -1,0 +1,84 @@
+
+  <!-- ============ VI. VÝPOČTY ============ -->
+  <section class="chapter" id="k5" data-title="Výpočty">
+    <div class="prose">
+      <span class="eyebrow">VI · stechiometrie</span>
+      <h2>Výpočty v&nbsp;acidobazických titracích</h2>
+      <p class="lead">Základem výpočtu je stechiometrie neutralizace v&nbsp;bodě ekvivalence.</p>
+
+      <div class="jd-key jd-d">
+        <h3>Klíčový vztah</h3>
+        <p class="jd-sub">Jednosytná kyselina + jednosytná zásada (HCl + NaOH, CH₃COOH + NaOH): v&nbsp;bodě ekvivalence</p>
+        <div class="abt-f"><b>n(kyseliny) = n(zásady)</b></div>
+        <div class="abt-f"><b>c(kyseliny) · V(kyseliny) = c(zásady) · V(zásady)</b></div>
+        <p class="jd-cond">Známe objem vzorku, koncentraci titrantu a&nbsp;jeho spotřebu → dopočítáme neznámou koncentraci vzorku.</p>
+      </div>
+
+      <details class="jd-more">
+        <summary>Obecně: výpočet pro libovolné koeficienty</summary>
+        <div class="jd-body">
+          <p>V&nbsp;bodě ekvivalence se látkové množství ekvivalentů kyseliny rovná látkovému množství ekvivalentů zásady. Pro reakci typu <span class="chem">a HA + b BOH → …</span>, kde a&nbsp;a&nbsp;b jsou stechiometrické koeficienty, platí:</p>
+          <p class="eq"><span class="q">n</span>(HA) / a = <span class="q">n</span>(BOH) / b &nbsp;&nbsp;⇒&nbsp;&nbsp; <span class="q">c</span>(HA)·<span class="q">V</span>(HA) / a = <span class="q">c</span>(BOH)·<span class="q">V</span>(BOH) / b</p>
+          <p>Pro nejčastější případ (a = b = 1) se vztah zjednoduší na klíčový vztah výše.</p>
+        </div>
+      </details>
+
+      <div class="jd-calc">
+        <h4>Zkuste sami: výpočet koncentrace</h4>
+        <p style="margin:0">Vypočítejte koncentraci roztoku HCl, jestliže se na titraci 20,00&nbsp;ml tohoto roztoku spotřebovalo 15,50&nbsp;ml roztoku NaOH o&nbsp;koncentraci 0,1025&nbsp;mol/l (reakce 1&nbsp;:&nbsp;1).</p>
+        <div class="jd-cg">
+          <div><label for="cVB">Objem NaOH (ml)</label><input type="text" inputmode="decimal" id="cVB" value="15,50" autocomplete="off"></div>
+          <div><label for="cCB">Koncentrace NaOH (mol/l)</label><input type="text" inputmode="decimal" id="cCB" value="0,1025" autocomplete="off"></div>
+          <div><label for="cVA">Objem HCl (ml)</label><input type="text" inputmode="decimal" id="cVA" value="20,00" autocomplete="off"></div>
+        </div>
+        <button class="btn btn-primary" type="button" id="cGo">Vypočítat koncentraci HCl</button>
+        <div class="jd-out" id="cOut" aria-live="polite">Výsledek: — mol/l</div>
+      </div>
+
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>Titrujete kyselinu sírovou H₂SO₄ hydroxidem sodným. Můžete použít klíčový vztah <b>c·V = c·V</b> tak, jak je?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p><b>Ne.</b> <span class="chem">H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O</span>, takže a = 1, b = 2 a&nbsp;<b>n(H₂SO₄) = n(NaOH) / 2</b>. S&nbsp;jednoduchým c·V = c·V by vám koncentrace kyseliny vyšla dvakrát větší. Stejně tak u&nbsp;uhličitanu: Na₂CO₃ spotřebuje 2&nbsp;HCl (příklad 3 v&nbsp;kapitole VIII).</p></div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>
+
+  <!-- ============ VII. CHYBY A INTERPRETACE ============ -->
+  <section class="chapter" id="k6" data-title="Chyby a interpretace výsledků">
+    <div class="prose">
+      <span class="eyebrow">VII · praktické aspekty</span>
+      <h2>Chyby a&nbsp;interpretace výsledků</h2>
+      <p class="lead">Výsledek hodnotíme jako u&nbsp;jiných titrací: <b>správnost</b> (shoda se skutečnou hodnotou) a&nbsp;<b>přesnost</b> (shoda opakovaných měření). Opakované titrace (aspoň 3) jsou nutné. Soustavná odchylka jedním směrem ukazuje na <b>systematickou chybu</b>. Například starý roztok NaOH má nižší koncentraci, a&nbsp;stanovení kyseliny proto vyjde falešně vyšší.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Třídička</span>
+        <h3>Stanovujete kyselinu titrací NaOH: vyjde výsledek vyšší, nižší, nebo stejný?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-errs" id="errBox"></div>
+        <div class="jd-msg" id="errScore" style="margin-top:1rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Běžné zdroje chyb (přehled)</summary>
+        <div class="jd-body">
+          <ul>
+            <li><b>Chyba indikátora:</b> rozdíl mezi teoretickým bodem ekvivalence (n(kys.) = n(zás.)) a&nbsp;bodem, kde indikátor změní barvu. Zmenší ji správný výběr indikátoru (pK<sub>a</sub> ≈ pH v&nbsp;bodě ekvivalence).</li>
+            <li><b>Pohlcení CO₂ roztokem zásady:</b> klesá účinná koncentrace OH⁻ a&nbsp;vzniká uhličitan, což dělá chyby hlavně při titraci slabých kyselin. Prevence: čerstvá převařená voda, ochrana roztoku (natronové vápno), častá standardizace.</li>
+            <li><b>Chyby při standardizaci:</b> nepřesné navážení primárního standardu nebo chyba při standardizační titraci se přenese do všech dalších stanovení.</li>
+            <li><b>Chyby při měření objemů:</b> nepřesnost pipety (objem vzorku) a&nbsp;byrety (objem titrantu), chyba paralaxy při odečítání.</li>
+            <li><b>Vliv teploty:</b> objem roztoků i&nbsp;konstanty (<span class="q">K</span><sub>a</sub>, <span class="q">K</span><sub>b</sub>, <span class="q">K</span><sub>w</sub>) závisí na teplotě. Titruje se při stálé laboratorní teplotě.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

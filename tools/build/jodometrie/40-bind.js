@@ -27,6 +27,7 @@ function initAll(){
   drawTarget();
   initStats();
   initFills();
+  initTips();
   initQs();
   initCalc();
 }

@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Jodometrie: redoxní titrace s jodem. Přímá jodometrie (jodimetrie) na redukovadla, nepřímá na oxidovadla, thiosíran sodný, škrobový indikátor, zdroje chyb a výpočty. Interaktivní studijní průvodce.">
+<meta name="description" content="Acidobazické titrace: acidimetrie a alkalimetrie, odměrné roztoky a jejich standardizace, indikátory, titrační křivky, výpočty a zdroje chyb. Interaktivní studijní průvodce.">
 <style>:root{color-scheme:light dark}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Jodometrie</title>
+<title>Acidobazické titrace</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
 
 <style>
 /* ============================================================
-   Jodometrie — studijní průvodce
+   Acidobazické titrace — studijní průvodce
    Barevné tokeny: světlá varianta je základ, tmavá se dopočítává
    ve třech stavech (bare :root / prefers-color-scheme / data-theme)
    ============================================================ */
@@ -660,8 +660,8 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 }
 </style>
 <!--SITE-LANG-->
-<meta name="title-en" content="Iodometry">
-<meta name="title-sk" content="Jodometria">
+<meta name="title-en" content="Acid–base titrations">
+<meta name="title-sk" content="Acidobázické titrácie">
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFJElEQVR4AaxWfUxVZRj/nSP3AooIWmqiKOZsa7oUaDRKFAhTWIZIDdOwGMqEtgy2BJIEXRDNmf0hmCAsoSRRoo9hi5SQxfoAXJNYFsUgBWKpfArcC/f0PO/l3nG5lzvOHWfvc87z9Xue33nP+773yph0feS32vus76rcQj+fmwV+q3QkyiyJjmtybe4xqSXMBCghXoahVZLwlgJlHSVpSGZraLgm1+Ye3MtUWBBgByUUkHM2m1I5m4PJFHBPjso8JdQ8jw214uq5CK6eC9XCRD735N6ypBiSyOPQm+8s/gyR58oI7tDQcG9ZlqRwh+AE0s6bD63bAtIcG9xbpql4zBH42vBIOLm6QDPXBaw7UoN78yJUPf1ztFoEJqdRT0kI67KTE+mqh4YJqEKt3BSC6NJKOLm4mnGsR3/yBVZuCjb7ZqrYJPBo6HYEJKVA6+ZmruPpswbhp84iLOcU5i9bDijAuE4nhHV3rxUU+xDbKcdjpY8ZxzUCXk/B6pDnzL7Jim0CWyOwfvc+7K6oRuw39YiraUDU+UtY5v+UwPa03ERF3Iuoe+8orr+bgcr4GLCPg16Us6v0c4FhLNdYH7MPq5/dxmErsUngakYKbhSfgcZ1rpgFWaOFJMkY+q8HNZmH8eWBPRjt68OWd3IQnJWLoZ5u4avJSsXw/buQKJcx/PZco6kon3CpVs3ZYZPAuG4UjefyMPhvN+cIURQD6nKz4Oy+ALwIh6jpra8q0FJRRk3vkc+ZYu6ozc4A5woQ3bgGExinmmRaDdnKM8nRVJxPlkSioPliKYLpjQOT07HML4B8IEKZqD+ZLXSvJwMQ+GY6NqcfF7likUBCU1GeiE93s0ug44dawtFqo0Jt175FV9PPGOnrRf/tdvJbjr6Odoz296L71ya01VRT0EjcWIPMaYZdAlMx372djNKIIPT90zE1RL52lIQH4eqRFKuYPYcqAvYKORpTRYDPgL1f18J9+Qqrfgu8V+GVqusIPX7CKmbPYZeA99ObCWv8lj4hW7F0gx9cPDyJgDemXu7LvWkXeFCOP3yCwyhsXDvGGmROM+wS8H3tIMGMhda9tBffH0tH/Qc5tBh/IT8QlJZFvwnpQu9s+Ili2bQNj4BzQQuXd4JvXCLsXTYJzNE6wy8+CW5LlpqxEh0uzxw+Ct1Avzh+5z/ihbURO/F4VIzI432uGxxAUGoWJMo1AbmGb9xBOie0JpfFU7awJozQYyew8dUE6IcfQDc4CINeJw6XeQ8tBp9+z+d/DA39TjQWngaLi8dC7DhTgi0ZOZi76GGRyxjGcg0mEJyZO1Hd8iFbmkark/Z7y+ULuBAVhvPbAlEU7I+K2Gh0NvwoEpas34ioonJsiI0n2Y/IwjIsXveEiN2hnMuxuwSGsVyDa3XdMH42kTTpZpNA88US+p454u1NuffbWlF16ACq0w5hoOsOIIGm1ZlEK/SBztsUewNXKKe37S+YLp4FXje/lX9qclk8bRKwyJhitNddw6U9L2BsZNgcYb385R1or6sx+2aqMAH9TJNNefw/oP5kDpm8QxSwbhgbI1v10MsSpFuqYQT4o6oSY8Mj0D8YAevkUj24t2xQlCrVyAnA2OgIfYqhCUv9g3vLiiSfJqjqz0AYWnAJuJLChxVbqkXPveWExr87aCoSVcMJcLf1d9z706EvSJtISuTevAgR39hWSCT2U02HZoJwaoaee3FPBgkCrLDDAHmNouB9Smgm36yQoTo8uGkz1+Ye3IudLP8DAAD//9Lz7MgAAAAGSURBVAMA6ugDYbnJSScAAAAASUVORK5CYII=">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%239b3320%22/%3E%3Cg fill=%22none%22 stroke=%22%23fff7f2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath stroke-width=%221.9%22 d=%22M16 8l0 -3.4M22.93 12l2.94 -1.7M22.93 20l2.94 1.7M16 24l0 3.4M9.07 20l-2.94 1.7M9.07 12l-2.94 -1.7%22/%3E%3Cpolygon stroke-width=%222.3%22 points=%2216,8 22.93,12 22.93,20 16,24 9.07,20 9.07,12%22/%3E%3Cpolygon stroke-width=%222.4%22 stroke-dasharray=%220 4.4%22 points=%2216,11.6 19.81,13.8 19.81,18.2 16,20.4 12.19,18.2 12.19,13.8%22/%3E%3C/g%3E%3Cg fill=%22%23fff7f2%22%3E%3Ccircle cx=%2216%22 cy=%228%22 r=%222%22/%3E%3Ccircle cx=%2222.93%22 cy=%2212%22 r=%222%22/%3E%3Ccircle cx=%2222.93%22 cy=%2220%22 r=%222%22/%3E%3Ccircle cx=%2216%22 cy=%2224%22 r=%222%22/%3E%3Ccircle cx=%229.07%22 cy=%2220%22 r=%222%22/%3E%3Ccircle cx=%229.07%22 cy=%2212%22 r=%222%22/%3E%3C/g%3E%3C/svg%3E">
 <style>
@@ -822,7 +822,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
     <div class="sitenav"><a href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na okruhy</lang-cs><lang-en lang="en">Back to topics</lang-en><lang-sk lang="sk">Späť na okruhy</lang-sk></span></a></div>
     <div class="rail-brand">
       <span class="mark"><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en><lang-sk lang="sk">Chémia</lang-sk></span>
-      <span class="name"><lang-cs>Jodometrie</lang-cs><lang-en lang="en">Iodometry</lang-en><lang-sk lang="sk">Jodometria</lang-sk></span>
+      <span class="name"><lang-cs>Acidobazické titrace</lang-cs><lang-en lang="en">Acid–base titrations</lang-en><lang-sk lang="sk">Acidobázické titrácie</lang-sk></span>
       <span class="sub"><lang-cs>Studijní průvodce s procvičováním</lang-cs><lang-en lang="en">Study guide with practice</lang-en><lang-sk lang="sk">Študijný sprievodca s precvičovaním</lang-sk></span>
     </div>
     <div class="meter">
@@ -840,7 +840,7 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
   <div class="topbar">
     <div class="topbar-row">
       <a class="sitenav-m" href="index.html" aria-label="Zpátky na okruhy" data-en-aria-label="Back to topics" data-sk-aria-label="Späť na okruhy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
-      <div class="name"><lang-cs>Jodometrie</lang-cs><lang-en lang="en">Iodometry</lang-en><lang-sk lang="sk">Jodometria</lang-sk><span><lang-cs>Studijní průvodce · </lang-cs><lang-en lang="en">Study guide · </lang-en><lang-sk lang="sk">Študijný sprievodca · </lang-sk><span id="mDone2">0</span>/<span data-tot>10</span><lang-cs> kapitol</lang-cs><lang-en lang="en"> chapters</lang-en><lang-sk lang="sk"> kapitol</lang-sk></span></div>
+      <div class="name"><lang-cs>Acidobazické titrace</lang-cs><lang-en lang="en">Acid–base titrations</lang-en><lang-sk lang="sk">Acidobázické titrácie</lang-sk><span><lang-cs>Studijní průvodce · </lang-cs><lang-en lang="en">Study guide · </lang-en><lang-sk lang="sk">Študijný sprievodca · </lang-sk><span id="mDone2">0</span>/<span data-tot>10</span><lang-cs> kapitol</lang-cs><lang-en lang="en"> chapters</lang-en><lang-sk lang="sk"> kapitol</lang-sk></span></div>
       <!--SL--><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div><!--/SL-->
       <button class="btn btn-icon" id="themeBtn2" type="button" aria-label="Přepnout světlý a tmavý režim"></button>
     </div>
@@ -851,8 +851,8 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
   <main id="obsah" lang="cs"><!--SL--><div class="langbar"><p class="langnote" data-only="foreign"><lang-en lang="en">The content of this page is in Czech. So far, only the menus and navigation have been translated into English.</lang-en><lang-sk lang="sk">Obsah tejto stránky je v češtine. Do slovenčiny sú zatiaľ preložené iba menu a navigácia.</lang-sk></p><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div></div><!--/SL-->
 
 
-  <style>
-  /* ---- jodometrie v2: klíčové věci na očích, podrobnosti sbalené (předpona jd-) ---- */
+<style>
+  /* ---- acidobazické titrace (stejné rámečky jako jodometrie): klíčové věci na očích, podrobnosti sbalené (předpona jd-) ---- */
   :root{--jd-d:#2456b8;--jd-d-soft:#eaf0fc;--jd-d-line:#9fb8ea;--jd-i:#b3302a;--jd-i-soft:#fcecea;--jd-i-line:#e8a7a1;
     --jd-y:#8a6100;--jd-y-soft:#fdf5dc;--jd-y-line:#e7cf85;--jd-g:#1d7a4c;--jd-g-soft:#e8f6ee;--jd-g-line:#9fd4b7}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--jd-d:#8fb0f4;--jd-d-soft:#18233a;--jd-d-line:#35507f;
@@ -1102,479 +1102,510 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
   .readout,.jd-msg,.jd-ans,.tablewrap,.chapter-done,.svgwrap{border:2px solid var(--line-strong)}
   .jd-msg.ok{border-color:var(--ok)} .jd-msg.bad{border-color:var(--bad)} .jd-msg.warn{border-color:var(--warn)}
   .jd-ans{border-color:var(--jd-g)}
+  </style>
+  <style>
+  /* ---- model titrační křivky ---- */
+  .abt-sim{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr) minmax(0,12rem);align-items:start}
+  @media (max-width:760px){ .abt-sim{grid-template-columns:minmax(0,1fr)} .abt-sim .abt-fl{max-width:13rem;margin:0 auto;width:100%} }
+  .abt-sim .svgwrap{width:100%;box-sizing:border-box} .abt-sim .svgwrap svg{width:100%}
+  .abt-ctl{display:grid;gap:.9rem;grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-bottom:1rem;align-items:end}
+  @media (max-width:640px){ .abt-ctl{grid-template-columns:minmax(0,1fr)} }
+  .abt-ctl .wide{grid-column:1 / -1}
+  .abt-ctl .segmented{flex-wrap:wrap}
+  .abt-sw{display:inline-block;width:.85em;height:.85em;border-radius:3px;vertical-align:-.08em;margin-right:.25em;border:1px solid var(--line-strong)}
+  .abt-leg{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.6rem;font-family:var(--f-ui);font-size:.82rem;color:var(--ink-2)}
+  .abt-leg span{display:inline-flex;align-items:center;gap:.35rem}
+  .abt-leg i{display:inline-block;width:1rem;height:.7rem;border-radius:3px}
+  /* tři pilíře v úvodu */
+  .abt-pil{display:grid;gap:1rem;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1.4rem}
+  @media (max-width:760px){ .abt-pil{grid-template-columns:minmax(0,1fr)} }
+  .abt-pil a{display:flex;flex-direction:column;gap:.35rem;text-decoration:none;color:var(--ink);background:var(--surface);
+    border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:16px;padding:1rem 1.1rem;box-shadow:var(--jd-shadow)}
+  .abt-pil a:hover{border-color:var(--accent)}
+  .abt-pil .n{font-family:var(--f-ui);font-weight:700;font-size:1.6rem;color:var(--accent);line-height:1}
+  .abt-pil b{font-family:var(--f-ui);font-size:1.02rem}
+  .abt-pil span{font-size:.92rem;color:var(--ink-2)}
+  .abt-pil em{font-style:normal;font-family:var(--f-ui);font-size:.84rem;font-weight:600;color:var(--accent);margin-top:auto}
+  /* vzorec v klíčovém rámečku */
+  .abt-f{font-family:var(--f-mono);font-size:clamp(1.05rem,.9rem + .7vw,1.35rem);text-align:center;background:var(--surface);
+    border:2px solid var(--jd-c-line);border-radius:12px;padding:.9rem .8rem;margin:.6rem 0;color:var(--ink);overflow-x:auto}
+  .abt-f b{color:var(--jd-c)}
+  .jd-key table td,.jd-key table th{background:var(--surface)}
+  .jd-a{--jd-c:var(--accent);--jd-c-soft:var(--accent-soft);--jd-c-line:var(--line-strong)}
+  .jd-ex.abt-b{border-color:var(--jd-d-line);border-top-color:var(--jd-d);background:var(--jd-d-soft)}
+  .jd-ex.abt-b > h3,.jd-ex.abt-b details.jd-more > summary,.jd-ex.abt-b .jd-ra,.jd-ex.abt-b .jd-rf,.jd-ex.abt-b .jd-ans{color:var(--jd-d)}
+  .jd-ex.abt-b details.jd-more{border-color:var(--jd-d-line);border-top-color:var(--jd-d)}
+  .jd-ex.abt-b .jd-rb,.jd-ex.abt-b .jd-ans{border-color:var(--jd-d-line)} .jd-ex.abt-b .jd-rb.jd-rt{border-color:var(--jd-d);background:var(--jd-d-soft)}
+  .jd-ex.abt-r{border-color:var(--jd-i-line);border-top-color:var(--jd-i);background:var(--jd-i-soft)}
+  .jd-ex.abt-r > h3,.jd-ex.abt-r details.jd-more > summary,.jd-ex.abt-r .jd-ra,.jd-ex.abt-r .jd-rf,.jd-ex.abt-r .jd-ans{color:var(--jd-i)}
+  .jd-ex.abt-r details.jd-more{border-color:var(--jd-i-line);border-top-color:var(--jd-i)}
+  .jd-ex.abt-r .jd-rb,.jd-ex.abt-r .jd-ans{border-color:var(--jd-i-line)} .jd-ex.abt-r .jd-rb.jd-rt{border-color:var(--jd-i);background:var(--jd-i-soft)}
+  .jd-q .jd-qg{margin:.2rem 0 .8rem}
+  .jd-err .jd-btns .btn{flex:1 1 auto}
   /* všechny vnitřní okraje aspoň 2px (pravidlo v CLAUDE.md) */
   .jd-steps > li,.segmented,.jd-rb,.qcard{border-width:2px}
   .qcard{border-style:solid;border-color:var(--line-strong)}
   /* vysvětlivka mimo hover/fokus vůbec nezabírá místo (nesmí rozšířit stránku) */
   .jd-tip .jd-tt{display:none}
   .jd-tip:hover .jd-tt,.jd-tip:focus .jd-tt{display:block}
+  /* klíčové pravidlo jako čtyři karty */
+  .abt-rule{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:640px){ .abt-rule{grid-template-columns:minmax(0,1fr)} }
+  .abt-rc{background:var(--surface);border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:14px;
+    padding:.8rem .95rem;display:flex;flex-direction:column;gap:.25rem;box-shadow:var(--jd-shadow)}
+  .abt-rt{font-family:var(--f-ui);font-weight:700;font-size:.95rem}
+  .abt-rp{font-family:var(--f-ui);font-weight:700;font-size:1.45rem;color:var(--accent);line-height:1.15}
+  .abt-rw{font-size:.88rem;color:var(--ink-2)}
+  .abt-ri{font-size:.93rem}
   </style>
 
   <header class="hero">
     <div class="hero-top">
-      <h1>Jodometrie</h1>
-      <p class="lead">Redoxní titrace s&nbsp;jodem. Jedna redoxní dvojice <span class="chem">I₂ / 2I⁻</span>, <b>dva postupy</b> podle toho, co stanovujete, a&nbsp;škrob, který ukáže konec titrace. Všechno podstatné je v&nbsp;barevných rámečcích, podrobnosti si rozbalíte, až je budete potřebovat.</p>
+      <h1>Acidobazické titrace</h1>
+      <p class="lead">Neutralizace jako měřicí nástroj: ke vzorku po kapkách přidáváme kyselinu nebo zásadu o&nbsp;přesně známé koncentraci, dokud se obě navzájem přesně nezneutralizují, a&nbsp;z&nbsp;objemu spočítáme, kolik látky ve vzorku bylo. Celé téma stojí na třech věcech:</p>
     </div>
-    <div class="paths">
-      <a class="path jd-pd" href="#k1">
-        <span class="pk"><span class="tag">Stanovuji redukovadlo</span></span>
-        <span class="pt">Přímá jodometrie</span>
-        <span class="pd">Titruji <b>roztokem jodu</b>. Škrob na začátku, konec = roztok <b>zmodrá</b>.</span>
-        <span class="pgo">Klíčový postup →</span>
-      </a>
-      <a class="path jd-pi" href="#k2">
-        <span class="pk"><span class="tag">Stanovuji oxidovadlo</span></span>
-        <span class="pt">Nepřímá jodometrie</span>
-        <span class="pd">Uvolním jod z&nbsp;KI a&nbsp;titruji ho <b>thiosíranem</b>. Škrob až ke konci, konec = modrá <b>zmizí</b>.</span>
-        <span class="pgo">Klíčový postup →</span>
-      </a>
+    <div class="abt-pil">
+      <a href="#k1"><span class="n">1</span><b>Titrant o přesné koncentraci</b><span>Silná kyselina nebo zásada, jejíž koncentraci zjistíme standardizací.</span><em>Odměrné roztoky →</em></a>
+      <a href="#k2"><span class="n">2</span><b>Indikátor podle pH v bodě ekvivalence</b><span>To pH závisí na tom, jak silná je kyselina a zásada.</span><em>Indikátory a křivky →</em></a>
+      <a href="#k6"><span class="n">3</span><b>Pohlídat chyby</b><span>Hlavně CO₂ v roztocích zásad a špatně zvolený indikátor.</span><em>Chyby a vyhodnocení →</em></a>
     </div>
   </header>
 
 
   <!-- ============ I. ÚVOD ============ -->
-  <section class="chapter" id="k0" data-title="Úvod do jodometrie">
+  <section class="chapter" id="k0" data-title="Úvod do acidobazických titrací">
     <div class="prose">
       <span class="eyebrow">I · úvod</span>
-      <h2>Úvod do jodometrie</h2>
-      <p class="lead"><b>Jodometrie</b> je jedna z&nbsp;nejdůležitějších a&nbsp;nejuniverzálnějších metod <span class="jd-tip" tabindex="0">odměrné analýzy<span class="jd-tt">Kvantitativní chemická analýza založená na měření objemu roztoku (titrantu) o známé koncentraci, který je potřeba k úplné reakci se stanovovanou látkou (analytem).</span></span>. Je založená na <span class="jd-tip" tabindex="0">redoxních reakcích<span class="jd-tt">Reakce spojené s přenosem elektronů mezi látkami, při kterých se mění jejich oxidační čísla.</span></span>, ve kterých vystupuje jod ve dvou podobách: jako jod <span class="chem">I₂</span> a&nbsp;jako jodidový anion <span class="chem">I⁻</span>.</p>
+      <h2>Úvod do acidobazických titrací</h2>
+      <p class="lead"><b>Acidobazické (neutralizační) titrace</b> jsou metody <span class="jd-tip" tabindex="0">odměrné analýzy<span class="jd-tt">Kvantitativní chemická analýza založená na měření objemu roztoku (titrantu) o známé koncentraci, který je potřeba k úplné reakci se stanovovanou látkou (analytem).</span></span> založené na <span class="jd-tip" tabindex="0">neutralizaci<span class="jd-tt">Reakce kyseliny se zásadou, při které vzniká sůl a voda (Arrheniova teorie), nebo přenos protonu z kyseliny na zásadu (Brønstedova teorie).</span></span> mezi stanovovanou látkou (kyselinou nebo zásadou, <b>analytem</b>) a odměrným roztokem (zásadou nebo kyselinou, <b>titrantem</b>).</p>
+      <p>Cílem je stanovit neznámou koncentraci nebo množství kyseliny či zásady ve vzorku. Klíčový okamžik je <span class="jd-tip" tabindex="0">bod ekvivalence<span class="jd-tt">Teoretický bod titrace, kdy látkové množství přidaného titrantu přesně odpovídá látkovému množství analytu podle reakční rovnice.</span></span>: přidaná kyselina nebo zásada v&nbsp;něm přesně zneutralizovala původní zásadu nebo kyselinu ve vzorku.</p>
 
       <details class="jd-more">
-        <summary>Klíčový redoxní pár jod/jodid (I₂/2I⁻) — podrobněji</summary>
+        <summary>Základní pojmy (Brønstedova teorie)</summary>
         <div class="jd-body">
-          <p>Základem jodometrie je vratná redoxní poloreakce:</p>
-          <p class="eq" style="text-align:center"><span class="chem">I₂ + 2e⁻ ⇌ 2I⁻</span> &nbsp;&nbsp; (<span class="q">E</span>° = +0,54&nbsp;V)</p>
           <ul>
-            <li><b>Jod (I₂):</b> šedočerná lesklá krystalická látka s&nbsp;charakteristickým zápachem, její roztoky jsou hnědé. V&nbsp;čisté vodě se rozpouští málo (asi 0,3&nbsp;g/l při 20&nbsp;°C), v&nbsp;roztoku KI dobře, protože vzniká trijodid <span class="chem">I₃⁻</span>. Je to <b>středně silné oxidovadlo</b>: stačí na silnější redukovadla (thiosírany, siřičitany, As(III)).</li>
-            <li><b>Jodidové ionty (I⁻):</b> vznikají redukcí I₂ nebo rozpuštěním jodidů (KI, NaI) a&nbsp;jsou bezbarvé. Jsou to <b>středně silná redukovadla</b>: redukují silnější oxidovadla (<span class="chem">Cr₂O₇²⁻</span>, <span class="chem">MnO₄⁻</span>, <span class="chem">H₂O₂</span>, <span class="chem">Cu²⁺</span>) a&nbsp;samy se přitom oxidují na I₂.</li>
+            <li><b>Kyselina:</b> látka schopná odevzdat proton (H⁺).</li>
+            <li><b>Zásada:</b> látka schopná proton (H⁺) přijmout.</li>
+            <li><b>Neutralizace:</b> reakce přenosu protonu z&nbsp;kyseliny na zásadu, např. <span class="chem">HCl + NaOH → NaCl + H₂O</span>, obecně <span class="chem">HA + B ⇌ A⁻ + BH⁺</span>.</li>
+            <li><b>pH:</b> míra kyselosti nebo zásaditosti roztoku, pH = −log[H₃O⁺].</li>
+            <li><b>pK<sub>a</sub>:</b> −log <span class="q">K</span><sub>a</sub>, míra síly kyseliny. Nižší pK<sub>a</sub> znamená silnější kyselinu.</li>
+            <li><b>Pufr:</b> roztok slabé kyseliny a její konjugované zásady (nebo slabé zásady a její konjugované kyseliny), který odolává změnám pH.</li>
           </ul>
-          <p><span class="jd-tip" tabindex="0">Standardní redoxní potenciál<span class="jd-tt">Míra ochoty látky přijímat elektrony (redukovat se) nebo je odevzdávat (oxidovat se) za standardních podmínek (25 °C, 101,325 kPa, 1 mol/l).</span></span> páru I₂/2I⁻ (+0,54&nbsp;V) leží zhruba uprostřed běžné škály. Jod tedy není extrémně silné oxidovadlo a&nbsp;jodid není extrémně silné redukovadlo. Právě tahle „střední“ redoxní aktivita dělá jodometrii tak široce použitelnou: úpravou podmínek (hlavně pH) se dají selektivně stanovit látky s&nbsp;různými redoxními vlastnostmi.</p>
-          <p style="color:var(--ink-2);font-size:.93rem"><i>Z&nbsp;historie:</i> jod objevil Bernard Courtois v&nbsp;roce 1811. Gay-Lussac pak studiem jeho reakcí položil základy jodometrických metod.</p>
+        </div>
+      </details>
+
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>Bod ekvivalence a&nbsp;okamžik, kdy indikátor změní barvu (konec titrace), nemusí být totéž. Proč, a&nbsp;co z&nbsp;toho plyne pro výběr indikátoru?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p>Bod ekvivalence je teoretický: <b>n(kyseliny) = n(zásady)</b>. Indikátor ale mění barvu při svém vlastním pH. Když se to pH neshoduje s&nbsp;pH v&nbsp;bodě ekvivalence, skončíme titraci o&nbsp;trochu dřív nebo později. To je <b>chyba indikátora</b>, a&nbsp;proto se indikátor vybírá tak, aby jeho pK<sub>a</sub> bylo co nejblíž pH v&nbsp;bodě ekvivalence (kapitola III).</p></div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>
+
+  <!-- ============ II. ODMĚRNÉ ROZTOKY ============ -->
+  <section class="chapter" id="k1" data-title="Odměrné roztoky (titranty)">
+    <div class="prose">
+      <span class="eyebrow">II · titranty</span>
+      <h2>Odměrné roztoky (titranty)</h2>
+      <p class="lead">Jako titranty se používají roztoky <b>silných kyselin</b> (<b>acidimetrie</b>, stanovení zásad) nebo <b>silných zásad</b> (<b>alkalimetrie</b>, stanovení kyselin) o&nbsp;<b>přesně známé koncentraci</b>. Tu zjistíme <span class="jd-tip" tabindex="0">standardizací<span class="jd-tt">Přesné stanovení koncentrace odměrného roztoku reakcí s přesně naváženým primárním standardem nebo s jiným roztokem o známé koncentraci.</span></span>.</p>
+
+      <div class="jd-key jd-a">
+        <h3>Klíčový princip: titrant a jeho standard</h3>
+        <p class="jd-sub">Kyselinu standardizujeme na zásaditou látku, zásadu na kyselou</p>
+        <div class="jd-two" style="margin:.4rem 0 0">
+          <div class="jd-m jd-i">
+            <h4>ACIDIMETRIE: titrant = silná kyselina</h4>
+            <ul>
+              <li>HCl nebo H₂SO₄ (obvykle 0,1 nebo 0,05&nbsp;mol/l), stanovují se <b>zásady</b>.</li>
+              <li>Roztoky jsou <b>poměrně stálé</b>.</li>
+              <li><b>Standard:</b> uhličitan sodný <b>Na₂CO₃</b> (methyloranž), dále TRIS nebo borax.</li>
+            </ul>
+          </div>
+          <div class="jd-m jd-d">
+            <h4>ALKALIMETRIE: titrant = silná zásada</h4>
+            <ul>
+              <li>NaOH nebo KOH (obvykle 0,1&nbsp;mol/l), stanovují se <b>kyseliny</b>.</li>
+              <li><b>Nejsou primární standardy.</b> Pohlcují vlhkost a&nbsp;<b>CO₂</b> ze vzduchu, proto se <b>často standardizují</b>.</li>
+              <li><b>Standard:</b> hydrogenftalan draselný <b>KHP</b> (fenolftalein), dále kyselina šťavelová nebo benzoová.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <details class="jd-more">
+        <summary>Odměrné roztoky silných kyselin</summary>
+        <div class="jd-body">
+          <p>Nejčastěji se používají roztoky HCl nebo H₂SO₄ (obvykle 0,1&nbsp;M nebo 0,05&nbsp;M).</p>
+          <p><b>Příprava:</b> ředí se z&nbsp;koncentrovaných kyselin. Jejich přesnou koncentraci je nutné určit standardizací.</p>
+          <p><b>Standardizace na primární standardy:</b></p>
+          <ul>
+            <li><b>Na₂CO₃ (uhličitan sodný):</b> bezvodý, velmi čistý. Reaguje s&nbsp;kyselinou ve dvou stupních, indikátor (např. methyloranž) se volí pro druhý stupeň neutralizace: <span class="chem">CO₃²⁻ + 2H⁺ → H₂CO₃ (→ H₂O + CO₂)</span></li>
+            <li><b>TRIS</b> (tris(hydroxymethyl)aminomethan): organická zásada, vhodná jako primární standard.</li>
+            <li><b>Na₂B₄O₇·10H₂O (borax):</b> méně častý, musí se překrystalovat.</li>
+          </ul>
+          <p>Roztoky silných kyselin jsou poměrně stálé.</p>
         </div>
       </details>
 
       <details class="jd-more">
-        <summary>Výhody a nevýhody jodometrie</summary>
+        <summary>Odměrné roztoky silných zásad</summary>
+        <div class="jd-body">
+          <p>Nejčastěji se používají roztoky NaOH nebo KOH (obvykle 0,1&nbsp;M).</p>
+          <p><b>Problém:</b> NaOH ani KOH <b>nejsou primární standardy</b>. Jsou silně hygroskopické (pohlcují vlhkost) a&nbsp;reagují s&nbsp;CO₂ ze vzduchu na uhličitany: <span class="chem">2NaOH + CO₂ → Na₂CO₃ + H₂O</span>. Uhličitany pak ruší titrace slabých kyselin.</p>
+          <p><b>Příprava:</b> rozpuštěním přibližného množství hydroxidu ve vodě (ideálně destilované, převařené kvůli odstranění CO₂). Roztok se chrání před CO₂ (např. natronovým vápnem) a&nbsp;jeho přesná koncentrace se musí (často) určovat standardizací.</p>
+          <p><b>Standardizace na primární standardy:</b></p>
+          <ul>
+            <li><b>KHP (hydrogenftalan draselný):</b> nejpoužívanější, stálá a&nbsp;dobře definovaná kyselina. Titruje se na fenolftalein: <span class="chem">HC₈H₄O₄⁻ + OH⁻ → C₈H₄O₄²⁻ + H₂O</span></li>
+            <li><b>H₂C₂O₄·2H₂O (kyselina šťavelová):</b> dvojsytná kyselina, titruje se na fenolftalein.</li>
+            <li><b>Kyselina benzoová (C₆H₅COOH):</b> hůře rozpustná ve vodě.</li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="jd-fill" data-ans='[["CO2","co₂","CO₂","oxidem uhličitým","oxid uhličitý"],["standardizovat","standardizovat se"]]'>
+        <span class="eyebrow">Doplňte chybějící slova</span>
+        <p>Roztoky NaOH nejsou stálé, protože reagují se vzdušným <input type="text" autocomplete="off" aria-label="první chybějící slovo" placeholder="vzorec…"> za vzniku uhličitanů. Proto se musí často <input type="text" autocomplete="off" aria-label="druhé chybějící slovo" placeholder="…">.</p>
+        <button class="btn btn-sm btn-primary" type="button">Zkontrolovat</button><span class="jd-fb" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div class="jd-q" data-q="q21"></div>
+    <div class="jd-q" data-q="q22"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>
+
+
+  <!-- ============ III. INDIKÁTORY ============ -->
+  <section class="chapter" id="k2" data-title="Acidobazické indikátory">
+    <div class="prose">
+      <span class="eyebrow">III · jak poznat bod ekvivalence</span>
+      <h2>Acidobazické indikátory</h2>
+      <p class="lead">Bod ekvivalence ukáže <b>acidobazický indikátor</b>: slabá organická kyselina nebo zásada, jejíž dvě formy mají různou barvu. Barvu mění v&nbsp;určitém rozmezí pH, své <span class="jd-tip" tabindex="0">funkční oblasti<span class="jd-tt">Rozsah pH, ve kterém indikátor viditelně mění barvu. Obvykle je to přibližně pKa ± 1 jednotka pH.</span></span>.</p>
+
+      <div class="jd-key jd-a">
+        <h3>Klíčové pravidlo výběru indikátoru</h3>
+        <p class="jd-sub">Funkční oblast indikátoru musí ležet ve <b>skoku pH</b> kolem bodu ekvivalence, tedy pK<sub>a</sub> indikátoru ≈ pH v&nbsp;bodě ekvivalence</p>
+        <div class="abt-rule">
+          <div class="abt-rc"><span class="abt-rt">silná kyselina / silná zásada</span><span class="abt-rp">pH = 7</span><span class="abt-rw">neutrální sůl (NaCl)</span><span class="abt-ri">→ bromthymolová modř, díky velkému skoku i&nbsp;fenolftalein nebo methyloranž</span></div>
+          <div class="abt-rc"><span class="abt-rt">slabá kyselina / silná zásada</span><span class="abt-rp">pH &gt; 7</span><span class="abt-rw">sůl slabé kyseliny hydrolyzuje zásaditě</span><span class="abt-ri">→ <b>fenolftalein</b>, thymolftalein</span></div>
+          <div class="abt-rc"><span class="abt-rt">silná kyselina / slabá zásada</span><span class="abt-rp">pH &lt; 7</span><span class="abt-rw">sůl slabé zásady hydrolyzuje kysele</span><span class="abt-ri">→ <b>methyloranž</b>, methylčerveň</span></div>
+          <div class="abt-rc"><span class="abt-rt">slabá kyselina / slabá zásada</span><span class="abt-rp">podle síly obou</span><span class="abt-rw">skok pH je velmi malý</span><span class="abt-ri">→ vizuálně obvykle nelze (potenciometrie)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Sedm indikátorů na jedné stupnici pH — posuňte pH</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:.9rem">
+          <label for="icPH">pH roztoku — <span class="val" id="icPHV">7,0</span></label>
+          <input type="range" autocomplete="off" id="icPH" min="0" max="14" step="0.1" value="7">
+        </div>
+        <div class="svgwrap" id="icWrap"></div>
+        <div class="jd-msg" id="icMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+      <p class="panel-note">Každý pruh ukazuje barvu indikátoru při daném pH: vlevo kyselá forma, vpravo zásaditá, mezi svislými čárkami je funkční oblast (barevný přechod). Černá svislá čára je pH, které jste nastavili.</p>
+    </div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Princip funkce indikátorů</summary>
+        <div class="jd-body">
+          <p>Acidobazický indikátor je obvykle <b>slabá organická kyselina nebo zásada</b>, jejíž nedisociovaná forma (HIn) má jinou barvu než konjugovaná forma (In⁻). V&nbsp;roztoku je rovnováha:</p>
+          <p class="eq"><span class="chem">HIn (barva 1) ⇌ H⁺ + In⁻ (barva 2)</span></p>
+          <p>Poměr koncentrací obou forem, a&nbsp;tedy výsledná barva, závisí na koncentraci H⁺ (na pH) podle Hendersonovy–Hasselbalchovy rovnice:</p>
+          <p class="eq">pH = pK<sub>a</sub>(HIn) + log ( [In⁻] / [HIn] )</p>
+          <p>Viditelná změna barvy nastává v&nbsp;určitém intervalu pH, <b>funkční oblasti indikátoru</b>. Její střed je přibližně roven pK<sub>a</sub> indikátoru.</p>
+        </div>
+      </details>
+
+      <details class="jd-more">
+        <summary>Přehled běžných indikátorů (tabulka)</summary>
         <div class="jd-body">
           <div class="tablewrap">
             <table>
-              <thead><tr><th>Výhody</th><th>Nevýhody</th></tr></thead>
-              <tbody>
-                <tr><td>Široké použití (pro oxidovadla i&nbsp;redukovadla).</td><td>Odměrné roztoky (I₂ i&nbsp;Na₂S₂O₃) nejsou stálé, je nutné je často standardizovat.</td></tr>
-                <tr><td>Velmi citlivý a&nbsp;specifický indikátor (škrob).</td><td>Těkavost jodu může být zdrojem chyb.</td></tr>
-                <tr><td>Poměrně rychlé a&nbsp;přesné stanovení.</td><td>Citlivost na vedlejší reakce (např. oxidace I⁻ vzduchem).</td></tr>
-                <tr><td>Bod ekvivalence je vidět okem.</td><td>Je třeba pečlivě hlídat pH a&nbsp;další podmínky.</td></tr>
-                <tr><td>Není potřeba drahý přístroj (klasická titrace).</td><td>Škrob má své meze (teplota, pH, organická rozpouštědla).</td></tr>
-              </tbody>
+              <thead><tr><th>Indikátor</th><th class="n">Oblast pH</th><th>Kyselá forma (HIn)</th><th>Zásaditá forma (In⁻)</th><th>Typické použití</th></tr></thead>
+              <tbody id="indTable"></tbody>
             </table>
           </div>
         </div>
       </details>
 
-      <h3>Rozlišujeme dva základní typy jodometrie</h3>
-      <div class="jd-two">
-        <div class="jd-m jd-d">
-          <h4>1. PŘÍMÁ jodometrie (jodimetrie)</h4>
-          <ul>
-            <li>Stanovuje se <span class="jd-big">redukovadlo</span> (látka, která se snadno oxiduje).</li>
-            <li>Titruje se přímo <b>odměrným roztokem I₂</b> (přesněji I₃⁻).</li>
-            <li>Jod působí jako <b>oxidovadlo</b>.</li>
-            <li>Schéma: <span class="chem">analyt(red) + I₂ → produkty</span></li>
-            <li>Příklady analytů: As(III), Sn(II), H₂S, SO₃²⁻, S₂O₃²⁻, vitamín C.</li>
-          </ul>
-        </div>
-        <div class="jd-m jd-i">
-          <h4>2. NEPŘÍMÁ jodometrie</h4>
-          <ul>
-            <li>Stanovuje se <span class="jd-big">oxidovadlo</span> (látka, která se snadno redukuje).</li>
-            <li><b>Krok 1:</b> analyt + nadbytek KI (v&nbsp;kyselém prostředí) → uvolní se I₂.</li>
-            <li><b>Krok 2:</b> uvolněný I₂ se titruje <b>odměrným roztokem Na₂S₂O₃</b>.</li>
-            <li>Jodid (I⁻) působí v&nbsp;kroku 1 jako <b>redukovadlo</b>.</li>
-            <li>Příklady analytů: Cu²⁺, Cr₂O₇²⁻, ClO⁻, BrO₃⁻, IO₃⁻, H₂O₂, O₂ (Winkler).</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="panel">
-      <div class="panel-head">
-        <span class="tag">Proč dva typy</span>
-        <h3>Jod stojí uprostřed redoxního žebříčku — klepněte na látku</h3>
-      </div>
-      <div class="panel-body">
-        <div class="jd-lad">
-          <div class="svgwrap" id="ladWrap"></div>
-          <div class="jd-info" id="ladInfo" aria-live="polite"></div>
-        </div>
-        <p class="panel-note">Čím výš, tím silnější oxidovadlo (přibližné standardní potenciály v&nbsp;kyselém prostředí). Co stojí <b>nad</b> jodem, zoxiduje jodid na jod → <b>nepřímá</b> jodometrie. Co stojí <b>pod</b> ním, jod zredukuje → <b>přímá</b> jodometrie.</p>
-      </div>
-    </div>
-
-    <div class="prose">
-      <div class="jd-think">
-        <h4>Zamyslete se</h4>
-        <p>Peroxid vodíku stojí na žebříčku vysoko nad jodem. Kterým typem jodometrie ho stanovíte a&nbsp;jakým odměrným roztokem budete titrovat?</p>
-        <details class="jd-more small">
-          <summary>Zobrazit odpověď</summary>
-          <div class="jd-body"><p><b>Nepřímou jodometrií.</b> H₂O₂ je oxidovadlo, takže z&nbsp;nadbytku KI v&nbsp;kyselém prostředí uvolní jod (<span class="chem">H₂O₂ + 2I⁻ + 2H⁺ → I₂ + 2H₂O</span>). Ten pak titrujete <b>thiosíranem sodným</b>. Přímo jodem titrovat nejde: peroxid s&nbsp;jodem nereaguje, protože je sám silnějším oxidovadlem.</p></div>
-        </details>
-      </div>
-
-      <div class="jd-fill" data-ans='[["redukční","redukcni","redukovadla","redukční činidla"],["oxidační","oxidacni","oxidovadla","oxidační činidla"]]'>
+      <div class="jd-fill" data-ans='[["pKa","pka","pKₐ","pK a"],["> 7",">7","vyšší než 7","větší než 7","nad 7"]]'>
         <span class="eyebrow">Doplňte chybějící slova</span>
-        <p>Při přímé jodometrii se stanovují <input type="text" autocomplete="off" aria-label="první chybějící slovo" placeholder="… činidla"> činidla, zatímco při nepřímé se stanovují <input type="text" autocomplete="off" aria-label="druhé chybějící slovo" placeholder="… činidla"> činidla.</p>
+        <p>Acidobazický indikátor mění barvu v&nbsp;oblasti pH, která je blízko jeho hodnotě <input type="text" autocomplete="off" aria-label="první chybějící slovo" placeholder="…">. Při titraci slabé kyseliny silnou zásadou bude pH v&nbsp;bodě ekvivalence <input type="text" autocomplete="off" aria-label="druhé chybějící slovo" placeholder="&lt; 7, = 7, &gt; 7">.</p>
         <button class="btn btn-sm btn-primary" type="button">Zkontrolovat</button><span class="jd-fb" aria-live="polite"></span>
       </div>
     </div>
 
-    <div class="jd-q" data-q="q11"></div>
-    <div class="jd-q" data-q="q12"></div>
-    <div class="chapter-done" data-done="k0"></div>
+    <div class="jd-q" data-q="q31"></div>
+    <div class="jd-q" data-q="q32"></div>
+
+    <div class="prose">
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>Kyselinu octovou jste omylem titrovali hydroxidem na <b>methyloranž</b> místo na fenolftalein. Vyjde vám kyseliny víc, nebo míň, než jí ve vzorku skutečně je?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p><b>Míň.</b> Methyloranž přechází už kolem pH 3,1–4,4, tedy dávno před bodem ekvivalence (ten je při pH &gt; 7). Titraci ukončíte předčasně s&nbsp;menší spotřebou NaOH, a&nbsp;proto vypočtete méně kyseliny. Vyzkoušejte si to v&nbsp;modelu titrační křivky v&nbsp;kapitole V.</p></div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k2"></div>
   </section>
 
 
-  <!-- ============ II. PŘÍMÁ JODOMETRIE ============ -->
-  <section class="chapter" id="k1" data-title="Přímá jodometrie (jodimetrie)">
+  <!-- ============ IV. POSTUP ============ -->
+  <section class="chapter" id="k3" data-title="Základní postup titrace">
     <div class="prose">
-      <span class="eyebrow">II · stanovení redukovadel</span>
-      <h2>Přímá jodometrie (jodimetrie)</h2>
-      <p class="lead">Stanovovanou látku, která musí být <b>redukovadlo</b>, titrujeme přímo <b>odměrným roztokem jodu</b>.</p>
+      <span class="eyebrow">IV · v laboratoři</span>
+      <h2>Základní postup acidobazické titrace</h2>
+      <p class="lead">Přesné provedení titrace je klíčové pro spolehlivý výsledek. U&nbsp;každého kroku je důležité vědět, <b>proč</b> se dělá.</p>
 
       <div class="jd-key jd-d">
-        <h3>Klíčový princip a postup přímé jodometrie</h3>
-        <p class="jd-sub">Zjednodušený postup a indikace</p>
+        <h3>Klíčový postup: kroky ruční titrace</h3>
+        <p class="jd-sub">Příklad: kyselina titrovaná NaOH na fenolftalein</p>
         <ol class="jd-steps">
-          <li><span class="jd-n">1</span><div><b class="jd-t">Příprava vzorku</b><p>Do titrační baňky navážíme nebo napipetujeme vzorek (redukovadlo) a&nbsp;<b>přidáme škrob</b>.</p><p class="jd-why">Proč škrob hned na začátku? Volný I₂ se objeví až v&nbsp;bodě ekvivalence, takže na začátku nehrozí vznik příliš stabilního komplexu.</p></div></li>
-          <li><span class="jd-n">2</span><div><b class="jd-t">Titrace roztokem I₂</b><p>Z&nbsp;byrety přidáváme odměrný roztok I₂.</p><p class="jd-why">Proč I₂? Je to oxidovadlo, které reaguje se stanovovaným redukovadlem.</p></div></li>
-          <li><span class="jd-n">3</span><div><b class="jd-t">Reakce ve vzorku</b><p>Přidaný I₂ okamžitě zreaguje s&nbsp;redukovadlem. Roztok zůstává <b>bezbarvý</b> (nebo má původní barvu vzorku).</p><p class="jd-why">Proč bezbarvý? Všechen přidaný I₂ se hned spotřebuje, volný I₂, který by reagoval se škrobem, v&nbsp;roztoku není.</p></div></li>
-          <li><span class="jd-n">4</span><div><b class="jd-t">Bod ekvivalence</b><p>Okamžik, kdy se spotřebuje všechno redukovadlo ve vzorku.</p></div></li>
-          <li><span class="jd-n">5</span><div><b class="jd-t">Indikace bodu ekvivalence</b><p>První kapka I₂ přidaná <i>po</i> bodu ekvivalence už nemá s&nbsp;čím reagovat a&nbsp;zreaguje se škrobem.</p><p class="jd-res">Výsledek: celý roztok se trvale a&nbsp;intenzivně zbarví MODŘE (komplex jod–škrob).</p></div></li>
+          <li><span class="jd-n">1</span><div><b class="jd-t">Příprava byrety</b><p>Byretu umyjte (saponátem, vodou, destilovanou vodou) a&nbsp;<b>vypláchněte malým množstvím titrantu</b>. Naplňte ji nad nulu a&nbsp;odpusťte tolik, aby byla špička plná, <b>bez vzduchové bubliny</b>, a&nbsp;hladina stála přesně na nule nebo na zapsané počáteční hodnotě (<span class="q">V</span><sub>poč</sub>).</p><p class="jd-why">Proč vypláchnout titrantem? Zbytky vody by titrant naředily. Proč pryč s&nbsp;bublinou? Kvůli přesnému měření přidaného objemu.</p></div></li>
+          <li><span class="jd-n">2</span><div><b class="jd-t">Příprava vzorku (analytu)</b><p>Do čisté titrační baňky <b>přesně odpipetujte</b> známý objem vzorku, přidejte asi 20–50&nbsp;ml destilované vody a&nbsp;2–3 kapky vhodného indikátoru.</p><p class="jd-why">Proč voda? Zředěním se látkové množství analytu nemění, jen se usnadní míchání a&nbsp;pozorování. Proč indikátor? Umožní poznat bod ekvivalence okem.</p></div></li>
+          <li><span class="jd-n">3</span><div><b class="jd-t">Samotná titrace</b><p>Baňku postavte pod byretu (nejlépe na bílou podložku) a&nbsp;za stálého míchání přidávejte titrant. Zpočátku rychleji (<b>hrubá titrace</b>): barva se mění jen v&nbsp;místě dopadu kapky a&nbsp;zamícháním zmizí. Když začne přetrvávat déle, zpomalte na kapky (<b>jemná titrace</b>).</p><p class="jd-why">Proč zpomalit? Blízko bodu ekvivalence stačí malý přídavek na velkou změnu pH, a&nbsp;tedy i&nbsp;barvy.</p></div></li>
+          <li><span class="jd-n">4</span><div><b class="jd-t">Konec titrace</b><p>Přidávejte po kapkách, dokud se <b>trvale</b> nezmění barva celého roztoku. Odečtěte konečný objem (<span class="q">V</span><sub>kon</sub>) s&nbsp;přesností 0,01–0,05&nbsp;ml.</p><p class="jd-why">Proč trvale? Barva má vydržet aspoň asi 30&nbsp;s, jinak nejde o&nbsp;bod ekvivalence, ale jen o&nbsp;místní změnu.</p></div></li>
+          <li><span class="jd-n">5</span><div><b class="jd-t">Výpočet a opakování</b><p>Spotřeba: <span class="q">V</span> = <span class="q">V</span><sub>kon</sub> − <span class="q">V</span><sub>poč</sub>. Z&nbsp;ní, koncentrace titrantu a&nbsp;objemu vzorku spočítejte koncentraci analytu (kapitola VI). Titraci opakujte aspoň 2–3× (paralelní stanovení) a&nbsp;spočítejte průměr.</p><p class="jd-why">Proč opakovat? Výsledek je spolehlivější a&nbsp;odhalí se hrubé chyby. Spotřeby by se neměly lišit o&nbsp;víc než asi 0,1–0,2&nbsp;ml.</p></div></li>
         </ol>
-        <div class="jd-strip" aria-label="Barva roztoku během přímé jodometrie">
-          <div class="jd-fl"><span class="jd-flask" data-c="clear"></span><b>bezbarvý</b>vzorek + škrob</div>
+        <div class="jd-strip" aria-label="Barva roztoku během titrace na fenolftalein">
+          <div class="jd-fl"><span class="jd-flask" data-c="clear"></span><b>bezbarvý</b>vzorek + fenolftalein</div>
           <span class="jd-arr">→</span>
-          <div class="jd-fl"><span class="jd-flask" data-c="clear"></span><b>bezbarvý</b>titrace, I₂ se hned spotřebuje</div>
+          <div class="jd-fl"><span class="jd-flask" data-c="spot"></span><b>růžová skvrna zmizí</b>hrubá titrace, zamíchat</div>
           <span class="jd-arr">→</span>
-          <div class="jd-fl"><span class="jd-flask" data-c="blue"></span><b>MODRÝ</b>bod ekvivalence</div>
+          <div class="jd-fl"><span class="jd-flask" data-c="spotlong"></span><b>skvrna vydrží déle</b>zpomalit na kapky</div>
+          <span class="jd-arr">→</span>
+          <div class="jd-fl"><span class="jd-flask" data-c="pink"></span><b>trvale růžový</b>≥ 30 s = konec titrace</div>
         </div>
-        <p class="jd-cond"><b>Titrant:</b> I₂ v&nbsp;KI &nbsp;·&nbsp; <b>Škrob:</b> na začátku &nbsp;·&nbsp; <b>pH:</b> 7–9 &nbsp;·&nbsp; <b>Konec:</b> bezbarvý → modrý</p>
-        <details class="jd-more">
-          <summary>Podrobný popis indikace</summary>
-          <div class="jd-body">
-            <ol>
-              <li><b>Přidání škrobu:</b> na začátku titrace se k&nbsp;analyzovanému roztoku (obsahuje redukovadlo) přidá malé množství roztoku škrobu.</li>
-              <li><b>Průběh titrace:</b> jod přidávaný z&nbsp;byrety okamžitě reaguje s&nbsp;redukovadlem. Dokud je redukovadlo v&nbsp;roztoku, všechen jod se spotřebuje v&nbsp;redoxní reakci, a&nbsp;volný I₂, který by reagoval se škrobem, tedy prakticky není. Roztok zůstává bezbarvý.</li>
-              <li><b>Bod ekvivalence:</b> spotřebuje se všechno redukovadlo.</li>
-              <li><b>Změna barvy:</b> první kapka jodu po bodu ekvivalence nemá s&nbsp;čím reagovat. Tento malý nadbytek volného jodu (přesněji trijodidu I₃⁻, který je v&nbsp;rovnováze s&nbsp;I₂ a&nbsp;I⁻) vytvoří se šroubovicí amylosy ve škrobu intenzivně modrý až modročerný komplex.</li>
-              <li><b>Závěr:</b> náhlé objevení trvalé modré barvy celého roztoku znamená bod ekvivalence.</li>
-            </ol>
-            <p><b>Stručně:</b> škrob v&nbsp;přímé jodometrii zachytí první nepatrný nadbytek titrantu (jodu) po spotřebování veškerého redukovadla, a&nbsp;to vznikem modrého komplexu.</p>
-          </div>
+      </div>
+
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>Do titrační baňky jste ke vzorku omylem přilili dvakrát víc destilované vody, než bylo v&nbsp;návodu. Změní se spotřeba titrantu?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p><b>Nezmění.</b> Voda nemění látkové množství analytu, které jste odpipetovali, a&nbsp;titrant reaguje s&nbsp;látkovým množstvím, ne s&nbsp;koncentrací. Rozhodující je <b>přesně odpipetovaný objem vzorku</b>, voda jen usnadňuje míchání a&nbsp;pozorování barvy.</p></div>
         </details>
       </div>
+    </div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>
+
+
+  <!-- ============ V. TITRAČNÍ KŘIVKY ============ -->
+  <section class="chapter" id="k4" data-title="Titrační křivky">
+    <div class="prose">
+      <span class="eyebrow">V · jak se mění pH</span>
+      <h2>Titrační křivky</h2>
+      <p class="lead"><b>Titrační křivka</b> je graf pH titrovaného roztoku v&nbsp;závislosti na objemu přidaného titrantu. Z&nbsp;jejího tvaru poznáte, jak silná je kyselina a&nbsp;zásada, kde leží bod ekvivalence a&nbsp;<b>který indikátor se hodí</b>.</p>
     </div>
 
     <div class="panel">
       <div class="panel-head">
         <span class="tag">Vyzkoušejte si</span>
-        <h3>Titrace vitamínu C jodem — posuňte byretu</h3>
+        <h3>Vyberte titraci a indikátor, pak přidávejte titrant</h3>
       </div>
       <div class="panel-body">
-        <div class="jd-sim">
-          <div class="svgwrap" id="dirWrap"></div>
-          <div style="display:flex;flex-direction:column;gap:.9rem">
-            <div class="ctl">
-              <label for="dirV">Přidaný objem jodu — <span class="val" id="dirVV">0,00 ml</span></label>
-              <input type="range" autocomplete="off" id="dirV" min="0" max="16" step="0.05" value="0">
+        <div class="abt-ctl">
+          <div class="ctl wide">
+            <label>Titrace (25,00&nbsp;ml vzorku 0,100&nbsp;mol/l, titrant 0,100&nbsp;mol/l)</label>
+            <div class="segmented" id="tcType" role="group" aria-label="Typ titrace">
+              <button type="button" data-v="sasb" aria-pressed="true">HCl + NaOH</button>
+              <button type="button" data-v="wasb" aria-pressed="false">CH₃COOH + NaOH</button>
+              <button type="button" data-v="sawb" aria-pressed="false">NH₃ + HCl</button>
+              <button type="button" data-v="wawb" aria-pressed="false">CH₃COOH + NH₃</button>
             </div>
-            <div class="ctl">
-              <label>Škrob v&nbsp;baňce</label>
-              <div class="segmented" id="dirStarch" role="group" aria-label="Škrob v baňce">
-                <button type="button" data-v="1" aria-pressed="true">Ano</button>
-                <button type="button" data-v="0" aria-pressed="false">Ne</button>
-              </div>
-            </div>
-            <div class="grid3">
-              <div class="readout" id="dirRo1"></div>
-              <div class="readout" id="dirRo2"></div>
-            </div>
-            <div class="jd-msg" id="dirMsg" aria-live="polite"></div>
+          </div>
+          <div class="ctl">
+            <label for="tcInd">Indikátor</label>
+            <select id="tcInd" autocomplete="off"></select>
+          </div>
+          <div class="ctl">
+            <label for="tcV">Přidaný titrant — <span class="val" id="tcVV">0,00 ml</span></label>
+            <input type="range" autocomplete="off" id="tcV" min="0" max="50" step="0.05" value="0">
           </div>
         </div>
-        <p class="panel-note">Bod ekvivalence je při 11,60&nbsp;ml (stejná čísla jako v&nbsp;řešeném příkladu 1). Zkuste titraci bez škrobu: slabě žlutý přebytek jodu se snadno přehlédne.</p>
+        <div class="abt-sim">
+          <div class="svgwrap" id="tcWrap"></div>
+          <div class="abt-fl"><div class="svgwrap" id="tcFlask"></div></div>
+        </div>
+        <div class="abt-leg">
+          <span><i id="tcBandSw"></i><span id="tcBandLab">funkční oblast zvoleného indikátoru</span></span>
+          <span><i style="background:var(--accent);border-radius:50%;width:.7rem"></i>bod ekvivalence</span>
+          <span><i style="border:2px solid var(--endo);border-radius:50%;width:.55rem;height:.55rem;background:var(--surface)"></i>polovina cesty: pH = pKₐ</span>
+          <span><i style="background:var(--ink);border-radius:50%;width:.7rem"></i>kde právě jste</span>
+          <span><i style="background:var(--warn);clip-path:polygon(50% 0,100% 100%,0 100%)"></i>kde indikátor změní barvu</span>
+        </div>
+        <div class="grid3" style="margin-top:1rem">
+          <div class="readout" id="tcRo1"></div>
+          <div class="readout" id="tcRo2"></div>
+          <div class="readout" id="tcRo3"></div>
+        </div>
+        <div class="jd-msg" id="tcMsg" style="margin-top:.9rem" aria-live="polite"></div>
       </div>
+      <p class="panel-note">Dobrý indikátor má svůj barevný pás tam, kde křivka v&nbsp;bodě ekvivalence skáče svisle. Zkuste ke kyselině octové methyloranž a&nbsp;pak fenolftalein. Křivky jsou spočítané, ne nakreslené od oka.</p>
     </div>
 
-    <div class="jd-q" data-q="q21"></div>
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Silná kyselina / silná zásada (HCl titrovaná NaOH)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka začíná při <b>nízkém pH</b> (silná kyselina).</li>
+            <li>pH se zpočátku mění pomalu, pak následuje <b>velmi prudký skok pH</b> kolem bodu ekvivalence.</li>
+            <li><b>Bod ekvivalence je přesně při pH = 7</b> (vzniká neutrální sůl NaCl a&nbsp;voda).</li>
+            <li>Za bodem ekvivalence pH roste pomaleji, v&nbsp;oblasti nadbytku silné zásady.</li>
+          </ul>
+          <p><b>Indikátor:</b> vyhoví téměř každý s&nbsp;přechodem mezi pH 4 a&nbsp;10 (methylčerveň, bromthymolová modř, fenolftalein), protože skok pH je velmi velký.</p>
+        </div>
+      </details>
+      <details class="jd-more">
+        <summary>Slabá kyselina / silná zásada (CH₃COOH titrovaná NaOH)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka začíná při <b>vyšším pH</b> než u&nbsp;silné kyseliny (slabá kyselina je méně disociovaná).</li>
+            <li>Po přidání zásady vzniká <span class="jd-tip" tabindex="0">pufrační oblast<span class="jd-tt">Část křivky, kde je v roztoku směs slabé kyseliny a její konjugované zásady. Roztok tu odolává změnám pH. Nejlépe pufruje při pH = pKa.</span></span> (směs CH₃COOH/CH₃COO⁻), kde se pH mění jen pomalu.</li>
+            <li>Skok pH kolem bodu ekvivalence je <b>menší</b> než u&nbsp;titrace silné kyseliny silnou zásadou.</li>
+            <li><b>Bod ekvivalence je při pH &gt; 7</b>: vzniká CH₃COONa, jehož anion hydrolyzuje zásaditě: <span class="chem">CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻</span>.</li>
+            <li>Za bodem ekvivalence křivka připomíná titraci silné kyseliny (určuje ji nadbytek silné zásady).</li>
+          </ul>
+          <p><b>Indikátor:</b> nutný přechod v&nbsp;zásadité oblasti (pH &gt; 7), např. <b>fenolftalein</b>.</p>
+        </div>
+      </details>
+      <details class="jd-more">
+        <summary>Silná kyselina / slabá zásada (NH₃ titrovaný HCl)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka začíná při <b>vysokém pH</b>, ale nižším než u&nbsp;silné zásady.</li>
+            <li>Po přidání kyseliny vzniká pufrační oblast (směs NH₃/NH₄⁺).</li>
+            <li>Skok pH kolem bodu ekvivalence je <b>menší</b> než u&nbsp;titrace silných látek.</li>
+            <li><b>Bod ekvivalence je při pH &lt; 7</b>: vzniká NH₄Cl, jehož kation hydrolyzuje kysele: <span class="chem">NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺</span>.</li>
+            <li>Za bodem ekvivalence křivka připomíná titraci silné zásady (určuje ji nadbytek silné kyseliny).</li>
+          </ul>
+          <p><b>Indikátor:</b> nutný přechod v&nbsp;kyselé oblasti (pH &lt; 7), např. <b>methyloranž</b> nebo methylčerveň.</p>
+        </div>
+      </details>
+      <details class="jd-more">
+        <summary>Slabá kyselina / slabá zásada (CH₃COOH titrovaná NH₃)</summary>
+        <div class="jd-body">
+          <ul>
+            <li>Křivka má <b>velmi malý nebo žádný</b> prudký skok pH kolem bodu ekvivalence.</li>
+            <li>pH v&nbsp;bodě ekvivalence závisí na poměru sil kyseliny a&nbsp;zásady (může být ≈ 7, &gt; 7 i&nbsp;&lt; 7).</li>
+          </ul>
+          <p><b>Indikace:</b> vizuální titrace s&nbsp;indikátorem je obvykle nemožná nebo velmi nepřesná, protože chybí ostrý skok pH. Používají se instrumentální metody (např. potenciometrie).</p>
+        </div>
+      </details>
+    </div>
 
     <div class="panel">
       <div class="panel-head">
-        <span class="tag">Podmínka</span>
-        <h3>Titruje se při pH 7–9 — posuňte pH a&nbsp;uvidíte proč</h3>
+        <span class="tag">Graf</span>
+        <h3>Všechny čtyři typy v jednom grafu</h3>
       </div>
       <div class="panel-body">
-        <div class="ctl" style="margin-bottom:.9rem">
-          <label for="phV">pH roztoku — <span class="val" id="phVV">8,0</span></label>
-          <input type="range" autocomplete="off" id="phV" min="0" max="14" step="0.5" value="8">
-        </div>
-        <div class="svgwrap" id="phWrap"></div>
-        <div class="jd-msg" id="phMsg" style="margin-top:.9rem" aria-live="polite"></div>
+        <div class="svgwrap" id="cmpWrap"></div>
+        <div class="legend" id="cmpLeg"></div>
       </div>
+      <p class="panel-note">Vždy 25,00&nbsp;ml vzorku 0,100&nbsp;mol/l a&nbsp;titrant 0,100&nbsp;mol/l, bod ekvivalence je tedy u&nbsp;všech při 25&nbsp;ml. Titrace amoniaku kyselinou jde shora dolů, protože titrujeme zásadu. Nejvyšší skok má silná kyselina se silnou zásadou, téměř žádný slabá se slabou.</p>
     </div>
 
-    <div class="prose">
-      <details class="jd-more">
-        <summary>Odměrný roztok jodu (I₂): příprava, stálost, standardizace</summary>
-        <div class="jd-body">
-          <p><b>Příprava:</b> jod se rozpustí v&nbsp;koncentrovaném roztoku KI. Vznikne trijodid I₃⁻, který je dobře rozpustný a&nbsp;oxiduje stejně jako I₂.</p>
-          <p class="eq"><span class="chem">I₂(s) + I⁻(aq) ⇌ I₃⁻(aq)</span> &nbsp; (<span class="q">K</span> ≈ 700)</p>
-          <p><b>Stálost:</b> roztok I₂/I₃⁻ <b>není příliš stálý</b>. Příčiny:</p>
-          <ul>
-            <li><span class="jd-tip" tabindex="0">těkavost jodu<span class="jd-tt">Jod má sklon unikat z roztoku jako plyn (sublimovat), a tím klesá jeho koncentrace.</span></span> (hlavně za vyšší teploty a&nbsp;při nižší koncentraci KI),</li>
-            <li>pomalá oxidace jodidu vzdušným kyslíkem (hlavně na světle),</li>
-            <li>reakce se stopami nečistot.</li>
-          </ul>
-          <p>Proto se roztok uchovává v&nbsp;tmavých, dobře uzavřených lahvích a&nbsp;jeho koncentrace se musí pravidelně ověřovat (standardizovat).</p>
-          <p><b>Standardizace:</b></p>
-          <ul>
-            <li><b>Na As₂O₃ (oxid arsenitý):</b> nejčastější metoda. As₂O₃ je <span class="jd-tip" tabindex="0">primární standard<span class="jd-tt">Velmi čistá a stálá látka známého složení, na které se přesně určuje koncentrace jiných roztoků (titrantů).</span></span>. Titruje se v&nbsp;prostředí pufrovaném NaHCO₃ (pH ≈ 8).</li>
-          </ul>
-          <p class="eq"><span class="chem">As₂O₃ + 4OH⁻ → 2HAsO₃²⁻ + H₂O</span> &nbsp;(rozpuštění)<br><span class="chem">H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻</span> &nbsp;(titrace)</p>
-          <p style="font-size:.93rem;color:var(--ink-2)">Pufr NaHCO₃ odebírá vznikající H⁺ (<span class="chem">H⁺ + HCO₃⁻ → H₂O + CO₂</span>) a&nbsp;udržuje pH, jinak by vratná reakce neproběhla úplně.</p>
-          <ul>
-            <li><b>Na Na₂S₂O₃:</b> známý objem roztoku I₂ se ztitruje standardizovaným roztokem thiosíranu sodného.</li>
-          </ul>
-        </div>
-      </details>
+    <div class="jd-q" data-q="q41"></div>
+    <div class="jd-q" data-q="q42"></div>
 
-      <details class="jd-more">
-        <summary>Podmínky titrace a indikace bodu ekvivalence</summary>
-        <div class="jd-body">
-          <p><b>Optimální pH:</b> obvykle <span class="jd-hl">pH 7–9</span> (pufr NaHCO₃). V&nbsp;silně kyselém prostředí (pH &lt; 4) hrozí oxidace I⁻ vzduchem a&nbsp;škrob nefunguje dobře, v&nbsp;silně zásaditém (pH &gt; 9) jod disproporcionuje. Jednotlivá stanovení mají i&nbsp;vlastní podmínky: například vitamín C se titruje v&nbsp;mírně kyselém roztoku, protože v&nbsp;zásaditém ho rychle oxiduje vzduch.</p>
-          <p><b>Indikátor:</b> nejčastěji škrobový maz, přidává se na začátku titrace (malé množství, asi 1–2&nbsp;ml).</p>
-          <ul>
-            <li><span class="jd-tip" tabindex="0">Mechanismus<span class="jd-tt">Lineární složka škrobu (amylosa) tvoří šroubovici, do které se zasunou molekuly jodu (I₂/I₃⁻). To způsobí intenzivně modré zbarvení.</span></span>: vzniká modrý adsorpční komplex amylosa–jod.</li>
-            <li>Změna barvy v&nbsp;bodě ekvivalence: bezbarvý roztok → trvale modrý od prvního nadbytku I₂.</li>
-            <li><span class="jd-tip" tabindex="0">Omezení škrobu<span class="jd-tt">Nefunguje dobře nad 50 °C, v silně kyselém prostředí a v přítomnosti některých organických rozpouštědel.</span></span>.</li>
-            <li>Náhradní (méně přesná) možnost: vlastní žlutohnědá barva I₃⁻ při vyšších koncentracích.</li>
-          </ul>
-          <div class="svgwrap" id="helixWrap" style="margin-top:.8rem"></div>
-        </div>
-      </details>
+    <div class="prose">
+      <h3>Čtení z grafu</h3>
+      <p>Tři grafy titračních křivek. U&nbsp;každého rozhodněte podle tvaru křivky.</p>
     </div>
-
-    <div class="jd-q" data-q="q22"></div>
+    <div class="jd-q" data-q="g1"></div>
+    <div class="jd-q" data-q="g2"></div>
+    <div class="jd-q" data-q="g3"></div>
+    <div class="jd-q" data-q="g4"></div>
 
     <div class="prose">
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>U&nbsp;titrace slabé kyseliny je v&nbsp;polovině spotřeby do bodu ekvivalence pH rovno pK<sub>a</sub> kyseliny. Proč právě tam?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p>V&nbsp;polovině cesty je zneutralizovaná přesně polovina kyseliny, takže [HA] = [A⁻]. Podle Hendersonovy–Hasselbalchovy rovnice je pak log([A⁻]/[HA]) = log 1 = 0 a&nbsp;<b>pH = pK<sub>a</sub></b>. Tady má pufr největší kapacitu, a&nbsp;proto je křivka v&nbsp;tomto místě nejplošší.</p></div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>
+
+
+  <!-- ============ VI. VÝPOČTY ============ -->
+  <section class="chapter" id="k5" data-title="Výpočty">
+    <div class="prose">
+      <span class="eyebrow">VI · stechiometrie</span>
+      <h2>Výpočty v&nbsp;acidobazických titracích</h2>
+      <p class="lead">Základem výpočtu je stechiometrie neutralizace v&nbsp;bodě ekvivalence.</p>
+
+      <div class="jd-key jd-d">
+        <h3>Klíčový vztah</h3>
+        <p class="jd-sub">Jednosytná kyselina + jednosytná zásada (HCl + NaOH, CH₃COOH + NaOH): v&nbsp;bodě ekvivalence</p>
+        <div class="abt-f"><b>n(kyseliny) = n(zásady)</b></div>
+        <div class="abt-f"><b>c(kyseliny) · V(kyseliny) = c(zásady) · V(zásady)</b></div>
+        <p class="jd-cond">Známe objem vzorku, koncentraci titrantu a&nbsp;jeho spotřebu → dopočítáme neznámou koncentraci vzorku.</p>
+      </div>
+
       <details class="jd-more">
-        <summary>Příklady stanovení přímou jodometrií</summary>
+        <summary>Obecně: výpočet pro libovolné koeficienty</summary>
         <div class="jd-body">
-          <ul>
-            <li><b>Vitamín C (kyselina L-askorbová)</b>, důležitý antioxidant:<br><span class="chem">C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻</span> (vzniká kyselina dehydroaskorbová)</li>
-            <li><b>Siřičitany a&nbsp;hydrogensiřičitany</b>, konzervanty:<br><span class="chem">SO₃²⁻ + I₂ + H₂O → SO₄²⁻ + 2H⁺ + 2I⁻</span></li>
-            <li><b>Thiosírany</b>, s&nbsp;jodem vzniká tetrathionan:<br><span class="chem">2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻</span></li>
-            <li><b>Sulfidy</b>, např. stanovení H₂S:<br><span class="chem">H₂S + I₂ → S + 2H⁺ + 2I⁻</span></li>
-            <li><b>Sloučeniny As(III) a&nbsp;Sb(III)</b>, klasická stanovení:<br><span class="chem">H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻</span></li>
-          </ul>
+          <p>V&nbsp;bodě ekvivalence se látkové množství ekvivalentů kyseliny rovná látkovému množství ekvivalentů zásady. Pro reakci typu <span class="chem">a HA + b BOH → …</span>, kde a&nbsp;a&nbsp;b jsou stechiometrické koeficienty, platí:</p>
+          <p class="eq"><span class="q">n</span>(HA) / a = <span class="q">n</span>(BOH) / b &nbsp;&nbsp;⇒&nbsp;&nbsp; <span class="q">c</span>(HA)·<span class="q">V</span>(HA) / a = <span class="q">c</span>(BOH)·<span class="q">V</span>(BOH) / b</p>
+          <p>Pro nejčastější případ (a = b = 1) se vztah zjednoduší na klíčový vztah výše.</p>
         </div>
       </details>
-
-      <div class="jd-fill" data-ans='[["začátku","zacatku","začátek","zacatek"],["modrého","modreho","modré","modre","modrý","modry"]]'>
-        <span class="eyebrow">Doplňte chybějící slova</span>
-        <p>Při přímé jodometrii se škrob přidává na <input type="text" autocomplete="off" aria-label="první chybějící slovo" placeholder="…"> titrace a&nbsp;bod ekvivalence ukáže vznik <input type="text" autocomplete="off" aria-label="druhé chybějící slovo" placeholder="…"> zbarvení.</p>
-        <button class="btn btn-sm btn-primary" type="button">Zkontrolovat</button><span class="jd-fb" aria-live="polite"></span>
-      </div>
 
       <div class="jd-calc">
-        <h4>Zkuste sami: výpočet (přímá jodometrie)</h4>
-        <p style="margin:0">Vypočítejte koncentraci roztoku Na₂S₂O₃, jestliže se na titraci 20,00&nbsp;ml tohoto roztoku spotřebovalo 18,50&nbsp;ml roztoku I₂ o&nbsp;koncentraci 0,0200&nbsp;mol/l. Reakce: <span class="chem">2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻</span></p>
+        <h4>Zkuste sami: výpočet koncentrace</h4>
+        <p style="margin:0">Vypočítejte koncentraci roztoku HCl, jestliže se na titraci 20,00&nbsp;ml tohoto roztoku spotřebovalo 15,50&nbsp;ml roztoku NaOH o&nbsp;koncentraci 0,1025&nbsp;mol/l (reakce 1&nbsp;:&nbsp;1).</p>
         <div class="jd-cg">
-          <div><label for="cVI">Objem I₂ (ml)</label><input type="text" inputmode="decimal" id="cVI" value="18,50" autocomplete="off"></div>
-          <div><label for="cCI">Koncentrace I₂ (mol/l)</label><input type="text" inputmode="decimal" id="cCI" value="0,0200" autocomplete="off"></div>
-          <div><label for="cVT">Objem vzorku Na₂S₂O₃ (ml)</label><input type="text" inputmode="decimal" id="cVT" value="20,00" autocomplete="off"></div>
-          <div><label for="cR">Poměr n(I₂) / n(S₂O₃²⁻)</label><input type="text" inputmode="decimal" id="cR" value="" placeholder="?" autocomplete="off"></div>
+          <div><label for="cVB">Objem NaOH (ml)</label><input type="text" inputmode="decimal" id="cVB" value="15,50" autocomplete="off"></div>
+          <div><label for="cCB">Koncentrace NaOH (mol/l)</label><input type="text" inputmode="decimal" id="cCB" value="0,1025" autocomplete="off"></div>
+          <div><label for="cVA">Objem HCl (ml)</label><input type="text" inputmode="decimal" id="cVA" value="20,00" autocomplete="off"></div>
         </div>
-        <button class="btn btn-primary" type="button" id="cGo">Vypočítat koncentraci Na₂S₂O₃</button>
+        <button class="btn btn-primary" type="button" id="cGo">Vypočítat koncentraci HCl</button>
         <div class="jd-out" id="cOut" aria-live="polite">Výsledek: — mol/l</div>
       </div>
 
       <div class="jd-think">
         <h4>Zamyslete se</h4>
-        <p>V&nbsp;přímé jodometrii dáváme škrob do baňky hned na začátku, v&nbsp;nepřímé ho přidáváme až těsně před koncem. Co se v&nbsp;baňce děje jinak, že si to přímá jodometrie může dovolit?</p>
+        <p>Titrujete kyselinu sírovou H₂SO₄ hydroxidem sodným. Můžete použít klíčový vztah <b>c·V = c·V</b> tak, jak je?</p>
         <details class="jd-more small">
           <summary>Zobrazit odpověď</summary>
-          <div class="jd-body"><p>V&nbsp;přímé jodometrii je v&nbsp;baňce až do bodu ekvivalence <b>žádný volný jod</b>, protože každá kapka se hned spotřebuje. Škrob tak nemá s&nbsp;čím vytvořit pevný komplex. Jod se objeví až v&nbsp;nepatrném nadbytku po bodu ekvivalence, a&nbsp;to je přesně to, co má škrob zachytit.</p></div>
+          <div class="jd-body"><p><b>Ne.</b> <span class="chem">H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O</span>, takže a = 1, b = 2 a&nbsp;<b>n(H₂SO₄) = n(NaOH) / 2</b>. S&nbsp;jednoduchým c·V = c·V by vám koncentrace kyseliny vyšla dvakrát větší. Stejně tak u&nbsp;uhličitanu: Na₂CO₃ spotřebuje 2&nbsp;HCl (příklad 3 v&nbsp;kapitole VIII).</p></div>
         </details>
       </div>
     </div>
-
-    <div class="chapter-done" data-done="k1"></div>
+    <div class="chapter-done" data-done="k5"></div>
   </section>
 
-
-  <!-- ============ III. NEPŘÍMÁ JODOMETRIE ============ -->
-  <section class="chapter" id="k2" data-title="Nepřímá jodometrie">
+  <!-- ============ VII. CHYBY A INTERPRETACE ============ -->
+  <section class="chapter" id="k6" data-title="Chyby a interpretace výsledků">
     <div class="prose">
-      <span class="eyebrow">III · stanovení oxidovadel</span>
-      <h2>Nepřímá jodometrie</h2>
-      <p class="lead">Metoda na stanovení <b>oxidovadel</b>. Analyt (oxidovadlo) zreaguje s&nbsp;<b>nadbytkem jodidu draselného</b> v&nbsp;okyseleném roztoku a&nbsp;uvolní odpovídající (ekvivalentní) množství jodu. Ten se pak titruje odměrným roztokem <b>thiosíranu sodného</b>.</p>
-
-      <div class="jd-key jd-i">
-        <h3>Klíčový princip a postup nepřímé jodometrie</h3>
-        <p class="jd-sub">Zjednodušený postup a indikace</p>
-        <ol class="jd-steps">
-          <li><span class="jd-n">1</span><div><b class="jd-t">Příprava vzorku a uvolnění I₂</b><p>Do titrační baňky dáme vzorek (oxidovadlo), přidáme <b>nadbytek KI</b> a&nbsp;<b>okyselíme</b> (např. H₂SO₄).</p><p class="jd-why">Proč KI a H⁺? Analyt zoxiduje I⁻ na I₂. Kyselé prostředí zvýší oxidační sílu mnoha analytů a&nbsp;urychlí reakci, nadbytek KI zajistí, že reakce proběhne úplně.</p><p class="jd-res">Výsledek: vzniká I₂, roztok je HNĚDÝ.</p></div></li>
-          <li><span class="jd-n">2</span><div><b class="jd-t">Titrace roztokem Na₂S₂O₃</b><p>Z&nbsp;byrety přidáváme odměrný roztok Na₂S₂O₃, který reaguje s&nbsp;uvolněným I₂: <span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p><p class="jd-why">Proč Na₂S₂O₃? Je to redukovadlo, které s&nbsp;I₂ reaguje kvantitativně.</p><p class="jd-res">Důsledek: jodu ubývá, hnědá barva bledne.</p></div></li>
-          <li><span class="jd-n">3</span><div><b class="jd-t">Přidání indikátoru (škrob)</b><p>Když roztok zbledne na <b>světle žlutou</b> (většina I₂ už zreagovala), přidáme škrob.</p><p class="jd-why">Proč až teď? Při vysoké koncentraci I₂ by vznikl příliš stabilní komplex škrob–jod a&nbsp;bod ekvivalence by se určoval špatně.</p><p class="jd-res">Výsledek: roztok se zbarví intenzivně MODŘE (zbylý I₂ se škrobem).</p></div></li>
-          <li><span class="jd-n">4</span><div><b class="jd-t">Dokončení titrace</b><p>Opatrně přidáváme Na₂S₂O₃ po kapkách.</p></div></li>
-          <li><span class="jd-n">5</span><div><b class="jd-t">Indikace bodu ekvivalence</b><p>Poslední molekuly I₂ zreagují s&nbsp;Na₂S₂O₃. Modrý komplex se rozpadne, protože volný I₂ už v&nbsp;roztoku není.</p><p class="jd-res">Výsledek: modrá náhle a&nbsp;úplně ZMIZÍ. Roztok je bezbarvý (nebo má barvu jiných produktů, např. zelenou od Cr³⁺).</p></div></li>
-        </ol>
-        <div class="jd-strip" aria-label="Barva roztoku během nepřímé jodometrie">
-          <div class="jd-fl"><span class="jd-flask" data-c="brown"></span><b>HNĚDÝ</b>po přidání KI</div>
-          <span class="jd-arr">→</span>
-          <div class="jd-fl"><span class="jd-flask" data-c="yellow"></span><b>bledne</b>titrace thiosíranem</div>
-          <span class="jd-arr">→</span>
-          <div class="jd-fl"><span class="jd-flask" data-c="pale"></span><b>světle žlutý</b>teď přidat škrob</div>
-          <span class="jd-arr">→</span>
-          <div class="jd-fl"><span class="jd-flask" data-c="blue"></span><b>MODRÝ</b>po kapkách dál</div>
-          <span class="jd-arr">→</span>
-          <div class="jd-fl"><span class="jd-flask" data-c="clear"></span><b>BEZBARVÝ</b>bod ekvivalence</div>
-        </div>
-        <p class="jd-cond"><b>Titrant:</b> Na₂S₂O₃ &nbsp;·&nbsp; <b>Krok 1:</b> nadbytek KI + kyselina &nbsp;·&nbsp; <b>Škrob:</b> až při světle žluté &nbsp;·&nbsp; <b>Konec:</b> modrý → bezbarvý</p>
-        <details class="jd-more">
-          <summary>Podrobný popis indikace</summary>
-          <div class="jd-body">
-            <ol>
-              <li><b>Výchozí stav:</b> analyt (oxidovadlo) nejprve zreaguje s&nbsp;nadbytkem jodidových iontů a&nbsp;uvolní se jod. Na začátku titrace je tedy v&nbsp;roztoku poměrně vysoká koncentrace I₂ a&nbsp;roztok je hnědavý až žlutohnědý.</li>
-              <li><b>Průběh titrace:</b> uvolněný jod titrujeme thiosíranem, který ho redukuje na jodid: <span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span>. Koncentrace jodu klesá a&nbsp;barva bledne.</li>
-              <li><b>Přidání škrobu:</b> hlavní rozdíl proti přímé jodometrii. Škrob se přidává až těsně před očekávaným bodem ekvivalence, když je roztok už jen slabě žlutý. Při vysoké koncentraci jodu by vznikl velmi stabilní komplex, který by se v&nbsp;bodě ekvivalence rozkládal pomalu.</li>
-              <li><b>Vznik komplexu:</b> i&nbsp;malé zbylé množství jodu vytvoří se škrobem intenzivně modrý až modročerný komplex.</li>
-              <li><b>Dokončení:</b> thiosíran přidáváme opatrně po kapkách.</li>
-              <li><b>Změna barvy:</b> v&nbsp;bodě ekvivalence se zredukuje poslední stopa jodu, komplex se rozpadne a&nbsp;modrá náhle a&nbsp;úplně zmizí.</li>
-            </ol>
-            <p><b>Stručně:</b> v&nbsp;nepřímé jodometrii se škrob přidává těsně před koncem titrace a&nbsp;bod ekvivalence ukáže zmizení modré barvy, když se spotřebuje všechen původně uvolněný jod.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div class="panel-head">
-        <span class="tag">Vyzkoušejte si</span>
-        <h3>Kdy přidáte škrob? Titrujte jod z&nbsp;bělidla thiosíranem</h3>
-      </div>
-      <div class="panel-body">
-        <div class="jd-sim">
-          <div class="svgwrap" id="indWrap"></div>
-          <div style="display:flex;flex-direction:column;gap:.9rem">
-            <div class="jd-btns">
-              <button class="btn btn-primary" type="button" id="indAdd1">+ 1&nbsp;ml</button>
-              <button class="btn" type="button" id="indAdd01">+ 1 kapka (0,05&nbsp;ml)</button>
-              <button class="btn" type="button" id="indStarch">Přidat škrob</button>
-              <button class="btn" type="button" id="indReset">Znovu</button>
-            </div>
-            <div class="grid3">
-              <div class="readout" id="indRo1"></div>
-              <div class="readout" id="indRo2"></div>
-            </div>
-            <div class="jd-msg" id="indMsg" aria-live="polite"></div>
-          </div>
-        </div>
-        <p class="panel-note">Uvolněný jod odpovídá 14,85&nbsp;ml thiosíranu (čísla z&nbsp;řešeného příkladu 2). Zkuste přidat škrob hned na začátku a&nbsp;pak až při světle žluté barvě a&nbsp;porovnejte, jak ostrý je konec.</p>
-      </div>
-    </div>
-
-    <div class="jd-q" data-q="q32"></div>
-
-    <div class="prose">
-      <div class="jd-kk">
-        <div class="jd-k">
-          <h4>Krok 1: uvolnění I₂</h4>
-          <p class="eq" style="font-size:.9rem"><span class="chem">analyt(ox) + KI (nadbytek) + H⁺ → I₂ + produkty</span></p>
-          <p>Jodid (I⁻) působí jako <b>redukovadlo</b>.</p>
-          <details class="jd-more small">
-            <summary>Proč nadbytek KI a kyselé prostředí?</summary>
-            <div class="jd-body">
-              <p><b>Nadbytek KI</b> zajistí úplnou (kvantitativní) reakci analytu a&nbsp;zvýší rozpustnost vzniklého I₂ (vznik I₃⁻).</p>
-              <p><b>Kyselé prostředí (H⁺):</b> mnohá oxidovadla (Cr₂O₇²⁻, MnO₄⁻, IO₃⁻) mají v&nbsp;kyselém prostředí vyšší redoxní potenciál, jsou tedy silnější. Okyselení navíc často urychlí reakci a&nbsp;potlačí vedlejší reakce.</p>
-            </div>
-          </details>
-        </div>
-        <div class="jd-k">
-          <h4>Krok 2: titrace I₂</h4>
-          <p class="eq" style="font-size:.9rem"><span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>
-          <p>Thiosíran (S₂O₃²⁻) působí jako <b>redukovadlo</b>, vzniká tetrathionan.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="jd-q" data-q="q31"></div>
-
-    <div class="prose">
-      <details class="jd-more">
-        <summary>Odměrný roztok Na₂S₂O₃: příprava, stálost, standardizace</summary>
-        <div class="jd-body">
-          <p><b>Příprava:</b> krystalický Na₂S₂O₃·5H₂O se rozpustí v&nbsp;čerstvě převařené (odstranění CO₂) a&nbsp;vychlazené destilované vodě. Pro stálost se doporučuje přidat trochu Na₂CO₃ (asi 0,1&nbsp;g/l), který udržuje slabě zásadité pH.</p>
-          <p><b>Stálost:</b> roztok Na₂S₂O₃ <b>není dlouhodobě stálý</b>. Hlavní příčiny rozkladu:</p>
-          <ul>
-            <li><b>Reakce s&nbsp;CO₂:</b> rozpuštěný CO₂ tvoří H₂CO₃ a&nbsp;v&nbsp;kyselém prostředí se thiosíran rozkládá: <span class="chem">S₂O₃²⁻ + 2H⁺ → S + SO₂ + H₂O</span>. Proto převařená voda a&nbsp;přídavek Na₂CO₃.</li>
-            <li><b>Bakteriální rozklad:</b> některé bakterie (např. <i>Thiobacillus</i>) thiosírany metabolizují. Pomůže sterilizace.</li>
-            <li><b>Oxidace vzdušným kyslíkem:</b> pomalá, urychlují ji stopy kovů (např. Cu²⁺).</li>
-          </ul>
-          <p>Kvůli nestálosti je nutná pravidelná standardizace (např. jednou za 1–2 týdny), nejčastěji na primární standardy, které uvolní známé množství I₂:</p>
-          <ul>
-            <li><b>Na KIO₃ (jodičnan draselný):</b> velmi přesná metoda. Ke známému množství KIO₃ se přidá nadbytek KI a&nbsp;kyselina, uvolněný I₂ se titruje připraveným roztokem Na₂S₂O₃.<br><span class="chem">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span>, celkový poměr <b>1&nbsp;mol IO₃⁻ ~ 6&nbsp;mol S₂O₃²⁻</b></li>
-            <li><b>Na K₂Cr₂O₇ (dichroman draselný):</b> podobný princip, ale reakce Cr₂O₇²⁻ s&nbsp;I⁻ je pomalejší a&nbsp;potřebuje delší čas (v&nbsp;temnu).<br><span class="chem">Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O</span>, celkový poměr <b>1&nbsp;mol Cr₂O₇²⁻ ~ 6&nbsp;mol S₂O₃²⁻</b></li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div class="panel">
-      <div class="panel-head">
-        <span class="tag">Příklady stanovení</span>
-        <h3>Kolik thiosíranu spotřebuje 1 mol analytu? Vyberte analyt</h3>
-      </div>
-      <div class="panel-body">
-        <div class="segmented" id="chSel" role="group" aria-label="Analyt" style="flex-wrap:wrap"></div>
-        <div id="chOut" style="margin-top:1rem" aria-live="polite"></div>
-      </div>
-    </div>
-
-    <div class="prose">
-      <div class="jd-fill" data-ans='[["Na2S2O3","na2s2o3","thiosíranu","thiosiranu","thiosíran","thiosiran","tiosíranu"],["žlutou","zlutou","žlutá","zluta","světle žlutou","svetle zlutou"]]'>
-        <span class="eyebrow">Doplňte chybějící slova</span>
-        <p>Při nepřímé jodometrii se uvolněný jod titruje odměrným roztokem <input type="text" autocomplete="off" aria-label="vzorec titrantu" placeholder="vzorec…">. Škrob se přidává, až když roztok zbledne na světle <input type="text" autocomplete="off" aria-label="barva" placeholder="…"> barvu.</p>
-        <button class="btn btn-sm btn-primary" type="button">Zkontrolovat</button><span class="jd-fb" aria-live="polite"></span>
-      </div>
-
-      <div class="jd-think">
-        <h4>Zamyslete se</h4>
-        <p>Při stanovení dichromanu je roztok v&nbsp;bodě ekvivalence <b>zelený</b>, ne bezbarvý. Znamená to, že jste titraci ještě nedokončili?</p>
-        <details class="jd-more small">
-          <summary>Zobrazit odpověď</summary>
-          <div class="jd-body"><p>Ne. Rozhoduje <b>zmizení modré</b>, ne úplné odbarvení. Zelená barva patří iontům Cr³⁺, které z&nbsp;dichromanu vznikly v&nbsp;kroku 1, a&nbsp;žádný jod už neznamená. Kdo by titroval dál „do bezbarva“, výsledek přetáhne.</p></div>
-        </details>
-      </div>
-    </div>
-
-    <div class="chapter-done" data-done="k2"></div>
-  </section>
-
-
-  <!-- ============ IV. ZDROJE CHYB ============ -->
-  <section class="chapter" id="k3" data-title="Praktické aspekty a zdroje chyb">
-    <div class="prose">
-      <span class="eyebrow">IV · praktické aspekty</span>
-      <h2>Praktické aspekty a&nbsp;zdroje chyb</h2>
-      <p class="lead">Přesnost jodometrických stanovení závisí na pečlivém dodržení postupu a&nbsp;na omezení možných chyb. Klíčová otázka u&nbsp;každé chyby zní: <b>zvýší, nebo sníží výsledek?</b> V&nbsp;nepřímé jodometrii platí jednoduché pravidlo: <b>jod navíc = výsledek vyšší, jod ztracený = výsledek nižší.</b></p>
+      <span class="eyebrow">VII · praktické aspekty</span>
+      <h2>Chyby a&nbsp;interpretace výsledků</h2>
+      <p class="lead">Výsledek hodnotíme jako u&nbsp;jiných titrací: <b>správnost</b> (shoda se skutečnou hodnotou) a&nbsp;<b>přesnost</b> (shoda opakovaných měření). Opakované titrace (aspoň 3) jsou nutné. Soustavná odchylka jedním směrem ukazuje na <b>systematickou chybu</b>. Například starý roztok NaOH má nižší koncentraci, a&nbsp;stanovení kyseliny proto vyjde falešně vyšší.</p>
     </div>
 
     <div class="panel">
       <div class="panel-head">
         <span class="tag">Třídička</span>
-        <h3>Nepřímá jodometrie: bude výsledek vyšší, nebo nižší?</h3>
+        <h3>Stanovujete kyselinu titrací NaOH: vyjde výsledek vyšší, nižší, nebo stejný?</h3>
       </div>
       <div class="panel-body">
         <div class="jd-errs" id="errBox"></div>
@@ -1584,229 +1615,147 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
 
     <div class="prose">
       <details class="jd-more">
-        <summary>Podrobný přehled zdrojů chyb (tabulka)</summary>
+        <summary>Běžné zdroje chyb (přehled)</summary>
         <div class="jd-body">
-          <div class="tablewrap">
-            <table>
-              <thead><tr><th>Zdroj chyby</th><th>Příčina, podrobnosti</th><th>Vliv na výsledek (nepřímá)</th><th>Prevence</th></tr></thead>
-              <tbody>
-                <tr><td><b>Oxidace I⁻ vzdušným O₂</b></td><td><span class="chem">4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O</span>. Významná v&nbsp;kyselém prostředí, urychluje ji světlo a&nbsp;ionty kovů (Cu²⁺, Fe³⁺). Vzniká „falešný“ jod.</td><td><b>kladný</b> (vyšší)</td><td>krátká doba mezi okyselením a&nbsp;titrací, rychlá práce, bez přímého světla, maskování rušivých iontů, slepý pokus</td></tr>
-                <tr><td><b>Těkavost I₂</b></td><td>Jod má vysoký tlak par a&nbsp;snadno uniká z&nbsp;otevřeného roztoku, hlavně při míchání a&nbsp;za tepla.</td><td><b>záporný</b> (nižší)</td><td>baňky se zábrusem nebo přikryté hodinovým sklem, nižší teplota, dostatečný nadbytek KI (váže I₂ na méně těkavý I₃⁻), titrovat bez odkladu</td></tr>
-                <tr><td><b>Neúplná reakce analytu s&nbsp;KI</b></td><td>Některá oxidovadla reagují s&nbsp;KI pomalu. Když reakce neproběhne úplně, uvolní se méně I₂.</td><td><b>záporný</b> (nižší)</td><td>dostatečný reakční čas (někdy i&nbsp;desítky minut, často v&nbsp;temnu), správné pH, nadbytek KI, případně katalyzátor (molybdenan u&nbsp;H₂O₂)</td></tr>
-                <tr><td><b>Adsorpce I₂ na sraženinách</b></td><td>Vzniká-li při reakci sraženina (CuI, S), může na povrchu zadržet část I₂, který pak není dostupný pro titraci.</td><td><b>záporný</b> (nižší)</td><td>intenzivní míchání, přídavek látky, která adsorpci sníží (KSCN u&nbsp;Cu²⁺ → CuSCN), škrob až ke konci</td></tr>
-                <tr><td><b>Rozklad Na₂S₂O₃</b></td><td>Nestálost vlivem CO₂, bakterií, kyslíku a&nbsp;kyselého pH. Skutečná koncentrace titrantu je nižší, než se předpokládá, takže ho na stejný jod spotřebujeme víc.</td><td><b>kladný</b> (vyšší)</td><td>čerstvě standardizovaný roztok, správná příprava a&nbsp;uchovávání (převařená voda, Na₂CO₃, tmavá lahev), vyhnout se silně kyselému prostředí</td></tr>
-                <tr><td><b>Nečistota IO₃⁻ v&nbsp;KI</b></td><td>Jodičnany v&nbsp;KI v&nbsp;kyselém prostředí uvolní jod navíc: <span class="chem">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span>.</td><td><b>kladný</b> (vyšší)</td><td>KI čistoty p.a., test KI (okyselený roztok KI se škrobem nesmí zmodrat), slepý pokus</td></tr>
-                <tr><td><b>Chyby určení bodu ekvivalence</b></td><td>Indikátor přidaný příliš brzy nebo pozdě, špatně posouzený barevný přechod, pomalá reakce indikátoru.</td><td>různý</td><td>pečlivé pozorování, správné načasování škrobu (u&nbsp;nepřímé metody), dobré osvětlení, zkušenost</td></tr>
-              </tbody>
-            </table>
-          </div>
+          <ul>
+            <li><b>Chyba indikátora:</b> rozdíl mezi teoretickým bodem ekvivalence (n(kys.) = n(zás.)) a&nbsp;bodem, kde indikátor změní barvu. Zmenší ji správný výběr indikátoru (pK<sub>a</sub> ≈ pH v&nbsp;bodě ekvivalence).</li>
+            <li><b>Pohlcení CO₂ roztokem zásady:</b> klesá účinná koncentrace OH⁻ a&nbsp;vzniká uhličitan, což dělá chyby hlavně při titraci slabých kyselin. Prevence: čerstvá převařená voda, ochrana roztoku (natronové vápno), častá standardizace.</li>
+            <li><b>Chyby při standardizaci:</b> nepřesné navážení primárního standardu nebo chyba při standardizační titraci se přenese do všech dalších stanovení.</li>
+            <li><b>Chyby při měření objemů:</b> nepřesnost pipety (objem vzorku) a&nbsp;byrety (objem titrantu), chyba paralaxy při odečítání.</li>
+            <li><b>Vliv teploty:</b> objem roztoků i&nbsp;konstanty (<span class="q">K</span><sub>a</sub>, <span class="q">K</span><sub>b</sub>, <span class="q">K</span><sub>w</sub>) závisí na teplotě. Titruje se při stálé laboratorní teplotě.</li>
+          </ul>
         </div>
       </details>
-    </div>
-
-    <div class="jd-q" data-q="q41"></div>
-    <div class="jd-q" data-q="q42"></div>
-    <div class="chapter-done" data-done="k3"></div>
-  </section>
-
-  <!-- ============ V. INTERPRETACE VÝSLEDKŮ ============ -->
-  <section class="chapter" id="k4" data-title="Interpretace výsledků">
-    <div class="prose">
-      <span class="eyebrow">V · vyhodnocení</span>
-      <h2>Interpretace výsledků</h2>
-      <p class="lead">Číslo z&nbsp;titrace je jen část analýzy. Stejně důležité je správně ho vyložit a&nbsp;posoudit, nakolik se mu dá věřit.</p>
-      <h3>Správnost a&nbsp;přesnost</h3>
-      <div class="jd-two">
-        <div class="jd-m jd-d">
-          <h4><span class="jd-tip" tabindex="0" style="color:inherit">Správnost<span class="jd-tt">Míra shody mezi naměřenou a skutečnou (pravdivou) hodnotou koncentrace nebo množství analytu. Ovlivňují ji systematické chyby.</span></span></h4>
-          <p style="margin:0">Jak blízko je náš výsledek <b>„pravé“ hodnotě</b>?</p>
-        </div>
-        <div class="jd-m jd-i">
-          <h4><span class="jd-tip" tabindex="0" style="color:inherit">Přesnost<span class="jd-tt">Míra shody mezi výsledky opakovaných měření za stejných podmínek. Vyjadřuje opakovatelnost měření. Ovlivňují ji náhodné chyby.</span></span></h4>
-          <p style="margin:0">Jak blízko jsou si navzájem <b>výsledky opakovaných titrací</b> téhož vzorku?</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div class="panel-body">
-        <div class="svgwrap" id="tgtWrap"></div>
-        <p class="panel-note">Střed terče je skutečná hodnota, tečky jsou opakovaná stanovení. Ideální výsledek je správný i&nbsp;přesný (první terč).</p>
-      </div>
-    </div>
-
-    <div class="prose">
-      <h3>Opakovaná stanovení a&nbsp;statistika</h3>
-      <p>Jedna titrace nestačí, protože nevyhnutelné náhodné chyby (odečet byrety, určení bodu ekvivalence) by výsledek zkreslily. Každé stanovení se proto dělá <b>nejméně třikrát</b> (paralelní stanovení). Výsledkem analýzy je <span class="jd-tip" tabindex="0">průměrná hodnota<span class="jd-tt">Součet hodnot dělený jejich počtem. Nejlepší odhad skutečné hodnoty z dané sady měření.</span></span>. Přesnost popisuje <span class="jd-tip" tabindex="0">směrodatná odchylka<span class="jd-tt">Statistická míra rozptylu hodnot kolem průměru. Nižší hodnota znamená vyšší přesnost.</span></span> (SD) nebo relativní směrodatná odchylka (RSD). Výrazně odlišné (odlehlé) hodnoty lze vyřadit statistickým testem (např. Q-test, Grubbsův test), ale jen se zdůvodněním.</p>
-    </div>
-
-    <div class="panel">
-      <div class="panel-head">
-        <span class="tag">Kalkulačka</span>
-        <h3>Tři paralelní titrace → průměr, SD, RSD</h3>
-      </div>
-      <div class="panel-body">
-        <div class="jd-stat">
-          <div class="ctl"><label for="st1">Spotřeba 1 (ml)</label><input type="text" inputmode="decimal" id="st1" value="14,85" autocomplete="off"></div>
-          <div class="ctl"><label for="st2">Spotřeba 2 (ml)</label><input type="text" inputmode="decimal" id="st2" value="14,90" autocomplete="off"></div>
-          <div class="ctl"><label for="st3">Spotřeba 3 (ml)</label><input type="text" inputmode="decimal" id="st3" value="14,80" autocomplete="off"></div>
-        </div>
-        <div class="grid3">
-          <div class="readout" id="stRo1"></div>
-          <div class="readout" id="stRo2"></div>
-          <div class="readout" id="stRo3"></div>
-        </div>
-        <div class="jd-msg" id="stMsg" style="margin-top:.9rem" aria-live="polite"></div>
-      </div>
-    </div>
-
-    <div class="prose">
-      <h3>Vliv systematických chyb na interpretaci</h3>
-      <p>Vychází-li výsledek soustavně vyšší nebo nižší, než by měl (třeba u&nbsp;standardu se známým obsahem), hledejte příčinu v&nbsp;<span class="jd-tip" tabindex="0">systematických chybách<span class="jd-tt">Chyby, které posouvají výsledek pořád stejným směrem (vždy ho zvyšují, nebo vždy snižují). Způsobuje je metoda, přístroj nebo experimentátor.</span></span> podle kapitoly IV:</p>
-      <div class="jd-two">
-        <div class="jd-m jd-i">
-          <h4>↑ Falešně VYSOKÝ výsledek</h4>
-          <ul><li>oxidace I⁻ vzduchem</li><li>nečistota IO₃⁻ v&nbsp;KI</li><li>rozložený Na₂S₂O₃</li><li>chybná standardizace titrantu (skutečná koncentrace je <b>nižší</b>, než předpokládáme)</li></ul>
-        </div>
-        <div class="jd-m jd-d">
-          <h4>↓ Falešně NÍZKÝ výsledek</h4>
-          <ul><li>těkání I₂</li><li>neúplná reakce analytu</li><li>adsorpce I₂ na sraženině</li><li>chybná standardizace titrantu (skutečná koncentrace je <b>vyšší</b>, než předpokládáme)</li></ul>
-        </div>
-      </div>
-      <p>Najít a&nbsp;odstranit systematické chyby je klíč ke správným výsledkům.</p>
-
-      <div class="jd-think">
-        <h4>Zamyslete se</h4>
-        <p>Při stanovení mědi (nepřímá jodometrie) vám opakovaně vychází výrazně <b>nižší</b> koncentrace Cu²⁺, než uvádí certifikát standardu. Které systematické chyby byste zvažovali jako nejpravděpodobnější?</p>
-        <details class="jd-more small">
-          <summary>Možné příčiny (klepněte pro nápovědu)</summary>
-          <div class="jd-body">
-            <ul>
-              <li>Neúplná reakce Cu²⁺ s&nbsp;KI (málo času, špatné pH?).</li>
-              <li>Výrazná adsorpce I₂ na sraženině CuI (málo míchání, chyběl KSCN?).</li>
-              <li>Těkání I₂ (práce v&nbsp;otevřené nádobě?).</li>
-              <li>Chyba při standardizaci Na₂S₂O₃ (je jeho skutečná koncentrace vyšší, než si myslíte?).</li>
-            </ul>
-            <p style="color:var(--ink-2);font-size:.93rem">Rozložený thiosíran to <b>nebude</b>: slabší titrant znamená větší spotřebu, a&nbsp;tedy výsledek vyšší.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-    <div class="chapter-done" data-done="k4"></div>
-  </section>
-
-
-  <!-- ============ VI. ŘEŠENÉ PŘÍKLADY ============ -->
-  <section class="chapter" id="k5" data-title="Řešené příklady">
-    <div class="prose">
-      <span class="eyebrow">VI · výpočty</span>
-      <h2>Řešené příklady</h2>
-      <p class="lead">Každý výpočet má stejnou kostru: <b>n = c·V</b> titrantu → <b>poměr</b> z&nbsp;rovnice → <b>přepočet z&nbsp;alikvotu</b> na celý vzorek → <b>m = n·M</b>. Kroky si rozbalujte postupně a&nbsp;zkuste vždy nejdřív odhadnout, co přijde.</p>
-
-      <div class="jd-ex">
-        <h3>Příklad 1: stanovení vitamínu C (přímá jodometrie)</h3>
-        <p><b>Úloha:</b> tableta s&nbsp;deklarovaným obsahem 500&nbsp;mg vitamínu C (kyselina askorbová, C₆H₈O₆, <span class="q">M</span> = 176,12&nbsp;g/mol) byla rozpuštěna ve vodě a&nbsp;doplněna na 100,0&nbsp;ml v&nbsp;odměrné baňce. Pipetou se odebralo 20,00&nbsp;ml (alikvot), přidalo se pár kapek škrobu a&nbsp;titrovalo se roztokem jodu o&nbsp;koncentraci 0,0485&nbsp;mol/l. Spotřeba byla 11,60&nbsp;ml. Vypočítejte skutečný obsah vitamínu C v&nbsp;tabletě (v&nbsp;mg) a&nbsp;porovnejte ho s&nbsp;deklarovanou hodnotou.</p>
-        <div class="jd-route">
-          <span class="jd-rb">tableta<br><b>? mg</b></span><span class="jd-ra">→</span>
-          <span class="jd-rb">odměrná baňka<br><b>100,0 ml</b></span><span class="jd-ra">→ odebrat</span>
-          <span class="jd-rb">alikvot<br><b>20,00 ml</b></span><span class="jd-ra">→ titrovat</span>
-          <span class="jd-rb jd-rt">I₂ 0,0485 mol/l<br><b>11,60 ml</b></span>
-          <span class="jd-rf">titrujeme jen pětinu → výsledek × 5</span>
-        </div>
-        <details class="jd-more"><summary>Krok 1: chemická reakce a stechiometrie</summary><div class="jd-body">
-          <p class="eq"><span class="chem">C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻</span> (vzniká kyselina dehydroaskorbová)</p>
-          <p>1&nbsp;mol vitamínu C reaguje s&nbsp;1&nbsp;mol I₂: <b><span class="q">n</span>(C₆H₈O₆) : <span class="q">n</span>(I₂) = 1 : 1</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 2: látkové množství I₂</summary><div class="jd-body">
-          <p><span class="q">n</span> = <span class="q">c</span>·<span class="q">V</span>, objem v&nbsp;litrech.</p>
-          <p class="eq"><span class="q">n</span>(I₂) = 0,0485&nbsp;mol/l · 0,01160&nbsp;l = <b>5,626·10⁻⁴&nbsp;mol</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 3: vitamín C v alikvotu (20 ml)</summary><div class="jd-body">
-          <p>Z&nbsp;poměru 1&nbsp;:&nbsp;1: <span class="q">n</span>(C₆H₈O₆) ve 20&nbsp;ml = <span class="q">n</span>(I₂) = <b>5,626·10⁻⁴&nbsp;mol</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 4: vitamín C v celé 100ml baňce</summary><div class="jd-body">
-          <p>Titrovalo se jen 20&nbsp;ml ze 100&nbsp;ml, v&nbsp;celé baňce je tedy pětkrát víc (faktor zředění 100/20 = 5).</p>
-          <p class="eq"><span class="q">n</span>(celkem) = 5,626·10⁻⁴&nbsp;mol · 5 = <b>2,813·10⁻³&nbsp;mol</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 5: hmotnost vitamínu C v tabletě</summary><div class="jd-body">
-          <p class="eq"><span class="q">m</span> = <span class="q">n</span>·<span class="q">M</span> = 2,813·10⁻³&nbsp;mol · 176,12&nbsp;g/mol = 0,4954&nbsp;g = <b>495&nbsp;mg</b></p>
-          <p>Porovnání: deklarováno 500&nbsp;mg, naměřeno 495&nbsp;mg, tedy 99&nbsp;%. Tableta deklaraci odpovídá.</p>
-        </div></details>
-        <div class="jd-ans">Skutečný obsah vitamínu C v tabletě je přibližně 495 mg.</div>
-      </div>
-
-      <div class="jd-ex">
-        <h3>Příklad 2: aktivní chlor v bělidle (nepřímá jodometrie)</h3>
-        <p><b>Úloha:</b> 5,00&nbsp;ml komerčního bělidla (obsahuje chlornan sodný NaClO) se pipetou přeneslo do 100&nbsp;ml odměrné baňky a&nbsp;doplnilo destilovanou vodou po značku (zředění 1&nbsp;:&nbsp;20). Z&nbsp;tohoto roztoku se odebralo 10,00&nbsp;ml do titrační baňky, přidal se asi 1&nbsp;g KI a&nbsp;5&nbsp;ml kyseliny octové (2&nbsp;mol/l). Uvolněný jod se hned titroval roztokem Na₂S₂O₃ o&nbsp;koncentraci 0,1050&nbsp;mol/l, škrob se přidal ke konci. Spotřeba byla 14,85&nbsp;ml. Vypočítejte hmotnostní procento NaClO (<span class="q">M</span> = 74,44&nbsp;g/mol) v&nbsp;bělidle, je-li jeho hustota 1,08&nbsp;g/ml.</p>
-        <div class="jd-route">
-          <span class="jd-rb">bělidlo<br><b>5,00 ml</b></span><span class="jd-ra">→ zředit</span>
-          <span class="jd-rb">odměrná baňka<br><b>100 ml</b></span><span class="jd-ra">→ odebrat</span>
-          <span class="jd-rb">alikvot<br><b>10,00 ml</b></span><span class="jd-ra">→ + KI, H⁺</span>
-          <span class="jd-rb">uvolněný<br><b>I₂</b></span><span class="jd-ra">→ titrovat</span>
-          <span class="jd-rb jd-rt">Na₂S₂O₃ 0,1050 mol/l<br><b>14,85 ml</b></span>
-          <span class="jd-rf">titrujeme desetinu → výsledek × 10</span>
-        </div>
-        <details class="jd-more"><summary>Krok 1: chemické reakce a stechiometrie</summary><div class="jd-body">
-          <p><b>Uvolnění I₂:</b> <span class="chem">ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O</span> &nbsp; (1&nbsp;mol ClO⁻ ~ 1&nbsp;mol I₂)</p>
-          <p><b>Titrace I₂:</b> <span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span> &nbsp; (1&nbsp;mol I₂ ~ 2&nbsp;mol S₂O₃²⁻)</p>
-          <p>Celkem: <b>1&nbsp;mol ClO⁻ ~ 1&nbsp;mol I₂ ~ 2&nbsp;mol S₂O₃²⁻</b>, tedy <span class="q">n</span>(ClO⁻) : <span class="q">n</span>(S₂O₃²⁻) = 1 : 2</p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 2: látkové množství Na₂S₂O₃</summary><div class="jd-body">
-          <p class="eq"><span class="q">n</span> = 0,1050&nbsp;mol/l · 0,01485&nbsp;l = <b>1,559·10⁻³&nbsp;mol</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 3: ClO⁻ v titrovaném alikvotu (10 ml)</summary><div class="jd-body">
-          <p class="eq"><span class="q">n</span>(ClO⁻) = <span class="q">n</span>(Na₂S₂O₃)/2 = 1,559·10⁻³ / 2 = <b>7,796·10⁻⁴&nbsp;mol</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 4: ClO⁻ ve 100 ml zředěného roztoku</summary><div class="jd-body">
-          <p>Faktor přepočtu 100&nbsp;ml / 10&nbsp;ml = 10: <span class="q">n</span> = <b>7,796·10⁻³&nbsp;mol</b>. Tolik ClO⁻ pochází z&nbsp;původních 5,00&nbsp;ml bělidla.</p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 5: hmotnost NaClO v 5,00 ml bělidla</summary><div class="jd-body">
-          <p class="eq"><span class="q">m</span>(NaClO) = 7,796·10⁻³&nbsp;mol · 74,44&nbsp;g/mol = <b>0,5804&nbsp;g</b></p>
-        </div></details>
-        <details class="jd-more"><summary>Krok 6: hmotnostní procento NaClO</summary><div class="jd-body">
-          <p class="eq"><span class="q">m</span>(vzorek) = 5,00&nbsp;ml · 1,08&nbsp;g/ml = 5,40&nbsp;g<br><span class="q">w</span>(NaClO) = 0,5804 / 5,40 · 100&nbsp;% = <b>10,75&nbsp;%</b></p>
-        </div></details>
-        <div class="jd-ans">Obsah NaClO v komerčním bělidle je přibližně 10,8 % hmotnostních.</div>
-      </div>
-    </div>
-    <div class="chapter-done" data-done="k5"></div>
-  </section>
-
-  <!-- ============ VII. SHRNUTÍ ============ -->
-  <section class="chapter" id="k6" data-title="Shrnutí">
-    <div class="prose">
-      <span class="eyebrow">VII · shrnutí a klíčové pojmy</span>
-      <h2>Přímá a&nbsp;nepřímá jodometrie vedle sebe</h2>
-      <div class="tablewrap jd-cmp">
-        <table>
-          <thead><tr><th>Kritérium</th><th class="d">Přímá (jodimetrie)</th><th class="i">Nepřímá</th></tr></thead>
-          <tbody>
-            <tr><td>Princip</td><td class="d">Titrace redukovadla roztokem I₂</td><td class="i">Oxidovadlo uvolní I₂ z&nbsp;KI, I₂ se titruje Na₂S₂O₃</td></tr>
-            <tr><td>Stanovuje se</td><td class="d"><b>Redukovadlo</b> (vitamín C, SO₃²⁻)</td><td class="i"><b>Oxidovadlo</b> (ClO⁻, Cu²⁺, Cr₂O₇²⁻)</td></tr>
-            <tr><td>Odměrný roztok</td><td class="d"><b>I₂</b> (v&nbsp;KI)</td><td class="i"><b>Na₂S₂O₃</b></td></tr>
-            <tr><td>Další činidla</td><td class="d">—</td><td class="i">KI (v&nbsp;nadbytku), H⁺</td></tr>
-            <tr><td>Úloha jodu</td><td class="d">I₂ = oxidovadlo</td><td class="i">I⁻ = redukovadlo (krok 1), I₂ = meziprodukt</td></tr>
-            <tr><td>Optimální pH</td><td class="d">neutrální / slabě zásadité (7–9)</td><td class="i">kyselé (krok 1), neutrální / slabě kyselé (titrace)</td></tr>
-            <tr><td>Škrob</td><td class="d"><b>na začátku</b></td><td class="i"><b>těsně před bodem ekvivalence</b></td></tr>
-            <tr><td>Změna barvy</td><td class="d"><b>bezbarvý → modrý</b></td><td class="i"><b>modrý → bezbarvý</b></td></tr>
-            <tr><td>Stálost titrantu</td><td class="d">nižší (I₂ těká)</td><td class="i">nižší (Na₂S₂O₃ se rozkládá)</td></tr>
-          </tbody>
-        </table>
-      </div>
     </div>
     <div class="chapter-done" data-done="k6"></div>
   </section>
 
 
+  <!-- ============ VIII. ŘEŠENÉ PŘÍKLADY ============ -->
+  <section class="chapter" id="k7" data-title="Řešené příklady">
+    <div class="prose">
+      <span class="eyebrow">VIII · výpočty v praxi</span>
+      <h2>Řešené příklady</h2>
+      <p class="lead">Tři úlohy, které na sebe navazují: nejdřív zjistíme přesnou koncentraci NaOH, s&nbsp;ní stanovíme ocet, a&nbsp;nakonec standardizujeme HCl. Kroky si rozbalujte postupně a&nbsp;vždy nejdřív zkuste odhadnout, co přijde.</p>
+
+      <div class="jd-ex abt-b">
+        <h3>Příklad 1: standardizace NaOH na KHP</h3>
+        <p><b>Úloha:</b> k&nbsp;přesnému stanovení koncentrace připraveného roztoku NaOH se navážilo 0,7532&nbsp;g čistého hydrogenftalanu draselného (KHP, <span class="q">M</span> = 204,22&nbsp;g/mol). KHP se rozpustil ve vodě, přidal se fenolftalein a&nbsp;titrovalo se roztokem NaOH do trvale růžového zbarvení. Spotřeba NaOH byla 35,85&nbsp;ml. Vypočítejte přesnou koncentraci NaOH.</p>
+        <div class="jd-route">
+          <span class="jd-rb">KHP navážka<br><b>0,7532 g</b></span><span class="jd-ra">→ n = m/M</span>
+          <span class="jd-rb">KHP<br><b>? mol</b></span><span class="jd-ra">→ 1 : 1</span>
+          <span class="jd-rb">NaOH<br><b>? mol</b></span><span class="jd-ra">→ c = n/V</span>
+          <span class="jd-rb jd-rt">NaOH spotřeba<br><b>35,85 ml</b></span>
+          <span class="jd-rf">standard navážený přímo do baňky → žádný alikvot</span>
+        </div>
+        <details class="jd-more"><summary>Krok 1: reakce a stechiometrie</summary><div class="jd-body">
+          <p>KHP (HC₈H₄O₄⁻) je jednosytná kyselina: <span class="chem">HC₈H₄O₄⁻ + OH⁻ → C₈H₄O₄²⁻ + H₂O</span></p>
+          <p>Poměr: <b><span class="q">n</span>(KHP) : <span class="q">n</span>(NaOH) = 1 : 1</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 2: látkové množství KHP</summary><div class="jd-body">
+          <p class="eq"><span class="q">n</span> = <span class="q">m</span>/<span class="q">M</span> = 0,7532&nbsp;g / 204,22&nbsp;g/mol = <b>3,688·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 3: látkové množství NaOH</summary><div class="jd-body">
+          <p>Z&nbsp;poměru 1&nbsp;:&nbsp;1: <span class="q">n</span>(NaOH) = <span class="q">n</span>(KHP) = <b>3,688·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 4: koncentrace NaOH</summary><div class="jd-body">
+          <p class="eq"><span class="q">c</span> = <span class="q">n</span>/<span class="q">V</span> = 3,688·10⁻³&nbsp;mol / 0,03585&nbsp;l = <b>0,10288&nbsp;mol/l</b></p>
+        </div></details>
+        <div class="jd-ans">Koncentrace roztoku NaOH je přibližně 0,1029 mol/l.</div>
+      </div>
+
+      <div class="jd-ex abt-r">
+        <h3>Příklad 2: stanovení kyseliny octové v octu</h3>
+        <p><b>Úloha:</b> 10,00&nbsp;ml kuchyňského octu se pipetou přeneslo do 100&nbsp;ml odměrné baňky a&nbsp;doplnilo destilovanou vodou po značku (zředění 1&nbsp;:&nbsp;10). Z&nbsp;tohoto roztoku se odebralo 20,00&nbsp;ml do titrační baňky, přidaly se 2 kapky fenolftaleinu a&nbsp;titrovalo se roztokem NaOH o&nbsp;koncentraci 0,1029&nbsp;mol/l (z&nbsp;příkladu 1). Spotřeba NaOH byla 13,55&nbsp;ml. Vypočítejte hmotnostní procento kyseliny octové (CH₃COOH, <span class="q">M</span> = 60,05&nbsp;g/mol) v&nbsp;octu o&nbsp;hustotě 1,01&nbsp;g/ml.</p>
+        <div class="jd-route">
+          <span class="jd-rb">ocet<br><b>10,00 ml</b></span><span class="jd-ra">→ zředit</span>
+          <span class="jd-rb">odměrná baňka<br><b>100 ml</b></span><span class="jd-ra">→ odebrat</span>
+          <span class="jd-rb">alikvot<br><b>20,00 ml</b></span><span class="jd-ra">→ titrovat</span>
+          <span class="jd-rb jd-rt">NaOH 0,1029 mol/l<br><b>13,55 ml</b></span>
+          <span class="jd-rf">titrujeme pětinu baňky → výsledek × 5</span>
+        </div>
+        <details class="jd-more"><summary>Krok 1: reakce a stechiometrie</summary><div class="jd-body">
+          <p>Kyselina octová je jednosytná slabá kyselina: <span class="chem">CH₃COOH + NaOH → CH₃COONa + H₂O</span></p>
+          <p>Poměr: <b><span class="q">n</span>(CH₃COOH) : <span class="q">n</span>(NaOH) = 1 : 1</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 2: látkové množství NaOH</summary><div class="jd-body">
+          <p class="eq"><span class="q">n</span> = <span class="q">c</span>·<span class="q">V</span> = 0,1029&nbsp;mol/l · 0,01355&nbsp;l = <b>1,394·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 3: CH₃COOH v alikvotu (20 ml zředěného roztoku)</summary><div class="jd-body">
+          <p>Z&nbsp;poměru 1&nbsp;:&nbsp;1: <span class="q">n</span>(CH₃COOH) ve 20&nbsp;ml = <b>1,394·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 4: CH₃COOH ve 100 ml zředěného roztoku</summary><div class="jd-body">
+          <p>Faktor přepočtu 100&nbsp;ml / 20&nbsp;ml = 5: <span class="q">n</span> = 1,394·10⁻³ · 5 = <b>6,972·10⁻³&nbsp;mol</b>. Tolik kyseliny pochází z&nbsp;původních 10,00&nbsp;ml octu.</p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 5: hmotnost CH₃COOH v 10,00 ml octu</summary><div class="jd-body">
+          <p class="eq"><span class="q">m</span> = <span class="q">n</span>·<span class="q">M</span> = 6,972·10⁻³&nbsp;mol · 60,05&nbsp;g/mol = <b>0,4186&nbsp;g</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 6: hmotnostní procento CH₃COOH</summary><div class="jd-body">
+          <p class="eq"><span class="q">m</span>(octu) = 10,00&nbsp;ml · 1,01&nbsp;g/ml = 10,10&nbsp;g<br><span class="q">w</span> = 0,4186 / 10,10 · 100&nbsp;% = <b>4,14&nbsp;%</b></p>
+        </div></details>
+        <div class="jd-ans">Obsah kyseliny octové v kuchyňském octu je přibližně 4,1 % hmotnostních.</div>
+      </div>
+
+      <div class="jd-ex">
+        <h3>Příklad 3: standardizace HCl na Na₂CO₃</h3>
+        <p><b>Úloha:</b> k&nbsp;přesnému stanovení koncentrace připraveného roztoku HCl se navážilo 0,1325&nbsp;g bezvodého Na₂CO₃ (<span class="q">M</span> = 105,99&nbsp;g/mol). Látka se rozpustila ve vodě, přidala se methyloranž a&nbsp;titrovalo se roztokem HCl do barevného přechodu indikátoru (ze žluté do cibulově oranžové). Spotřeba HCl byla 23,65&nbsp;ml. Vypočítejte přesnou koncentraci HCl.</p>
+        <div class="jd-route">
+          <span class="jd-rb">Na₂CO₃ navážka<br><b>0,1325 g</b></span><span class="jd-ra">→ n = m/M</span>
+          <span class="jd-rb">Na₂CO₃<br><b>? mol</b></span><span class="jd-ra">→ 1 : 2 (!)</span>
+          <span class="jd-rb">HCl<br><b>? mol</b></span><span class="jd-ra">→ c = n/V</span>
+          <span class="jd-rb jd-rt">HCl spotřeba<br><b>23,65 ml</b></span>
+          <span class="jd-rf">pozor: 1 Na₂CO₃ spotřebuje 2 HCl → n(HCl) = 2 · n(Na₂CO₃)</span>
+        </div>
+        <details class="jd-more"><summary>Krok 1: reakce a stechiometrie</summary><div class="jd-body">
+          <p>Uhličitan sodný reaguje s&nbsp;HCl ve dvou stupních, ale s&nbsp;methyloranží titrujeme až do druhého stupně: <span class="chem">Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂</span></p>
+          <p>Poměr: <b><span class="q">n</span>(Na₂CO₃) : <span class="q">n</span>(HCl) = 1 : 2</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 2: látkové množství Na₂CO₃</summary><div class="jd-body">
+          <p class="eq"><span class="q">n</span> = 0,1325&nbsp;g / 105,99&nbsp;g/mol = <b>1,250·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 3: látkové množství HCl</summary><div class="jd-body">
+          <p class="eq"><span class="q">n</span>(HCl) = 2 · 1,250·10⁻³ = <b>2,500·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 4: koncentrace HCl</summary><div class="jd-body">
+          <p class="eq"><span class="q">c</span> = 2,500·10⁻³&nbsp;mol / 0,02365&nbsp;l = <b>0,10572&nbsp;mol/l</b></p>
+        </div></details>
+        <div class="jd-ans">Koncentrace roztoku HCl je přibližně 0,1057 mol/l.</div>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>
+
+  <!-- ============ IX. SHRNUTÍ ============ -->
+  <section class="chapter" id="k8" data-title="Shrnutí">
+    <div class="prose">
+      <span class="eyebrow">IX · závěrečné shrnutí</span>
+      <h2>Shrnutí</h2>
+      <p class="lead">Acidobazické titrace jsou základní analytická technika ke stanovení koncentrace kyselin a&nbsp;zásad. Klíčem k&nbsp;úspěchu je <b>odměrný roztok silné kyseliny nebo zásady o&nbsp;známé koncentraci</b> (často určené standardizací), <b>správný výběr indikátoru podle pH v&nbsp;bodě ekvivalence</b> (to závisí na síle titrované kyseliny nebo zásady) a&nbsp;<b>omezení chyb</b>, hlavně při práci se zásadami kvůli CO₂.</p>
+      <div class="tablewrap jd-cmp">
+        <table>
+          <thead><tr><th>Titrace</th><th>Začátek křivky</th><th>Skok pH</th><th>pH v b. e.</th><th>Indikátor</th></tr></thead>
+          <tbody>
+            <tr><td>silná kys. / silná zás.</td><td>nízké pH</td><td>velký</td><td><b>= 7</b></td><td>téměř jakýkoli mezi pH 4–10</td></tr>
+            <tr><td>slabá kys. / silná zás.</td><td>vyšší pH, pufrační oblast</td><td>menší</td><td><b>&gt; 7</b></td><td>fenolftalein</td></tr>
+            <tr><td>silná kys. / slabá zás.</td><td>vysoké pH, pufrační oblast</td><td>menší</td><td><b>&lt; 7</b></td><td>methyloranž, methylčerveň</td></tr>
+            <tr><td>slabá kys. / slabá zás.</td><td>—</td><td>malý / žádný</td><td>podle síly</td><td>vizuálně nelze (potenciometrie)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k8"></div>
+  </section>
+
+
   <!-- ============ VELKÝ TEST ============ -->
-  <section class="chapter" id="k7" data-title="Závěrečný test">
+  <section class="chapter" id="k9" data-title="Závěrečný test">
     <div class="prose">
       <span class="eyebrow">Závěrečný test</span>
-      <h2>Velký test z&nbsp;jodometrie</h2>
-      <p class="lead">Dvacet otázek přes celou jodometrii. Odpovězte na všechny, klepněte na <b>Vyhodnotit test</b> a&nbsp;u&nbsp;každé otázky se ukáže zdůvodnění. Otázky můžete zamíchat a&nbsp;test zopakovat.</p>
+      <h2>Velký test z&nbsp;acidobazických titrací</h2>
+      <p class="lead">Dvacet otázek přes celé téma. Odpovězte na všechny, klepněte na <b>Vyhodnotit test</b> a&nbsp;u&nbsp;každé otázky se ukáže zdůvodnění. Otázky můžete zamíchat a&nbsp;test zopakovat.</p>
     </div>
-    <div class="quiz" data-quiz="final" data-title="Velký test z jodometrie" data-final="1"></div>
-    <div class="chapter-done" data-done="k7"></div>
+    <div class="quiz" data-quiz="final" data-title="Velký test z acidobazických titrací" data-final="1"></div>
+    <div class="chapter-done" data-done="k9"></div>
   </section>
   <!--SL--><p class="authorline"><lang-cs>Autor: Ing. Marek Kurťák</lang-cs><lang-en lang="en">Author: Ing. Marek Kurťák</lang-en><lang-sk lang="sk">Autor: Ing. Marek Kurťák</lang-sk></p><!--/SL-->
   </main>
@@ -1835,9 +1784,9 @@ function fmt(n,d){
 function sgn(n,d){ var s=fmt(Math.abs(n),d); return (n<0?"−":"+")+s; }
 
 var store = {
-  get:function(k,f){ try{ var v=localStorage.getItem("jodo."+k); return v===null?f:JSON.parse(v); }catch(e){ return f; } },
-  set:function(k,v){ try{ localStorage.setItem("jodo."+k,JSON.stringify(v)); }catch(e){} },
-  del:function(){ try{ Object.keys(localStorage).filter(function(k){return k.indexOf("jodo.")===0;}).forEach(function(k){localStorage.removeItem(k);}); }catch(e){} }
+  get:function(k,f){ try{ var v=localStorage.getItem("abtitr."+k); return v===null?f:JSON.parse(v); }catch(e){ return f; } },
+  set:function(k,v){ try{ localStorage.setItem("abtitr."+k,JSON.stringify(v)); }catch(e){} },
+  del:function(){ try{ Object.keys(localStorage).filter(function(k){return k.indexOf("abtitr.")===0;}).forEach(function(k){localStorage.removeItem(k);}); }catch(e){} }
 };
 
 var toastEl = $("#toast"), toastT;
@@ -2122,11 +2071,9 @@ function bindCore(){
    (vše níže je specifické pro dané téma)
    ============================================================ */
 /* ============================================================
-   J1 · POMOCNÍCI
+   A1 · POMOCNÍCI
    ============================================================ */
-/* pevný počet desetinných míst s českou čárkou */
 function fx(n,d){ return (n<0?"−":"")+Math.abs(n).toFixed(d).replace(".",","); }
-/* segmentové přepínače: nastaví aria-pressed a zavolá cb(hodnota) */
 function segBind(id,cb){
   var bs=$$("#"+id+" button");
   bs.forEach(function(b){
@@ -2138,31 +2085,20 @@ function segBind(id,cb){
 }
 function msg(el,cls,html){ el.className="jd-msg"+(cls?" "+cls:""); el.innerHTML=html; }
 function ro(el,k,v,h){ el.innerHTML='<span class="k">'+k+'</span><span class="v">'+v+'</span>'+(h?'<span class="h">'+h+'</span>':''); }
-
-/* barvy roztoků — skutečné barvy, na motivu nezávisí */
-var COL = {water:[214,232,242], pale:[246,232,160], yellow:[232,196,70], brown:[128,62,14], blue:[26,40,130]};
+function num(v){ var x=parseFloat(String(v).trim().replace(",",".").replace(/−/g,"-")); return isNaN(x)?null:x; }
 function mixc(a,b,t){ t=Math.max(0,Math.min(1,t)); return [0,1,2].map(function(i){ return Math.round(a[i]+(b[i]-a[i])*t); }); }
 function rgb(c,a){ return "rgba("+c[0]+","+c[1]+","+c[2]+","+(a===undefined?1:a)+")"; }
-/* barva jodu podle zbývajícího podílu f (1 = všechen uvolněný jod, 0 = žádný) */
-function iodColor(f){
-  if(f<=0) return rgb(COL.water,.55);
-  if(f<0.08) return rgb(mixc(COL.water,COL.pale,f/0.08),.75);
-  if(f<0.3)  return rgb(mixc(COL.pale,COL.yellow,(f-0.08)/0.22),.85);
-  return rgb(mixc(COL.yellow,COL.brown,(f-0.3)/0.7),.95);
-}
-function blueColor(s){ return rgb(mixc(COL.water,COL.blue,0.35+0.65*Math.max(0,Math.min(1,s))),.95); }
+var WATER=[214,232,242];
 
 /* byreta nad erlenmeyerovou baňkou; frac = kolik byrety je vypuštěno (0–1) */
 function drawFlask(fill,frac,label,sub){
   var s='';
-  /* byreta */
   s+=rect(92,12,16,118,{fill:"var(--surface)",stroke:"var(--ink-3)",sw:1.4,r:3});
   var top=16+Math.max(0,Math.min(1,frac))*106;
   s+=rect(94,top,12,128-top,{fill:"rgba(120,160,210,.35)"});
   for(var k=0;k<=5;k++){ s+=line(92,20+k*21,99,20+k*21,{c:"var(--ink-3)",w:1}); }
   s+=rect(86,130,28,7,{fill:"var(--ink-3)",r:2});
   s+=line(100,137,100,152,{c:"var(--ink-3)",w:2.4,cap:"round"});
-  /* baňka */
   var yl=236, xl=85-(yl-200)*55/80, xr=115+(yl-200)*55/80;
   s+='<path d="M'+xl+' '+yl+' L30 280 Q30 286 36 286 L164 286 Q170 286 170 280 L'+xr+' '+yl+' Z" style="fill:'+fill+'"/>';
   s+='<path d="M85 166 L85 200 L30 280 Q30 286 36 286 L164 286 Q170 286 170 280 L115 200 L115 166" style="fill:none;stroke:var(--ink-2);stroke-width:2;stroke-linejoin:round"/>';
@@ -2170,410 +2106,224 @@ function drawFlask(fill,frac,label,sub){
   s+=line(111,166,119,166,{c:"var(--ink-2)",w:2,cap:"round"});
   s+=txt(100,306,label,{anchor:"middle",size:13,w:600,fill:"var(--ink)"});
   if(sub) s+=txt(100,323,sub,{anchor:"middle",size:11.5});
-  return svg("0 0 200 330",s,'aria-label="Byreta a titrační baňka" style="max-width:15rem;margin:0 auto"');
+  return svg("0 0 200 330",s,'aria-label="Byreta a titrační baňka"');
 }
 
 /* ============================================================
-   J2 · HERO — REDOXNÍ ŽEBŘÍČEK
+   A2 · INDIKÁTORY
    ============================================================ */
-var LAD = [
-  {id:"h2o2", pair:"H₂O₂ / H₂O", E:1.78, side:"ox", name:"Peroxid vodíku",
-   eq:"H₂O₂ + 2I⁻ + 2H⁺ → I₂ + 2H₂O", ratio:"1 H₂O₂ ~ 1 I₂ ~ 2 S₂O₃²⁻",
-   note:"Reakce s jodidem je pomalá, urychluje ji molybdenan amonný."},
-  {id:"clo", pair:"ClO⁻ / Cl⁻", E:1.49, side:"ox", name:"Chlornan (aktivní chlor)",
-   eq:"ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O", ratio:"1 ClO⁻ ~ 1 I₂ ~ 2 S₂O₃²⁻",
-   note:"Účinnost bělidel a dezinfekcí — řešený příklad v kapitole 05."},
-  {id:"bro3", pair:"BrO₃⁻ / Br⁻", E:1.42, side:"ox", name:"Bromičnan",
-   eq:"BrO₃⁻ + 6I⁻ + 6H⁺ → Br⁻ + 3I₂ + 3H₂O", ratio:"1 BrO₃⁻ ~ 3 I₂ ~ 6 S₂O₃²⁻", note:""},
-  {id:"cr", pair:"Cr₂O₇²⁻ / Cr³⁺", E:1.33, side:"ox", name:"Dichroman",
-   eq:"Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O", ratio:"1 Cr₂O₇²⁻ ~ 3 I₂ ~ 6 S₂O₃²⁻",
-   note:"Také standard pro thiosíran. Na konci je roztok zelený od Cr³⁺."},
-  {id:"io3", pair:"IO₃⁻ / I₂", E:1.20, side:"ox", name:"Jodičnan",
-   eq:"IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O", ratio:"1 IO₃⁻ ~ 3 I₂ ~ 6 S₂O₃²⁻",
-   note:"KIO₃ je nejpřesnější primární standard pro thiosíran."},
-  {id:"cu", pair:"Cu²⁺ / CuI", E:0.86, side:"ox", name:"Měďnaté ionty",
-   eq:"2Cu²⁺ + 4I⁻ → 2CuI + I₂", ratio:"1 Cu²⁺ ~ ½ I₂ ~ 1 S₂O₃²⁻",
-   note:"Rozbor rud a slitin. Pozor na jod adsorbovaný na sraženině CuI."},
-  {id:"as", pair:"H₃AsO₄ / H₃AsO₃", E:0.56, side:"red", name:"Arsenitany, As(III)",
-   eq:"H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻", ratio:"1 H₃AsO₃ ~ 1 I₂",
-   note:"V kyselém prostředí stojí skoro na stejné příčce jako jod, reakce je vratná. Proto se titruje při pH ≈ 8 (pufr NaHCO₃ odebírá H⁺) a běží doprava. As₂O₃ je standard pro roztok jodu."},
-  {id:"vitc", pair:"dehydroaskorbová / askorbová", E:0.39, side:"red", name:"Vitamín C",
-   eq:"C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻", ratio:"1 C₆H₈O₆ ~ 1 I₂",
-   note:"Léky i ovocné šťávy — řešený příklad v kapitole 05."},
-  {id:"so3", pair:"SO₄²⁻ / SO₃²⁻", E:0.17, side:"red", name:"Siřičitany",
-   eq:"SO₃²⁻ + I₂ + H₂O → SO₄²⁻ + 2H⁺ + 2I⁻", ratio:"1 SO₃²⁻ ~ 1 I₂",
-   note:"Konzervanty v potravinách a víně."},
-  {id:"sn", pair:"Sn⁴⁺ / Sn²⁺", E:0.15, side:"red", name:"Cínaté ionty, Sn(II)",
-   eq:"Sn²⁺ + I₂ → Sn⁴⁺ + 2I⁻", ratio:"1 Sn²⁺ ~ 1 I₂", note:""},
-  {id:"h2s", pair:"S / H₂S", E:0.14, side:"red", name:"Sulfan",
-   eq:"H₂S + I₂ → S + 2H⁺ + 2I⁻", ratio:"1 H₂S ~ 1 I₂", note:"Vylučuje se síra."},
-  {id:"s2o3", pair:"S₄O₆²⁻ / S₂O₃²⁻", E:0.08, side:"red", name:"Thiosíran",
-   eq:"2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻", ratio:"2 S₂O₃²⁻ ~ 1 I₂",
-   note:"Nejen analyt: právě thiosíranem se titruje jod v nepřímé jodometrii."}
+var IND = [
+  {k:"tb", n:"thymolová modř (1. přechod)", s:"thymolová modř", lo:1.2, hi:2.8, ca:"červená", cb:"žlutá", a:[211,47,47], b:[240,196,48], use:"silně kyselé roztoky"},
+  {k:"mo", n:"methyloranž", s:"methyloranž", lo:3.1, hi:4.4, ca:"červená", cb:"žlutooranžová", a:[214,52,42], b:[242,168,36], use:"silná kyselina + slabá zásada"},
+  {k:"mr", n:"methylčerveň", s:"methylčerveň", lo:4.4, hi:6.2, ca:"červená", cb:"žlutá", a:[210,45,60], b:[240,196,48], use:"silná kyselina + slabá zásada"},
+  {k:"bb", n:"bromthymolová modř", s:"bromthymolová modř", lo:6.0, hi:7.6, ca:"žlutá", cb:"modrá", a:[230,196,40], b:[40,90,210], use:"silná kyselina + silná zásada (kolem neutrality)"},
+  {k:"pr", n:"fenolová červeň", s:"fenolová červeň", lo:6.8, hi:8.4, ca:"žlutá", cb:"červená", a:[232,192,44], b:[206,46,72], use:"titrace blízko neutrality"},
+  {k:"pp", n:"fenolftalein", s:"fenolftalein", lo:8.2, hi:10.0, ca:"bezbarvá", cb:"růžová až fialová", a:null, b:[214,51,143], use:"slabá kyselina + silná zásada, silná + silná"},
+  {k:"tp", n:"thymolftalein", s:"thymolftalein", lo:9.4, hi:10.6, ca:"bezbarvá", cb:"modrá", a:null, b:[47,95,208], use:"slabá kyselina + silná zásada (zásaditější oblast)"}
 ];
-var ladSel = "cr";
+function indBy(k){ return IND.filter(function(d){return d.k===k;})[0]; }
+/* podíl zásadité formy: 0,1 na začátku a 0,9 na konci funkční oblasti */
+function indFrac(d,pH){ var mid=(d.lo+d.hi)/2, k=2*Math.log(9)/(d.hi-d.lo); return 1/(1+Math.exp(-k*(pH-mid))); }
+function indColor(d,pH,alpha){
+  var f=indFrac(d,pH);
+  if(!d.a) return rgb(mixc(WATER,d.b,f),(alpha||.95)*(0.45+0.55*f));
+  return rgb(mixc(d.a,d.b,f),alpha||.95);
+}
+function indState(d,pH){ return pH<d.lo ? d.ca : (pH>d.hi ? d.cb : "přechod"); }
 
-function drawLadder(){
-  var W=440, top=40, bot=606, Emax=1.9, Emin=0.0;
-  function yE(E){ return top+(Emax-E)/(Emax-Emin)*(bot-top); }
-  var s='';
-  var yI=yE(0.54);
-  s+=rect(56,top,W-60,yI-top,{fill:"var(--exo-soft)"});
-  s+=rect(56,yI,W-60,bot-yI,{fill:"var(--endo-soft)"});
-  s+=txt(W-6,top-10,"↑ oxidují I⁻ na I₂ → nepřímá jodometrie",{anchor:"end",size:11.5,w:600,fill:"var(--exo)"});
-  s+=txt(W-6,bot+20,"↓ redukují I₂ na I⁻ → přímá jodometrie",{anchor:"end",size:11.5,w:600,fill:"var(--endo)"});
-  /* osa */
-  s+=line(56,top,56,bot,{c:"var(--ink-3)",w:1.5});
-  for(var e=0;e<=1.8001;e+=0.3){
-    var y=yE(e); s+=line(50,y,56,y,{c:"var(--ink-3)"});
-    s+=txt(46,y+4,fx(e,1),{anchor:"end",size:11,mono:true});
+/* ============================================================
+   A3 · pH TITROVANÉHO ROZTOKU (bilance nábojů, řešená půlením)
+   ============================================================ */
+var KW=1e-14, PKNH4=9.25;
+var TYPES = {
+  sasb:{an:"HCl", ti:"NaOH", lab:"silná kyselina + silná zásada", ex:"HCl titrovaná NaOH", sample:"HCl", titr:"NaOH", ind:"bb"},
+  wasb:{an:"HA", ti:"NaOH", lab:"slabá kyselina + silná zásada", ex:"CH₃COOH titrovaná NaOH", sample:"CH₃COOH", titr:"NaOH", ind:"pp"},
+  sawb:{an:"NH3", ti:"HCl", lab:"silná kyselina + slabá zásada", ex:"NH₃ titrovaný HCl", sample:"NH₃", titr:"HCl", ind:"mo"},
+  wawb:{an:"HA", ti:"NH3", lab:"slabá kyselina + slabá zásada", ex:"CH₃COOH titrovaná NH₃", sample:"CH₃COOH", titr:"NH₃", ind:"bb"}
+};
+/* o = {t, Va (ml), ca, ct (mol/l), pKa (slabé kyseliny, výchozí 4,76)} */
+function phAt(o,V){
+  var ty=TYPES[o.t], Vt=o.Va+V, T={HCl:0,NaOH:0,HA:0,NH3:0};
+  T[ty.an]+=o.ca*o.Va/Vt; if(V>0) T[ty.ti]+=o.ct*V/Vt;
+  var Ka=Math.pow(10,-(o.pKa===undefined?4.76:o.pKa)), Kn=Math.pow(10,-PKNH4);
+  function f(h){ return h+T.NaOH+T.NH3*h/(h+Kn)-KW/h-T.HCl-T.HA*Ka/(h+Ka); }
+  var lo=-15, hi=1;
+  for(var i=0;i<60;i++){ var m=(lo+hi)/2; if(f(Math.pow(10,m))>0) hi=m; else lo=m; }
+  return -(lo+hi)/2;
+}
+function veqOf(o){ return o.ca*o.Va/o.ct; }
+/* objem, při kterém pH projde hodnotou p (křivka je monotónní); null = neprojde */
+function vAtPH(o,p,Vmax){
+  var a=phAt(o,0)-p, b=phAt(o,Vmax)-p;
+  if(a*b>0) return null;
+  var lo=0, hi=Vmax;
+  for(var i=0;i<50;i++){ var m=(lo+hi)/2, v=phAt(o,m)-p; if(v*a>0) lo=m; else hi=m; }
+  return (lo+hi)/2;
+}
+
+/* ============================================================
+   A4 · KRESBA TITRAČNÍ KŘIVKY
+   ============================================================ */
+/* c = {o, Vmax, ind, cur, be, half, marks:[{V,lab}], curves:[{o,c,w}], gid, endV, h} */
+function curveSVG(c){
+  var W=440, H=c.h||300, L=38, R=12, T=24, B=40, Vmax=c.Vmax||50, s='', i;
+  function xs(V){ return L+(W-L-R)*V/Vmax; }
+  function ys(p){ return T+(H-T-B)*(14-p)/14; }
+  for(i=0;i<=14;i+=2){ s+=line(L,ys(i),W-R,ys(i),{c:"var(--line)"}); s+=txt(L-6,ys(i)+4,String(i),{anchor:"end",size:11,mono:true}); }
+  for(i=0;i<=Vmax;i+=5){ s+=line(xs(i),T,xs(i),H-B,{c:"var(--line)",w:i%10?0.5:1}); if(i%10===0) s+=txt(xs(i),H-B+16,String(i),{anchor:"middle",size:11,mono:true}); }
+  s+=txt((L+W-R)/2,H-6,"objem titrantu V / ml",{anchor:"middle",size:11.5,w:600});
+  s+=txt(4,13,"pH",{size:11.5,w:600});
+  if(c.ind){
+    var d=c.ind, g=c.gid||"g";
+    var ca=d.a?rgb(d.a,.5):rgb(WATER,.35), cb=rgb(d.b,.5);
+    s+='<defs><linearGradient id="'+g+'" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="'+ca+'"/><stop offset="1" stop-color="'+cb+'"/></linearGradient></defs>';
+    s+='<rect x="'+L+'" y="'+ys(d.hi)+'" width="'+(W-L-R)+'" height="'+(ys(d.lo)-ys(d.hi))+'" style="fill:url(#'+g+')"/>';
   }
-  s+=txt(12,top-10,"E° / V",{size:11,w:600});
-  /* jod */
-  s+=line(56,yI,W-4,yI,{c:"var(--accent)",w:3});
-  s+=rect(60,yI-12,150,24,{fill:"var(--accent)",r:6});
-  s+=txt(135,yI+5,"I₂ / 2I⁻   +0,54 V",{anchor:"middle",size:12.5,w:700,fill:"var(--accent-ink)"});
-  /* štítky: rozestrčit, ať se nepřekrývají, a spojit s osou */
-  var items=LAD.slice().sort(function(a,b){return b.E-a.E;}).map(function(d){ return {d:d,y0:yE(d.E),y:yE(d.E)}; });
-  var GAP=25;
-  /* nad jodem i pod ním zvlášť: odshora odtlačit, pak zespodu stáhnout do mezí */
-  function spread(arr,lo,hi){
-    var i;
-    for(i=0;i<arr.length;i++) arr[i].y=Math.max(arr[i].y,lo,i?arr[i-1].y+GAP:lo);
-    for(i=arr.length-1;i>=0;i--) arr[i].y=Math.min(arr[i].y,i<arr.length-1?arr[i+1].y-GAP:hi);
+  function path(o,col,w,dash){
+    var ve=veqOf(o), pts=[], n=240, V;
+    for(i=0;i<=n;i++) pts.push(Vmax*i/n);
+    [-0.4,-0.2,-0.1,-0.05,-0.02,0,0.02,0.05,0.1,0.2,0.4].forEach(function(dv){ if(ve+dv>0&&ve+dv<Vmax) pts.push(ve+dv); });
+    pts.sort(function(a,b){return a-b;});
+    var dd=pts.map(function(V,j){ return (j?"L":"M")+xs(V).toFixed(1)+" "+ys(phAt(o,V)).toFixed(1); }).join(" ");
+    return '<path d="'+dd+'" style="fill:none;stroke:'+col+';stroke-width:'+(w||2.6)+';stroke-linejoin:round'+(dash?';stroke-dasharray:'+dash:'')+'"/>';
   }
-  spread(items.filter(function(it){return it.d.E>0.54;}),top+14,yI-GAP);
-  spread(items.filter(function(it){return it.d.E<0.54;}),yI+GAP,bot-14);
-  items.forEach(function(it){
-    var d=it.d, ox=d.side==="ox", c=ox?"var(--exo)":"var(--endo)", on=d.id===ladSel;
-    s+='<circle cx="56" cy="'+it.y0+'" r="3.2" style="fill:'+c+'"/>';
-    s+='<path d="M56 '+it.y0+' L150 '+it.y+'" style="fill:none;stroke:'+c+';stroke-width:1;opacity:.6"/>';
-    s+='<g class="jd-sp" data-id="'+d.id+'" tabindex="0" role="button" aria-label="'+d.name+'">';
-    s+=rect(150,it.y-11,W-156,22,{fill:on?c:"var(--surface)",stroke:c,sw:1.2,r:6});
-    s+=txt(159,it.y+4.5,d.pair,{size:12,w:600,fill:on?"var(--accent-ink)":"var(--ink)"});
-    s+=txt(W-12,it.y+4.5,(d.E>=0?"+":"")+fx(d.E,2)+" V",{anchor:"end",size:11.5,mono:true,fill:on?"var(--accent-ink)":"var(--ink-2)"});
-    s+='</g>';
+  (c.curves||[]).forEach(function(k){ s+=path(k.o,k.c,k.w,k.dash); });
+  if(c.o) s+=path(c.o,"var(--accent)",2.8);
+  var o=c.o;
+  if(o && c.half){
+    var vh=veqOf(o)/2, ph=phAt(o,vh);
+    s+='<circle cx="'+xs(vh)+'" cy="'+ys(ph)+'" r="4.5" style="fill:var(--surface);stroke:var(--endo);stroke-width:2"/>';
+    s+=txt(xs(vh)+8,ys(ph)+(TYPES[o.t].an==="NH3"?16:-8),TYPES[o.t].an==="NH3"?"pH = pKₐ(NH₄⁺)":"pH = pKₐ",{size:11.5,w:600,fill:"var(--endo)"});
+  }
+  if(o && c.be){
+    var ve=veqOf(o), pe=phAt(o,ve);
+    s+=line(xs(ve),ys(pe),xs(ve),H-B,{c:"var(--accent)",dash:"3 3"});
+    s+='<circle cx="'+xs(ve)+'" cy="'+ys(pe)+'" r="5" style="fill:var(--accent)"/>';
+    if(c.be!=="dot") s+=txt(xs(ve)+8,ys(pe)+4,"bod ekvivalence (pH "+fx(pe,1)+")",{size:11.5,w:600,fill:"var(--accent)"});
+  }
+  (c.marks||[]).forEach(function(m){
+    var p=phAt(o,m.V);
+    s+='<circle cx="'+xs(m.V)+'" cy="'+ys(p)+'" r="9" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.5"/>';
+    s+=txt(xs(m.V),ys(p)+4,m.lab,{anchor:"middle",size:11,w:700,fill:"var(--ink)"});
   });
-  $("#ladWrap").innerHTML=svg("0 0 "+W+" "+(bot+30),s,'aria-label="Redoxní žebříček standardních potenciálů"');
-  var d=LAD.filter(function(x){return x.id===ladSel;})[0], ox=d.side==="ox";
-  $("#ladInfo").innerHTML=
-    '<span class="tag '+(ox?"exo":"endo")+'" style="align-self:flex-start">'+(ox?"Oxidovadlo → nepřímá jodometrie":"Redukovadlo → přímá jodometrie (jodimetrie)")+'</span>'+
-    '<h4>'+d.name+' <span style="color:var(--ink-3);font-weight:500">('+d.pair+', '+(d.E>=0?"+":"")+fx(d.E,2)+' V)</span></h4>'+
-    '<p><b>Titrant:</b> '+(ox?'uvolněný jod titrujeme <span class="chem">Na₂S₂O₃</span>':'odměrný roztok <span class="chem">I₂</span> v KI')+'</p>'+
-    '<p class="eq" style="font-size:.9rem"><span class="chem">'+d.eq+'</span></p>'+
-    '<p><b>Poměr:</b> <span class="chem">'+d.ratio+'</span></p>'+
-    (d.note?'<p style="color:var(--ink-2)">'+d.note+'</p>':'');
-}
-function initLadder(){
-  var w=$("#ladWrap");
-  function pick(e){
-    var g=e.target.closest ? e.target.closest(".jd-sp") : null;
-    if(!g) return;
-    ladSel=g.getAttribute("data-id"); drawLadder();
-    var again=$('.jd-sp[data-id="'+ladSel+'"]',w); if(again && e.type==="keydown") again.focus();
+  if(c.endV!==undefined && c.endV!==null){
+    var xe=xs(c.endV);
+    s+='<path d="M'+xe+' '+(H-B)+' l-6 9 l12 0 z" style="fill:var(--warn)"/>';
   }
-  w.addEventListener("click",pick);
-  w.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pick(e); } });
-  drawLadder();
-}
-
-/* ============================================================
-   J3 · PŘÍMÁ TITRACE (vitamín C jodem)
-   ============================================================ */
-var DIR = {c:0.0485, n0:0.0485*11.60, V:0, starch:true, Vmax:16};
-function drawDirect(){
-  var V=DIR.V, veq=DIR.n0/DIR.c;
-  var left=Math.max(0,DIR.n0-DIR.c*V), free=Math.max(0,DIR.c*V-DIR.n0);
-  var fill;
-  if(free<=1e-9) fill=rgb(COL.water,.55);
-  else if(DIR.starch) fill=blueColor(0.55+free/0.03);
-  else fill=rgb(mixc(COL.water,COL.pale,Math.min(1,free/0.25)),.7);
-  $("#dirWrap").innerHTML=drawFlask(fill,V/DIR.Vmax,"vitamín C + "+(DIR.starch?"škrob":"bez škrobu"),"z byrety: I₂, 0,0485 mol/l");
-  $("#dirVV").textContent=fx(V,2)+" ml";
-  ro($("#dirRo1"),"Vitamín C zbývá",fx(left,3)+" mmol",Math.round(left/DIR.n0*100)+" % původního");
-  ro($("#dirRo2"),"Volný jod",fx(free,3)+" mmol",free>0?"nemá s čím reagovat":"hned se spotřebuje");
-  var m=$("#dirMsg"), d=V-veq;
-  if(V===0) msg(m,"","Začněte přidávat jod posuvníkem. Dokud je v baňce vitamín C, každá kapka jodu se hned spotřebuje.");
-  else if(d<-0.025) msg(m,"","Jod reaguje s vitamínem C hned, jak dopadne do baňky. Volný jod není, roztok zůstává <b>bezbarvý</b>. Do bodu ekvivalence chybí "+fx(-d,2)+" ml.");
-  else if(d<=0.1) msg(m,"ok",DIR.starch?"<b>Bod ekvivalence (11,60 ml).</b> První kapka jodu navíc už nemá s čím reagovat, naváže se na škrob a roztok <b>trvale zmodrá</b>. Tady titraci ukončíme.":"<b>Bod ekvivalence (11,60 ml).</b> Přebytek jodu je ale zatím jen nepatrně nažloutlý. Bez škrobu se tenhle okamžik snadno přehlédne.");
-  else if(DIR.starch) msg(m,"warn","Přetitrováno o "+fx(d,2)+" ml. Roztok zmodral už při 11,60 ml; každý mililitr navíc výsledek zvýší.");
-  else msg(m,"warn","Přetitrováno o "+fx(d,2)+" ml. Bez škrobu je přebytek jodu jen <b>slabě žlutý</b> a konec titrace se snadno přejede. Proto se přidává škrob.");
-}
-function initDirect(){
-  $("#dirV").addEventListener("input",function(){ DIR.V=+this.value; drawDirect(); });
-  segBind("dirStarch",function(v){ DIR.starch=v==="1"; drawDirect(); });
-  drawDirect();
-}
-
-/* ============================================================
-   J4 · NEPŘÍMÁ TITRACE (jod z chlornanu thiosíranem)
-   ============================================================ */
-var IND = {veq:14.85, V:0, starchF:null, end:null, Vmax:25};
-function indLag(){ /* škrob přidaný při vysokém obsahu jodu → pevný komplex, konec se vleče */
-  return (IND.starchF!==null && IND.starchF>0.3) ? Math.round(IND.starchF*0.9/0.05)*0.05 : 0;
-}
-function drawIndirect(){
-  var V=IND.V, veq=IND.veq, f=Math.max(0,1-V/veq), lag=indLag(), fill;
-  var starch=IND.starchF!==null;
-  if(!starch) fill=iodColor(f);
-  else if(lag>0 && V<veq+lag) fill=blueColor(f>0 ? 0.6+f*0.4 : 0.45*(1-(V-veq)/lag));
-  else if(f>0) fill=blueColor(0.55+f*1.5);
-  else fill=rgb(COL.water,.55);
-  $("#indWrap").innerHTML=drawFlask(fill,V/IND.Vmax,"uvolněný I₂"+(starch?" + škrob":""),"z byrety: Na₂S₂O₃, 0,1050 mol/l");
-  ro($("#indRo1"),"Přidáno thiosíranu",fx(V,2)+" ml");
-  ro($("#indRo2"),"Zbývá jodu",Math.round(f*100)+" %",f>0?"z uvolněného množství":"všechen zreagoval");
-  $("#indStarch").disabled=starch;
-  var m=$("#indMsg");
-  if(V>=veq+lag-1e-9 && starch && IND.end===null) IND.end=Math.max(V,veq);
-  if(IND.end!==null){
-    var err=(IND.end-veq)/veq*100;
-    if(IND.starchF===0) msg(m,"warn","Škrob už nezmodral, protože jod byl pryč. Konec titrace jste bez indikátoru poznat nemohli, skončili jste na <b>"+fx(IND.end,2)+" ml</b>. Škrob patří do roztoku, dokud je světle žlutý.");
-    else if(lag>0) msg(m,"bad","Modrá mizela pozvolna a úplně zmizela až při <b>"+fx(IND.end,2)+" ml</b> místo 14,85 ml. Chyba <b>+"+fx(err,1)+" %</b>. Škrob jste přidali moc brzy, když zbývalo "+Math.round(IND.starchF*100)+" % jodu. Jod vázaný v pevném komplexu reagoval s thiosíranem pomalu.");
-    else if(IND.end-veq<0.06) msg(m,"ok","<b>Modrá náhle zmizela při "+fx(IND.end,2)+" ml.</b> To je bod ekvivalence: poslední jod zreagoval a komplex se škrobem se rozpadl. Ostrý konec díky škrobu přidanému včas.");
-    else msg(m,"warn","Roztok odbarvil už při 14,85 ml, ale přidávali jste po celých mililitrech a skončili jste na <b>"+fx(IND.end,2)+" ml</b> (chyba +"+fx(err,1)+" %). Ke konci přidávejte po kapkách.");
-    return;
+  if(o && c.cur!==undefined){
+    var pc=phAt(o,c.cur);
+    s+=line(xs(c.cur),ys(pc),xs(c.cur),H-B,{c:"var(--ink-2)",dash:"2 3"});
+    s+='<circle cx="'+xs(c.cur)+'" cy="'+ys(pc)+'" r="6" style="fill:var(--ink);stroke:var(--surface);stroke-width:2"/>';
   }
-  if(!starch && f<=0) { msg(m,"warn","Roztok je bezbarvý, ale bez škrobu jste nepoznali, kdy přesně zmizela poslední žlutá. Titrace je nejspíš přetažená. Zkuste to znovu a přidejte škrob při světle žluté barvě."); return; }
-  if(starch && lag>0 && f<=0){ msg(m,"warn","Jste za bodem ekvivalence, ale roztok je pořád modrý. Jod vázaný ve škrobovém komplexu reaguje pomalu a konec se vleče. Přidávejte dál a sledujte, kdy modrá zmizí."); return; }
-  if(V===0 && !starch) msg(m,"","Oxidovadlo uvolnilo z KI jod, roztok je <b>hnědý</b>. Titrujte thiosíranem.");
-  else if(!starch && f>0.3) msg(m,"","Hnědá bledne, jod ubývá. Na škrob je ještě brzy.");
-  else if(!starch) msg(m,"ok","Roztok je <b>světle žlutý</b>, většina jodu zreagovala. <b>Teď je správný čas přidat škrob.</b>");
-  else if(lag>0) msg(m,"bad","Škrob jste přidali, když v roztoku bylo ještě "+Math.round(IND.starchF*100)+" % jodu. Vznikl pevný komplex, uvidíte, jak se bude konec vléct.");
-  else msg(m,"ok","Roztok je <b>modrý</b>. Pokračujte opatrně po kapkách, dokud modrá nezmizí.");
-}
-function indAdd(dv){
-  if(IND.end!==null) return;
-  IND.V=Math.min(IND.Vmax,Math.round((IND.V+dv)*100)/100);
-  drawIndirect();
-}
-function initIndirect(){
-  $("#indAdd1").addEventListener("click",function(){ indAdd(1); });
-  $("#indAdd01").addEventListener("click",function(){ indAdd(0.05); });
-  $("#indStarch").addEventListener("click",function(){
-    if(IND.starchF!==null) return;
-    IND.starchF=Math.max(0,1-IND.V/IND.veq); drawIndirect();
-  });
-  $("#indReset").addEventListener("click",function(){ IND.V=0; IND.starchF=null; IND.end=null; drawIndirect(); });
-  drawIndirect();
+  return svg("0 0 "+W+" "+H,s,'aria-label="Titrační křivka"');
 }
 
 /* ============================================================
-   J5 · OKNO pH PRO PŘÍMOU JODOMETRII
+   A5 · MODEL — TITRACE S VOLBOU INDIKÁTORU
    ============================================================ */
-var PH = 8;
-var PHZ = [
-  {a:0, b:4, c:"var(--bad)", lab:"silně kyselé", cls:"bad",
-   t:"<b>Silně kyselé.</b> Jodid se oxiduje vzdušným kyslíkem: <span class=\"chem\">4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O</span>. Vzniká jod, který nepochází z titrantu, a škrob se v silně kyselém roztoku rozkládá."},
-  {a:4, b:7, c:"var(--warn)", lab:"mírně kyselé", cls:"warn",
-   t:"<b>Mírně kyselé.</b> Reakce, které uvolňují H⁺ (např. As(III) s jodem), nedoběhnou úplně, protože kyselina je tlačí zpátky. Některá stanovení se tu přesto dělají záměrně, třeba vitamín C."},
-  {a:7, b:9, c:"var(--ok)", lab:"optimum", cls:"ok",
-   t:"<b>Optimum.</b> Jod reaguje s redukovadly úplně a vedlejší reakce jsou potlačené. Pufr <span class=\"chem\">NaHCO₃</span> drží pH kolem 8."},
-  {a:9, b:14, c:"var(--bad)", lab:"zásadité", cls:"bad",
-   t:"<b>Zásadité (pH &gt; 9).</b> Jod disproporcionuje: <span class=\"chem\">I₂ + 2OH⁻ → I⁻ + IO⁻ + H₂O</span>. Spotřebuje se jinak než s analytem a výsledek je špatně."}
+var HT = {t:"sasb", ind:"bb", V:0};
+function heroO(){ return {t:HT.t, Va:25, ca:0.1, ct:0.1}; }
+function drawHero(){
+  var o=heroO(), d=indBy(HT.ind), V=HT.V, ve=veqOf(o), ph=phAt(o,V), VM=50;
+  var vMid=vAtPH(o,(d.lo+d.hi)/2,VM), vLo=vAtPH(o,d.lo,VM), vHi=vAtPH(o,d.hi,VM);
+  $("#tcWrap").innerHTML=curveSVG({o:o, ind:d, cur:V, be:true, half:HT.t!=="sasb"&&HT.t!=="wawb", gid:"tcG", endV:vMid});
+  var bl=$("#tcBandLab"); if(bl) bl.innerHTML="funkční oblast: <b>"+d.s+"</b> (pH "+fx(d.lo,1)+"–"+fx(d.hi,1)+")";
+  var bi=$("#tcBandSw"); if(bi) bi.style.background="linear-gradient(90deg,"+(d.a?rgb(d.a,.55):rgb(WATER,.5))+","+rgb(d.b,.55)+")";
+  $("#tcFlask").innerHTML=drawFlask(indColor(d,ph),V/VM,TYPES[HT.t].sample+" + "+d.s,"z byrety: "+TYPES[HT.t].titr);
+  $("#tcVV").textContent=fx(V,2)+" ml";
+  ro($("#tcRo1"),"Přidáno titrantu",fx(V,2)+" ml","bod ekvivalence: "+fx(ve,2)+" ml");
+  ro($("#tcRo2"),"pH v baňce",fx(ph,2),V<ve-0.02?"před bodem ekvivalence":(V>ve+0.02?"nadbytek titrantu":"bod ekvivalence"));
+  var st=indState(d,ph);
+  ro($("#tcRo3"),"Barva indikátoru",'<span class="abt-sw" style="background:'+indColor(d,ph)+'"></span>'+(st==="přechod"?"přechod":st),d.ca+" → "+d.cb);
+  /* posouzení indikátoru */
+  var v;
+  if(vMid===null){
+    var p0=phAt(o,0), before=((d.lo+d.hi)/2 < Math.min(p0,phAt(o,VM)));
+    v=["bad","<b>Nevhodný:</b> "+d.s+" během titrace barvu vůbec nezmění. Jeho oblast (pH "+fx(d.lo,1)+"–"+fx(d.hi,1)+") leží mimo pH, kterými roztok prochází."];
+  } else {
+    var err=vMid-ve, width=(vLo!==null&&vHi!==null)?Math.abs(vHi-vLo):99;
+    var a1=Math.min(vLo===null?0:vLo,vHi===null?VM:vHi), a2=Math.max(vLo===null?0:vLo,vHi===null?VM:vHi);
+    if(Math.abs(err)>1) v=["bad","<b>Nevhodný:</b> barvu změní už při "+fx(vMid,2)+" ml, tedy o "+fx(Math.abs(err),2)+" ml "+(err<0?"dřív":"později")+", než je bod ekvivalence ("+fx(ve,2)+" ml). Jeho oblast neleží ve skoku pH, ale v plochém úseku křivky "+(err<0?"před bodem ekvivalence":"za ním")+(width>1?", kde se pH mění pomalu, a barva proto přechází pozvolna (mezi "+fx(a1,1)+" a "+fx(a2,1)+" ml)":"")+". To je velká <b>chyba indikátora</b>."];
+    else if(width>1) v=["bad","<b>Nevhodný:</b> barva přechází pozvolna mezi "+fx(a1,1)+" a "+fx(a2,1)+" ml. Skok pH v bodě ekvivalence je tu tak malý, že konec titrace nelze okem přesně poznat."];
+    else if(Math.abs(err)<=0.1) v=["ok","<b>Vhodný indikátor:</b> změní barvu při "+fx(vMid,2)+" ml, jen "+fx(Math.abs(err),2)+" ml od bodu ekvivalence. Jeho oblast leží ve skoku pH."];
+    else v=[Math.abs(err)>1?"bad":"warn","<b>Nevhodný:</b> barvu změní při "+fx(vMid,2)+" ml, tedy o "+fx(Math.abs(err),2)+" ml ("+fx(Math.abs(err)/ve*100,1)+" %) "+(err<0?"dřív":"později")+", než je bod ekvivalence. To je <b>chyba indikátora</b>. Oranžový trojúhelník na ose ukazuje, kde barva přejde."];
+  }
+  msg($("#tcMsg"),v[0],v[1]);
+}
+function initHero(){
+  $("#tcInd").innerHTML=IND.map(function(d){ return '<option value="'+d.k+'">'+d.n+' ('+fx(d.lo,1)+'–'+fx(d.hi,1)+')</option>'; }).join("");
+  $("#tcInd").value=HT.ind;
+  $("#tcInd").addEventListener("change",function(){ HT.ind=this.value; drawHero(); });
+  $("#tcV").addEventListener("input",function(){ HT.V=+this.value; drawHero(); });
+  segBind("tcType",function(v){ HT.t=v; HT.ind=TYPES[v].ind; $("#tcInd").value=HT.ind; drawHero(); });
+  drawHero();
+}
+
+/* ============================================================
+   A6 · SROVNÁNÍ ČTYŘ KŘIVEK A VLIV pKa
+   ============================================================ */
+var CMP = [
+  {t:"sasb", c:"var(--cat1)"}, {t:"wasb", c:"var(--cat2)"}, {t:"sawb", c:"var(--cat3)"}, {t:"wawb", c:"var(--cat4)"}
 ];
-function drawPH(){
-  var W=440, x0=14, x1=426, s='';
+function drawCmp(){
+  $("#cmpWrap").innerHTML=curveSVG({curves:CMP.map(function(k){ return {o:{t:k.t,Va:25,ca:0.1,ct:0.1}, c:k.c, w:2.4}; })});
+  $("#cmpLeg").innerHTML=CMP.map(function(k){ return '<span class="li"><span class="sw" style="background:'+k.c+'"></span>'+TYPES[k.t].ex+'</span>'; }).join("");
+}
+/* ============================================================
+   A7 · INDIKÁTORY NA STUPNICI pH
+   ============================================================ */
+var ICPH=7;
+function drawIndChart(){
+  var W=440, x0=150, x1=430, rh=32, top=16, s='';
   function xp(p){ return x0+(x1-x0)*p/14; }
-  PHZ.forEach(function(z){
-    s+=rect(xp(z.a),30,xp(z.b)-xp(z.a),38,{fill:z.c,style:"opacity:.22"});
-    s+=txt((xp(z.a)+xp(z.b))/2,54,z.lab.replace("optimum ",""),{anchor:"middle",size:13,w:600,fill:"var(--ink)"});
+  IND.forEach(function(d,i){
+    var y=top+i*rh, g="icg"+i;
+    var ca=d.a?rgb(d.a):rgb(WATER,.5), cb=rgb(d.b);
+    s+='<defs><linearGradient id="'+g+'" x1="0" x2="1"><stop offset="'+(d.lo/14)+'" stop-color="'+ca+'"/><stop offset="'+(d.hi/14)+'" stop-color="'+cb+'"/></linearGradient></defs>';
+    s+=txt(x0-8,y+15,d.s,{anchor:"end",size:13,w:600,fill:"var(--ink)"});
+    s+='<rect x="'+x0+'" y="'+(y+3)+'" width="'+(x1-x0)+'" height="18" rx="4" style="fill:url(#'+g+');stroke:var(--line-strong);stroke-width:.8"/>';
+    s+=line(xp(d.lo),y+1,xp(d.lo),y+23,{c:"var(--ink-2)",w:1});
+    s+=line(xp(d.hi),y+1,xp(d.hi),y+23,{c:"var(--ink-2)",w:1});
   });
-  s+=rect(x0,30,x1-x0,38,{fill:"none",stroke:"var(--line-strong)",r:4});
-  for(var p=0;p<=14;p++){ s+=line(xp(p),68,xp(p),74,{c:"var(--ink-3)"}); s+=txt(xp(p),89,String(p),{anchor:"middle",size:12,mono:true}); }
-  var x=xp(PH);
-  s+='<path d="M'+x+' 26 l-7 -12 l14 0 z" style="fill:var(--accent)"/>';
-  s+=line(x,26,x,72,{c:"var(--accent)",w:2.5});
-  $("#phWrap").innerHTML=svg("0 0 "+W+" 96",s,'aria-label="Stupnice pH s oknem pro přímou jodometrii"');
-  $("#phVV").textContent=fx(PH,1);
-  var z=PHZ.filter(function(z){ return PH>=z.a && (PH<z.b || z.b===14); })[0];
-  if(PH===9) z=PHZ[2];
-  msg($("#phMsg"),z.cls,z.t);
+  var yb=top+IND.length*rh;
+  for(var p=0;p<=14;p+=2){ s+=line(xp(p),yb,xp(p),yb+5,{c:"var(--ink-3)"}); s+=txt(xp(p),yb+18,String(p),{anchor:"middle",size:12,mono:true}); }
+  var xm=xp(ICPH);
+  s+=line(xm,top-6,xm,yb+2,{c:"var(--ink)",w:2.5});
+  s+='<path d="M'+xm+' '+(top-4)+' l-6 -9 l12 0 z" style="fill:var(--ink)"/>';
+  $("#icWrap").innerHTML=svg("0 0 "+W+" "+(yb+26),s,'aria-label="Funkční oblasti indikátorů na stupnici pH"');
+  $("#icPHV").textContent=fx(ICPH,1);
+  var inTr=IND.filter(function(d){ return ICPH>=d.lo && ICPH<=d.hi; });
+  msg($("#icMsg"),inTr.length?"ok":"","Při pH "+fx(ICPH,1)+": "+IND.map(function(d){
+    var st=indState(d,ICPH);
+    return '<span style="white-space:nowrap"><span class="abt-sw" style="background:'+indColor(d,ICPH)+'"></span>'+d.s+' <b>'+(st==="přechod"?"v přechodu":st)+'</b></span>';
+  }).join(" · "));
 }
-
-/* ============================================================
-   J6 · ŠKROB — JOD VE ŠROUBOVICI AMYLOSY
-   ============================================================ */
-function drawHelix(){
-  var W=460, H=190, cy=92, A=46, s='', i, x;
-  var back='', front='';
-  for(i=0;i<=240;i++){
-    var t=i/240, xx=20+t*420, ph=t*Math.PI*2*3.5, y=cy+A*Math.sin(ph);
-    var seg=(Math.cos(ph)>0);
-    if(i>0){
-      var tp=(i-1)/240, xp=20+tp*420, yp=cy+A*Math.sin(tp*Math.PI*2*3.5);
-      var l='<path d="M'+xp.toFixed(1)+' '+yp.toFixed(1)+' L'+xx.toFixed(1)+' '+y.toFixed(1)+'" style="stroke:var(--ink-3);stroke-width:'+(seg?5:3)+';stroke-linecap:round;opacity:'+(seg?.95:.4)+'"/>';
-      if(seg) front+=l; else back+=l;
-    }
-  }
-  s+=back;
-  s+=rect(28,cy-13,404,26,{fill:"rgba(40,60,190,.20)",r:13});
-  for(i=0;i<13;i++){
-    x=42+i*31.5;
-    s+='<circle cx="'+x+'" cy="'+cy+'" r="9" style="fill:#5b3a93;stroke:#2a1a55;stroke-width:1"/>';
-    if(i%3===1) s+=txt(x,cy+4,"I",{anchor:"middle",size:10,w:700,fill:"#fff"});
-  }
-  s+=front;
-  s+=txt(20,22,"amylosa — šroubovice z glukosových jednotek",{size:14,w:600,fill:"var(--ink-2)"});
-  s+=txt(20,H-8,"uvnitř řetízek jodu (I₃⁻, I₅⁻) → modrý komplex",{size:14,w:600,fill:"#3346b8"});
-  $("#helixWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Schéma: řetízek jodu uvnitř šroubovice amylosy"');
-}
-
-/* ============================================================
-   J7 · STECHIOMETRICKÝ ŘETÍZEK
-   ============================================================ */
-var CHAIN = [
-  {k:"cu", lab:"Cu²⁺", a:2, i:1, t:2, eqs:["2Cu²⁺ + 4I⁻ → 2CuI + I₂"],
-   note:"Rozbor rud a slitin. Na sraženině CuI se část jodu adsorbuje, proto se ke konci přidává KSCN (kapitola 03)."},
-  {k:"clo", lab:"ClO⁻", a:1, i:1, t:2, eqs:["ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O"],
-   note:"Aktivní chlor v bělidlech a dezinfekcích (příklad v kapitole 05)."},
-  {k:"h2o2", lab:"H₂O₂", a:1, i:1, t:2, eqs:["H₂O₂ + 2I⁻ + 2H⁺ → I₂ + 2H₂O"],
-   note:"Reakce je pomalá, často se katalyzuje molybdenanem amonným."},
-  {k:"cr", lab:"Cr₂O₇²⁻", a:1, i:3, t:6, eqs:["Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O"],
-   note:"Pomalejší reakce, nechává se chvíli stát v temnu. Na konci je roztok zelený od Cr³⁺."},
-  {k:"io3", lab:"IO₃⁻", a:1, i:3, t:6, eqs:["IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O"],
-   note:"KIO₃ je přesný primární standard pro standardizaci thiosíranu."},
-  {k:"bro3", lab:"BrO₃⁻", a:1, i:3, t:6, eqs:["BrO₃⁻ + 6I⁻ + 6H⁺ → Br⁻ + 3I₂ + 3H₂O"], note:""},
-  {k:"o2", lab:"O₂ (Winkler)", a:1, i:2, t:4,
-   eqs:["O₂ + 2Mn²⁺ + 4OH⁻ → 2MnO(OH)₂ (zásadité)","MnO(OH)₂ + 2I⁻ + 4H⁺ → Mn²⁺ + I₂ + 3H₂O (po okyselení)"],
-   note:"Winklerova metoda: rozpuštěný kyslík ve vodě. Kyslík nejdřív zoxiduje Mn²⁺, po okyselení vzniklý MnO(OH)₂ uvolní jod."}
-];
-var chK="clo";
-/* „most“ přes jod: 1 mol analytu → kolik mol I₂ uvolní → kolik mol S₂O₃²⁻ spotřebuje */
-function molTxt(x){ return x===0.5?"½":(x===0.25?"¼":fmt(x,2)); }
-function drawChain(){
-  var d=CHAIN.filter(function(x){return x.k===chK;})[0];
-  var an=d.lab.replace(" (Winkler)","");
-  var i1=d.i/d.a, t1=d.t/d.a;               /* na 1 mol analytu */
-  var h='<div class="jd-bridge">'+
-    '<div class="jd-bx a"><span class="jd-bn">1 mol</span><span class="jd-bs">'+an+'</span><span class="jd-bc">analyt ve vzorku</span></div>'+
-    '<div class="jd-bar"><span class="jd-bt">krok 1: uvolní z KI</span><span class="jd-bl">→</span></div>'+
-    '<div class="jd-bx i"><span class="jd-bn">'+molTxt(i1)+' mol</span><span class="jd-bs">I₂</span><span class="jd-bc">uvolněný jod</span></div>'+
-    '<div class="jd-bar"><span class="jd-bt">krok 2: spotřebuje (1 I₂ : 2 S₂O₃²⁻)</span><span class="jd-bl">→</span></div>'+
-    '<div class="jd-bx t"><span class="jd-bn">'+molTxt(t1)+' mol</span><span class="jd-bs">S₂O₃²⁻</span><span class="jd-bc">titrant z byrety</span></div>'+
-  '</div>';
-  h+='<p class="jd-bsum"><b>Závěr:</b> na každý 1&nbsp;mol '+an+' spotřebujete '+molTxt(t1)+'&nbsp;mol thiosíranu, tedy '+
-     '<b>n('+an+') = n(S₂O₃²⁻)'+(t1===1?'':' / '+fmt(t1,2))+'</b>.'+
-     ' <span style="color:var(--ink-2)">Například spotřeba 1,20&nbsp;mmol thiosíranu znamená '+fmt(1.2/t1,2)+'&nbsp;mmol '+an+' ve vzorku.</span></p>';
-  h+='<details class="jd-more small"><summary>Rovnice obou kroků</summary><div class="jd-body"><p class="eq" style="font-size:.9rem">'+
-     d.eqs.map(function(e){return '<span class="chem">'+e+'</span>';}).join("<br>")+'<br><span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p></div></details>';
-  if(d.note) h+='<p style="color:var(--ink-2);margin:.8rem 0 0">'+d.note+'</p>';
-  $("#chOut").innerHTML=h;
-}
-function initChain(){
-  $("#chSel").innerHTML=CHAIN.map(function(d){ return '<button type="button" data-v="'+d.k+'" aria-pressed="'+(d.k===chK)+'">'+d.lab+'</button>'; }).join("");
-  segBind("chSel",function(v){ chK=v; drawChain(); });
-  drawChain();
-}
-
-/* ============================================================
-   J8 · TŘÍDIČKA CHYB
-   ============================================================ */
-var ERRS = [
-  {t:"Oxidace I⁻ vzdušným kyslíkem", d:"Roztok s KI stojí po okyselení dlouho na světle.", up:true,
-   w:"<span class=\"chem\">4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O</span>. Vzniká „falešný“ jod navíc, spotřeba thiosíranu stoupne. Nejvíc v kyselém prostředí, urychluje ji světlo a ionty Cu²⁺ a Fe³⁺. <b>Prevence:</b> titrovat hned po okyselení, bez přímého světla, udělat slepý pokus."},
-  {t:"Těkání jodu", d:"Titrace probíhá v otevřené baňce za tepla a s intenzivním mícháním.", up:false,
-   w:"Jod uniká do vzduchu dřív, než ho stihne ztitrovat thiosíran. <b>Prevence:</b> baňka se zábrusem nebo přikrytá hodinovým sklem, nižší teplota, dost KI (jod vázaný na I₃⁻ tolik netěká), titrovat bez odkladu."},
-  {t:"Neúplná reakce analytu s KI", d:"Po přidání KI se začne titrovat okamžitě, i když analyt reaguje pomalu.", up:false,
-   w:"Uvolní se méně jodu, než odpovídá analytu. <b>Prevence:</b> dost času (někdy desítky minut, často v temnu), správné pH, nadbytek KI, případně katalyzátor (molybdenan u H₂O₂)."},
-  {t:"Jod adsorbovaný na sraženině", d:"Při stanovení Cu²⁺ vzniká sraženina CuI, na jejímž povrchu část jodu ulpí.", up:false,
-   w:"Adsorbovaný jod se neztitruje. <b>Prevence:</b> intenzivně míchat, ke konci přidat KSCN (<span class=\"chem\">CuI + SCN⁻ → CuSCN + I⁻</span>, CuSCN jod tolik neváže), škrob až ke konci."},
-  {t:"Rozložený roztok thiosíranu", d:"Thiosíran se od poslední standardizace částečně rozložil (CO₂, bakterie).", up:true,
-   w:"Počítáme s původní koncentrací, ale titrant je slabší. Na stejné množství jodu ho spotřebujeme víc, a proto vyjde víc analytu. <b>Prevence:</b> čerstvě standardizovaný roztok, správná příprava a uchovávání (převařená voda, Na₂CO₃, tmavá lahev)."},
-  {t:"Nečistota IO₃⁻ v KI", d:"Použitý jodid draselný obsahuje stopy jodičnanu.", up:true,
-   w:"V kyselém prostředí jodičnan uvolní jod navíc: <span class=\"chem\">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span>. <b>Prevence:</b> KI čistoty p.a. Test: okyselený roztok KI se škrobem nesmí zmodrat. Slepý pokus."}
-];
-var errAns = {};
-function drawErrs(){
-  $("#errBox").innerHTML=ERRS.map(function(e,i){
-    var a=errAns[i], done=a!==undefined, right=done && a===e.up;
-    return '<div class="jd-err'+(done?" done "+(right?"right":"wrong"):"")+'">'+
-      '<h4>'+e.t+'</h4><p>'+e.d+'</p>'+
-      '<div class="jd-btns">'+
-        '<button class="btn btn-sm'+(done&&a===true?" btn-primary":"")+'" type="button" data-e="'+i+'" data-up="1"'+(done?" disabled":"")+'>Výsledek vyšší ↑</button>'+
-        '<button class="btn btn-sm'+(done&&a===false?" btn-primary":"")+'" type="button" data-e="'+i+'" data-up="0"'+(done?" disabled":"")+'>Výsledek nižší ↓</button>'+
-      '</div>'+
-      '<div class="jd-why"><p><b style="color:var('+(right?"--ok":"--bad")+')">'+(right?"✓ Správně":"✕ Ne")+' — výsledek bude '+(e.up?"vyšší (kladná chyba)":"nižší (záporná chyba)")+'.</b></p><p style="margin-top:.35rem">'+e.w+'</p></div>'+
-    '</div>';
+function fillIndTable(){
+  $("#indTable").innerHTML=IND.map(function(d){
+    var sa='<span class="abt-sw" style="background:'+(d.a?rgb(d.a):rgb(WATER,.4))+'"></span>', sb='<span class="abt-sw" style="background:'+rgb(d.b)+'"></span>';
+    return '<tr><td>'+d.n+'</td><td class="n">'+fx(d.lo,1)+'–'+fx(d.hi,1)+'</td><td>'+sa+d.ca+'</td><td>'+sb+d.cb+'</td><td>'+d.use+'</td></tr>';
   }).join("");
-  var n=Object.keys(errAns).length, ok=Object.keys(errAns).filter(function(k){ return errAns[k]===ERRS[k].up; }).length;
-  var sc=$("#errScore");
-  if(n===0) msg(sc,"","Rozhodněte u každé chyby, kterým směrem posune výsledek.");
-  else if(n<ERRS.length) msg(sc,"","Zatím "+ok+" z "+n+" správně. Zbývá "+(ERRS.length-n)+".");
-  else msg(sc,ok===ERRS.length?"ok":"warn","Hotovo: <b>"+ok+" z "+ERRS.length+"</b> správně. "+(ok===ERRS.length?"Směr chyb máte v malíčku.":"Projděte si vysvětlení u červeně orámovaných karet.")+' <button class="btn btn-sm" type="button" data-err-again style="margin-left:.4rem">Znovu</button>');
-  var ag=$("[data-err-again]"); if(ag) ag.addEventListener("click",function(){ errAns={}; drawErrs(); });
-}
-function initErrs(){
-  $("#errBox").addEventListener("click",function(e){
-    var b=e.target.closest ? e.target.closest("button[data-e]") : null;
-    if(!b || b.disabled) return;
-    errAns[+b.dataset.e]=b.dataset.up==="1"; drawErrs();
-  });
-  drawErrs();
 }
 
 /* ============================================================
-   J9 · TERČ: SPRÁVNOST × PŘESNOST
+   A10 · BARVA V BAŇCE (ikony v klíčovém postupu)
    ============================================================ */
-function drawTarget(){
-  var cases=[
-    {t:"správné a přesné", c:[0,0], r:5},
-    {t:"přesné, nesprávné", c:[20,-16], r:5},
-    {t:"správné, nepřesné", c:[0,0], r:24},
-    {t:"ani správné, ani přesné", c:[16,14], r:24}
-  ];
-  var pts=[[0.3,0.5],[-0.6,0.2],[0.5,-0.7],[-0.2,-0.5],[0.8,0.4],[-0.7,-0.8]];
-  var s='', narrow=$("#tgtWrap").clientWidth<520;
-  cases.forEach(function(k,i){
-    var cx=narrow?85+(i%2)*170:80+i*160, cy=narrow?70+Math.floor(i/2)*150:78;
-    [52,38,24,10].forEach(function(r,j){ s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" style="fill:'+(j%2?"var(--surface)":"var(--surface-3)")+';stroke:var(--line-strong)"/>'; });
-    s+='<circle cx="'+cx+'" cy="'+cy+'" r="3" style="fill:var(--ink-3)"/>';
-    pts.forEach(function(p){ s+='<circle cx="'+(cx+k.c[0]+p[0]*k.r)+'" cy="'+(cy+k.c[1]+p[1]*k.r)+'" r="4.2" style="fill:var(--accent);stroke:var(--surface);stroke-width:1"/>'; });
-    s+=txt(cx,cy+74,k.t,{anchor:"middle",size:narrow?14:12,w:600,fill:i===0?"var(--ok)":"var(--ink-2)"});
-  });
-  $("#tgtWrap").innerHTML=svg(narrow?"0 0 340 300":"0 0 640 164",s,'aria-label="Čtyři terče: správnost a přesnost"');
-}
-
-/* ============================================================
-   J10 · STATISTIKA TŘÍ TITRACÍ
-   ============================================================ */
-function num(v){ var x=parseFloat(String(v).trim().replace(",",".").replace(/−/g,"-")); return isNaN(x)?null:x; }
-function drawStats(){
-  var v=["#st1","#st2","#st3"].map(function(id){ return num($(id).value); });
-  if(v.some(function(x){return x===null;})){
-    ro($("#stRo1"),"Průměr","—"); ro($("#stRo2"),"Směrodatná odchylka s","—"); ro($("#stRo3"),"RSD","—");
-    msg($("#stMsg"),"warn","Zadejte tři čísla (desetinná čárka i tečka fungují)."); return;
-  }
-  var m=(v[0]+v[1]+v[2])/3;
-  var sd=Math.sqrt(v.reduce(function(a,x){return a+(x-m)*(x-m);},0)/2);
-  var rsd=m?sd/m*100:0;
-  ro($("#stRo1"),"Průměr x̄",fx(m,3)+" ml");
-  ro($("#stRo2"),"Směrodatná odchylka s",fx(sd,3)+" ml","s = √[Σ(x − x̄)² / (n − 1)]");
-  ro($("#stRo3"),"RSD",fx(rsd,2)+" %","s / x̄ · 100 %");
-  if(rsd<=0.5) msg($("#stMsg"),"ok","Titrace se shodují velmi dobře, měření je <b>přesné</b>. Jestli je i <b>správné</b>, statistika neřekne, na to je potřeba standard se známým obsahem.");
-  else if(rsd<=2) msg($("#stMsg"),"warn","Rozptyl je znatelný. Zkontrolujte odečet byrety a posouzení barevného přechodu.");
-  else msg($("#stMsg"),"bad","Hodnoty se liší hodně. Titraci zopakujte. Odlehlou hodnotu vyřaďte jen se zdůvodněním (statistický test).");
-}
-function initStats(){ ["#st1","#st2","#st3"].forEach(function(id){ $(id).addEventListener("input",drawStats); }); drawStats(); }
-
-/* ============================================================
-   J20 · BARVA V BAŇCE (malé ikony v klíčových rámečcích)
-   ============================================================ */
-var FLC = {clear:"rgba(214,232,242,.55)", brown:"rgba(128,62,14,.95)", yellow:"rgba(232,196,70,.9)",
-           pale:"rgba(246,232,160,.85)", blue:"rgba(26,40,130,.95)"};
+var FLC = {clear:"rgba(214,232,242,.55)", pink:"rgba(236,120,186,.75)", spot:"rgba(214,232,242,.55)", spotlong:"rgba(242,200,224,.7)"};
 function paintFlasks(){
   $$(".jd-flask").forEach(function(el){
-    var c=FLC[el.dataset.c]||FLC.clear;
+    var k=el.dataset.c, c=FLC[k]||FLC.clear;
+    var drop = (k==="spot"||k==="spotlong") ? '<ellipse cx="20" cy="35.5" rx="'+(k==="spot"?4:7)+'" ry="1.8" style="fill:rgba(214,51,143,.9)"/>' : '';
     el.innerHTML='<svg viewBox="0 0 40 48" aria-hidden="true">'+
-      '<path d="M8.5 33 L4 44 Q4 46 6 46 L34 46 Q36 46 36 44 L31.5 33 Z" style="fill:'+c+'"/>'+
+      '<path d="M8.5 33 L4 44 Q4 46 6 46 L34 46 Q36 46 36 44 L31.5 33 Z" style="fill:'+c+'"/>'+drop+
       '<path d="M16 3 L16 18 L4 44 Q4 46 6 46 L34 46 Q36 46 36 44 L24 18 L24 3" style="fill:none;stroke:var(--ink-2);stroke-width:2;stroke-linejoin:round"/>'+
       '<path d="M13.5 3 L26.5 3" style="stroke:var(--ink-2);stroke-width:2;stroke-linecap:round"/></svg>';
   });
 }
 
 /* ============================================================
-   J21 · DOPLŇOVAČKY
+   A11 · DOPLŇOVAČKY
    ============================================================ */
-function normAns(s){ return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[\s₂₃]/g,function(c){ return c==="₂"?"2":(c==="₃"?"3":""); }); }
+function normAns(s){ return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/₂/g,"2").replace(/ₐ/g,"a").replace(/\s/g,""); }
 function initFills(){
   $$(".jd-fill").forEach(function(box){
     var ans=JSON.parse(box.dataset.ans), ins=$$("input",box), fb=$(".jd-fb",box);
@@ -2591,34 +2341,43 @@ function initFills(){
 }
 
 /* ============================================================
-   J22 · KVÍZY PŘÍMO V TEXTU (jedna otázka hned po výkladu)
+   A12 · KVÍZY PŘÍMO V TEXTU (a otázky ke grafům)
    ============================================================ */
+function graph(c){ return '<div class="svgwrap jd-qg">'+curveSVG(c)+'</div>'; }
 var QS = {
-  q11:{n:"Kvíz 1.1", q:"Na jakém typu chemické reakce je jodometrie založena?",
-    o:["Acidobazické","Srážecí","Komplexotvorné","Redoxní"], c:3,
-    e:"Jodometrie využívá přeměnu mezi I₂ a I⁻, která je spojená se změnou oxidačních čísel. Jde tedy o redoxní reakci."},
-  q12:{n:"Kvíz 1.2", q:"Která forma jodu působí v základním redoxním páru jako <b>redukovadlo</b>?",
-    o:["I₂","I⁻","I₃⁻","IO₃⁻"], c:1,
-    e:"Jodidový ion I⁻ má nižší oxidační číslo (−1) a může odevzdávat elektrony (oxidovat se na I₂), proto je redukovadlem."},
-  q21:{n:"Kvíz 2.1", q:"Jaký odměrný roztok se používá při přímé jodometrii?",
-    o:["Roztok KI","Roztok Na₂S₂O₃","Roztok I₂ (v KI)","Roztok škrobu"], c:2,
-    e:"Přímá jodometrie používá jod jako titrant ke stanovení redukovadel."},
-  q22:{n:"Kvíz 2.2", q:"Jaké pH je obvykle optimální pro přímou jodometrii?",
-    o:["Silně kyselé (pH &lt; 2)","Mírně kyselé (pH 4–6)","Neutrální až slabě zásadité (pH 7–9)","Silně zásadité (pH &gt; 10)"], c:2,
-    e:"V tomto rozmezí je reakce jodu s mnoha redukovadly kvantitativní a zároveň se omezí vedlejší reakce: oxidace I⁻ kyslíkem v kyselém prostředí a disproporcionace I₂ v zásaditém."},
-  q31:{n:"Kvíz 3.1", q:"Jakou funkci má nadbytek KI v prvním kroku nepřímé jodometrie?",
-    o:["Působí jako katalyzátor.","Dodává I⁻ pro reakci s analytem a rozpouští vzniklý I₂.","Upravuje pH roztoku.","Slouží jako indikátor."], c:1,
-    e:"KI dodává jodidové ionty, které analyt oxiduje na I₂. Nadbytek KI zajistí kvantitativní průběh reakce a pomáhá rozpustit vzniklý, málo rozpustný I₂ jako I₃⁻."},
-  q32:{n:"Kvíz 3.2", q:"Proč se škrob při nepřímé jodometrii přidává až ke konci titrace?",
-    o:["Aby nereagoval s Na₂S₂O₃.","Protože se v kyselém prostředí rozkládá.","Aby při vysoké koncentraci I₂ nevznikl příliš stabilní komplex.","Protože reaguje jen s I⁻, ne s I₂."], c:2,
-    e:"Kdyby se škrob přidal na začátku, kdy je koncentrace I₂ vysoká, vznikl by velmi pevný komplex. Jod v něm vázaný by reagoval s Na₂S₂O₃ pomaleji a přechod v bodě ekvivalence by byl neostrý."},
-  q41:{n:"Kvíz 4.1", q:"Která chyba vede při nepřímé jodometrii k falešně <b>vyššímu</b> výsledku?",
-    o:["Těkavost I₂","Oxidace I⁻ vzdušným kyslíkem","Neúplná reakce analytu s KI","Adsorpce I₂ na sraženině"], c:1,
-    e:"Oxidací I⁻ vzdušným kyslíkem vzniká jod navíc, který nepochází z analytu, ale spotřebuje titrant. Spotřeba je vyšší a výsledek falešně vyšší. Ostatní tři chyby jod ztrácejí, a proto výsledek snižují."},
-  q42:{n:"Kvíz 4.2", q:"Přídavek KSCN ke konci titrace při stanovení Cu²⁺ pomáhá omezit chybu způsobenou:",
-    o:["oxidací I⁻ vzduchem","těkavostí I₂","adsorpcí I₂ na sraženině CuI","nečistotami IO₃⁻ v KI"], c:2,
-    e:"KSCN reaguje s CuI za vzniku méně rozpustného CuSCN, který jod tolik neadsorbuje. Předtím adsorbovaný jod se uvolní do roztoku a dá se správně ztitrovat."}
+  q21:{n:"Kvíz 2.1", q:"Která látka se běžně používá jako primární standard ke standardizaci roztoků silných kyselin (např. HCl)?",
+    o:["NaOH","Na₂CO₃","NaCl","KHP (hydrogenftalan draselný)"], c:1,
+    e:"Bezvodý uhličitan sodný je stálá, čistá zásaditá látka, která splňuje požadavky na primární standard v acidimetrii. KHP je primární standard pro alkalimetrii (standardizaci zásad)."},
+  q22:{n:"Kvíz 2.2", q:"Proč je nutné chránit odměrné roztoky NaOH před vzdušným CO₂?",
+    o:["CO₂ rozkládá NaOH na Na a O₂.","CO₂ snižuje pH roztoku, a tím účinnost NaOH.","NaOH reaguje s CO₂ na Na₂CO₃, což mění koncentraci OH⁻ a může rušit titrace slabých kyselin.","CO₂ způsobí zákal, který ztěžuje odečet objemu."], c:2,
+    e:"Reakcí 2NaOH + CO₂ → Na₂CO₃ + H₂O klesá koncentrace silné zásady OH⁻ a vzniká uhličitan, slabší zásada. Klesá tím titrační kapacita roztoku a při titraci slabých kyselin může uhličitan také reagovat a způsobit chybu."},
+  q31:{n:"Kvíz 3.1", q:"Co je základem funkce acidobazického indikátoru?",
+    o:["Změna rozpustnosti při určitém pH.","Je to slabá kyselina nebo zásada, jejíž protonizovaná a deprotonizovaná forma mají různé barvy.","Reaguje s vodou na barevný produkt.","Mění barvu podle teploty roztoku."], c:1,
+    e:"Indikátor existuje v rovnováze mezi kyselou (HIn) a zásaditou (In⁻) formou. Formy mají různou strukturu a pohlcují světlo jiných vlnových délek, proto mají různé barvy. Poměr forem, a tedy barva, závisí na pH."},
+  q32:{n:"Kvíz 3.2", q:"Který indikátor je nejvhodnější pro titraci slabé kyseliny (např. CH₃COOH) silnou zásadou (např. NaOH)?",
+    o:["Methyloranž (pH 3,1–4,4)","Bromthymolová modř (pH 6,0–7,6)","Fenolftalein (pH 8,2–10,0)","Univerzální indikátorový papírek"], c:2,
+    e:"V bodě ekvivalence vzniká sůl slabé kyseliny (CH₃COONa), která hydrolyzuje zásaditě, pH je tedy > 7. Fenolftalein má funkční oblast 8,2–10,0 v zásadité oblasti, která dobře pokrývá skok pH této titrace."},
+  q41:{n:"Kvíz 4.1", q:"Jaké pH bude mít roztok v bodě ekvivalence při titraci kyseliny octové (CH₃COOH) hydroxidem sodným?",
+    o:["pH &lt; 7","pH = 7","pH &gt; 7","Nelze určit bez znalosti koncentrací."], c:2,
+    e:"V bodě ekvivalence vzniká octan sodný. Octanový anion je konjugovaná zásada slabé kyseliny a hydrolyzuje: CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻. Vznikají ionty OH⁻, roztok je zásaditý, pH > 7."},
+  q42:{n:"Kvíz 4.2", q:"Pro který typ titrace je nejtěžší najít vhodný vizuální indikátor?",
+    o:["Silná kyselina / silná zásada","Slabá kyselina / silná zásada","Silná kyselina / slabá zásada","Slabá kyselina / slabá zásada"], c:3,
+    e:"Při titraci slabé kyseliny slabou zásadou je skok pH kolem bodu ekvivalence velmi malý a pozvolný. Žádný běžný indikátor nemá tak úzký přechod, aby dal ostrou a přesnou indikaci."}
 };
+function addGraphQs(){
+  QS.g1={n:"Graf 1", q:graph({o:{t:"sasb",Va:25,ca:0.1,ct:0.1}, be:"dot", marks:[{V:2,lab:"A"},{V:46,lab:"C"}], h:260})+"Jakému typu titrace nejlépe odpovídá průběh křivky?",
+    o:["Silná kyselina titrovaná silnou zásadou","Slabá kyselina titrovaná silnou zásadou","Silná kyselina titrovaná slabou zásadou","Slabá kyselina titrovaná slabou zásadou"], c:0,
+    e:"Křivka začíná při nízkém pH (silná kyselina), má velmi prudký skok pH, bod ekvivalence leží přesně při pH 7 a končí při vysokém pH (nadbytek silné zásady). To je typické pro titraci silné kyseliny silnou zásadou. V bodě C už převládá nadbytek přidané silné zásady."};
+  QS.g2={n:"Graf 2", q:graph({o:{t:"wasb",Va:25,ca:0.1,ct:0.1}, be:"dot", marks:[{V:12.5,lab:"P"}], h:260})+"Bod P leží přesně v polovině spotřeby do bodu ekvivalence. Jaké je přibližně pKₐ titrované kyseliny?",
+    o:["pKₐ ≈ 3","pKₐ ≈ 4,8","pKₐ = 7","pKₐ ≈ 9"], c:1,
+    e:"V polovině cesty k bodu ekvivalence je [HA] = [A⁻], a proto pH = pKₐ. Bod P leží při pH asi 4,8 (kyselina octová má pKₐ 4,76). Bod ekvivalence je v zásadité oblasti (pH > 7), jde tedy o slabou kyselinu titrovanou silnou zásadou a hodí se fenolftalein."};
+  QS.g3={n:"Graf 3", q:graph({o:{t:"sawb",Va:25,ca:0.11,ct:0.1}, be:"dot", h:260})+"O jakou titraci jde a který indikátor se hodí?",
+    o:["Slabá kyselina + silná zásada, fenolftalein","Silná kyselina + slabá zásada, methyloranž","Silná kyselina + silná zásada, bromthymolová modř","Slabá kyselina + slabá zásada, žádný vizuální indikátor"], c:1,
+    e:"Křivka začíná při vysokém pH (titruje se zásada), ale ne extrémně vysokém, takže jde o slabou zásadu. Před bodem ekvivalence je pufrační oblast a bod ekvivalence leží jasně v kyselé oblasti (pH < 7). To je slabá zásada titrovaná silnou kyselinou, vhodná je methyloranž."};
+  QS.g4={n:"Graf 3", q:graph({o:{t:"sawb",Va:25,ca:0.11,ct:0.1}, be:"dot", h:260})+"Jaký je přibližný objem titrantu spotřebovaný do bodu ekvivalence?",
+    o:["asi 13,75 ml","asi 27,5 ml","asi 40 ml","Z grafu to nelze určit."], c:1,
+    e:"Bod ekvivalence je místo nejprudší změny pH (červená tečka). Na ose objemu mu odpovídá asi 27,5 ml. Polovina tohoto objemu (13,75 ml) je bod, kde pH = pKₐ(NH₄⁺)."};
+}
 function renderQ(box){
   var d=QS[box.dataset.q];
   box.innerHTML='<div class="jd-qh"><span class="tag">'+d.n+'</span><span>'+d.q+'</span></div>'+
@@ -2639,23 +2398,64 @@ function renderQ(box){
     $("[data-again]",box).addEventListener("click",function(){ box.classList.remove("done"); renderQ(box); });
   });
 }
-function initQs(){ $$(".jd-q").forEach(renderQ); }
+function initQs(){ addGraphQs(); $$(".jd-q").forEach(renderQ); }
 
 /* ============================================================
-   J23 · ZKUSTE SAMI — kalkulačka (koncentrace thiosíranu)
+   A13 · ZKUSTE SAMI — kalkulačka (koncentrace HCl)
    ============================================================ */
 function initCalc(){
   $("#cGo").addEventListener("click",function(){
-    var VI=num($("#cVI").value), cI=num($("#cCI").value), VT=num($("#cVT").value);
-    var rs=String($("#cR").value).trim(), r=/^\s*(\d+)\s*\/\s*(\d+)\s*$/.test(rs) ? (function(m){ return +m[1]/+m[2]; })(rs.match(/(\d+)\s*\/\s*(\d+)/)) : num(rs);
-    var out=$("#cOut");
-    if(VI===null||cI===null||VT===null||!VT){ out.innerHTML="Doplňte objemy a koncentraci."; return; }
-    if(r===null||!r){ out.innerHTML="Doplňte poměr n(I₂) / n(S₂O₃²⁻) — vyčtěte ho z rovnice."; return; }
-    var c=cI*VI/r/VT;
+    var VB=num($("#cVB").value), cB=num($("#cCB").value), VA=num($("#cVA").value), out=$("#cOut");
+    if(VB===null||cB===null||VA===null||!VA){ out.innerHTML="Doplňte všechny tři hodnoty."; return; }
+    var c=cB*VB/VA;
     out.innerHTML="Výsledek: <b>"+fx(c,4)+" mol/l</b>"+
-      '<span style="display:block;font-weight:400;color:var(--ink-2);margin-top:.3rem">c(Na₂S₂O₃) = c(I₂)·V(I₂) / [poměr · V(Na₂S₂O₃)] = '+fx(cI,4)+" · "+fx(VI,2)+" / ("+fx(r,2)+" · "+fx(VT,2)+")</span>"+
-      (Math.abs(r-0.5)>1e-6?'<span style="display:block;color:var(--bad);margin-top:.3rem">Pozor na poměr: z rovnice 2S₂O₃²⁻ + I₂ plyne n(I₂) / n(S₂O₃²⁻) = 1/2 = 0,5.</span>':'');
+      '<span style="display:block;font-weight:400;color:var(--ink-2);margin-top:.3rem">c(HCl) = c(NaOH) · V(NaOH) / V(HCl) = '+fx(cB,4)+" · "+fx(VB,2)+" / "+fx(VA,2)+"</span>";
   });
+}
+
+/* ============================================================
+   A14 · TŘÍDIČKA CHYB (vyšší / nižší / beze změny)
+   ============================================================ */
+var ERRS = [
+  {t:"Starý roztok NaOH", d:"Roztok NaOH stál otevřený a pohltil CO₂. Počítáte s koncentrací z poslední standardizace.", r:1,
+   w:"Skutečná koncentrace OH⁻ je nižší, než počítáte. Na stejné množství kyseliny spotřebujete víc titrantu a výsledek vyjde falešně vyšší."},
+  {t:"Byreta nevypláchnutá titrantem", d:"Po umytí zůstala v byretě destilovaná voda, titrant se jí naředil.", r:1,
+   w:"Zředěný titrant se spotřebuje ve větším objemu. Vy ale počítáte s původní koncentrací, a proto vyjde kyseliny víc."},
+  {t:"Bublina ve špičce byrety", d:"Ve špičce byla vzduchová bublina, která během titrace vyjela ven.", r:1,
+   w:"Odečtený objem zahrnuje i objem bubliny, který do baňky vůbec nepřitekl. Spotřeba vypadá větší a výsledek je vyšší."},
+  {t:"Voda navíc v titrační baňce", d:"Ke vzorku jste přilili o 30 ml destilované vody víc, než bylo v návodu.", r:0,
+   w:"Voda nemění látkové množství analytu, jen objem. Spotřeba titrantu je stejná a výsledek se nezmění."},
+  {t:"Konec titrace příliš brzy", d:"Titraci jste ukončili, jakmile se barva objevila v místě dopadu kapky, i když po zamíchání zase zmizela.", r:-1,
+   w:"To ještě nebyl bod ekvivalence, jen místní změna. Barva má vydržet aspoň 30 s. Spotřeba je menší a výsledek nižší."},
+  {t:"Methyloranž místo fenolftaleinu", d:"Kyselinu octovou jste titrovali hydroxidem na methyloranž.", r:-1,
+   w:"Methyloranž změní barvu kolem pH 3,1–4,4, dávno před bodem ekvivalence (pH > 7). Spotřeba je menší a kyseliny vyjde méně."}
+];
+var errAns = {};
+function drawErrs(){
+  var LAB={"1":"vyšší ↑","-1":"nižší ↓","0":"beze změny ="};
+  $("#errBox").innerHTML=ERRS.map(function(e,i){
+    var a=errAns[i], done=a!==undefined, right=done && a===e.r;
+    return '<div class="jd-err'+(done?" done "+(right?"right":"wrong"):"")+'">'+
+      '<h4>'+e.t+'</h4><p>'+e.d+'</p>'+
+      '<div class="jd-btns">'+[1,-1,0].map(function(v){
+        return '<button class="btn btn-sm'+(done&&a===v?" btn-primary":"")+'" type="button" data-e="'+i+'" data-r="'+v+'"'+(done?" disabled":"")+'>'+LAB[v]+'</button>';
+      }).join("")+'</div>'+
+      '<div class="jd-why"><p><b style="color:var('+(right?"--ok":"--bad")+')">'+(right?"✓ Správně":"✕ Ne")+' — výsledek bude '+LAB[e.r]+'.</b></p><p style="margin-top:.35rem">'+e.w+'</p></div>'+
+    '</div>';
+  }).join("");
+  var n=Object.keys(errAns).length, ok=Object.keys(errAns).filter(function(k){ return errAns[k]===ERRS[k].r; }).length, sc=$("#errScore");
+  if(n===0) msg(sc,"","U každé situace rozhodněte, jak se změní vypočtený obsah kyseliny.");
+  else if(n<ERRS.length) msg(sc,"","Zatím "+ok+" z "+n+" správně. Zbývá "+(ERRS.length-n)+".");
+  else msg(sc,ok===ERRS.length?"ok":"warn","Hotovo: <b>"+ok+" z "+ERRS.length+"</b> správně. "+(ok===ERRS.length?"Výborně.":"Projděte si vysvětlení u červeně orámovaných karet.")+' <button class="btn btn-sm" type="button" data-err-again style="margin-left:.4rem">Znovu</button>');
+  var ag=$("[data-err-again]"); if(ag) ag.addEventListener("click",function(){ errAns={}; drawErrs(); });
+}
+function initErrs(){
+  $("#errBox").addEventListener("click",function(e){
+    var b=e.target.closest ? e.target.closest("button[data-e]") : null;
+    if(!b || b.disabled) return;
+    errAns[+b.dataset.e]=+b.dataset.r; drawErrs();
+  });
+  drawErrs();
 }
 
 /* ============================================================
@@ -2676,11 +2476,10 @@ function initTips(){
 }
 
 /* ============================================================
-   J30 · PŘEKRESLENÍ, NAVÁZÁNÍ, PRVNÍ VYKRESLENÍ
+   A20 · PŘEKRESLENÍ, NAVÁZÁNÍ, PRVNÍ VYKRESLENÍ
    ============================================================ */
 function redrawAll(){
-  try{ drawLadder(); drawDirect(); drawPH(); drawHelix(); }catch(e){}
-  try{ drawIndirect(); drawChain(); drawTarget(); paintFlasks(); }catch(e){}
+  try{ drawHero(); drawCmp(); drawIndChart(); paintFlasks(); }catch(e){}
 }
 window.redrawAll = redrawAll;
 
@@ -2688,91 +2487,86 @@ window.redrawAll = redrawAll;
 var GLOSS = [];
 
 function bind(){
-  $("#phV").addEventListener("input",function(){ PH=+this.value; drawPH(); });
-  var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(drawTarget,150); },{passive:true});
+  $("#icPH").addEventListener("input",function(){ ICPH=+this.value; drawIndChart(); });
 }
 
 function initAll(){
   paintFlasks();
-  initLadder();
-  initDirect();
-  drawPH();
-  drawHelix();
-  initIndirect();
-  initChain();
-  initErrs();
-  drawTarget();
-  initStats();
+  fillIndTable();
+  drawIndChart();
+  initHero();
+  drawCmp();
   initFills();
   initTips();
   initQs();
   initCalc();
+  initErrs();
 }
 
 /* ============================================================
-   J14 · ZÁVĚREČNÝ TEST (20 otázek)
+   A30 · VELKÝ TEST (20 otázek)
    ============================================================ */
 BANK.final = [
- {t:"single", q:"Jaký typ chemické reakce je základem jodometrie?",
-  o:["Neutralizace","Komplexotvorná reakce","Redoxní reakce","Srážecí reakce"], c:2,
-  e:"Mění se oxidační číslo jodu (I₂ ↔ I⁻), elektrony přecházejí mezi látkami. To je redoxní reakce."},
- {t:"single", q:"Který roztok je odměrným roztokem při <b>přímé</b> jodometrii (jodimetrii)?",
-  o:["Roztok I₂ připravený s KI","Roztok Na₂S₂O₃","Roztok KI","Roztok H₂SO₄"], c:0,
-  e:"Přímá jodometrie titruje redukovadla jodem. Jod se rozpouští v KI, aby vznikl dobře rozpustný I₃⁻. Thiosíran patří k nepřímé jodometrii."},
- {t:"single", q:"Jaké látky se stanovují <b>nepřímou</b> jodometrií?",
-  o:["Redukovadla","Kyseliny","Oxidovadla","Zásady"], c:2,
-  e:"Oxidovadlo z nadbytku KI uvolní jod v množství úměrném analytu a ten se ztitruje thiosíranem. Příkladem je chlornan v bělidle."},
- {t:"single", q:"Proč se při přípravě odměrného roztoku jodu používá jodid draselný?",
-  o:["Chrání roztok před rozkladem světlem.","Je primárním standardem.","Upravuje pH roztoku.","Zvyšuje rozpustnost I₂ tvorbou I₃⁻."], c:3,
-  e:"Jod je ve vodě málo rozpustný. S jodidem tvoří trijodid (I₂ + I⁻ ⇌ I₃⁻), který se rozpouští dobře a oxiduje stejně jako I₂."},
- {t:"single", q:"Kdy se při <b>nepřímé</b> jodometrii přidává škrob?",
-  o:["Hned na začátku titrace","Těsně před bodem ekvivalence, když roztok zesvětlá do žluta","Přesně v bodě ekvivalence","Vůbec, stačí vlastní barva jodu"], c:1,
-  e:"Na začátku je jodu hodně a se škrobem by vznikl pevný komplex, který reaguje pomalu. Přechod by byl neostrý. Proto až při světle žluté barvě."},
- {t:"single", q:"Která rovnice popisuje titraci jodu thiosíranem?",
-  o:["I₂ + S₂O₃²⁻ → 2I⁻ + SO₄²⁻ + S","I₂ + S₂O₃²⁻ + H₂O → 2I⁻ + SO₄²⁻ + 2H⁺","I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻","I₂ + 2OH⁻ → I⁻ + IO⁻ + H₂O"], c:2,
-  e:"Thiosíran reaguje s jodem v poměru 2 : 1. Jod se redukuje na jodid, síra se oxiduje z průměrného oxidačního čísla +2 na +2,5 v tetrathionanu S₄O₆²⁻. Poslední rovnice je disproporcionace jodu v zásaditém."},
- {t:"single", q:"Jaké prostředí je potřeba, aby oxidovadlo v nepřímé jodometrii uvolnilo z KI jod?",
-  o:["Silně zásadité (pH &gt; 10)","Neutrální (pH ≈ 7)","Na pH nezáleží","Kyselé"], c:3,
-  e:"Mnohá oxidovadla (Cr₂O₇²⁻, MnO₄⁻, IO₃⁻) mají plnou oxidační sílu až v kyselém prostředí. Tam je reakce s jodidem rychlá a úplná a jod nedisproporcionuje."},
- {t:"single", q:"Co vznikne reakcí dichromanu draselného s nadbytkem KI v kyselém prostředí?",
-  o:["Cr³⁺, I₂ a H₂O","Cr²⁺, IO₃⁻ a H₂O","CrO₄²⁻, I₂ a H₂O","Cr³⁺, I⁻ a O₂"], c:0,
-  e:"Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O. Chrom se redukuje z +VI na +III, jodid se oxiduje na jod."},
- {t:"single", q:"Která látka je primárním standardem pro standardizaci roztoku Na₂S₂O₃?",
-  o:["NaCl","KIO₃","As₂O₃","NaOH"], c:1,
-  e:"Jodičnan draselný uvolní v kyselém prostředí s KI přesně známé množství jodu (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O). As₂O₃ je standard pro roztok jodu, ne pro thiosíran."},
- {t:"single", q:"Jak ovlivní nečistota IO₃⁻ v použitém KI výsledek nepřímé jodometrie?",
-  o:["Výsledek bude falešně nižší.","Nemá vliv.","Výsledek bude falešně vyšší.","Roztok se zakalí."], c:2,
-  e:"V kyselém prostředí jodičnan uvolní jod navíc (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O). Ten se ztitruje taky, spotřeba stoupne a výsledek vyjde vyšší."},
- {t:"single", q:"Co může způsobit oxidace jodidu vzdušným kyslíkem?",
-  o:["Snížení pH roztoku","Falešně vyšší výsledek nepřímé jodometrie","Zákal síry","Falešně nižší výsledek přímé jodometrie"], c:1,
-  e:"4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O. Jod navíc, který nepochází z analytu, spotřebuje thiosíran, a výsledek proto vyjde vyšší (kladná chyba)."},
- {t:"single", q:"Proč se roztok Na₂S₂O₃ musí pravidelně standardizovat?",
-  o:["Je velmi těkavý.","Reaguje se sklem.","Je silně hygroskopický.","Je nestálý, rozkládá ho CO₂ a bakterie."], c:3,
-  e:"Rozpuštěný CO₂ roztok okyselí a thiosíran se v kyselém rozkládá. Dále ho rozkládají bakterie a pomalu i kyslík. Koncentrace proto časem klesá."},
- {t:"single", q:"Která složka škrobu tvoří s jodem modrý komplex?",
-  o:["Amylopektin","Celulosa","Amylosa","Glukosa"], c:2,
-  e:"Lineární amylosa se stáčí do šroubovice a do její dutiny se zasunou řetízky jodu (I₃⁻, I₅⁻). Rozvětvený amylopektin to nedokáže."},
- {t:"single", q:"Při stanovení Cu²⁺ vzniká sraženina CuI, na které se adsorbuje jod. Co se přidává ke konci titrace?",
-  o:["Kyselina sírová","Hydroxid sodný","Dusičnan stříbrný","Thiokyanatan draselný KSCN"], c:3,
-  e:"CuI + SCN⁻ → CuSCN + I⁻. Thiokyanatan měďný jod tolik neadsorbuje, jod se uvolní do roztoku a dá se ztitrovat. Konec titrace je ostřejší a výsledek přesnější."},
- {t:"single", q:"Jaký je poměr analytu k thiosíranu v nepřímé jodometrii?",
-  o:["Vždy 1 : 1","Vždy 1 : 2","Záleží na reakci analytu s KI","Vždy 2 : 1"], c:2,
-  e:"Záleží na tom, kolik jodu uvolní jeden mol analytu. Každý mol I₂ pak spotřebuje 2 mol thiosíranu. Cr₂O₇²⁻ a IO₃⁻: 1 : 6, ClO⁻: 1 : 2, Cu²⁺: 1 : 1."},
- {t:"single", q:"Co je slepý pokus?",
-  o:["Titrace bez indikátoru","Titrace vzorku o dvojnásobné koncentraci","Titrace jiným titrantem","Titrace všech činidel bez vzorku"], c:3,
-  e:"Titrují se všechna činidla (KI, kyselina, indikátor…) ve stejném množství, jen bez vzorku. Spotřeba odpovídá nečistotám a vedlejším reakcím a odečte se od spotřeby na vzorek."},
- {t:"single", q:"Který vitamín se běžně stanovuje přímou jodometrií?",
-  o:["Vitamín A","Vitamín C","Vitamín B₁₂","Vitamín D"], c:1,
-  e:"Kyselina askorbová je silné redukovadlo a reaguje s jodem rychle a úplně: C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻."},
- {t:"single", q:"Při standardizaci jodu na As₂O₃ se přidává NaHCO₃. Proč?",
-  o:["Zvyšuje rozpustnost As₂O₃.","Neutralizuje vznikající H⁺ a drží pH kolem 8.","Katalyzuje reakci.","Barví roztok pro lepší indikaci."], c:1,
-  e:"H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻ je vratná. Vznikající H⁺ by ji tlačily zpět. Hydrogenuhličitan je odebírá, a proto reakce doběhne úplně."},
- {t:"single", q:"Který jev způsobí zápornou chybu (nižší výsledek), hlavně při práci v otevřených nádobách?",
-  o:["Těkání I₂","Oxidace I⁻ vzduchem","Nečistota IO₃⁻ v KI","Příliš rychlá titrace"], c:0,
-  e:"Jod uniká do vzduchu dřív, než se ztitruje. Spotřeba thiosíranu je menší a výsledek nižší. Oxidace jodidu i jodičnan v KI naopak výsledek zvyšují."},
- {t:"single", q:"Winklerova metoda stanovení rozpuštěného kyslíku ve vodě je ve své podstatě:",
-  o:["přímá acidobazická titrace","nepřímá komplexometrická titrace","přímá jodimetrie","nepřímá jodometrie"], c:3,
-  e:"Kyslík v zásaditém zoxiduje Mn²⁺ na MnO(OH)₂. Po okyselení ten uvolní z KI jod a jod se ztitruje thiosíranem. Je to typická dvoukroková nepřímá jodometrie, 1 mol O₂ ~ 4 mol S₂O₃²⁻."}
+ {t:"single", q:"Jaká chemická reakce je základem acidobazických titrací?",
+  o:["Redoxní reakce","Tvorba komplexu","Neutralizace","Srážecí reakce"], c:2,
+  e:"Acidobazické titrace stojí na reakci kyseliny se zásadou: neutralizaci (vznik soli a vody, nebo přenos protonu)."},
+ {t:"single", q:"Podle Brønstedovy teorie je kyselina látka, která:",
+  o:["dokáže odevzdat proton (H⁺)","dokáže přijmout proton (H⁺)","ve vodě disociuje na ionty H⁺","ve vodě disociuje na ionty OH⁻"], c:0,
+  e:"Podle Brønsteda je kyselina donorem protonu a zásada jeho akceptorem."},
+ {t:"single", q:"Která látka se běžně používá jako primární standard ke standardizaci roztoků silných zásad (např. NaOH)?",
+  o:["Na₂CO₃","HCl","KHP (hydrogenftalan draselný)","NaCl"], c:2,
+  e:"KHP je stálá, čistá, nehygroskopická pevná látka (slabá kyselina), která reaguje se silnými zásadami přesně v poměru 1 : 1. Je proto ideálním primárním standardem pro alkalimetrii. Na₂CO₃ je standard pro acidimetrii."},
+ {t:"single", q:"Co je hlavní příčinou nestálosti odměrných roztoků NaOH?",
+  o:["Rozklad světlem","Reakce se sklem nádoby","Pohlcování CO₂ ze vzduchu a vznik uhličitanu","Odpařování vody z roztoku"], c:2,
+  e:"Hydroxid sodný ochotně reaguje se vzdušným CO₂ (2NaOH + CO₂ → Na₂CO₃ + H₂O). Klesá koncentrace účinné látky (OH⁻) a vzniká uhličitan, který může rušit některé titrace. Proto se na lahve s NaOH nasazují trubičky s natronovým vápnem."},
+ {t:"single", q:"Na jakém principu funguje acidobazický indikátor, jako je fenolftalein?",
+  o:["Je to slabá kyselina nebo zásada, jejíž molekula a ion mají různé barvy.","Reaguje s H⁺ nebo OH⁻ na barevnou sraženinu.","Mění barvu podle redoxního potenciálu roztoku.","Katalyzuje neutralizační reakci."], c:0,
+  e:"Indikátory jsou slabé organické kyseliny (HIn) nebo zásady v rovnováze se svou konjugovanou formou. Obě formy mají jinou strukturu a pohlcují světlo jiných vlnových délek, proto mají různé barvy. Jejich poměr, a tedy barva, závisí na pH."},
+ {t:"single", q:"Při titraci silné kyseliny silnou zásadou je pH v bodě ekvivalence:",
+  o:["pH &lt; 7","pH = 7","pH &gt; 7","závisí na počátečních koncentracích"], c:1,
+  e:"Silná kyselina se silnou zásadou se zneutralizují úplně na vodu a sůl (např. NaCl), jejíž ionty nehydrolyzují. Roztok je v bodě ekvivalence neutrální, pH = 7 (při 25 °C)."},
+ {t:"single", q:"Při titraci slabé kyseliny (CH₃COOH) silnou zásadou (NaOH) je pH v bodě ekvivalence:",
+  o:["pH &lt; 7","pH = 7","pH &gt; 7","vždy rovno pKₐ kyseliny"], c:2,
+  e:"Vzniká sůl slabé kyseliny a silné zásady (CH₃COONa). Anion slabé kyseliny hydrolyzuje: CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻. Vznikají ionty OH⁻, roztok je zásaditý, pH > 7."},
+ {t:"single", q:"Který indikátor se hodí k titraci slabé zásady (NH₃) silnou kyselinou (HCl)?",
+  o:["Methyloranž (pH 3,1–4,4)","Bromthymolová modř (pH 6,0–7,6)","Fenolftalein (pH 8,2–10,0)","Thymolftalein (pH 9,4–10,6)"], c:0,
+  e:"V bodě ekvivalence vzniká sůl slabé zásady (NH₄Cl), jejíž kation hydrolyzuje kysele: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺. pH v bodě ekvivalence je < 7, proto se hodí indikátor s přechodem v kyselé oblasti, methyloranž."},
+ {t:"single", q:"Co charakterizuje titrační křivku slabé kyseliny titrované silnou zásadou v oblasti před bodem ekvivalence?",
+  o:["Velmi prudký nárůst pH.","Pufrační oblast, ve které se pH mění pomalu.","pH zůstává konstantní.","pH klesá."], c:1,
+  e:"Po přidání části zásady vzniká směs nezreagované slabé kyseliny (HA) a její konjugované zásady (A⁻). Ta tvoří pufr, který odolává změnám pH, a proto se pH mění jen pomalu. V polovině cesty k bodu ekvivalence platí pH = pKₐ."},
+ {t:"single", q:"Proč se titrace slabé kyseliny slabou zásadou obvykle neprovádí s vizuálním indikátorem?",
+  o:["Reakce je příliš pomalá.","Vzniká nerozpustná sůl.","Skok pH v bodě ekvivalence je příliš malý a nevýrazný.","Pro neutrální pH neexistují vhodné indikátory."], c:2,
+  e:"Slabá kyselina se slabou zásadou nedají tak prudký skok pH jako titrace se silnou kyselinou nebo zásadou. Změna pH je pozvolná a rozložená do širšího rozmezí objemu, takže bod ekvivalence nejde přesně určit barvou. Používá se potenciometrie."},
+ {t:"single", q:"Při standardizaci roztoku HCl na Na₂CO₃ se jako indikátor obvykle používá:",
+  o:["methyloranž","fenolftalein","bromthymolová modř","thymolftalein"], c:0,
+  e:"Titrace uhličitanu silnou kyselinou má dva body ekvivalence: první (vznik HCO₃⁻) ve slabě zásadité oblasti, druhý (vznik H₂CO₃) v kyselé oblasti kolem pH 4. Methyloranž (pH 3,1–4,4) odpovídá druhému bodu ekvivalence, kdy 1 mol Na₂CO₃ zreagoval se 2 mol HCl."},
+ {t:"single", q:"Jaký objem 0,1000 M NaOH je potřeba k neutralizaci 25,00 ml 0,1200 M HCl?",
+  o:["20,83 ml","25,00 ml","30,00 ml","12,00 ml"], c:2,
+  e:"HCl + NaOH → NaCl + H₂O, poměr 1 : 1, takže c(HCl)·V(HCl) = c(NaOH)·V(NaOH). V(NaOH) = 0,1200 · 25,00 / 0,1000 = 30,00 ml."},
+ {t:"single", q:"Co znamená „chyba indikátoru“?",
+  o:["Indikátor se během titrace rozložil.","Rozdíl mezi experimentálně zjištěným koncem titrace (změnou barvy) a teoretickým bodem ekvivalence.","Použití příliš velkého množství indikátoru.","Indikátor nereaguje na změnu pH."], c:1,
+  e:"Ideální indikátor by změnil barvu přesně při pH bodu ekvivalence. Jeho funkční oblast tomu ale nemusí přesně odpovídat. Rozdíl mezi pH, při kterém indikátor skutečně změní barvu, a pH bodu ekvivalence vede k malé chybě spotřeby. Je to systematická chyba a zmenší ji správný výběr indikátoru."},
+ {t:"single", q:"Jak ovlivní rozpuštěný CO₂ (jako H₂CO₃) titraci slabé zásady silnou kyselinou (NH₃ + HCl) na methyloranž?",
+  o:["Výsledek bude falešně nízký (menší spotřeba HCl).","Výsledek bude falešně vysoký (větší spotřeba HCl).","Výsledek prakticky neovlivní.","Methyloranž změní barvu ještě před začátkem titrace."], c:2,
+  e:"Bod ekvivalence je v kyselé oblasti a methyloranž mění barvu při pH 3,1–4,4. V tomto rozmezí slabá kyselina uhličitá s přidanou HCl prakticky nereaguje, takže CO₂ výsledek výrazně neovlivní. Problém nastává při titraci slabých kyselin silnou zásadou na fenolftalein."},
+ {t:"single", q:"Proč se ke vzorku v titrační baňce před titrací přilévá destilovaná voda?",
+  o:["Aby se zvýšila koncentrace analytu.","Aby se změnilo pH roztoku.","Aby se zvětšil objem pro lepší míchání a pozorování barvy.","Aby zreagovala s analytem."], c:2,
+  e:"Odpipetovaný objem vzorku obsahuje přesné látkové množství analytu a voda ho nemění. Zvětší jen objem, což usnadňuje míchání, ponoření elektrody a hlavně pozorování barevné změny v celém roztoku."},
+ {t:"single", q:"Který bod titrační křivky odpovídá bodu ekvivalence?",
+  o:["Bod s nejnižším pH.","Bod s nejvyšším pH.","Bod s největší změnou pH na jednotku objemu titrantu (nejstrmější část křivky).","Bod uprostřed pufrační oblasti (pH = pKₐ)."], c:2,
+  e:"V bodě ekvivalence způsobí i malý přídavek titrantu největší relativní změnu koncentrace H⁺ nebo OH⁻. Na křivce je to nejprudší skok, matematicky inflexní bod, kde má derivace ΔpH/ΔV maximum."},
+ {t:"single", q:"K čemu slouží standardizace odměrného roztoku?",
+  o:["Zvýší jeho stálost.","Přesně určí jeho koncentraci.","Odstraní z něj nečistoty.","Změní jeho pH."], c:1,
+  e:"Mnohé titranty (NaOH, KMnO₄, Na₂S₂O₃, roztok I₂) nejsou primární standardy, takže roztok připravený navážením nemá přesně známou a stálou koncentraci. Standardizací proti primárnímu standardu se určí jeho skutečná koncentrace."},
+ {t:"single", q:"Při titraci směsi silné a slabé kyseliny silnou zásadou pozorujeme na titrační křivce:",
+  o:["jeden ostrý skok pH","dva skoky pH (první pro silnou kyselinu, druhý pro slabou)","žádný výrazný skok pH","jeden skok pH v kyselé oblasti"], c:1,
+  e:"Silná kyselina reaguje se zásadou jako první a dá první skok pH. Ten končí ještě v kyselé oblasti, protože v roztoku zbývá slabá kyselina. Pak reaguje slabá kyselina: vytvoří pufrační oblast a druhý, méně ostrý skok v zásadité oblasti (pH > 7). Aby šly oba skoky rozlišit, musí se disociační konstanty obou kyselin dostatečně lišit (asi o 3–4 řády)."},
+ {t:"single", q:"Co znamená pojem „alikvot“?",
+  o:["Celkový objem titračního roztoku.","Přesně odměřený podíl (část objemu) původního roztoku vzorku, který se použije k titraci.","Objem titrantu spotřebovaný do bodu ekvivalence.","Roztok neznámé koncentrace."], c:1,
+  e:"Alikvot je přesně známý objem odebraný (obvykle pipetou) z většího, přesně připraveného objemu, třeba z odměrné baňky. Umožňuje provést z jednoho vzorku několik paralelních titrací."},
+ {t:"single", q:"Při standardizaci NaOH na KHP jste místo fenolftaleinu použili methyloranž. Vypočtená koncentrace NaOH bude nejspíš:",
+  o:["falešně vysoká (spotřeba NaOH bude menší)","falešně nízká (spotřeba NaOH bude větší)","správná, protože oba jsou acidobazické indikátory","nelze titrovat, methyloranž nereaguje"], c:0,
+  e:"Bod ekvivalence titrace KHP (slabá kyselina) hydroxidem leží v zásadité oblasti (pH > 7). Methyloranž změní barvu v kyselé oblasti (pH 3,1–4,4), tedy mnohem dřív. Zaznamenáte příliš malou spotřebu NaOH, a protože c(NaOH) = n(KHP) / V(NaOH), menší objem ve jmenovateli dá falešně vyšší koncentraci."}
 ];
 
 /* ============================================================
