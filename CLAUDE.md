@@ -110,6 +110,11 @@ also forbidden.
   faint. Every new page must override them to the values above, as `tools/build/jodometrie/10-hero.html`
   does. The inner boxes of the older guides (Obecná a fyzikální chemie, Anorganická chemie) were
   built with those defaults and do **not** meet this rule yet. Do not copy them.
+- **Postponed on purpose (user's decision, 2026-09-30):** those 19 older guides stay as they are
+  for now. Do not restyle them unless the user asks. When asked, the upgrade is one pass through
+  the CSS that `make_site.py` injects into every guide (`NAV_CSS`), overriding `.panel`,
+  `.callout`, `.worked`, `.readout`, `.tablewrap`, `details.gitem` and `.chapter-done` to the
+  values above. Everything new, and every change to any page, follows the rule in full.
 - Leave clear space between boxes (1–1.5rem) so every edge is visible.
 - Nothing may be clipped or pushed out of view (rail, cards, buttons). Before deploying, check at
   about 1770px and 375px wide and confirm that no box has a border under 2px. The formula strip
