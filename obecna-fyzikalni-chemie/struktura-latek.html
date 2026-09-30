@@ -615,6 +615,10 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
 .rail .meter{order:3;padding-top:0}
 .rail nav{order:4}
 .rail .rail-tools .btn{flex:1;justify-content:center}
+/* obsah lišty se nesmí posunout do strany ani ořezat (okraje tlačítek zůstanou vidět) */
+.rail{overflow-x:hidden}
+.rail > *{min-width:0;max-width:100%}
+.rail a,.rail .name,.rail .sub{overflow-wrap:anywhere}
 
 /* ---- dlouhá rovnice se na úzkém displeji smí zalomit ---- */
 /* .chem má nowrap, což je správně pro jeden vzorec, ale ne pro celou rovnici.
@@ -5142,7 +5146,7 @@ scrollspy();
 <script>
 /* SITE-NAV — sjednocení světlého a tmavého režimu napříč webem */
 (function(){
-  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty"];
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty", "vodik", "halogeny", "chalkogeny", "dusik", "uhlik", "kovy", "nekovy", "komplexy", "prechodne", "jodo"];
   function mirror(){
     try{
       var t=document.documentElement.getAttribute("data-theme");

@@ -14,7 +14,7 @@ try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
-from site_data import TOPICS, PREFIXES, GROUPS, ANORG_TOPICS, ANORG_PREFIXES
+from site_data import GROUPS, ALL_PREFIXES, GUIDE_GROUPS, GUIDE_FOLDERS
 import i18n
 from i18n import L, Lk
 
@@ -39,7 +39,7 @@ THEME = """
     if(b)b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";
       document.documentElement.setAttribute("data-theme",n);save(n);paint();});});
 })();
-""" % (repr(PREFIXES + ANORG_PREFIXES).replace("'", '"'))
+""" % (repr(ALL_PREFIXES).replace("'", '"'))
 
 NOT_FOUND = """<!doctype html>
 <html lang="cs"><head><meta charset="utf-8">
@@ -105,6 +105,7 @@ p{margin:0;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
   <a class="primary" href="/">@@HOME@@</a>
   <a href="/obecna-fyzikalni-chemie/index.html">@@OBECNA@@</a>
   <a href="/anorganicka-chemie/index.html">@@ANORG@@</a>
+  <a href="/analyticka-chemie/index.html">@@ANALYT@@</a>
 </div>
 <p class="author404">@@AUTHOR@@</p>
 </div></main>
@@ -127,6 +128,7 @@ for _k, _v in (
     ("@@HOME@@", L("Zpátky na úvod")),
     ("@@OBECNA@@", Lk(_G["okruhy"], "title")),
     ("@@ANORG@@", Lk(_G["anorganika"], "title")),
+    ("@@ANALYT@@", Lk(_G["analytika"], "title")),
     ("@@AUTHOR@@", i18n.author_html()),
     ("@@THEME@@", THEME),
 ):
@@ -161,15 +163,15 @@ def main():
         else:
             missing.append(f)
 
-    for gslug, tops in (("obecna-fyzikalni-chemie", TOPICS),
-                        ("anorganicka-chemie", ANORG_TOPICS)):
+    for gslug, tops in GUIDE_GROUPS:
         os.makedirs(os.path.join(DST, gslug), exist_ok=True)
         for f in ["index.html"] + [t["slug"] + ".html" for t in tops]:
             p = os.path.join(SRC, gslug, f)
             if os.path.exists(p):
                 shutil.copy2(p, os.path.join(DST, gslug, f)); n += 1
-            else:
+            elif f == "index.html":
                 missing.append(gslug + "/" + f)
+            # okruh, který ještě není hotový, na rozcestníku svítí jako „Připravujeme“
 
     for hub in ("pocitani",):
         src = os.path.join(SRC, hub, "index.html")
@@ -181,8 +183,7 @@ def main():
 
     for g in GROUPS:
         sl = g.get("slug")
-        if not sl or "/" in sl or sl in ("obecna-fyzikalni-chemie",
-                                          "anorganicka-chemie", "pocitani"):
+        if not sl or "/" in sl or sl in GUIDE_FOLDERS or sl == "pocitani":
             continue
         src = os.path.join(SRC, sl, "index.html")
         if os.path.exists(src):

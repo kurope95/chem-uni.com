@@ -77,6 +77,50 @@ The language runtime redirects between them. As of 2026-09-16 these are `jak-poc
    `VÝSLEDEK: všechno přeložené (cs, en, sk)` (exit 0).
 3. `python tools/kostra/make_dist.py` refuses to build `web/` while anything is untranslated.
 
+## ABSOLUTE PROHIBITION: no box or tile without a pronounced edge — ever, no exceptions
+
+The user's rule (2026-09-30), valid project-wide and permanently: **a box or tile with no edge,
+or with a faint edge, is forbidden. There are no exceptions**: not for small boxes, nested boxes,
+collapsible shelves, "just a note", a quick fix, a prototype or any other page type. It covers
+every card, tile, panel, shelf (`<details>`), callout, quiz and question box, fill-in, message
+box, readout, table frame, worked example, summary bar and button-like link, in every section
+of every module. A box that differs from the page only by a slightly different background is
+also forbidden.
+
+**Use exactly these edges.** They are the site's card standard, measured on the tiles and cards
+(`.tile`, `.credit` on the home and group pages, from `patch_cards.py` / `make_site.py`), and
+`analyticka-chemie/jodometrie.html` uses them for every box:
+
+| What | Edge |
+|---|---|
+| **Card-level box** (tile, panel, shelf `<details>`, card, fill-in, question box, worked example, callout, "Zamyslete se") | `border: 2px solid var(--line-strong)` + `border-top: 4px solid var(--accent)` + `border-radius: 16px` + card shadow |
+| **Coloured box** (method card, key-principle box, example, calculator) | `2px` in the box's own line colour + `4px` top stripe in the box's **strong** theme colour (never the pale line colour) + `16px` radius + card shadow. A key box may use `3px` all round in its strong colour. |
+| **Small inner element** (formula strip `.eq` with a 4px accent bar on the left, readout tile, message strip, table frame `.tablewrap`, "mark as done" bar, graph frame `.svgwrap`) | at least `2px solid var(--line-strong)` (or `--ok` / `--bad` / `--warn` for feedback) |
+
+- **Colours:** `--line-strong` is `#c8baa5` in light mode and `#4a4036` in dark mode. `--accent`
+  is `#9b3320` in light mode and `#e0785c` in dark mode.
+- **Card shadow, light mode:** `0 1px 2px rgba(33,27,21,.07), 0 6px 16px rgba(33,27,21,.09)`.
+- **Card shadow, dark mode:** `0 2px 6px rgba(0,0,0,.5), 0 8px 20px rgba(0,0,0,.38)`.
+- Define the dark variants under both `@media (prefers-color-scheme:dark)
+  :root:not([data-theme="light"])` and `:root[data-theme="dark"]`.
+- **Forbidden:** `1px solid var(--line)` on any box, any box with no border, any card-level box
+  without the shadow, and top stripes in a pale colour.
+- **Warning:** the shell's own defaults (`kostra-A.html`: `.panel`, `.callout`, `.worked`,
+  `.readout`, `.tablewrap`, `details.gitem`, `.chapter-done`) are still `1px var(--line)`. That is
+  faint. Every new page must override them to the values above, as `tools/build/jodometrie/10-hero.html`
+  does. The inner boxes of the older guides (Obecná a fyzikální chemie, Anorganická chemie) were
+  built with those defaults and do **not** meet this rule yet. Do not copy them.
+- Leave clear space between boxes (1–1.5rem) so every edge is visible.
+- Nothing may be clipped or pushed out of view (rail, cards, buttons). Before deploying, check at
+  about 1770px and 375px wide and confirm that no box has a border under 2px. The formula strip
+  `.eq` counts as a box too: `2px solid var(--line-strong)` with a `4px` accent bar on the left.
+
+## MANDATORY: every visualisation says what it means
+
+A diagram without labels is worse than none (the user could not read a row of repeated ion tokens).
+Every box, arrow and number in a visual carries a caption saying what it is (e.g. "1 mol analyt"
+→ "krok 1: uvolní z KI" → "3 mol I₂") and ends with a one-line conclusion in words.
+
 ## Other standing rules
 - **Author line.** Every page shows "Autor: Ing. Marek Kurťák" at the bottom: in the
   footer on pages with one, and as the last line of `<main>` in the guides. Keep it

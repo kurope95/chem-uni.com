@@ -1,0 +1,106 @@
+
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Nepřímá jodometrie">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · stanovení oxidovadel</span>
+      <h2>Nepřímá jodometrie</h2>
+      <p class="lead">Stanovovaná látka je <b>oxidovadlo</b>. Nechá se zreagovat s&nbsp;<b>nadbytkem jodidu draselného</b> v&nbsp;okyseleném roztoku a&nbsp;uvolní přesně odpovídající (ekvivalentní) množství jodu. Ten pak ztitrujeme odměrným roztokem <b>thiosíranu sodného</b>. Analyt se tedy nikdy netitruje přímo, měříme jod, který po sobě „zanechal“.</p>
+
+      <div class="grid2" style="margin:.4rem 0 1rem">
+        <div class="callout def">
+          <span class="eyebrow">Krok 1 · uvolnění jodu</span>
+          <p class="eq" style="font-size:.92rem"><span class="chem">analyt(ox) + I⁻ (nadbytek) + H⁺ → I₂ + produkty</span></p>
+          <p>Jodid tu působí jako <b>redukovadlo</b>. Roztok zhnědne.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Krok 2 · titrace jodu</span>
+          <p class="eq" style="font-size:.92rem"><span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>
+          <p>Thiosíran je <b>redukovadlo</b>, vzniká tetrathionan. Hnědá barva bledne.</p>
+        </div>
+      </div>
+
+      <h3>Proč nadbytek KI a&nbsp;proč kyselé prostředí</h3>
+      <ul>
+        <li><b>Nadbytek KI</b> zajistí, že analyt zreaguje úplně (kvantitativně). Navíc váže vzniklý jod na <span class="chem">I₃⁻</span>: jod je pak rozpustnější a&nbsp;méně těká.</li>
+        <li><b>Kyselé prostředí</b> zvyšuje oxidační sílu mnoha oxidovadel (<span class="chem">Cr₂O₇²⁻</span>, <span class="chem">MnO₄⁻</span>, <span class="chem">IO₃⁻</span>), reakci urychlí a&nbsp;potlačí vedlejší reakce. Samotná titrace thiosíranem pak probíhá v&nbsp;neutrálním až slabě kyselém roztoku.</li>
+      </ul>
+
+      <h3>Postup a&nbsp;indikace</h3>
+      <div class="step"><span class="step-n">1</span><div class="step-b"><p>Ke vzorku přidáme nadbytek KI a&nbsp;okyselíme (např. <span class="chem">H₂SO₄</span>). Uvolní se jod, roztok je <b>hnědý</b>.</p></div></div>
+      <div class="step"><span class="step-n">2</span><div class="step-b"><p>Titrujeme thiosíranem. Jodu ubývá a&nbsp;hnědá bledne.</p></div></div>
+      <div class="step"><span class="step-n">3</span><div class="step-b"><p>Když roztok zesvětlá na <b>světle žlutý</b> (většina jodu už zreagovala), přidáme škrob a&nbsp;roztok <b>zmodrá</b>.</p></div></div>
+      <div class="step"><span class="step-n">4</span><div class="step-b"><p>Opatrně pokračujeme po kapkách.</p></div></div>
+      <div class="step"><span class="step-n">5</span><div class="step-b"><p>V&nbsp;bodě ekvivalence zreaguje poslední jod, modrý komplex se rozpadne a&nbsp;modrá <b>náhle a&nbsp;úplně zmizí</b>. Roztok je bezbarvý, nebo má barvu jiných produktů (např. zelenou od <span class="chem">Cr³⁺</span>).</p></div></div>
+      <div class="callout warn" style="margin-top:1rem">
+        <span class="eyebrow">Proč škrob až ke konci</span>
+        <p>Při vysoké koncentraci jodu by se se škrobem vytvořil velmi pevný komplex. Jod vázaný v&nbsp;něm reaguje s&nbsp;thiosíranem pomalu, takže modrá mizí pozvolna a&nbsp;„vleče se“, konec titrace je neostrý a&nbsp;titrace se přetáhne. U&nbsp;přímé jodometrie tohle nehrozí, tam se volný jod objeví až v&nbsp;bodě ekvivalence.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Nepřímá titrace — kdy přidáte škrob?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-sim">
+          <div class="svgwrap" id="indWrap"></div>
+          <div style="display:flex;flex-direction:column;gap:.9rem">
+            <div class="jd-btns">
+              <button class="btn btn-primary" type="button" id="indAdd1">+ 1&nbsp;ml</button>
+              <button class="btn" type="button" id="indAdd01">+ 1 kapka (0,05&nbsp;ml)</button>
+              <button class="btn" type="button" id="indStarch">Přidat škrob</button>
+              <button class="btn" type="button" id="indReset">Znovu</button>
+            </div>
+            <div class="grid3">
+              <div class="readout" id="indRo1"></div>
+              <div class="readout" id="indRo2"></div>
+            </div>
+            <div class="jd-msg" id="indMsg" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="panel-note">Chlornan z&nbsp;bělidla uvolnil jod, který odpovídá 14,85&nbsp;ml thiosíranu (čísla z&nbsp;příkladu v&nbsp;kapitole 05). Zkuste přidat škrob hned na začátku a&nbsp;pak až při světle žluté barvě a&nbsp;porovnejte, jak ostrý je konec.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Odměrný roztok thiosíranu sodného</h3>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Příprava</span>
+          <p>Krystalický <span class="chem">Na₂S₂O₃·5H₂O</span> se rozpustí v&nbsp;<b>čerstvě převařené a&nbsp;vychlazené</b> destilované vodě (převaření odstraní <span class="chem">CO₂</span>). Pro stálost se přidá trocha <span class="chem">Na₂CO₃</span> (asi 0,1&nbsp;g/l), který udržuje slabě zásadité pH.</p>
+        </div>
+        <div class="callout warn">
+          <span class="eyebrow">Proč se rozkládá</span>
+          <p><b>CO₂</b> okyselí roztok a&nbsp;thiosíran se v&nbsp;kyselém rozpadá: <span class="chem">S₂O₃²⁻ + 2H⁺ → S + SO₂ + H₂O</span>. Dále ho rozkládají <b>bakterie</b> (např. <i>Thiobacillus</i>) a&nbsp;pomalu i&nbsp;<b>vzdušný kyslík</b> (urychlují stopy kovů, např. <span class="chem">Cu²⁺</span>). Proto se standardizuje pravidelně, zhruba jednou za 1–2 týdny.</p>
+        </div>
+      </div>
+      <p><b>Standardizace</b> se dělá na primární standardy, které s&nbsp;KI uvolní přesně známé množství jodu:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Standard</th><th>Uvolnění jodu</th><th>Poměr k&nbsp;thiosíranu</th></tr></thead>
+          <tbody>
+            <tr><td>Jodičnan draselný <span class="chem">KIO₃</span> — velmi přesný</td><td><span class="chem">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span></td><td class="n">1 : 6</td></tr>
+            <tr><td>Dichroman draselný <span class="chem">K₂Cr₂O₇</span> — reaguje pomaleji, nechává se stát v&nbsp;temnu</td><td><span class="chem">Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O</span></td><td class="n">1 : 6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Co se nepřímou jodometrií stanovuje</h3>
+      <p>Celková stechiometrie má vždy dva články: kolik jodu uvolní jeden mol analytu, a&nbsp;to, že <b>1&nbsp;mol I₂ spotřebuje 2&nbsp;mol thiosíranu</b>. Vyberte analyt a&nbsp;sledujte řetízek.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stechiometrický řetízek: analyt → I₂ → S₂O₃²⁻</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="chSel" role="group" aria-label="Analyt" style="flex-wrap:wrap"></div>
+        <div id="chOut" style="margin-top:1rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: nepřímá jodometrie"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>

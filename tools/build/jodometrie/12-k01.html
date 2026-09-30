@@ -1,0 +1,178 @@
+
+  <!-- ============ II. PŘÍMÁ JODOMETRIE ============ -->
+  <section class="chapter" id="k1" data-title="Přímá jodometrie (jodimetrie)">
+    <div class="prose">
+      <span class="eyebrow">II · stanovení redukovadel</span>
+      <h2>Přímá jodometrie (jodimetrie)</h2>
+      <p class="lead">Stanovovanou látku, která musí být <b>redukovadlo</b>, titrujeme přímo <b>odměrným roztokem jodu</b>.</p>
+
+      <div class="jd-key jd-d">
+        <h3>Klíčový princip a postup přímé jodometrie</h3>
+        <p class="jd-sub">Zjednodušený postup a indikace</p>
+        <ol class="jd-steps">
+          <li><span class="jd-n">1</span><div><b class="jd-t">Příprava vzorku</b><p>Do titrační baňky navážíme nebo napipetujeme vzorek (redukovadlo) a&nbsp;<b>přidáme škrob</b>.</p><p class="jd-why">Proč škrob hned na začátku? Volný I₂ se objeví až v&nbsp;bodě ekvivalence, takže na začátku nehrozí vznik příliš stabilního komplexu.</p></div></li>
+          <li><span class="jd-n">2</span><div><b class="jd-t">Titrace roztokem I₂</b><p>Z&nbsp;byrety přidáváme odměrný roztok I₂.</p><p class="jd-why">Proč I₂? Je to oxidovadlo, které reaguje se stanovovaným redukovadlem.</p></div></li>
+          <li><span class="jd-n">3</span><div><b class="jd-t">Reakce ve vzorku</b><p>Přidaný I₂ okamžitě zreaguje s&nbsp;redukovadlem. Roztok zůstává <b>bezbarvý</b> (nebo má původní barvu vzorku).</p><p class="jd-why">Proč bezbarvý? Všechen přidaný I₂ se hned spotřebuje, volný I₂, který by reagoval se škrobem, v&nbsp;roztoku není.</p></div></li>
+          <li><span class="jd-n">4</span><div><b class="jd-t">Bod ekvivalence</b><p>Okamžik, kdy se spotřebuje všechno redukovadlo ve vzorku.</p></div></li>
+          <li><span class="jd-n">5</span><div><b class="jd-t">Indikace bodu ekvivalence</b><p>První kapka I₂ přidaná <i>po</i> bodu ekvivalence už nemá s&nbsp;čím reagovat a&nbsp;zreaguje se škrobem.</p><p class="jd-res">Výsledek: celý roztok se trvale a&nbsp;intenzivně zbarví MODŘE (komplex jod–škrob).</p></div></li>
+        </ol>
+        <div class="jd-strip" aria-label="Barva roztoku během přímé jodometrie">
+          <div class="jd-fl"><span class="jd-flask" data-c="clear"></span><b>bezbarvý</b>vzorek + škrob</div>
+          <span class="jd-arr">→</span>
+          <div class="jd-fl"><span class="jd-flask" data-c="clear"></span><b>bezbarvý</b>titrace, I₂ se hned spotřebuje</div>
+          <span class="jd-arr">→</span>
+          <div class="jd-fl"><span class="jd-flask" data-c="blue"></span><b>MODRÝ</b>bod ekvivalence</div>
+        </div>
+        <p class="jd-cond"><b>Titrant:</b> I₂ v&nbsp;KI &nbsp;·&nbsp; <b>Škrob:</b> na začátku &nbsp;·&nbsp; <b>pH:</b> 7–9 &nbsp;·&nbsp; <b>Konec:</b> bezbarvý → modrý</p>
+        <details class="jd-more">
+          <summary>Podrobný popis indikace</summary>
+          <div class="jd-body">
+            <ol>
+              <li><b>Přidání škrobu:</b> na začátku titrace se k&nbsp;analyzovanému roztoku (obsahuje redukovadlo) přidá malé množství roztoku škrobu.</li>
+              <li><b>Průběh titrace:</b> jod přidávaný z&nbsp;byrety okamžitě reaguje s&nbsp;redukovadlem. Dokud je redukovadlo v&nbsp;roztoku, všechen jod se spotřebuje v&nbsp;redoxní reakci, a&nbsp;volný I₂, který by reagoval se škrobem, tedy prakticky není. Roztok zůstává bezbarvý.</li>
+              <li><b>Bod ekvivalence:</b> spotřebuje se všechno redukovadlo.</li>
+              <li><b>Změna barvy:</b> první kapka jodu po bodu ekvivalence nemá s&nbsp;čím reagovat. Tento malý nadbytek volného jodu (přesněji trijodidu I₃⁻, který je v&nbsp;rovnováze s&nbsp;I₂ a&nbsp;I⁻) vytvoří se šroubovicí amylosy ve škrobu intenzivně modrý až modročerný komplex.</li>
+              <li><b>Závěr:</b> náhlé objevení trvalé modré barvy celého roztoku znamená bod ekvivalence.</li>
+            </ol>
+            <p><b>Stručně:</b> škrob v&nbsp;přímé jodometrii zachytí první nepatrný nadbytek titrantu (jodu) po spotřebování veškerého redukovadla, a&nbsp;to vznikem modrého komplexu.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Vyzkoušejte si</span>
+        <h3>Titrace vitamínu C jodem — posuňte byretu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-sim">
+          <div class="svgwrap" id="dirWrap"></div>
+          <div style="display:flex;flex-direction:column;gap:.9rem">
+            <div class="ctl">
+              <label for="dirV">Přidaný objem jodu — <span class="val" id="dirVV">0,00 ml</span></label>
+              <input type="range" autocomplete="off" id="dirV" min="0" max="16" step="0.05" value="0">
+            </div>
+            <div class="ctl">
+              <label>Škrob v&nbsp;baňce</label>
+              <div class="segmented" id="dirStarch" role="group" aria-label="Škrob v baňce">
+                <button type="button" data-v="1" aria-pressed="true">Ano</button>
+                <button type="button" data-v="0" aria-pressed="false">Ne</button>
+              </div>
+            </div>
+            <div class="grid3">
+              <div class="readout" id="dirRo1"></div>
+              <div class="readout" id="dirRo2"></div>
+            </div>
+            <div class="jd-msg" id="dirMsg" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="panel-note">Bod ekvivalence je při 11,60&nbsp;ml (stejná čísla jako v&nbsp;řešeném příkladu 1). Zkuste titraci bez škrobu: slabě žlutý přebytek jodu se snadno přehlédne.</p>
+      </div>
+    </div>
+
+    <div class="jd-q" data-q="q21"></div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Podmínka</span>
+        <h3>Titruje se při pH 7–9 — posuňte pH a&nbsp;uvidíte proč</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:.9rem">
+          <label for="phV">pH roztoku — <span class="val" id="phVV">8,0</span></label>
+          <input type="range" autocomplete="off" id="phV" min="0" max="14" step="0.5" value="8">
+        </div>
+        <div class="svgwrap" id="phWrap"></div>
+        <div class="jd-msg" id="phMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Odměrný roztok jodu (I₂): příprava, stálost, standardizace</summary>
+        <div class="jd-body">
+          <p><b>Příprava:</b> jod se rozpustí v&nbsp;koncentrovaném roztoku KI. Vznikne trijodid I₃⁻, který je dobře rozpustný a&nbsp;oxiduje stejně jako I₂.</p>
+          <p class="eq"><span class="chem">I₂(s) + I⁻(aq) ⇌ I₃⁻(aq)</span> &nbsp; (<span class="q">K</span> ≈ 700)</p>
+          <p><b>Stálost:</b> roztok I₂/I₃⁻ <b>není příliš stálý</b>. Příčiny:</p>
+          <ul>
+            <li><span class="jd-tip" tabindex="0">těkavost jodu<span class="jd-tt">Jod má sklon unikat z roztoku jako plyn (sublimovat), a tím klesá jeho koncentrace.</span></span> (hlavně za vyšší teploty a&nbsp;při nižší koncentraci KI),</li>
+            <li>pomalá oxidace jodidu vzdušným kyslíkem (hlavně na světle),</li>
+            <li>reakce se stopami nečistot.</li>
+          </ul>
+          <p>Proto se roztok uchovává v&nbsp;tmavých, dobře uzavřených lahvích a&nbsp;jeho koncentrace se musí pravidelně ověřovat (standardizovat).</p>
+          <p><b>Standardizace:</b></p>
+          <ul>
+            <li><b>Na As₂O₃ (oxid arsenitý):</b> nejčastější metoda. As₂O₃ je <span class="jd-tip" tabindex="0">primární standard<span class="jd-tt">Velmi čistá a stálá látka známého složení, na které se přesně určuje koncentrace jiných roztoků (titrantů).</span></span>. Titruje se v&nbsp;prostředí pufrovaném NaHCO₃ (pH ≈ 8).</li>
+          </ul>
+          <p class="eq"><span class="chem">As₂O₃ + 4OH⁻ → 2HAsO₃²⁻ + H₂O</span> &nbsp;(rozpuštění)<br><span class="chem">H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻</span> &nbsp;(titrace)</p>
+          <p style="font-size:.93rem;color:var(--ink-2)">Pufr NaHCO₃ odebírá vznikající H⁺ (<span class="chem">H⁺ + HCO₃⁻ → H₂O + CO₂</span>) a&nbsp;udržuje pH, jinak by vratná reakce neproběhla úplně.</p>
+          <ul>
+            <li><b>Na Na₂S₂O₃:</b> známý objem roztoku I₂ se ztitruje standardizovaným roztokem thiosíranu sodného.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="jd-more">
+        <summary>Podmínky titrace a indikace bodu ekvivalence</summary>
+        <div class="jd-body">
+          <p><b>Optimální pH:</b> obvykle <span class="jd-hl">pH 7–9</span> (pufr NaHCO₃). V&nbsp;silně kyselém prostředí (pH &lt; 4) hrozí oxidace I⁻ vzduchem a&nbsp;škrob nefunguje dobře, v&nbsp;silně zásaditém (pH &gt; 9) jod disproporcionuje. Jednotlivá stanovení mají i&nbsp;vlastní podmínky: například vitamín C se titruje v&nbsp;mírně kyselém roztoku, protože v&nbsp;zásaditém ho rychle oxiduje vzduch.</p>
+          <p><b>Indikátor:</b> nejčastěji škrobový maz, přidává se na začátku titrace (malé množství, asi 1–2&nbsp;ml).</p>
+          <ul>
+            <li><span class="jd-tip" tabindex="0">Mechanismus<span class="jd-tt">Lineární složka škrobu (amylosa) tvoří šroubovici, do které se zasunou molekuly jodu (I₂/I₃⁻). To způsobí intenzivně modré zbarvení.</span></span>: vzniká modrý adsorpční komplex amylosa–jod.</li>
+            <li>Změna barvy v&nbsp;bodě ekvivalence: bezbarvý roztok → trvale modrý od prvního nadbytku I₂.</li>
+            <li><span class="jd-tip" tabindex="0">Omezení škrobu<span class="jd-tt">Nefunguje dobře nad 50 °C, v silně kyselém prostředí a v přítomnosti některých organických rozpouštědel.</span></span>.</li>
+            <li>Náhradní (méně přesná) možnost: vlastní žlutohnědá barva I₃⁻ při vyšších koncentracích.</li>
+          </ul>
+          <div class="svgwrap" id="helixWrap" style="margin-top:.8rem"></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="jd-q" data-q="q22"></div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Příklady stanovení přímou jodometrií</summary>
+        <div class="jd-body">
+          <ul>
+            <li><b>Vitamín C (kyselina L-askorbová)</b>, důležitý antioxidant:<br><span class="chem">C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻</span> (vzniká kyselina dehydroaskorbová)</li>
+            <li><b>Siřičitany a&nbsp;hydrogensiřičitany</b>, konzervanty:<br><span class="chem">SO₃²⁻ + I₂ + H₂O → SO₄²⁻ + 2H⁺ + 2I⁻</span></li>
+            <li><b>Thiosírany</b>, s&nbsp;jodem vzniká tetrathionan:<br><span class="chem">2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻</span></li>
+            <li><b>Sulfidy</b>, např. stanovení H₂S:<br><span class="chem">H₂S + I₂ → S + 2H⁺ + 2I⁻</span></li>
+            <li><b>Sloučeniny As(III) a&nbsp;Sb(III)</b>, klasická stanovení:<br><span class="chem">H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="jd-fill" data-ans='[["začátku","zacatku","začátek","zacatek"],["modrého","modreho","modré","modre","modrý","modry"]]'>
+        <span class="eyebrow">Doplňte chybějící slova</span>
+        <p>Při přímé jodometrii se škrob přidává na <input type="text" autocomplete="off" aria-label="první chybějící slovo" placeholder="…"> titrace a&nbsp;bod ekvivalence ukáže vznik <input type="text" autocomplete="off" aria-label="druhé chybějící slovo" placeholder="…"> zbarvení.</p>
+        <button class="btn btn-sm btn-primary" type="button">Zkontrolovat</button><span class="jd-fb" aria-live="polite"></span>
+      </div>
+
+      <div class="jd-calc">
+        <h4>Zkuste sami: výpočet (přímá jodometrie)</h4>
+        <p style="margin:0">Vypočítejte koncentraci roztoku Na₂S₂O₃, jestliže se na titraci 20,00&nbsp;ml tohoto roztoku spotřebovalo 18,50&nbsp;ml roztoku I₂ o&nbsp;koncentraci 0,0200&nbsp;mol/l. Reakce: <span class="chem">2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻</span></p>
+        <div class="jd-cg">
+          <div><label for="cVI">Objem I₂ (ml)</label><input type="text" inputmode="decimal" id="cVI" value="18,50" autocomplete="off"></div>
+          <div><label for="cCI">Koncentrace I₂ (mol/l)</label><input type="text" inputmode="decimal" id="cCI" value="0,0200" autocomplete="off"></div>
+          <div><label for="cVT">Objem vzorku Na₂S₂O₃ (ml)</label><input type="text" inputmode="decimal" id="cVT" value="20,00" autocomplete="off"></div>
+          <div><label for="cR">Poměr n(I₂) / n(S₂O₃²⁻)</label><input type="text" inputmode="decimal" id="cR" value="" placeholder="?" autocomplete="off"></div>
+        </div>
+        <button class="btn btn-primary" type="button" id="cGo">Vypočítat koncentraci Na₂S₂O₃</button>
+        <div class="jd-out" id="cOut" aria-live="polite">Výsledek: — mol/l</div>
+      </div>
+
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>V&nbsp;přímé jodometrii dáváme škrob do baňky hned na začátku, v&nbsp;nepřímé ho přidáváme až těsně před koncem. Co se v&nbsp;baňce děje jinak, že si to přímá jodometrie může dovolit?</p>
+        <details class="jd-more small">
+          <summary>Zobrazit odpověď</summary>
+          <div class="jd-body"><p>V&nbsp;přímé jodometrii je v&nbsp;baňce až do bodu ekvivalence <b>žádný volný jod</b>, protože každá kapka se hned spotřebuje. Škrob tak nemá s&nbsp;čím vytvořit pevný komplex. Jod se objeví až v&nbsp;nepatrném nadbytku po bodu ekvivalence, a&nbsp;to je přesně to, co má škrob zachytit.</p></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="chapter-done" data-done="k1"></div>
+  </section>

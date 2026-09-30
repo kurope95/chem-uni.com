@@ -283,6 +283,8 @@ function vArrow(x,y1,y2,color,label,side){
    7 · SLOVNÍČEK — vykreslení (pole GLOSS definuje tematická část)
    ============================================================ */
 function drawGloss(){
+  /* kratší průvodce (analytika) slovníček nemají */
+  if(!$("#glossary") || typeof GLOSS==="undefined") return;
   $("#glossary").innerHTML=GLOSS.map(function(g){
     return '<details class="gitem"><summary>'+g[0]+'</summary><div class="gbody">'+
       (g[1]?'<span class="unit-badge">'+g[1]+'</span>':'')+'<p>'+g[2]+'</p></div></details>';

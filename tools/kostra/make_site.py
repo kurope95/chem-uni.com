@@ -16,14 +16,12 @@ try:
 except Exception:
     pass
 from site_data import (SITE, GROUPS, TOPICS, PREFIXES, PAIRS,
-                       ANORG_TOPICS, ANORG_PREFIXES)
+                       ANORG_TOPICS, ANALYT_TOPICS, ALL_PREFIXES, GUIDE_GROUPS)
 import i18n
 import brand
 from i18n import L, Lk
 
 OUT = r"C:\Claude Code\Claude Code\Doučovanie"
-SUB = os.path.join(OUT, "obecna-fyzikalni-chemie")
-ANORG = os.path.join(OUT, "anorganicka-chemie")
 MARK = "SITE-NAV"
 
 TOKENS = """
@@ -323,7 +321,7 @@ def head(title, desc, css, titles=None):
 
 
 def theme_script():
-    js = (THEME_JS.replace("%KEYS%", repr(PREFIXES + ANORG_PREFIXES).replace("'", '"'))
+    js = (THEME_JS.replace("%KEYS%", repr(ALL_PREFIXES).replace("'", '"'))
                   .replace("%SUN%", '"%s"' % SUN.replace('"', '\\"'))
                   .replace("%MOON%", '"%s"' % MOON.replace('"', '\\"')))
     return "<script>%s</script>\n</body>\n</html>\n" % js
@@ -387,6 +385,10 @@ ICONS = {
            '<circle cx="43" cy="68" r="4.5" fill="currentColor" stroke="none"/>'
            '<circle cx="58" cy="72" r="3" fill="currentColor" stroke="none"/>'
            '<circle cx="52" cy="63" r="2.2" fill="currentColor" stroke="none"/>',
+ "analytika":'<path d="M44 6h12M46 6v40h8V6"/><path d="M46 24h8M46 34h8"/>'
+           '<path d="M50 46v8"/><circle cx="50" cy="59" r="1.8" fill="currentColor" stroke="none"/>'
+           '<path d="M42 64h16M44 64v8L28 90h44L56 72v-8"/>'
+           '<path d="M35 83h30" stroke-width="1.3"/>',
  "zlomky": '<path d="M30 20c-9 8-13 18-13 30s4 22 13 30"/>'
            '<path d="M70 20c9 8 13 18 13 30s-4 22-13 30"/>'
            '<path d="M34 50h32" stroke-width="2.6"/>'
@@ -628,6 +630,56 @@ GROUP_PAGES = {
                       "2. vydanie, SNTL, Praha 1989. Výklad, príklady, obrázky aj testy sú "
                       "pôvodné a všetky údaje sú overené podľa súčasných tabuliek."),
     },
+    "analyticka-chemie": {
+        "title": "Analytická chemie",
+        "title_en": "Analytical chemistry",
+        "title_sk": "Analytická chémia",
+        "eyebrow": "Odměrná analýza · titrační metody",
+        "eyebrow_en": "Volumetric analysis · titration methods",
+        "eyebrow_sk": "Odmerná analýza · titračné metódy",
+        "desc": "Analytická chemie: odměrná analýza — jodometrie, acidobazické titrace, "
+                "komplexometrie, manganometrie, dichromatometrie a srážecí titrace.",
+        "lead": "Jak se titrací zjistí, kolik látky je ve vzorku. Každá metoda má svou "
+                "chemickou reakci, svůj odměrný roztok a svůj indikátor. U každé projdeme "
+                "princip, postup, na co si dát pozor a jak z naměřené spotřeby spočítat výsledek.",
+        "lead_en": "How a titration tells you how much of a substance is in a sample. Each method "
+                   "has its own chemical reaction, its own standard solution and its own indicator. "
+                   "For each one we go through the principle, the procedure, what to watch out for "
+                   "and how to calculate the result from the volume used.",
+        "lead_sk": "Ako sa titráciou zistí, koľko látky je vo vzorke. Každá metóda má svoju "
+                   "chemickú reakciu, svoj odmerný roztok a svoj indikátor. Pri každej prejdeme "
+                   "princíp, postup, na čo si dať pozor a ako z nameranej spotreby vypočítať výsledok.",
+        "topics": ANALYT_TOPICS,
+        "how_title": ("Jak je každá metoda postavená", "How each method is built",
+                      "Ako je každá metóda postavená"),
+        "how": [
+            ("1", ("Krátké kapitoly", "Short chapters", "Krátke kapitoly"),
+             ("Princip, postup a podmínky titrace v několika krátkých kapitolách. "
+              "Rovnice, přehledné tabulky a upozornění na nejčastější chyby.",
+              "The principle, procedure and conditions of the titration in a few short chapters. "
+              "Equations, clear tables and warnings about the most common mistakes.",
+              "Princíp, postup a podmienky titrácie v niekoľkých krátkych kapitolách. "
+              "Rovnice, prehľadné tabuľky a upozornenia na najčastejšie chyby.")),
+            ("2", ("Titrace na obrazovce", "Titration on screen", "Titrácia na obrazovke"),
+             ("Interaktivní modely: přidáváte titrant z byrety, sledujete barvu roztoku "
+              "a rozhodujete, kdy přidat indikátor. Výpočty si vyzkoušíte na vlastních číslech.",
+              "Interactive models: you add titrant from the burette, watch the colour of the "
+              "solution and decide when to add the indicator. You try the calculations with "
+              "your own numbers.",
+              "Interaktívne modely: pridávate titrant z byrety, sledujete farbu roztoku "
+              "a rozhodujete, kedy pridať indikátor. Výpočty si vyskúšate na vlastných číslach.")),
+            ("3", ("Testy s vysvětlením", "Tests with explanations", "Testy s vysvetlením"),
+             ("Za každou kapitolou mini-test, na konci závěrečný test. U každé otázky je "
+              "vysvětlení, proč je odpověď správná. Pokrok se ukládá ve vašem prohlížeči.",
+              "A mini-test after every chapter and a final test at the end. Every question has "
+              "an explanation of why the answer is right. Your progress is saved in your browser.",
+              "Po každej kapitole mini-test, na konci záverečný test. Pri každej otázke je "
+              "vysvetlenie, prečo je odpoveď správna. Pokrok sa ukladá vo vašom prehliadači.")),
+        ],
+        "credit": None,
+        "credit_en": None,
+        "credit_sk": None,
+    },
 }
 
 
@@ -647,8 +699,8 @@ def build_group(slug, found):
     h += '</div></section>\n'
     h += '<div class="wrap">'
     h += ('<section class="sec"><div class="sec-head"><h2>%s</h2></div>'
-          % L("Jak je každý okruh postavený"))
-    cards = [
+          % "@@HOWTITLE@@")
+    cards = cfg.get("how") or [
         ("1", ("Rychlokurz na hodinu", "A one-hour crash course", "Rýchlokurz na hodinu"),
          ("Celá látka v kostce: výklad, rámeček se vzorci, upozornění na častou chybu a řešený "
           "příklad s čísly. Na konci osm vět, které musíte umět odříkat, a kontrolní test.",
@@ -673,6 +725,11 @@ def build_group(slug, found):
           "Na konci každého okruhu je ťahák na jednu obrazovku a slovníček všetkých pojmov "
           "z osnov. Pokrok v kapitolách sa ukladá vo vašom prehliadači.")),
     ]
+    if cfg.get("how_title"):
+        how_title = L(*cfg["how_title"])
+    else:
+        how_title = L("Jak je každý okruh postavený")
+    h = h.replace("@@HOWTITLE@@", how_title)
     h += '<div class="how">'
     for ic, t, p in cards:
         h += ('<div class="how-c"><span class="ic">%s</span><h3>%s</h3><p>%s</p></div>'
@@ -740,6 +797,10 @@ NAV_CSS = """
 .rail .meter{order:3;padding-top:0}
 .rail nav{order:4}
 .rail .rail-tools .btn{flex:1;justify-content:center}
+/* obsah lišty se nesmí posunout do strany ani ořezat (okraje tlačítek zůstanou vidět) */
+.rail{overflow-x:hidden}
+.rail > *{min-width:0;max-width:100%%}
+.rail a,.rail .name,.rail .sub{overflow-wrap:anywhere}
 
 /* ---- dlouhá rovnice se na úzkém displeji smí zalomit ---- */
 /* .chem má nowrap, což je správně pro jeden vzorec, ale ne pro celou rovnici.
@@ -798,7 +859,7 @@ NAV_JS = """
     if(b) b.addEventListener("click",function(){ setTimeout(mirror,0); });
   });
 })();
-""" % (MARK, repr(PREFIXES).replace("'", '"'))
+""" % (MARK, repr(ALL_PREFIXES).replace("'", '"'))
 
 
 def inject(path, check=False):
@@ -834,8 +895,7 @@ def main():
         for m in miss:
             print("   ", m)
         sys.exit(1)
-    groups = [("obecna-fyzikalni-chemie", SUB, TOPICS),
-              ("anorganicka-chemie", ANORG, ANORG_TOPICS)]
+    groups = [(slug, os.path.join(OUT, slug), tops) for slug, tops in GUIDE_GROUPS]
     for slug, d, tops in groups:
         os.makedirs(d, exist_ok=True)
     pages = [(os.path.join(OUT, "index.html"), build_index())]

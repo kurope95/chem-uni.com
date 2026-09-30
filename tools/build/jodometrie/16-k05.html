@@ -1,0 +1,101 @@
+
+  <!-- ============ VI. ŘEŠENÉ PŘÍKLADY ============ -->
+  <section class="chapter" id="k5" data-title="Řešené příklady">
+    <div class="prose">
+      <span class="eyebrow">VI · výpočty</span>
+      <h2>Řešené příklady</h2>
+      <p class="lead">Každý výpočet má stejnou kostru: <b>n = c·V</b> titrantu → <b>poměr</b> z&nbsp;rovnice → <b>přepočet z&nbsp;alikvotu</b> na celý vzorek → <b>m = n·M</b>. Kroky si rozbalujte postupně a&nbsp;zkuste vždy nejdřív odhadnout, co přijde.</p>
+
+      <div class="jd-ex">
+        <h3>Příklad 1: stanovení vitamínu C (přímá jodometrie)</h3>
+        <p><b>Úloha:</b> tableta s&nbsp;deklarovaným obsahem 500&nbsp;mg vitamínu C (kyselina askorbová, C₆H₈O₆, <span class="q">M</span> = 176,12&nbsp;g/mol) byla rozpuštěna ve vodě a&nbsp;doplněna na 100,0&nbsp;ml v&nbsp;odměrné baňce. Pipetou se odebralo 20,00&nbsp;ml (alikvot), přidalo se pár kapek škrobu a&nbsp;titrovalo se roztokem jodu o&nbsp;koncentraci 0,0485&nbsp;mol/l. Spotřeba byla 11,60&nbsp;ml. Vypočítejte skutečný obsah vitamínu C v&nbsp;tabletě (v&nbsp;mg) a&nbsp;porovnejte ho s&nbsp;deklarovanou hodnotou.</p>
+        <div class="jd-route">
+          <span class="jd-rb">tableta<br><b>? mg</b></span><span class="jd-ra">→</span>
+          <span class="jd-rb">odměrná baňka<br><b>100,0 ml</b></span><span class="jd-ra">→ odebrat</span>
+          <span class="jd-rb">alikvot<br><b>20,00 ml</b></span><span class="jd-ra">→ titrovat</span>
+          <span class="jd-rb jd-rt">I₂ 0,0485 mol/l<br><b>11,60 ml</b></span>
+          <span class="jd-rf">titrujeme jen pětinu → výsledek × 5</span>
+        </div>
+        <details class="jd-more"><summary>Krok 1: chemická reakce a stechiometrie</summary><div class="jd-body">
+          <p class="eq"><span class="chem">C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻</span> (vzniká kyselina dehydroaskorbová)</p>
+          <p>1&nbsp;mol vitamínu C reaguje s&nbsp;1&nbsp;mol I₂: <b><span class="q">n</span>(C₆H₈O₆) : <span class="q">n</span>(I₂) = 1 : 1</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 2: látkové množství I₂</summary><div class="jd-body">
+          <p><span class="q">n</span> = <span class="q">c</span>·<span class="q">V</span>, objem v&nbsp;litrech.</p>
+          <p class="eq"><span class="q">n</span>(I₂) = 0,0485&nbsp;mol/l · 0,01160&nbsp;l = <b>5,626·10⁻⁴&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 3: vitamín C v alikvotu (20 ml)</summary><div class="jd-body">
+          <p>Z&nbsp;poměru 1&nbsp;:&nbsp;1: <span class="q">n</span>(C₆H₈O₆) ve 20&nbsp;ml = <span class="q">n</span>(I₂) = <b>5,626·10⁻⁴&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 4: vitamín C v celé 100ml baňce</summary><div class="jd-body">
+          <p>Titrovalo se jen 20&nbsp;ml ze 100&nbsp;ml, v&nbsp;celé baňce je tedy pětkrát víc (faktor zředění 100/20 = 5).</p>
+          <p class="eq"><span class="q">n</span>(celkem) = 5,626·10⁻⁴&nbsp;mol · 5 = <b>2,813·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 5: hmotnost vitamínu C v tabletě</summary><div class="jd-body">
+          <p class="eq"><span class="q">m</span> = <span class="q">n</span>·<span class="q">M</span> = 2,813·10⁻³&nbsp;mol · 176,12&nbsp;g/mol = 0,4954&nbsp;g = <b>495&nbsp;mg</b></p>
+          <p>Porovnání: deklarováno 500&nbsp;mg, naměřeno 495&nbsp;mg, tedy 99&nbsp;%. Tableta deklaraci odpovídá.</p>
+        </div></details>
+        <div class="jd-ans">Skutečný obsah vitamínu C v tabletě je přibližně 495 mg.</div>
+      </div>
+
+      <div class="jd-ex">
+        <h3>Příklad 2: aktivní chlor v bělidle (nepřímá jodometrie)</h3>
+        <p><b>Úloha:</b> 5,00&nbsp;ml komerčního bělidla (obsahuje chlornan sodný NaClO) se pipetou přeneslo do 100&nbsp;ml odměrné baňky a&nbsp;doplnilo destilovanou vodou po značku (zředění 1&nbsp;:&nbsp;20). Z&nbsp;tohoto roztoku se odebralo 10,00&nbsp;ml do titrační baňky, přidal se asi 1&nbsp;g KI a&nbsp;5&nbsp;ml kyseliny octové (2&nbsp;mol/l). Uvolněný jod se hned titroval roztokem Na₂S₂O₃ o&nbsp;koncentraci 0,1050&nbsp;mol/l, škrob se přidal ke konci. Spotřeba byla 14,85&nbsp;ml. Vypočítejte hmotnostní procento NaClO (<span class="q">M</span> = 74,44&nbsp;g/mol) v&nbsp;bělidle, je-li jeho hustota 1,08&nbsp;g/ml.</p>
+        <div class="jd-route">
+          <span class="jd-rb">bělidlo<br><b>5,00 ml</b></span><span class="jd-ra">→ zředit</span>
+          <span class="jd-rb">odměrná baňka<br><b>100 ml</b></span><span class="jd-ra">→ odebrat</span>
+          <span class="jd-rb">alikvot<br><b>10,00 ml</b></span><span class="jd-ra">→ + KI, H⁺</span>
+          <span class="jd-rb">uvolněný<br><b>I₂</b></span><span class="jd-ra">→ titrovat</span>
+          <span class="jd-rb jd-rt">Na₂S₂O₃ 0,1050 mol/l<br><b>14,85 ml</b></span>
+          <span class="jd-rf">titrujeme desetinu → výsledek × 10</span>
+        </div>
+        <details class="jd-more"><summary>Krok 1: chemické reakce a stechiometrie</summary><div class="jd-body">
+          <p><b>Uvolnění I₂:</b> <span class="chem">ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O</span> &nbsp; (1&nbsp;mol ClO⁻ ~ 1&nbsp;mol I₂)</p>
+          <p><b>Titrace I₂:</b> <span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span> &nbsp; (1&nbsp;mol I₂ ~ 2&nbsp;mol S₂O₃²⁻)</p>
+          <p>Celkem: <b>1&nbsp;mol ClO⁻ ~ 1&nbsp;mol I₂ ~ 2&nbsp;mol S₂O₃²⁻</b>, tedy <span class="q">n</span>(ClO⁻) : <span class="q">n</span>(S₂O₃²⁻) = 1 : 2</p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 2: látkové množství Na₂S₂O₃</summary><div class="jd-body">
+          <p class="eq"><span class="q">n</span> = 0,1050&nbsp;mol/l · 0,01485&nbsp;l = <b>1,559·10⁻³&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 3: ClO⁻ v titrovaném alikvotu (10 ml)</summary><div class="jd-body">
+          <p class="eq"><span class="q">n</span>(ClO⁻) = <span class="q">n</span>(Na₂S₂O₃)/2 = 1,559·10⁻³ / 2 = <b>7,796·10⁻⁴&nbsp;mol</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 4: ClO⁻ ve 100 ml zředěného roztoku</summary><div class="jd-body">
+          <p>Faktor přepočtu 100&nbsp;ml / 10&nbsp;ml = 10: <span class="q">n</span> = <b>7,796·10⁻³&nbsp;mol</b>. Tolik ClO⁻ pochází z&nbsp;původních 5,00&nbsp;ml bělidla.</p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 5: hmotnost NaClO v 5,00 ml bělidla</summary><div class="jd-body">
+          <p class="eq"><span class="q">m</span>(NaClO) = 7,796·10⁻³&nbsp;mol · 74,44&nbsp;g/mol = <b>0,5804&nbsp;g</b></p>
+        </div></details>
+        <details class="jd-more"><summary>Krok 6: hmotnostní procento NaClO</summary><div class="jd-body">
+          <p class="eq"><span class="q">m</span>(vzorek) = 5,00&nbsp;ml · 1,08&nbsp;g/ml = 5,40&nbsp;g<br><span class="q">w</span>(NaClO) = 0,5804 / 5,40 · 100&nbsp;% = <b>10,75&nbsp;%</b></p>
+        </div></details>
+        <div class="jd-ans">Obsah NaClO v komerčním bělidle je přibližně 10,8 % hmotnostních.</div>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>
+
+  <!-- ============ VII. SHRNUTÍ ============ -->
+  <section class="chapter" id="k6" data-title="Shrnutí">
+    <div class="prose">
+      <span class="eyebrow">VII · shrnutí a klíčové pojmy</span>
+      <h2>Přímá a&nbsp;nepřímá jodometrie vedle sebe</h2>
+      <div class="tablewrap jd-cmp">
+        <table>
+          <thead><tr><th>Kritérium</th><th class="d">Přímá (jodimetrie)</th><th class="i">Nepřímá</th></tr></thead>
+          <tbody>
+            <tr><td>Princip</td><td class="d">Titrace redukovadla roztokem I₂</td><td class="i">Oxidovadlo uvolní I₂ z&nbsp;KI, I₂ se titruje Na₂S₂O₃</td></tr>
+            <tr><td>Stanovuje se</td><td class="d"><b>Redukovadlo</b> (vitamín C, SO₃²⁻)</td><td class="i"><b>Oxidovadlo</b> (ClO⁻, Cu²⁺, Cr₂O₇²⁻)</td></tr>
+            <tr><td>Odměrný roztok</td><td class="d"><b>I₂</b> (v&nbsp;KI)</td><td class="i"><b>Na₂S₂O₃</b></td></tr>
+            <tr><td>Další činidla</td><td class="d">—</td><td class="i">KI (v&nbsp;nadbytku), H⁺</td></tr>
+            <tr><td>Úloha jodu</td><td class="d">I₂ = oxidovadlo</td><td class="i">I⁻ = redukovadlo (krok 1), I₂ = meziprodukt</td></tr>
+            <tr><td>Optimální pH</td><td class="d">neutrální / slabě zásadité (7–9)</td><td class="i">kyselé (krok 1), neutrální / slabě kyselé (titrace)</td></tr>
+            <tr><td>Škrob</td><td class="d"><b>na začátku</b></td><td class="i"><b>těsně před bodem ekvivalence</b></td></tr>
+            <tr><td>Změna barvy</td><td class="d"><b>bezbarvý → modrý</b></td><td class="i"><b>modrý → bezbarvý</b></td></tr>
+            <tr><td>Stálost titrantu</td><td class="d">nižší (I₂ těká)</td><td class="i">nižší (Na₂S₂O₃ se rozkládá)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>

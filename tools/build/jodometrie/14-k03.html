@@ -1,0 +1,132 @@
+
+  <!-- ============ IV. ZDROJE CHYB ============ -->
+  <section class="chapter" id="k3" data-title="Praktické aspekty a zdroje chyb">
+    <div class="prose">
+      <span class="eyebrow">IV · praktické aspekty</span>
+      <h2>Praktické aspekty a&nbsp;zdroje chyb</h2>
+      <p class="lead">Přesnost jodometrických stanovení závisí na pečlivém dodržení postupu a&nbsp;na omezení možných chyb. Klíčová otázka u&nbsp;každé chyby zní: <b>zvýší, nebo sníží výsledek?</b> V&nbsp;nepřímé jodometrii platí jednoduché pravidlo: <b>jod navíc = výsledek vyšší, jod ztracený = výsledek nižší.</b></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Třídička</span>
+        <h3>Nepřímá jodometrie: bude výsledek vyšší, nebo nižší?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-errs" id="errBox"></div>
+        <div class="jd-msg" id="errScore" style="margin-top:1rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <details class="jd-more">
+        <summary>Podrobný přehled zdrojů chyb (tabulka)</summary>
+        <div class="jd-body">
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th>Zdroj chyby</th><th>Příčina, podrobnosti</th><th>Vliv na výsledek (nepřímá)</th><th>Prevence</th></tr></thead>
+              <tbody>
+                <tr><td><b>Oxidace I⁻ vzdušným O₂</b></td><td><span class="chem">4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O</span>. Významná v&nbsp;kyselém prostředí, urychluje ji světlo a&nbsp;ionty kovů (Cu²⁺, Fe³⁺). Vzniká „falešný“ jod.</td><td><b>kladný</b> (vyšší)</td><td>krátká doba mezi okyselením a&nbsp;titrací, rychlá práce, bez přímého světla, maskování rušivých iontů, slepý pokus</td></tr>
+                <tr><td><b>Těkavost I₂</b></td><td>Jod má vysoký tlak par a&nbsp;snadno uniká z&nbsp;otevřeného roztoku, hlavně při míchání a&nbsp;za tepla.</td><td><b>záporný</b> (nižší)</td><td>baňky se zábrusem nebo přikryté hodinovým sklem, nižší teplota, dostatečný nadbytek KI (váže I₂ na méně těkavý I₃⁻), titrovat bez odkladu</td></tr>
+                <tr><td><b>Neúplná reakce analytu s&nbsp;KI</b></td><td>Některá oxidovadla reagují s&nbsp;KI pomalu. Když reakce neproběhne úplně, uvolní se méně I₂.</td><td><b>záporný</b> (nižší)</td><td>dostatečný reakční čas (někdy i&nbsp;desítky minut, často v&nbsp;temnu), správné pH, nadbytek KI, případně katalyzátor (molybdenan u&nbsp;H₂O₂)</td></tr>
+                <tr><td><b>Adsorpce I₂ na sraženinách</b></td><td>Vzniká-li při reakci sraženina (CuI, S), může na povrchu zadržet část I₂, který pak není dostupný pro titraci.</td><td><b>záporný</b> (nižší)</td><td>intenzivní míchání, přídavek látky, která adsorpci sníží (KSCN u&nbsp;Cu²⁺ → CuSCN), škrob až ke konci</td></tr>
+                <tr><td><b>Rozklad Na₂S₂O₃</b></td><td>Nestálost vlivem CO₂, bakterií, kyslíku a&nbsp;kyselého pH. Skutečná koncentrace titrantu je nižší, než se předpokládá, takže ho na stejný jod spotřebujeme víc.</td><td><b>kladný</b> (vyšší)</td><td>čerstvě standardizovaný roztok, správná příprava a&nbsp;uchovávání (převařená voda, Na₂CO₃, tmavá lahev), vyhnout se silně kyselému prostředí</td></tr>
+                <tr><td><b>Nečistota IO₃⁻ v&nbsp;KI</b></td><td>Jodičnany v&nbsp;KI v&nbsp;kyselém prostředí uvolní jod navíc: <span class="chem">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span>.</td><td><b>kladný</b> (vyšší)</td><td>KI čistoty p.a., test KI (okyselený roztok KI se škrobem nesmí zmodrat), slepý pokus</td></tr>
+                <tr><td><b>Chyby určení bodu ekvivalence</b></td><td>Indikátor přidaný příliš brzy nebo pozdě, špatně posouzený barevný přechod, pomalá reakce indikátoru.</td><td>různý</td><td>pečlivé pozorování, správné načasování škrobu (u&nbsp;nepřímé metody), dobré osvětlení, zkušenost</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="jd-q" data-q="q41"></div>
+    <div class="jd-q" data-q="q42"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>
+
+  <!-- ============ V. INTERPRETACE VÝSLEDKŮ ============ -->
+  <section class="chapter" id="k4" data-title="Interpretace výsledků">
+    <div class="prose">
+      <span class="eyebrow">V · vyhodnocení</span>
+      <h2>Interpretace výsledků</h2>
+      <p class="lead">Číslo z&nbsp;titrace je jen část analýzy. Stejně důležité je správně ho vyložit a&nbsp;posoudit, nakolik se mu dá věřit.</p>
+      <h3>Správnost a&nbsp;přesnost</h3>
+      <div class="jd-two">
+        <div class="jd-m jd-d">
+          <h4><span class="jd-tip" tabindex="0" style="color:inherit">Správnost<span class="jd-tt">Míra shody mezi naměřenou a skutečnou (pravdivou) hodnotou koncentrace nebo množství analytu. Ovlivňují ji systematické chyby.</span></span></h4>
+          <p style="margin:0">Jak blízko je náš výsledek <b>„pravé“ hodnotě</b>?</p>
+        </div>
+        <div class="jd-m jd-i">
+          <h4><span class="jd-tip" tabindex="0" style="color:inherit">Přesnost<span class="jd-tt">Míra shody mezi výsledky opakovaných měření za stejných podmínek. Vyjadřuje opakovatelnost měření. Ovlivňují ji náhodné chyby.</span></span></h4>
+          <p style="margin:0">Jak blízko jsou si navzájem <b>výsledky opakovaných titrací</b> téhož vzorku?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="svgwrap" id="tgtWrap"></div>
+        <p class="panel-note">Střed terče je skutečná hodnota, tečky jsou opakovaná stanovení. Ideální výsledek je správný i&nbsp;přesný (první terč).</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Opakovaná stanovení a&nbsp;statistika</h3>
+      <p>Jedna titrace nestačí, protože nevyhnutelné náhodné chyby (odečet byrety, určení bodu ekvivalence) by výsledek zkreslily. Každé stanovení se proto dělá <b>nejméně třikrát</b> (paralelní stanovení). Výsledkem analýzy je <span class="jd-tip" tabindex="0">průměrná hodnota<span class="jd-tt">Součet hodnot dělený jejich počtem. Nejlepší odhad skutečné hodnoty z dané sady měření.</span></span>. Přesnost popisuje <span class="jd-tip" tabindex="0">směrodatná odchylka<span class="jd-tt">Statistická míra rozptylu hodnot kolem průměru. Nižší hodnota znamená vyšší přesnost.</span></span> (SD) nebo relativní směrodatná odchylka (RSD). Výrazně odlišné (odlehlé) hodnoty lze vyřadit statistickým testem (např. Q-test, Grubbsův test), ale jen se zdůvodněním.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Kalkulačka</span>
+        <h3>Tři paralelní titrace → průměr, SD, RSD</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-stat">
+          <div class="ctl"><label for="st1">Spotřeba 1 (ml)</label><input type="text" inputmode="decimal" id="st1" value="14,85" autocomplete="off"></div>
+          <div class="ctl"><label for="st2">Spotřeba 2 (ml)</label><input type="text" inputmode="decimal" id="st2" value="14,90" autocomplete="off"></div>
+          <div class="ctl"><label for="st3">Spotřeba 3 (ml)</label><input type="text" inputmode="decimal" id="st3" value="14,80" autocomplete="off"></div>
+        </div>
+        <div class="grid3">
+          <div class="readout" id="stRo1"></div>
+          <div class="readout" id="stRo2"></div>
+          <div class="readout" id="stRo3"></div>
+        </div>
+        <div class="jd-msg" id="stMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Vliv systematických chyb na interpretaci</h3>
+      <p>Vychází-li výsledek soustavně vyšší nebo nižší, než by měl (třeba u&nbsp;standardu se známým obsahem), hledejte příčinu v&nbsp;<span class="jd-tip" tabindex="0">systematických chybách<span class="jd-tt">Chyby, které posouvají výsledek pořád stejným směrem (vždy ho zvyšují, nebo vždy snižují). Způsobuje je metoda, přístroj nebo experimentátor.</span></span> podle kapitoly IV:</p>
+      <div class="jd-two">
+        <div class="jd-m jd-i">
+          <h4>↑ Falešně VYSOKÝ výsledek</h4>
+          <ul><li>oxidace I⁻ vzduchem</li><li>nečistota IO₃⁻ v&nbsp;KI</li><li>rozložený Na₂S₂O₃</li><li>chybná standardizace titrantu (skutečná koncentrace je <b>nižší</b>, než předpokládáme)</li></ul>
+        </div>
+        <div class="jd-m jd-d">
+          <h4>↓ Falešně NÍZKÝ výsledek</h4>
+          <ul><li>těkání I₂</li><li>neúplná reakce analytu</li><li>adsorpce I₂ na sraženině</li><li>chybná standardizace titrantu (skutečná koncentrace je <b>vyšší</b>, než předpokládáme)</li></ul>
+        </div>
+      </div>
+      <p>Najít a&nbsp;odstranit systematické chyby je klíč ke správným výsledkům.</p>
+
+      <div class="jd-think">
+        <h4>Zamyslete se</h4>
+        <p>Při stanovení mědi (nepřímá jodometrie) vám opakovaně vychází výrazně <b>nižší</b> koncentrace Cu²⁺, než uvádí certifikát standardu. Které systematické chyby byste zvažovali jako nejpravděpodobnější?</p>
+        <details class="jd-more small">
+          <summary>Možné příčiny (klepněte pro nápovědu)</summary>
+          <div class="jd-body">
+            <ul>
+              <li>Neúplná reakce Cu²⁺ s&nbsp;KI (málo času, špatné pH?).</li>
+              <li>Výrazná adsorpce I₂ na sraženině CuI (málo míchání, chyběl KSCN?).</li>
+              <li>Těkání I₂ (práce v&nbsp;otevřené nádobě?).</li>
+              <li>Chyba při standardizaci Na₂S₂O₃ (je jeho skutečná koncentrace vyšší, než si myslíte?).</li>
+            </ul>
+            <p style="color:var(--ink-2);font-size:.93rem">Rozložený thiosíran to <b>nebude</b>: slabší titrant znamená větší spotřebu, a&nbsp;tedy výsledek vyšší.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

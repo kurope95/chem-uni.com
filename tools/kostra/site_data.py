@@ -62,6 +62,23 @@ GROUPS = [
         "state": "ready", "icon": "anorganika",
     },
     {
+        "id": "analytika", "slug": "analyticka-chemie",
+        "title": "Analytická chemie",
+        "title_en": "Analytical chemistry",
+        "title_sk": "Analytická chémia",
+        "sub": "Odměrná analýza: jak se titrací zjistí, kolik látky je ve vzorku. "
+               "Principy, indikátory, výpočty a nejčastější chyby.",
+        "sub_en": "Volumetric analysis: how a titration tells you how much of a substance "
+                  "is in a sample. Principles, indicators, calculations and the most common errors.",
+        "sub_sk": "Odmerná analýza: ako sa titráciou zistí, koľko látky je vo vzorke. "
+                  "Princípy, indikátory, výpočty a najčastejšie chyby.",
+        "kicker": "Naučit se", "kicker_en": "Learn",
+        "kicker_sk": "Naučiť sa",
+        "cta": "Zobrazit okruhy", "cta_en": "Show topics",
+        "cta_sk": "Zobraziť okruhy",
+        "state": "ready", "icon": "analytika",
+    },
+    {
         "id": "testy", "slug": "testy-nanecisto",
         "title": "Testy nanečisto",
         "title_en": "Mock tests",
@@ -194,11 +211,14 @@ GROUPS = [
 PAIRS = [
     {"label": "Látka", "label_en": "Theory",
      "label_sk": "Učivo",
-     "note": "Nejdřív obecné zákonitosti, pak popisná chemie prvků a jejich sloučenin.",
+     "note": "Nejdřív obecné zákonitosti, pak popisná chemie prvků a jejich sloučenin "
+             "a nakonec analytika: jak se zjistí, kolik látky ve vzorku je.",
      "note_en": "First the general principles, then the descriptive chemistry of the elements "
-                "and their compounds.",
-     "note_sk": "Najprv všeobecné zákonitosti, potom opisná chémia prvkov a ich zlúčenín.",
-     "items": ["okruhy", "anorganika"]},
+                "and their compounds, and finally analysis: how to find out how much of "
+                "a substance a sample contains.",
+     "note_sk": "Najprv všeobecné zákonitosti, potom opisná chémia prvkov a ich zlúčenín "
+                "a nakoniec analytika: ako sa zistí, koľko látky je vo vzorke.",
+     "items": ["okruhy", "anorganika", "analytika"]},
     {"label": "Výpočty", "label_en": "Calculations",
      "label_sk": "Výpočty",
      "note": "Jak výpočet zapsat — a tabulka, kterou u toho máte po ruce.",
@@ -518,3 +538,96 @@ ANORG_TOPICS = [
 
 ANORG_PREFIXES = ["vodik", "halogeny", "chalkogeny", "dusik", "uhlik",
                   "kovy", "nekovy", "komplexy", "prechodne"]
+
+# ---- Analytická chemie ---------------------------------------------------
+# Odměrná analýza podle podkladů autora (rozsah a úroveň určují ony).
+# Průvodce jsou kratší než v ostatních sekcích: kapitoly, modely, testy — bez
+# rychlokurzu, taháku a slovníčku.
+ANALYT_TOPICS = [
+    {
+        "slug": "jodometrie", "n": "01",
+        "title": "Jodometrie",
+        "title_en": "Iodometry",
+        "title_sk": "Jodometria",
+        "sub": "Redoxní titrace s jodem: přímá na redukovadla, nepřímá na oxidovadla, "
+               "škrob jako indikátor a výpočty.",
+        "sub_en": "Redox titrations with iodine: direct for reducing agents, indirect for "
+                  "oxidising agents, starch as the indicator, and the calculations.",
+        "sub_sk": "Redoxné titrácie s jódom: priama na redukovadlá, nepriama na oxidovadlá, "
+                  "škrob ako indikátor a výpočty.",
+        "chips": ["pár I₂/2I⁻", "jodimetrie", "nepřímá jodometrie", "thiosíran sodný",
+                  "škrobový indikátor", "zdroje chyb", "výpočty"],
+        "chips_en": ["the I₂/2I⁻ couple", "iodimetry", "indirect iodometry", "sodium thiosulfate",
+                     "starch indicator", "sources of error", "calculations"],
+        "chips_sk": ["pár I₂/2I⁻", "jodimetria", "nepriama jodometria", "tiosíran sodný",
+                     "škrobový indikátor", "zdroje chýb", "výpočty"],
+    },
+    {
+        "slug": "acidobazicke-titrace", "n": "02",
+        "title": "Acidobazické titrace",
+        "title_en": "Acid–base titrations",
+        "title_sk": "Acidobázické titrácie",
+        "sub": "Neutralizace jako měřicí nástroj: odměrné roztoky, indikátory a titrační křivky.",
+        "sub_en": "Neutralisation as a measuring tool: standard solutions, indicators and "
+                  "titration curves.",
+        "sub_sk": "Neutralizácia ako merací nástroj: odmerné roztoky, indikátory a titračné krivky.",
+        "chips": ["acidimetrie a alkalimetrie", "indikátory", "titrační křivky", "výpočty"],
+        "chips_en": ["acidimetry and alkalimetry", "indicators", "titration curves", "calculations"],
+        "chips_sk": ["acidimetria a alkalimetria", "indikátory", "titračné krivky", "výpočty"],
+    },
+    {
+        "slug": "komplexometrie", "n": "03",
+        "title": "Komplexometrie",
+        "title_en": "Complexometry",
+        "title_sk": "Komplexometria",
+        "sub": "Titrace chelatonem (EDTA): metalochromní indikátory, pufry, maskování a tvrdost vody.",
+        "sub_en": "Titrations with EDTA: metallochromic indicators, buffers, masking and "
+                  "water hardness.",
+        "sub_sk": "Titrácie chelatónom (EDTA): metalochrómne indikátory, tlmivé roztoky, "
+                  "maskovanie a tvrdosť vody.",
+        "chips": ["EDTA", "metalochromní indikátory", "maskování", "tvrdost vody"],
+        "chips_en": ["EDTA", "metallochromic indicators", "masking", "water hardness"],
+        "chips_sk": ["EDTA", "metalochrómne indikátory", "maskovanie", "tvrdosť vody"],
+    },
+    {
+        "slug": "manganometrie-a-dichromatometrie", "n": "04",
+        "title": "Manganometrie a dichromatometrie",
+        "title_en": "Permanganometry and dichromatometry",
+        "title_sk": "Manganometria a dichromatometria",
+        "sub": "Redoxní titrace manganistanem a dichromanem: kdy barví titrant sám a kdy je třeba indikátor.",
+        "sub_en": "Redox titrations with permanganate and dichromate: when the titrant is its "
+                  "own indicator and when you need one.",
+        "sub_sk": "Redoxné titrácie manganistanom a dichrómanom: kedy farbí titrant sám a kedy "
+                  "treba indikátor.",
+        "chips": ["KMnO₄", "K₂Cr₂O₇", "autoindikace", "stanovení železa"],
+        "chips_en": ["KMnO₄", "K₂Cr₂O₇", "self-indication", "determination of iron"],
+        "chips_sk": ["KMnO₄", "K₂Cr₂O₇", "autoindikácia", "stanovenie železa"],
+    },
+    {
+        "slug": "srazeci-titrace", "n": "05",
+        "title": "Srážecí titrace",
+        "title_en": "Precipitation titrations",
+        "title_sk": "Zrážacie titrácie",
+        "sub": "Titrace, při kterých vzniká sraženina: argentometrie a její indikace.",
+        "sub_en": "Titrations in which a precipitate forms: argentometry and how its end point "
+                  "is detected.",
+        "sub_sk": "Titrácie, pri ktorých vzniká zrazenina: argentometria a jej indikácia.",
+        "chips": ["argentometrie", "součin rozpustnosti", "indikace"],
+        "chips_en": ["argentometry", "solubility product", "end-point detection"],
+        "chips_sk": ["argentometria", "súčin rozpustnosti", "indikácia"],
+    },
+]
+
+ANALYT_PREFIXES = ["jodo"]
+
+# ---- Skupiny s průvodci ve vlastní složce ----------------------------------
+# Jediný seznam, podle kterého make_site.py, i18n.py, make_dist.py a preklad_io.py
+# najdou průvodce. Nová skupina = nový řádek tady (a GROUP_PAGES v make_site.py).
+GUIDE_GROUPS = [
+    ("obecna-fyzikalni-chemie", TOPICS),
+    ("anorganicka-chemie", ANORG_TOPICS),
+    ("analyticka-chemie", ANALYT_TOPICS),
+]
+GUIDE_FOLDERS = [f for f, _ in GUIDE_GROUPS]
+ALL_TOPICS = [t for _, tops in GUIDE_GROUPS for t in tops]
+ALL_PREFIXES = PREFIXES + ANORG_PREFIXES + ANALYT_PREFIXES

@@ -1,0 +1,96 @@
+  <style>
+  /* ---- jodometrie: vlastní prvky (předpona jd-, ať nic nekoliduje) ---- */
+  .jd-info{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+    padding:1rem 1.15rem;display:flex;flex-direction:column;gap:.55rem;min-height:9.5rem}
+  .jd-info h4{margin:0;font-family:var(--f-ui);font-size:1.02rem}
+  .jd-info p{margin:0;font-size:.95rem}
+  .jd-lad{display:grid;gap:1rem;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
+  @media (max-width:760px){ .jd-lad{grid-template-columns:minmax(0,1fr)} }
+  .jd-lad svg .jd-sp{cursor:pointer}
+  .jd-lad svg .jd-sp:focus{outline:none}
+  .jd-lad svg .jd-sp:focus rect,.jd-lad svg .jd-sp:hover rect{stroke:var(--ink);stroke-width:1.6}
+  .jd-flow{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr));margin:.4rem 0 1rem}
+  @media (max-width:640px){ .jd-flow{grid-template-columns:minmax(0,1fr)} }
+  .jd-flow .jd-root{grid-column:1 / -1;text-align:center;font-family:var(--f-ui);font-weight:600;
+    border:1px dashed var(--line-strong);border-radius:10px;padding:.6rem;background:var(--surface-2)}
+  .jd-card{border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;
+    background:var(--surface);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.45rem}
+  .jd-card.red{border-top-color:var(--endo)} .jd-card.ox{border-top-color:var(--exo)}
+  .jd-card h4{margin:0;font-family:var(--f-ui);font-size:1rem}
+  .jd-card p{margin:0;font-size:.93rem}
+  .jd-card .jd-step{font-family:var(--f-ui);font-size:.9rem;color:var(--ink-2)}
+  .jd-sim{display:grid;gap:1rem;grid-template-columns:minmax(0,15rem) minmax(0,1fr);align-items:start}
+  .jd-sim .svgwrap{width:100%;box-sizing:border-box} .jd-sim .svgwrap svg{width:100%}
+  @media (max-width:640px){ .jd-sim{grid-template-columns:minmax(0,1fr)} .jd-sim .svgwrap{max-width:17rem;margin:0 auto} }
+  .jd-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+  .jd-msg{border-radius:10px;padding:.75rem .9rem;font-size:.95rem;background:var(--surface-2);
+    border:1px solid var(--line)}
+  .jd-msg.ok{background:var(--ok-soft);border-color:var(--ok)}
+  .jd-msg.bad{background:var(--bad-soft);border-color:var(--bad)}
+  .jd-msg.warn{background:var(--warn-soft);border-color:var(--warn)}
+  .jd-chain{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;margin:.6rem 0}
+  .jd-tok{display:inline-flex;align-items:center;justify-content:center;min-width:3.1rem;height:2.1rem;
+    padding:0 .45rem;border-radius:999px;font-family:var(--f-ui);font-weight:600;font-size:.85rem;
+    border:1.5px solid currentColor;background:var(--surface)}
+  .jd-tok.a{color:var(--exo)} .jd-tok.i{color:#8a5a14} .jd-tok.t{color:var(--endo)}
+  :root[data-theme="dark"] .jd-tok.i{color:#e0a64e}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .jd-tok.i{color:#e0a64e} }
+  .jd-eqv{font-family:var(--f-ui);font-weight:700;color:var(--ink-3);padding:0 .15rem}
+  .jd-grp{display:inline-flex;flex-wrap:wrap;gap:.3rem}
+  .jd-errs{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .jd-err{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.9rem 1rem;
+    display:flex;flex-direction:column;gap:.55rem}
+  .jd-err h4{margin:0;font-family:var(--f-ui);font-size:.98rem}
+  .jd-err p{margin:0;font-size:.92rem}
+  .jd-err .jd-why{display:none;border-top:1px dashed var(--line-strong);padding-top:.55rem}
+  .jd-err.done .jd-why{display:block}
+  .jd-err.done.right{border-color:var(--ok)} .jd-err.done.wrong{border-color:var(--bad)}
+  .jd-err .jd-btns .btn[disabled]{opacity:.55;cursor:default}
+  .jd-stat{display:grid;gap:.6rem;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:.9rem}
+  @media (max-width:520px){ .jd-stat{grid-template-columns:minmax(0,1fr)} }
+  .jd-stat input,.jd-in{font-family:var(--f-mono);font-size:1rem;padding:.55rem .7rem;min-height:44px;width:100%;
+    border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--ink)}
+  .jd-sum td:first-child{font-weight:600;white-space:nowrap}
+  </style>
+
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Jodometrie</h1>
+      <p class="lead">Kolik vitamínu C je doopravdy v&nbsp;tabletě? Kolik chlornanu je v&nbsp;lahvi Sava? Kolik kyslíku je rozpuštěno v&nbsp;rybníku? Na všechny tři otázky odpoví jedna titrační metoda. Stojí na jednoduché redoxní dvojici <span class="chem">I₂ / 2I⁻</span> a&nbsp;konec titrace ukáže škrob, který s&nbsp;jodem zmodrá.</p>
+      <div class="hero-meta">
+        <span class="tag">7 krátkých kapitol</span>
+        <span class="tag">Titrace na obrazovce</span>
+        <span class="tag">Řešené příklady</span>
+        <span class="tag">Testy s&nbsp;vysvětlením</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#k0">
+        <span class="pk"><span class="tag">Kapitolu po kapitole</span></span>
+        <span class="pt">Projít výklad</span>
+        <span class="pd">Princip, přímá a&nbsp;nepřímá jodometrie, odměrné roztoky, škrob, zdroje chyb, vyhodnocení a&nbsp;dva řešené příklady. Po každé kapitole krátký mini-test.</span>
+        <span class="pgo">Začít kapitolou 00 →</span>
+      </a>
+      <a class="path" href="#k7">
+        <span class="pk"><span class="tag">Umíte to?</span></span>
+        <span class="pt">Závěrečný test</span>
+        <span class="pd">Dvacet otázek přes celou jodometrii. U&nbsp;každé se po vyhodnocení ukáže, proč je správná odpověď správná.</span>
+        <span class="pgo">Přejít na test →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Redoxní žebříček — kdo jod redukuje a&nbsp;kdo jodid oxiduje</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-lad">
+          <div class="svgwrap" id="ladWrap"></div>
+          <div class="jd-info" id="ladInfo" aria-live="polite"></div>
+        </div>
+        <p class="panel-note">Klepněte na látku. Čím výš na žebříčku, tím silnější oxidovadlo. Hodnoty jsou přibližné standardní potenciály v&nbsp;kyselém prostředí. Všechno nad jodem umí zoxidovat jodid na jod (nepřímá jodometrie), všechno pod ním jod zredukuje (přímá jodometrie).</p>
+      </div>
+    </div>
+  </header>

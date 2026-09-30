@@ -1,0 +1,273 @@
+  <style>
+  /* ---- jodometrie v2: klíčové věci na očích, podrobnosti sbalené (předpona jd-) ---- */
+  :root{--jd-d:#2456b8;--jd-d-soft:#eaf0fc;--jd-d-line:#9fb8ea;--jd-i:#b3302a;--jd-i-soft:#fcecea;--jd-i-line:#e8a7a1;
+    --jd-y:#8a6100;--jd-y-soft:#fdf5dc;--jd-y-line:#e7cf85;--jd-g:#1d7a4c;--jd-g-soft:#e8f6ee;--jd-g-line:#9fd4b7}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--jd-d:#8fb0f4;--jd-d-soft:#18233a;--jd-d-line:#35507f;
+    --jd-i:#f0948b;--jd-i-soft:#361a18;--jd-i-line:#7a3a34;--jd-y:#e8c46a;--jd-y-soft:#2f2712;--jd-y-line:#6b5621;
+    --jd-g:#7fd3a6;--jd-g-soft:#142b20;--jd-g-line:#2f6a4b}}
+  :root[data-theme="dark"]{--jd-d:#8fb0f4;--jd-d-soft:#18233a;--jd-d-line:#35507f;
+    --jd-i:#f0948b;--jd-i-soft:#361a18;--jd-i-line:#7a3a34;--jd-y:#e8c46a;--jd-y-soft:#2f2712;--jd-y-line:#6b5621;
+    --jd-g:#7fd3a6;--jd-g-soft:#142b20;--jd-g-line:#2f6a4b}
+
+  /* dvě metody vedle sebe */
+  .jd-two{display:grid;gap:1rem;grid-template-columns:repeat(2,minmax(0,1fr));margin:1.1rem 0}
+  @media (max-width:680px){ .jd-two{grid-template-columns:minmax(0,1fr)} }
+  .jd-m{border:1.5px solid var(--jd-c-line);background:var(--jd-c-soft);border-radius:14px;padding:1.1rem 1.2rem;
+    display:flex;flex-direction:column;gap:.5rem}
+  .jd-m h4{margin:0;font-family:var(--f-ui);font-size:1.08rem;color:var(--jd-c)}
+  .jd-m ul{margin:0;padding-left:1.1rem;font-size:.95rem}
+  .jd-m li{margin:.2rem 0}
+  .jd-d{--jd-c:var(--jd-d);--jd-c-soft:var(--jd-d-soft);--jd-c-line:var(--jd-d-line)}
+  .jd-i{--jd-c:var(--jd-i);--jd-c-soft:var(--jd-i-soft);--jd-c-line:var(--jd-i-line)}
+  .jd-big{text-transform:uppercase;font-weight:700;letter-spacing:.02em;color:var(--jd-c)}
+
+  /* hlavní rámeček „Klíčový princip a postup“ */
+  .jd-key{border:3px solid var(--jd-c);background:var(--jd-c-soft);border-radius:18px;
+    padding:clamp(1.1rem,2.4vw,1.7rem);margin:1.3rem 0 1.5rem;box-shadow:var(--shadow-2)}
+  .jd-key > h3{margin:0 0 .3rem;text-align:center;font-size:clamp(1.2rem,1rem + .8vw,1.5rem);color:var(--jd-c)}
+  .jd-key > .jd-sub{text-align:center;margin:0 0 1rem;color:var(--ink-2);font-family:var(--f-ui);font-size:.95rem}
+  .jd-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
+  .jd-steps > li{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:.75rem;align-items:start;
+    background:var(--surface);border:1px solid var(--jd-c-line);border-radius:12px;padding:.75rem .9rem}
+  .jd-steps .jd-n{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--jd-c);color:var(--surface);
+    display:grid;place-items:center;font-family:var(--f-ui);font-weight:700}
+  .jd-steps b.jd-t{display:block;font-family:var(--f-ui);font-size:1.02rem;margin-bottom:.15rem}
+  .jd-steps p{margin:0;font-size:.95rem}
+  .jd-steps .jd-why{margin-top:.3rem;color:var(--ink-2);font-size:.9rem;padding-left:1.1rem;position:relative}
+  .jd-steps .jd-why::before{content:"→";position:absolute;left:0;color:var(--jd-c);font-weight:700}
+  .jd-steps .jd-res{margin-top:.3rem;font-weight:600;color:var(--jd-c);font-size:.95rem}
+
+  /* barvy v baňce krok za krokem */
+  .jd-strip{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:.4rem .3rem;margin:1.1rem 0 .2rem}
+  .jd-fl{display:flex;flex-direction:column;align-items:center;gap:.3rem;width:6.4rem;text-align:center;
+    font-family:var(--f-ui);font-size:.8rem;line-height:1.3;color:var(--ink-2)}
+  .jd-fl svg{width:3.2rem;height:auto}
+  .jd-fl b{color:var(--ink);font-size:.84rem}
+  .jd-arr{align-self:center;margin-top:-1.4rem;color:var(--jd-c);font-weight:700;font-size:1.2rem}
+  @media (max-width:560px){
+    .jd-strip{flex-direction:column;align-items:stretch;gap:.15rem;max-width:22rem;margin-left:auto;margin-right:auto}
+    .jd-fl{display:grid;grid-template-columns:2.6rem auto minmax(0,1fr);align-items:center;gap:.6rem;width:auto;text-align:left;
+      background:var(--surface);border-radius:10px;padding:.35rem .6rem}
+    .jd-fl svg{width:2.2rem}
+    .jd-arr{margin:0 0 0 1.1rem;transform:rotate(90deg);align-self:flex-start;line-height:1}
+  }
+
+  /* krok 1 / krok 2 */
+  .jd-kk{display:grid;gap:1rem;grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0}
+  @media (max-width:680px){ .jd-kk{grid-template-columns:minmax(0,1fr)} }
+  .jd-k{border:1px solid var(--line-strong);background:var(--surface-2);border-radius:12px;padding:1rem 1.1rem;
+    display:flex;flex-direction:column;gap:.45rem}
+  .jd-k h4{margin:0;font-family:var(--f-ui);font-size:1rem}
+  .jd-k p{margin:0;font-size:.94rem}
+
+  /* sbalené podrobnosti */
+  details.jd-more{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:.7rem 0;overflow:hidden}
+  details.jd-more > summary{cursor:pointer;list-style:none;padding:.8rem 1rem;font-family:var(--f-ui);font-weight:600;
+    display:flex;align-items:center;justify-content:space-between;gap:.8rem;background:var(--surface-2);min-height:44px;box-sizing:border-box}
+  details.jd-more > summary::-webkit-details-marker{display:none}
+  details.jd-more > summary::after{content:"";flex:none;width:.55rem;height:.55rem;border-right:2px solid currentColor;
+    border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-.25rem;transition:transform .2s;color:var(--ink-3)}
+  details.jd-more[open] > summary::after{transform:rotate(-135deg);margin-top:.2rem}
+  details.jd-more > .jd-body{padding:1rem 1.1rem;border-top:1px solid var(--line)}
+  details.jd-more > .jd-body > :first-child{margin-top:0} details.jd-more > .jd-body > :last-child{margin-bottom:0}
+  .jd-key details.jd-more{background:var(--surface);border-color:var(--jd-c-line)}
+  .jd-key details.jd-more > summary{background:var(--jd-c-soft);color:var(--jd-c)}
+  details.jd-more.small > summary{padding:.5rem .8rem;font-size:.88rem;min-height:40px}
+
+  /* pojmy s vysvětlivkou */
+  .jd-tip{position:relative;border-bottom:1.5px dotted var(--accent);cursor:help;color:var(--accent);font-weight:500;outline:none}
+  .jd-tip .jd-tt{visibility:hidden;opacity:0;position:absolute;z-index:5;left:0;bottom:calc(100% + 6px);width:min(16rem,72vw);
+    background:var(--ink);color:var(--surface);font-family:var(--f-ui);font-size:.83rem;font-weight:400;line-height:1.45;
+    padding:.55rem .7rem;border-radius:8px;transition:opacity .2s;pointer-events:none}
+  .jd-tip:hover .jd-tt,.jd-tip:focus .jd-tt{visibility:visible;opacity:1}
+  @media (max-width:640px){ .jd-tip:focus .jd-tt{position:static;display:block;width:auto;margin:.3rem 0} .jd-tip .jd-tt{display:none} .jd-tip:focus .jd-tt{display:block} }
+
+  /* doplňovačka */
+  .jd-fill{border:1px solid var(--line-strong);border-radius:12px;background:var(--surface-2);padding:.9rem 1rem;margin:1.2rem 0}
+  .jd-fill > .eyebrow{display:block;margin-bottom:.35rem}
+  .jd-fill p{margin:0 0 .6rem;line-height:2.1}
+  .jd-fill input{font-family:var(--f-ui);font-size:.95rem;padding:.3rem .5rem;min-height:36px;width:9.5rem;max-width:60vw;
+    border:1px solid var(--line-strong);border-radius:7px;background:var(--surface);color:var(--ink)}
+  .jd-fill input.ok{border-color:var(--ok);background:var(--ok-soft)} .jd-fill input.bad{border-color:var(--bad);background:var(--bad-soft)}
+  .jd-fill .jd-fb{margin-left:.6rem;font-family:var(--f-ui);font-size:.9rem}
+
+  /* kalkulačka */
+  .jd-calc{border:1.5px solid var(--jd-d-line);background:var(--jd-d-soft);border-radius:14px;padding:1rem 1.15rem;margin:1.2rem 0}
+  .jd-calc h4{margin:0 0 .5rem;color:var(--jd-d);font-family:var(--f-ui)}
+  .jd-calc .jd-cg{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:.7rem 0}
+  .jd-calc label{display:block;font-family:var(--f-ui);font-size:.85rem;font-weight:600;margin-bottom:.25rem;color:var(--ink-2)}
+  .jd-calc input{font-family:var(--f-mono);font-size:1rem;padding:.5rem .6rem;min-height:42px;width:100%;box-sizing:border-box;
+    border:1px solid var(--jd-d-line);border-radius:8px;background:var(--surface);color:var(--ink)}
+  .jd-calc .jd-out{margin-top:.7rem;font-family:var(--f-ui);font-weight:600;color:var(--jd-d)}
+
+  /* zamyslete se */
+  .jd-think{border:1.5px solid var(--jd-y-line);background:var(--jd-y-soft);border-radius:14px;padding:1rem 1.15rem;margin:1.2rem 0}
+  .jd-think h4{margin:0 0 .4rem;color:var(--jd-y);font-family:var(--f-ui)}
+
+  /* řešené příklady */
+  .jd-ex{border:1.5px solid var(--jd-g-line);background:var(--jd-g-soft);border-radius:14px;padding:1.1rem 1.2rem;margin:1.2rem 0}
+  .jd-ex > h3{margin:0 0 .5rem;color:var(--jd-g)}
+  .jd-ex details.jd-more > summary{color:var(--jd-g)}
+  .jd-ans{margin-top:.9rem;text-align:center;font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--jd-g);
+    background:var(--surface);border:1.5px solid var(--jd-g-line);border-radius:10px;padding:.65rem .8rem}
+  .jd-hl{background:var(--jd-y-soft);border-radius:4px;padding:0 .2em;font-weight:600}
+  .jd-cmp td:first-child{font-weight:600;white-space:nowrap}
+  .jd-cmp th.d,.jd-cmp td.d{color:var(--jd-d)} .jd-cmp th.i,.jd-cmp td.i{color:var(--jd-i)}
+
+  /* rozcestník v úvodu: dvě barevné cesty */
+  .paths .path.jd-pd{border-color:var(--jd-d);background:var(--jd-d-soft)}
+  .paths .path.jd-pi{border-color:var(--jd-i);background:var(--jd-i-soft)}
+  .paths .path.jd-pd .pt,.paths .path.jd-pd .pgo{color:var(--jd-d)}
+  .paths .path.jd-pi .pt,.paths .path.jd-pi .pgo{color:var(--jd-i)}
+  /* ---- modely převzaté z první verze ---- */
+  /* ---- jodometrie: vlastní prvky (předpona jd-, ať nic nekoliduje) ---- */
+  .jd-info{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+    padding:1rem 1.15rem;display:flex;flex-direction:column;gap:.55rem;min-height:9.5rem}
+  .jd-info h4{margin:0;font-family:var(--f-ui);font-size:1.02rem}
+  .jd-info p{margin:0;font-size:.95rem}
+  .jd-lad{display:grid;gap:1rem;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
+  @media (max-width:760px){ .jd-lad{grid-template-columns:minmax(0,1fr)} }
+  .jd-lad svg .jd-sp{cursor:pointer}
+  .jd-lad svg .jd-sp:focus{outline:none}
+  .jd-lad svg .jd-sp:focus rect,.jd-lad svg .jd-sp:hover rect{stroke:var(--ink);stroke-width:1.6}
+    border:1px dashed var(--line-strong);border-radius:10px;padding:.6rem;background:var(--surface-2)}
+    background:var(--surface);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.45rem}
+  .jd-sim{display:grid;gap:1rem;grid-template-columns:minmax(0,15rem) minmax(0,1fr);align-items:start}
+  .jd-sim .svgwrap{width:100%;box-sizing:border-box} .jd-sim .svgwrap svg{width:100%}
+  @media (max-width:640px){ .jd-sim{grid-template-columns:minmax(0,1fr)} .jd-sim .svgwrap{max-width:17rem;margin:0 auto} }
+  .jd-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+  .jd-msg{border-radius:10px;padding:.75rem .9rem;font-size:.95rem;background:var(--surface-2);
+    border:1px solid var(--line)}
+  .jd-msg.ok{background:var(--ok-soft);border-color:var(--ok)}
+  .jd-msg.bad{background:var(--bad-soft);border-color:var(--bad)}
+  .jd-msg.warn{background:var(--warn-soft);border-color:var(--warn)}
+  .jd-chain{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;margin:.6rem 0}
+  .jd-tok{display:inline-flex;align-items:center;justify-content:center;min-width:3.1rem;height:2.1rem;
+    padding:0 .45rem;border-radius:999px;font-family:var(--f-ui);font-weight:600;font-size:.85rem;
+    border:1.5px solid currentColor;background:var(--surface)}
+  .jd-tok.a{color:var(--exo)} .jd-tok.i{color:#8a5a14} .jd-tok.t{color:var(--endo)}
+  :root[data-theme="dark"] .jd-tok.i{color:#e0a64e}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .jd-tok.i{color:#e0a64e} }
+  .jd-eqv{font-family:var(--f-ui);font-weight:700;color:var(--ink-3);padding:0 .15rem}
+  .jd-grp{display:inline-flex;flex-wrap:wrap;gap:.3rem}
+  .jd-errs{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .jd-err{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.9rem 1rem;
+    display:flex;flex-direction:column;gap:.55rem}
+  .jd-err h4{margin:0;font-family:var(--f-ui);font-size:.98rem}
+  .jd-err p{margin:0;font-size:.92rem}
+  .jd-err .jd-why{display:none;border-top:1px dashed var(--line-strong);padding-top:.55rem}
+  .jd-err.done .jd-why{display:block}
+  .jd-err.done.right{border-color:var(--ok)} .jd-err.done.wrong{border-color:var(--bad)}
+  .jd-err .jd-btns .btn[disabled]{opacity:.55;cursor:default}
+  .jd-stat{display:grid;gap:.6rem;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:.9rem}
+  @media (max-width:520px){ .jd-stat{grid-template-columns:minmax(0,1fr)} }
+  .jd-stat input,.jd-in{font-family:var(--f-mono);font-size:1rem;padding:.55rem .7rem;min-height:44px;width:100%;
+    border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--ink)}
+  .jd-sum td:first-child{font-weight:600;white-space:nowrap}
+    .jd-cond{margin:1rem 0 .2rem;text-align:center;font-family:var(--f-ui);font-size:.92rem;background:var(--surface);
+    border:1px dashed var(--jd-c-line);border-radius:10px;padding:.55rem .8rem}
+
+  /* cesta vzorku v řešeném příkladu */
+  .jd-route{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:.9rem 0 1rem}
+  .jd-rb{border:1.5px solid var(--jd-g-line);background:var(--surface);border-radius:10px;padding:.4rem .65rem;
+    font-family:var(--f-ui);font-size:.82rem;line-height:1.35;text-align:center;color:var(--ink-2)}
+  .jd-rb b{color:var(--ink);font-size:.92rem}
+  .jd-rb.jd-rt{border-color:var(--jd-g);background:var(--jd-g-soft)}
+  .jd-ra{font-family:var(--f-ui);font-size:.8rem;color:var(--jd-g);font-weight:600}
+  .jd-rf{flex-basis:100%;font-family:var(--f-ui);font-size:.88rem;font-weight:600;color:var(--jd-g)}
+
+  /* kvíz přímo v textu: otázka hned po výkladu */
+  .jd-q{border:2px solid var(--accent);border-radius:16px;background:var(--surface);padding:1rem 1.15rem;margin:1.2rem 0;
+    box-shadow:var(--shadow-1)}
+  .jd-q .jd-qh{display:flex;gap:.6rem;align-items:flex-start;font-family:var(--f-ui);font-weight:600;font-size:1.02rem;margin-bottom:.7rem}
+  .jd-q .jd-qh .tag{flex:none;background:var(--accent);color:var(--accent-ink)}
+  .jd-q .jd-os{display:flex;flex-direction:column;gap:.45rem}
+  .jd-q .jd-o{text-align:left;font-family:var(--f-ui);font-size:.95rem;padding:.65rem .85rem;min-height:44px;border-radius:10px;
+    border:1px solid var(--line-strong);background:var(--surface-2);color:var(--ink);cursor:pointer}
+  .jd-q .jd-o:hover{border-color:var(--accent)}
+  .jd-q .jd-o[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+  .jd-q.done .jd-o{cursor:default}
+  .jd-q .jd-o.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:600}
+  .jd-q .jd-o.bad{border-color:var(--bad);background:var(--bad-soft)}
+  .jd-q .jd-qf{display:flex;align-items:center;gap:.7rem;margin-top:.7rem;flex-wrap:wrap}
+  .jd-q .jd-qa{display:none;margin-top:.8rem;border-top:1px dashed var(--line-strong);padding-top:.7rem;font-size:.95rem}
+  .jd-q.done .jd-qa{display:block}
+  .jd-q .jd-qa b.v{display:block;margin-bottom:.25rem}
+
+  /* ---- okraje rámečků: každý box zřetelně oddělený od pozadí, jako karty v ostatních modulech ---- */
+  :root{--jd-shadow:0 1px 2px rgba(33,27,21,.07),0 6px 16px rgba(33,27,21,.09)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--jd-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38)}}
+  :root[data-theme="dark"]{--jd-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38)}
+  details.jd-more{border:2px solid var(--line-strong);box-shadow:var(--jd-shadow);margin:1.1rem 0}
+  details.jd-more > .jd-body{border-top:2px solid var(--line)}
+  .jd-key details.jd-more,.jd-ex details.jd-more{margin:.8rem 0}
+  .jd-fill,.jd-k,.jd-info,.jd-err{border:2px solid var(--line-strong);box-shadow:var(--jd-shadow)}
+  .jd-m,.jd-think,.jd-calc,.jd-ex{border-width:2px;box-shadow:var(--jd-shadow)}
+  .jd-q{box-shadow:var(--jd-shadow)}
+  .jd-steps > li{border-width:1.5px}
+  .jd-two,.jd-kk{margin:1.4rem 0} .jd-fill,.jd-think,.jd-calc,.jd-q{margin:1.5rem 0} .jd-ex{margin:1.6rem 0}
+  .jd-errs{gap:1rem}
+  .chapter > .jd-q{margin-left:0;margin-right:0}
+  /* podpis karet webu: silný obrys + barevný pruh nahoře (jako dlaždice a karty jinde) */
+  details.jd-more{border-top:4px solid var(--accent)}
+  .jd-key details.jd-more{border-color:var(--jd-c-line);border-top-color:var(--jd-c)}
+  .jd-ex details.jd-more{border-color:var(--jd-g-line);border-top-color:var(--jd-g)}
+  .jd-think details.jd-more{border-color:var(--jd-y-line);border-top-color:var(--jd-y)}
+  .panel{border:2px solid var(--line-strong);border-top:4px solid var(--accent);box-shadow:var(--jd-shadow)}
+  .jd-fill,.jd-k,.jd-info,.jd-err{border-top:4px solid var(--accent)}
+  .jd-m,.jd-think,.jd-calc,.jd-ex{border-top-width:4px}
+  .readout{border:1.5px solid var(--line-strong)}
+  .tablewrap{border:2px solid var(--line-strong)}
+  .paths .path{border-width:2px;box-shadow:var(--jd-shadow)}
+  .jd-msg,.jd-ans{border-width:2px}
+  .jd-cond{border-width:2px}
+  .chapter-done{border:2px solid var(--line-strong)}
+  .svgwrap{border:1.5px solid var(--line-strong)}
+  .eq{border:2px solid var(--line-strong);border-left:4px solid var(--accent)}
+  .qcard{border-width:1.5px;border-color:var(--line-strong)}
+  .segmented{border-width:1.5px;border-color:var(--line-strong)}
+  /* most analyt → I₂ → thiosíran */
+  .jd-bridge{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.5rem;align-items:center;margin:.3rem 0 .9rem}
+  .jd-bx{border:2px solid currentColor;border-radius:14px;background:var(--surface);padding:.7rem .6rem;text-align:center;
+    display:flex;flex-direction:column;gap:.1rem;box-shadow:var(--jd-shadow)}
+  .jd-bx.a{color:var(--exo)} .jd-bx.i{color:#8a5a14} .jd-bx.t{color:var(--endo)}
+  :root[data-theme="dark"] .jd-bx.i{color:#e0a64e}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .jd-bx.i{color:#e0a64e} }
+  .jd-bn{font-family:var(--f-ui);font-weight:700;font-size:1.5rem;line-height:1.1}
+  .jd-bs{font-family:var(--f-ui);font-weight:700;font-size:1.05rem}
+  .jd-bc{font-family:var(--f-ui);font-size:.78rem;color:var(--ink-2)}
+  .jd-bar{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:8.5rem}
+  .jd-bt{font-family:var(--f-ui);font-size:.74rem;color:var(--ink-2);line-height:1.25}
+  .jd-bl{font-size:1.5rem;font-weight:700;color:var(--ink-3);line-height:1}
+  .jd-bsum{margin:.2rem 0 .6rem;font-size:.97rem}
+  @media (max-width:640px){ .jd-bridge{grid-template-columns:minmax(0,1fr)} .jd-bar{max-width:none;flex-direction:row;gap:.5rem;justify-content:center}
+    .jd-bl{transform:rotate(90deg)} }
+  /* sjednocení s dlaždicemi webu (.tile, .credit): rádius 16px, pruh nahoře v sytém tónu */
+  details.jd-more,.panel,.jd-fill,.jd-k,.jd-err,.jd-m,.jd-think,.jd-calc,.jd-ex,.jd-q,.paths .path,.jd-info{border-radius:16px}
+  .jd-think{border-top-color:var(--jd-y)} .jd-calc{border-top-color:var(--jd-d)} .jd-ex{border-top-color:var(--jd-g)}
+  .jd-m{border-top-color:var(--jd-c)}
+  .readout,.jd-msg,.jd-ans,.tablewrap,.chapter-done,.svgwrap{border:2px solid var(--line-strong)}
+  .jd-msg.ok{border-color:var(--ok)} .jd-msg.bad{border-color:var(--bad)} .jd-msg.warn{border-color:var(--warn)}
+  .jd-ans{border-color:var(--jd-g)}
+  </style>
+
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Jodometrie</h1>
+      <p class="lead">Redoxní titrace s&nbsp;jodem. Jedna redoxní dvojice <span class="chem">I₂ / 2I⁻</span>, <b>dva postupy</b> podle toho, co stanovujete, a&nbsp;škrob, který ukáže konec titrace. Všechno podstatné je v&nbsp;barevných rámečcích, podrobnosti si rozbalíte, až je budete potřebovat.</p>
+    </div>
+    <div class="paths">
+      <a class="path jd-pd" href="#k1">
+        <span class="pk"><span class="tag">Stanovuji redukovadlo</span></span>
+        <span class="pt">Přímá jodometrie</span>
+        <span class="pd">Titruji <b>roztokem jodu</b>. Škrob na začátku, konec = roztok <b>zmodrá</b>.</span>
+        <span class="pgo">Klíčový postup →</span>
+      </a>
+      <a class="path jd-pi" href="#k2">
+        <span class="pk"><span class="tag">Stanovuji oxidovadlo</span></span>
+        <span class="pt">Nepřímá jodometrie</span>
+        <span class="pd">Uvolním jod z&nbsp;KI a&nbsp;titruji ho <b>thiosíranem</b>. Škrob až ke konci, konec = modrá <b>zmizí</b>.</span>
+        <span class="pgo">Klíčový postup →</span>
+      </a>
+    </div>
+  </header>

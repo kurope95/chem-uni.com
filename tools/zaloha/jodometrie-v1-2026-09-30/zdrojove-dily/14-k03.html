@@ -1,0 +1,119 @@
+
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Zdroje chyb">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · praktické aspekty</span>
+      <h2>Zdroje chyb — co výsledek zvýší a&nbsp;co sníží</h2>
+      <p class="lead">Přesnost jodometrie stojí na pečlivém postupu. U&nbsp;každé chyby se vyplatí vědět, <b>kterým směrem</b> posune výsledek. Pomůže jednoduchá úvaha: v&nbsp;nepřímé jodometrii počítáme analyt ze spotřeby thiosíranu. Chyba, která přidá jod, který nepochází z&nbsp;analytu, výsledek <b>zvýší</b>. Chyba, při které jod uteče, zůstane skrytý nebo se neuvolní, ho <b>sníží</b>.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Třídička</span>
+        <h3>Nepřímá jodometrie: vyšší, nebo nižší výsledek?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-errs" id="errBox"></div>
+        <div class="jd-msg" id="errScore" style="margin-top:1rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <div class="callout tip">
+        <span class="eyebrow">Slepý pokus</span>
+        <p>Proti chybám z&nbsp;činidel (nečistoty v&nbsp;KI, oxidace jodidu vzduchem) pomáhá <span class="term">slepý pokus</span>: titrace všech činidel ve stejném množství, jen <b>bez vzorku</b>. Jeho spotřebu odečteme od spotřeby na vzorek.</p>
+      </div>
+      <p>Poslední zdroj chyb je samotné <b>určení bodu ekvivalence</b>: škrob přidaný příliš brzy nebo pozdě, špatně posouzená změna barvy, pomalá reakce indikátoru. Pomůže dobré osvětlení, správné načasování škrobu a&nbsp;zkušenost. Směr této chyby může být jakýkoli.</p>
+
+      <h3>Zamyslete se</h3>
+      <p>Při stanovení mědi nepřímou jodometrií vám opakovaně vychází <b>výrazně nižší</b> obsah <span class="chem">Cu²⁺</span>, než uvádí certifikát standardu. Které systematické chyby byste prověřili?</p>
+      <details class="gitem">
+        <summary>Možné příčiny</summary>
+        <div class="gbody">
+          <ul>
+            <li>Neúplná reakce <span class="chem">Cu²⁺</span> s&nbsp;KI: krátká doba, špatné pH.</li>
+            <li>Jod adsorbovaný na sraženině <span class="chem">CuI</span>: málo míchání, chybí KSCN.</li>
+            <li>Těkání jodu: práce v&nbsp;otevřené baňce.</li>
+            <li>Chyba při standardizaci thiosíranu: jeho skutečná koncentrace je vyšší, než si myslíte.</li>
+            <li>A&nbsp;co rozložený thiosíran? Ten tu příčinou <b>nebude</b>: slabší titrant znamená větší spotřebu, a&nbsp;tedy výsledek <b>vyšší</b>, ne nižší.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: zdroje chyb"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>
+
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Vyhodnocení výsledků">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · interpretace</span>
+      <h2>Vyhodnocení výsledků</h2>
+      <p class="lead">Číslo z&nbsp;titrace je jen část práce. Je potřeba posoudit, nakolik se mu dá věřit.</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Správnost (accuracy)</span>
+          <p>Jak blízko je výsledek <b>skutečné hodnotě</b>. Kazí ji <b>systematické chyby</b>, které posouvají výsledek pořád stejným směrem.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Přesnost (precision)</span>
+          <p>Jak blízko jsou si <b>výsledky opakovaných měření</b> navzájem. Kazí ji <b>náhodné chyby</b> (odečet byrety, posouzení barvy).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Schéma</span>
+        <h3>Terč: správnost a&nbsp;přesnost nejsou totéž</h3>
+      </div>
+      <div class="panel-body">
+        <div class="svgwrap" id="tgtWrap"></div>
+        <p class="panel-note">Střed terče je skutečná hodnota, tečky jsou opakovaná stanovení. Cílem je správný i&nbsp;přesný výsledek (první terč).</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Opakovaná stanovení a&nbsp;statistika</h3>
+      <p>Jedna titrace nestačí. Každé stanovení se provádí nejméně <b>třikrát</b> (paralelní stanovení). Výsledkem je <b>průměr</b> <span class="q">x̄</span>. Rozptyl hodnot kolem průměru popisuje <b>směrodatná odchylka</b> <span class="q">s</span> a&nbsp;<b>relativní směrodatná odchylka</b> RSD = <span class="q">s</span>/<span class="q">x̄</span>·100&nbsp;%. Čím jsou menší, tím je měření přesnější. Hodnotu, která se výrazně liší, lze vyloučit jen se zdůvodněním, statistickým testem (např. Q-test, Grubbsův test).</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Kalkulačka</span>
+        <h3>Tři paralelní titrace → průměr, <span class="q">s</span>, RSD</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-stat">
+          <div class="ctl"><label for="st1">Spotřeba 1 (ml)</label><input type="text" inputmode="decimal" id="st1" value="14,85" autocomplete="off"></div>
+          <div class="ctl"><label for="st2">Spotřeba 2 (ml)</label><input type="text" inputmode="decimal" id="st2" value="14,90" autocomplete="off"></div>
+          <div class="ctl"><label for="st3">Spotřeba 3 (ml)</label><input type="text" inputmode="decimal" id="st3" value="14,80" autocomplete="off"></div>
+        </div>
+        <div class="grid3">
+          <div class="readout" id="stRo1"></div>
+          <div class="readout" id="stRo2"></div>
+          <div class="readout" id="stRo3"></div>
+        </div>
+        <div class="jd-msg" id="stMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Systematická chyba: kam se podívat</h3>
+      <p>Vychází-li výsledek soustavně vyšší nebo nižší (třeba u&nbsp;standardu se známým obsahem), hledejte systematickou chybu podle kapitoly 03:</p>
+      <div class="grid2">
+        <div class="callout warn">
+          <span class="eyebrow">Falešně vysoký výsledek</span>
+          <p>Oxidace <span class="chem">I⁻</span> vzduchem, nečistota <span class="chem">IO₃⁻</span> v&nbsp;KI, rozložený thiosíran nebo chybně standardizovaný titrant (skutečná koncentrace je <b>nižší</b>, než počítáte).</p>
+        </div>
+        <div class="callout warn">
+          <span class="eyebrow">Falešně nízký výsledek</span>
+          <p>Těkání jodu, neúplná reakce analytu, jod adsorbovaný na sraženině nebo chybně standardizovaný titrant (skutečná koncentrace je <b>vyšší</b>, než počítáte).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: vyhodnocení výsledků"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>

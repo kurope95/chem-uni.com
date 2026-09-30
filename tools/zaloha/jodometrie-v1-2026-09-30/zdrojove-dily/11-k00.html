@@ -1,0 +1,58 @@
+
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="Úvod: pár jod a jodid">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · úvod</span>
+      <h2>Co je jodometrie a&nbsp;proč funguje</h2>
+      <p class="lead"><span class="term">Jodometrie</span> je metoda <b>odměrné analýzy</b>: množství látky ve vzorku zjistíme z&nbsp;objemu roztoku o&nbsp;známé koncentraci (titrantu), který s&nbsp;ní právě úplně zreaguje. Reakce, na které stojí, jsou <b>redoxní</b> a&nbsp;vždy v&nbsp;nich vystupuje jod ve dvou podobách: jako <span class="chem">I₂</span> a&nbsp;jako jodidový anion <span class="chem">I⁻</span>. Občas se píše také „iodometrie“; jde o&nbsp;totéž.</p>
+
+      <h3>Klíčový redoxní pár I₂/2I⁻</h3>
+      <p class="eq"><span class="chem">I₂ + 2e⁻ ⇌ 2I⁻</span> &nbsp;&nbsp;&nbsp; <span class="q">E</span>° = +0,54&nbsp;V</p>
+      <div class="grid2" style="margin:.8rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Jod I₂ — střední oxidovadlo</span>
+          <p>Šedočerná lesklá krystalická látka s&nbsp;charakteristickým zápachem, její roztoky jsou hnědé. Ve vodě se rozpouští špatně (asi 0,3&nbsp;g/l při 20&nbsp;°C), v&nbsp;roztoku KI dobře, protože vznikne trijodid <span class="chem">I₃⁻</span>. Oxiduje silnější redukovadla: thiosírany, siřičitany, As(III), vitamín&nbsp;C.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Jodid I⁻ — střední redukovadlo</span>
+          <p>Bezbarvý anion z&nbsp;KI nebo NaI. Redukuje silnější oxidovadla (<span class="chem">Cr₂O₇²⁻</span>, <span class="chem">MnO₄⁻</span>, <span class="chem">H₂O₂</span>, <span class="chem">Cu²⁺</span>) a&nbsp;sám se přitom zoxiduje na <span class="chem">I₂</span>.</p>
+        </div>
+      </div>
+      <p>Potenciál +0,54&nbsp;V leží zhruba uprostřed běžné škály. Jod tedy není extrémně silné oxidovadlo a&nbsp;jodid není extrémně silné redukovadlo. Právě tahle „střední“ poloha dělá jodometrii univerzální: s&nbsp;jednou redoxní dvojicí se dají stanovit redukovadla i&nbsp;oxidovadla a&nbsp;úpravou podmínek (hlavně pH) i&nbsp;poměrně selektivně.</p>
+      <p style="color:var(--ink-2);font-size:.95rem">Jod objevil Bernard Courtois v&nbsp;roce 1811 a&nbsp;jeho reakce pak zkoumal Gay-Lussac. Tím položili základy jodometrických metod.</p>
+
+      <h3>Dvě cesty podle toho, co stanovujeme</h3>
+      <div class="jd-flow">
+        <div class="jd-root">Stanovovaná látka (analyt) je…</div>
+        <div class="jd-card red">
+          <h4>…redukovadlo → přímá jodometrie (jodimetrie)</h4>
+          <p>Titrujeme <b>přímo odměrným roztokem jodu</b> (<span class="chem">I₂</span> v&nbsp;KI, tedy <span class="chem">I₃⁻</span>). Jod je tu oxidovadlo.</p>
+          <p class="eq" style="font-size:.9rem"><span class="chem">analyt(red) + I₂ → produkty + 2I⁻</span></p>
+          <span class="jd-step">Příklady: As(III), Sn(II), H₂S, SO₃²⁻, S₂O₃²⁻, vitamín C</span>
+        </div>
+        <div class="jd-card ox">
+          <h4>…oxidovadlo → nepřímá jodometrie</h4>
+          <p><b>Krok 1:</b> analyt s&nbsp;nadbytkem KI v&nbsp;kyselém prostředí uvolní jod. <b>Krok 2:</b> uvolněný jod titrujeme <b>thiosíranem sodným</b> <span class="chem">Na₂S₂O₃</span>. Jodid je tu redukovadlo.</p>
+          <p class="eq" style="font-size:.9rem"><span class="chem">analyt(ox) + I⁻ → I₂</span>, &nbsp;<span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>
+          <span class="jd-step">Příklady: Cu²⁺, Cr₂O₇²⁻, ClO⁻, BrO₃⁻, IO₃⁻, H₂O₂, O₂ (Winkler)</span>
+        </div>
+      </div>
+
+      <h3>Výhody a&nbsp;nevýhody</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Výhody</th><th>Nevýhody</th></tr></thead>
+          <tbody>
+            <tr><td>Stanoví oxidovadla i&nbsp;redukovadla.</td><td>Odměrné roztoky (<span class="chem">I₂</span> i&nbsp;<span class="chem">Na₂S₂O₃</span>) nejsou stálé, je nutné je často standardizovat.</td></tr>
+            <tr><td>Velmi citlivý indikátor — škrob.</td><td>Jod je těkavý, uniká z&nbsp;roztoku.</td></tr>
+            <tr><td>Rychlé a&nbsp;přesné stanovení.</td><td>Vedlejší reakce, hlavně oxidace <span class="chem">I⁻</span> vzdušným kyslíkem.</td></tr>
+            <tr><td>Konec titrace je vidět okem.</td><td>Je třeba hlídat pH a&nbsp;další podmínky.</td></tr>
+            <tr><td>Stačí byreta, žádný drahý přístroj.</td><td>Škrob má své meze (teplota, pH, organická rozpouštědla).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: princip jodometrie"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>

@@ -36,7 +36,7 @@ try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
-from site_data import SITE, GROUPS, PAIRS, TOPICS, ANORG_TOPICS
+from site_data import SITE, GROUPS, PAIRS, ALL_TOPICS, GUIDE_GROUPS, GUIDE_FOLDERS
 import brand
 
 ROOT = r"C:\Claude Code\Claude Code\Doučovanie"
@@ -184,7 +184,7 @@ def missing_site_data():
         _fields(g, ("title", "sub", "kicker", "cta"), "GROUPS[%s]" % g["id"], out)
     for p in PAIRS:
         _fields(p, ("label", "note"), "PAIRS[%s]" % p["label"], out)
-    for t in TOPICS + ANORG_TOPICS:
+    for t in ALL_TOPICS:
         _fields(t, ("title", "sub"), "TOPICS[%s]" % t["slug"], out)
         for lg in LANGS:
             n_cs, n_x = len(t.get("chips") or []), len(t.get("chips_" + lg) or [])
@@ -218,7 +218,7 @@ def dictionary(lang):
     for p in PAIRS:
         for k in ("label", "note"):
             add(p.get(k), p.get(k + "_" + lang))
-    for t in TOPICS + ANORG_TOPICS:
+    for t in ALL_TOPICS:
         for k in ("title", "sub"):
             add(t.get(k), t.get(k + "_" + lang))
         for c, e in zip(t.get("chips") or [], t.get("chips_" + lang) or []):
@@ -665,20 +665,20 @@ def localize_html(s, content_lang="cs", alternates=None):
 def content_pages():
     """Stránky, jejichž obsah zůstává česky (rozcestníky generuje make_site.py samo)."""
     out = []
-    for folder, tops in (("obecna-fyzikalni-chemie", TOPICS), ("anorganicka-chemie", ANORG_TOPICS)):
+    for folder, tops in GUIDE_GROUPS:
         for t in tops:
             out.append(os.path.join(ROOT, folder, t["slug"] + ".html"))
     for g in GROUPS:
         sl = g.get("slug")
-        if not sl or sl in ("obecna-fyzikalni-chemie", "anorganicka-chemie", "pocitani"):
+        if not sl or sl in GUIDE_FOLDERS or sl == "pocitani":
             continue
         out.append(os.path.join(ROOT, *sl.split("/"), "index.html"))
     return [p for p in out if os.path.exists(p)]
 
 
 def hub_pages():
-    return [os.path.join(ROOT, p) for p in ("index.html", "obecna-fyzikalni-chemie/index.html",
-                                            "anorganicka-chemie/index.html", "pocitani/index.html")]
+    return [os.path.join(ROOT, p) for p in
+            ["index.html"] + [f + "/index.html" for f in GUIDE_FOLDERS] + ["pocitani/index.html"]]
 
 
 def lang_sibling(p, lg):

@@ -1,0 +1,2494 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Jodometrie: redoxní titrace s jodem. Přímá jodometrie (jodimetrie) na redukovadla, nepřímá na oxidovadla, thiosíran sodný, škrobový indikátor, zdroje chyb a výpočty. Interaktivní studijní průvodce.">
+<style>:root{color-scheme:light dark}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Jodometrie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+
+<style>
+/* ============================================================
+   Jodometrie — studijní průvodce
+   Barevné tokeny: světlá varianta je základ, tmavá se dopočítává
+   ve třech stavech (bare :root / prefers-color-scheme / data-theme)
+   ============================================================ */
+:root{
+  --paper:#efe8dc; --surface:#faf6ee; --surface-2:#f3ece0; --surface-3:#e8dfd0;
+  --ink:#211b15; --ink-2:#5c5146; --ink-3:#8f8375;
+  --line:#e0d6c6; --line-strong:#c8baa5; --grid:#e6dccb;
+  --accent:#9b3320; --accent-hover:#7e2718; --accent-soft:#f6e6e0; --accent-ink:#fff7f2;
+  --exo:#b54f18; --exo-soft:#fae8da;
+  --endo:#216f66; --endo-soft:#e1efec;
+  --ok:#3f7a34; --ok-soft:#eaf2e4;
+  --bad:#a62f3b; --bad-soft:#f8e4e6;
+  --warn:#8a6410; --warn-soft:#f7eeda;
+  --cat1:#347f4f; --cat2:#7b4aa6; --cat3:#b4791a; --cat4:#a82c33;
+  --shadow-1:0 1px 2px rgba(33,27,21,.05), 0 2px 8px rgba(33,27,21,.05);
+  --shadow-2:0 2px 4px rgba(33,27,21,.06), 0 12px 30px rgba(33,27,21,.09);
+  --focus:#9b3320;
+  --rail:288px;
+
+  --f-ui:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-cond:"IBM Plex Sans Condensed","IBM Plex Sans","Segoe UI",sans-serif;
+  --f-body:"Source Serif 4","Georgia",serif;
+  --f-mono:"IBM Plex Mono","Consolas",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15110d; --surface:#1d1813; --surface-2:#251f19; --surface-3:#302921;
+    --ink:#f0e8dc; --ink-2:#bfb2a1; --ink-3:#8f8376;
+    --line:#332b23; --line-strong:#4a4036; --grid:#241e18;
+    --accent:#e0785c; --accent-hover:#ef8c71; --accent-soft:#33201a; --accent-ink:#1a0f0a;
+    --exo:#f08a5f; --exo-soft:#331e14;
+    --endo:#6fbfae; --endo-soft:#152b27;
+    --ok:#7fc08a; --ok-soft:#19291b;
+    --bad:#ee7a90; --bad-soft:#301820;
+    --warn:#dcae5b; --warn-soft:#2c2314;
+    --cat1:#4e9464; --cat2:#9478c4; --cat3:#b8871f; --cat4:#cf5f85;
+    --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
+    --shadow-2:0 2px 4px rgba(0,0,0,.5), 0 12px 32px rgba(0,0,0,.5);
+    --focus:#e0785c;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15110d; --surface:#1d1813; --surface-2:#251f19; --surface-3:#302921;
+  --ink:#f0e8dc; --ink-2:#bfb2a1; --ink-3:#8f8376;
+  --line:#332b23; --line-strong:#4a4036; --grid:#241e18;
+  --accent:#e0785c; --accent-hover:#ef8c71; --accent-soft:#33201a; --accent-ink:#1a0f0a;
+  --exo:#f08a5f; --exo-soft:#331e14;
+  --endo:#6fbfae; --endo-soft:#152b27;
+  --ok:#7fc08a; --ok-soft:#19291b;
+  --bad:#ee7a90; --bad-soft:#301820;
+  --warn:#dcae5b; --warn-soft:#2c2314;
+  --cat1:#4e9464; --cat2:#9478c4; --cat3:#b8871f; --cat4:#cf5f85;
+  --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
+  --shadow-2:0 2px 4px rgba(0,0,0,.5), 0 12px 32px rgba(0,0,0,.5);
+  --focus:#e0785c;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:17px;line-height:1.7;
+  font-variant-numeric:oldstyle-nums;
+}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:3px}
+
+/* ---------- Typografie ---------- */
+h1,h2,h3,h4{font-family:var(--f-ui);text-wrap:balance;margin:0;line-height:1.18;letter-spacing:-.018em}
+h1{font-size:clamp(2rem,1.2rem + 3vw,3.15rem);font-weight:700;letter-spacing:-.03em}
+h2{font-size:clamp(1.5rem,1.1rem + 1.5vw,2.1rem);font-weight:700}
+h3{font-size:1.22rem;font-weight:600;letter-spacing:-.012em}
+h4{font-size:1.02rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+.eyebrow{
+  font-family:var(--f-cond);font-weight:600;font-size:.76rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);font-variant-numeric:lining-nums tabular-nums;
+}
+.lead{font-size:1.12rem;color:var(--ink-2);text-wrap:pretty}
+.mono,code,kbd{font-family:var(--f-mono);font-variant-numeric:lining-nums tabular-nums}
+code{background:var(--surface-3);padding:.08em .34em;border-radius:4px;font-size:.88em}
+.num{font-family:var(--f-mono);font-variant-numeric:lining-nums tabular-nums}
+sub,sup{font-size:.68em;line-height:0}
+
+/* Chemický zápis a veličiny */
+.chem{font-family:var(--f-ui);font-weight:500;white-space:nowrap;font-variant-numeric:lining-nums}
+.q{font-family:var(--f-ui);font-style:italic;font-weight:500;white-space:nowrap}
+.eq{
+  font-family:var(--f-mono);font-size:1rem;background:var(--surface-2);
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:0;
+  overflow-x:auto;font-variant-numeric:lining-nums tabular-nums;line-height:1.65;
+}
+.eq b{color:var(--accent);font-weight:600}
+
+/* ---------- Layout ---------- */
+.app{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);min-height:100vh}
+@media (max-width:1099px){ .app{grid-template-columns:minmax(0,1fr)} }
+
+/* Levá lišta */
+.rail{
+  position:sticky;top:0;height:100vh;overflow-y:auto;overscroll-behavior:contain;
+  background:var(--surface);border-right:1px solid var(--line);
+  padding:1.4rem 1rem 2.5rem;display:flex;flex-direction:column;gap:1.1rem;
+}
+.rail-brand{display:flex;flex-direction:column;gap:.3rem;padding:0 .45rem}
+.rail-brand .mark{
+  font-family:var(--f-cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  font-size:.72rem;color:var(--accent);
+}
+.rail-brand .name{font-family:var(--f-ui);font-weight:700;font-size:1.02rem;letter-spacing:-.02em;line-height:1.25}
+.rail-brand .sub{font-family:var(--f-ui);font-size:.78rem;color:var(--ink-3)}
+
+.meter{padding:.7rem .45rem 0;display:flex;flex-direction:column;gap:.42rem}
+.meter-top{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-ui);font-size:.76rem;color:var(--ink-3)}
+.meter-top b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.meter-bar{height:6px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.meter-fill{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+
+.rail nav{display:flex;flex-direction:column;gap:1px}
+.rail nav a{
+  display:grid;grid-template-columns:1.65rem 1fr auto;align-items:center;gap:.5rem;
+  padding:.5rem .5rem;border-radius:8px;text-decoration:none;color:var(--ink-2);
+  font-family:var(--f-ui);font-size:.875rem;line-height:1.3;min-height:40px;
+  transition:background .15s,color .15s;
+}
+.rail nav a:hover{background:var(--surface-2);color:var(--ink)}
+.rail nav a[aria-current="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.rail nav a[aria-current="true"] .idx{color:var(--accent)}
+.rail nav a .idx{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.rail nav a .tick{
+  width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line-strong);
+  display:grid;place-items:center;flex:none;
+}
+.rail nav a.done .tick{background:var(--ok);border-color:var(--ok)}
+.rail nav a.done .tick::after{content:"";width:7px;height:4px;border-left:1.7px solid var(--surface);border-bottom:1.7px solid var(--surface);transform:rotate(-45deg) translate(.5px,-1px)}
+.rail-tools{display:flex;gap:.45rem;padding:0 .45rem;margin-top:auto}
+
+/* Mobilní / tabletová hlavička */
+.topbar{display:none}
+@media (max-width:1099px){
+  .rail{display:none}
+  .topbar{
+    display:block;position:sticky;top:0;z-index:40;background:var(--surface);
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow-1);
+  }
+  .topbar-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .9rem}
+  .topbar-row .name{font-family:var(--f-ui);font-weight:700;font-size:.95rem;letter-spacing:-.02em;flex:1;min-width:0}
+  .topbar-row .name > span{display:block;font-weight:400;font-size:.74rem;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar-row .name > span span{display:inline}
+  .chiprow{display:flex;gap:.4rem;overflow-x:auto;padding:0 .9rem .6rem;scrollbar-width:none}
+  .chiprow::-webkit-scrollbar{display:none}
+  .chiprow a{
+    flex:none;padding:.45rem .8rem;border-radius:99px;background:var(--surface-2);
+    border:1px solid var(--line);font-family:var(--f-ui);font-size:.8rem;
+    text-decoration:none;color:var(--ink-2);white-space:nowrap;min-height:34px;display:flex;align-items:center;gap:.35rem;
+  }
+  .chiprow a[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+  .chiprow a.done::before{content:"✓";font-weight:700;color:var(--ok)}
+  .chiprow a[aria-current="true"].done::before{color:var(--accent-ink)}
+  .topbar .meter-bar{height:3px;border-radius:0}
+}
+
+/* Obsahový sloupec */
+main{padding:0 clamp(1rem,4vw,3.5rem) 6rem;max-width:1180px;width:100%;margin:0 auto}
+section.chapter{padding:clamp(2.5rem,5vw,4.5rem) 0;border-top:1px solid var(--line)}
+section.chapter:first-of-type{border-top:0}
+.prose{max-width:min(100%,100ch);display:flex;flex-direction:column;gap:1.05rem}
+.prose > h3{margin-top:1.1rem}
+.wide{max-width:none}
+
+/* ---------- Tlačítka ---------- */
+.btn{
+  font-family:var(--f-ui);font-size:.875rem;font-weight:600;line-height:1;
+  padding:.7rem 1.05rem;min-height:44px;border-radius:9px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);cursor:pointer;display:inline-flex;
+  align-items:center;justify-content:center;gap:.45rem;transition:background .15s,border-color .15s,transform .08s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{background:var(--surface-2);border-color:var(--ink-3)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-sm{padding:.45rem .7rem;min-height:36px;font-size:.8rem}
+.btn-icon{width:44px;min-height:44px;padding:0;flex:none}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+/* ---------- Panely ---------- */
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow-1);overflow:hidden;margin:1.9rem 0;
+}
+.panel-head{
+  display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+  padding:.85rem 1.2rem;border-bottom:1px solid var(--line);
+  background:
+    repeating-linear-gradient(0deg,transparent 0 15px,var(--grid) 15px 16px),
+    repeating-linear-gradient(90deg,transparent 0 15px,var(--grid) 15px 16px),
+    var(--surface-2);
+}
+.panel-head h3{flex:1;min-width:0;font-size:1rem}
+.panel-body{padding:1.2rem}
+.panel-note{
+  padding:.75rem 1.2rem;border-top:1px solid var(--line);background:var(--surface-2);
+  font-family:var(--f-ui);font-size:.83rem;color:var(--ink-2);
+}
+.tag{
+  font-family:var(--f-cond);font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .55rem;border-radius:5px;background:var(--accent-soft);color:var(--accent);white-space:nowrap;
+}
+.tag.exo{background:var(--exo-soft);color:var(--exo)}
+.tag.endo{background:var(--endo-soft);color:var(--endo)}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.tag.bad{background:var(--bad-soft);color:var(--bad)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* Výklopné bloky (definice, pozor, příklad) */
+.callout{
+  border:1px solid var(--line);border-radius:12px;padding:1rem 1.15rem;
+  display:flex;flex-direction:column;gap:.55rem;background:var(--surface);
+}
+.callout > .eyebrow{display:flex;align-items:center;gap:.45rem}
+.callout p{font-size:.98rem}
+.callout.def{border-left:3px solid var(--accent);background:var(--surface)}
+.callout.def > .eyebrow{color:var(--accent)}
+.callout.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.callout.warn > .eyebrow{color:var(--warn)}
+.callout.tip{border-left:3px solid var(--endo);background:var(--endo-soft)}
+.callout.tip > .eyebrow{color:var(--endo)}
+
+/* Pojem v textu */
+.term{
+  font-family:var(--f-ui);font-weight:600;font-size:.96em;color:var(--ink);
+  border-bottom:2px solid var(--accent-soft);
+}
+
+/* Řešený příklad */
+.worked{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.worked-head{
+  padding:.8rem 1.1rem;background:var(--surface-2);border-bottom:1px solid var(--line);
+  display:flex;gap:.6rem;align-items:flex-start;
+}
+.worked-head .eyebrow{color:var(--accent);flex:none;padding-top:.18rem}
+.worked-head p{font-family:var(--f-ui);font-size:.95rem;font-weight:500}
+.worked-body{padding:1.1rem}
+.worked-steps{display:none;flex-direction:column;gap:.9rem;margin-top:1rem;
+  padding-top:1rem;border-top:1px dashed var(--line-strong)}
+.worked.open .worked-steps{display:flex}
+.worked [data-reveal] .chev{transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.worked.open [data-reveal] .chev{transform:rotate(180deg)}
+.step{display:grid;grid-template-columns:1.7rem 1fr;gap:.65rem;align-items:start}
+.step-n{
+  width:1.7rem;height:1.7rem;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+  font-family:var(--f-mono);font-size:.78rem;font-weight:600;display:grid;place-items:center;
+}
+.step-b{display:flex;flex-direction:column;gap:.45rem;font-size:.98rem;min-width:0}
+.result{
+  font-family:var(--f-mono);font-size:1.02rem;font-weight:600;padding:.7rem .95rem;
+  border-radius:9px;background:var(--accent-soft);color:var(--accent);display:inline-block;
+}
+
+/* ---------- Tabulky ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-family:var(--f-ui);font-size:.875rem}
+thead th{
+  text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line-strong);
+  font-family:var(--f-cond);font-weight:600;font-size:.74rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;background:var(--surface-2);
+  position:sticky;top:0;
+}
+tbody td{padding:.55rem .8rem;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover{background:var(--surface-2)}
+
+/* ---------- Kvíz ---------- */
+.quiz{margin:2rem 0;border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  box-shadow:var(--shadow-1);overflow:hidden}
+.quiz-toggle{
+  width:100%;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+  padding:.95rem 1.15rem;min-height:60px;background:var(--surface-2);
+  border:0;border-bottom:1px solid transparent;cursor:pointer;text-align:left;
+  font-family:var(--f-ui);color:var(--ink);-webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .2s;
+}
+.quiz-toggle:hover{background:var(--surface-3)}
+.quiz.open .quiz-toggle{border-bottom-color:var(--line)}
+.qt-title{flex:1;min-width:140px;font-size:1.02rem;font-weight:600;letter-spacing:-.012em;line-height:1.3}
+.qt-meta{font-family:var(--f-cond);font-weight:600;font-size:.74rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.qt-score{display:none}
+.qt-score.show{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:600;
+  font-family:var(--f-ui);white-space:nowrap}
+.chev{flex:none;color:var(--ink-3);transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.quiz.open .chev{transform:rotate(180deg);color:var(--accent)}
+.quiz-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .34s cubic-bezier(.4,0,.2,1)}
+.quiz.open .quiz-wrap{grid-template-rows:1fr}
+.quiz-inner{overflow:hidden;min-height:0}
+.quiz-pad{padding:1.15rem}
+.qcard{
+  border:1px solid var(--line);border-radius:12px;background:var(--surface-2);
+  padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.85rem;margin-bottom:.85rem;
+  transition:border-color .2s;
+}
+.qcard.correct{border-color:var(--ok);border-left:3px solid var(--ok)}
+.qcard.wrong{border-color:var(--bad);border-left:3px solid var(--bad)}
+.qtext{font-family:var(--f-ui);font-size:1rem;font-weight:500;line-height:1.5;display:flex;gap:.6rem}
+.qtext .qn{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-3);flex:none;padding-top:.22rem;font-weight:600}
+.qtext .qbody{min-width:0}
+.opts{display:flex;flex-direction:column;gap:.4rem}
+.opt{
+  display:flex;gap:.65rem;align-items:flex-start;padding:.6rem .75rem;min-height:44px;
+  border:1px solid var(--line);border-radius:9px;cursor:pointer;background:var(--surface);
+  font-family:var(--f-ui);font-size:.92rem;line-height:1.45;transition:background .14s,border-color .14s;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt:hover{background:var(--surface-2)}
+.opt input{margin:.28rem 0 0;accent-color:var(--accent);width:18px;height:18px;flex:none}
+.opt .otext{min-width:0;flex:1}
+.opt .mk{font-family:var(--f-ui);font-weight:700;flex:none;opacity:0;font-size:1rem}
+.quiz.checked .opt{cursor:default}
+.quiz.checked .opt input{pointer-events:none}
+.opt.is-correct{background:var(--ok-soft);border-color:var(--ok)}
+.opt.is-correct .mk{opacity:1;color:var(--ok)}
+.opt.is-wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt.is-wrong .mk{opacity:1;color:var(--bad)}
+.numin{
+  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-family:var(--f-ui);font-size:.92rem;
+}
+.numin input{
+  font-family:var(--f-mono);font-size:1rem;padding:.55rem .7rem;min-height:44px;width:9.5rem;
+  border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.numin input:disabled{background:var(--surface-2);color:var(--ink-2)}
+.numin .unit{font-family:var(--f-mono);font-size:.9rem;color:var(--ink-2)}
+.explain{
+  display:none;border-radius:10px;padding:.85rem 1rem;background:var(--surface-2);
+  border:1px solid var(--line);font-size:.96rem;flex-direction:column;gap:.5rem;
+}
+.qcard.revealed .explain{display:flex}
+.explain .eyebrow{color:var(--accent)}
+.explain .verdict{font-family:var(--f-ui);font-weight:600;font-size:.92rem;display:flex;gap:.4rem;align-items:center}
+.qcard.correct .explain{background:var(--ok-soft);border-color:var(--ok)}
+.qcard.correct .verdict{color:var(--ok)}
+.qcard.wrong .explain{background:var(--bad-soft);border-color:var(--bad)}
+.qcard.wrong .verdict{color:var(--bad)}
+.quiz-foot{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:.4rem}
+.score{
+  font-family:var(--f-ui);font-size:.9rem;font-weight:600;padding:.5rem .85rem;border-radius:9px;
+  background:var(--surface-2);border:1px solid var(--line);display:none;align-items:center;gap:.5rem;
+}
+.score.show{display:inline-flex}
+.score .pct{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* ---------- Ovládací prvky widgetů ---------- */
+.ctl{display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.ctl label{font-family:var(--f-cond);font-weight:600;font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.ctl .val{font-family:var(--f-mono);font-size:.95rem;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:500}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:34px;background:transparent;cursor:pointer;margin:0;
+}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:var(--surface-3);border:1px solid var(--line)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--accent);
+  border:3px solid var(--surface);box-shadow:var(--shadow-1);margin-top:-11px;
+}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:var(--surface-3);border:1px solid var(--line)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--accent);border:3px solid var(--surface);box-shadow:var(--shadow-1)}
+.segmented{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.segmented button{
+  font-family:var(--f-ui);font-size:.84rem;font-weight:600;padding:.45rem .85rem;min-height:38px;
+  border:0;border-radius:7px;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;
+}
+.segmented button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-1)}
+.segmented.exoendo button[aria-pressed="true"][data-v="exo"]{background:var(--exo);color:var(--accent-ink)}
+.segmented.exoendo button[aria-pressed="true"][data-v="endo"]{background:var(--endo);color:var(--accent-ink)}
+select,input[type=search]{
+  font-family:var(--f-ui);font-size:.9rem;padding:.55rem .7rem;min-height:44px;
+  border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--ink);width:100%;
+}
+.grid2{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.grid3{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
+
+/* Odečtové dlaždice */
+.readout{
+  border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;background:var(--surface-2);
+  display:flex;flex-direction:column;gap:.2rem;min-width:0;
+}
+.readout .k{font-family:var(--f-cond);font-weight:600;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.readout .v{font-family:var(--f-mono);font-size:1.18rem;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.readout .h{font-family:var(--f-ui);font-size:.76rem;color:var(--ink-3)}
+.readout.pos .v{color:var(--endo)} .readout.neg .v{color:var(--exo)}
+
+svg{display:block;max-width:100%;height:auto}
+.svgwrap{overflow-x:auto;background:
+  repeating-linear-gradient(0deg,transparent 0 19px,var(--grid) 19px 20px),
+  repeating-linear-gradient(90deg,transparent 0 19px,var(--grid) 19px 20px),
+  var(--surface);border:1px solid var(--line);border-radius:11px;padding:.5rem}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem .95rem;font-family:var(--f-ui);font-size:.82rem;color:var(--ink-2);margin-top:.7rem}
+.legend .li{display:flex;align-items:center;gap:.4rem}
+.legend .sw{width:14px;height:4px;border-radius:2px;flex:none}
+.legend .sw.dot{width:10px;height:10px;border-radius:50%}
+
+/* ---------- Hero ---------- */
+.hero{padding:clamp(2rem,4vw,3.4rem) 0 0}
+.hero-top{display:flex;flex-direction:column;gap:.9rem;max-width:min(100%,100ch)}
+.hero h1{margin-top:.2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.hero-fig{margin-top:2rem}
+
+/* Mapa osnovy */
+.syllabus{display:grid;gap:.5rem;margin-top:1.2rem}
+.syl-row{
+  display:grid;grid-template-columns:2.2rem 1fr auto;gap:.8rem;align-items:center;
+  padding:.7rem .85rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);
+  text-decoration:none;color:var(--ink);font-family:var(--f-ui);font-size:.92rem;line-height:1.4;
+  transition:border-color .15s,background .15s;
+}
+.syl-row:hover{border-color:var(--accent);background:var(--surface-2)}
+.syl-row .b{font-family:var(--f-mono);font-size:.78rem;color:var(--accent);font-weight:600}
+.syl-row .go{font-family:var(--f-cond);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+
+/* Tahák */
+.cheat{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin-top:1.2rem}
+.cheat-card{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem}
+.cheat-card h4{color:var(--accent)}
+.cheat-card ul{margin:0;padding-left:1.1rem;font-family:var(--f-ui);font-size:.88rem;line-height:1.6;color:var(--ink-2)}
+.cheat-card li{margin-bottom:.3rem}
+.cheat-card .eq{font-size:.92rem;padding:.6rem .8rem}
+
+/* Slovníček */
+.gloss{display:grid;gap:.55rem;margin-top:1.2rem}
+.gitem{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.gitem summary{
+  padding:.75rem 1rem;cursor:pointer;font-family:var(--f-ui);font-weight:600;font-size:.95rem;
+  display:flex;align-items:center;gap:.6rem;list-style:none;min-height:44px;
+}
+.gitem summary::-webkit-details-marker{display:none}
+.gitem summary::after{content:"+";margin-left:auto;font-family:var(--f-mono);color:var(--ink-3);font-size:1.1rem;font-weight:400}
+.gitem[open] summary::after{content:"−"}
+.gitem summary:hover{background:var(--surface-2)}
+.gitem .gbody{padding:0 1rem 1rem;font-size:.97rem;color:var(--ink-2);display:flex;flex-direction:column;gap:.5rem}
+.gitem .gbody .unit-badge{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);background:var(--accent-soft);padding:.2rem .5rem;border-radius:5px;align-self:flex-start}
+
+/* Konec kapitoly */
+.chapter-done{
+  display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:2rem;padding:1rem 1.15rem;
+  border:1px dashed var(--line-strong);border-radius:12px;background:var(--surface-2);
+  font-family:var(--f-ui);font-size:.9rem;color:var(--ink-2);
+}
+.chapter-done .grow{flex:1;min-width:120px}
+
+/* Toast */
+.toast{
+  position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%) translateY(140%);
+  background:var(--ink);color:var(--paper);font-family:var(--f-ui);font-size:.88rem;font-weight:500;
+  padding:.75rem 1.15rem;border-radius:10px;box-shadow:var(--shadow-2);z-index:90;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);pointer-events:none;max-width:90vw;text-align:center;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);padding:.7rem 1rem;border-radius:0 0 8px 0;font-family:var(--f-ui);font-weight:600}
+.skip:focus{left:0}
+
+/* ---------- Rozcestník dvou cest ---------- */
+.paths{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin:2.2rem 0 .5rem}
+.path{
+  display:flex;flex-direction:column;gap:.55rem;padding:1.15rem 1.25rem;text-decoration:none;
+  border:1px solid var(--line-strong);border-radius:14px;background:var(--surface);color:var(--ink);
+  transition:border-color .16s,transform .1s,box-shadow .16s;
+}
+.path:hover{border-color:var(--accent);box-shadow:var(--shadow-1);transform:translateY(-1px)}
+.path .pk{display:flex;align-items:center;gap:.5rem}
+.path .pt{font-family:var(--f-ui);font-weight:700;font-size:1.12rem;letter-spacing:-.02em}
+.path .pd{font-family:var(--f-ui);font-size:.88rem;color:var(--ink-2);line-height:1.5}
+.path .pgo{font-family:var(--f-cond);font-weight:600;font-size:.75rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);margin-top:.1rem}
+.path.primary{border-color:var(--accent);background:var(--accent-soft)}
+
+/* ---------- Řešený příklad v rychloprůchodu ---------- */
+.exgrid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:1.1rem}
+.exbox{
+  border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;
+  background:var(--surface);padding:1rem 1.15rem;margin-top:1.1rem;
+  display:flex;flex-direction:column;gap:.6rem;min-width:0;
+}
+.exgrid .exbox{margin-top:0}
+.exbox > .eyebrow{color:var(--accent)}
+.exbox .task{font-family:var(--f-ui);font-size:.95rem;font-weight:500;line-height:1.55}
+.exbox .calc{
+  font-family:var(--f-mono);font-size:.92rem;line-height:1.9;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:9px;padding:.75rem .9rem;overflow-x:auto;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.exbox .calc b{color:var(--ink)}
+.exbox .res{
+  font-family:var(--f-mono);font-size:1rem;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border-radius:8px;padding:.5rem .8rem;align-self:flex-start;
+}
+.exbox .out{font-family:var(--f-ui);font-size:.9rem;color:var(--ink-2);line-height:1.55}
+
+/* ---------- Rychloprůchod: bloky ---------- */
+.timeplan{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.3rem 0 .4rem}
+.timeplan a{
+  display:flex;align-items:center;gap:.45rem;padding:.45rem .7rem;min-height:38px;
+  border:1px solid var(--line);border-radius:99px;background:var(--surface);
+  font-family:var(--f-ui);font-size:.82rem;color:var(--ink-2);text-decoration:none;white-space:nowrap;
+}
+.timeplan a:hover{border-color:var(--accent);color:var(--ink)}
+.timeplan a b{font-family:var(--f-mono);font-size:.76rem;color:var(--accent);font-variant-numeric:tabular-nums}
+
+.sblock{border-top:1px solid var(--line);padding:1.9rem 0 .4rem;scroll-margin-top:110px}
+.sblock:first-of-type{border-top:0}
+.sb-head{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.85rem}
+.sb-min{
+  font-family:var(--f-mono);font-size:.8rem;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);padding:.28rem .6rem;border-radius:6px;white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.sb-head h3{flex:1;min-width:180px;font-size:1.24rem}
+.sb-grid{display:grid;gap:.9rem;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);align-items:start}
+@media (max-width:820px){ .sb-grid{grid-template-columns:minmax(0,1fr)} }
+.say{display:flex;flex-direction:column;gap:.7rem;font-size:1.02rem;line-height:1.65}
+.say > .eyebrow{color:var(--accent)}
+.say p{text-wrap:pretty}
+.aside{display:flex;flex-direction:column;gap:.7rem}
+.board{
+  border:1px solid var(--line-strong);border-radius:11px;background:var(--surface-2);
+  padding:.85rem 1rem;display:flex;flex-direction:column;gap:.45rem;
+}
+.board .eyebrow{color:var(--ink-3)}
+.board .bq{font-family:var(--f-mono);font-size:1rem;line-height:1.6;color:var(--ink);font-variant-numeric:tabular-nums}
+.trap{
+  border:1px solid var(--warn);border-left:3px solid var(--warn);border-radius:11px;
+  background:var(--warn-soft);padding:.8rem 1rem;display:flex;flex-direction:column;gap:.4rem;
+}
+.trap .eyebrow{color:var(--warn)}
+.trap p{font-family:var(--f-ui);font-size:.88rem;line-height:1.55;color:var(--ink-2)}
+.tchips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.9rem}
+.tchips span{
+  font-family:var(--f-mono);font-size:.74rem;padding:.22rem .5rem;border-radius:5px;
+  background:var(--surface-3);color:var(--ink-2);
+}
+.tchips b{font-family:var(--f-cond);font-weight:600;font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);align-self:center;margin-right:.15rem}
+
+/* Osm vět / kontrolní seznam */
+.eight{display:grid;gap:.5rem;counter-reset:e;margin-top:1.1rem}
+.eight li{
+  list-style:none;display:grid;grid-template-columns:1.9rem 1fr;gap:.7rem;align-items:start;
+  padding:.75rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);
+  font-family:var(--f-ui);font-size:.95rem;line-height:1.5;
+}
+.eight li::before{
+  counter-increment:e;content:counter(e);width:1.9rem;height:1.9rem;border-radius:50%;
+  background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:.8rem;
+  font-weight:600;display:grid;place-items:center;
+}
+.eight{padding:0;margin-left:0}
+.covermap{display:grid;gap:.4rem;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));margin-top:1.1rem}
+.covermap a{
+  display:flex;align-items:center;gap:.5rem;padding:.5rem .65rem;border:1px solid var(--line);
+  border-radius:8px;background:var(--surface);text-decoration:none;color:var(--ink-2);
+  font-family:var(--f-ui);font-size:.84rem;line-height:1.35;
+}
+.covermap a:hover{border-color:var(--accent);color:var(--ink)}
+.covermap a::before{content:"✓";color:var(--ok);font-weight:700;flex:none}
+
+hr.rule{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
+</style>
+<style>
+/* ---- SITE-NAV: propojení s rozcestníkem ---- */
+.sitenav{display:flex;padding:0 .45rem .2rem}
+.sitenav a{display:inline-flex;align-items:center;gap:.45rem;width:100%;
+  font-family:var(--f-ui);font-weight:600;font-size:.83rem;text-decoration:none;
+  padding:.5rem .7rem;min-height:40px;border-radius:9px;border:1px solid var(--line-strong);
+  background:var(--surface-2);color:var(--ink-2);transition:background .15s,color .15s,border-color .15s}
+.sitenav a:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.sitenav svg{flex:none;transition:transform .18s}
+.sitenav a:hover svg{transform:translateX(-3px)}
+.sitenav-m{display:none}
+@media (max-width:1099px){
+  .sitenav-m{display:inline-flex;align-items:center;justify-content:center;width:40px;min-height:40px;
+    flex:none;border-radius:9px;border:1px solid var(--line-strong);background:var(--surface-2);
+    color:var(--ink-2);text-decoration:none}
+  .sitenav-m:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+}
+
+/* ---- levá lišta: ovládání nad seznam kapitol ---- */
+.rail{justify-content:flex-start}
+.rail .sitenav{order:0}
+.rail .rail-brand{order:1}
+.rail .rail-tools{order:2;margin-top:0;padding-bottom:.15rem}
+.rail .meter{order:3;padding-top:0}
+.rail nav{order:4}
+.rail .rail-tools .btn{flex:1;justify-content:center}
+
+/* ---- dlouhá rovnice se na úzkém displeji smí zalomit ---- */
+/* .chem má nowrap, což je správně pro jeden vzorec, ale ne pro celou rovnici.
+   Zalomí se jen v mezerách (kolem „+“ a „→“); vzorce mezery nemají, takže
+   se nikdy nerozlomí uprostřed. */
+@media (max-width:640px){ .chem{white-space:normal} }
+/* ---- hlavička řešeného příkladu se na mobilu ořezávala ---- */
+/* .worked-head je flex bez zalomení a štítek má flex:none, takže dlouhý
+   titulek přetekl mimo rámeček a konec se uřízl. */
+.worked-head{flex-wrap:wrap}
+.worked-head > *{min-width:0}
+.worked-head p{overflow-wrap:anywhere}
+/* štítek měl flex:none, takže se nesmrskl a dlouhý název příkladu přetekl */
+.worked-head .eyebrow{flex:0 1 auto;overflow-wrap:anywhere}
+/* ---- oprava „osmi vět“: grid trhal větu s <span> na jednotlivé buňky ---- */
+.eight li{display:block!important;position:relative;grid-template-columns:none!important;
+  padding:.8rem 1rem .8rem 3.4rem!important;line-height:1.6}
+.eight li::before{position:absolute;left:.95rem;top:.78rem;margin:0}
+
+/* ---- testy a mini-testy: ať je student nepřehlédne ---- */
+.quiz{border:2px solid var(--accent);border-radius:16px;box-shadow:var(--shadow-2)}
+.quiz .quiz-toggle{min-height:70px;gap:.65rem;
+  background:linear-gradient(180deg,var(--accent-soft),color-mix(in srgb,var(--accent-soft) 45%,var(--surface)))}
+.quiz .quiz-toggle:hover{background:var(--accent-soft)}
+.quiz .qt-title{font-size:1.1rem;font-weight:700;letter-spacing:-.016em}
+.quiz .quiz-toggle > .tag{background:var(--accent);color:var(--accent-ink)}
+.quiz .qt-meta{color:var(--ink-2)}
+.quiz .chev{order:3;color:var(--accent)}
+.quiz .quiz-toggle::after{
+  content:"Spustit test";order:2;flex:none;font-family:var(--f-ui);font-weight:600;font-size:.83rem;
+  line-height:1;padding:.6rem .9rem;border-radius:9px;white-space:nowrap;
+  background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.quiz.open .quiz-toggle::after{content:"Skrýt test";background:transparent;color:var(--accent)}
+.quiz[data-final="1"]{border-width:3px}
+.quiz[data-final="1"] .quiz-toggle{min-height:84px}
+.quiz[data-final="1"] .qt-title{font-size:1.26rem}
+@media (max-width:620px){
+  .quiz .quiz-toggle::after{order:4;width:100%;text-align:center}
+}
+</style>
+<!--SITE-LANG-->
+<meta name="title-en" content="Iodometry">
+<meta name="title-sk" content="Jodometria">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFJElEQVR4AaxWfUxVZRj/nSP3AooIWmqiKOZsa7oUaDRKFAhTWIZIDdOwGMqEtgy2BJIEXRDNmf0hmCAsoSRRoo9hi5SQxfoAXJNYFsUgBWKpfArcC/f0PO/l3nG5lzvOHWfvc87z9Xue33nP+773yph0feS32vus76rcQj+fmwV+q3QkyiyJjmtybe4xqSXMBCghXoahVZLwlgJlHSVpSGZraLgm1+Ye3MtUWBBgByUUkHM2m1I5m4PJFHBPjso8JdQ8jw214uq5CK6eC9XCRD735N6ypBiSyOPQm+8s/gyR58oI7tDQcG9ZlqRwh+AE0s6bD63bAtIcG9xbpql4zBH42vBIOLm6QDPXBaw7UoN78yJUPf1ztFoEJqdRT0kI67KTE+mqh4YJqEKt3BSC6NJKOLm4mnGsR3/yBVZuCjb7ZqrYJPBo6HYEJKVA6+ZmruPpswbhp84iLOcU5i9bDijAuE4nhHV3rxUU+xDbKcdjpY8ZxzUCXk/B6pDnzL7Jim0CWyOwfvc+7K6oRuw39YiraUDU+UtY5v+UwPa03ERF3Iuoe+8orr+bgcr4GLCPg16Us6v0c4FhLNdYH7MPq5/dxmErsUngakYKbhSfgcZ1rpgFWaOFJMkY+q8HNZmH8eWBPRjt68OWd3IQnJWLoZ5u4avJSsXw/buQKJcx/PZco6kon3CpVs3ZYZPAuG4UjefyMPhvN+cIURQD6nKz4Oy+ALwIh6jpra8q0FJRRk3vkc+ZYu6ozc4A5woQ3bgGExinmmRaDdnKM8nRVJxPlkSioPliKYLpjQOT07HML4B8IEKZqD+ZLXSvJwMQ+GY6NqcfF7likUBCU1GeiE93s0ug44dawtFqo0Jt175FV9PPGOnrRf/tdvJbjr6Odoz296L71ya01VRT0EjcWIPMaYZdAlMx372djNKIIPT90zE1RL52lIQH4eqRFKuYPYcqAvYKORpTRYDPgL1f18J9+Qqrfgu8V+GVqusIPX7CKmbPYZeA99ObCWv8lj4hW7F0gx9cPDyJgDemXu7LvWkXeFCOP3yCwyhsXDvGGmROM+wS8H3tIMGMhda9tBffH0tH/Qc5tBh/IT8QlJZFvwnpQu9s+Ili2bQNj4BzQQuXd4JvXCLsXTYJzNE6wy8+CW5LlpqxEh0uzxw+Ct1Avzh+5z/ihbURO/F4VIzI432uGxxAUGoWJMo1AbmGb9xBOie0JpfFU7awJozQYyew8dUE6IcfQDc4CINeJw6XeQ8tBp9+z+d/DA39TjQWngaLi8dC7DhTgi0ZOZi76GGRyxjGcg0mEJyZO1Hd8iFbmkark/Z7y+ULuBAVhvPbAlEU7I+K2Gh0NvwoEpas34ioonJsiI0n2Y/IwjIsXveEiN2hnMuxuwSGsVyDa3XdMH42kTTpZpNA88US+p454u1NuffbWlF16ACq0w5hoOsOIIGm1ZlEK/SBztsUewNXKKe37S+YLp4FXje/lX9qclk8bRKwyJhitNddw6U9L2BsZNgcYb385R1or6sx+2aqMAH9TJNNefw/oP5kDpm8QxSwbhgbI1v10MsSpFuqYQT4o6oSY8Mj0D8YAevkUj24t2xQlCrVyAnA2OgIfYqhCUv9g3vLiiSfJqjqz0AYWnAJuJLChxVbqkXPveWExr87aCoSVcMJcLf1d9z706EvSJtISuTevAgR39hWSCT2U02HZoJwaoaee3FPBgkCrLDDAHmNouB9Smgm36yQoTo8uGkz1+Ye3IudLP8DAAD//9Lz7MgAAAAGSURBVAMA6ugDYbnJSScAAAAASUVORK5CYII=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%239b3320%22/%3E%3Cg fill=%22none%22 stroke=%22%23fff7f2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath stroke-width=%221.9%22 d=%22M16 8l0 -3.4M22.93 12l2.94 -1.7M22.93 20l2.94 1.7M16 24l0 3.4M9.07 20l-2.94 1.7M9.07 12l-2.94 -1.7%22/%3E%3Cpolygon stroke-width=%222.3%22 points=%2216,8 22.93,12 22.93,20 16,24 9.07,20 9.07,12%22/%3E%3Cpolygon stroke-width=%222.4%22 stroke-dasharray=%220 4.4%22 points=%2216,11.6 19.81,13.8 19.81,18.2 16,20.4 12.19,18.2 12.19,13.8%22/%3E%3C/g%3E%3Cg fill=%22%23fff7f2%22%3E%3Ccircle cx=%2216%22 cy=%228%22 r=%222%22/%3E%3Ccircle cx=%2222.93%22 cy=%2212%22 r=%222%22/%3E%3Ccircle cx=%2222.93%22 cy=%2220%22 r=%222%22/%3E%3Ccircle cx=%2216%22 cy=%2224%22 r=%222%22/%3E%3Ccircle cx=%229.07%22 cy=%2220%22 r=%222%22/%3E%3Ccircle cx=%229.07%22 cy=%2212%22 r=%222%22/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* SITE-LANG: přeložené texty — ukáže se jen ten, který odpovídá html[data-lang] */
+html[data-lang="en"] lang-cs,
+html[data-lang="sk"] lang-cs,
+html:not([data-lang="en"]) lang-en,
+html:not([data-lang="sk"]) lang-sk,
+html:not([data-lang="en"]):not([data-lang="sk"]) [data-only="foreign"]{display:none!important}
+/* nabídka jazyků: tlačítko s aktuální vlajkou a zkratkou, po klepnutí rozbalovací seznam */
+.langsw{position:relative;display:inline-flex;flex:none}
+.langsw-btn{-webkit-appearance:none;appearance:none;margin:0;display:inline-flex;align-items:center;gap:.42rem;
+  box-sizing:border-box;height:40px;padding:0 .6rem 0 .68rem;border-radius:10px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);font-family:var(--f-ui);font-weight:600;font-size:.78rem;line-height:1;
+  letter-spacing:.06em;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s}
+.langsw-btn:hover,.langsw-btn[aria-expanded="true"]{background:var(--surface-2);border-color:var(--ink-3)}
+.topbar-row .langsw-btn{height:44px}
+.langsw-cur{display:inline-flex;align-items:center;gap:.42rem}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-cur:not([data-l="cs"]),
+html[data-lang="sk"] .langsw-cur:not([data-l="sk"]),
+html[data-lang="en"] .langsw-cur:not([data-l="en"]){display:none}
+.langsw svg.flag{display:block;flex:none;width:18px;height:12px;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.langsw-chev{display:block;flex:none;width:11px;height:11px;color:var(--ink-3);transition:transform .15s}
+.langsw-btn[aria-expanded="true"] .langsw-chev{transform:rotate(180deg)}
+.langsw-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:300;display:flex;flex-direction:column;gap:2px;
+  min-width:172px;padding:5px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);
+  box-shadow:0 14px 30px rgba(0,0,0,.2),0 2px 6px rgba(0,0,0,.1)}
+.langsw-menu[hidden]{display:none!important}
+.langsw-menu button{-webkit-appearance:none;appearance:none;margin:0;display:flex;align-items:center;gap:.62rem;
+  width:100%;min-height:42px;padding:.45rem .7rem;border:0;border-radius:8px;background:transparent;color:var(--ink);
+  font-family:var(--f-ui);font-size:.88rem;font-weight:500;line-height:1.2;text-align:left;cursor:pointer}
+.langsw-menu button:hover{background:var(--surface-2)}
+.langsw-menu button:focus-visible{background:var(--surface-2);outline:2px solid var(--accent);outline-offset:-2px}
+.langsw-code{font-weight:700;font-size:.76rem;letter-spacing:.06em}
+.langsw-menu .langsw-code{min-width:1.9em}
+.langsw-name{color:var(--ink-2)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"],
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"],
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]{background:var(--accent-soft)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"]::after,
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"]::after,
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";margin-left:auto;width:9px;height:5px;border-left:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);transform:translateY(-2px) rotate(-45deg)}
+@media (max-width:420px){
+  /* vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
+  .bar-in .back ~ .brand > span:not(.dot){display:none}
+  /* název průvodce v mobilní hlavičce: raději výpustka než přetečení přes přepínač */
+  .topbar-row .name{overflow:hidden}
+  .topbar-row .name > lang-cs, .topbar-row .name > lang-en, .topbar-row .name > lang-sk{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:360px){ .bar-in .brand > span:not(.dot){display:none}
+  .langsw-btn .langsw-code{display:none} .langsw-btn{padding:0 .5rem} }
+/* autor dole na stránce */
+.authorline{margin:3.2rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);font-family:var(--f-ui);
+  font-size:.84rem;color:var(--ink-3)}
+.langnote{margin:0;font-family:var(--f-ui);font-size:.86rem;line-height:1.5;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line-strong);border-left:4px solid var(--accent);
+  border-radius:10px;padding:.6rem .9rem}
+.langnote-wrap{max-width:1220px;margin:1rem auto 0;padding:0 clamp(1.1rem,4vw,3rem)}
+/* průvodce: řádek nad úvodem — přepínač vpravo (na počítači), poznámka vlevo */
+.langbar{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:.8rem 1.2rem;
+  padding-top:clamp(.9rem,2vw,1.4rem)}
+.langbar .langnote{flex:1 1 320px}
+@media (min-width:1100px){ .langbar + .hero{padding-top:clamp(1.2rem,2.4vw,2rem)} }
+@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]):not([data-lang="sk"]) .langbar{display:none} }
+</style>
+<script>
+/* SITE-LANG: přepínač jazyka pro menu a ovládání (obsah modulů zůstává česky) */
+(function(){
+  var D=document.documentElement, K="site.lang", LANGS=["cs", "en", "sk"], LIVE={"Tmavý": {"en": "Dark", "sk": "Tmavý"}, "Světlý": {"en": "Light", "sk": "Svetlý"}, "Přepnout režim": {"en": "Toggle theme", "sk": "Prepnúť režim"}, "Přepnout na světlý režim": {"en": "Switch to light mode", "sk": "Prepnúť na svetlý režim"}, "Přepnout na tmavý režim": {"en": "Switch to dark mode", "sk": "Prepnúť na tmavý režim"}, "Přepnout světlý a tmavý režim": {"en": "Toggle light and dark mode", "sk": "Prepnúť svetlý a tmavý režim"}, "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": {"en": "Reset your progress in all chapters? Your theme setting will be kept.", "sk": "Naozaj vynulovať pokrok vo všetkých kapitolách? Nastavenie motívu zostane."}, "Pokrok vynulován.": {"en": "Progress reset.", "sk": "Pokrok bol vynulovaný."}}, REV={}, k, g;
+  for(k in LIVE) for(g in LIVE[k]) REV[LIVE[k][g]]=k;
+  function ok(v){ return LANGS.indexOf(v)>=0; }
+  function stored(){ try{ var v=localStorage.getItem(K); return ok(v)?v:null; }catch(e){ return null; } }
+  function initial(){
+    var m=/[?&]lang=([a-z]{2})(?:&|$)/.exec(location.search);
+    if(m&&ok(m[1])){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
+    return stored()||"cs";
+  }
+  var lang=initial(), csTitle=null;
+  /* stránka s obsahem v jiném jazyce (např. index.sk.html) — přesměrovat na verzi pro zvolený jazyk */
+  var CL=D.getAttribute("data-content-lang")||"cs", ALT={}, al=document.querySelectorAll('link[rel="alternate"][hreflang]');
+  for(k=0;k<al.length;k++) ALT[al[k].getAttribute("hreflang")]=al[k].getAttribute("href");
+  function target(l){ if(l===CL) return null; if(ALT[l]) return ALT[l]; return (CL!=="cs"&&ALT.cs)?ALT.cs:null; }
+  function go(l){ var t=target(l); if(t){ location.replace(t+location.hash); return true; } return false; }
+  if(go(lang)) return;
+  D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
+  /* text psaný skriptem stránky (vždy česky) nebo už přeložený → text v aktuálním jazyce */
+  function tx(s){ if(s==null) return null; s=String(s);
+    var cs=LIVE[s]?s:REV[s]; if(!cs) return null;
+    var t=(lang==="cs")?cs:LIVE[cs][lang]; return (t&&t!==s)?t:null; }
+  var oc=window.confirm;
+  window.confirm=function(m){ return oc.call(window,(lang!=="cs"&&LIVE[m]&&LIVE[m][lang])||m); };
+  function liveText(el){ if(!el) return; var t=tx(el.textContent); if(t) el.textContent=t; }
+  function liveAria(el){ if(!el) return; var t=tx(el.getAttribute("aria-label")); if(t) el.setAttribute("aria-label",t); }
+  function apply(){
+    D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
+    var i, el, v, els=document.querySelectorAll("[data-en-aria-label],[data-sk-aria-label]");
+    for(i=0;i<els.length;i++){ el=els[i];
+      if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
+      v=(lang==="cs")?null:el.getAttribute("data-"+lang+"-aria-label");
+      el.setAttribute("aria-label",v||el.getAttribute("data-cs-aria-label")); }
+    if(csTitle===null){ var mc=document.querySelector('meta[name="title-cs"]'); csTitle=mc?mc.getAttribute("content"):document.title; }
+    var meta=(lang==="cs")?null:document.querySelector('meta[name="title-'+lang+'"]');
+    document.title=meta?meta.getAttribute("content"):csTitle;
+    liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
+    liveAria(document.getElementById("themeBtn")); liveAria(document.getElementById("themeBtn2"));
+    els=document.querySelectorAll("[data-set-lang]");
+    for(i=0;i<els.length;i++) els[i].setAttribute("aria-checked",els[i].getAttribute("data-set-lang")===lang?"true":"false");
+  }
+  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} if(go(l)) return; apply(); }
+  /* rozbalovací nabídka jazyků */
+  function open_(w,on){ if(!w) return; var b=w.querySelector(".langsw-btn"), m=w.querySelector(".langsw-menu");
+    if(!b||!m) return; b.setAttribute("aria-expanded",on?"true":"false");
+    if(on) m.removeAttribute("hidden"); else m.setAttribute("hidden",""); }
+  function closeAll(keep){ var ws=document.querySelectorAll(".langsw"); for(var i=0;i<ws.length;i++) if(ws[i]!==keep) open_(ws[i],false); }
+  function up(el,sel){ return (el&&el.closest)?el.closest(sel):null; }
+  document.addEventListener("click",function(e){
+    var it=up(e.target,"[data-set-lang]"), w;
+    if(it){ w=up(it,".langsw"); set(it.getAttribute("data-set-lang")); closeAll(null);
+      if(w&&w.querySelector(".langsw-btn")) w.querySelector(".langsw-btn").focus(); return; }
+    var b=up(e.target,".langsw-btn");
+    if(b){ w=up(b,".langsw"); var on=b.getAttribute("aria-expanded")!=="true"; closeAll(w); open_(w,on);
+      if(on){ var c=w.querySelector('[data-set-lang="'+lang+'"]'); if(c) c.focus(); } return; }
+    if(!up(e.target,".langsw")) closeAll(null);
+  });
+  document.addEventListener("keydown",function(e){
+    var w=up(e.target,".langsw"); if(!w) return;
+    var b=w.querySelector(".langsw-btn"), on=b&&b.getAttribute("aria-expanded")==="true";
+    var its=[].slice.call(w.querySelectorAll("[data-set-lang]")), i=its.indexOf(document.activeElement), n=its.length;
+    if(e.key==="Escape"&&on){ open_(w,false); b.focus(); e.preventDefault(); }
+    else if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); if(!on) open_(w,true);
+      var d=(e.key==="ArrowDown")?1:n-1; its[i<0?(d===1?0:n-1):(i+d)%n].focus(); }
+    else if(e.key==="Tab"&&on){ open_(w,false); }
+  });
+  function watch(){
+    if(!window.MutationObserver) return;
+    ["themeLbl","toast"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) new MutationObserver(function(){ liveText(el); }).observe(el,{childList:true,characterData:true,subtree:true}); });
+    ["themeBtn","themeBtn2"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) new MutationObserver(function(){ liveAria(el); }).observe(el,{attributes:true,attributeFilter:["aria-label"]}); });
+  }
+  document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
+  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; if(!go(v)) apply(); } });
+  window.addEventListener("storage",function(e){
+    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; if(!go(lang)) apply(); } });
+})();
+</script>
+<!--/SITE-LANG-->
+</head>
+<body>
+
+<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en><lang-sk lang="sk">Preskočiť na obsah</lang-sk></a>
+<div class="app">
+
+  <!-- ============ LEVÁ LIŠTA ============ -->
+  <aside class="rail">
+    <div class="sitenav"><a href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na okruhy</lang-cs><lang-en lang="en">Back to topics</lang-en><lang-sk lang="sk">Späť na okruhy</lang-sk></span></a></div>
+    <div class="rail-brand">
+      <span class="mark"><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en><lang-sk lang="sk">Chémia</lang-sk></span>
+      <span class="name"><lang-cs>Jodometrie</lang-cs><lang-en lang="en">Iodometry</lang-en><lang-sk lang="sk">Jodometria</lang-sk></span>
+      <span class="sub"><lang-cs>Studijní průvodce s procvičováním</lang-cs><lang-en lang="en">Study guide with practice</lang-en><lang-sk lang="sk">Študijný sprievodca s precvičovaním</lang-sk></span>
+    </div>
+    <div class="meter">
+      <div class="meter-top"><span><lang-cs>Splněno kapitol</lang-cs><lang-en lang="en">Chapters completed</lang-en><lang-sk lang="sk">Splnené kapitoly</lang-sk></span><b><span id="mDone">0</span>&thinsp;/&thinsp;<span data-tot>10</span></b></div>
+      <div class="meter-bar"><div class="meter-fill" id="mFill"></div></div>
+    </div>
+    <nav id="railNav" lang="cs" aria-label="Kapitoly" data-en-aria-label="Chapters" data-sk-aria-label="Kapitoly"></nav>
+    <div class="rail-tools">
+      <button class="btn btn-sm" id="themeBtn" type="button" aria-label="Přepnout světlý a tmavý režim"><span id="themeIcon" style="display:inline-flex"></span><span id="themeLbl">Tmavý</span></button>
+      <button class="btn btn-sm" id="resetBtn" type="button"><lang-cs>Vynulovat</lang-cs><lang-en lang="en">Reset</lang-en><lang-sk lang="sk">Vynulovať</lang-sk></button>
+    </div>
+  </aside>
+
+  <!-- ============ HLAVIČKA (tablet / mobil) ============ -->
+  <div class="topbar">
+    <div class="topbar-row">
+      <a class="sitenav-m" href="index.html" aria-label="Zpátky na okruhy" data-en-aria-label="Back to topics" data-sk-aria-label="Späť na okruhy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg></a>
+      <div class="name"><lang-cs>Jodometrie</lang-cs><lang-en lang="en">Iodometry</lang-en><lang-sk lang="sk">Jodometria</lang-sk><span><lang-cs>Studijní průvodce · </lang-cs><lang-en lang="en">Study guide · </lang-en><lang-sk lang="sk">Študijný sprievodca · </lang-sk><span id="mDone2">0</span>/<span data-tot>10</span><lang-cs> kapitol</lang-cs><lang-en lang="en"> chapters</lang-en><lang-sk lang="sk"> kapitol</lang-sk></span></div>
+      <!--SL--><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div><!--/SL-->
+      <button class="btn btn-icon" id="themeBtn2" type="button" aria-label="Přepnout světlý a tmavý režim"></button>
+    </div>
+    <div class="chiprow" id="chipNav" lang="cs"></div>
+    <div class="meter-bar"><div class="meter-fill" id="mFill2"></div></div>
+  </div>
+
+  <main id="obsah" lang="cs"><!--SL--><div class="langbar"><p class="langnote" data-only="foreign"><lang-en lang="en">The content of this page is in Czech. So far, only the menus and navigation have been translated into English.</lang-en><lang-sk lang="sk">Obsah tejto stránky je v češtine. Do slovenčiny sú zatiaľ preložené iba menu a navigácia.</lang-sk></p><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div></div><!--/SL-->
+
+
+  <style>
+  /* ---- jodometrie: vlastní prvky (předpona jd-, ať nic nekoliduje) ---- */
+  .jd-info{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+    padding:1rem 1.15rem;display:flex;flex-direction:column;gap:.55rem;min-height:9.5rem}
+  .jd-info h4{margin:0;font-family:var(--f-ui);font-size:1.02rem}
+  .jd-info p{margin:0;font-size:.95rem}
+  .jd-lad{display:grid;gap:1rem;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
+  @media (max-width:760px){ .jd-lad{grid-template-columns:minmax(0,1fr)} }
+  .jd-lad svg .jd-sp{cursor:pointer}
+  .jd-lad svg .jd-sp:focus{outline:none}
+  .jd-lad svg .jd-sp:focus rect,.jd-lad svg .jd-sp:hover rect{stroke:var(--ink);stroke-width:1.6}
+  .jd-flow{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr));margin:.4rem 0 1rem}
+  @media (max-width:640px){ .jd-flow{grid-template-columns:minmax(0,1fr)} }
+  .jd-flow .jd-root{grid-column:1 / -1;text-align:center;font-family:var(--f-ui);font-weight:600;
+    border:1px dashed var(--line-strong);border-radius:10px;padding:.6rem;background:var(--surface-2)}
+  .jd-card{border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;
+    background:var(--surface);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.45rem}
+  .jd-card.red{border-top-color:var(--endo)} .jd-card.ox{border-top-color:var(--exo)}
+  .jd-card h4{margin:0;font-family:var(--f-ui);font-size:1rem}
+  .jd-card p{margin:0;font-size:.93rem}
+  .jd-card .jd-step{font-family:var(--f-ui);font-size:.9rem;color:var(--ink-2)}
+  .jd-sim{display:grid;gap:1rem;grid-template-columns:minmax(0,15rem) minmax(0,1fr);align-items:start}
+  .jd-sim .svgwrap{width:100%;box-sizing:border-box} .jd-sim .svgwrap svg{width:100%}
+  @media (max-width:640px){ .jd-sim{grid-template-columns:minmax(0,1fr)} .jd-sim .svgwrap{max-width:17rem;margin:0 auto} }
+  .jd-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+  .jd-msg{border-radius:10px;padding:.75rem .9rem;font-size:.95rem;background:var(--surface-2);
+    border:1px solid var(--line)}
+  .jd-msg.ok{background:var(--ok-soft);border-color:var(--ok)}
+  .jd-msg.bad{background:var(--bad-soft);border-color:var(--bad)}
+  .jd-msg.warn{background:var(--warn-soft);border-color:var(--warn)}
+  .jd-chain{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;margin:.6rem 0}
+  .jd-tok{display:inline-flex;align-items:center;justify-content:center;min-width:3.1rem;height:2.1rem;
+    padding:0 .45rem;border-radius:999px;font-family:var(--f-ui);font-weight:600;font-size:.85rem;
+    border:1.5px solid currentColor;background:var(--surface)}
+  .jd-tok.a{color:var(--exo)} .jd-tok.i{color:#8a5a14} .jd-tok.t{color:var(--endo)}
+  :root[data-theme="dark"] .jd-tok.i{color:#e0a64e}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .jd-tok.i{color:#e0a64e} }
+  .jd-eqv{font-family:var(--f-ui);font-weight:700;color:var(--ink-3);padding:0 .15rem}
+  .jd-grp{display:inline-flex;flex-wrap:wrap;gap:.3rem}
+  .jd-errs{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .jd-err{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.9rem 1rem;
+    display:flex;flex-direction:column;gap:.55rem}
+  .jd-err h4{margin:0;font-family:var(--f-ui);font-size:.98rem}
+  .jd-err p{margin:0;font-size:.92rem}
+  .jd-err .jd-why{display:none;border-top:1px dashed var(--line-strong);padding-top:.55rem}
+  .jd-err.done .jd-why{display:block}
+  .jd-err.done.right{border-color:var(--ok)} .jd-err.done.wrong{border-color:var(--bad)}
+  .jd-err .jd-btns .btn[disabled]{opacity:.55;cursor:default}
+  .jd-stat{display:grid;gap:.6rem;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:.9rem}
+  @media (max-width:520px){ .jd-stat{grid-template-columns:minmax(0,1fr)} }
+  .jd-stat input,.jd-in{font-family:var(--f-mono);font-size:1rem;padding:.55rem .7rem;min-height:44px;width:100%;
+    border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--ink)}
+  .jd-sum td:first-child{font-weight:600;white-space:nowrap}
+  </style>
+
+  <header class="hero">
+    <div class="hero-top">
+      <h1>Jodometrie</h1>
+      <p class="lead">Kolik vitamínu C je doopravdy v&nbsp;tabletě? Kolik chlornanu je v&nbsp;lahvi Sava? Kolik kyslíku je rozpuštěno v&nbsp;rybníku? Na všechny tři otázky odpoví jedna titrační metoda. Stojí na jednoduché redoxní dvojici <span class="chem">I₂ / 2I⁻</span> a&nbsp;konec titrace ukáže škrob, který s&nbsp;jodem zmodrá.</p>
+      <div class="hero-meta">
+        <span class="tag">7 krátkých kapitol</span>
+        <span class="tag">Titrace na obrazovce</span>
+        <span class="tag">Řešené příklady</span>
+        <span class="tag">Testy s&nbsp;vysvětlením</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <a class="path primary" href="#k0">
+        <span class="pk"><span class="tag">Kapitolu po kapitole</span></span>
+        <span class="pt">Projít výklad</span>
+        <span class="pd">Princip, přímá a&nbsp;nepřímá jodometrie, odměrné roztoky, škrob, zdroje chyb, vyhodnocení a&nbsp;dva řešené příklady. Po každé kapitole krátký mini-test.</span>
+        <span class="pgo">Začít kapitolou 00 →</span>
+      </a>
+      <a class="path" href="#k7">
+        <span class="pk"><span class="tag">Umíte to?</span></span>
+        <span class="pt">Závěrečný test</span>
+        <span class="pd">Dvacet otázek přes celou jodometrii. U&nbsp;každé se po vyhodnocení ukáže, proč je správná odpověď správná.</span>
+        <span class="pgo">Přejít na test →</span>
+      </a>
+    </div>
+
+    <div class="panel hero-fig">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Redoxní žebříček — kdo jod redukuje a&nbsp;kdo jodid oxiduje</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-lad">
+          <div class="svgwrap" id="ladWrap"></div>
+          <div class="jd-info" id="ladInfo" aria-live="polite"></div>
+        </div>
+        <p class="panel-note">Klepněte na látku. Čím výš na žebříčku, tím silnější oxidovadlo. Hodnoty jsou přibližné standardní potenciály v&nbsp;kyselém prostředí. Všechno nad jodem umí zoxidovat jodid na jod (nepřímá jodometrie), všechno pod ním jod zredukuje (přímá jodometrie).</p>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ============ KAPITOLA 0 ============ -->
+  <section class="chapter" id="k0" data-title="Úvod: pár jod a jodid">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 00 · úvod</span>
+      <h2>Co je jodometrie a&nbsp;proč funguje</h2>
+      <p class="lead"><span class="term">Jodometrie</span> je metoda <b>odměrné analýzy</b>: množství látky ve vzorku zjistíme z&nbsp;objemu roztoku o&nbsp;známé koncentraci (titrantu), který s&nbsp;ní právě úplně zreaguje. Reakce, na které stojí, jsou <b>redoxní</b> a&nbsp;vždy v&nbsp;nich vystupuje jod ve dvou podobách: jako <span class="chem">I₂</span> a&nbsp;jako jodidový anion <span class="chem">I⁻</span>. Občas se píše také „iodometrie“; jde o&nbsp;totéž.</p>
+
+      <h3>Klíčový redoxní pár I₂/2I⁻</h3>
+      <p class="eq"><span class="chem">I₂ + 2e⁻ ⇌ 2I⁻</span> &nbsp;&nbsp;&nbsp; <span class="q">E</span>° = +0,54&nbsp;V</p>
+      <div class="grid2" style="margin:.8rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Jod I₂ — střední oxidovadlo</span>
+          <p>Šedočerná lesklá krystalická látka s&nbsp;charakteristickým zápachem, její roztoky jsou hnědé. Ve vodě se rozpouští špatně (asi 0,3&nbsp;g/l při 20&nbsp;°C), v&nbsp;roztoku KI dobře, protože vznikne trijodid <span class="chem">I₃⁻</span>. Oxiduje silnější redukovadla: thiosírany, siřičitany, As(III), vitamín&nbsp;C.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Jodid I⁻ — střední redukovadlo</span>
+          <p>Bezbarvý anion z&nbsp;KI nebo NaI. Redukuje silnější oxidovadla (<span class="chem">Cr₂O₇²⁻</span>, <span class="chem">MnO₄⁻</span>, <span class="chem">H₂O₂</span>, <span class="chem">Cu²⁺</span>) a&nbsp;sám se přitom zoxiduje na <span class="chem">I₂</span>.</p>
+        </div>
+      </div>
+      <p>Potenciál +0,54&nbsp;V leží zhruba uprostřed běžné škály. Jod tedy není extrémně silné oxidovadlo a&nbsp;jodid není extrémně silné redukovadlo. Právě tahle „střední“ poloha dělá jodometrii univerzální: s&nbsp;jednou redoxní dvojicí se dají stanovit redukovadla i&nbsp;oxidovadla a&nbsp;úpravou podmínek (hlavně pH) i&nbsp;poměrně selektivně.</p>
+      <p style="color:var(--ink-2);font-size:.95rem">Jod objevil Bernard Courtois v&nbsp;roce 1811 a&nbsp;jeho reakce pak zkoumal Gay-Lussac. Tím položili základy jodometrických metod.</p>
+
+      <h3>Dvě cesty podle toho, co stanovujeme</h3>
+      <div class="jd-flow">
+        <div class="jd-root">Stanovovaná látka (analyt) je…</div>
+        <div class="jd-card red">
+          <h4>…redukovadlo → přímá jodometrie (jodimetrie)</h4>
+          <p>Titrujeme <b>přímo odměrným roztokem jodu</b> (<span class="chem">I₂</span> v&nbsp;KI, tedy <span class="chem">I₃⁻</span>). Jod je tu oxidovadlo.</p>
+          <p class="eq" style="font-size:.9rem"><span class="chem">analyt(red) + I₂ → produkty + 2I⁻</span></p>
+          <span class="jd-step">Příklady: As(III), Sn(II), H₂S, SO₃²⁻, S₂O₃²⁻, vitamín C</span>
+        </div>
+        <div class="jd-card ox">
+          <h4>…oxidovadlo → nepřímá jodometrie</h4>
+          <p><b>Krok 1:</b> analyt s&nbsp;nadbytkem KI v&nbsp;kyselém prostředí uvolní jod. <b>Krok 2:</b> uvolněný jod titrujeme <b>thiosíranem sodným</b> <span class="chem">Na₂S₂O₃</span>. Jodid je tu redukovadlo.</p>
+          <p class="eq" style="font-size:.9rem"><span class="chem">analyt(ox) + I⁻ → I₂</span>, &nbsp;<span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>
+          <span class="jd-step">Příklady: Cu²⁺, Cr₂O₇²⁻, ClO⁻, BrO₃⁻, IO₃⁻, H₂O₂, O₂ (Winkler)</span>
+        </div>
+      </div>
+
+      <h3>Výhody a&nbsp;nevýhody</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Výhody</th><th>Nevýhody</th></tr></thead>
+          <tbody>
+            <tr><td>Stanoví oxidovadla i&nbsp;redukovadla.</td><td>Odměrné roztoky (<span class="chem">I₂</span> i&nbsp;<span class="chem">Na₂S₂O₃</span>) nejsou stálé, je nutné je často standardizovat.</td></tr>
+            <tr><td>Velmi citlivý indikátor — škrob.</td><td>Jod je těkavý, uniká z&nbsp;roztoku.</td></tr>
+            <tr><td>Rychlé a&nbsp;přesné stanovení.</td><td>Vedlejší reakce, hlavně oxidace <span class="chem">I⁻</span> vzdušným kyslíkem.</td></tr>
+            <tr><td>Konec titrace je vidět okem.</td><td>Je třeba hlídat pH a&nbsp;další podmínky.</td></tr>
+            <tr><td>Stačí byreta, žádný drahý přístroj.</td><td>Škrob má své meze (teplota, pH, organická rozpouštědla).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q0" data-title="Mini‑test: princip jodometrie"></div>
+    <div class="chapter-done" data-done="k0"></div>
+  </section>
+
+
+  <!-- ============ KAPITOLA 1 ============ -->
+  <section class="chapter" id="k1" data-title="Přímá jodometrie (jodimetrie)">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 01 · stanovení redukovadel</span>
+      <h2>Přímá jodometrie (jodimetrie)</h2>
+      <p class="lead">Stanovovaná látka je <b>redukovadlo</b> a&nbsp;titrujeme ji <b>přímo odměrným roztokem jodu</b>. Každá kapka jodu z&nbsp;byrety se hned spotřebuje. Jakmile redukovadlo dojde, první přebytečná kapka jodu se škrobem zmodrá.</p>
+
+      <h3>Postup krok za krokem</h3>
+      <div class="step"><span class="step-n">1</span><div class="step-b"><p><b>Příprava vzorku.</b> Do titrační baňky navážíme nebo napipetujeme vzorek a&nbsp;hned na začátku přidáme škrob (1–2&nbsp;ml). Tady to nevadí, protože volný jod se objeví až v&nbsp;bodě ekvivalence.</p></div></div>
+      <div class="step"><span class="step-n">2</span><div class="step-b"><p><b>Titrace roztokem I₂.</b> Z&nbsp;byrety přidáváme odměrný roztok jodu, který je oxidovadlem.</p></div></div>
+      <div class="step"><span class="step-n">3</span><div class="step-b"><p><b>Reakce ve vzorku.</b> Přidaný jod okamžitě zreaguje s&nbsp;redukovadlem. Volný jod v&nbsp;roztoku není, a&nbsp;proto zůstává roztok bezbarvý (nebo má barvu vzorku).</p></div></div>
+      <div class="step"><span class="step-n">4</span><div class="step-b"><p><b>Bod ekvivalence.</b> Všechno redukovadlo je spotřebované.</p></div></div>
+      <div class="step"><span class="step-n">5</span><div class="step-b"><p><b>Indikace.</b> První kapka jodu <i>po</i> bodu ekvivalence už nemá s&nbsp;čím reagovat, naváže se na škrob a&nbsp;celý roztok se <b>trvale zbarví modře</b>.</p></div></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Titrace vitamínu C jodem — posuňte byretu</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-sim">
+          <div class="svgwrap" id="dirWrap"></div>
+          <div style="display:flex;flex-direction:column;gap:.9rem">
+            <div class="ctl">
+              <label for="dirV">Přidaný objem jodu — <span class="val" id="dirVV">0,00 ml</span></label>
+              <input type="range" autocomplete="off" id="dirV" min="0" max="16" step="0.05" value="0">
+            </div>
+            <div class="ctl">
+              <label>Škrob v&nbsp;baňce</label>
+              <div class="segmented" id="dirStarch" role="group" aria-label="Škrob v baňce">
+                <button type="button" data-v="1" aria-pressed="true">Ano</button>
+                <button type="button" data-v="0" aria-pressed="false">Ne</button>
+              </div>
+            </div>
+            <div class="grid3">
+              <div class="readout" id="dirRo1"></div>
+              <div class="readout" id="dirRo2"></div>
+            </div>
+            <div class="jd-msg" id="dirMsg" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="panel-note">Vzorek obsahuje 0,563&nbsp;mmol vitamínu C, jod má koncentraci 0,0485&nbsp;mol/l, bod ekvivalence je tedy při 11,60&nbsp;ml. Stejná čísla najdete v&nbsp;řešeném příkladu v&nbsp;kapitole 05. Zkuste titraci bez škrobu: slabě žlutý přebytek jodu se v&nbsp;bezbarvém roztoku přehlédne snadno.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Odměrný roztok jodu</h3>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Příprava</span>
+          <p>Jod se rozpustí v&nbsp;koncentrovaném roztoku KI. Vznikne dobře rozpustný trijodid, který oxiduje stejně jako <span class="chem">I₂</span>.</p>
+          <p class="eq" style="font-size:.92rem"><span class="chem">I₂(s) + I⁻(aq) ⇌ I₃⁻(aq)</span> &nbsp; <span class="q">K</span> ≈ 700</p>
+        </div>
+        <div class="callout warn">
+          <span class="eyebrow">Stálost</span>
+          <p>Roztok není příliš stálý: jod <b>těká</b> (hlavně za tepla a&nbsp;při málo KI), jodid se <b>pomalu oxiduje vzdušným kyslíkem</b> (hlavně na světle) a&nbsp;jod reaguje se stopami nečistot. Proto se uchovává v&nbsp;tmavé, dobře uzavřené lahvi a&nbsp;jeho koncentrace se pravidelně ověřuje.</p>
+        </div>
+      </div>
+      <p><b>Standardizace</b> (přesné zjištění koncentrace) se nejčastěji dělá na <span class="term">primární standard</span> <b>oxid arsenitý</b> <span class="chem">As₂O₃</span>, velmi čistou a&nbsp;stálou látku známého složení. Rozpustí se v&nbsp;hydroxidu a&nbsp;titruje se v&nbsp;prostředí pufrovaném hydrogenuhličitanem sodným (pH ≈ 8):</p>
+      <p class="eq"><span class="chem">As₂O₃ + 4OH⁻ → 2HAsO₃²⁻ + H₂O</span><br><span class="chem">H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻</span></p>
+      <p>Reakce je vratná a&nbsp;vznikající <span class="chem">H⁺</span> by ji tlačily zpátky doleva. <span class="chem">NaHCO₃</span> je průběžně odebírá (<span class="chem">H⁺ + HCO₃⁻ → H₂O + CO₂</span>), a&nbsp;proto reakce doběhne úplně. Druhá možnost: známý objem roztoku jodu se ztitruje standardizovaným roztokem <span class="chem">Na₂S₂O₃</span>.</p>
+
+      <h3>Podmínky: správné pH</h3>
+      <p>Obecně se titruje v&nbsp;prostředí <b>neutrálním až slabě zásaditém (pH 7–9)</b>, často s&nbsp;pufrem <span class="chem">NaHCO₃</span>. Mimo toto okno běží vedlejší reakce, které spotřebují jod nebo jodid jinak než s&nbsp;analytem.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Okno pH pro přímou jodometrii</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ctl" style="margin-bottom:.9rem">
+          <label for="phV">pH roztoku — <span class="val" id="phVV">8,0</span></label>
+          <input type="range" autocomplete="off" id="phV" min="0" max="14" step="0.5" value="8">
+        </div>
+        <div class="svgwrap" id="phWrap"></div>
+        <div class="jd-msg" id="phMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <div class="callout tip">
+        <span class="eyebrow">Pozor na výjimky</span>
+        <p>Okno 7–9 je obecné pravidlo. Jednotlivá stanovení mají vlastní podmínky. Například vitamín C se titruje v&nbsp;mírně kyselém roztoku, protože v&nbsp;zásaditém ho rychle oxiduje už vzduch.</p>
+      </div>
+
+      <h3>Škrob jako indikátor</h3>
+      <p>Škrob je směs dvou polysacharidů. Jeho lineární složka <b>amylosa</b> se stáčí do šroubovice a&nbsp;do její dutiny se zasunou řetízky jodu (<span class="chem">I₃⁻</span>, <span class="chem">I₅⁻</span>). Vznikne intenzivně <b>modrý adsorpční komplex</b>. Rozvětvený amylopektin to nedokáže. Škrob tedy není redoxní indikátor: nereaguje na potenciál, ale na přítomnost volného jodu.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Schéma</span>
+        <h3>Jod ve šroubovici amylosy</h3>
+      </div>
+      <div class="panel-body">
+        <div class="svgwrap" id="helixWrap"></div>
+        <p class="panel-note">Přímá jodometrie: roztok je bezbarvý, dokud je v&nbsp;něm redukovadlo; v&nbsp;bodě ekvivalence se objeví <b>modrá</b>. Škrob selhává nad 50&nbsp;°C, v&nbsp;silně kyselém prostředí a&nbsp;v&nbsp;přítomnosti některých organických rozpouštědel. Bez škrobu lze konec titrace poznat i&nbsp;podle žlutohnědé barvy <span class="chem">I₃⁻</span>, ale méně přesně.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Co se přímou jodometrií stanovuje</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Analyt</th><th>Reakce s&nbsp;jodem</th></tr></thead>
+          <tbody>
+            <tr><td>Vitamín C (kyselina askorbová) — antioxidant</td><td><span class="chem">C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻</span><br><span style="color:var(--ink-3);font-size:.85rem">vzniká kyselina dehydroaskorbová</span></td></tr>
+            <tr><td>Siřičitany a&nbsp;hydrogensiřičitany — konzervanty</td><td><span class="chem">SO₃²⁻ + I₂ + H₂O → SO₄²⁻ + 2H⁺ + 2I⁻</span></td></tr>
+            <tr><td>Thiosírany</td><td><span class="chem">2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻</span><br><span style="color:var(--ink-3);font-size:.85rem">vzniká tetrathionan</span></td></tr>
+            <tr><td>Sulfan a&nbsp;sulfidy</td><td><span class="chem">H₂S + I₂ → S + 2H⁺ + 2I⁻</span></td></tr>
+            <tr><td>Sloučeniny As(III) a&nbsp;Sb(III)</td><td><span class="chem">H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Zkuste sami</span>
+        <h3>Koncentrace thiosíranu z&nbsp;titrace jodem</h3>
+      </div>
+      <div class="panel-body">
+        <p id="trTask" style="margin-top:0"></p>
+        <p class="eq" style="font-size:.92rem"><span class="chem">2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻</span></p>
+        <div class="grid2" style="align-items:end;margin:.8rem 0">
+          <div class="ctl">
+            <label for="trIn">Vaše <span class="q">c</span>(Na₂S₂O₃) v&nbsp;mol/l</label>
+            <input type="text" inputmode="decimal" id="trIn" autocomplete="off" placeholder="např. 0,0370" class="jd-in">
+          </div>
+          <div class="jd-btns">
+            <button class="btn btn-primary" type="button" id="trCheck">Zkontrolovat</button>
+            <button class="btn" type="button" id="trShow">Ukázat postup</button>
+            <button class="btn" type="button" id="trNew">Nová čísla</button>
+          </div>
+        </div>
+        <div class="jd-msg" id="trMsg" aria-live="polite" hidden></div>
+        <div id="trSteps" hidden></div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q1" data-title="Mini‑test: přímá jodometrie"></div>
+    <div class="chapter-done" data-done="k1"></div>
+  </section>
+
+
+  <!-- ============ KAPITOLA 2 ============ -->
+  <section class="chapter" id="k2" data-title="Nepřímá jodometrie">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 02 · stanovení oxidovadel</span>
+      <h2>Nepřímá jodometrie</h2>
+      <p class="lead">Stanovovaná látka je <b>oxidovadlo</b>. Nechá se zreagovat s&nbsp;<b>nadbytkem jodidu draselného</b> v&nbsp;okyseleném roztoku a&nbsp;uvolní přesně odpovídající (ekvivalentní) množství jodu. Ten pak ztitrujeme odměrným roztokem <b>thiosíranu sodného</b>. Analyt se tedy nikdy netitruje přímo, měříme jod, který po sobě „zanechal“.</p>
+
+      <div class="grid2" style="margin:.4rem 0 1rem">
+        <div class="callout def">
+          <span class="eyebrow">Krok 1 · uvolnění jodu</span>
+          <p class="eq" style="font-size:.92rem"><span class="chem">analyt(ox) + I⁻ (nadbytek) + H⁺ → I₂ + produkty</span></p>
+          <p>Jodid tu působí jako <b>redukovadlo</b>. Roztok zhnědne.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Krok 2 · titrace jodu</span>
+          <p class="eq" style="font-size:.92rem"><span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>
+          <p>Thiosíran je <b>redukovadlo</b>, vzniká tetrathionan. Hnědá barva bledne.</p>
+        </div>
+      </div>
+
+      <h3>Proč nadbytek KI a&nbsp;proč kyselé prostředí</h3>
+      <ul>
+        <li><b>Nadbytek KI</b> zajistí, že analyt zreaguje úplně (kvantitativně). Navíc váže vzniklý jod na <span class="chem">I₃⁻</span>: jod je pak rozpustnější a&nbsp;méně těká.</li>
+        <li><b>Kyselé prostředí</b> zvyšuje oxidační sílu mnoha oxidovadel (<span class="chem">Cr₂O₇²⁻</span>, <span class="chem">MnO₄⁻</span>, <span class="chem">IO₃⁻</span>), reakci urychlí a&nbsp;potlačí vedlejší reakce. Samotná titrace thiosíranem pak probíhá v&nbsp;neutrálním až slabě kyselém roztoku.</li>
+      </ul>
+
+      <h3>Postup a&nbsp;indikace</h3>
+      <div class="step"><span class="step-n">1</span><div class="step-b"><p>Ke vzorku přidáme nadbytek KI a&nbsp;okyselíme (např. <span class="chem">H₂SO₄</span>). Uvolní se jod, roztok je <b>hnědý</b>.</p></div></div>
+      <div class="step"><span class="step-n">2</span><div class="step-b"><p>Titrujeme thiosíranem. Jodu ubývá a&nbsp;hnědá bledne.</p></div></div>
+      <div class="step"><span class="step-n">3</span><div class="step-b"><p>Když roztok zesvětlá na <b>světle žlutý</b> (většina jodu už zreagovala), přidáme škrob a&nbsp;roztok <b>zmodrá</b>.</p></div></div>
+      <div class="step"><span class="step-n">4</span><div class="step-b"><p>Opatrně pokračujeme po kapkách.</p></div></div>
+      <div class="step"><span class="step-n">5</span><div class="step-b"><p>V&nbsp;bodě ekvivalence zreaguje poslední jod, modrý komplex se rozpadne a&nbsp;modrá <b>náhle a&nbsp;úplně zmizí</b>. Roztok je bezbarvý, nebo má barvu jiných produktů (např. zelenou od <span class="chem">Cr³⁺</span>).</p></div></div>
+      <div class="callout warn" style="margin-top:1rem">
+        <span class="eyebrow">Proč škrob až ke konci</span>
+        <p>Při vysoké koncentraci jodu by se se škrobem vytvořil velmi pevný komplex. Jod vázaný v&nbsp;něm reaguje s&nbsp;thiosíranem pomalu, takže modrá mizí pozvolna a&nbsp;„vleče se“, konec titrace je neostrý a&nbsp;titrace se přetáhne. U&nbsp;přímé jodometrie tohle nehrozí, tam se volný jod objeví až v&nbsp;bodě ekvivalence.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Nepřímá titrace — kdy přidáte škrob?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-sim">
+          <div class="svgwrap" id="indWrap"></div>
+          <div style="display:flex;flex-direction:column;gap:.9rem">
+            <div class="jd-btns">
+              <button class="btn btn-primary" type="button" id="indAdd1">+ 1&nbsp;ml</button>
+              <button class="btn" type="button" id="indAdd01">+ 1 kapka (0,05&nbsp;ml)</button>
+              <button class="btn" type="button" id="indStarch">Přidat škrob</button>
+              <button class="btn" type="button" id="indReset">Znovu</button>
+            </div>
+            <div class="grid3">
+              <div class="readout" id="indRo1"></div>
+              <div class="readout" id="indRo2"></div>
+            </div>
+            <div class="jd-msg" id="indMsg" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="panel-note">Chlornan z&nbsp;bělidla uvolnil jod, který odpovídá 14,85&nbsp;ml thiosíranu (čísla z&nbsp;příkladu v&nbsp;kapitole 05). Zkuste přidat škrob hned na začátku a&nbsp;pak až při světle žluté barvě a&nbsp;porovnejte, jak ostrý je konec.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Odměrný roztok thiosíranu sodného</h3>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Příprava</span>
+          <p>Krystalický <span class="chem">Na₂S₂O₃·5H₂O</span> se rozpustí v&nbsp;<b>čerstvě převařené a&nbsp;vychlazené</b> destilované vodě (převaření odstraní <span class="chem">CO₂</span>). Pro stálost se přidá trocha <span class="chem">Na₂CO₃</span> (asi 0,1&nbsp;g/l), který udržuje slabě zásadité pH.</p>
+        </div>
+        <div class="callout warn">
+          <span class="eyebrow">Proč se rozkládá</span>
+          <p><b>CO₂</b> okyselí roztok a&nbsp;thiosíran se v&nbsp;kyselém rozpadá: <span class="chem">S₂O₃²⁻ + 2H⁺ → S + SO₂ + H₂O</span>. Dále ho rozkládají <b>bakterie</b> (např. <i>Thiobacillus</i>) a&nbsp;pomalu i&nbsp;<b>vzdušný kyslík</b> (urychlují stopy kovů, např. <span class="chem">Cu²⁺</span>). Proto se standardizuje pravidelně, zhruba jednou za 1–2 týdny.</p>
+        </div>
+      </div>
+      <p><b>Standardizace</b> se dělá na primární standardy, které s&nbsp;KI uvolní přesně známé množství jodu:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Standard</th><th>Uvolnění jodu</th><th>Poměr k&nbsp;thiosíranu</th></tr></thead>
+          <tbody>
+            <tr><td>Jodičnan draselný <span class="chem">KIO₃</span> — velmi přesný</td><td><span class="chem">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span></td><td class="n">1 : 6</td></tr>
+            <tr><td>Dichroman draselný <span class="chem">K₂Cr₂O₇</span> — reaguje pomaleji, nechává se stát v&nbsp;temnu</td><td><span class="chem">Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O</span></td><td class="n">1 : 6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Co se nepřímou jodometrií stanovuje</h3>
+      <p>Celková stechiometrie má vždy dva články: kolik jodu uvolní jeden mol analytu, a&nbsp;to, že <b>1&nbsp;mol I₂ spotřebuje 2&nbsp;mol thiosíranu</b>. Vyberte analyt a&nbsp;sledujte řetízek.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Model</span>
+        <h3>Stechiometrický řetízek: analyt → I₂ → S₂O₃²⁻</h3>
+      </div>
+      <div class="panel-body">
+        <div class="segmented" id="chSel" role="group" aria-label="Analyt" style="flex-wrap:wrap"></div>
+        <div id="chOut" style="margin-top:1rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q2" data-title="Mini‑test: nepřímá jodometrie"></div>
+    <div class="chapter-done" data-done="k2"></div>
+  </section>
+
+
+  <!-- ============ KAPITOLA 3 ============ -->
+  <section class="chapter" id="k3" data-title="Zdroje chyb">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 03 · praktické aspekty</span>
+      <h2>Zdroje chyb — co výsledek zvýší a&nbsp;co sníží</h2>
+      <p class="lead">Přesnost jodometrie stojí na pečlivém postupu. U&nbsp;každé chyby se vyplatí vědět, <b>kterým směrem</b> posune výsledek. Pomůže jednoduchá úvaha: v&nbsp;nepřímé jodometrii počítáme analyt ze spotřeby thiosíranu. Chyba, která přidá jod, který nepochází z&nbsp;analytu, výsledek <b>zvýší</b>. Chyba, při které jod uteče, zůstane skrytý nebo se neuvolní, ho <b>sníží</b>.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Třídička</span>
+        <h3>Nepřímá jodometrie: vyšší, nebo nižší výsledek?</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-errs" id="errBox"></div>
+        <div class="jd-msg" id="errScore" style="margin-top:1rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <div class="callout tip">
+        <span class="eyebrow">Slepý pokus</span>
+        <p>Proti chybám z&nbsp;činidel (nečistoty v&nbsp;KI, oxidace jodidu vzduchem) pomáhá <span class="term">slepý pokus</span>: titrace všech činidel ve stejném množství, jen <b>bez vzorku</b>. Jeho spotřebu odečteme od spotřeby na vzorek.</p>
+      </div>
+      <p>Poslední zdroj chyb je samotné <b>určení bodu ekvivalence</b>: škrob přidaný příliš brzy nebo pozdě, špatně posouzená změna barvy, pomalá reakce indikátoru. Pomůže dobré osvětlení, správné načasování škrobu a&nbsp;zkušenost. Směr této chyby může být jakýkoli.</p>
+
+      <h3>Zamyslete se</h3>
+      <p>Při stanovení mědi nepřímou jodometrií vám opakovaně vychází <b>výrazně nižší</b> obsah <span class="chem">Cu²⁺</span>, než uvádí certifikát standardu. Které systematické chyby byste prověřili?</p>
+      <details class="gitem">
+        <summary>Možné příčiny</summary>
+        <div class="gbody">
+          <ul>
+            <li>Neúplná reakce <span class="chem">Cu²⁺</span> s&nbsp;KI: krátká doba, špatné pH.</li>
+            <li>Jod adsorbovaný na sraženině <span class="chem">CuI</span>: málo míchání, chybí KSCN.</li>
+            <li>Těkání jodu: práce v&nbsp;otevřené baňce.</li>
+            <li>Chyba při standardizaci thiosíranu: jeho skutečná koncentrace je vyšší, než si myslíte.</li>
+            <li>A&nbsp;co rozložený thiosíran? Ten tu příčinou <b>nebude</b>: slabší titrant znamená větší spotřebu, a&nbsp;tedy výsledek <b>vyšší</b>, ne nižší.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz" data-quiz="q3" data-title="Mini‑test: zdroje chyb"></div>
+    <div class="chapter-done" data-done="k3"></div>
+  </section>
+
+  <!-- ============ KAPITOLA 4 ============ -->
+  <section class="chapter" id="k4" data-title="Vyhodnocení výsledků">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 04 · interpretace</span>
+      <h2>Vyhodnocení výsledků</h2>
+      <p class="lead">Číslo z&nbsp;titrace je jen část práce. Je potřeba posoudit, nakolik se mu dá věřit.</p>
+      <div class="grid2" style="margin:.4rem 0">
+        <div class="callout def">
+          <span class="eyebrow">Správnost (accuracy)</span>
+          <p>Jak blízko je výsledek <b>skutečné hodnotě</b>. Kazí ji <b>systematické chyby</b>, které posouvají výsledek pořád stejným směrem.</p>
+        </div>
+        <div class="callout def">
+          <span class="eyebrow">Přesnost (precision)</span>
+          <p>Jak blízko jsou si <b>výsledky opakovaných měření</b> navzájem. Kazí ji <b>náhodné chyby</b> (odečet byrety, posouzení barvy).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Schéma</span>
+        <h3>Terč: správnost a&nbsp;přesnost nejsou totéž</h3>
+      </div>
+      <div class="panel-body">
+        <div class="svgwrap" id="tgtWrap"></div>
+        <p class="panel-note">Střed terče je skutečná hodnota, tečky jsou opakovaná stanovení. Cílem je správný i&nbsp;přesný výsledek (první terč).</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Opakovaná stanovení a&nbsp;statistika</h3>
+      <p>Jedna titrace nestačí. Každé stanovení se provádí nejméně <b>třikrát</b> (paralelní stanovení). Výsledkem je <b>průměr</b> <span class="q">x̄</span>. Rozptyl hodnot kolem průměru popisuje <b>směrodatná odchylka</b> <span class="q">s</span> a&nbsp;<b>relativní směrodatná odchylka</b> RSD = <span class="q">s</span>/<span class="q">x̄</span>·100&nbsp;%. Čím jsou menší, tím je měření přesnější. Hodnotu, která se výrazně liší, lze vyloučit jen se zdůvodněním, statistickým testem (např. Q-test, Grubbsův test).</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="tag">Kalkulačka</span>
+        <h3>Tři paralelní titrace → průměr, <span class="q">s</span>, RSD</h3>
+      </div>
+      <div class="panel-body">
+        <div class="jd-stat">
+          <div class="ctl"><label for="st1">Spotřeba 1 (ml)</label><input type="text" inputmode="decimal" id="st1" value="14,85" autocomplete="off"></div>
+          <div class="ctl"><label for="st2">Spotřeba 2 (ml)</label><input type="text" inputmode="decimal" id="st2" value="14,90" autocomplete="off"></div>
+          <div class="ctl"><label for="st3">Spotřeba 3 (ml)</label><input type="text" inputmode="decimal" id="st3" value="14,80" autocomplete="off"></div>
+        </div>
+        <div class="grid3">
+          <div class="readout" id="stRo1"></div>
+          <div class="readout" id="stRo2"></div>
+          <div class="readout" id="stRo3"></div>
+        </div>
+        <div class="jd-msg" id="stMsg" style="margin-top:.9rem" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>Systematická chyba: kam se podívat</h3>
+      <p>Vychází-li výsledek soustavně vyšší nebo nižší (třeba u&nbsp;standardu se známým obsahem), hledejte systematickou chybu podle kapitoly 03:</p>
+      <div class="grid2">
+        <div class="callout warn">
+          <span class="eyebrow">Falešně vysoký výsledek</span>
+          <p>Oxidace <span class="chem">I⁻</span> vzduchem, nečistota <span class="chem">IO₃⁻</span> v&nbsp;KI, rozložený thiosíran nebo chybně standardizovaný titrant (skutečná koncentrace je <b>nižší</b>, než počítáte).</p>
+        </div>
+        <div class="callout warn">
+          <span class="eyebrow">Falešně nízký výsledek</span>
+          <p>Těkání jodu, neúplná reakce analytu, jod adsorbovaný na sraženině nebo chybně standardizovaný titrant (skutečná koncentrace je <b>vyšší</b>, než počítáte).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q4" data-title="Mini‑test: vyhodnocení výsledků"></div>
+    <div class="chapter-done" data-done="k4"></div>
+  </section>
+
+
+  <!-- ============ KAPITOLA 5 ============ -->
+  <section class="chapter" id="k5" data-title="Řešené příklady">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 05 · výpočty</span>
+      <h2>Řešené příklady</h2>
+      <p class="lead">Všechny výpočty v&nbsp;jodometrii mají stejnou kostru: <b>látkové množství titrantu</b> <span class="q">n</span> = <span class="q">c</span>·<span class="q">V</span> → <b>stechiometrický poměr</b> → <b>přepočet z&nbsp;alikvotu na celý vzorek</b> → <b>hmotnost</b> <span class="q">m</span> = <span class="q">n</span>·<span class="q">M</span> (a&nbsp;případně procenta). Objem vždy dosazujte v&nbsp;litrech.</p>
+
+      <div class="worked" data-worked>
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 1 · vitamín C (přímá jodometrie)</span>
+          <p>Tableta s&nbsp;deklarovaným obsahem 500&nbsp;mg vitamínu C (kyselina askorbová, <span class="chem">C₆H₈O₆</span>, <span class="q">M</span> = 176,12&nbsp;g/mol) byla rozpuštěna a&nbsp;doplněna na 100,0&nbsp;ml v&nbsp;odměrné baňce. Pipetou se odebralo 20,00&nbsp;ml (alikvot), přidal se škrob a&nbsp;titrovalo se roztokem jodu o&nbsp;koncentraci 0,0485&nbsp;mol/l. Spotřeba byla 11,60&nbsp;ml. Kolik vitamínu C tableta obsahuje a&nbsp;odpovídá to deklaraci?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>Reakce a&nbsp;poměr.</b> 1&nbsp;mol vitamínu C reaguje s&nbsp;1&nbsp;mol jodu.</p>
+              <p class="eq"><span class="chem">C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻</span> &nbsp;&nbsp; <span class="q">n</span>(C₆H₈O₆) : <span class="q">n</span>(I₂) = 1 : 1</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Látkové množství jodu.</b></p>
+              <p class="eq"><span class="q">n</span>(I₂) = <span class="q">c</span>·<span class="q">V</span> = 0,0485&nbsp;mol/l · 0,01160&nbsp;l = <b>5,626·10⁻⁴&nbsp;mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>Vitamín C v&nbsp;alikvotu</b> (poměr 1&nbsp;:&nbsp;1): <span class="q">n</span> = 5,626·10⁻⁴&nbsp;mol v&nbsp;20,00&nbsp;ml.</p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b>Celá baňka.</b> Titrovali jsme 20&nbsp;ml ze 100&nbsp;ml, v&nbsp;celé baňce je tedy pětkrát víc.</p>
+              <p class="eq"><span class="q">n</span>(celkem) = 5,626·10⁻⁴&nbsp;mol · (100,0 / 20,00) = <b>2,813·10⁻³&nbsp;mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">5</span><div class="step-b">
+              <p><b>Hmotnost.</b></p>
+              <p class="eq"><span class="q">m</span> = <span class="q">n</span>·<span class="q">M</span> = 2,813·10⁻³&nbsp;mol · 176,12&nbsp;g/mol = 0,4954&nbsp;g</p>
+              <span class="result">m(vitamín C) ≈ 495&nbsp;mg</span>
+              <p style="color:var(--ink-2);font-size:.94rem">To je 99&nbsp;% deklarovaných 500&nbsp;mg. Tableta deklaraci odpovídá. Kdyby výsledek vyšel výrazně nad deklarací, hledali bychom chybu v&nbsp;analýze, nebo jinou redukující látku v&nbsp;tabletě, která by jod spotřebovala také.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worked" data-worked style="margin-top:1.4rem">
+        <div class="worked-head">
+          <span class="eyebrow">Příklad 2 · aktivní chlor v&nbsp;bělidle (nepřímá jodometrie)</span>
+          <p>5,00&nbsp;ml bělidla (obsahuje chlornan sodný <span class="chem">NaClO</span>, <span class="q">M</span> = 74,44&nbsp;g/mol) se zředilo v&nbsp;odměrné baňce na 100,0&nbsp;ml. Do titrační baňky se odebralo 10,00&nbsp;ml, přidal se asi 1&nbsp;g KI a&nbsp;5&nbsp;ml kyseliny octové (2&nbsp;mol/l). Uvolněný jod se hned titroval thiosíranem sodným (0,1050&nbsp;mol/l), škrob se přidal ke konci. Spotřeba byla 14,85&nbsp;ml. Jaký je hmotnostní zlomek NaClO v&nbsp;bělidle, je-li jeho hustota 1,08&nbsp;g/ml?</p>
+        </div>
+        <div class="worked-body">
+          <button class="btn btn-sm" type="button" data-reveal>Ukázat postup</button>
+          <div class="worked-steps">
+            <div class="step"><span class="step-n">1</span><div class="step-b">
+              <p><b>Reakce a&nbsp;celkový poměr.</b></p>
+              <p class="eq"><span class="chem">ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O</span> &nbsp;(1 ClO⁻ ~ 1 I₂)<br><span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span> &nbsp;(1 I₂ ~ 2 S₂O₃²⁻)</p>
+              <p>Dohromady <b>1&nbsp;mol ClO⁻ ~ 1&nbsp;mol I₂ ~ 2&nbsp;mol S₂O₃²⁻</b>, tedy <span class="q">n</span>(ClO⁻) = <span class="q">n</span>(S₂O₃²⁻)/2.</p>
+            </div></div>
+            <div class="step"><span class="step-n">2</span><div class="step-b">
+              <p><b>Thiosíran.</b></p>
+              <p class="eq"><span class="q">n</span>(S₂O₃²⁻) = 0,1050&nbsp;mol/l · 0,01485&nbsp;l = <b>1,559·10⁻³&nbsp;mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">3</span><div class="step-b">
+              <p><b>Chlornan v&nbsp;titrovaných 10&nbsp;ml:</b> <span class="q">n</span>(ClO⁻) = 1,559·10⁻³ / 2 = <b>7,796·10⁻⁴&nbsp;mol</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">4</span><div class="step-b">
+              <p><b>Celá odměrná baňka</b> (100&nbsp;ml / 10&nbsp;ml = 10×): <span class="q">n</span> = <b>7,796·10⁻³&nbsp;mol</b>. Tolik chlornanu bylo v&nbsp;původních 5,00&nbsp;ml bělidla.</p>
+            </div></div>
+            <div class="step"><span class="step-n">5</span><div class="step-b">
+              <p><b>Hmotnost NaClO:</b></p>
+              <p class="eq"><span class="q">m</span>(NaClO) = 7,796·10⁻³&nbsp;mol · 74,44&nbsp;g/mol = <b>0,5804&nbsp;g</b></p>
+            </div></div>
+            <div class="step"><span class="step-n">6</span><div class="step-b">
+              <p><b>Hmotnost vzorku a&nbsp;hmotnostní zlomek.</b></p>
+              <p class="eq"><span class="q">m</span>(vzorek) = <span class="q">V</span>·<span class="q">ρ</span> = 5,00&nbsp;ml · 1,08&nbsp;g/ml = 5,40&nbsp;g<br><span class="q">w</span>(NaClO) = 0,5804 / 5,40 · 100&nbsp;% = 10,75&nbsp;%</p>
+              <span class="result">w(NaClO) ≈ 10,8 %</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz" data-quiz="q5" data-title="Mini‑test: výpočty"></div>
+    <div class="chapter-done" data-done="k5"></div>
+  </section>
+
+  <!-- ============ KAPITOLA 6 ============ -->
+  <section class="chapter" id="k6" data-title="Shrnutí">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 06 · shrnutí</span>
+      <h2>Přímá a&nbsp;nepřímá jodometrie vedle sebe</h2>
+      <div class="tablewrap jd-sum">
+        <table>
+          <thead><tr><th>Kritérium</th><th>Přímá (jodimetrie)</th><th>Nepřímá</th></tr></thead>
+          <tbody>
+            <tr><td>Princip</td><td>Titrace redukovadla roztokem <span class="chem">I₂</span></td><td>Oxidovadlo uvolní <span class="chem">I₂</span> z&nbsp;KI, jod se titruje <span class="chem">Na₂S₂O₃</span></td></tr>
+            <tr><td>Stanovuje se</td><td>Redukovadlo (vitamín C, <span class="chem">SO₃²⁻</span>, As(III))</td><td>Oxidovadlo (<span class="chem">ClO⁻</span>, <span class="chem">Cu²⁺</span>, <span class="chem">Cr₂O₇²⁻</span>)</td></tr>
+            <tr><td>Odměrný roztok</td><td><span class="chem">I₂</span> v&nbsp;KI</td><td><span class="chem">Na₂S₂O₃</span></td></tr>
+            <tr><td>Další činidla</td><td>—</td><td>KI v&nbsp;nadbytku, <span class="chem">H⁺</span></td></tr>
+            <tr><td>Role jodu</td><td><span class="chem">I₂</span> = oxidovadlo</td><td><span class="chem">I⁻</span> = redukovadlo (krok 1), <span class="chem">I₂</span> = meziprodukt</td></tr>
+            <tr><td>pH</td><td>Neutrální až slabě zásadité (7–9)</td><td>Kyselé (krok 1), neutrální až slabě kyselé (titrace)</td></tr>
+            <tr><td>Škrob</td><td>Na začátku</td><td>Těsně před bodem ekvivalence</td></tr>
+            <tr><td>Změna barvy</td><td>Bezbarvý → modrý</td><td>Modrý → bezbarvý</td></tr>
+            <tr><td>Stálost titrantu</td><td>Nízká (jod těká)</td><td>Nízká (thiosíran se rozkládá)</td></tr>
+            <tr><td>Standardizace</td><td>Na <span class="chem">As₂O₃</span> (pufr <span class="chem">NaHCO₃</span>)</td><td>Na <span class="chem">KIO₃</span> nebo <span class="chem">K₂Cr₂O₇</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="chapter-done" data-done="k6"></div>
+  </section>
+
+
+  <!-- ============ ZÁVĚREČNÝ TEST ============ -->
+  <section class="chapter" id="k7" data-title="Závěrečný test">
+    <div class="prose">
+      <span class="eyebrow">Kapitola 07 · souhrnné opakování</span>
+      <h2>Závěrečný test</h2>
+      <p class="lead">Dvacet otázek přes celou jodometrii: princip, obě varianty, odměrné roztoky a&nbsp;jejich standardizace, škrob, stechiometrie, zdroje chyb a&nbsp;použití. Odpovězte na všechny a&nbsp;klepněte na <b>Vyhodnotit test</b>, u&nbsp;každé otázky se pak ukáže vysvětlení. Otázky si můžete zamíchat a&nbsp;test zopakovat.</p>
+    </div>
+    <div class="quiz" data-quiz="final" data-title="Závěrečný test" data-final="1"></div>
+    <div class="chapter-done" data-done="k7"></div>
+  </section>
+  <!--SL--><p class="authorline"><lang-cs>Autor: Ing. Marek Kurťák</lang-cs><lang-en lang="en">Author: Ing. Marek Kurťák</lang-en><lang-sk lang="sk">Autor: Ing. Marek Kurťák</lang-sk></p><!--/SL-->
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   0 · POMOCNÉ FUNKCE
+   ============================================================ */
+var $  = function(s,r){return (r||document).querySelector(s);};
+var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+
+/* česká desetinná čárka */
+function fmt(n,d){
+  if(n===null||n===undefined||isNaN(n)) return "—";
+  if(d===undefined) d = 1;
+  var s = Math.abs(n).toFixed(d);
+  if(d>0){ s = s.replace(/0+$/,""); s = s.replace(/\.$/,""); }
+  s = s.replace(".",",");
+  return (n<0?"−":"")+s;
+}
+function sgn(n,d){ var s=fmt(Math.abs(n),d); return (n<0?"−":"+")+s; }
+
+var store = {
+  get:function(k,f){ try{ var v=localStorage.getItem("jodo."+k); return v===null?f:JSON.parse(v); }catch(e){ return f; } },
+  set:function(k,v){ try{ localStorage.setItem("jodo."+k,JSON.stringify(v)); }catch(e){} },
+  del:function(){ try{ Object.keys(localStorage).filter(function(k){return k.indexOf("jodo.")===0;}).forEach(function(k){localStorage.removeItem(k);}); }catch(e){} }
+};
+
+var toastEl = $("#toast"), toastT;
+function toast(msg){
+  if(!toastEl) return;
+  toastEl.textContent = msg; toastEl.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove("show"); },2600);
+}
+
+/* ============================================================
+   1 · MOTIV (světlý / tmavý)
+   ============================================================ */
+(function(){
+  var saved = store.get("theme",null);
+  if(saved) document.documentElement.setAttribute("data-theme",saved);
+  function current(){
+    var a = document.documentElement.getAttribute("data-theme");
+    if(a) return a;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function paint(){
+    var dark = current()==="dark";
+    var i=$("#themeIcon"), l=$("#themeLbl"), b2=$("#themeBtn2");
+    var SUN = '<svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="4.4" style="fill:currentColor"/><g style="stroke:currentColor;stroke-width:2;stroke-linecap:round"><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></g></svg>';
+    var MOON = '<svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z" style="fill:currentColor"/></svg>';
+    if(i) i.innerHTML = dark ? SUN : MOON;
+    if(l) l.textContent = dark ? "Světlý" : "Tmavý";
+    if(b2) b2.innerHTML = dark ? SUN : MOON;
+    setTimeout(redrawAll,30);
+  }
+  function toggle(){
+    var next = current()==="dark" ? "light":"dark";
+    document.documentElement.setAttribute("data-theme",next);
+    store.set("theme",next); paint();
+  }
+  ["#themeBtn","#themeBtn2"].forEach(function(s){ var b=$(s); if(b) b.addEventListener("click",toggle); });
+  paint();
+})();
+
+/* ============================================================
+   3 · NAVIGACE, POKROK, SCROLLSPY
+   ============================================================ */
+var chapters = $$("section.chapter");
+var TOTAL = chapters.length;
+var done = store.get("done",{});
+
+function buildNav(){
+  var rail=$("#railNav"), chip=$("#chipNav");
+  var hasQuick = !!document.getElementById("r0");
+  chapters.forEach(function(sec,i){
+    var id=sec.id, t=sec.getAttribute("data-title");
+    var a=document.createElement("a");
+    a.href="#"+id; a.dataset.for=id;
+    var lbl = (id==="r0") ? "R" : String(i-(hasQuick?1:0)).padStart(2,"0");
+    a.innerHTML='<span class="idx">'+lbl+'</span><span>'+t+'</span><span class="tick"></span>';
+    rail.appendChild(a);
+    var c=document.createElement("a");
+    c.href="#"+id; c.dataset.for=id; c.textContent=t;
+    chip.appendChild(c);
+  });
+}
+function renderProgress(){
+  var n=Object.keys(done).filter(function(k){return done[k];}).length;
+  var pct=Math.round(n/TOTAL*100);
+  ["#mFill","#mFill2"].forEach(function(s){var e=$(s); if(e) e.style.width=pct+"%";});
+  ["#mDone","#mDone2"].forEach(function(s){var e=$(s); if(e) e.textContent=n;});
+  $$("[data-tot]").forEach(function(e){e.textContent=TOTAL;});
+  $$("[data-for]").forEach(function(a){ a.classList.toggle("done", !!done[a.dataset.for]); });
+  chapters.forEach(function(sec){
+    var box=$('[data-done="'+sec.id+'"]',sec); if(box) paintDoneBox(box,sec.id);
+  });
+}
+function paintDoneBox(box,id){
+  var isDone=!!done[id];
+  box.innerHTML =
+    '<span class="grow">'+(isDone
+      ? '<b style="color:var(--ok)">✓ Kapitolu máte hotovou.</b> Můžete se k ní kdykoli vrátit.'
+      : 'Až budete mít kapitolu za sebou, označte si ji — pokrok se ukládá do prohlížeče.')+'</span>'+
+    '<button class="btn '+(isDone?"":"btn-primary")+' btn-sm" type="button">'+(isDone?"Odznačit":"Označit jako hotové")+'</button>';
+  $("button",box).addEventListener("click",function(){
+    done[id]=!done[id]; store.set("done",done); renderProgress();
+    toast(done[id]?"Kapitola označena jako hotová.":"Označení zrušeno.");
+  });
+}
+function markDone(id){ if(!done[id]){ done[id]=true; store.set("done",done); renderProgress(); } }
+
+function scrollspy(){
+  var best=null, bestD=1e9, mid=window.innerHeight*0.34;
+  chapters.forEach(function(sec){
+    var r=sec.getBoundingClientRect();
+    if(r.bottom>60 && r.top<window.innerHeight){
+      var d=Math.abs(r.top-mid); if(d<bestD){bestD=d;best=sec.id;}
+    }
+  });
+  if(!best) return;
+  $$("[data-for]").forEach(function(a){
+    var on = a.dataset.for===best;
+    if(on) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current");
+    if(on && a.parentElement.id==="chipNav"){
+      var p=a.parentElement, x=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;
+      p.scrollTo({left:x,behavior:"smooth"});
+    }
+  });
+}
+
+/* ============================================================
+   4 · ŘEŠENÉ PŘÍKLADY — rozbalení postupu
+   ============================================================ */
+$$("[data-worked]").forEach(function(w){
+  var b=$("[data-reveal]",w);
+  var CH='<svg class="chev" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">'+
+         '<path d="M6 9.5l6 6 6-6" style="fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round"/></svg>';
+  b.innerHTML='<span>Ukázat postup</span>'+CH;
+  b.addEventListener("click",function(){
+    var open=w.classList.toggle("open");
+    $("span",b).textContent = open ? "Skrýt postup" : "Ukázat postup";
+  });
+});
+
+/* ============================================================
+   5 · KVÍZOVÝ MOTOR
+   ============================================================ */
+var BANK = {};
+
+function renderQuiz(box){
+  var key=box.dataset.quiz, qs=BANK[key]||[], isFinal=box.dataset.final==="1";
+  var order = box._order || qs.map(function(_,i){return i;});
+  box._order = order;
+  var wasOpen = box.classList.contains("open");
+  var CHEV = '<svg class="chev" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">'+
+             '<path d="M6 9.5l6 6 6-6" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"/></svg>';
+  var h='<button class="quiz-toggle" type="button" aria-expanded="'+wasOpen+'">'+
+        '<span class="tag">'+(isFinal?"Test":"Mini‑test")+'</span>'+
+        '<span class="qt-title">'+box.dataset.title+'</span>'+
+        '<span class="qt-score"></span>'+
+        '<span class="qt-meta">'+qs.length+' otázek</span>'+CHEV+'</button>'+
+        '<div class="quiz-wrap"><div class="quiz-inner"><div class="quiz-pad">';
+  order.forEach(function(qi,pos){
+    var q=qs[qi];
+    h+='<div class="qcard" data-q="'+qi+'"><div class="qtext"><span class="qn">'+(pos+1)+'.</span><span class="qbody">'+q.q+'</span></div>';
+    if(q.t==="num"){
+      h+='<div class="numin"><input type="text" inputmode="decimal" placeholder="číslo" aria-label="Odpověď">'+
+         '<span class="unit">'+(q.unit||"")+'</span></div>';
+    } else {
+      var type = q.t==="multi" ? "checkbox":"radio";
+      h+='<div class="opts">';
+      q.o.forEach(function(o,oi){
+        h+='<label class="opt"><input type="'+type+'" name="'+key+'_'+qi+'" value="'+oi+'"><span class="otext">'+o+'</span><span class="mk"></span></label>';
+      });
+      h+='</div>';
+      if(q.t==="multi") h+='<span class="eyebrow">Vyberte všechny správné možnosti</span>';
+    }
+    h+='<div class="explain"><span class="verdict"></span><span class="eyebrow">Proč</span><div>'+q.e+'</div></div></div>';
+  });
+  h+='<div class="quiz-foot"><button class="btn btn-primary" type="button" data-check>'+(isFinal?"Vyhodnotit test":"Zkontrolovat")+'</button>'+
+     '<button class="btn" type="button" data-again>Zkusit znovu</button>'+
+     (isFinal?'<button class="btn" type="button" data-shuffle>Zamíchat otázky</button>':'')+
+     '<span class="score"></span></div></div></div></div>';
+  box.innerHTML=h;
+  box.classList.remove("checked");
+  if(wasOpen) box.classList.add("open");
+  $(".quiz-toggle",box).addEventListener("click",function(){
+    var open=box.classList.toggle("open");
+    this.setAttribute("aria-expanded",open);
+  });
+
+  $("[data-check]",box).addEventListener("click",function(){ checkQuiz(box); });
+  $("[data-again]",box).addEventListener("click",function(){ box._order=order; renderQuiz(box); });
+  var sh=$("[data-shuffle]",box);
+  if(sh) sh.addEventListener("click",function(){
+    var o=order.slice();
+    for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=o[i];o[i]=o[j];o[j]=t;}
+    box._order=o; renderQuiz(box); toast("Otázky zamíchány.");
+  });
+}
+
+function checkQuiz(box){
+  var key=box.dataset.quiz, qs=BANK[key], correct=0;
+  box.classList.add("checked");
+  $$(".qcard",box).forEach(function(card){
+    var q=qs[+card.dataset.q], ok=false;
+    if(q.t==="num"){
+      var inp=$("input",card), raw=(inp.value||"").trim().replace(",",".").replace(/−/g,"-").replace(/\s/g,"");
+      var v=parseFloat(raw);
+      ok = !isNaN(v) && Math.abs(v-q.ans) <= (q.tol!==undefined?q.tol:Math.max(0.05,Math.abs(q.ans)*0.01));
+      inp.disabled=true;
+    } else {
+      var picked=[];
+      $$(".opt",card).forEach(function(l,oi){
+        var inp=$("input",l);
+        var isC = (q.t==="multi") ? q.c.indexOf(oi)>=0 : oi===q.c;
+        if(inp.checked) picked.push(oi);
+        if(isC){ l.classList.add("is-correct"); $(".mk",l).textContent="✓"; }
+        else if(inp.checked){ l.classList.add("is-wrong"); $(".mk",l).textContent="✕"; }
+      });
+      ok = (q.t==="multi")
+        ? (picked.length===q.c.length && picked.every(function(p){return q.c.indexOf(p)>=0;}))
+        : (picked.length===1 && picked[0]===q.c);
+    }
+    card.classList.add("revealed", ok?"correct":"wrong");
+    $(".verdict",card).textContent = ok ? "✓ Správně" : "✕ Špatně";
+    if(ok) correct++;
+  });
+  var pct=Math.round(correct/qs.length*100);
+  var sc=$(".score",box);
+  sc.classList.add("show");
+  sc.innerHTML='<span>Výsledek:</span><span class="pct">'+correct+' / '+qs.length+'</span><span class="tag '+
+    (pct>=80?"ok":(pct>=50?"warn":"bad"))+'">'+pct+' %</span>';
+  var sec=box.closest("section.chapter");
+  if(sec && pct>=60) markDone(sec.id);
+  var hs=$(".qt-score",box);
+  if(hs){
+    hs.className="qt-score show";
+    hs.innerHTML='<span class="tag '+(pct>=80?"ok":(pct>=50?"warn":"bad"))+'">'+correct+'/'+qs.length+' · '+pct+' %</span>';
+  }
+  sc.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+
+/* ============================================================
+   6 · SVG POMOCNÍCI
+   ============================================================ */
+function svg(vb,inner,extra){
+  return '<svg viewBox="'+vb+'" role="img" '+(extra||"")+'>'+inner+'</svg>';
+}
+function txt(x,y,s,o){
+  o=o||{};
+  return '<text x="'+x+'" y="'+y+'" style="fill:'+(o.fill||"var(--ink-2)")+';font-family:'+(o.mono?"var(--f-mono)":"var(--f-ui)")+
+    ';font-size:'+(o.size||12)+'px;font-weight:'+(o.w||400)+';'+(o.anchor?"text-anchor:"+o.anchor+";":"")+
+    (o.style||"")+'">'+s+'</text>';
+}
+function line(x1,y1,x2,y2,o){
+  o=o||{};
+  return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" style="stroke:'+(o.c||"var(--line)")+
+    ';stroke-width:'+(o.w||1)+';'+(o.dash?"stroke-dasharray:"+o.dash+";":"")+(o.cap?"stroke-linecap:"+o.cap+";":"")+'"/>';
+}
+function rect(x,y,w,h,o){
+  o=o||{};
+  return '<rect x="'+x+'" y="'+y+'" width="'+Math.max(0,w)+'" height="'+Math.max(0,h)+'" rx="'+(o.r||0)+
+    '" style="fill:'+(o.fill||"var(--surface-2)")+';'+(o.stroke?"stroke:"+o.stroke+";stroke-width:"+(o.sw||1)+";":"")+(o.style||"")+'"/>';
+}
+/* svislá dvojšipka s popiskem */
+function vArrow(x,y1,y2,color,label,side){
+  var s='';
+  s+=line(x,y1,x,y2,{c:color,w:2,cap:"round"});
+  var d1=(y2>y1?1:-1);
+  s+='<path d="M'+x+' '+y2+' l-4 '+(-5*d1)+' l8 0 z" style="fill:'+color+'"/>';
+  s+='<path d="M'+x+' '+y1+' l-4 '+(5*d1)+' l8 0 z" style="fill:'+color+'"/>';
+  var my=(y1+y2)/2;
+  s+=txt(x+(side==="left"?-9:9),my+4,label,{fill:color,size:12.5,w:600,anchor:side==="left"?"end":"start"});
+  return s;
+}
+
+/* ============================================================
+   7 · SLOVNÍČEK — vykreslení (pole GLOSS definuje tematická část)
+   ============================================================ */
+function drawGloss(){
+  /* kratší průvodce (analytika) slovníček nemají */
+  if(!$("#glossary") || typeof GLOSS==="undefined") return;
+  $("#glossary").innerHTML=GLOSS.map(function(g){
+    return '<details class="gitem"><summary>'+g[0]+'</summary><div class="gbody">'+
+      (g[1]?'<span class="unit-badge">'+g[1]+'</span>':'')+'<p>'+g[2]+'</p></div></details>';
+  }).join("");
+}
+
+/* ============================================================
+   8 · JÁDRO OVLÁDÁNÍ — vynulování pokroku, scrollspy
+   ============================================================ */
+function bindCore(){
+  $("#resetBtn").addEventListener("click",function(){
+    if(!confirm("Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.")) return;
+    var th=store.get("theme",null);
+    store.del(); if(th) store.set("theme",th);
+    done={}; renderProgress(); toast("Pokrok vynulován.");
+  });
+  var st;
+  window.addEventListener("scroll",function(){ clearTimeout(st); st=setTimeout(scrollspy,60); },{passive:true});
+  window.addEventListener("resize",function(){ clearTimeout(st); st=setTimeout(scrollspy,120); },{passive:true});
+}
+
+/* ============================================================
+   TEMATICKÁ ČÁST — data, modely, GLOSS, redrawAll, bind, initAll, BANK.*
+   (vše níže je specifické pro dané téma)
+   ============================================================ */
+/* ============================================================
+   J1 · POMOCNÍCI
+   ============================================================ */
+/* pevný počet desetinných míst s českou čárkou */
+function fx(n,d){ return (n<0?"−":"")+Math.abs(n).toFixed(d).replace(".",","); }
+/* segmentové přepínače: nastaví aria-pressed a zavolá cb(hodnota) */
+function segBind(id,cb){
+  var bs=$$("#"+id+" button");
+  bs.forEach(function(b){
+    b.addEventListener("click",function(){
+      bs.forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
+      cb(b.dataset.v);
+    });
+  });
+}
+function msg(el,cls,html){ el.className="jd-msg"+(cls?" "+cls:""); el.innerHTML=html; }
+function ro(el,k,v,h){ el.innerHTML='<span class="k">'+k+'</span><span class="v">'+v+'</span>'+(h?'<span class="h">'+h+'</span>':''); }
+
+/* barvy roztoků — skutečné barvy, na motivu nezávisí */
+var COL = {water:[214,232,242], pale:[246,232,160], yellow:[232,196,70], brown:[128,62,14], blue:[26,40,130]};
+function mixc(a,b,t){ t=Math.max(0,Math.min(1,t)); return [0,1,2].map(function(i){ return Math.round(a[i]+(b[i]-a[i])*t); }); }
+function rgb(c,a){ return "rgba("+c[0]+","+c[1]+","+c[2]+","+(a===undefined?1:a)+")"; }
+/* barva jodu podle zbývajícího podílu f (1 = všechen uvolněný jod, 0 = žádný) */
+function iodColor(f){
+  if(f<=0) return rgb(COL.water,.55);
+  if(f<0.08) return rgb(mixc(COL.water,COL.pale,f/0.08),.75);
+  if(f<0.3)  return rgb(mixc(COL.pale,COL.yellow,(f-0.08)/0.22),.85);
+  return rgb(mixc(COL.yellow,COL.brown,(f-0.3)/0.7),.95);
+}
+function blueColor(s){ return rgb(mixc(COL.water,COL.blue,0.35+0.65*Math.max(0,Math.min(1,s))),.95); }
+
+/* byreta nad erlenmeyerovou baňkou; frac = kolik byrety je vypuštěno (0–1) */
+function drawFlask(fill,frac,label,sub){
+  var s='';
+  /* byreta */
+  s+=rect(92,12,16,118,{fill:"var(--surface)",stroke:"var(--ink-3)",sw:1.4,r:3});
+  var top=16+Math.max(0,Math.min(1,frac))*106;
+  s+=rect(94,top,12,128-top,{fill:"rgba(120,160,210,.35)"});
+  for(var k=0;k<=5;k++){ s+=line(92,20+k*21,99,20+k*21,{c:"var(--ink-3)",w:1}); }
+  s+=rect(86,130,28,7,{fill:"var(--ink-3)",r:2});
+  s+=line(100,137,100,152,{c:"var(--ink-3)",w:2.4,cap:"round"});
+  /* baňka */
+  var yl=236, xl=85-(yl-200)*55/80, xr=115+(yl-200)*55/80;
+  s+='<path d="M'+xl+' '+yl+' L30 280 Q30 286 36 286 L164 286 Q170 286 170 280 L'+xr+' '+yl+' Z" style="fill:'+fill+'"/>';
+  s+='<path d="M85 166 L85 200 L30 280 Q30 286 36 286 L164 286 Q170 286 170 280 L115 200 L115 166" style="fill:none;stroke:var(--ink-2);stroke-width:2;stroke-linejoin:round"/>';
+  s+=line(81,166,89,166,{c:"var(--ink-2)",w:2,cap:"round"});
+  s+=line(111,166,119,166,{c:"var(--ink-2)",w:2,cap:"round"});
+  s+=txt(100,306,label,{anchor:"middle",size:13,w:600,fill:"var(--ink)"});
+  if(sub) s+=txt(100,323,sub,{anchor:"middle",size:11.5});
+  return svg("0 0 200 330",s,'aria-label="Byreta a titrační baňka" style="max-width:15rem;margin:0 auto"');
+}
+
+/* ============================================================
+   J2 · HERO — REDOXNÍ ŽEBŘÍČEK
+   ============================================================ */
+var LAD = [
+  {id:"h2o2", pair:"H₂O₂ / H₂O", E:1.78, side:"ox", name:"Peroxid vodíku",
+   eq:"H₂O₂ + 2I⁻ + 2H⁺ → I₂ + 2H₂O", ratio:"1 H₂O₂ ~ 1 I₂ ~ 2 S₂O₃²⁻",
+   note:"Reakce s jodidem je pomalá, urychluje ji molybdenan amonný."},
+  {id:"clo", pair:"ClO⁻ / Cl⁻", E:1.49, side:"ox", name:"Chlornan (aktivní chlor)",
+   eq:"ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O", ratio:"1 ClO⁻ ~ 1 I₂ ~ 2 S₂O₃²⁻",
+   note:"Účinnost bělidel a dezinfekcí — řešený příklad v kapitole 05."},
+  {id:"bro3", pair:"BrO₃⁻ / Br⁻", E:1.42, side:"ox", name:"Bromičnan",
+   eq:"BrO₃⁻ + 6I⁻ + 6H⁺ → Br⁻ + 3I₂ + 3H₂O", ratio:"1 BrO₃⁻ ~ 3 I₂ ~ 6 S₂O₃²⁻", note:""},
+  {id:"cr", pair:"Cr₂O₇²⁻ / Cr³⁺", E:1.33, side:"ox", name:"Dichroman",
+   eq:"Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O", ratio:"1 Cr₂O₇²⁻ ~ 3 I₂ ~ 6 S₂O₃²⁻",
+   note:"Také standard pro thiosíran. Na konci je roztok zelený od Cr³⁺."},
+  {id:"io3", pair:"IO₃⁻ / I₂", E:1.20, side:"ox", name:"Jodičnan",
+   eq:"IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O", ratio:"1 IO₃⁻ ~ 3 I₂ ~ 6 S₂O₃²⁻",
+   note:"KIO₃ je nejpřesnější primární standard pro thiosíran."},
+  {id:"cu", pair:"Cu²⁺ / CuI", E:0.86, side:"ox", name:"Měďnaté ionty",
+   eq:"2Cu²⁺ + 4I⁻ → 2CuI + I₂", ratio:"1 Cu²⁺ ~ ½ I₂ ~ 1 S₂O₃²⁻",
+   note:"Rozbor rud a slitin. Pozor na jod adsorbovaný na sraženině CuI."},
+  {id:"as", pair:"H₃AsO₄ / H₃AsO₃", E:0.56, side:"red", name:"Arsenitany, As(III)",
+   eq:"H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻", ratio:"1 H₃AsO₃ ~ 1 I₂",
+   note:"V kyselém prostředí stojí skoro na stejné příčce jako jod, reakce je vratná. Proto se titruje při pH ≈ 8 (pufr NaHCO₃ odebírá H⁺) a běží doprava. As₂O₃ je standard pro roztok jodu."},
+  {id:"vitc", pair:"dehydroaskorbová / askorbová", E:0.39, side:"red", name:"Vitamín C",
+   eq:"C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻", ratio:"1 C₆H₈O₆ ~ 1 I₂",
+   note:"Léky i ovocné šťávy — řešený příklad v kapitole 05."},
+  {id:"so3", pair:"SO₄²⁻ / SO₃²⁻", E:0.17, side:"red", name:"Siřičitany",
+   eq:"SO₃²⁻ + I₂ + H₂O → SO₄²⁻ + 2H⁺ + 2I⁻", ratio:"1 SO₃²⁻ ~ 1 I₂",
+   note:"Konzervanty v potravinách a víně."},
+  {id:"sn", pair:"Sn⁴⁺ / Sn²⁺", E:0.15, side:"red", name:"Cínaté ionty, Sn(II)",
+   eq:"Sn²⁺ + I₂ → Sn⁴⁺ + 2I⁻", ratio:"1 Sn²⁺ ~ 1 I₂", note:""},
+  {id:"h2s", pair:"S / H₂S", E:0.14, side:"red", name:"Sulfan",
+   eq:"H₂S + I₂ → S + 2H⁺ + 2I⁻", ratio:"1 H₂S ~ 1 I₂", note:"Vylučuje se síra."},
+  {id:"s2o3", pair:"S₄O₆²⁻ / S₂O₃²⁻", E:0.08, side:"red", name:"Thiosíran",
+   eq:"2S₂O₃²⁻ + I₂ → S₄O₆²⁻ + 2I⁻", ratio:"2 S₂O₃²⁻ ~ 1 I₂",
+   note:"Nejen analyt: právě thiosíranem se titruje jod v nepřímé jodometrii."}
+];
+var ladSel = "cr";
+
+function drawLadder(){
+  var W=440, top=40, bot=606, Emax=1.9, Emin=0.0;
+  function yE(E){ return top+(Emax-E)/(Emax-Emin)*(bot-top); }
+  var s='';
+  var yI=yE(0.54);
+  s+=rect(56,top,W-60,yI-top,{fill:"var(--exo-soft)"});
+  s+=rect(56,yI,W-60,bot-yI,{fill:"var(--endo-soft)"});
+  s+=txt(W-6,top-10,"↑ oxidují I⁻ na I₂ → nepřímá jodometrie",{anchor:"end",size:11.5,w:600,fill:"var(--exo)"});
+  s+=txt(W-6,bot+20,"↓ redukují I₂ na I⁻ → přímá jodometrie",{anchor:"end",size:11.5,w:600,fill:"var(--endo)"});
+  /* osa */
+  s+=line(56,top,56,bot,{c:"var(--ink-3)",w:1.5});
+  for(var e=0;e<=1.8001;e+=0.3){
+    var y=yE(e); s+=line(50,y,56,y,{c:"var(--ink-3)"});
+    s+=txt(46,y+4,fx(e,1),{anchor:"end",size:11,mono:true});
+  }
+  s+=txt(12,top-10,"E° / V",{size:11,w:600});
+  /* jod */
+  s+=line(56,yI,W-4,yI,{c:"var(--accent)",w:3});
+  s+=rect(60,yI-12,150,24,{fill:"var(--accent)",r:6});
+  s+=txt(135,yI+5,"I₂ / 2I⁻   +0,54 V",{anchor:"middle",size:12.5,w:700,fill:"var(--accent-ink)"});
+  /* štítky: rozestrčit, ať se nepřekrývají, a spojit s osou */
+  var items=LAD.slice().sort(function(a,b){return b.E-a.E;}).map(function(d){ return {d:d,y0:yE(d.E),y:yE(d.E)}; });
+  var GAP=25;
+  /* nad jodem i pod ním zvlášť: odshora odtlačit, pak zespodu stáhnout do mezí */
+  function spread(arr,lo,hi){
+    var i;
+    for(i=0;i<arr.length;i++) arr[i].y=Math.max(arr[i].y,lo,i?arr[i-1].y+GAP:lo);
+    for(i=arr.length-1;i>=0;i--) arr[i].y=Math.min(arr[i].y,i<arr.length-1?arr[i+1].y-GAP:hi);
+  }
+  spread(items.filter(function(it){return it.d.E>0.54;}),top+14,yI-GAP);
+  spread(items.filter(function(it){return it.d.E<0.54;}),yI+GAP,bot-14);
+  items.forEach(function(it){
+    var d=it.d, ox=d.side==="ox", c=ox?"var(--exo)":"var(--endo)", on=d.id===ladSel;
+    s+='<circle cx="56" cy="'+it.y0+'" r="3.2" style="fill:'+c+'"/>';
+    s+='<path d="M56 '+it.y0+' L150 '+it.y+'" style="fill:none;stroke:'+c+';stroke-width:1;opacity:.6"/>';
+    s+='<g class="jd-sp" data-id="'+d.id+'" tabindex="0" role="button" aria-label="'+d.name+'">';
+    s+=rect(150,it.y-11,W-156,22,{fill:on?c:"var(--surface)",stroke:c,sw:1.2,r:6});
+    s+=txt(159,it.y+4.5,d.pair,{size:12,w:600,fill:on?"var(--accent-ink)":"var(--ink)"});
+    s+=txt(W-12,it.y+4.5,(d.E>=0?"+":"")+fx(d.E,2)+" V",{anchor:"end",size:11.5,mono:true,fill:on?"var(--accent-ink)":"var(--ink-2)"});
+    s+='</g>';
+  });
+  $("#ladWrap").innerHTML=svg("0 0 "+W+" "+(bot+30),s,'aria-label="Redoxní žebříček standardních potenciálů"');
+  var d=LAD.filter(function(x){return x.id===ladSel;})[0], ox=d.side==="ox";
+  $("#ladInfo").innerHTML=
+    '<span class="tag '+(ox?"exo":"endo")+'" style="align-self:flex-start">'+(ox?"Oxidovadlo → nepřímá jodometrie":"Redukovadlo → přímá jodometrie (jodimetrie)")+'</span>'+
+    '<h4>'+d.name+' <span style="color:var(--ink-3);font-weight:500">('+d.pair+', '+(d.E>=0?"+":"")+fx(d.E,2)+' V)</span></h4>'+
+    '<p><b>Titrant:</b> '+(ox?'uvolněný jod titrujeme <span class="chem">Na₂S₂O₃</span>':'odměrný roztok <span class="chem">I₂</span> v KI')+'</p>'+
+    '<p class="eq" style="font-size:.9rem"><span class="chem">'+d.eq+'</span></p>'+
+    '<p><b>Poměr:</b> <span class="chem">'+d.ratio+'</span></p>'+
+    (d.note?'<p style="color:var(--ink-2)">'+d.note+'</p>':'');
+}
+function initLadder(){
+  var w=$("#ladWrap");
+  function pick(e){
+    var g=e.target.closest ? e.target.closest(".jd-sp") : null;
+    if(!g) return;
+    ladSel=g.getAttribute("data-id"); drawLadder();
+    var again=$('.jd-sp[data-id="'+ladSel+'"]',w); if(again && e.type==="keydown") again.focus();
+  }
+  w.addEventListener("click",pick);
+  w.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pick(e); } });
+  drawLadder();
+}
+
+/* ============================================================
+   J3 · PŘÍMÁ TITRACE (vitamín C jodem)
+   ============================================================ */
+var DIR = {c:0.0485, n0:0.0485*11.60, V:0, starch:true, Vmax:16};
+function drawDirect(){
+  var V=DIR.V, veq=DIR.n0/DIR.c;
+  var left=Math.max(0,DIR.n0-DIR.c*V), free=Math.max(0,DIR.c*V-DIR.n0);
+  var fill;
+  if(free<=1e-9) fill=rgb(COL.water,.55);
+  else if(DIR.starch) fill=blueColor(0.55+free/0.03);
+  else fill=rgb(mixc(COL.water,COL.pale,Math.min(1,free/0.25)),.7);
+  $("#dirWrap").innerHTML=drawFlask(fill,V/DIR.Vmax,"vitamín C + "+(DIR.starch?"škrob":"bez škrobu"),"z byrety: I₂, 0,0485 mol/l");
+  $("#dirVV").textContent=fx(V,2)+" ml";
+  ro($("#dirRo1"),"Vitamín C zbývá",fx(left,3)+" mmol",Math.round(left/DIR.n0*100)+" % původního");
+  ro($("#dirRo2"),"Volný jod",fx(free,3)+" mmol",free>0?"nemá s čím reagovat":"hned se spotřebuje");
+  var m=$("#dirMsg"), d=V-veq;
+  if(V===0) msg(m,"","Začněte přidávat jod posuvníkem. Dokud je v baňce vitamín C, každá kapka jodu se hned spotřebuje.");
+  else if(d<-0.025) msg(m,"","Jod reaguje s vitamínem C hned, jak dopadne do baňky. Volný jod není, roztok zůstává <b>bezbarvý</b>. Do bodu ekvivalence chybí "+fx(-d,2)+" ml.");
+  else if(d<=0.1) msg(m,"ok",DIR.starch?"<b>Bod ekvivalence (11,60 ml).</b> První kapka jodu navíc už nemá s čím reagovat, naváže se na škrob a roztok <b>trvale zmodrá</b>. Tady titraci ukončíme.":"<b>Bod ekvivalence (11,60 ml).</b> Přebytek jodu je ale zatím jen nepatrně nažloutlý. Bez škrobu se tenhle okamžik snadno přehlédne.");
+  else if(DIR.starch) msg(m,"warn","Přetitrováno o "+fx(d,2)+" ml. Roztok zmodral už při 11,60 ml; každý mililitr navíc výsledek zvýší.");
+  else msg(m,"warn","Přetitrováno o "+fx(d,2)+" ml. Bez škrobu je přebytek jodu jen <b>slabě žlutý</b> a konec titrace se snadno přejede. Proto se přidává škrob.");
+}
+function initDirect(){
+  $("#dirV").addEventListener("input",function(){ DIR.V=+this.value; drawDirect(); });
+  segBind("dirStarch",function(v){ DIR.starch=v==="1"; drawDirect(); });
+  drawDirect();
+}
+
+/* ============================================================
+   J4 · NEPŘÍMÁ TITRACE (jod z chlornanu thiosíranem)
+   ============================================================ */
+var IND = {veq:14.85, V:0, starchF:null, end:null, Vmax:25};
+function indLag(){ /* škrob přidaný při vysokém obsahu jodu → pevný komplex, konec se vleče */
+  return (IND.starchF!==null && IND.starchF>0.3) ? Math.round(IND.starchF*0.9/0.05)*0.05 : 0;
+}
+function drawIndirect(){
+  var V=IND.V, veq=IND.veq, f=Math.max(0,1-V/veq), lag=indLag(), fill;
+  var starch=IND.starchF!==null;
+  if(!starch) fill=iodColor(f);
+  else if(lag>0 && V<veq+lag) fill=blueColor(f>0 ? 0.6+f*0.4 : 0.45*(1-(V-veq)/lag));
+  else if(f>0) fill=blueColor(0.55+f*1.5);
+  else fill=rgb(COL.water,.55);
+  $("#indWrap").innerHTML=drawFlask(fill,V/IND.Vmax,"uvolněný I₂"+(starch?" + škrob":""),"z byrety: Na₂S₂O₃, 0,1050 mol/l");
+  ro($("#indRo1"),"Přidáno thiosíranu",fx(V,2)+" ml");
+  ro($("#indRo2"),"Zbývá jodu",Math.round(f*100)+" %",f>0?"z uvolněného množství":"všechen zreagoval");
+  $("#indStarch").disabled=starch;
+  var m=$("#indMsg");
+  if(V>=veq+lag-1e-9 && starch && IND.end===null) IND.end=Math.max(V,veq);
+  if(IND.end!==null){
+    var err=(IND.end-veq)/veq*100;
+    if(IND.starchF===0) msg(m,"warn","Škrob už nezmodral, protože jod byl pryč. Konec titrace jste bez indikátoru poznat nemohli, skončili jste na <b>"+fx(IND.end,2)+" ml</b>. Škrob patří do roztoku, dokud je světle žlutý.");
+    else if(lag>0) msg(m,"bad","Modrá mizela pozvolna a úplně zmizela až při <b>"+fx(IND.end,2)+" ml</b> místo 14,85 ml. Chyba <b>+"+fx(err,1)+" %</b>. Škrob jste přidali moc brzy, když zbývalo "+Math.round(IND.starchF*100)+" % jodu. Jod vázaný v pevném komplexu reagoval s thiosíranem pomalu.");
+    else if(IND.end-veq<0.06) msg(m,"ok","<b>Modrá náhle zmizela při "+fx(IND.end,2)+" ml.</b> To je bod ekvivalence: poslední jod zreagoval a komplex se škrobem se rozpadl. Ostrý konec díky škrobu přidanému včas.");
+    else msg(m,"warn","Roztok odbarvil už při 14,85 ml, ale přidávali jste po celých mililitrech a skončili jste na <b>"+fx(IND.end,2)+" ml</b> (chyba +"+fx(err,1)+" %). Ke konci přidávejte po kapkách.");
+    return;
+  }
+  if(!starch && f<=0) { msg(m,"warn","Roztok je bezbarvý, ale bez škrobu jste nepoznali, kdy přesně zmizela poslední žlutá. Titrace je nejspíš přetažená. Zkuste to znovu a přidejte škrob při světle žluté barvě."); return; }
+  if(starch && lag>0 && f<=0){ msg(m,"warn","Jste za bodem ekvivalence, ale roztok je pořád modrý. Jod vázaný ve škrobovém komplexu reaguje pomalu a konec se vleče. Přidávejte dál a sledujte, kdy modrá zmizí."); return; }
+  if(V===0 && !starch) msg(m,"","Oxidovadlo uvolnilo z KI jod, roztok je <b>hnědý</b>. Titrujte thiosíranem.");
+  else if(!starch && f>0.3) msg(m,"","Hnědá bledne, jod ubývá. Na škrob je ještě brzy.");
+  else if(!starch) msg(m,"ok","Roztok je <b>světle žlutý</b>, většina jodu zreagovala. <b>Teď je správný čas přidat škrob.</b>");
+  else if(lag>0) msg(m,"bad","Škrob jste přidali, když v roztoku bylo ještě "+Math.round(IND.starchF*100)+" % jodu. Vznikl pevný komplex, uvidíte, jak se bude konec vléct.");
+  else msg(m,"ok","Roztok je <b>modrý</b>. Pokračujte opatrně po kapkách, dokud modrá nezmizí.");
+}
+function indAdd(dv){
+  if(IND.end!==null) return;
+  IND.V=Math.min(IND.Vmax,Math.round((IND.V+dv)*100)/100);
+  drawIndirect();
+}
+function initIndirect(){
+  $("#indAdd1").addEventListener("click",function(){ indAdd(1); });
+  $("#indAdd01").addEventListener("click",function(){ indAdd(0.05); });
+  $("#indStarch").addEventListener("click",function(){
+    if(IND.starchF!==null) return;
+    IND.starchF=Math.max(0,1-IND.V/IND.veq); drawIndirect();
+  });
+  $("#indReset").addEventListener("click",function(){ IND.V=0; IND.starchF=null; IND.end=null; drawIndirect(); });
+  drawIndirect();
+}
+
+/* ============================================================
+   J5 · OKNO pH PRO PŘÍMOU JODOMETRII
+   ============================================================ */
+var PH = 8;
+var PHZ = [
+  {a:0, b:4, c:"var(--bad)", lab:"silně kyselé", cls:"bad",
+   t:"<b>Silně kyselé.</b> Jodid se oxiduje vzdušným kyslíkem: <span class=\"chem\">4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O</span>. Vzniká jod, který nepochází z titrantu, a škrob se v silně kyselém roztoku rozkládá."},
+  {a:4, b:7, c:"var(--warn)", lab:"mírně kyselé", cls:"warn",
+   t:"<b>Mírně kyselé.</b> Reakce, které uvolňují H⁺ (např. As(III) s jodem), nedoběhnou úplně, protože kyselina je tlačí zpátky. Některá stanovení se tu přesto dělají záměrně, třeba vitamín C."},
+  {a:7, b:9, c:"var(--ok)", lab:"optimum", cls:"ok",
+   t:"<b>Optimum.</b> Jod reaguje s redukovadly úplně a vedlejší reakce jsou potlačené. Pufr <span class=\"chem\">NaHCO₃</span> drží pH kolem 8."},
+  {a:9, b:14, c:"var(--bad)", lab:"zásadité", cls:"bad",
+   t:"<b>Zásadité (pH &gt; 9).</b> Jod disproporcionuje: <span class=\"chem\">I₂ + 2OH⁻ → I⁻ + IO⁻ + H₂O</span>. Spotřebuje se jinak než s analytem a výsledek je špatně."}
+];
+function drawPH(){
+  var W=440, x0=14, x1=426, s='';
+  function xp(p){ return x0+(x1-x0)*p/14; }
+  PHZ.forEach(function(z){
+    s+=rect(xp(z.a),30,xp(z.b)-xp(z.a),38,{fill:z.c,style:"opacity:.22"});
+    s+=txt((xp(z.a)+xp(z.b))/2,54,z.lab.replace("optimum ",""),{anchor:"middle",size:13,w:600,fill:"var(--ink)"});
+  });
+  s+=rect(x0,30,x1-x0,38,{fill:"none",stroke:"var(--line-strong)",r:4});
+  for(var p=0;p<=14;p++){ s+=line(xp(p),68,xp(p),74,{c:"var(--ink-3)"}); s+=txt(xp(p),89,String(p),{anchor:"middle",size:12,mono:true}); }
+  var x=xp(PH);
+  s+='<path d="M'+x+' 26 l-7 -12 l14 0 z" style="fill:var(--accent)"/>';
+  s+=line(x,26,x,72,{c:"var(--accent)",w:2.5});
+  $("#phWrap").innerHTML=svg("0 0 "+W+" 96",s,'aria-label="Stupnice pH s oknem pro přímou jodometrii"');
+  $("#phVV").textContent=fx(PH,1);
+  var z=PHZ.filter(function(z){ return PH>=z.a && (PH<z.b || z.b===14); })[0];
+  if(PH===9) z=PHZ[2];
+  msg($("#phMsg"),z.cls,z.t);
+}
+
+/* ============================================================
+   J6 · ŠKROB — JOD VE ŠROUBOVICI AMYLOSY
+   ============================================================ */
+function drawHelix(){
+  var W=460, H=190, cy=92, A=46, s='', i, x;
+  var back='', front='';
+  for(i=0;i<=240;i++){
+    var t=i/240, xx=20+t*420, ph=t*Math.PI*2*3.5, y=cy+A*Math.sin(ph);
+    var seg=(Math.cos(ph)>0);
+    if(i>0){
+      var tp=(i-1)/240, xp=20+tp*420, yp=cy+A*Math.sin(tp*Math.PI*2*3.5);
+      var l='<path d="M'+xp.toFixed(1)+' '+yp.toFixed(1)+' L'+xx.toFixed(1)+' '+y.toFixed(1)+'" style="stroke:var(--ink-3);stroke-width:'+(seg?5:3)+';stroke-linecap:round;opacity:'+(seg?.95:.4)+'"/>';
+      if(seg) front+=l; else back+=l;
+    }
+  }
+  s+=back;
+  s+=rect(28,cy-13,404,26,{fill:"rgba(40,60,190,.20)",r:13});
+  for(i=0;i<13;i++){
+    x=42+i*31.5;
+    s+='<circle cx="'+x+'" cy="'+cy+'" r="9" style="fill:#5b3a93;stroke:#2a1a55;stroke-width:1"/>';
+    if(i%3===1) s+=txt(x,cy+4,"I",{anchor:"middle",size:10,w:700,fill:"#fff"});
+  }
+  s+=front;
+  s+=txt(20,22,"amylosa — šroubovice z glukosových jednotek",{size:14,w:600,fill:"var(--ink-2)"});
+  s+=txt(20,H-8,"uvnitř řetízek jodu (I₃⁻, I₅⁻) → modrý komplex",{size:14,w:600,fill:"#3346b8"});
+  $("#helixWrap").innerHTML=svg("0 0 "+W+" "+H,s,'aria-label="Schéma: řetízek jodu uvnitř šroubovice amylosy"');
+}
+
+/* ============================================================
+   J7 · STECHIOMETRICKÝ ŘETÍZEK
+   ============================================================ */
+var CHAIN = [
+  {k:"cu", lab:"Cu²⁺", a:2, i:1, t:2, eqs:["2Cu²⁺ + 4I⁻ → 2CuI + I₂"],
+   note:"Rozbor rud a slitin. Na sraženině CuI se část jodu adsorbuje, proto se ke konci přidává KSCN (kapitola 03)."},
+  {k:"clo", lab:"ClO⁻", a:1, i:1, t:2, eqs:["ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O"],
+   note:"Aktivní chlor v bělidlech a dezinfekcích (příklad v kapitole 05)."},
+  {k:"h2o2", lab:"H₂O₂", a:1, i:1, t:2, eqs:["H₂O₂ + 2I⁻ + 2H⁺ → I₂ + 2H₂O"],
+   note:"Reakce je pomalá, často se katalyzuje molybdenanem amonným."},
+  {k:"cr", lab:"Cr₂O₇²⁻", a:1, i:3, t:6, eqs:["Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O"],
+   note:"Pomalejší reakce, nechává se chvíli stát v temnu. Na konci je roztok zelený od Cr³⁺."},
+  {k:"io3", lab:"IO₃⁻", a:1, i:3, t:6, eqs:["IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O"],
+   note:"KIO₃ je přesný primární standard pro standardizaci thiosíranu."},
+  {k:"bro3", lab:"BrO₃⁻", a:1, i:3, t:6, eqs:["BrO₃⁻ + 6I⁻ + 6H⁺ → Br⁻ + 3I₂ + 3H₂O"], note:""},
+  {k:"o2", lab:"O₂ (Winkler)", a:1, i:2, t:4,
+   eqs:["O₂ + 2Mn²⁺ + 4OH⁻ → 2MnO(OH)₂ (zásadité)","MnO(OH)₂ + 2I⁻ + 4H⁺ → Mn²⁺ + I₂ + 3H₂O (po okyselení)"],
+   note:"Winklerova metoda: rozpuštěný kyslík ve vodě. Kyslík nejdřív zoxiduje Mn²⁺, po okyselení vzniklý MnO(OH)₂ uvolní jod."}
+];
+var chK="clo";
+function toks(n,cls,lab){ var h='<span class="jd-grp">'; for(var j=0;j<n;j++) h+='<span class="jd-tok '+cls+'">'+lab+'</span>'; return h+'</span>'; }
+function gcd(a,b){ return b?gcd(b,a%b):a; }
+function drawChain(){
+  var d=CHAIN.filter(function(x){return x.k===chK;})[0];
+  var an=d.lab.replace(" (Winkler)","");
+  var g=gcd(d.a,d.t), ra=d.a/g, rt=d.t/g;
+  var h='<div class="jd-chain">'+toks(d.a,"a",an)+'<span class="jd-eqv">→</span>'+toks(d.i,"i","I₂")+'<span class="jd-eqv">→</span>'+toks(d.t,"t","S₂O₃²⁻")+'</div>';
+  h+='<p class="eq" style="font-size:.9rem">'+d.eqs.map(function(e){return '<span class="chem">'+e+'</span>';}).join("<br>")+'<br><span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>';
+  h+='<div class="grid3" style="margin-top:.8rem">'+
+     '<div class="readout"><span class="k">1 mol analytu uvolní</span><span class="v">'+fmt(d.i/d.a,2)+' mol I₂</span></div>'+
+     '<div class="readout"><span class="k">Poměr n(analyt) : n(S₂O₃²⁻)</span><span class="v">'+ra+' : '+rt+'</span></div>'+
+     '<div class="readout"><span class="k">Výpočet</span><span class="v" style="font-size:1rem">n(analyt) = n(S₂O₃²⁻)'+(rt===1&&ra===1?'':' · '+ra+'/'+rt)+'</span></div></div>';
+  if(d.note) h+='<p style="color:var(--ink-2);margin:.8rem 0 0">'+d.note+'</p>';
+  $("#chOut").innerHTML=h;
+}
+function initChain(){
+  $("#chSel").innerHTML=CHAIN.map(function(d){ return '<button type="button" data-v="'+d.k+'" aria-pressed="'+(d.k===chK)+'">'+d.lab+'</button>'; }).join("");
+  segBind("chSel",function(v){ chK=v; drawChain(); });
+  drawChain();
+}
+
+/* ============================================================
+   J8 · TŘÍDIČKA CHYB
+   ============================================================ */
+var ERRS = [
+  {t:"Oxidace I⁻ vzdušným kyslíkem", d:"Roztok s KI stojí po okyselení dlouho na světle.", up:true,
+   w:"<span class=\"chem\">4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O</span>. Vzniká „falešný“ jod navíc, spotřeba thiosíranu stoupne. Nejvíc v kyselém prostředí, urychluje ji světlo a ionty Cu²⁺ a Fe³⁺. <b>Prevence:</b> titrovat hned po okyselení, bez přímého světla, udělat slepý pokus."},
+  {t:"Těkání jodu", d:"Titrace probíhá v otevřené baňce za tepla a s intenzivním mícháním.", up:false,
+   w:"Jod uniká do vzduchu dřív, než ho stihne ztitrovat thiosíran. <b>Prevence:</b> baňka se zábrusem nebo přikrytá hodinovým sklem, nižší teplota, dost KI (jod vázaný na I₃⁻ tolik netěká), titrovat bez odkladu."},
+  {t:"Neúplná reakce analytu s KI", d:"Po přidání KI se začne titrovat okamžitě, i když analyt reaguje pomalu.", up:false,
+   w:"Uvolní se méně jodu, než odpovídá analytu. <b>Prevence:</b> dost času (někdy desítky minut, často v temnu), správné pH, nadbytek KI, případně katalyzátor (molybdenan u H₂O₂)."},
+  {t:"Jod adsorbovaný na sraženině", d:"Při stanovení Cu²⁺ vzniká sraženina CuI, na jejímž povrchu část jodu ulpí.", up:false,
+   w:"Adsorbovaný jod se neztitruje. <b>Prevence:</b> intenzivně míchat, ke konci přidat KSCN (<span class=\"chem\">CuI + SCN⁻ → CuSCN + I⁻</span>, CuSCN jod tolik neváže), škrob až ke konci."},
+  {t:"Rozložený roztok thiosíranu", d:"Thiosíran se od poslední standardizace částečně rozložil (CO₂, bakterie).", up:true,
+   w:"Počítáme s původní koncentrací, ale titrant je slabší. Na stejné množství jodu ho spotřebujeme víc, a proto vyjde víc analytu. <b>Prevence:</b> čerstvě standardizovaný roztok, správná příprava a uchovávání (převařená voda, Na₂CO₃, tmavá lahev)."},
+  {t:"Nečistota IO₃⁻ v KI", d:"Použitý jodid draselný obsahuje stopy jodičnanu.", up:true,
+   w:"V kyselém prostředí jodičnan uvolní jod navíc: <span class=\"chem\">IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O</span>. <b>Prevence:</b> KI čistoty p.a. Test: okyselený roztok KI se škrobem nesmí zmodrat. Slepý pokus."}
+];
+var errAns = {};
+function drawErrs(){
+  $("#errBox").innerHTML=ERRS.map(function(e,i){
+    var a=errAns[i], done=a!==undefined, right=done && a===e.up;
+    return '<div class="jd-err'+(done?" done "+(right?"right":"wrong"):"")+'">'+
+      '<h4>'+e.t+'</h4><p>'+e.d+'</p>'+
+      '<div class="jd-btns">'+
+        '<button class="btn btn-sm'+(done&&a===true?" btn-primary":"")+'" type="button" data-e="'+i+'" data-up="1"'+(done?" disabled":"")+'>Výsledek vyšší ↑</button>'+
+        '<button class="btn btn-sm'+(done&&a===false?" btn-primary":"")+'" type="button" data-e="'+i+'" data-up="0"'+(done?" disabled":"")+'>Výsledek nižší ↓</button>'+
+      '</div>'+
+      '<div class="jd-why"><p><b style="color:var('+(right?"--ok":"--bad")+')">'+(right?"✓ Správně":"✕ Ne")+' — výsledek bude '+(e.up?"vyšší (kladná chyba)":"nižší (záporná chyba)")+'.</b></p><p style="margin-top:.35rem">'+e.w+'</p></div>'+
+    '</div>';
+  }).join("");
+  var n=Object.keys(errAns).length, ok=Object.keys(errAns).filter(function(k){ return errAns[k]===ERRS[k].up; }).length;
+  var sc=$("#errScore");
+  if(n===0) msg(sc,"","Rozhodněte u každé chyby, kterým směrem posune výsledek.");
+  else if(n<ERRS.length) msg(sc,"","Zatím "+ok+" z "+n+" správně. Zbývá "+(ERRS.length-n)+".");
+  else msg(sc,ok===ERRS.length?"ok":"warn","Hotovo: <b>"+ok+" z "+ERRS.length+"</b> správně. "+(ok===ERRS.length?"Směr chyb máte v malíčku.":"Projděte si vysvětlení u červeně orámovaných karet.")+' <button class="btn btn-sm" type="button" data-err-again style="margin-left:.4rem">Znovu</button>');
+  var ag=$("[data-err-again]"); if(ag) ag.addEventListener("click",function(){ errAns={}; drawErrs(); });
+}
+function initErrs(){
+  $("#errBox").addEventListener("click",function(e){
+    var b=e.target.closest ? e.target.closest("button[data-e]") : null;
+    if(!b || b.disabled) return;
+    errAns[+b.dataset.e]=b.dataset.up==="1"; drawErrs();
+  });
+  drawErrs();
+}
+
+/* ============================================================
+   J9 · TERČ: SPRÁVNOST × PŘESNOST
+   ============================================================ */
+function drawTarget(){
+  var cases=[
+    {t:"správné a přesné", c:[0,0], r:5},
+    {t:"přesné, nesprávné", c:[20,-16], r:5},
+    {t:"správné, nepřesné", c:[0,0], r:24},
+    {t:"ani správné, ani přesné", c:[16,14], r:24}
+  ];
+  var pts=[[0.3,0.5],[-0.6,0.2],[0.5,-0.7],[-0.2,-0.5],[0.8,0.4],[-0.7,-0.8]];
+  var s='', narrow=$("#tgtWrap").clientWidth<520;
+  cases.forEach(function(k,i){
+    var cx=narrow?85+(i%2)*170:80+i*160, cy=narrow?70+Math.floor(i/2)*150:78;
+    [52,38,24,10].forEach(function(r,j){ s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" style="fill:'+(j%2?"var(--surface)":"var(--surface-3)")+';stroke:var(--line-strong)"/>'; });
+    s+='<circle cx="'+cx+'" cy="'+cy+'" r="3" style="fill:var(--ink-3)"/>';
+    pts.forEach(function(p){ s+='<circle cx="'+(cx+k.c[0]+p[0]*k.r)+'" cy="'+(cy+k.c[1]+p[1]*k.r)+'" r="4.2" style="fill:var(--accent);stroke:var(--surface);stroke-width:1"/>'; });
+    s+=txt(cx,cy+74,k.t,{anchor:"middle",size:narrow?14:12,w:600,fill:i===0?"var(--ok)":"var(--ink-2)"});
+  });
+  $("#tgtWrap").innerHTML=svg(narrow?"0 0 340 300":"0 0 640 164",s,'aria-label="Čtyři terče: správnost a přesnost"');
+}
+
+/* ============================================================
+   J10 · STATISTIKA TŘÍ TITRACÍ
+   ============================================================ */
+function num(v){ var x=parseFloat(String(v).trim().replace(",",".").replace(/−/g,"-")); return isNaN(x)?null:x; }
+function drawStats(){
+  var v=["#st1","#st2","#st3"].map(function(id){ return num($(id).value); });
+  if(v.some(function(x){return x===null;})){
+    ro($("#stRo1"),"Průměr","—"); ro($("#stRo2"),"Směrodatná odchylka s","—"); ro($("#stRo3"),"RSD","—");
+    msg($("#stMsg"),"warn","Zadejte tři čísla (desetinná čárka i tečka fungují)."); return;
+  }
+  var m=(v[0]+v[1]+v[2])/3;
+  var sd=Math.sqrt(v.reduce(function(a,x){return a+(x-m)*(x-m);},0)/2);
+  var rsd=m?sd/m*100:0;
+  ro($("#stRo1"),"Průměr x̄",fx(m,3)+" ml");
+  ro($("#stRo2"),"Směrodatná odchylka s",fx(sd,3)+" ml","s = √[Σ(x − x̄)² / (n − 1)]");
+  ro($("#stRo3"),"RSD",fx(rsd,2)+" %","s / x̄ · 100 %");
+  if(rsd<=0.5) msg($("#stMsg"),"ok","Titrace se shodují velmi dobře, měření je <b>přesné</b>. Jestli je i <b>správné</b>, statistika neřekne, na to je potřeba standard se známým obsahem.");
+  else if(rsd<=2) msg($("#stMsg"),"warn","Rozptyl je znatelný. Zkontrolujte odečet byrety a posouzení barevného přechodu.");
+  else msg($("#stMsg"),"bad","Hodnoty se liší hodně. Titraci zopakujte. Odlehlou hodnotu vyřaďte jen se zdůvodněním (statistický test).");
+}
+function initStats(){ ["#st1","#st2","#st3"].forEach(function(id){ $(id).addEventListener("input",drawStats); }); drawStats(); }
+
+/* ============================================================
+   J11 · ZKUSTE SAMI — koncentrace thiosíranu
+   ============================================================ */
+var TR = {cI:0.0200, VI:18.50, Vt:20.00};
+function trAns(){ return 2*TR.cI*TR.VI/TR.Vt; }
+function drawTrainer(){
+  $("#trTask").innerHTML="Na titraci <b>"+fx(TR.Vt,2)+" ml</b> roztoku Na₂S₂O₃ se spotřebovalo <b>"+fx(TR.VI,2)+" ml</b> roztoku jodu o koncentraci <b>"+fx(TR.cI,4)+" mol/l</b>. Jaká je koncentrace thiosíranu?";
+  $("#trIn").value=""; $("#trMsg").hidden=true; $("#trSteps").hidden=true;
+}
+function trSteps(){
+  var nI=TR.cI*TR.VI/1000, nT=2*nI, c=trAns();
+  $("#trSteps").innerHTML=
+    '<div class="step"><span class="step-n">1</span><div class="step-b"><p><b>Poměr z rovnice:</b> 1 mol I₂ reaguje se 2 mol S₂O₃²⁻, tedy <span class="q">n</span>(S₂O₃²⁻) = 2·<span class="q">n</span>(I₂).</p></div></div>'+
+    '<div class="step"><span class="step-n">2</span><div class="step-b"><p class="eq"><span class="q">n</span>(I₂) = '+fx(TR.cI,4)+' mol/l · '+fx(TR.VI/1000,5)+' l = '+expo(nI,3)+' mol</p></div></div>'+
+    '<div class="step"><span class="step-n">3</span><div class="step-b"><p class="eq"><span class="q">n</span>(S₂O₃²⁻) = 2 · '+expo(nI,3)+' = '+expo(nT,3)+' mol</p></div></div>'+
+    '<div class="step"><span class="step-n">4</span><div class="step-b"><p class="eq"><span class="q">c</span>(Na₂S₂O₃) = <span class="q">n</span>/<span class="q">V</span> = '+expo(nT,3)+' mol / '+fx(TR.Vt/1000,5)+' l</p><span class="result">c = '+fx(c,4)+' mol/l</span></div></div>';
+  $("#trSteps").hidden=false;
+}
+function expo(x,d){
+  var e=Math.floor(Math.log(Math.abs(x))/Math.LN10), m=x/Math.pow(10,e);
+  if(Math.abs(m)>=9.9995){ m/=10; e+=1; }
+  var SUPD={"-":"⁻","0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"};
+  return fx(m,d)+"·10"+String(e).split("").map(function(c){return SUPD[c];}).join("");
+}
+function initTrainer(){
+  $("#trCheck").addEventListener("click",function(){
+    var v=num($("#trIn").value), a=trAns(), m=$("#trMsg");
+    m.hidden=false;
+    if(v===null){ msg(m,"warn","Zadejte číslo, např. 0,0370."); return; }
+    if(Math.abs(v-a)<=a*0.01) msg(m,"ok","<b>Správně.</b> c(Na₂S₂O₃) = "+fx(a,4)+" mol/l.");
+    else if(Math.abs(v-a/2)<=a*0.01/2) msg(m,"bad","Vyšla vám polovina správné hodnoty? Zapomněli jste na poměr: <b>1 mol I₂ spotřebuje 2 mol thiosíranu</b>, thiosíranu je tedy dvakrát víc než jodu.");
+    else msg(m,"bad","Zatím ne. Zkuste to znovu, nebo si nechte ukázat postup.");
+  });
+  $("#trShow").addEventListener("click",trSteps);
+  $("#trNew").addEventListener("click",function(){
+    TR.cI=Math.round((0.0150+Math.random()*0.0100)*2000)/2000;
+    TR.VI=Math.round((14+Math.random()*9)*20)/20;
+    TR.Vt=Math.random()<0.5?20.00:25.00;
+    drawTrainer();
+  });
+  drawTrainer();
+}
+
+/* ============================================================
+   J12 · PŘEKRESLENÍ, NAVÁZÁNÍ, PRVNÍ VYKRESLENÍ
+   ============================================================ */
+function redrawAll(){
+  try{ drawLadder(); drawDirect(); drawPH(); drawHelix(); }catch(e){}
+  try{ drawIndirect(); drawChain(); drawTarget(); }catch(e){}
+}
+window.redrawAll = redrawAll;
+
+/* kratší průvodce nemá slovníček (kostra ho přeskočí) */
+var GLOSS = [];
+
+function bind(){
+  $("#phV").addEventListener("input",function(){ PH=+this.value; drawPH(); });
+  /* terč mění rozložení podle šířky */
+  var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(drawTarget,150); },{passive:true});
+}
+
+function initAll(){
+  initLadder();
+  initDirect();
+  drawPH();
+  drawHelix();
+  initTrainer();
+  initIndirect();
+  initChain();
+  initErrs();
+  drawTarget();
+  initStats();
+}
+
+/* ============================================================
+   J13 · MINI-TESTY KE KAPITOLÁM
+   ============================================================ */
+BANK.q0 = [
+ {t:"single", q:"Na jakém typu reakce je jodometrie založena?",
+  o:["Acidobazické","Srážecí","Komplexotvorné","Redoxní"], c:3,
+  e:"Jodometrie využívá přeměnu mezi I₂ a I⁻. Mění se při ní oxidační číslo jodu (0 ↔ −1), jde tedy o redoxní reakci."},
+ {t:"single", q:"Která forma jodu působí v páru I₂/2I⁻ jako <b>redukovadlo</b>?",
+  o:["I₂","I⁻","I₃⁻","IO₃⁻"], c:1,
+  e:"Jodid má nižší oxidační číslo (−1) a může elektrony odevzdat, přitom se oxiduje na I₂. Proto je redukovadlem."},
+ {t:"single", q:"Doplňte: přímou jodometrií se stanovují ____, nepřímou ____.",
+  o:["oxidovadla; redukovadla","redukovadla; oxidovadla","kyseliny; zásady","kationty; anionty"], c:1,
+  e:"Přímo titrujeme jodem (oxidovadlem) látky, které se snadno oxidují, tedy redukovadla. Nepřímo stanovujeme oxidovadla: ta z KI uvolní jod a ten titrujeme thiosíranem."}
+];
+
+BANK.q1 = [
+ {t:"single", q:"Jaký odměrný roztok se používá při přímé jodometrii?",
+  o:["Roztok KI","Roztok Na₂S₂O₃","Roztok I₂ v KI","Roztok škrobu"], c:2,
+  e:"Přímá jodometrie titruje redukovadla jodem. Kvůli špatné rozpustnosti se jod rozpouští v KI na I₃⁻."},
+ {t:"single", q:"Jaké pH je obvykle optimální pro přímou jodometrii?",
+  o:["Silně kyselé (pH &lt; 4)","Mírně kyselé (pH 4–6)","Neutrální až slabě zásadité (pH 7–9)","Silně zásadité (pH &gt; 10)"], c:2,
+  e:"V tomto rozmezí reaguje jod s redukovadly úplně a vedlejší reakce jsou potlačené: v kyselém se jodid oxiduje vzduchem, v zásaditém jod disproporcionuje."},
+ {t:"single", q:"Doplňte: při přímé jodometrii se škrob přidává ____ titrace a bod ekvivalence ukáže ____ zbarvení.",
+  o:["na začátku; vznik modrého","na konci; zmizení modrého","na začátku; zmizení modrého","na konci; vznik žlutého"], c:0,
+  e:"Volný jod se objeví až v bodě ekvivalence, takže škrob může být v baňce od začátku. První přebytečná kapka jodu roztok modře zbarví."}
+];
+
+BANK.q2 = [
+ {t:"single", q:"Jakou funkci má nadbytek KI v prvním kroku nepřímé jodometrie?",
+  o:["Je katalyzátorem.","Dodává I⁻ pro reakci s analytem a rozpouští vzniklý I₂.","Upravuje pH roztoku.","Slouží jako indikátor."], c:1,
+  e:"Analyt oxiduje jodidy na I₂. Nadbytek KI zajistí, že reakce proběhne úplně, a vzniklý jod udrží v roztoku jako I₃⁻."},
+ {t:"single", q:"Proč se škrob při nepřímé jodometrii přidává až ke konci titrace?",
+  o:["Aby nereagoval s Na₂S₂O₃.","Protože se v kyselém prostředí rozkládá.","Aby při vysoké koncentraci I₂ nevznikl příliš pevný komplex.","Protože reaguje jen s I⁻, ne s I₂."], c:2,
+  e:"Při vysoké koncentraci jodu vznikne velmi pevný komplex. Jod vázaný v něm reaguje s thiosíranem pomalu a konec titrace je neostrý."},
+ {t:"single", q:"Doplňte: uvolněný jod se titruje odměrným roztokem ____ sodného a škrob se přidá, až roztok zesvětlá na ____ barvu.",
+  o:["thiosíranu; světle žlutou","síranu; modrou","siřičitanu; hnědou","thiosíranu; bezbarvou"], c:0,
+  e:"Titrantem je thiosíran sodný Na₂S₂O₃. Škrob patří do roztoku ve chvíli, kdy je světle žlutý: většina jodu už zreagovala, ale ještě nějaký zbývá."},
+ {t:"single", q:"Kolik molů thiosíranu odpovídá jednomu molu dichromanu?",
+  o:["1","2","3","6"], c:3,
+  e:"Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O, 1 mol dichromanu tedy uvolní 3 mol I₂. Každý mol I₂ spotřebuje 2 mol thiosíranu, celkem 1 : 6."}
+];
+
+BANK.q3 = [
+ {t:"single", q:"Která chyba vede při nepřímé jodometrii k falešně <b>vyššímu</b> výsledku?",
+  o:["Těkání I₂","Oxidace I⁻ vzdušným kyslíkem","Neúplná reakce analytu s KI","Adsorpce I₂ na sraženině"], c:1,
+  e:"Kyslík z jodidu vyrobí jod, který nepochází z analytu. Ten ale také spotřebuje thiosíran, spotřeba stoupne a výsledek vyjde vyšší. Ostatní tři chyby jod ztrácejí, výsledek snižují."},
+ {t:"single", q:"Přídavek KSCN ke konci titrace při stanovení Cu²⁺ zmenšuje chybu způsobenou:",
+  o:["oxidací I⁻ vzduchem","těkáním I₂","adsorpcí I₂ na sraženině CuI","nečistotou IO₃⁻ v KI"], c:2,
+  e:"KSCN převede CuI na CuSCN (CuI + SCN⁻ → CuSCN + I⁻), který jod tolik neadsorbuje. Uvolněný jod se pak ztitruje."},
+ {t:"single", q:"Co je slepý pokus?",
+  o:["Titrace bez indikátoru","Titrace všech činidel bez vzorku","Titrace vzorku o dvojnásobné koncentraci","Titrace vzorku jiným titrantem"], c:1,
+  e:"Titrují se všechna činidla ve stejném množství jako při analýze, jen bez vzorku. Spotřebu slepého pokusu odečteme a odstraníme tak vliv nečistot a vedlejších reakcí."}
+];
+
+BANK.q4 = [
+ {t:"single", q:"Tři titrace dají 12,31, 12,30 a 12,32 ml, ale standard se známým obsahem vychází o 5 % výš. Výsledky jsou:",
+  o:["přesné i správné","přesné, ale nesprávné","správné, ale nepřesné","nepřesné i nesprávné"], c:1,
+  e:"Hodnoty se téměř neliší, měření je tedy přesné. Soustavný posun od skutečné hodnoty ukazuje systematickou chybu, výsledek proto není správný."},
+ {t:"single", q:"Který údaj popisuje přesnost opakovaných stanovení?",
+  o:["průměr","relativní směrodatná odchylka","molární hmotnost analytu","objem alikvotu"], c:1,
+  e:"Směrodatná odchylka a RSD popisují rozptyl hodnot kolem průměru. Čím menší, tím přesnější měření. Průměr je nejlepší odhad samotné hodnoty."},
+ {t:"single", q:"Titrant jste standardizovali chybně: jeho skutečná koncentrace je <b>vyšší</b>, než s jakou počítáte. Výsledek analýzy bude:",
+  o:["vyšší","nižší","stejný","nedá se říct"], c:1,
+  e:"Silnější titrant se spotřebuje méně. Když menší objem vynásobíte nižší (předpokládanou) koncentrací, vyjde méně analytu."}
+];
+
+BANK.q5 = [
+ {t:"num", q:"Na 20,00 ml roztoku vitamínu C se spotřebovalo 9,80 ml jodu o koncentraci 0,0500 mol/l. Kolik <b>milimolů</b> vitamínu C bylo v titrovaném objemu?",
+  ans:0.49, tol:0.005, unit:"mmol",
+  e:"Poměr 1 : 1, takže n(vit. C) = n(I₂) = 0,0500 mol/l · 9,80 ml = 0,490 mmol."},
+ {t:"num", q:"Při stanovení Cu²⁺ se spotřebovalo 12,40 ml thiosíranu o koncentraci 0,1000 mol/l. Kolik <b>miligramů</b> mědi (<i>M</i> = 63,55 g/mol) bylo ve vzorku?",
+  ans:78.8, tol:0.4, unit:"mg",
+  e:"2Cu²⁺ uvolní 1 I₂ a ten spotřebuje 2 S₂O₃²⁻, poměr Cu²⁺ : S₂O₃²⁻ je tedy 1 : 1. n(Cu) = 0,1000 · 12,40 = 1,240 mmol; m = 1,240 mmol · 63,55 g/mol = 78,8 mg."},
+ {t:"single", q:"Titrovali jste 25,00 ml alikvot ze 250,0 ml odměrné baňky. Čím vynásobíte látkové množství z titrace, abyste dostali obsah celé baňky?",
+  o:["0,1","2,5","10","25"], c:2,
+  e:"Faktor zředění je 250,0 / 25,00 = 10. V celé baňce je desetkrát víc než v titrovaném alikvotu."}
+];
+
+/* ============================================================
+   J14 · ZÁVĚREČNÝ TEST (20 otázek)
+   ============================================================ */
+BANK.final = [
+ {t:"single", q:"Jaký typ chemické reakce je základem jodometrie?",
+  o:["Neutralizace","Komplexotvorná reakce","Redoxní reakce","Srážecí reakce"], c:2,
+  e:"Mění se oxidační číslo jodu (I₂ ↔ I⁻), elektrony přecházejí mezi látkami. To je redoxní reakce."},
+ {t:"single", q:"Který roztok je odměrným roztokem při <b>přímé</b> jodometrii (jodimetrii)?",
+  o:["Roztok I₂ připravený s KI","Roztok Na₂S₂O₃","Roztok KI","Roztok H₂SO₄"], c:0,
+  e:"Přímá jodometrie titruje redukovadla jodem. Jod se rozpouští v KI, aby vznikl dobře rozpustný I₃⁻. Thiosíran patří k nepřímé jodometrii."},
+ {t:"single", q:"Jaké látky se stanovují <b>nepřímou</b> jodometrií?",
+  o:["Redukovadla","Kyseliny","Oxidovadla","Zásady"], c:2,
+  e:"Oxidovadlo z nadbytku KI uvolní jod v množství úměrném analytu a ten se ztitruje thiosíranem. Příkladem je chlornan v bělidle."},
+ {t:"single", q:"Proč se při přípravě odměrného roztoku jodu používá jodid draselný?",
+  o:["Chrání roztok před rozkladem světlem.","Je primárním standardem.","Upravuje pH roztoku.","Zvyšuje rozpustnost I₂ tvorbou I₃⁻."], c:3,
+  e:"Jod je ve vodě málo rozpustný. S jodidem tvoří trijodid (I₂ + I⁻ ⇌ I₃⁻), který se rozpouští dobře a oxiduje stejně jako I₂."},
+ {t:"single", q:"Kdy se při <b>nepřímé</b> jodometrii přidává škrob?",
+  o:["Hned na začátku titrace","Těsně před bodem ekvivalence, když roztok zesvětlá do žluta","Přesně v bodě ekvivalence","Vůbec, stačí vlastní barva jodu"], c:1,
+  e:"Na začátku je jodu hodně a se škrobem by vznikl pevný komplex, který reaguje pomalu. Přechod by byl neostrý. Proto až při světle žluté barvě."},
+ {t:"single", q:"Která rovnice popisuje titraci jodu thiosíranem?",
+  o:["I₂ + S₂O₃²⁻ → 2I⁻ + SO₄²⁻ + S","I₂ + S₂O₃²⁻ + H₂O → 2I⁻ + SO₄²⁻ + 2H⁺","I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻","I₂ + 2OH⁻ → I⁻ + IO⁻ + H₂O"], c:2,
+  e:"Thiosíran reaguje s jodem v poměru 2 : 1. Jod se redukuje na jodid, síra se oxiduje z průměrného oxidačního čísla +2 na +2,5 v tetrathionanu S₄O₆²⁻. Poslední rovnice je disproporcionace jodu v zásaditém."},
+ {t:"single", q:"Jaké prostředí je potřeba, aby oxidovadlo v nepřímé jodometrii uvolnilo z KI jod?",
+  o:["Silně zásadité (pH &gt; 10)","Neutrální (pH ≈ 7)","Na pH nezáleží","Kyselé"], c:3,
+  e:"Mnohá oxidovadla (Cr₂O₇²⁻, MnO₄⁻, IO₃⁻) mají plnou oxidační sílu až v kyselém prostředí. Tam je reakce s jodidem rychlá a úplná a jod nedisproporcionuje."},
+ {t:"single", q:"Co vznikne reakcí dichromanu draselného s nadbytkem KI v kyselém prostředí?",
+  o:["Cr³⁺, I₂ a H₂O","Cr²⁺, IO₃⁻ a H₂O","CrO₄²⁻, I₂ a H₂O","Cr³⁺, I⁻ a O₂"], c:0,
+  e:"Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O. Chrom se redukuje z +VI na +III, jodid se oxiduje na jod."},
+ {t:"single", q:"Která látka je primárním standardem pro standardizaci roztoku Na₂S₂O₃?",
+  o:["NaCl","KIO₃","As₂O₃","NaOH"], c:1,
+  e:"Jodičnan draselný uvolní v kyselém prostředí s KI přesně známé množství jodu (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O). As₂O₃ je standard pro roztok jodu, ne pro thiosíran."},
+ {t:"single", q:"Jak ovlivní nečistota IO₃⁻ v použitém KI výsledek nepřímé jodometrie?",
+  o:["Výsledek bude falešně nižší.","Nemá vliv.","Výsledek bude falešně vyšší.","Roztok se zakalí."], c:2,
+  e:"V kyselém prostředí jodičnan uvolní jod navíc (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O). Ten se ztitruje taky, spotřeba stoupne a výsledek vyjde vyšší."},
+ {t:"single", q:"Co může způsobit oxidace jodidu vzdušným kyslíkem?",
+  o:["Snížení pH roztoku","Falešně vyšší výsledek nepřímé jodometrie","Zákal síry","Falešně nižší výsledek přímé jodometrie"], c:1,
+  e:"4I⁻ + O₂ + 4H⁺ → 2I₂ + 2H₂O. Jod navíc, který nepochází z analytu, spotřebuje thiosíran, a výsledek proto vyjde vyšší (kladná chyba)."},
+ {t:"single", q:"Proč se roztok Na₂S₂O₃ musí pravidelně standardizovat?",
+  o:["Je velmi těkavý.","Reaguje se sklem.","Je silně hygroskopický.","Je nestálý, rozkládá ho CO₂ a bakterie."], c:3,
+  e:"Rozpuštěný CO₂ roztok okyselí a thiosíran se v kyselém rozkládá. Dále ho rozkládají bakterie a pomalu i kyslík. Koncentrace proto časem klesá."},
+ {t:"single", q:"Která složka škrobu tvoří s jodem modrý komplex?",
+  o:["Amylopektin","Celulosa","Amylosa","Glukosa"], c:2,
+  e:"Lineární amylosa se stáčí do šroubovice a do její dutiny se zasunou řetízky jodu (I₃⁻, I₅⁻). Rozvětvený amylopektin to nedokáže."},
+ {t:"single", q:"Při stanovení Cu²⁺ vzniká sraženina CuI, na které se adsorbuje jod. Co se přidává ke konci titrace?",
+  o:["Kyselina sírová","Hydroxid sodný","Dusičnan stříbrný","Thiokyanatan draselný KSCN"], c:3,
+  e:"CuI + SCN⁻ → CuSCN + I⁻. Thiokyanatan měďný jod tolik neadsorbuje, jod se uvolní do roztoku a dá se ztitrovat. Konec titrace je ostřejší a výsledek přesnější."},
+ {t:"single", q:"Jaký je poměr analytu k thiosíranu v nepřímé jodometrii?",
+  o:["Vždy 1 : 1","Vždy 1 : 2","Záleží na reakci analytu s KI","Vždy 2 : 1"], c:2,
+  e:"Záleží na tom, kolik jodu uvolní jeden mol analytu. Každý mol I₂ pak spotřebuje 2 mol thiosíranu. Cr₂O₇²⁻ a IO₃⁻: 1 : 6, ClO⁻: 1 : 2, Cu²⁺: 1 : 1."},
+ {t:"single", q:"Co je slepý pokus?",
+  o:["Titrace bez indikátoru","Titrace vzorku o dvojnásobné koncentraci","Titrace jiným titrantem","Titrace všech činidel bez vzorku"], c:3,
+  e:"Titrují se všechna činidla (KI, kyselina, indikátor…) ve stejném množství, jen bez vzorku. Spotřeba odpovídá nečistotám a vedlejším reakcím a odečte se od spotřeby na vzorek."},
+ {t:"single", q:"Který vitamín se běžně stanovuje přímou jodometrií?",
+  o:["Vitamín A","Vitamín C","Vitamín B₁₂","Vitamín D"], c:1,
+  e:"Kyselina askorbová je silné redukovadlo a reaguje s jodem rychle a úplně: C₆H₈O₆ + I₂ → C₆H₆O₆ + 2H⁺ + 2I⁻."},
+ {t:"single", q:"Při standardizaci jodu na As₂O₃ se přidává NaHCO₃. Proč?",
+  o:["Zvyšuje rozpustnost As₂O₃.","Neutralizuje vznikající H⁺ a drží pH kolem 8.","Katalyzuje reakci.","Barví roztok pro lepší indikaci."], c:1,
+  e:"H₃AsO₃ + I₂ + H₂O ⇌ H₃AsO₄ + 2H⁺ + 2I⁻ je vratná. Vznikající H⁺ by ji tlačily zpět. Hydrogenuhličitan je odebírá, a proto reakce doběhne úplně."},
+ {t:"single", q:"Který jev způsobí zápornou chybu (nižší výsledek), hlavně při práci v otevřených nádobách?",
+  o:["Těkání I₂","Oxidace I⁻ vzduchem","Nečistota IO₃⁻ v KI","Příliš rychlá titrace"], c:0,
+  e:"Jod uniká do vzduchu dřív, než se ztitruje. Spotřeba thiosíranu je menší a výsledek nižší. Oxidace jodidu i jodičnan v KI naopak výsledek zvyšují."},
+ {t:"single", q:"Winklerova metoda stanovení rozpuštěného kyslíku ve vodě je ve své podstatě:",
+  o:["přímá acidobazická titrace","nepřímá komplexometrická titrace","přímá jodimetrie","nepřímá jodometrie"], c:3,
+  e:"Kyslík v zásaditém zoxiduje Mn²⁺ na MnO(OH)₂. Po okyselení ten uvolní z KI jod a jod se ztitruje thiosíranem. Je to typická dvoukroková nepřímá jodometrie, 1 mol O₂ ~ 4 mol S₂O₃²⁻."}
+];
+
+/* ============================================================
+   SPUŠTĚNÍ
+   ============================================================ */
+buildNav();
+$$(".quiz").forEach(renderQuiz);
+renderProgress();
+bindCore();
+bind();
+initAll();
+drawGloss();
+redrawAll();
+scrollspy();
+
+})();
+</script>
+
+<script>
+/* SITE-NAV — sjednocení světlého a tmavého režimu napříč webem */
+(function(){
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty", "vodik", "halogeny", "chalkogeny", "dusik", "uhlik", "kovy", "nekovy", "komplexy", "prechodne", "jodo"];
+  function mirror(){
+    try{
+      var t=document.documentElement.getAttribute("data-theme");
+      if(!t) return;
+      localStorage.setItem("site.theme",JSON.stringify(t));
+      KEYS.forEach(function(k){ localStorage.setItem(k+".theme",JSON.stringify(t)); });
+    }catch(e){}
+  }
+  ["themeBtn","themeBtn2"].forEach(function(id){
+    var b=document.getElementById(id);
+    if(b) b.addEventListener("click",function(){ setTimeout(mirror,0); });
+  });
+})();
+</script>
+</body>
+</html>

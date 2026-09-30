@@ -28,7 +28,7 @@ except Exception:
     pass
 import i18n
 import preklad as P
-from site_data import GROUPS, TOPICS, ANORG_TOPICS
+from site_data import GROUPS, GUIDE_GROUPS
 
 LANG_NAMES = {"sk": "Slovak (slovenčina)", "en": "English (British)", "de": "German", "pl": "Polish",
               "hu": "Hungarian", "uk": "Ukrainian"}
@@ -132,7 +132,7 @@ def gid(fmt, text):
 # ---------------------------------------------------------------- stránky
 def page_titles():
     t = {}
-    for folder, tops in (("obecna-fyzikalni-chemie", TOPICS), ("anorganicka-chemie", ANORG_TOPICS)):
+    for folder, tops in GUIDE_GROUPS:
         for x in tops:
             t["%s/%s.html" % (folder, x["slug"])] = x["title"]
     for g in GROUPS:
