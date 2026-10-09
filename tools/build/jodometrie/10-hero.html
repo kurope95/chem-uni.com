@@ -289,6 +289,13 @@
   .jd-ul b{font-family:var(--f-ui);font-size:.98rem}
   .jd-ul span{font-size:.9rem;color:var(--ink-2)}
   .jd-ul em{font-style:normal;font-family:var(--f-ui);font-size:.84rem;font-weight:600;color:var(--accent);margin-top:auto}
+  /* oxidační čísla nad prvky ve velkých rovnicích: malá, tlumená, nerušivá */
+  .jd-bigeq .t b{padding-top:.55em}
+  .jd-on{position:relative;display:inline-block}
+  .jd-on::before{content:attr(data-o);position:absolute;left:50%;transform:translateX(-50%);top:-.62em;
+    font-size:.36em;font-weight:600;letter-spacing:0;line-height:1;color:var(--ink-3);white-space:nowrap}
+  .jd-on.ch::before{color:var(--jd-c);font-weight:700}
+  .jd-onl{margin:.45rem 0 0;font-family:var(--f-ui);font-size:.78rem;color:var(--ink-3);text-align:center}
   </style>
 
   <header class="hero">
