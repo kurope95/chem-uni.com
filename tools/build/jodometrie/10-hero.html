@@ -255,6 +255,40 @@
   /* vysvětlivka mimo hover/fokus vůbec nezabírá místo (nesmí rozšířit stránku) */
   .jd-tip .jd-tt{display:none}
   .jd-tip:hover .jd-tt,.jd-tip:focus .jd-tt{display:block}
+  /* velká celá rovnice na příkladu (přímá / nepřímá) */
+  .jd-ex1{background:var(--surface);border:2px solid var(--jd-c-line);border-top:4px solid var(--jd-c);border-radius:16px;
+    box-shadow:var(--jd-shadow);padding:clamp(1rem,2.2vw,1.4rem);margin:1.3rem 0 1.5rem}
+  .jd-ex1 > .eyebrow{color:var(--jd-c)}
+  .jd-ex1 > h3{margin:.25rem 0 .9rem;color:var(--jd-c)}
+  .jd-bigeq{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:.7rem .55rem;
+    background:var(--jd-c-soft);border:2px solid var(--jd-c-line);border-radius:12px;padding:1rem .8rem}
+  .jd-bigeq .t{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:5.2rem}
+  .jd-bigeq .t b{font-family:var(--f-ui);font-weight:700;font-size:clamp(1.45rem,1.1rem + 1.3vw,2.1rem);line-height:1.15;
+    color:var(--ink);white-space:nowrap}
+  .jd-bigeq .t.ti b{color:var(--jd-c)}
+  .jd-bigeq .t.an b{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--jd-c-line)}
+  .jd-bigeq .t i{font-style:normal;font-family:var(--f-ui);font-size:.78rem;line-height:1.3;color:var(--ink-2);margin-top:.35rem}
+  .jd-bigeq .t i u{text-decoration:none;font-weight:700;color:var(--ink)}
+  .jd-bigeq .op{font-family:var(--f-ui);font-weight:700;font-size:clamp(1.45rem,1.1rem + 1.3vw,2.1rem);line-height:1.15;color:var(--ink-3)}
+  .jd-oxs{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 .2rem}
+  .jd-oxs span{font-family:var(--f-ui);font-size:.88rem;background:var(--surface-2);border:2px solid var(--line-strong);
+    border-radius:10px;padding:.35rem .65rem}
+  .jd-stepl{font-family:var(--f-ui);font-weight:700;color:var(--jd-c);margin:1rem 0 .45rem}
+  .jd-ex1 > .jd-stepl:first-of-type{margin-top:0}
+  .jd-concl{margin:.9rem 0 0;font-size:1rem}
+  .jd-ion{margin:.45rem 0 0;font-size:.88rem;color:var(--ink-2)}
+  /* odkaz do sbírky řešených úloh */
+  .jd-more-ulohy{background:var(--surface);border:2px solid var(--line-strong);border-top:4px solid var(--accent);
+    border-radius:16px;box-shadow:var(--jd-shadow);padding:1.1rem 1.2rem;margin:1.6rem 0}
+  .jd-more-ulohy > h3{margin:.25rem 0 .8rem}
+  .jd-ul{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:640px){ .jd-ul{grid-template-columns:minmax(0,1fr)} }
+  .jd-ul a{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;color:var(--ink);background:var(--surface-2);
+    border:2px solid var(--line-strong);border-radius:12px;padding:.8rem .95rem}
+  .jd-ul a:hover{border-color:var(--accent)}
+  .jd-ul b{font-family:var(--f-ui);font-size:.98rem}
+  .jd-ul span{font-size:.9rem;color:var(--ink-2)}
+  .jd-ul em{font-style:normal;font-family:var(--f-ui);font-size:.84rem;font-weight:600;color:var(--accent);margin-top:auto}
   </style>
 
   <header class="hero">

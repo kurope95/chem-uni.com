@@ -16,7 +16,8 @@ try:
 except Exception:
     pass
 from site_data import (SITE, GROUPS, TOPICS, PREFIXES, PAIRS,
-                       ANORG_TOPICS, ANALYT_TOPICS, ALL_PREFIXES, GUIDE_GROUPS)
+                       ANORG_TOPICS, ANALYT_TOPICS, ALL_PREFIXES, GUIDE_GROUPS,
+                       ANALYT_ULOHY)
 import i18n
 import brand
 from i18n import L, Lk
@@ -650,6 +651,7 @@ GROUP_PAGES = {
                    "chemickú reakciu, svoj odmerný roztok a svoj indikátor. Pri každej prejdeme "
                    "princíp, postup, na čo si dať pozor a ako z nameranej spotreby vypočítať výsledok.",
         "topics": ANALYT_TOPICS,
+        "library": ANALYT_ULOHY,
         "how_title": ("Jak je každá metoda postavená", "How each method is built",
                       "Ako je každá metóda postavená"),
         "how": [
@@ -754,6 +756,28 @@ def build_group(slug, found):
                   '<span class="go">%s</span></div>'
                   % (L("Připravujeme"), num, title, sub, chips, L("Zatím není hotové")))
     h += '</div></section>\n'
+    if cfg.get("library"):
+        h += ('<section class="sec" id="ulohy"><div class="sec-head"><h2>%s</h2></div>'
+              '<p class="sec-lead">%s</p><div class="tiles g2">'
+              % (L("Sbírka řešených úloh"),
+                 L("Celé výpočty krok za krokem: zápis, ředění, rovnice, vzorec odvozený jen "
+                   "z písmen a teprve pak čísla. Na konci laboratoř „co kdyby?“ a kontrolní otázky.",
+                   "Complete calculations step by step: notation, dilution, equations, a formula "
+                   "derived from symbols alone, and only then the numbers. At the end a “what if?” "
+                   "lab and check questions.",
+                   "Celé výpočty krok za krokom: zápis, riedenie, rovnice, vzorec odvodený len "
+                   "z písmen a až potom čísla. Na konci laboratórium „čo keby?“ a kontrolné otázky.")))
+        for u in cfg["library"]:
+            chips = "".join("<span>%s</span>" % L(c, e, k)
+                            for c, e, k in zip(u["chips"], u["chips_en"], u["chips_sk"]))
+            if os.path.exists(os.path.join(OUT, slug, "ulohy", u["slug"] + ".html")):
+                h += ('<a class="tile" href="ulohy/%s.html"><span class="n">%s</span>'
+                      '<h3>%s</h3><p class="desc">%s</p><span class="chips">%s</span>'
+                      '<span class="go">%s %s</span></a>'
+                      % (u["slug"], L("Řešená úloha", "Solved problem", "Riešená úloha"),
+                         Lk(u, "title"), Lk(u, "sub"), chips,
+                         L("Otevřít úlohu", "Open the problem", "Otvoriť úlohu"), ARR))
+        h += '</div></section>\n'
     if cfg.get("credit"):
         h += ('<section class="sec"><div class="credit">'
               '<span class="eyebrow">%s</span><p>%s</p></div></section>\n'
@@ -763,6 +787,7 @@ def build_group(slug, found):
 
 
 GROUP_CSS = """
+.sec-lead{margin:-.4rem 0 1.1rem;max-width:82ch;color:var(--ink-2);font-size:.98rem;line-height:1.6}
 .credit{border:2px solid var(--line-strong);border-top:4px solid var(--accent);
   border-radius:16px;padding:clamp(1.2rem,2.2vw,1.6rem) clamp(1.3rem,2.4vw,1.8rem);
   background:var(--surface);box-shadow:0 1px 2px rgba(33,27,21,.07),0 6px 16px rgba(33,27,21,.09)}

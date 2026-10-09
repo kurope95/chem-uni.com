@@ -618,7 +618,43 @@ ANALYT_TOPICS = [
     },
 ]
 
-ANALYT_PREFIXES = ["jodo"]
+ANALYT_PREFIXES = ["jodo", "abtitr"]
+
+# ---- Sbírka řešených úloh z analytické chemie -------------------------------
+# Autorovy řešené úlohy, každá jako samostatná stránka v analyticka-chemie/ulohy/.
+# Zdroj: tools/ulohy/src/<slug>.html, stránky skládá tools/kostra/make_ulohy.py.
+ANALYT_ULOHY = [
+    {
+        "slug": "uloha-6-peroxid-vodiku", "n": "6", "topic": "jodometrie",
+        "title": "Úloha 6: Peroxid vodíku zpětnou titrací",
+        "title_en": "Problem 6: Hydrogen peroxide by back titration",
+        "title_sk": "Úloha 6: Peroxid vodíka spätnou titráciou",
+        "sub": "Kolik peroxidu vodíku je v litru vzorku? Ředění, jod v nadbytku, retitrace "
+               "thiosíranem a vzorec odvozený jen z písmen.",
+        "sub_en": "How much hydrogen peroxide is in a litre of sample? Dilution, excess iodine, "
+                  "back titration with thiosulfate and a formula derived from symbols alone.",
+        "sub_sk": "Koľko peroxidu vodíka je v litri vzorky? Riedenie, jód v nadbytku, spätná "
+                  "titrácia tiosíranom a vzorec odvodený len z písmen.",
+        "chips": ["zpětná titrace", "jodometrie", "ředění a alikvot", "H₂O₂"],
+        "chips_en": ["back titration", "iodometry", "dilution and aliquot", "H₂O₂"],
+        "chips_sk": ["spätná titrácia", "jodometria", "riedenie a alikvot", "H₂O₂"],
+    },
+    {
+        "slug": "uloha-7-modra-skalice", "n": "7", "topic": "jodometrie",
+        "title": "Úloha 7: Navážka modré skalice pro jodometrii mědi",
+        "title_en": "Problem 7: Weighing out blue vitriol for the iodometric determination of copper",
+        "title_sk": "Úloha 7: Navážka modrej skalice na jodometriu medi",
+        "sub": "Kolik modré skalice navážit, aby spotřeba thiosíranu byla 30 ml a mědi bylo "
+               "víc než 0,15 g? Dvě podmínky, jedna navážka.",
+        "sub_en": "How much blue vitriol to weigh out so that 30 ml of thiosulfate is used and "
+                  "the sample holds more than 0.15 g of copper? Two conditions, one mass.",
+        "sub_sk": "Koľko modrej skalice navážiť, aby spotreba tiosíranu bola 30 ml a medi bolo "
+                  "viac ako 0,15 g? Dve podmienky, jedna navážka.",
+        "chips": ["nepřímá jodometrie", "navážka", "Cu²⁺", "CuSO₄·5H₂O"],
+        "chips_en": ["indirect iodometry", "sample mass", "Cu²⁺", "CuSO₄·5H₂O"],
+        "chips_sk": ["nepriama jodometria", "navážka", "Cu²⁺", "CuSO₄·5H₂O"],
+    },
+]
 
 # ---- Skupiny s průvodci ve vlastní složce ----------------------------------
 # Jediný seznam, podle kterého make_site.py, i18n.py, make_dist.py a preklad_io.py

@@ -36,7 +36,7 @@ try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
-from site_data import SITE, GROUPS, PAIRS, ALL_TOPICS, GUIDE_GROUPS, GUIDE_FOLDERS
+from site_data import SITE, GROUPS, PAIRS, ALL_TOPICS, GUIDE_GROUPS, GUIDE_FOLDERS, ANALYT_ULOHY
 import brand
 
 ROOT = r"C:\Claude Code\Claude Code\Doučovanie"
@@ -83,6 +83,8 @@ UI = {
     "Úvod": {"en": "Home", "sk": "Úvod"},
     "Zpátky na úvod": {"en": "Back to home", "sk": "Späť na úvod"},
     "Zpátky na okruhy": {"en": "Back to topics", "sk": "Späť na okruhy"},
+    "Zpátky na analytickou chemii": {"en": "Back to analytical chemistry", "sk": "Späť na analytickú chémiu"},
+    "Sbírka řešených úloh": {"en": "Collection of solved problems", "sk": "Zbierka riešených úloh"},
     "Zpátky na Počítání": {"en": "Back to Calculating", "sk": "Späť na Počítanie"},
     "Přeskočit na obsah": {"en": "Skip to content", "sk": "Preskočiť na obsah"},
     "Drobečková navigace": {"en": "Breadcrumb", "sk": "Navigačná cesta"},
@@ -184,7 +186,7 @@ def missing_site_data():
         _fields(g, ("title", "sub", "kicker", "cta"), "GROUPS[%s]" % g["id"], out)
     for p in PAIRS:
         _fields(p, ("label", "note"), "PAIRS[%s]" % p["label"], out)
-    for t in ALL_TOPICS:
+    for t in ALL_TOPICS + ANALYT_ULOHY:
         _fields(t, ("title", "sub"), "TOPICS[%s]" % t["slug"], out)
         for lg in LANGS:
             n_cs, n_x = len(t.get("chips") or []), len(t.get("chips_" + lg) or [])
@@ -218,7 +220,7 @@ def dictionary(lang):
     for p in PAIRS:
         for k in ("label", "note"):
             add(p.get(k), p.get(k + "_" + lang))
-    for t in ALL_TOPICS:
+    for t in ALL_TOPICS + ANALYT_ULOHY:
         for k in ("title", "sub"):
             add(t.get(k), t.get(k + "_" + lang))
         for c, e in zip(t.get("chips") or [], t.get("chips_" + lang) or []):
@@ -673,6 +675,8 @@ def content_pages():
         if not sl or sl in GUIDE_FOLDERS or sl == "pocitani":
             continue
         out.append(os.path.join(ROOT, *sl.split("/"), "index.html"))
+    for u in ANALYT_ULOHY:
+        out.append(os.path.join(ROOT, "analyticka-chemie", "ulohy", u["slug"] + ".html"))
     return [p for p in out if os.path.exists(p)]
 
 

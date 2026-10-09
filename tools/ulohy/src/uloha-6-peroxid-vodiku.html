@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Úloha 6: Peroxid vodíku zpětnou jodometrickou titrací</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --card:#fdfaf4; --card-2:#efe8dc; --card-3:#e8dfd0;
+  --ink:#2f2a24; --ink-2:#5a5248; --muted:#877d70; --line:#e0d6c6; --text:#2f2a24;
+  --accent:#c96442; --accent-2:#b05535; --accent-soft:rgba(201,100,66,.13); --accent-ring:rgba(201,100,66,.55);
+  --hy:#f5d547; --hp:#f2a0c2;
+  --hy-soft:rgba(245,205,60,.5); --hp-soft:rgba(238,130,175,.36); --ho-soft:rgba(232,150,70,.4);
+  --iod:#8a4a17; --iod-2:#b0652a; --pale:#efe2a0;
+  --sample:#bcd4de; --diluted:#d9e7ec; --thio:#d6e2e6;
+  --ok:#3f8a57; --bad:#b93a2c;
+  --shadow:0 1px 0 rgba(60,40,20,.04), 0 12px 30px -20px rgba(60,40,20,.35);
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --hand:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#262320; --card:#2f2b27; --card-2:#39342f; --card-3:#433d37;
+    --ink:#f1ebe2; --ink-2:#d3cabd; --muted:#a59b8e; --line:#4a443d; --text:#ece5da;
+    --accent:#d97757; --accent-2:#e38a6c; --accent-soft:rgba(217,119,87,.16); --accent-ring:rgba(217,119,87,.55);
+    --hy:#dcbf35; --hp:#e07fa9;
+    --hy-soft:rgba(220,190,50,.3); --hp-soft:rgba(224,127,169,.3); --ho-soft:rgba(232,150,70,.3);
+    --iod:#9a531c; --iod-2:#c0733a; --pale:#8f8350;
+    --sample:#4d6a76; --diluted:#3a5058; --thio:#56666c;
+    --ok:#6cc08a; --bad:#ff8272;
+    --shadow:0 1px 0 rgba(0,0,0,.2), 0 12px 30px -18px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#262320; --card:#2f2b27; --card-2:#39342f; --card-3:#433d37;
+  --ink:#f1ebe2; --ink-2:#d3cabd; --muted:#a59b8e; --line:#4a443d; --text:#ece5da;
+  --accent:#d97757; --accent-2:#e38a6c; --accent-soft:rgba(217,119,87,.16); --accent-ring:rgba(217,119,87,.55);
+  --hy:#dcbf35; --hp:#e07fa9;
+  --hy-soft:rgba(220,190,50,.3); --hp-soft:rgba(224,127,169,.3); --ho-soft:rgba(232,150,70,.3);
+  --iod:#9a531c; --iod-2:#c0733a; --pale:#8f8350;
+  --sample:#4d6a76; --diluted:#3a5058; --thio:#56666c;
+  --ok:#6cc08a; --bad:#ff8272;
+  --shadow:0 1px 0 rgba(0,0,0,.2), 0 12px 30px -18px rgba(0,0,0,.7);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;min-height:100%;color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.55;background:var(--paper)}
+img,svg{max-width:100%}
+a{color:var(--accent)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+/* nav */
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:1120px;margin:0 auto;display:flex;gap:4px;align-items:center;padding:8px 16px;overflow-x:auto;scrollbar-width:none}
+.topnav .in::-webkit-scrollbar{display:none}
+.topnav a{flex:none;text-decoration:none;color:var(--ink-2);font-size:14.5px;font-weight:600;padding:6px 11px;border-radius:999px;white-space:nowrap}
+.topnav a .n{font-family:var(--serif);font-weight:700;margin-right:5px;color:var(--muted)}
+.topnav a.active{background:var(--accent);color:#fff}
+.topnav a.active .n{color:#fff}
+.progress{height:3px;background:var(--accent);width:0;transition:width .1s linear}
+
+main{max-width:1120px;margin:0 auto;padding:0 16px 64px}
+section{padding:56px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1;color:var(--accent);opacity:.55}
+h1,h2,h3{font-family:var(--serif);color:var(--ink);margin:0}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:600;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:600;margin-bottom:6px}
+.lead{max-width:70ch;font-size:18px;margin:6px 0 22px}
+p{max-width:72ch}
+.muted{color:var(--muted)}
+.hand{font-family:var(--hand);font-size:1.45em;line-height:1.1;color:var(--accent)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+.hy,.hp,.ho{padding:0 .12em;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hy{background:linear-gradient(transparent 12%,var(--hy-soft) 12%,var(--hy-soft) 92%,transparent 92%)}
+.hp{background:linear-gradient(transparent 12%,var(--hp-soft) 12%,var(--hp-soft) 92%,transparent 92%)}
+.ho{background:linear-gradient(transparent 12%,var(--ho-soft) 12%,var(--ho-soft) 92%,transparent 92%)}
+
+.m{font-family:var(--serif);font-size:1.1em;color:var(--ink)}
+.m i,.eq i{font-style:italic}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:.28em;font-family:var(--serif);font-size:22px;color:var(--ink);padding:8px 0;overflow-x:auto}
+.eq.big{font-size:clamp(20px,2.8vw,28px)}
+.f{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}
+.f>span:first-child{border-bottom:1.6px solid currentColor;padding:0 .3em .12em}
+.f>span:last-child{padding:.12em .3em 0}
+.boxed{border:2px solid var(--ink);border-radius:10px;padding:8px 14px;display:inline-flex;flex-wrap:wrap;align-items:center;gap:.28em}
+.boxed.o{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.scroll-x{overflow-x:auto;max-width:100%}
+
+.btn{border:1.5px solid var(--ink-2);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:999px;font-weight:600;font-size:15.5px;transition:background .15s,color .15s}
+.btn:hover{background:var(--card-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-2)}
+.btn.big{font-size:18px;padding:12px 22px}
+.btn:disabled{opacity:.4;cursor:not-allowed;animation:none}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-ring)}70%{box-shadow:0 0 0 16px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+.pulse{animation:pulse 1.7s ease-out infinite}
+
+.note{border-left:4px solid var(--accent);background:var(--card-2);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0;max-width:80ch}
+.note.warn{border-color:var(--bad)}
+.note b{color:var(--ink)}
+
+/* hero */
+.hero{padding:48px 0 10px}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;letter-spacing:-.02em;font-weight:600;max-width:17ch}
+.hero .sub{font-size:19px;max-width:62ch;margin:16px 0 28px}
+.hero .sub .hand{font-size:1.35em}
+.zadani{position:relative;font-family:var(--serif);font-size:18px;line-height:1.75}
+.zadani p{max-width:78ch;margin:0}
+.zadani .tag{position:absolute;top:-14px;left:18px;background:var(--accent);color:#fff;font-family:var(--sans);font-size:13.5px;font-weight:700;padding:3px 11px;border-radius:999px}
+.abbr{font-size:14.5px;color:var(--muted);margin-top:12px;font-family:var(--sans)}
+.route{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;align-items:center}
+.route a{text-decoration:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:15px;color:var(--ink-2)}
+.route a b{font-family:var(--serif);color:var(--accent);margin-right:4px}
+.route .sep{color:var(--muted)}
+
+/* zápis */
+.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.dat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.dat .sym{font-family:var(--serif);font-size:24px;color:var(--ink)}
+.dat .what{font-size:15px;color:var(--muted);margin:2px 0 8px;min-height:2.4em}
+.dat .val{font-family:var(--serif);font-size:17px}
+.dat.unknown{border:2px dashed var(--accent);background:transparent}
+.dat.later{border-style:dashed}
+.rel{display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center}
+.rel .eq{padding:0}
+
+/* dilution */
+.dil{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end}
+@media (max-width:720px){.dil{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dil-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px 12px;text-align:center;opacity:.3;filter:grayscale(1);transition:opacity .35s,filter .35s,border-color .35s}
+.dil-card.on{opacity:1;filter:none}
+.dil-card.cur{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.dil-card svg{height:150px;width:auto;display:block;margin:0 auto}
+.dil-card .cap{font-weight:700;color:var(--ink);font-size:15.5px}
+.dil-card .cap2{font-size:14px;color:var(--muted)}
+.glass{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.svg-t{font-family:var(--serif);font-size:15px;fill:var(--ink);text-anchor:middle}
+.c-sample{fill:var(--sample)} .c-dil{fill:var(--diluted)}
+.dil-text{min-height:5.2em;margin-top:14px;font-size:17.5px}
+.dil-result{display:none}
+.dil-result.show{display:block}
+
+/* reactions */
+.rx{font-family:var(--serif);font-size:clamp(19px,2.6vw,24px);color:var(--ink);padding:10px 0;line-height:1.6;overflow-x:auto;white-space:nowrap}
+.coef{display:inline-block;min-width:1.1em;text-align:center;border-radius:5px;font-weight:700}
+.coef.k1{background:var(--hy-soft)} .coef.k2{background:var(--hp-soft)}
+.pill{display:inline-block;font-size:13.5px;font-weight:700;padding:2px 10px;border-radius:999px;border:1.5px solid var(--bad);color:var(--bad);font-family:var(--sans);vertical-align:middle}
+.ratio{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px}
+.ratio .arrowtxt{color:var(--muted);font-size:15px}
+.cross{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+@media (max-width:640px){.cross{grid-template-columns:1fr}}
+.toggle{font-size:14.5px;border:1px solid var(--line);background:var(--card-2);color:var(--ink-2);border-radius:999px;padding:4px 12px;font-weight:600}
+.svg-serif{font-family:var(--serif);fill:var(--ink)}
+
+/* ===== step 4 lab bench ===== */
+.bench{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);gap:16px;align-items:stretch}
+@media (max-width:900px){.bench{grid-template-columns:1fr}}
+.scene-card{padding:12px}
+.scene{display:block;width:100%;height:auto}
+.scene text{font-family:var(--sans)}
+.scene .sv{font-family:var(--serif);fill:var(--ink);font-size:19px}
+.scene .ss{fill:var(--muted);font-size:13px}
+.scene .sw{fill:#fff;font-family:var(--serif);font-size:24px;font-weight:600}
+.scene .sd{fill:#3a3000;font-family:var(--serif);font-size:24px;font-weight:600}
+.scene .sp{fill:#40102a;font-family:var(--serif);font-size:24px;font-weight:600}
+.scene .sa{fill:var(--accent);font-weight:700;font-size:15px}
+.scene .glass-f{fill:var(--card);stroke:var(--ink);stroke-width:2.2}
+.c-iod{fill:var(--iod)} .c-thio{fill:var(--thio)} .c-hy{fill:var(--hy)} .c-hp{fill:var(--hp)}
+.lvl{transform-box:fill-box;transform-origin:50% 100%;transition:transform 1.4s ease, fill 1s ease, opacity .8s ease}
+.fade{opacity:0;transition:opacity .6s ease}
+/* levels per stage */
+.i-liq{transform:scaleY(1)} .ge1 .i-liq{transform:scaleY(0)}
+.b-liq{transform:scaleY(1)} .ge3 .b-liq{transform:scaleY(.35)}
+.fl-iod{transform:scaleY(0);fill:var(--iod)} .ge1 .fl-iod{transform:scaleY(1)}
+.ge2 .fl-iod{fill:var(--iod-2)} .ge3 .fl-iod{fill:var(--pale)}
+.bl-v1,.bl-v2{opacity:0;fill:var(--iod)}
+.ge1 .bl-v1,.ge1 .bl-v2{opacity:1}
+.ge2 .bl-v2{fill:var(--hp)} .ge3 .bl-v1{fill:var(--hy)}
+.st0 .only0, .ge1 .ge1-on, .ge2 .ge2-on, .ge3 .ge3-on, .st1 .only1, .st2 .only2, .st4 .only4{opacity:1}
+.ge2 .hide2, .ge3 .hide3{opacity:0}
+.pour{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:7 6}
+.halo{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:9 6;opacity:0;transition:opacity .3s}
+.halo.on{opacity:1;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-30}}
+.ptr{opacity:0;transition:opacity .3s}
+.ptr.on{opacity:1;animation:bob .8s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.drop{opacity:0}
+.st3 .drop{animation:fall 1s ease-in infinite}
+.st3 .drop.d2{animation-delay:.5s}
+@keyframes fall{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(34px)}}
+.bub{opacity:0}
+.st2 .bub{opacity:1}
+.st2 .bub circle{animation:rise 1.6s ease-in infinite}
+.st2 .bub circle:nth-child(2){animation-delay:.5s} .st2 .bub circle:nth-child(3){animation-delay:1s}
+@keyframes rise{0%{transform:translateY(0);opacity:0}25%{opacity:1}100%{transform:translateY(-50px);opacity:0}}
+.bub circle{fill:none;stroke:#fff;stroke-width:1.6}
+
+.panel{display:flex;flex-direction:column;gap:14px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font-size:13.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--card-2);color:var(--muted);border:1px solid transparent}
+.chips li.done{color:var(--ink-2);background:var(--card-3)}
+.chips li.done::before{content:"✓ ";color:var(--ok)}
+.chips li.cur{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.ptitle{font-size:14px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.happened p{margin:0;font-size:17px;min-height:4.6em}
+.todo{border:2px solid var(--accent);background:var(--accent-soft);border-radius:14px;padding:14px 16px}
+.todo .hand{font-size:30px;display:block;margin-bottom:2px}
+.todo p{margin:0 0 12px;font-size:17px;font-weight:600;color:var(--ink)}
+.todo.finished{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--card))}
+.todo.finished .hand{color:var(--ok)}
+.linkbtn{border:none;background:none;color:var(--muted);text-decoration:underline;padding:0;font-size:14.5px;align-self:flex-start}
+.linkbtn:disabled{visibility:hidden}
+.legend{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:14px}
+.legend .it{display:flex;gap:10px;align-items:flex-start}
+.swatch{flex:none;width:22px;height:22px;border-radius:6px;border:1.5px solid var(--ink);margin-top:3px}
+.keyeq{margin-top:16px;display:none}
+.keyeq.show{display:block;animation:appear .5s ease}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* derivation (static) */
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){.branches{grid-template-columns:1fr}}
+.branch{border-radius:16px;padding:16px 18px;border:2px solid var(--line);background:var(--card)}
+.branch.yb{border-color:var(--hy)} .branch.pb{border-color:var(--hp)}
+.step{position:relative;border-top:1px dashed var(--line);padding:12px 0 8px 42px}
+.step:first-of-type{border-top:none}
+.step .k{position:absolute;left:0;top:12px;width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;font-family:var(--serif);font-weight:700;color:var(--paper);font-size:15px}
+.step .why{font-size:15.5px;color:var(--muted);margin:0}
+.units{font-size:14.5px;color:var(--muted);margin-top:2px;font-family:var(--serif)}
+.merge{margin-top:16px;border:2px solid var(--accent)}
+.merge .step{border-top:none}
+.merge .step+.step{border-top:1px dashed var(--line)}
+
+/* calc */
+.subst{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:14px 18px}
+.calc{margin-top:18px;display:grid;gap:10px}
+.crow{display:grid;grid-template-columns:34px minmax(150px,1fr) minmax(0,2.2fr);gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;animation:appear .4s ease}
+@media (max-width:720px){.crow{grid-template-columns:30px 1fr}.crow .cx{grid-column:1 / -1}}
+.crow.hidden{display:none}
+.crow .i{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:15px}
+.crow .lbl{font-weight:600;color:var(--ink)}
+.crow .lbl small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.crow .cx{font-family:var(--serif);font-size:18.5px;overflow-x:auto;white-space:nowrap}
+.result{display:none;margin-top:18px;border:3px solid var(--accent);border-radius:16px;padding:20px 22px;background:var(--card);box-shadow:0 0 0 6px var(--accent-soft)}
+.result.show{display:block;animation:appear .5s ease}
+.result .big{font-family:var(--serif);font-size:clamp(30px,5vw,46px);font-weight:700;color:var(--ink);line-height:1.1}
+
+/* lab */
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px}
+@media (max-width:860px){.lab{grid-template-columns:1fr}}
+.sl{margin-bottom:14px}
+.sl label{display:flex;justify-content:space-between;gap:10px;font-weight:600;color:var(--ink);font-size:15.5px}
+.sl input{width:100%;accent-color:var(--accent);margin-top:6px}
+.out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.out div{background:var(--card-2);border-radius:10px;padding:10px 12px}
+.out small{display:block;color:var(--muted);font-size:13.5px}
+.out b{font-family:var(--serif);font-size:19px;color:var(--ink)}
+.out .main{grid-column:1 / -1;background:var(--accent-soft)}
+.out .main b{font-size:28px}
+.lbar{display:flex;height:46px;border-radius:10px;overflow:hidden;border:2px solid var(--ink);margin-top:6px}
+.lbar div{display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;transition:flex-grow .25s}
+.lbar .a{background:var(--hy);color:#3a3000} .lbar .b{background:var(--hp);color:#40102a} .lbar .x{background:var(--bad);color:#fff}
+.lab-msg{min-height:2.6em;margin-top:10px;font-size:16px}
+.lab-msg.bad{color:var(--bad);font-weight:600}
+
+/* summary flow */
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;position:relative;list-style:none;margin:0;padding:0}
+.flow::before{content:"";position:absolute;left:8%;right:8%;top:38px;height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 14px);z-index:0}
+.tile{position:relative;z-index:1;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.tile::after{content:"";position:absolute;right:-19px;top:31px;width:12px;height:12px;border-top:2.5px solid var(--accent);border-right:2.5px solid var(--accent);transform:rotate(45deg)}
+.tile:last-child::after{display:none}
+.tile .top{display:flex;align-items:center;justify-content:space-between}
+.tile .badge{width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:21px;font-weight:700}
+.tile .ico{width:34px;height:34px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tile h3{font-size:18.5px;line-height:1.25;margin:4px 0 0}
+.tile p{font-size:15px;margin:0;color:var(--ink-2)}
+.tile .chip{margin-top:auto;font-family:var(--serif);background:var(--card-2);border-radius:10px;padding:8px 10px;font-size:16px;text-align:center;color:var(--ink)}
+.tile .chip+.chip{margin-top:6px}
+@media (max-width:1000px){
+  .flow{grid-template-columns:1fr;gap:14px}
+  .flow::before{left:37px;right:auto;top:24px;bottom:24px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--accent) 0 8px,transparent 8px 14px)}
+  .tile{padding-left:74px}
+  .tile .top{position:absolute;left:16px;top:18px}
+  .tile .ico{display:none}
+  .tile::after{display:none}
+  .tile .chip{margin-top:6px;text-align:left;align-self:flex-start}
+}
+.sheet{margin-top:18px;border-radius:18px;padding:22px 24px;background:var(--card);border:2px solid var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
+.sheet .row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.sheet .res{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--accent);white-space:nowrap}
+
+/* quiz */
+.q{margin-bottom:14px}
+.q .opts{display:grid;gap:8px;margin-top:10px}
+.q .opt{text-align:left;border:1.5px solid var(--line);background:var(--card-2);color:var(--text);border-radius:10px;padding:10px 14px;font-size:16px}
+.q .opt:hover{border-color:var(--ink-2)}
+.q .opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--card))}
+.q .opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--card))}
+.q .fb{display:none;margin-top:10px;font-size:16px}
+.q .fb.show{display:block}
+.q .fb b.ok{color:var(--ok)} .q .fb b.no{color:var(--bad)}
+.score{font-family:var(--serif);font-size:20px;color:var(--ink)}
+footer{max-width:1120px;margin:0 auto;padding:10px 16px 40px;color:var(--muted);font-size:14.5px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .st3 .drop{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Kroky řešení">
+  <div class="in">
+    <a href="#zapis"><span class="n">1</span>Zápis</a>
+    <a href="#redeni"><span class="n">2</span>Ředění</a>
+    <a href="#reakce"><span class="n">3</span>Reakce</a>
+    <a href="#princip"><span class="n">4</span>Princip</a>
+    <a href="#odvozeni"><span class="n">5</span>Odvození</a>
+    <a href="#dosazeni"><span class="n">6</span>Dosazení</a>
+    <a href="#lab"><span class="n">7</span>Co kdyby?</a>
+    <a href="#kostka"><span class="n">8</span>V kostce</a>
+    <a href="#otazky"><span class="n">9</span>Otázky</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<main>
+
+<header class="hero">
+  <h1>Kolik peroxidu vodíku je v litru vzorku?</h1>
+  <p class="sub">Úloha 6, zpětná jodometrická titrace. Nejdřív pochopíme, co se v baňkách děje, pak odvodíme vzorec jen z písmen. <span class="hand">Čísla dosadíme až úplně na konci.</span></p>
+
+  <div class="card zadani">
+    <span class="tag">Zadání</span>
+    <p>Peroxid vodíku byl stanovován <span class="hp">v alkalickém prostředí</span>. Z <span class="hy">1 l vzorku</span> bylo pipetováno <span class="hy">25 ml do OB na 250 ml</span> a odtud potom k vlastnímu stanovení bylo pipetováno <span class="hy">10 ml vzorku do TB</span>. Do reakční směsi bylo přidáno <span class="ho">40 ml OR jódu (c = 0,0504 mol/l)</span>. Nezreagovaný nadbytek jódu byl retitrován odměrným roztokem <span class="ho">thiosíranu sodného (c = 0,1043 mol/l)</span> a jeho spotřeba činila <span class="ho">28,45 ml</span>. Vypočítejte obsah peroxidu vodíku v gramech v 1 l vzorku. M(H₂O₂) = 34,0149 g/mol.</p>
+    <div class="abbr">OB = odměrná baňka, TB = titrační baňka, OR = odměrný roztok. Retitrovat = zpětně titrovat.</div>
+  </div>
+
+  <div class="route" aria-label="Cesta řešením">
+    <a href="#zapis"><b>1</b>Zápis</a><span class="sep">›</span>
+    <a href="#redeni"><b>2</b>Kolik vzorku titruji</a><span class="sep">›</span>
+    <a href="#reakce"><b>3</b>Rovnice a poměry</a><span class="sep">›</span>
+    <a href="#princip"><b>4</b>Rozdělení jódu</a><span class="sep">›</span>
+    <a href="#odvozeni"><b>5</b>Vzorec z písmen</a><span class="sep">›</span>
+    <a href="#dosazeni"><b>6</b>Čísla</a>
+  </div>
+</header>
+
+<!-- 1 ZÁPIS -->
+<section id="zapis">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Zápis: co znám a co hledám</h2></div>
+  <p class="lead">Každé veličině dáme značku. Dál budeme pracovat jen se značkami, hodnoty si tu jen odložíme na konec. Objemy rovnou převedeme na litry, protože koncentrace je v mol/l.</p>
+  <div class="data">
+    <div class="dat"><div class="sym m">{VS}</div><div class="what">spotřeba thiosíranu z byrety</div><div class="val">28,45 ml = <b>0,02845 l</b></div></div>
+    <div class="dat"><div class="sym m">{cS}</div><div class="what">koncentrace thiosíranu</div><div class="val"><b>0,1043 mol/l</b></div></div>
+    <div class="dat"><div class="sym m">{VI}</div><div class="what">celkem přidaný roztok jódu</div><div class="val">40 ml = <b>0,040 l</b></div></div>
+    <div class="dat"><div class="sym m">{cI}</div><div class="what">koncentrace jódu</div><div class="val"><b>0,0504 mol/l</b></div></div>
+    <div class="dat later"><div class="sym m">{VH}</div><div class="what">objem <b>původního</b> vzorku, který je v titrační baňce</div><div class="val muted">zjistíme v kroku 2</div></div>
+    <div class="dat"><div class="sym m">{MH}</div><div class="what">molární hmotnost peroxidu</div><div class="val"><b>34,0149 g/mol</b></div></div>
+    <div class="dat unknown"><div class="sym m">{cH} = ?</div><div class="what">koncentrace peroxidu v původním vzorku</div><div class="val">v mol/l, z ní pak gramy v 1 l</div></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Vztahy, které budeme potřebovat</h3>
+    <div class="rel">
+      <div class="eq"><i>n</i> = <i>c</i> · <i>V</i></div>
+      <div class="eq"><i>m</i> = <i>n</i> · <i>M</i></div>
+      <div class="eq"><i>ρ</i> = <i>c</i> · <i>M</i> <span class="muted" style="font-size:15px;font-family:var(--sans)">(gramy v 1 litru)</span></div>
+    </div>
+    <p class="muted" style="margin:6px 0 0;font-size:15px"><i>n</i> = látkové množství [mol], <i>c</i> = koncentrace [mol/l, také „M“], <i>V</i> = objem [l], <i>M</i> = molární hmotnost [g/mol].</p>
+  </div>
+</section>
+
+<!-- 2 ŘEDĚNÍ -->
+<section id="redeni">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Kolik původního vzorku vlastně titruji?</h2></div>
+  <p class="lead">Na konci potřebujeme vědět jediné: kolik mililitrů <b>původního</b> vzorku skončilo v titrační baňce. Proklikej si to.</p>
+  <div class="dil" id="dil">
+    <div class="dil-card on cur" data-i="0">
+      <svg viewBox="0 0 120 150" aria-hidden="true">
+        <defs><clipPath id="cp0"><path d="M48 10h24v18c11 3 18 11 18 22v82a8 8 0 0 1-8 8H38a8 8 0 0 1-8-8V50c0-11 7-19 18-22z"/></clipPath></defs>
+        <g clip-path="url(#cp0)"><rect class="c-sample" x="0" y="50" width="120" height="100"/></g>
+        <path class="glass" d="M48 10h24v18c11 3 18 11 18 22v82a8 8 0 0 1-8 8H38a8 8 0 0 1-8-8V50c0-11 7-19 18-22z"/>
+        <text class="svg-t" x="60" y="104">1 l</text>
+      </svg>
+      <div class="cap">Původní vzorek</div><div class="cap2">1 l</div>
+    </div>
+    <div class="dil-card" data-i="1">
+      <svg viewBox="0 0 120 150" aria-hidden="true">
+        <defs><clipPath id="cp1"><path d="M54 14V66C36 72 26 88 26 106C26 124 41 138 60 138C79 138 94 124 94 106C94 88 84 72 66 66V14Z"/></clipPath></defs>
+        <g clip-path="url(#cp1)"><rect class="c-sample" x="0" y="122" width="120" height="30"/></g>
+        <path class="glass" d="M54 14V66C36 72 26 88 26 106C26 124 41 138 60 138C79 138 94 124 94 106C94 88 84 72 66 66V14Z"/>
+        <line class="glass" x1="50" y1="34" x2="70" y2="34"/>
+        <text class="svg-t" x="60" y="112" style="font-size:13px">25 ml</text>
+      </svg>
+      <div class="cap">Pipetou 25 ml do OB</div><div class="cap2">odměrná baňka 250 ml</div>
+    </div>
+    <div class="dil-card" data-i="2">
+      <svg viewBox="0 0 120 150" aria-hidden="true">
+        <defs><clipPath id="cp2"><path d="M54 14V66C36 72 26 88 26 106C26 124 41 138 60 138C79 138 94 124 94 106C94 88 84 72 66 66V14Z"/></clipPath></defs>
+        <g clip-path="url(#cp2)"><rect class="c-dil" x="0" y="34" width="120" height="120"/></g>
+        <path class="glass" d="M54 14V66C36 72 26 88 26 106C26 124 41 138 60 138C79 138 94 124 94 106C94 88 84 72 66 66V14Z"/>
+        <line class="glass" x1="50" y1="34" x2="70" y2="34"/>
+        <text class="svg-t" x="60" y="110">1 : 10</text>
+      </svg>
+      <div class="cap">Doplnit vodou po rysku</div><div class="cap2">25 + 225 = 250 ml</div>
+    </div>
+    <div class="dil-card" data-i="3">
+      <svg viewBox="0 0 120 150" aria-hidden="true">
+        <defs><clipPath id="cp3"><path d="M50 14V58L22 126Q19 138 30 138H90Q101 138 98 126L70 58V14Z"/></clipPath></defs>
+        <g clip-path="url(#cp3)"><rect class="c-dil" x="0" y="112" width="120" height="40"/></g>
+        <path class="glass" d="M50 14V58L22 126Q19 138 30 138H90Q101 138 98 126L70 58V14Z"/>
+        <text class="svg-t" x="60" y="100" style="font-size:13px">10 ml</text>
+      </svg>
+      <div class="cap">10 ml do TB</div><div class="cap2">titrační baňka</div>
+    </div>
+  </div>
+  <div class="dil-text" id="dilText"></div>
+  <div class="btns">
+    <button class="btn" id="dilPrev">Zpět</button>
+    <button class="btn primary" id="dilNext">Další krok</button>
+  </div>
+  <div class="note dil-result" id="dilResult">
+    <b>Závěr kroku 2:</b> v titrační baňce je <span class="m">10 ml : 10 = 1 ml</span> původního vzorku, tedy
+    <span class="m ho">{VH} = 1 ml = 0,001 l</span>.<br>
+    Když spočítáme koncentraci peroxidu v tomhle 1 ml původního vzorku, máme rovnou koncentraci v celé láhvi. Ředění už pak neřešíme.
+  </div>
+</section>
+
+<!-- 3 REAKCE -->
+<section id="reakce">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Dvě reakce a jejich poměry</h2></div>
+  <p class="lead">V baňce proběhnou dvě reakce za sebou. Z každé potřebujeme jen jedno: v jakém poměru spolu látky reagují.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Reakce ① peroxid + jód <span class="pill">alkalické prostředí!</span></h3>
+      <div class="rx"><span class="coef k1">1</span> H₂O₂ + <span class="coef k2">1</span> I₂ + 2 OH⁻ → O₂ + 2 I⁻ + 2 H₂O</div>
+      <p class="muted" style="font-size:15.5px;margin:0">Peroxid tu redukuje jód na jodid a sám se oxiduje na kyslík. Hydroxidové ionty OH⁻ jsou pro reakci nutné, proto zásadité prostředí.</p>
+      <div class="ratio"><span class="arrowtxt">poměr 1 : 1, tedy</span><span class="boxed m">{nH} = {nI}</span></div>
+    </div>
+    <div class="card">
+      <h3>Reakce ② zbylý jód + thiosíran</h3>
+      <div class="rx" id="rx2"></div>
+      <button class="toggle" id="rx2t">Zobrazit molekulově</button>
+      <div class="ratio"><span class="arrowtxt">poměr 1 : 2, tedy</span><span class="boxed m">{nS} = 2 · {nI}</span></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Jak z rovnice dostanu vztah? Pravidlo kříže</h3>
+    <div class="cross">
+      <svg viewBox="0 0 300 120" width="300" aria-label="Koeficienty se přenášejí křížem">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--accent)"/></marker></defs>
+        <text class="svg-serif" x="40" y="34" font-size="24" text-anchor="middle">1 I₂</text>
+        <text class="svg-serif" x="100" y="34" font-size="24" text-anchor="middle">+</text>
+        <text class="svg-serif" x="175" y="34" font-size="24" text-anchor="middle">2 S₂O₃²⁻</text>
+        <path d="M40 44 L165 92" style="stroke:var(--accent)" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+        <path d="M160 44 L50 92" style="stroke:var(--accent)" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+        <text class="svg-serif" x="40" y="114" font-size="20" text-anchor="middle">2·n(I₂)</text>
+        <text class="svg-serif" x="110" y="114" font-size="20" text-anchor="middle">=</text>
+        <text class="svg-serif" x="185" y="114" font-size="20" text-anchor="middle">1·n(S₂O₃²⁻)</text>
+      </svg>
+      <div>
+        <p style="margin-top:0">Koeficient jedné látky se napíše k látkovému množství té druhé. Z <span class="m">a A + b B</span> dostaneš <span class="m">b · <i>n</i>(A) = a · <i>n</i>(B)</span>.</p>
+        <div class="note warn" style="margin:8px 0 0"><b>Častá chyba:</b> napsat <span class="m">{nI} = 2 · {nS}</span>, tedy obráceně. Kontrola selským rozumem: na jeden jód jsou potřeba dva thiosírany, takže látkové množství thiosíranu musí vyjít <b>větší</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 PRINCIP -->
+<section id="princip">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Princip zpětné titrace: jód rozdělený na dvě části</h2></div>
+  <p class="lead">Peroxid netitrujeme přímo. Přidáme jód v nadbytku, tedy známé množství a víc, než peroxid spotřebuje. Pak změříme, kolik jódu zbylo. Rozdíl je jód, který zreagoval s peroxidem. Proveď pokus sám: vpravo vždy uvidíš, co máš udělat teď.</p>
+
+  <div class="bench">
+    <div class="card scene-card">
+      <svg id="scene" class="scene st0" viewBox="0 0 800 412" role="img" aria-label="Laboratorní sestava: odměrný válec s jódem, byreta s thiosíranem, titrační baňka a bilance jódu">
+        <defs>
+          <clipPath id="clV"><rect x="64" y="132" width="52" height="218"/></clipPath>
+          <clipPath id="clB"><rect x="394" y="22" width="12" height="168"/></clipPath>
+          <clipPath id="clF"><path d="M385 235V272L312 372Q306 386 322 386H478Q494 386 488 372L415 272V235Z"/></clipPath>
+          <clipPath id="clL"><rect x="612" y="134" width="76" height="216"/></clipPath>
+          <marker id="ah2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--accent)"/></marker>
+        </defs>
+
+        <!-- odměrný válec s jódem -->
+        <g clip-path="url(#clV)"><rect class="lvl i-liq c-iod" x="64" y="140" width="52" height="210"/></g>
+        <path class="glass" d="M56 124 L64 132 V350 H116 V132 L124 124"/>
+        <rect class="glass" x="46" y="350" width="88" height="10" rx="3"/>
+        <g class="glass" style="stroke-width:1.4"><line x1="64" y1="180" x2="76" y2="180"/><line x1="64" y1="220" x2="76" y2="220"/><line x1="64" y1="260" x2="76" y2="260"/><line x1="64" y1="300" x2="76" y2="300"/></g>
+        <text class="sv" x="90" y="384" text-anchor="middle">{VI}</text>
+        <text class="ss" x="90" y="402" text-anchor="middle">roztok jódu</text>
+        <text class="ss fade ge1-on" x="90" y="245" text-anchor="middle">prázdný</text>
+        <path class="pour fade only0" d="M126 122 C 210 60, 320 150, 374 232" marker-end="url(#ah2)"/>
+
+        <!-- byreta s thiosíranem -->
+        <g clip-path="url(#clB)"><rect class="lvl b-liq c-thio" x="394" y="22" width="12" height="168"/></g>
+        <rect class="glass" x="392" y="20" width="16" height="172" rx="3"/>
+        <g class="glass" style="stroke-width:1.2"><line x1="408" y1="50" x2="402" y2="50"/><line x1="408" y1="80" x2="402" y2="80"/><line x1="408" y1="110" x2="402" y2="110"/><line x1="408" y1="140" x2="402" y2="140"/><line x1="408" y1="170" x2="402" y2="170"/></g>
+        <rect class="glass-f" x="384" y="192" width="32" height="8" rx="2"/>
+        <path class="glass" d="M396 200 L404 200 L402 220 L398 220 Z"/>
+        <circle class="drop c-thio" cx="400" cy="226" r="3.5" style="stroke:var(--ink);stroke-width:1"/>
+        <circle class="drop d2 c-thio" cx="400" cy="226" r="3.5" style="stroke:var(--ink);stroke-width:1"/>
+        <text class="sv" x="424" y="66">{VS}</text>
+        <text class="ss" x="424" y="86">thiosíran v byretě</text>
+        <g class="fade ge3-on">
+          <path class="glass" style="stroke:var(--accent);stroke-width:2.5" d="M388 24 H382 V131 H388"/>
+          <text class="sa" x="376" y="82" text-anchor="end">spotřeba</text>
+        </g>
+
+        <!-- titrační baňka -->
+        <g clip-path="url(#clF)">
+          <rect class="c-sample" x="300" y="352" width="200" height="40"/>
+          <rect class="lvl fl-iod" x="300" y="300" width="200" height="92"/>
+        </g>
+        <path class="glass" d="M385 235V272L312 372Q306 386 322 386H478Q494 386 488 372L415 272V235Z"/>
+        <g class="bub"><circle cx="378" cy="350" r="4"/><circle cx="408" cy="340" r="5"/><circle cx="436" cy="352" r="3.5"/></g>
+        <text class="sa fade only2" x="452" y="300">O₂ uniká</text>
+        <text class="sv" x="400" y="408" text-anchor="middle" style="font-size:16px">titrační baňka, {VH}</text>
+
+        <!-- bilance jódu -->
+        <text class="sv" x="650" y="120" text-anchor="middle" style="font-size:16px;font-weight:600">Bilance jódu</text>
+        <g clip-path="url(#clL)">
+          <rect class="lvl bl-v1" x="612" y="134" width="76" height="159"/>
+          <rect class="lvl bl-v2" x="612" y="293" width="76" height="57"/>
+        </g>
+        <rect class="glass" x="610" y="132" width="80" height="220" rx="4"/>
+        <line class="glass fade ge2-on" x1="610" y1="293" x2="690" y2="293" style="stroke-dasharray:5 4"/>
+        <text class="ss fade only0" x="650" y="245" text-anchor="middle">zatím prázdná</text>
+        <text class="sw fade only1" x="650" y="250" text-anchor="middle">{VI}</text>
+        <text class="sw fade ge2-on hide3" x="650" y="222" text-anchor="middle">?</text>
+        <text class="sd fade ge3-on" x="650" y="222" text-anchor="middle">V₁</text>
+        <text class="sp fade ge2-on" x="650" y="330" text-anchor="middle">V₂</text>
+        <text class="ss fade ge2-on" x="700" y="206">nadbytek,</text>
+        <text class="ss fade ge2-on hide3" x="700" y="224">kolik? nevíme</text>
+        <text class="ss fade ge3-on" x="700" y="224">změřil thiosíran</text>
+        <text class="ss fade ge2-on" x="700" y="316">spotřeboval</text>
+        <text class="ss fade ge2-on" x="700" y="334">peroxid</text>
+        <text class="ss fade ge1-on" x="650" y="376" text-anchor="middle">celkem = {VI}</text>
+        <rect class="fade only4" x="605" y="288" width="90" height="67" rx="6" style="fill:none;stroke:var(--accent);stroke-width:3.5"/>
+        <text class="sa fade only4" x="650" y="400" text-anchor="middle" style="font-size:17px">V₂ = V(I₂) − V₁</text>
+
+        <!-- ukazatele „teď tady" -->
+        <rect class="halo" data-h="0" x="38" y="112" width="104" height="258" rx="12"/>
+        <rect class="halo" data-h="1" x="292" y="228" width="216" height="166" rx="14"/>
+        <rect class="halo" data-h="2" x="376" y="10" width="48" height="216" rx="10"/>
+        <rect class="halo" data-h="3" x="598" y="100" width="104" height="264" rx="12"/>
+        <g class="ptr" data-h="0"><text class="sa" x="90" y="104" text-anchor="middle">▼ teď tady</text></g>
+        <g class="ptr" data-h="1"><text class="sa" x="286" y="316" text-anchor="end">teď tady ▶</text></g>
+        <g class="ptr" data-h="2"><text class="sa" x="370" y="120" text-anchor="end">teď tady ▶</text></g>
+        <g class="ptr" data-h="3"><text class="sa" x="650" y="92" text-anchor="middle">▼ teď tady</text></g>
+      </svg>
+    </div>
+
+    <div class="card panel">
+      <ol class="chips" id="chips">
+        <li>Vzorek v TB</li><li>Přilít jód</li><li>Reakce s H₂O₂</li><li>Titrace zbytku</li><li>Dopočítat V₂</li>
+      </ol>
+      <div class="happened">
+        <div class="ptitle">Co se právě stalo</div>
+        <p id="hap"></p>
+      </div>
+      <div class="todo" id="todo">
+        <span class="hand" id="todoHead">Teď ty:</span>
+        <p id="todoText"></p>
+        <button class="btn primary big pulse" id="act"></button>
+      </div>
+      <button class="linkbtn" id="back">O krok zpět</button>
+    </div>
+  </div>
+
+  <div class="card keyeq" id="keyEq">
+    <h3>Klíčová rovnice celé úlohy</h3>
+    <div class="eq big"><span class="boxed o">{V1} + {V2} = {VI}</span></div>
+    <div class="legend">
+      <div class="it"><span class="swatch" style="background:var(--hy)"></span><div><b class="m">{V1}</b> je část jódu, která zbyla a zreagovala s thiosíranem. Tu <b>změříme</b> titrací.</div></div>
+      <div class="it"><span class="swatch" style="background:var(--hp)"></span><div><b class="m">{V2}</b> je část jódu, kterou spotřeboval peroxid. Tu <b>potřebujeme</b>.</div></div>
+    </div>
+    <div class="note">Obě části jsou tentýž roztok jódu, jen si ho v duchu rozdělíme. Mají proto stejnou koncentraci: <span class="m"><i>c</i>₁ = <i>c</i>₂ = {cI}</span>.</div>
+  </div>
+</section>
+
+<!-- 5 ODVOZENÍ -->
+<section id="odvozeni">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Odvození: vzorec jen z písmen</h2></div>
+  <p class="lead">Dvě větve ve stejných barvách jako bilance jódu. Žlutá zjistí zbytek jódu, růžová z něj dopočítá peroxid. Nakonec je spojíme do jednoho vzorce.</p>
+
+  <div class="branches">
+    <div class="branch yb">
+      <h3><span class="hy">Žlutá větev</span>: kolik jódu zbylo</h3>
+      <div class="step"><span class="k">1</span>
+        <p class="why">Z reakce ② (poměr 1 : 2):</p>
+        <div class="eq">{nS} = 2 · {n1}</div>
+      </div>
+      <div class="step"><span class="k">2</span>
+        <p class="why">Každé <i>n</i> přepíšeme jako <i>c</i> · <i>V</i>:</p>
+        <div class="eq">{VS} · {cS} = 2 · {cI} · {V1}</div>
+      </div>
+      <div class="step"><span class="k">3</span>
+        <p class="why">Vyjádříme neznámou <span class="m">{V1}</span>:</p>
+        <div class="eq"><span class="boxed">{V1} = <span class="f"><span>{VS} · {cS}</span><span>2 · {cI}</span></span></span></div>
+        <div class="units">jednotky: [l · mol/l] : [mol/l] = [l] ✓</div>
+      </div>
+    </div>
+    <div class="branch pb">
+      <h3><span class="hp">Růžová větev</span>: jód, který spotřeboval peroxid</h3>
+      <div class="step"><span class="k">4</span>
+        <p class="why">Z reakce ① (poměr 1 : 1):</p>
+        <div class="eq">{nH} = {n2}</div>
+      </div>
+      <div class="step"><span class="k">5</span>
+        <p class="why">Opět <i>n</i> = <i>c</i> · <i>V</i>:</p>
+        <div class="eq">{VH} · {cH} = {V2} · {cI}</div>
+      </div>
+      <div class="step"><span class="k">6</span>
+        <p class="why"><span class="m">{V2}</span> neznáme přímo, ale z bilance jódu víme, že je to zbytek do celku:</p>
+        <div class="eq">{V2} = {VI} − {V1}</div>
+      </div>
+      <div class="step"><span class="k">7</span>
+        <p class="why">Vyjádříme hledanou <span class="m">{cH}</span>:</p>
+        <div class="eq"><span class="boxed">{cH} = <span class="f"><span>({VI} − {V1}) · {cI}</span><span>{VH}</span></span></span></div>
+        <div class="units">jednotky: [l] · [mol/l] : [l] = [mol/l] ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="branch merge">
+    <h3>Spojení: žlutou větev dosadíme do růžové</h3>
+    <div class="step"><span class="k">8</span>
+      <p class="why">Místo <span class="m">{V1}</span> v kroku 7 napíšeme výraz z kroku 3:</p>
+      <div class="eq big scroll-x"><span class="boxed o">{cH} = <span class="f"><span>( {VI} − <span class="f"><span>{VS} · {cS}</span><span>2 · {cI}</span></span> ) · {cI}</span><span>{VH}</span></span></span></div>
+      <p style="margin:6px 0 0"><span class="hand">Celé řešení je hotové, a zatím ani jedno číslo.</span></p>
+    </div>
+    <div class="step"><span class="k">9</span>
+      <p class="why">Z látkové koncentrace na gramy v 1 l:</p>
+      <div class="eq"><span class="boxed">{rH} = {cH} · {MH}</span> <span class="muted" style="font-family:var(--sans);font-size:16px">a v 1 l vzorku je <span class="m">{mH} = {rH} · 1 l</span></span></div>
+      <div class="units">jednotky: [mol/l] · [g/mol] = [g/l] ✓</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 DOSAZENÍ -->
+<section id="dosazeni">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Teprve teď čísla</h2></div>
+  <p class="lead">Do hotového vzorce dosadíme hodnoty ze zápisu, všechno v litrech a mol/l. Počítej postupně a zaokrouhluj až na úplném konci.</p>
+  <div class="subst scroll-x">
+    <div class="eq big" style="white-space:nowrap;flex-wrap:nowrap">
+      {cH} = <span class="f"><span>( 0,040 − <span class="f"><span><span class="hy">0,02845 · 0,1043</span></span><span>2 · 0,0504</span></span> ) · 0,0504</span><span>0,001</span></span>
+    </div>
+  </div>
+  <div class="btns">
+    <button class="btn primary pulse" id="calcNext">Spočítat další mezikrok</button>
+    <button class="btn" id="calcAll">Spočítat vše</button>
+    <button class="btn" id="calcReset">Od začátku</button>
+  </div>
+  <div class="calc" id="calc">
+    <div class="crow hidden"><span class="i">1</span><div class="lbl">Látkové množství thiosíranu<small>n = c · V</small></div><div class="cx" data-k="nS"></div></div>
+    <div class="crow hidden"><span class="i">2</span><div class="lbl"><span class="hy">V₁</span>, jód, který zbyl<small>děleno 2 · c(I₂)</small></div><div class="cx" data-k="V1"></div></div>
+    <div class="crow hidden"><span class="i">3</span><div class="lbl"><span class="hp">V₂</span>, jód, který spotřeboval peroxid<small>V₂ = V(I₂) − V₁</small></div><div class="cx" data-k="V2"></div></div>
+    <div class="crow hidden"><span class="i">4</span><div class="lbl">Látkové množství H₂O₂ v TB<small>n = V₂ · c(I₂)</small></div><div class="cx" data-k="nH"></div></div>
+    <div class="crow hidden"><span class="i">5</span><div class="lbl">Koncentrace H₂O₂ v původním vzorku<small>děleno V(H₂O₂) = 1 ml</small></div><div class="cx" data-k="cH"></div></div>
+    <div class="crow hidden"><span class="i">6</span><div class="lbl">Hmotnostní koncentrace<small>ρ = c · M</small></div><div class="cx" data-k="rho"></div></div>
+  </div>
+  <div class="result" id="result">
+    <div class="muted" style="font-weight:600">Výsledek</div>
+    <div class="big" id="resBig"></div>
+    <p style="margin:10px 0 0">V 1 litru vzorku je <b id="resG"></b> peroxidu vodíku.</p>
+    <div class="note" style="margin-bottom:0">Ve výsledcích sbírky je <b>18,10 g/l</b>. Rozdíl je jen zaokrouhlením: kdo zaokrouhlí koncentraci na 0,532 mol/l, dostane 0,532 · 34,0149 = 18,10 g/l. Bez zaokrouhlování mezivýsledku vyjde 18,11 g/l. Proto zaokrouhluj až na konci.</div>
+  </div>
+</section>
+
+<!-- 7 LAB -->
+<section id="lab">
+  <div class="sec-head"><span class="sec-num">7</span><h2>Laboratoř: co kdyby?</h2></div>
+  <p class="lead">Vzorec funguje pro jakákoli čísla. Posouvej hodnoty a sleduj, jak se jód dělí mezi obě větve a jak se mění výsledek.</p>
+  <div class="lab">
+    <div class="card">
+      <div class="sl"><label for="sVS">Spotřeba thiosíranu <span class="m" id="oVS"></span></label><input type="range" id="sVS" min="15" max="45" step="0.05"></div>
+      <div class="sl"><label for="scS">Koncentrace thiosíranu <span class="m" id="ocS"></span></label><input type="range" id="scS" min="0.08" max="0.12" step="0.0001"></div>
+      <div class="sl"><label for="sVI">Přidaný jód <span class="m" id="oVI"></span></label><input type="range" id="sVI" min="20" max="60" step="0.5"></div>
+      <div class="sl"><label for="scI">Koncentrace jódu <span class="m" id="ocI"></span></label><input type="range" id="scI" min="0.04" max="0.06" step="0.0001"></div>
+      <div class="btns"><button class="btn" id="labReset">Vrátit hodnoty ze zadání</button></div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;color:var(--ink)">Jak se dělí přidaný jód</div>
+      <div class="lbar"><div class="a" id="la"></div><div class="b" id="lb"></div></div>
+      <div class="out">
+        <div><small>V₁ (zbytek jódu)</small><b id="rV1"></b></div>
+        <div><small>V₂ (spotřeboval peroxid)</small><b id="rV2"></b></div>
+        <div><small>n(H₂O₂) v TB</small><b id="rn"></b></div>
+        <div><small>c(H₂O₂) ve vzorku</small><b id="rc"></b></div>
+        <div class="main"><small>H₂O₂ v 1 l vzorku</small><b id="rr"></b></div>
+      </div>
+      <div class="lab-msg" id="labMsg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 V KOSTCE -->
+<section id="kostka">
+  <div class="sec-head"><span class="sec-num">8</span><h2>Postup v kostce</h2></div>
+  <p class="lead">Pět kroků, které fungují na každou zpětnou titraci. Stačí vyměnit rovnice a poměry.</p>
+  <ol class="flow">
+    <li class="tile">
+      <div class="top"><span class="badge">1</span><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M12 4v9L5 26a2 2 0 0 0 2 3h18a2 2 0 0 0 2-3l-7-13V4"/><path d="M10 4h12M9 20h14"/></svg></div>
+      <h3>Kolik vzorku titruji</h3>
+      <p>Projdi ředění a zjisti, kolik <b>původního</b> vzorku je v titrační baňce.</p>
+      <div class="chip m">{VH} = 1 ml</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">2</span><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h24M22 10l6 6-6 6"/><path d="M4 8h8M4 24h8"/></svg></div>
+      <h3>Poměry z rovnic</h3>
+      <p>Z každé rovnice jen jeden vztah mezi látkovými množstvími.</p>
+      <div class="chip m">{nH} = {nI}</div>
+      <div class="chip m">{nS} = 2 · {nI}</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">3</span><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="9" width="24" height="14" rx="3"/><path d="M19 9v14"/></svg></div>
+      <h3>Rozdělit jód</h3>
+      <p>Přidaný jód = část, co zbyla, + část, co spotřeboval peroxid.</p>
+      <div class="chip m">{V1} + {V2} = {VI}</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">4</span><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26l3-9L22 4l5 5L14 22z"/><path d="M19 7l5 5"/></svg></div>
+      <h3>Vzorec z písmen</h3>
+      <p>Nejdřív <span class="m">{V1}</span>, pak <span class="m">{V2}</span>, nakonec hledaná koncentrace.</p>
+      <div class="chip m">{V1} → {V2} → {cH}</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">5</span><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26" rx="3"/><path d="M11 8h10M11 15h2M16 15h2M21 15h0M11 20h2M16 20h2M11 25h2M16 25h2M21 20v5"/></svg></div>
+      <h3>Čísla až na konci</h3>
+      <p>Dosaď v litrech a mol/l, vynásob molární hmotností, zaokrouhli.</p>
+      <div class="chip m">{rH} = {cH} · {MH}</div>
+    </li>
+  </ol>
+
+  <div class="sheet">
+    <h3>Celá úloha v jednom vzorci</h3>
+    <div class="row">
+      <div class="eq big scroll-x"><span>{mH} v 1 l =</span><span class="f"><span>( {VI} − <span class="f"><span>{VS} · {cS}</span><span>2 · {cI}</span></span> ) · {cI}</span><span>{VH}</span></span><span>· {MH} · 1 l</span></div>
+      <div class="res" id="sheetRes"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 OTÁZKY -->
+<section id="otazky">
+  <div class="sec-head"><span class="sec-num">9</span><h2>Kontrolní otázky</h2></div>
+  <p class="lead">Čtyři otázky na pochopení, ne na počítání.</p>
+  <div id="quiz"></div>
+  <p class="score" id="score"></p>
+</section>
+
+</main>
+<footer>Úloha 6, jodometrické stanovení peroxidu vodíku zpětnou titrací.</footer>
+
+<script>
+(function(){
+  var SYM = {
+    VS:'<i>V</i>(S₂O₃²⁻)', cS:'<i>c</i>(S₂O₃²⁻)', nS:'<i>n</i>(S₂O₃²⁻)',
+    VI:'<i>V</i>(I₂)', cI:'<i>c</i>(I₂)', nI:'<i>n</i>(I₂)',
+    VH:'<i>V</i>(H₂O₂)', cH:'<i>c</i>(H₂O₂)', nH:'<i>n</i>(H₂O₂)', MH:'<i>M</i>(H₂O₂)', rH:'<i>ρ</i>(H₂O₂)', mH:'<i>m</i>(H₂O₂)',
+    V1:'<span class="hy"><i>V</i>₁</span>', V2:'<span class="hp"><i>V</i>₂</span>',
+    n1:'<span class="hy"><i>n</i>₁(I₂)</span>', n2:'<span class="hp"><i>n</i>₂(I₂)</span>'
+  };
+  /* plain-text versions for SVG */
+  var TXT = {VI:'V(I₂)', VS:'V(S₂O₃²⁻)', VH:'V(H₂O₂)'};
+  document.querySelectorAll('.m, .eq, .sym').forEach(function(el){
+    el.innerHTML = el.innerHTML.replace(/\{(\w+)\}/g,function(s,k){return SYM[k]||s;});
+  });
+  document.querySelectorAll('#scene text').forEach(function(t){
+    t.textContent = t.textContent.replace(/\{(\w+)\}/g,function(s,k){return TXT[k]||s;});
+  });
+
+  function sig(x,n){ return Number(x).toPrecision(n).replace('.',','); }
+  function fix(x,d){ return Number(x).toFixed(d).replace('.',','); }
+
+  /* nav + progress */
+  var links = document.querySelectorAll('.topnav a'), prog = document.getElementById('progress');
+  function onScroll(){ var h=document.documentElement; var p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1); prog.style.width=(Math.min(1,Math.max(0,p))*100)+'%'; }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          var on = a.getAttribute('href')==='#'+e.target.id;
+          a.classList.toggle('active',on);
+          if(on){ var p=a.parentNode; p.scrollTo({left:a.offsetLeft-p.clientWidth/2+a.clientWidth/2,behavior:'smooth'}); }
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s);});
+  }
+
+  /* 2: dilution */
+  var dilTexts = [
+    'V láhvi je <b>1 l původního vzorku</b>. Celý ho titrovat nebudeme, je ho moc a je příliš koncentrovaný.',
+    'Pipetou odebereme <b>25 ml</b> původního vzorku a převedeme je do odměrné baňky na 250 ml.',
+    'Baňku doplníme destilovanou vodou po rysku (asi 225 ml vody). Vzorek jsme zředili <b>desetkrát</b>, protože 250 : 25 = 10. Každý mililitr tohoto roztoku obsahuje jen 0,1 ml původního vzorku.',
+    'K titraci odpipetujeme <b>10 ml</b> zředěného roztoku. Je v nich 10 ml : 10 = <b>1 ml původního vzorku</b>.'
+  ];
+  var dil=0, dilCards=document.querySelectorAll('.dil-card'), dilText=document.getElementById('dilText'), dilPrev=document.getElementById('dilPrev'), dilNext=document.getElementById('dilNext');
+  function drawDil(){
+    dilCards.forEach(function(c,i){ c.classList.toggle('on',i<=dil); c.classList.toggle('cur',i===dil); });
+    dilText.innerHTML=dilTexts[dil];
+    dilPrev.disabled=dil===0; dilNext.disabled=dil===3;
+    dilNext.classList.toggle('pulse',dil<3);
+    document.getElementById('dilResult').classList.toggle('show',dil===3);
+  }
+  dilPrev.onclick=function(){ if(dil>0){dil--;drawDil();} };
+  dilNext.onclick=function(){ if(dil<3){dil++;drawDil();} };
+  drawDil();
+
+  /* 3: reaction toggle */
+  var rx2=document.getElementById('rx2'), rx2t=document.getElementById('rx2t'), mol=false;
+  function drawRx(){
+    rx2.innerHTML = mol ? '<span class="coef k1">1</span> I₂ + <span class="coef k2">2</span> Na₂S₂O₃ → 2 NaI + Na₂S₄O₆'
+                        : '<span class="coef k1">1</span> I₂ + <span class="coef k2">2</span> S₂O₃²⁻ → 2 I⁻ + S₄O₆²⁻';
+    rx2t.textContent = mol ? 'Zobrazit iontově' : 'Zobrazit molekulově';
+  }
+  rx2t.onclick=function(){mol=!mol;drawRx();}; drawRx();
+
+  /* 4: lab bench */
+  var scene=document.getElementById('scene'), st=0;
+  var STAGES = [
+    {hap:'V titrační baňce je zředěný vzorek. Obsahuje 1 ml původního vzorku, tedy <span class="m">'+SYM.VH+'</span>. Jód v ní zatím není, bilance jódu je prázdná.',
+     todo:'Přilij do baňky celý odměřený roztok jódu z válce.', btn:'Přilít jód'},
+    {hap:'Celý roztok jódu <span class="m">'+SYM.VI+'</span> je v baňce, válec je prázdný. Známe jeho objem i koncentraci a je ho víc, než peroxid spotřebuje. V bilanci je zatím celý hnědý.',
+     todo:'Nech peroxid v baňce s jódem zreagovat.', btn:'Nechat zreagovat'},
+    {hap:'Peroxid spotřeboval část jódu, růžovou <span class="m">'+SYM.V2+'</span>, a unikl kyslík. Hnědý zbytek je nadbytek jódu. Kolik ho je, zatím nevíme.',
+     todo:'Změř zbytek jódu: ztitruj ho thiosíranem z byrety.', btn:'Titrovat thiosíranem'},
+    {hap:'Thiosíran zreagoval se zbylým jódem, roztok se odbarvil. Ze spotřeby <span class="m">'+SYM.VS+'</span> umíme spočítat žlutou část <span class="m">'+SYM.V1+'</span>.',
+     todo:'Zbývá růžová část. Dopočítej ji rozdílem v bilanci jódu.', btn:'Dopočítat V₂'},
+    {hap:'<span class="m">'+SYM.V2+'</span> je celek minus změřený zbytek. Přesně tolik jódu spotřeboval peroxid, a to je jediné, co k výpočtu potřebujeme.',
+     todo:'Pokus je hotový. Pokračuj na odvození vzorce, nebo si ho projdi znovu.', btn:'Projít znovu'}
+  ];
+  var chips=document.querySelectorAll('#chips li'), hap=document.getElementById('hap'), todo=document.getElementById('todo'),
+      todoHead=document.getElementById('todoHead'), todoText=document.getElementById('todoText'), act=document.getElementById('act'), back=document.getElementById('back');
+  function drawBench(){
+    var cls='scene st'+st; for(var i=1;i<=st;i++) cls+=' ge'+i;
+    scene.setAttribute('class',cls);
+    scene.querySelectorAll('.halo,.ptr').forEach(function(el){ el.classList.toggle('on', +el.getAttribute('data-h')===st); });
+    chips.forEach(function(c,i){ c.classList.toggle('done',i<st||st===4); c.classList.toggle('cur',i===st&&st<4); });
+    hap.innerHTML=STAGES[st].hap; todoText.textContent=STAGES[st].todo; act.textContent=STAGES[st].btn;
+    var fin = st===4;
+    todo.classList.toggle('finished',fin); todoHead.textContent = fin?'Hotovo!':'Teď ty:';
+    act.classList.toggle('pulse',!fin); act.classList.toggle('primary',!fin);
+    back.disabled = st===0;
+    document.getElementById('keyEq').classList.toggle('show',fin);
+  }
+  act.onclick=function(){ st = st<4 ? st+1 : 0; drawBench(); };
+  back.onclick=function(){ if(st>0){st--;drawBench();} };
+  drawBench();
+
+  /* core calculation */
+  function solve(VS,cS,VI,cI,VH,M){ var nS=VS*cS, V1=nS/(2*cI), V2=VI-V1, nH=V2*cI, cH=nH/VH; return {nS:nS,V1:V1,V2:V2,nH:nH,cH:cH,rho:cH*M}; }
+  var D={VS:0.02845,cS:0.1043,VI:0.040,cI:0.0504,VH:0.001,M:34.0149};
+  var r=solve(D.VS,D.cS,D.VI,D.cI,D.VH,D.M);
+
+  /* 6: stepwise numbers */
+  var cx = {
+    nS:'0,02845 · 0,1043 = <b>'+sig(r.nS,5)+' mol</b>',
+    V1:sig(r.nS,5)+' : (2 · 0,0504) = <b>'+sig(r.V1,5)+' l</b> <span class="muted">('+fix(r.V1*1000,2)+' ml)</span>',
+    V2:'0,040 − '+sig(r.V1,5)+' = <b>'+sig(r.V2,5)+' l</b> <span class="muted">('+fix(r.V2*1000,2)+' ml)</span>',
+    nH:sig(r.V2,5)+' · 0,0504 = <b>'+sig(r.nH,5)+' mol</b>',
+    cH:sig(r.nH,5)+' : 0,001 = <b>'+sig(r.cH,5)+' mol/l</b>',
+    rho:sig(r.cH,5)+' · 34,0149 = <b>'+fix(r.rho,2)+' g/l</b>'
+  };
+  document.querySelectorAll('#calc .cx').forEach(function(el){ el.innerHTML=cx[el.getAttribute('data-k')]; });
+  document.getElementById('resBig').innerHTML='ρ(H₂O₂) = '+fix(r.rho,2)+' g/l';
+  document.getElementById('resG').textContent=fix(r.rho,2)+' g';
+  document.getElementById('sheetRes').textContent='= '+fix(r.rho,2)+' g';
+  var rows=document.querySelectorAll('#calc .crow'), cs=0, cn=document.getElementById('calcNext');
+  function drawCalc(){
+    rows.forEach(function(rw,i){ rw.classList.toggle('hidden',i>=cs); });
+    document.getElementById('result').classList.toggle('show',cs>=rows.length);
+    cn.disabled = cs>=rows.length; cn.classList.toggle('pulse',cs<rows.length);
+  }
+  cn.onclick=function(){ if(cs<rows.length){cs++;drawCalc();} };
+  document.getElementById('calcAll').onclick=function(){ cs=rows.length; drawCalc(); };
+  document.getElementById('calcReset').onclick=function(){ cs=0; drawCalc(); };
+  drawCalc();
+
+  /* 7: lab */
+  var sVS=document.getElementById('sVS'), scS=document.getElementById('scS'), sVI=document.getElementById('sVI'), scI=document.getElementById('scI');
+  function labDefaults(){ sVS.value=28.45; scS.value=0.1043; sVI.value=40; scI.value=0.0504; }
+  function drawLab(){
+    var VS=+sVS.value/1000, cS=+scS.value, VI=+sVI.value/1000, cI=+scI.value;
+    document.getElementById('oVS').textContent=fix(+sVS.value,2)+' ml';
+    document.getElementById('ocS').textContent=fix(cS,4)+' mol/l';
+    document.getElementById('oVI').textContent=fix(+sVI.value,1)+' ml';
+    document.getElementById('ocI').textContent=fix(cI,4)+' mol/l';
+    var q=solve(VS,cS,VI,cI,D.VH,D.M), la=document.getElementById('la'), lb=document.getElementById('lb'), msg=document.getElementById('labMsg');
+    document.getElementById('rV1').textContent=fix(q.V1*1000,2)+' ml';
+    if(q.V2<=0){
+      la.className='x'; la.style.flexGrow=1; lb.style.flexGrow=0; la.textContent='V₁ > V(I₂)'; lb.textContent='';
+      ['rV2','rn','rc','rr'].forEach(function(id){document.getElementById(id).textContent='—';});
+      msg.className='lab-msg bad';
+      msg.textContent='Takový výsledek nedává smysl: thiosíranu by se spotřebovalo víc, než kolik jódu jsme vůbec přidali. Jód nebyl v nadbytku, nebo je chyba v měření.';
+      return;
+    }
+    la.className='a'; la.style.flexGrow=q.V1; lb.style.flexGrow=q.V2;
+    la.textContent = q.V1/VI>0.18 ? 'V₁ '+fix(q.V1*1000,1)+' ml' : '';
+    lb.textContent = q.V2/VI>0.18 ? 'V₂ '+fix(q.V2*1000,1)+' ml' : '';
+    document.getElementById('rV2').textContent=fix(q.V2*1000,2)+' ml';
+    document.getElementById('rn').textContent=sig(q.nH,4)+' mol';
+    document.getElementById('rc').textContent=sig(q.cH,4)+' mol/l';
+    document.getElementById('rr').textContent=fix(q.rho,2)+' g';
+    var def = Math.abs(+sVS.value-28.45)<0.001 && Math.abs(cS-0.1043)<1e-6 && Math.abs(+sVI.value-40)<0.001 && Math.abs(cI-0.0504)<1e-6;
+    msg.className='lab-msg';
+    msg.textContent = def ? 'Hodnoty ze zadání. Zkus zvýšit spotřebu thiosíranu: větší zbytek jódu znamená, že peroxid spotřeboval méně, a výsledek klesne.'
+                          : 'Všimni si: čím víc thiosíranu se spotřebuje, tím víc jódu zbylo, a tím méně peroxidu ve vzorku bylo.';
+  }
+  [sVS,scS,sVI,scI].forEach(function(s){ s.addEventListener('input',drawLab); });
+  document.getElementById('labReset').onclick=function(){ labDefaults(); drawLab(); };
+  labDefaults(); drawLab();
+
+  /* 9: quiz */
+  var Q=[
+    {q:'Proč je ve vzorci pro V₁ ve jmenovateli číslo 2?', o:['Protože jedna molekula I₂ reaguje se dvěma ionty S₂O₃²⁻.','Protože jsme vzorek ředili.','Protože H₂O₂ obsahuje dva atomy vodíku.','Aby vyšly jednotky.'], a:0,
+     e:'Z reakce ② platí n(S₂O₃²⁻) = 2 · n(I₂). Thiosíranu je dvakrát víc než jódu, takže jódu je polovina.'},
+    {q:'Kolik mililitrů PŮVODNÍHO vzorku je v titrační baňce?', o:['10 ml','25 ml','1 ml','0,1 ml'], a:2,
+     e:'25 ml vzorku se zředilo na 250 ml, tedy desetkrát. Z toho 10 ml obsahuje 10 : 10 = 1 ml původního vzorku.'},
+    {q:'Spotřeba thiosíranu by vyšla větší. Co se stane s vypočteným obsahem H₂O₂?', o:['Zvětší se.','Zmenší se.','Nezmění se.'], a:1,
+     e:'Víc thiosíranu znamená víc zbylého jódu (V₁). Na peroxid pak připadá menší část V₂ = V(I₂) − V₁, takže peroxidu bylo méně. Ověř si to v kroku 7.'},
+    {q:'Proč se tomuto postupu říká zpětná titrace?', o:['Titrujeme nadbytek přidaného činidla, ne samotnou stanovovanou látku.','Reakce probíhá obráceně, zprava doleva.','Byreta se odečítá odspodu nahoru.'], a:0,
+     e:'Peroxid netitrujeme přímo. Přidáme známé množství jódu a titrací zjistíme jeho nezreagovaný zbytek. Peroxid dopočítáme rozdílem.'}
+  ];
+  var quiz=document.getElementById('quiz'), done=0, good=0;
+  Q.forEach(function(item,qi){
+    var box=document.createElement('div'); box.className='card q';
+    box.innerHTML='<h3>'+(qi+1)+'. '+item.q+'</h3><div class="opts"></div><div class="fb"></div>';
+    var opts=box.querySelector('.opts'), fb=box.querySelector('.fb'), answered=false;
+    item.o.forEach(function(t,oi){
+      var b=document.createElement('button'); b.type='button'; b.className='opt'; b.textContent=t;
+      b.onclick=function(){
+        if(answered) return; answered=true; done++;
+        var ok=oi===item.a; if(ok) good++;
+        b.classList.add(ok?'right':'wrong'); if(!ok) opts.children[item.a].classList.add('right');
+        fb.innerHTML=(ok?'<b class="ok">Správně.</b> ':'<b class="no">Ne tak docela.</b> ')+item.e; fb.classList.add('show');
+        if(done===Q.length) document.getElementById('score').textContent='Skóre: '+good+' ze '+Q.length+'.';
+      };
+      opts.appendChild(b);
+    });
+    quiz.appendChild(box);
+  });
+})();
+</script>
+</body>
+</html>

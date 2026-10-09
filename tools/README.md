@@ -11,6 +11,10 @@ výstup těchto nástrojů.
   (`extract_pool.js` + `make_kontrola.py`), jazykovou nabídku CZ/SK/EN pro menu (`i18n.py`)
   a kontroly (`qa.js`, `overlap.js`).
 - `build/<okruh>/` — zdrojové díly jednotlivých průvodců (data, modely, kapitoly).
+- `ulohy/src/` — autorovy řešené úlohy z analytické chemie (zdroj). Stránky webu
+  `analyticka-chemie/ulohy/` z nich skládá `kostra/make_ulohy.py` (lišta webu, rámečky,
+  akcent); seznam a texty menu CZ/SK/EN jsou v `kostra/site_data.py` (`ANALYT_ULOHY`).
+  Po něm spustit `make_site.py`.
 - `eqcheck.py` — ověří bilanci atomů a náboje u všech rovnic ve stránce.
 - `verify.py` — spárování HTML značek a `node --check` nad skripty.
 - `pojmy.py` — porovná pojmový aparát anorganiky s tím, co vykládá obecná chemie.

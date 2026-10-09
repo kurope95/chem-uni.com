@@ -14,7 +14,7 @@ try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
-from site_data import GROUPS, ALL_PREFIXES, GUIDE_GROUPS, GUIDE_FOLDERS
+from site_data import GROUPS, ALL_PREFIXES, GUIDE_GROUPS, GUIDE_FOLDERS, ANALYT_ULOHY
 import i18n
 from i18n import L, Lk
 
@@ -172,6 +172,15 @@ def main():
             elif f == "index.html":
                 missing.append(gslug + "/" + f)
             # okruh, který ještě není hotový, na rozcestníku svítí jako „Připravujeme“
+
+    # sbírka řešených úloh z analytické chemie
+    for u in ANALYT_ULOHY:
+        rel = os.path.join("analyticka-chemie", "ulohy", u["slug"] + ".html")
+        if os.path.exists(os.path.join(SRC, rel)):
+            os.makedirs(os.path.join(DST, "analyticka-chemie", "ulohy"), exist_ok=True)
+            shutil.copy2(os.path.join(SRC, rel), os.path.join(DST, rel)); n += 1
+        else:
+            missing.append(rel.replace("\\", "/"))
 
     for hub in ("pocitani",):
         src = os.path.join(SRC, hub, "index.html")

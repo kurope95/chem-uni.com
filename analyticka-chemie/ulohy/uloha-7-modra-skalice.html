@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kolik modré skalice navážit, aby spotřeba thiosíranu byla 30 ml a mědi bylo víc než 0,15 g? Dvě podmínky, jedna navážka.">
+<meta name="color-scheme" content="light dark">
+<title>Úloha 7: Navážka modré skalice pro jodometrii mědi — Chemie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<style>
+:root{
+  --paper:#efe8dc; --surface:#faf6ee; --surface-2:#f3ece0; --surface-3:#e8dfd0;
+  --ink:#211b15; --ink-2:#5c5146; --ink-3:#8f8375;
+  --line:#e0d6c6; --line-strong:#c8baa5; --grid:#e6dccb;
+  --accent:#9b3320; --accent-hover:#7e2718; --accent-soft:#f6e6e0; --accent-ink:#fff7f2;
+  --teal:#216f66; --teal-soft:#e1efec;
+  --shadow-1:0 1px 2px rgba(33,27,21,.05), 0 2px 8px rgba(33,27,21,.05);
+  --shadow-3:0 12px 24px rgba(33,27,21,.10), 0 32px 64px rgba(33,27,21,.12);
+  --focus:#9b3320;
+  --f-ui:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-cond:"IBM Plex Sans Condensed","IBM Plex Sans","Segoe UI",sans-serif;
+  --f-body:"Source Serif 4","Georgia",serif;
+  --f-mono:"IBM Plex Mono","Consolas",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#15110d; --surface:#1d1813; --surface-2:#251f19; --surface-3:#302921;
+  --ink:#f0e8dc; --ink-2:#bfb2a1; --ink-3:#8f8376;
+  --line:#332b23; --line-strong:#4a4036; --grid:#241e18;
+  --accent:#e0785c; --accent-hover:#ef8c71; --accent-soft:#33201a; --accent-ink:#1a0f0a;
+  --teal:#6fbfae; --teal-soft:#152b27;
+  --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
+  --shadow-3:0 12px 24px rgba(0,0,0,.55), 0 32px 64px rgba(0,0,0,.6);
+  --focus:#e0785c;
+} }
+:root[data-theme="dark"]{
+  --paper:#15110d; --surface:#1d1813; --surface-2:#251f19; --surface-3:#302921;
+  --ink:#f0e8dc; --ink-2:#bfb2a1; --ink-3:#8f8376;
+  --line:#332b23; --line-strong:#4a4036; --grid:#241e18;
+  --accent:#e0785c; --accent-hover:#ef8c71; --accent-soft:#33201a; --accent-ink:#1a0f0a;
+  --teal:#6fbfae; --teal-soft:#152b27;
+  --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
+  --shadow-3:0 12px 24px rgba(0,0,0,.55), 0 32px 64px rgba(0,0,0,.6);
+  --focus:#e0785c;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important} }
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:17px;line-height:1.7;font-variant-numeric:oldstyle-nums;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-ui);margin:0;line-height:1.12;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.eyebrow{font-family:var(--f-cond);font-weight:600;font-size:.76rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3)}
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem)}
+.skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);
+  padding:.7rem 1rem;border-radius:0 0 8px 0;font-family:var(--f-ui);font-weight:600}
+.skip:focus{left:0}
+
+.bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:.7rem;min-height:62px;
+  max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem)}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--f-ui);
+  font-weight:700;letter-spacing:-.02em;font-size:1.02rem;color:var(--ink)}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:var(--accent);flex:none;
+  display:grid;place-items:center;color:var(--accent-ink);font-size:.78rem;font-weight:700;
+  font-family:var(--f-mono);letter-spacing:0}
+.bar .sp{flex:1}
+.crumb{display:flex;align-items:center;gap:.5rem;font-family:var(--f-ui);font-size:.86rem;color:var(--ink-3);
+  min-width:0;overflow:hidden}
+.crumb a{text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.crumb a:hover{color:var(--accent)}
+.crumb b{color:var(--ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:760px){ .crumb{display:none} }
+.iconbtn{width:40px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+  transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent}
+.iconbtn:hover{background:var(--surface-2);border-color:var(--ink-3)}
+/* tlačítko Zpátky v horní liště */
+.back{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font-family:var(--f-ui);
+  font-weight:600;font-size:.85rem;padding:0 .85rem 0 .7rem;height:40px;flex:none;border-radius:10px;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+  transition:background .15s,border-color .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.back:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.back svg{flex:none;transition:transform .18s}
+.back:hover svg{transform:translateX(-3px)}
+.bar-in .back{margin-right:.35rem;padding-right:.9rem;border-right:1px solid var(--line-strong)}
+.bar-in .back + .brand{padding-left:.15rem}
+@media (max-width:520px){ .back{padding:0;width:40px;justify-content:center} .back span{display:none} }
+footer.foot{border-top:1px solid var(--line);margin-top:clamp(4rem,9vw,7rem);padding:2.4rem 0 3.4rem;
+  background:var(--surface)}
+.foot-in{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:baseline;
+  max-width:1220px;margin:0 auto;padding:0 clamp(1.1rem,4vw,3rem);
+  font-family:var(--f-ui);font-size:.86rem;color:var(--ink-3)}
+.foot-in .sp{flex:1;min-width:20px}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<!--SITE-LANG-->
+<meta name="title-en" content="Problem 7: Weighing out blue vitriol for the iodometric determination of copper — Chemistry">
+<meta name="title-sk" content="Úloha 7: Navážka modrej skalice na jodometriu medi — Chémia">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFJElEQVR4AaxWfUxVZRj/nSP3AooIWmqiKOZsa7oUaDRKFAhTWIZIDdOwGMqEtgy2BJIEXRDNmf0hmCAsoSRRoo9hi5SQxfoAXJNYFsUgBWKpfArcC/f0PO/l3nG5lzvOHWfvc87z9Xue33nP+773yph0feS32vus76rcQj+fmwV+q3QkyiyJjmtybe4xqSXMBCghXoahVZLwlgJlHSVpSGZraLgm1+Ye3MtUWBBgByUUkHM2m1I5m4PJFHBPjso8JdQ8jw214uq5CK6eC9XCRD735N6ypBiSyOPQm+8s/gyR58oI7tDQcG9ZlqRwh+AE0s6bD63bAtIcG9xbpql4zBH42vBIOLm6QDPXBaw7UoN78yJUPf1ztFoEJqdRT0kI67KTE+mqh4YJqEKt3BSC6NJKOLm4mnGsR3/yBVZuCjb7ZqrYJPBo6HYEJKVA6+ZmruPpswbhp84iLOcU5i9bDijAuE4nhHV3rxUU+xDbKcdjpY8ZxzUCXk/B6pDnzL7Jim0CWyOwfvc+7K6oRuw39YiraUDU+UtY5v+UwPa03ERF3Iuoe+8orr+bgcr4GLCPg16Us6v0c4FhLNdYH7MPq5/dxmErsUngakYKbhSfgcZ1rpgFWaOFJMkY+q8HNZmH8eWBPRjt68OWd3IQnJWLoZ5u4avJSsXw/buQKJcx/PZco6kon3CpVs3ZYZPAuG4UjefyMPhvN+cIURQD6nKz4Oy+ALwIh6jpra8q0FJRRk3vkc+ZYu6ozc4A5woQ3bgGExinmmRaDdnKM8nRVJxPlkSioPliKYLpjQOT07HML4B8IEKZqD+ZLXSvJwMQ+GY6NqcfF7likUBCU1GeiE93s0ug44dawtFqo0Jt175FV9PPGOnrRf/tdvJbjr6Odoz296L71ya01VRT0EjcWIPMaYZdAlMx372djNKIIPT90zE1RL52lIQH4eqRFKuYPYcqAvYKORpTRYDPgL1f18J9+Qqrfgu8V+GVqusIPX7CKmbPYZeA99ObCWv8lj4hW7F0gx9cPDyJgDemXu7LvWkXeFCOP3yCwyhsXDvGGmROM+wS8H3tIMGMhda9tBffH0tH/Qc5tBh/IT8QlJZFvwnpQu9s+Ili2bQNj4BzQQuXd4JvXCLsXTYJzNE6wy8+CW5LlpqxEh0uzxw+Ct1Avzh+5z/ihbURO/F4VIzI432uGxxAUGoWJMo1AbmGb9xBOie0JpfFU7awJozQYyew8dUE6IcfQDc4CINeJw6XeQ8tBp9+z+d/DA39TjQWngaLi8dC7DhTgi0ZOZi76GGRyxjGcg0mEJyZO1Hd8iFbmkark/Z7y+ULuBAVhvPbAlEU7I+K2Gh0NvwoEpas34ioonJsiI0n2Y/IwjIsXveEiN2hnMuxuwSGsVyDa3XdMH42kTTpZpNA88US+p454u1NuffbWlF16ACq0w5hoOsOIIGm1ZlEK/SBztsUewNXKKe37S+YLp4FXje/lX9qclk8bRKwyJhitNddw6U9L2BsZNgcYb385R1or6sx+2aqMAH9TJNNefw/oP5kDpm8QxSwbhgbI1v10MsSpFuqYQT4o6oSY8Mj0D8YAevkUj24t2xQlCrVyAnA2OgIfYqhCUv9g3vLiiSfJqjqz0AYWnAJuJLChxVbqkXPveWExr87aCoSVcMJcLf1d9z706EvSJtISuTevAgR39hWSCT2U02HZoJwaoaee3FPBgkCrLDDAHmNouB9Smgm36yQoTo8uGkz1+Ye3IudLP8DAAD//9Lz7MgAAAAGSURBVAMA6ugDYbnJSScAAAAASUVORK5CYII=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%239b3320%22/%3E%3Cg fill=%22none%22 stroke=%22%23fff7f2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath stroke-width=%221.9%22 d=%22M16 8l0 -3.4M22.93 12l2.94 -1.7M22.93 20l2.94 1.7M16 24l0 3.4M9.07 20l-2.94 1.7M9.07 12l-2.94 -1.7%22/%3E%3Cpolygon stroke-width=%222.3%22 points=%2216,8 22.93,12 22.93,20 16,24 9.07,20 9.07,12%22/%3E%3Cpolygon stroke-width=%222.4%22 stroke-dasharray=%220 4.4%22 points=%2216,11.6 19.81,13.8 19.81,18.2 16,20.4 12.19,18.2 12.19,13.8%22/%3E%3C/g%3E%3Cg fill=%22%23fff7f2%22%3E%3Ccircle cx=%2216%22 cy=%228%22 r=%222%22/%3E%3Ccircle cx=%2222.93%22 cy=%2212%22 r=%222%22/%3E%3Ccircle cx=%2222.93%22 cy=%2220%22 r=%222%22/%3E%3Ccircle cx=%2216%22 cy=%2224%22 r=%222%22/%3E%3Ccircle cx=%229.07%22 cy=%2220%22 r=%222%22/%3E%3Ccircle cx=%229.07%22 cy=%2212%22 r=%222%22/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* SITE-LANG: přeložené texty — ukáže se jen ten, který odpovídá html[data-lang] */
+html[data-lang="en"] lang-cs,
+html[data-lang="sk"] lang-cs,
+html:not([data-lang="en"]) lang-en,
+html:not([data-lang="sk"]) lang-sk,
+html:not([data-lang="en"]):not([data-lang="sk"]) [data-only="foreign"]{display:none!important}
+/* nabídka jazyků: tlačítko s aktuální vlajkou a zkratkou, po klepnutí rozbalovací seznam */
+.langsw{position:relative;display:inline-flex;flex:none}
+.langsw-btn{-webkit-appearance:none;appearance:none;margin:0;display:inline-flex;align-items:center;gap:.42rem;
+  box-sizing:border-box;height:40px;padding:0 .6rem 0 .68rem;border-radius:10px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);font-family:var(--f-ui);font-weight:600;font-size:.78rem;line-height:1;
+  letter-spacing:.06em;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s}
+.langsw-btn:hover,.langsw-btn[aria-expanded="true"]{background:var(--surface-2);border-color:var(--ink-3)}
+.topbar-row .langsw-btn{height:44px}
+.langsw-cur{display:inline-flex;align-items:center;gap:.42rem}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-cur:not([data-l="cs"]),
+html[data-lang="sk"] .langsw-cur:not([data-l="sk"]),
+html[data-lang="en"] .langsw-cur:not([data-l="en"]){display:none}
+.langsw svg.flag{display:block;flex:none;width:18px;height:12px;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.langsw-chev{display:block;flex:none;width:11px;height:11px;color:var(--ink-3);transition:transform .15s}
+.langsw-btn[aria-expanded="true"] .langsw-chev{transform:rotate(180deg)}
+.langsw-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:300;display:flex;flex-direction:column;gap:2px;
+  min-width:172px;padding:5px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);
+  box-shadow:0 14px 30px rgba(0,0,0,.2),0 2px 6px rgba(0,0,0,.1)}
+.langsw-menu[hidden]{display:none!important}
+.langsw-menu button{-webkit-appearance:none;appearance:none;margin:0;display:flex;align-items:center;gap:.62rem;
+  width:100%;min-height:42px;padding:.45rem .7rem;border:0;border-radius:8px;background:transparent;color:var(--ink);
+  font-family:var(--f-ui);font-size:.88rem;font-weight:500;line-height:1.2;text-align:left;cursor:pointer}
+.langsw-menu button:hover{background:var(--surface-2)}
+.langsw-menu button:focus-visible{background:var(--surface-2);outline:2px solid var(--accent);outline-offset:-2px}
+.langsw-code{font-weight:700;font-size:.76rem;letter-spacing:.06em}
+.langsw-menu .langsw-code{min-width:1.9em}
+.langsw-name{color:var(--ink-2)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"],
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"],
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]{background:var(--accent-soft)}
+html:not([data-lang="en"]):not([data-lang="sk"]) .langsw-menu button[data-set-lang="cs"]::after,
+html[data-lang="sk"] .langsw-menu button[data-set-lang="sk"]::after,
+html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";margin-left:auto;width:9px;height:5px;border-left:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);transform:translateY(-2px) rotate(-45deg)}
+@media (max-width:420px){
+  /* vedle Zpátky, přepínače a motivu se nevejde celý název webu, zůstane značka Ch */
+  .bar-in .back ~ .brand > span:not(.dot){display:none}
+  /* název průvodce v mobilní hlavičce: raději výpustka než přetečení přes přepínač */
+  .topbar-row .name{overflow:hidden}
+  .topbar-row .name > lang-cs, .topbar-row .name > lang-en, .topbar-row .name > lang-sk{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:360px){ .bar-in .brand > span:not(.dot){display:none}
+  .langsw-btn .langsw-code{display:none} .langsw-btn{padding:0 .5rem} }
+/* autor dole na stránce */
+.authorline{margin:3.2rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);font-family:var(--f-ui);
+  font-size:.84rem;color:var(--ink-3)}
+.langnote{margin:0;font-family:var(--f-ui);font-size:.86rem;line-height:1.5;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line-strong);border-left:4px solid var(--accent);
+  border-radius:10px;padding:.6rem .9rem}
+.langnote-wrap{max-width:1220px;margin:1rem auto 0;padding:0 clamp(1.1rem,4vw,3rem)}
+/* průvodce: řádek nad úvodem — přepínač vpravo (na počítači), poznámka vlevo */
+.langbar{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:.8rem 1.2rem;
+  padding-top:clamp(.9rem,2vw,1.4rem)}
+.langbar .langnote{flex:1 1 320px}
+@media (min-width:1100px){ .langbar + .hero{padding-top:clamp(1.2rem,2.4vw,2rem)} }
+@media (max-width:1099px){ .langbar .langsw{display:none} html:not([data-lang="en"]):not([data-lang="sk"]) .langbar{display:none} }
+</style>
+<script>
+/* SITE-LANG: přepínač jazyka pro menu a ovládání (obsah modulů zůstává česky) */
+(function(){
+  var D=document.documentElement, K="site.lang", LANGS=["cs", "en", "sk"], LIVE={"Tmavý": {"en": "Dark", "sk": "Tmavý"}, "Světlý": {"en": "Light", "sk": "Svetlý"}, "Přepnout režim": {"en": "Toggle theme", "sk": "Prepnúť režim"}, "Přepnout na světlý režim": {"en": "Switch to light mode", "sk": "Prepnúť na svetlý režim"}, "Přepnout na tmavý režim": {"en": "Switch to dark mode", "sk": "Prepnúť na tmavý režim"}, "Přepnout světlý a tmavý režim": {"en": "Toggle light and dark mode", "sk": "Prepnúť svetlý a tmavý režim"}, "Opravdu vynulovat pokrok ve všech kapitolách? Nastavení motivu zůstane.": {"en": "Reset your progress in all chapters? Your theme setting will be kept.", "sk": "Naozaj vynulovať pokrok vo všetkých kapitolách? Nastavenie motívu zostane."}, "Pokrok vynulován.": {"en": "Progress reset.", "sk": "Pokrok bol vynulovaný."}}, REV={}, k, g;
+  for(k in LIVE) for(g in LIVE[k]) REV[LIVE[k][g]]=k;
+  function ok(v){ return LANGS.indexOf(v)>=0; }
+  function stored(){ try{ var v=localStorage.getItem(K); return ok(v)?v:null; }catch(e){ return null; } }
+  function initial(){
+    var m=/[?&]lang=([a-z]{2})(?:&|$)/.exec(location.search);
+    if(m&&ok(m[1])){ try{ localStorage.setItem(K,m[1]); }catch(e){} return m[1]; }
+    return stored()||"cs";
+  }
+  var lang=initial(), csTitle=null;
+  /* stránka s obsahem v jiném jazyce (např. index.sk.html) — přesměrovat na verzi pro zvolený jazyk */
+  var CL=D.getAttribute("data-content-lang")||"cs", ALT={}, al=document.querySelectorAll('link[rel="alternate"][hreflang]');
+  for(k=0;k<al.length;k++) ALT[al[k].getAttribute("hreflang")]=al[k].getAttribute("href");
+  function target(l){ if(l===CL) return null; if(ALT[l]) return ALT[l]; return (CL!=="cs"&&ALT.cs)?ALT.cs:null; }
+  function go(l){ var t=target(l); if(t){ location.replace(t+location.hash); return true; } return false; }
+  if(go(lang)) return;
+  D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
+  /* text psaný skriptem stránky (vždy česky) nebo už přeložený → text v aktuálním jazyce */
+  function tx(s){ if(s==null) return null; s=String(s);
+    var cs=LIVE[s]?s:REV[s]; if(!cs) return null;
+    var t=(lang==="cs")?cs:LIVE[cs][lang]; return (t&&t!==s)?t:null; }
+  var oc=window.confirm;
+  window.confirm=function(m){ return oc.call(window,(lang!=="cs"&&LIVE[m]&&LIVE[m][lang])||m); };
+  function liveText(el){ if(!el) return; var t=tx(el.textContent); if(t) el.textContent=t; }
+  function liveAria(el){ if(!el) return; var t=tx(el.getAttribute("aria-label")); if(t) el.setAttribute("aria-label",t); }
+  function apply(){
+    D.setAttribute("data-lang",lang); D.setAttribute("lang",lang);
+    var i, el, v, els=document.querySelectorAll("[data-en-aria-label],[data-sk-aria-label]");
+    for(i=0;i<els.length;i++){ el=els[i];
+      if(!el.hasAttribute("data-cs-aria-label")) el.setAttribute("data-cs-aria-label",el.getAttribute("aria-label")||"");
+      v=(lang==="cs")?null:el.getAttribute("data-"+lang+"-aria-label");
+      el.setAttribute("aria-label",v||el.getAttribute("data-cs-aria-label")); }
+    if(csTitle===null){ var mc=document.querySelector('meta[name="title-cs"]'); csTitle=mc?mc.getAttribute("content"):document.title; }
+    var meta=(lang==="cs")?null:document.querySelector('meta[name="title-'+lang+'"]');
+    document.title=meta?meta.getAttribute("content"):csTitle;
+    liveText(document.getElementById("themeLbl")); liveText(document.getElementById("toast"));
+    liveAria(document.getElementById("themeBtn")); liveAria(document.getElementById("themeBtn2"));
+    els=document.querySelectorAll("[data-set-lang]");
+    for(i=0;i<els.length;i++) els[i].setAttribute("aria-checked",els[i].getAttribute("data-set-lang")===lang?"true":"false");
+  }
+  function set(l){ if(!ok(l)) return; lang=l; try{ localStorage.setItem(K,l); }catch(e){} if(go(l)) return; apply(); }
+  /* rozbalovací nabídka jazyků */
+  function open_(w,on){ if(!w) return; var b=w.querySelector(".langsw-btn"), m=w.querySelector(".langsw-menu");
+    if(!b||!m) return; b.setAttribute("aria-expanded",on?"true":"false");
+    if(on) m.removeAttribute("hidden"); else m.setAttribute("hidden",""); }
+  function closeAll(keep){ var ws=document.querySelectorAll(".langsw"); for(var i=0;i<ws.length;i++) if(ws[i]!==keep) open_(ws[i],false); }
+  function up(el,sel){ return (el&&el.closest)?el.closest(sel):null; }
+  document.addEventListener("click",function(e){
+    var it=up(e.target,"[data-set-lang]"), w;
+    if(it){ w=up(it,".langsw"); set(it.getAttribute("data-set-lang")); closeAll(null);
+      if(w&&w.querySelector(".langsw-btn")) w.querySelector(".langsw-btn").focus(); return; }
+    var b=up(e.target,".langsw-btn");
+    if(b){ w=up(b,".langsw"); var on=b.getAttribute("aria-expanded")!=="true"; closeAll(w); open_(w,on);
+      if(on){ var c=w.querySelector('[data-set-lang="'+lang+'"]'); if(c) c.focus(); } return; }
+    if(!up(e.target,".langsw")) closeAll(null);
+  });
+  document.addEventListener("keydown",function(e){
+    var w=up(e.target,".langsw"); if(!w) return;
+    var b=w.querySelector(".langsw-btn"), on=b&&b.getAttribute("aria-expanded")==="true";
+    var its=[].slice.call(w.querySelectorAll("[data-set-lang]")), i=its.indexOf(document.activeElement), n=its.length;
+    if(e.key==="Escape"&&on){ open_(w,false); b.focus(); e.preventDefault(); }
+    else if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); if(!on) open_(w,true);
+      var d=(e.key==="ArrowDown")?1:n-1; its[i<0?(d===1?0:n-1):(i+d)%n].focus(); }
+    else if(e.key==="Tab"&&on){ open_(w,false); }
+  });
+  function watch(){
+    if(!window.MutationObserver) return;
+    ["themeLbl","toast"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) new MutationObserver(function(){ liveText(el); }).observe(el,{childList:true,characterData:true,subtree:true}); });
+    ["themeBtn","themeBtn2"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) new MutationObserver(function(){ liveAria(el); }).observe(el,{attributes:true,attributeFilter:["aria-label"]}); });
+  }
+  document.addEventListener("DOMContentLoaded",function(){ apply(); watch(); setTimeout(apply,0); });
+  window.addEventListener("pageshow",function(){ var v=stored(); if(v&&v!==lang){ lang=v; if(!go(v)) apply(); } });
+  window.addEventListener("storage",function(e){
+    if(e.key===K&&ok(e.newValue)&&e.newValue!==lang){ lang=e.newValue; if(!go(lang)) apply(); } });
+})();
+</script>
+<!--/SITE-LANG-->
+</head>
+<body>
+<a class="skip" href="#obsah"><lang-cs>Přeskočit na obsah</lang-cs><lang-en lang="en">Skip to content</lang-en><lang-sk lang="sk">Preskočiť na obsah</lang-sk></a>
+<header class="bar"><div class="bar-in">
+  <a class="back" href="../index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11.5 5.5L5 12l6.5 6.5"/></svg><span><lang-cs>Zpátky na analytickou chemii</lang-cs><lang-en lang="en">Back to analytical chemistry</lang-en><lang-sk lang="sk">Späť na analytickú chémiu</lang-sk></span></a><a class="brand" href="../../index.html"><span class="dot"><svg class="logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.2" d="M16 8l0 -3M22.93 12l2.6 -1.5M22.93 20l2.6 1.5M16 24l0 3M9.07 20l-2.6 1.5M9.07 12l-2.6 -1.5"/><polygon stroke-width="1.8" points="16,8 22.93,12 22.93,20 16,24 9.07,20 9.07,12"/><polygon stroke-width="1.8" stroke-dasharray="0 2.2" points="16,11.6 19.81,13.8 19.81,18.2 16,20.4 12.19,18.2 12.19,13.8"/></g><g fill="currentColor"><circle cx="16" cy="8" r="1.6"/><circle cx="22.93" cy="12" r="1.6"/><circle cx="22.93" cy="20" r="1.6"/><circle cx="16" cy="24" r="1.6"/><circle cx="9.07" cy="20" r="1.6"/><circle cx="9.07" cy="12" r="1.6"/><circle cx="16" cy="4.6" r="1.05"/><circle cx="25.87" cy="10.3" r="1.05"/><circle cx="25.87" cy="21.7" r="1.05"/><circle cx="16" cy="27.4" r="1.05"/><circle cx="6.13" cy="21.7" r="1.05"/><circle cx="6.13" cy="10.3" r="1.05"/></g></svg></span><span><lang-cs>Chemie</lang-cs><lang-en lang="en">Chemistry</lang-en><lang-sk lang="sk">Chémia</lang-sk></span></a>
+  <span class="sp"></span>
+  <nav class="crumb" aria-label="Drobečková navigace" data-en-aria-label="Breadcrumb" data-sk-aria-label="Navigačná cesta"><a href="../../index.html"><lang-cs>Úvod</lang-cs><lang-en lang="en">Home</lang-en><lang-sk lang="sk">Úvod</lang-sk></a><span>/</span><a href="../index.html"><lang-cs>Analytická chemie</lang-cs><lang-en lang="en">Analytical chemistry</lang-en><lang-sk lang="sk">Analytická chémia</lang-sk></a><span>/</span><a href="../index.html#ulohy"><lang-cs>Sbírka řešených úloh</lang-cs><lang-en lang="en">Collection of solved problems</lang-en><lang-sk lang="sk">Zbierka riešených úloh</lang-sk></a><span>/</span><b><lang-cs>Úloha 7: Navážka modré skalice pro jodometrii mědi</lang-cs><lang-en lang="en">Problem 7: Weighing out blue vitriol for the iodometric determination of copper</lang-en><lang-sk lang="sk">Úloha 7: Navážka modrej skalice na jodometriu medi</lang-sk></b></nav>
+  <!--SL--><div class="langsw"><button type="button" class="langsw-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk / Language" title="Jazyk / Language"><span class="langsw-cur" data-l="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span></span><span class="langsw-cur" data-l="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span></span><span class="langsw-cur" data-l="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span></span><svg class="langsw-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="langsw-menu" role="menu" aria-label="Jazyk / Language" hidden><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="cs" lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></svg><span class="langsw-code">CZ</span><span class="langsw-name">Čeština</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="sk" lang="sk"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0b4ea2" d="M0 6.67h30v6.66H0z"/><path fill="#ee1c25" d="M0 13.33h30V20H0z"/><path fill="#ee1c25" stroke="#fff" stroke-width=".8" d="M7.6 4.3h7.2v6.2c0 2.9-1.8 4.5-3.6 5.3-1.8-.8-3.6-2.4-3.6-5.3z"/><path fill="#fff" d="M10.8 5.9h.8v7.3h-.8zM9.5 7.6h3.4v.8H9.5zM9.1 9.5h4.2v.8H9.1z"/><path fill="#0b4ea2" d="M8.1 12.7c.9-.8 1.7-.8 2.3-.2.6-.7 1.5-.7 2.1 0 .6-.6 1.4-.6 2.2.2-.6 1.4-1.7 2.3-3.5 3.1-1.6-.7-2.6-1.7-3.1-3.1z"/></svg><span class="langsw-code">SK</span><span class="langsw-name">Slovenčina</span></button><button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en" lang="en"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#c8102e" stroke-width="3" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg><span class="langsw-code">EN</span><span class="langsw-name">English</span></button></span></div><!--/SL-->
+  <button class="iconbtn" id="themeBtn" type="button" aria-label="Přepnout režim"></button>
+</div></header>
+<!--SL--><div class="langnote-wrap" data-only="foreign"><p class="langnote"><lang-en lang="en">The content of this page is in Czech. So far, only the menus and navigation have been translated into English.</lang-en><lang-sk lang="sk">Obsah tejto stránky je v češtine. Do slovenčiny sú zatiaľ preložené iba menu a navigácia.</lang-sk></p></div><!--/SL-->
+<style>
+:root{
+  --paper:#f4efe6; --card:#fdfaf4; --card-2:#efe8dc; --card-3:#e8dfd0;
+  --ink:#2f2a24; --ink-2:#5a5248; --muted:#877d70; --line:#e0d6c6; --text:#2f2a24;
+  --accent:#c96442; --accent-2:#b05535; --accent-soft:rgba(201,100,66,.13); --accent-ring:rgba(201,100,66,.55);
+  --hy:#f5d547; --hp:#f2a0c2;
+  --hy-soft:rgba(245,205,60,.5); --hp-soft:rgba(238,130,175,.36); --ho-soft:rgba(232,150,70,.4);
+  --iod:#8a4a17; --iod-2:#b0652a; --pale:#efe2a0;
+  --sample:#bcd4de; --diluted:#d9e7ec; --thio:#d6e2e6;
+  --ok:#3f8a57; --bad:#b93a2c;
+  --shadow:0 1px 0 rgba(60,40,20,.04), 0 12px 30px -20px rgba(60,40,20,.35);
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --hand:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#262320; --card:#2f2b27; --card-2:#39342f; --card-3:#433d37;
+    --ink:#f1ebe2; --ink-2:#d3cabd; --muted:#a59b8e; --line:#4a443d; --text:#ece5da;
+    --accent:#d97757; --accent-2:#e38a6c; --accent-soft:rgba(217,119,87,.16); --accent-ring:rgba(217,119,87,.55);
+    --hy:#dcbf35; --hp:#e07fa9;
+    --hy-soft:rgba(220,190,50,.3); --hp-soft:rgba(224,127,169,.3); --ho-soft:rgba(232,150,70,.3);
+    --iod:#9a531c; --iod-2:#c0733a; --pale:#8f8350;
+    --sample:#4d6a76; --diluted:#3a5058; --thio:#56666c;
+    --ok:#6cc08a; --bad:#ff8272;
+    --shadow:0 1px 0 rgba(0,0,0,.2), 0 12px 30px -18px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#262320; --card:#2f2b27; --card-2:#39342f; --card-3:#433d37;
+  --ink:#f1ebe2; --ink-2:#d3cabd; --muted:#a59b8e; --line:#4a443d; --text:#ece5da;
+  --accent:#d97757; --accent-2:#e38a6c; --accent-soft:rgba(217,119,87,.16); --accent-ring:rgba(217,119,87,.55);
+  --hy:#dcbf35; --hp:#e07fa9;
+  --hy-soft:rgba(220,190,50,.3); --hp-soft:rgba(224,127,169,.3); --ho-soft:rgba(232,150,70,.3);
+  --iod:#9a531c; --iod-2:#c0733a; --pale:#8f8350;
+  --sample:#4d6a76; --diluted:#3a5058; --thio:#56666c;
+  --ok:#6cc08a; --bad:#ff8272;
+  --shadow:0 1px 0 rgba(0,0,0,.2), 0 12px 30px -18px rgba(0,0,0,.7);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;min-height:100%;color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.55;background:var(--paper)}
+img,svg{max-width:100%}
+a{color:var(--accent)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+/* nav */
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:1120px;margin:0 auto;display:flex;gap:4px;align-items:center;padding:8px 16px;overflow-x:auto;scrollbar-width:none}
+.topnav .in::-webkit-scrollbar{display:none}
+.topnav a{flex:none;text-decoration:none;color:var(--ink-2);font-size:14.5px;font-weight:600;padding:6px 11px;border-radius:999px;white-space:nowrap}
+.topnav a .n{font-family:var(--serif);font-weight:700;margin-right:5px;color:var(--muted)}
+.topnav a.active{background:var(--accent);color:#fff}
+.topnav a.active .n{color:#fff}
+.progress{height:3px;background:var(--accent);width:0;transition:width .1s linear}
+
+main{max-width:1120px;margin:0 auto;padding:0 16px 64px}
+section{padding:56px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1;color:var(--accent);opacity:.55}
+h1,h2,h3{font-family:var(--serif);color:var(--ink);margin:0}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:600;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:600;margin-bottom:6px}
+.lead{max-width:70ch;font-size:18px;margin:6px 0 22px}
+p{max-width:72ch}
+.muted{color:var(--muted)}
+.hand{font-family:var(--hand);font-size:1.45em;line-height:1.1;color:var(--accent)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+.hy,.hp,.ho{padding:0 .12em;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hy{background:linear-gradient(transparent 12%,var(--hy-soft) 12%,var(--hy-soft) 92%,transparent 92%)}
+.hp{background:linear-gradient(transparent 12%,var(--hp-soft) 12%,var(--hp-soft) 92%,transparent 92%)}
+.ho{background:linear-gradient(transparent 12%,var(--ho-soft) 12%,var(--ho-soft) 92%,transparent 92%)}
+
+.m{font-family:var(--serif);font-size:1.1em;color:var(--ink)}
+.m i,.eq i{font-style:italic}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:.28em;font-family:var(--serif);font-size:22px;color:var(--ink);padding:8px 0;overflow-x:auto}
+.eq.big{font-size:clamp(20px,2.8vw,28px)}
+.f{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}
+.f>span:first-child{border-bottom:1.6px solid currentColor;padding:0 .3em .12em}
+.f>span:last-child{padding:.12em .3em 0}
+.boxed{border:2px solid var(--ink);border-radius:10px;padding:8px 14px;display:inline-flex;flex-wrap:wrap;align-items:center;gap:.28em}
+.boxed.o{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.scroll-x{overflow-x:auto;max-width:100%}
+
+.btn{border:1.5px solid var(--ink-2);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:999px;font-weight:600;font-size:15.5px;transition:background .15s,color .15s}
+.btn:hover{background:var(--card-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-2)}
+.btn.big{font-size:18px;padding:12px 22px}
+.btn:disabled{opacity:.4;cursor:not-allowed;animation:none}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-ring)}70%{box-shadow:0 0 0 16px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+.pulse{animation:pulse 1.7s ease-out infinite}
+
+.note{border-left:4px solid var(--accent);background:var(--card-2);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0;max-width:80ch}
+.note.warn{border-color:var(--bad)}
+.note b{color:var(--ink)}
+
+/* hero */
+.hero{padding:48px 0 10px}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;letter-spacing:-.02em;font-weight:600;max-width:17ch}
+.hero .sub{font-size:19px;max-width:62ch;margin:16px 0 28px}
+.hero .sub .hand{font-size:1.35em}
+.zadani{position:relative;font-family:var(--serif);font-size:18px;line-height:1.75}
+.zadani p{max-width:78ch;margin:0}
+.zadani .tag{position:absolute;top:-14px;left:18px;background:var(--accent);color:#fff;font-family:var(--sans);font-size:13.5px;font-weight:700;padding:3px 11px;border-radius:999px}
+.abbr{font-size:14.5px;color:var(--muted);margin-top:12px;font-family:var(--sans)}
+.route{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;align-items:center}
+.route a{text-decoration:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:15px;color:var(--ink-2)}
+.route a b{font-family:var(--serif);color:var(--accent);margin-right:4px}
+.route .sep{color:var(--muted)}
+
+/* zápis */
+.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.dat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.dat .sym{font-family:var(--serif);font-size:24px;color:var(--ink)}
+.dat .what{font-size:15px;color:var(--muted);margin:2px 0 8px;min-height:2.4em}
+.dat .val{font-family:var(--serif);font-size:17px}
+.dat.unknown{border:2px dashed var(--accent);background:transparent}
+.dat.later{border-style:dashed}
+.rel{display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center}
+.rel .eq{padding:0}
+
+/* dilution */
+.dil{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end}
+@media (max-width:720px){.dil{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dil-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px 12px;text-align:center;opacity:.3;filter:grayscale(1);transition:opacity .35s,filter .35s,border-color .35s}
+.dil-card.on{opacity:1;filter:none}
+.dil-card.cur{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.dil-card svg{height:150px;width:auto;display:block;margin:0 auto}
+.dil-card .cap{font-weight:700;color:var(--ink);font-size:15.5px}
+.dil-card .cap2{font-size:14px;color:var(--muted)}
+.glass{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.svg-t{font-family:var(--serif);font-size:15px;fill:var(--ink);text-anchor:middle}
+.c-sample{fill:var(--sample)} .c-dil{fill:var(--diluted)}
+.dil-text{min-height:5.2em;margin-top:14px;font-size:17.5px}
+.dil-result{display:none}
+.dil-result.show{display:block}
+
+/* reactions */
+.rx{font-family:var(--serif);font-size:clamp(19px,2.6vw,24px);color:var(--ink);padding:10px 0;line-height:1.6;overflow-x:auto;white-space:nowrap}
+.coef{display:inline-block;min-width:1.1em;text-align:center;border-radius:5px;font-weight:700}
+.coef.k1{background:var(--hy-soft)} .coef.k2{background:var(--hp-soft)}
+.pill{display:inline-block;font-size:13.5px;font-weight:700;padding:2px 10px;border-radius:999px;border:1.5px solid var(--bad);color:var(--bad);font-family:var(--sans);vertical-align:middle}
+.ratio{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px}
+.ratio .arrowtxt{color:var(--muted);font-size:15px}
+.cross{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+@media (max-width:640px){.cross{grid-template-columns:1fr}}
+.toggle{font-size:14.5px;border:1px solid var(--line);background:var(--card-2);color:var(--ink-2);border-radius:999px;padding:4px 12px;font-weight:600}
+.svg-serif{font-family:var(--serif);fill:var(--ink)}
+
+/* ===== step 4 lab bench ===== */
+.bench{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);gap:16px;align-items:stretch}
+@media (max-width:900px){.bench{grid-template-columns:1fr}}
+.scene-card{padding:12px}
+.scene{display:block;width:100%;height:auto}
+.scene text{font-family:var(--sans)}
+.scene .sv{font-family:var(--serif);fill:var(--ink);font-size:19px}
+.scene .ss{fill:var(--muted);font-size:13px}
+.scene .sw{fill:#fff;font-family:var(--serif);font-size:24px;font-weight:600}
+.scene .sd{fill:#3a3000;font-family:var(--serif);font-size:24px;font-weight:600}
+.scene .u-sp{fill:#40102a;font-family:var(--serif);font-size:24px;font-weight:600}
+.scene .sa{fill:var(--accent);font-weight:700;font-size:15px}
+.scene .glass-f{fill:var(--card);stroke:var(--ink);stroke-width:2.2}
+.c-iod{fill:var(--iod)} .c-thio{fill:var(--thio)} .c-hy{fill:var(--hy)} .c-hp{fill:var(--hp)}
+.lvl{transform-box:fill-box;transform-origin:50% 100%;transition:transform 1.4s ease, fill 1s ease, opacity .8s ease}
+.fade{opacity:0;transition:opacity .6s ease}
+/* levels per stage */
+.i-liq{transform:scaleY(1)} .ge1 .i-liq{transform:scaleY(0)}
+.b-liq{transform:scaleY(1)} .ge3 .b-liq{transform:scaleY(.35)}
+.fl-iod{transform:scaleY(0);fill:var(--iod)} .ge1 .fl-iod{transform:scaleY(1)}
+.ge2 .fl-iod{fill:var(--iod-2)} .ge3 .fl-iod{fill:var(--pale)}
+.bl-v1,.bl-v2{opacity:0;fill:var(--iod)}
+.ge1 .bl-v1,.ge1 .bl-v2{opacity:1}
+.ge2 .bl-v2{fill:var(--hp)} .ge3 .bl-v1{fill:var(--hy)}
+.st0 .only0, .ge1 .ge1-on, .ge2 .ge2-on, .ge3 .ge3-on, .st1 .only1, .st2 .only2, .st4 .only4{opacity:1}
+.ge2 .hide2, .ge3 .hide3{opacity:0}
+.pour{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:7 6}
+.halo{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:9 6;opacity:0;transition:opacity .3s}
+.halo.on{opacity:1;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-30}}
+.ptr{opacity:0;transition:opacity .3s}
+.ptr.on{opacity:1;animation:bob .8s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.drop{opacity:0}
+.st3 .drop{animation:fall 1s ease-in infinite}
+.st3 .drop.d2{animation-delay:.5s}
+@keyframes fall{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(34px)}}
+.bub{opacity:0}
+.st2 .bub{opacity:1}
+.st2 .bub circle{animation:rise 1.6s ease-in infinite}
+.st2 .bub circle:nth-child(2){animation-delay:.5s} .st2 .bub circle:nth-child(3){animation-delay:1s}
+@keyframes rise{0%{transform:translateY(0);opacity:0}25%{opacity:1}100%{transform:translateY(-50px);opacity:0}}
+.bub circle{fill:none;stroke:#fff;stroke-width:1.6}
+
+.panel{display:flex;flex-direction:column;gap:14px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font-size:13.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--card-2);color:var(--muted);border:1px solid transparent}
+.chips li.done{color:var(--ink-2);background:var(--card-3)}
+.chips li.done::before{content:"✓ ";color:var(--ok)}
+.chips li.cur{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.ptitle{font-size:14px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.happened p{margin:0;font-size:17px;min-height:4.6em}
+.todo{border:2px solid var(--accent);background:var(--accent-soft);border-radius:14px;padding:14px 16px}
+.todo .hand{font-size:30px;display:block;margin-bottom:2px}
+.todo p{margin:0 0 12px;font-size:17px;font-weight:600;color:var(--ink)}
+.todo.finished{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--card))}
+.todo.finished .hand{color:var(--ok)}
+.linkbtn{border:none;background:none;color:var(--muted);text-decoration:underline;padding:0;font-size:14.5px;align-self:flex-start}
+.linkbtn:disabled{visibility:hidden}
+.legend{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:14px}
+.legend .it{display:flex;gap:10px;align-items:flex-start}
+.swatch{flex:none;width:22px;height:22px;border-radius:6px;border:1.5px solid var(--ink);margin-top:3px}
+.keyeq{margin-top:16px;display:none}
+.keyeq.show{display:block;animation:appear .5s ease}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* derivation (static) */
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){.branches{grid-template-columns:1fr}}
+.branch{border-radius:16px;padding:16px 18px;border:2px solid var(--line);background:var(--card)}
+.branch.yb{border-color:var(--hy)} .branch.pb{border-color:var(--hp)}
+.step{position:relative;border-top:1px dashed var(--line);padding:12px 0 8px 42px}
+.step:first-of-type{border-top:none}
+.step .k{position:absolute;left:0;top:12px;width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;font-family:var(--serif);font-weight:700;color:var(--paper);font-size:15px}
+.step .why{font-size:15.5px;color:var(--muted);margin:0}
+.units{font-size:14.5px;color:var(--muted);margin-top:2px;font-family:var(--serif)}
+.merge{margin-top:16px;border:2px solid var(--accent)}
+.merge .step{border-top:none}
+.merge .step+.step{border-top:1px dashed var(--line)}
+
+/* calc */
+.subst{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:14px 18px}
+.calc{margin-top:18px;display:grid;gap:10px}
+.crow{display:grid;grid-template-columns:34px minmax(150px,1fr) minmax(0,2.2fr);gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;animation:appear .4s ease}
+@media (max-width:720px){.crow{grid-template-columns:30px 1fr}.crow .cx{grid-column:1 / -1}}
+.crow.hidden{display:none}
+.crow .i{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:15px}
+.crow .lbl{font-weight:600;color:var(--ink)}
+.crow .lbl small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.crow .cx{font-family:var(--serif);font-size:18.5px;overflow-x:auto;white-space:nowrap}
+.result{display:none;margin-top:18px;border:3px solid var(--accent);border-radius:16px;padding:20px 22px;background:var(--card);box-shadow:0 0 0 6px var(--accent-soft)}
+.result.show{display:block;animation:appear .5s ease}
+.result .big{font-family:var(--serif);font-size:clamp(30px,5vw,46px);font-weight:700;color:var(--ink);line-height:1.1}
+
+/* lab */
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px}
+@media (max-width:860px){.lab{grid-template-columns:1fr}}
+.sl{margin-bottom:14px}
+.sl label{display:flex;justify-content:space-between;gap:10px;font-weight:600;color:var(--ink);font-size:15.5px}
+.sl input{width:100%;accent-color:var(--accent);margin-top:6px}
+.out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.out div{background:var(--card-2);border-radius:10px;padding:10px 12px}
+.out small{display:block;color:var(--muted);font-size:13.5px}
+.out b{font-family:var(--serif);font-size:19px;color:var(--ink)}
+.out .main{grid-column:1 / -1;background:var(--accent-soft)}
+.out .main b{font-size:28px}
+.lbar{display:flex;height:46px;border-radius:10px;overflow:hidden;border:2px solid var(--ink);margin-top:6px}
+.lbar div{display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;transition:flex-grow .25s}
+.lbar .a{background:var(--hy);color:#3a3000} .lbar .b{background:var(--hp);color:#40102a} .lbar .x{background:var(--bad);color:#fff}
+.lab-msg{min-height:2.6em;margin-top:10px;font-size:16px}
+.lab-msg.bad{color:var(--bad);font-weight:600}
+
+/* summary flow */
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;position:relative;list-style:none;margin:0;padding:0}
+.flow::before{content:"";position:absolute;left:8%;right:8%;top:38px;height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 14px);z-index:0}
+.tile{position:relative;z-index:1;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.tile::after{content:"";position:absolute;right:-19px;top:31px;width:12px;height:12px;border-top:2.5px solid var(--accent);border-right:2.5px solid var(--accent);transform:rotate(45deg)}
+.tile:last-child::after{display:none}
+.tile .top{display:flex;align-items:center;justify-content:space-between}
+.tile .badge{width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:21px;font-weight:700}
+.tile .ico{width:34px;height:34px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tile h3{font-size:18.5px;line-height:1.25;margin:4px 0 0}
+.tile p{font-size:15px;margin:0;color:var(--ink-2)}
+.tile .chip{margin-top:auto;font-family:var(--serif);background:var(--card-2);border-radius:10px;padding:8px 10px;font-size:16px;text-align:center;color:var(--ink)}
+.tile .chip+.chip{margin-top:6px}
+@media (max-width:1000px){
+  .flow{grid-template-columns:1fr;gap:14px}
+  .flow::before{left:37px;right:auto;top:24px;bottom:24px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--accent) 0 8px,transparent 8px 14px)}
+  .tile{padding-left:74px}
+  .tile .top{position:absolute;left:16px;top:18px}
+  .tile .ico{display:none}
+  .tile::after{display:none}
+  .tile .chip{margin-top:6px;text-align:left;align-self:flex-start}
+}
+.sheet{margin-top:18px;border-radius:18px;padding:22px 24px;background:var(--card);border:2px solid var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
+.sheet .row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.sheet .res{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--accent);white-space:nowrap}
+
+/* quiz */
+.q{margin-bottom:14px}
+.q .opts{display:grid;gap:8px;margin-top:10px}
+.q .opt{text-align:left;border:1.5px solid var(--line);background:var(--card-2);color:var(--text);border-radius:10px;padding:10px 14px;font-size:16px}
+.q .opt:hover{border-color:var(--ink-2)}
+.q .opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--card))}
+.q .opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--card))}
+.q .fb{display:none;margin-top:10px;font-size:16px}
+.q .fb.show{display:block}
+.q .fb b.ok{color:var(--ok)} .q .fb b.no{color:var(--bad)}
+.score{font-family:var(--serif);font-size:20px;color:var(--ink)}
+footer.u-foot{max-width:1120px;margin:0 auto;padding:10px 16px 40px;color:var(--muted);font-size:14.5px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .st3 .drop{opacity:1}
+}
+/* ===== úloha 7 ===== */
+:root{--cu:#2c7fb8;--cu-soft:rgba(44,127,184,.18);--thio-c:#5b7f8c}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--cu:#6fb3e3;--cu-soft:rgba(111,179,227,.2);--thio-c:#9cc0cc}}
+:root[data-theme="dark"]{--cu:#6fb3e3;--cu-soft:rgba(111,179,227,.2);--thio-c:#9cc0cc}
+.hc{background:linear-gradient(transparent 12%,var(--cu-soft) 12%,var(--cu-soft) 92%,transparent 92%);padding:0 .12em;border-radius:3px}
+
+.rxcard{margin:6px 0 34px;border:2px solid var(--ink);border-radius:20px;padding:22px 24px 20px;background:var(--card);box-shadow:var(--shadow)}
+.rxtop{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+.rxtop h2{font-size:clamp(22px,2.8vw,28px)}
+.rxline{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:center;padding:10px 0}
+.rxline+.rxline{border-top:1px dashed var(--line)}
+.rxno{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:20px}
+.rxbig{font-family:var(--serif);font-size:clamp(17px,2.9vw,36px);line-height:1.25;color:var(--ink);white-space:nowrap;overflow-x:auto;padding:4px 2px 6px}
+.rxcap{font-size:15px;color:var(--muted);font-family:var(--sans);margin-top:-2px}
+@media (max-width:640px){.rxbig{white-space:normal;font-size:22px}}
+.u-sp{white-space:nowrap;font:inherit;color:inherit;background:none;border:none;padding:0 .08em;border-radius:8px;border-bottom:2.5px dotted var(--muted);cursor:pointer;transition:background .15s}
+.u-sp:hover{background:var(--card-2)}
+.u-sp.on{background:var(--accent-soft);border-bottom:2.5px solid var(--accent)}
+.u-sp.cu{color:var(--cu)} .u-sp.io{color:var(--iod-2)} .u-sp.th{color:var(--thio-c)}
+.op{color:var(--muted);margin:0 .12em}
+.cf{font-weight:700}
+.tip{font-size:15px;color:var(--muted);margin:6px 0 0}
+.why{margin-top:14px;border-left:4px solid var(--accent);background:var(--card-2);border-radius:0 12px 12px 0;padding:14px 18px;min-height:7.5em}
+.why h3{margin:0 0 4px;font-size:21px}
+.why p{margin:0;font-size:17px;max-width:78ch}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:18px;font-family:var(--serif);font-size:clamp(20px,2.6vw,26px);color:var(--ink)}
+.chain .node{background:var(--card-2);border:1.5px solid var(--line);border-radius:12px;padding:6px 14px;white-space:nowrap}
+.chain .arr{color:var(--accent);font-size:.9em}
+.chain .res{margin-left:auto}
+details.el{margin-top:16px;border:1px solid var(--line);border-radius:12px;padding:10px 16px;background:var(--card)}
+details.el summary{cursor:pointer;font-weight:700;color:var(--ink)}
+details.el .eq{font-size:19px}
+.hl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;margin-top:8px}
+.hl .tag2{font-size:14px;font-weight:700;border-radius:999px;padding:2px 10px;font-family:var(--sans);white-space:nowrap}
+.tag2.red{background:var(--cu-soft);color:var(--cu)} .tag2.ox{background:var(--ho-soft);color:var(--ink)}
+@media (max-width:640px){.hl{grid-template-columns:1fr}.rxline{grid-template-columns:1fr}.rxno{width:32px;height:32px;font-size:16px}}
+
+.scale{position:relative;height:110px;margin:22px 4px 8px}
+.scale .axis{position:absolute;left:0;right:0;top:56px;height:16px;border-radius:8px;background:color-mix(in srgb,var(--ok) 30%,var(--card-2));border:1.5px solid var(--ink)}
+.scale .redz{position:absolute;left:0;top:56px;height:16px;border-radius:8px 0 0 8px;background:color-mix(in srgb,var(--bad) 45%,var(--card-2));border:1.5px solid var(--ink);border-right:none}
+.scale .mk{position:absolute;top:0;transform:translateX(-50%);text-align:center;font-size:14px;color:var(--ink);white-space:nowrap}
+.scale .mk b{font-family:var(--serif);font-size:18px;display:block}
+.scale .mk::after{content:"";display:block;width:2.5px;height:30px;margin:2px auto 0;background:var(--ink)}
+.scale .mk.acc{color:var(--accent)} .scale .mk.acc::after{background:var(--accent)}
+.scale .tk{position:absolute;top:78px;transform:translateX(-50%);white-space:nowrap;font-size:13px;color:var(--muted);font-family:var(--serif)}
+.scale .zl{position:absolute;top:92px;font-size:13.5px;font-weight:600}
+.okc{color:var(--ok)} .badc{color:var(--bad)}
+.cbar{position:relative;height:40px;border-radius:10px;border:2px solid var(--ink);overflow:hidden;background:var(--card-2);margin-top:8px}
+.cbar .fill{height:100%;background:var(--cu);transition:width .2s}
+.cbar .lim{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--bad)}
+.cbar .lt{position:absolute;top:50%;transform:translateY(-50%);font-size:13px;font-weight:700;color:#fff;padding-left:8px}
+
+</style>
+<style>
+/* ---- ULOHA-WEB: napojení řešené úlohy na web ---- */
+/* lišta webu se posouvá s obsahem: úloha má vlastní přilepenou lištu kroků */
+.bar{position:relative}
+/* akcent jako zbytek webu */
+:root{--accent:#9b3320;--accent-2:#7e2718;--accent-soft:rgba(155,51,32,.12);--accent-ring:rgba(155,51,32,.5);
+  --u-shadow:0 1px 2px rgba(33,27,21,.07),0 6px 16px rgba(33,27,21,.09)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e0785c;--accent-2:#ef8c71;
+  --accent-soft:rgba(224,120,92,.16);--accent-ring:rgba(224,120,92,.55);
+  --u-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38)}}
+:root[data-theme="dark"]{--accent:#e0785c;--accent-2:#ef8c71;--accent-soft:rgba(224,120,92,.16);
+  --accent-ring:rgba(224,120,92,.55);--u-shadow:0 2px 6px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.38)}
+/* rámečky: výrazný okraj bez výjimky (CLAUDE.md) */
+.card{border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:16px;box-shadow:var(--u-shadow)}
+.tile{border:2px solid var(--line-strong);border-top:4px solid var(--accent);border-radius:16px;box-shadow:var(--u-shadow)}
+.dat,.dil-card,.crow,details.el,.chain .node{border:2px solid var(--line-strong);box-shadow:var(--u-shadow)}
+.q .opt,.route a,.toggle{border:2px solid var(--line-strong)}
+.topnav{border-bottom:2px solid var(--line-strong)}
+</style>
+<nav class="topnav" aria-label="Kroky řešení">
+  <div class="in">
+    <a href="#rovnice"><span class="n">1</span>Rovnice</a>
+    <a href="#zapis"><span class="n">2</span>Zápis</a>
+    <a href="#podminky"><span class="n">3</span>Dvě podmínky</a>
+    <a href="#odvozeni"><span class="n">4</span>Odvození</a>
+    <a href="#dosazeni"><span class="n">5</span>Dosazení</a>
+    <a href="#lab"><span class="n">6</span>Co kdyby?</a>
+    <a href="#kostka"><span class="n">7</span>V kostce</a>
+    <a href="#otazky"><span class="n">8</span>Otázky</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<main id="obsah" lang="cs">
+
+<header class="hero" style="padding-bottom:0">
+  <h1>Kolik modré skalice navážit na jodometrii mědi?</h1>
+  <p class="sub">Úloha 7, nepřímé jodometrické stanovení Cu²⁺. Všechno stojí na dvou rovnicích, proto jsou hned tady. <span class="hand">Klepni na kteroukoli látku a uvidíš, proč tam je.</span></p>
+</header>
+
+<!-- 1 ROVNICE -->
+<section id="rovnice" style="padding-top:8px">
+  <div class="rxcard">
+    <div class="rxtop">
+      <h2>Chemie stanovení</h2>
+      <button class="toggle" id="rxMode">Zobrazit molekulově</button>
+    </div>
+
+    <div class="rxline">
+      <span class="rxno">1</span>
+      <div>
+        <div class="rxbig" id="rx1"></div>
+        <div class="rxcap">Uvolnění jódu: navážená modrá skalice zoxiduje jodid z KI (KI se přidává v nadbytku, v zadání není, protože ho nepočítáme).</div>
+      </div>
+    </div>
+    <div class="rxline">
+      <span class="rxno">2</span>
+      <div>
+        <div class="rxbig" id="rx2"></div>
+        <div class="rxcap">Titrace: vyloučený jód ztitrujeme odměrným roztokem thiosíranu sodného z byrety.</div>
+      </div>
+    </div>
+
+    <div class="why" id="why" aria-live="polite"></div>
+
+    <div class="chain" aria-label="Řetězec poměrů">
+      <span class="node"><span class="cf">2</span> <span style="color:var(--cu)">CuSO₄·5H₂O</span></span>
+      <span class="arr">uvolní</span>
+      <span class="node"><span class="cf">1</span> <span style="color:var(--iod-2)">I₂</span></span>
+      <span class="arr">spotřebuje</span>
+      <span class="node"><span class="cf">2</span> <span style="color:var(--thio-c)">Na₂S₂O₃</span></span>
+      <span class="res boxed o m">{nK} = {nS}</span>
+    </div>
+    <p class="tip">Jód je jen prostředník: kolik ho měď uvolní, tolik ho thiosíran spotřebuje. Dvojky se navzájem zkrátí: skalice a thiosíran sodný reagují v poměru 1 : 1.</p>
+
+    <details class="el">
+      <summary>Proč zrovna tyhle koeficienty? Bilance elektronů</summary>
+      <p class="tip" style="margin-top:8px">Tady záměrně jen ionty, které si elektrony opravdu předávají. SO₄²⁻, K⁺, Na⁺ a krystalová voda se nemění.</p>
+      <div class="hl">
+        <div class="eq">2 × ( Cu²⁺ + I⁻ + e⁻ → CuI )</div><span class="tag2 red">redukce: Cu +II → +I</span>
+        <div class="eq">2 I⁻ → I₂ + 2 e⁻</div><span class="tag2 ox">oxidace: I −I → 0</span>
+        <div class="eq" style="border-top:1.5px solid var(--ink)">2 Cu²⁺ + 4 I⁻ → 2 CuI + I₂</div><span></span>
+      </div>
+      <p style="margin:10px 0 0">Každý Cu²⁺ přijme <b>jeden</b> elektron. Každý S₂O₃²⁻ z Na₂S₂O₃ v reakci ② odevzdá taky <b>jeden</b> elektron (2 S₂O₃²⁻ → S₄O₆²⁻ + 2 e⁻). Jód jen elektrony přenese z thiosíranu na měď, proto 1 Cu²⁺ ≙ 1 S₂O₃²⁻.</p>
+    </details>
+  </div>
+
+  <div class="card zadani">
+    <span class="tag">Zadání</span>
+    <p>Kolik gramů <span class="hc">pentahydrátu síranu měďnatého [M = 249,68 g/mol]</span> je třeba navážit k jodometrickému stanovení, aby <span class="hy">obsah Cu²⁺ [M = 63,546 g/mol] ve vzorku byl větší než 0,15 g</span> a <span class="ho">spotřeba OR thiosíranu sodného byla 30 ml</span>.</p>
+    <div class="abbr">CuSO₄ · 5 H₂O = modrá skalice. OR = odměrný roztok.</div>
+  </div>
+</section>
+
+<!-- 2 ZÁPIS -->
+<section id="zapis">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Zápis: co znám a co hledám</h2></div>
+  <p class="lead">Značky, hodnoty a hned převod objemu na litry.</p>
+  <div class="data">
+    <div class="dat"><div class="sym m">{VS}</div><div class="what">požadovaná spotřeba thiosíranu</div><div class="val">30 ml = <b>0,030 l</b></div></div>
+    <div class="dat later"><div class="sym m">{cS}</div><div class="what">koncentrace thiosíranu, v zadání chybí</div><div class="val"><b>0,1000 mol/l</b> <span class="muted">(předpoklad)</span></div></div>
+    <div class="dat"><div class="sym m">{MK}</div><div class="what">molární hmotnost pentahydrátu, včetně vody</div><div class="val"><b>249,68 g/mol</b></div></div>
+    <div class="dat"><div class="sym m">{MCu}</div><div class="what">molární hmotnost mědi</div><div class="val"><b>63,546 g/mol</b></div></div>
+    <div class="dat"><div class="sym m">{mCu}</div><div class="what">obsah mědi v navážce</div><div class="val">musí být <b>&gt; 0,15 g</b></div></div>
+    <div class="dat unknown"><div class="sym m">{mK} = ?</div><div class="what">navážka modré skalice</div><div class="val">v gramech</div></div>
+  </div>
+  <div class="note warn"><b>Pozor na zadání:</b> koncentrace thiosíranu v textu není. Ve stejné sadě (úloha 1 a 5) se používá <b>0,1 mol/l</b>, proto počítáme s ní. Kdyby platila jiná, stačí ji dosadit do hotového vzorce, nebo ji posunout v laboratoři v kroku 6.</div>
+  <div class="card" style="margin-top:16px">
+    <h3>Vztahy, které budeme potřebovat</h3>
+    <div class="rel">
+      <div class="eq"><i>n</i> = <i>c</i> · <i>V</i></div>
+      <div class="eq"><i>m</i> = <i>n</i> · <i>M</i></div>
+      <div class="eq">{nCu} = {nS} <span class="muted" style="font-size:15px;font-family:var(--sans)">(z rovnic nahoře)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PODMÍNKY -->
+<section id="podminky">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Dvě podmínky, jedna navážka</h2></div>
+  <p class="lead">Zadání klade na navážku dva požadavky. Spočítáme, co z každého plyne, a uvidíme, který rozhoduje.</p>
+  <div class="grid g2">
+    <div class="card" style="border:2px solid var(--hy)">
+      <h3><span class="hy">Podmínka A</span>: víc než 0,15 g mědi</h3>
+      <p style="margin:0">Dává jen <b>dolní mez</b>. V každém molu skalice je jeden mol Cu, takže měď tvoří</p>
+      <div class="eq"><span class="f"><span>63,546</span><span>249,68</span></span> = 25,45 % hmotnosti skalice.</div>
+      <p style="margin:0">Na 0,15 g mědi je tedy potřeba nejméně</p>
+      <div class="eq"><span class="boxed">{mK}<sub>min</sub> = 0,15 · <span class="f"><span>249,68</span><span>63,546</span></span> = 0,589 g</span></div>
+    </div>
+    <div class="card" style="border:2px solid var(--ho-soft)">
+      <h3><span class="ho">Podmínka B</span>: spotřeba přesně 30 ml</h3>
+      <p style="margin:0">Dává <b>konkrétní hodnotu</b>. Spotřeba thiosíranu určuje, kolik mědi v baňce je, a tím i navážku. Odvodíme ji v kroku 4, vyjde</p>
+      <div class="eq"><span class="boxed o">{mK} = 0,749 g</span></div>
+      <p style="margin:0">To je víc než 0,589 g, takže <b>podmínka A je splněna automaticky</b>.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Na ose navážky</h3>
+    <div class="scale" aria-label="Osa navážky od 0 do 1 gramu">
+      <div class="axis"></div>
+      <div class="redz" style="width:58.94%"></div>
+      <div class="mk" style="left:58.94%"><b>0,589 g</b>minimum</div>
+      <div class="mk acc" style="left:74.9%"><b>0,749 g</b>30 ml</div>
+      <div class="tk" style="left:0%;transform:none">0</div><div class="tk" style="left:50%">0,5 g</div><div class="tk" style="left:100%;transform:translateX(-100%)">1 g</div>
+      <div class="zl badc" style="left:2%">méně než 0,15 g Cu</div>
+      <div class="zl okc" style="right:2%">podmínka A splněna</div>
+    </div>
+    <p style="margin:6px 0 0">Proč autor vůbec dává dvě podmínky? Malá navážka znamená malou spotřebu a velkou relativní chybu odečtu z byrety. 30 ml je pohodlná spotřeba z 50ml byrety: dost na přesnost, ale byreta se nemusí doplňovat.</p>
+  </div>
+</section>
+
+<!-- 4 ODVOZENÍ -->
+<section id="odvozeni">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Odvození: vzorec jen z písmen</h2></div>
+  <p class="lead">Jdeme pozpátku: od toho, co změříme (thiosíran), k tomu, co navážíme (skalice).</p>
+  <div class="branch merge">
+    <div class="step"><span class="k">1</span>
+      <p class="why">Z řetězce rovnic (1 : 1):</p>
+      <div class="eq">{nCu} = {nS}</div>
+    </div>
+    <div class="step"><span class="k">2</span>
+      <p class="why">Thiosíran přepíšeme jako <i>c</i> · <i>V</i>:</p>
+      <div class="eq">{nCu} = {cS} · {VS}</div>
+    </div>
+    <div class="step"><span class="k">3</span>
+      <p class="why">Jedna vzorcová jednotka CuSO₄ · 5 H₂O obsahuje jeden atom Cu, takže:</p>
+      <div class="eq">{nK} = {nCu}</div>
+    </div>
+    <div class="step"><span class="k">4</span>
+      <p class="why">Z látkového množství na hmotnost, <i>m</i> = <i>n</i> · <i>M</i>:</p>
+      <div class="eq big"><span class="boxed o">{mK} = {cS} · {VS} · {MK}</span></div>
+      <div class="units">jednotky: [mol/l] · [l] · [g/mol] = [g] ✓</div>
+    </div>
+    <div class="step"><span class="k">5</span>
+      <p class="why">Kontrola podmínky A, stejný postup jen s molární hmotností mědi:</p>
+      <div class="eq"><span class="boxed">{mCu} = {cS} · {VS} · {MCu} &gt; 0,15 g ?</span></div>
+    </div>
+  </div>
+  <div class="note"><b>Proč do <i>M</i> počítáme i 5 H₂O?</b> Navažujeme sůl tak, jak je v lahvičce, tedy i s krystalovou vodou. Kdybychom vzali M(CuSO₄) = 159,61 g/mol, navážili bychom o 36 % víc mědi, než chceme.</div>
+</section>
+
+<!-- 5 DOSAZENÍ -->
+<section id="dosazeni">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Teprve teď čísla</h2></div>
+  <p class="lead">Objem v litrech, koncentrace v mol/l, zaokrouhlit až na konci.</p>
+  <div class="subst scroll-x">
+    <div class="eq big" style="white-space:nowrap;flex-wrap:nowrap">{mK} = 0,1000 · 0,030 · 249,68</div>
+  </div>
+  <div class="btns">
+    <button class="btn primary pulse" id="calcNext">Spočítat další mezikrok</button>
+    <button class="btn" id="calcAll">Spočítat vše</button>
+    <button class="btn" id="calcReset">Od začátku</button>
+  </div>
+  <div class="calc" id="calc">
+    <div class="crow hidden"><span class="i">1</span><div class="lbl">Látkové množství thiosíranu<small>n = c · V</small></div><div class="cx">0,1000 mol/l · 0,030 l = <b>0,003000 mol</b></div></div>
+    <div class="crow hidden"><span class="i">2</span><div class="lbl">Látkové množství Cu²⁺ a skalice<small>poměr 1 : 1</small></div><div class="cx">n(Cu²⁺) = n(CuSO₄ · 5 H₂O) = <b>0,003000 mol</b></div></div>
+    <div class="crow hidden"><span class="i">3</span><div class="lbl">Navážka skalice<small>m = n · M</small></div><div class="cx">0,003000 mol · 249,68 g/mol = <b>0,7490 g</b></div></div>
+    <div class="crow hidden"><span class="i">4</span><div class="lbl">Kontrola: kolik je v ní mědi<small>m = n · M(Cu)</small></div><div class="cx">0,003000 mol · 63,546 g/mol = <b>0,1906 g</b> &gt; 0,15 g <span class="okc">✓</span></div></div>
+  </div>
+  <div class="result" id="result">
+    <div class="muted" style="font-weight:600">Výsledek</div>
+    <div class="big">m ≈ 0,75 g</div>
+    <p style="margin:10px 0 0">Navážit je třeba <b>0,7490 g</b> CuSO₄ · 5 H₂O. Obsahuje 0,1906 g Cu²⁺, tedy víc než požadovaných 0,15 g, a spotřebuje 30,00 ml thiosíranu o koncentraci 0,1 mol/l.</p>
+    <div class="note" style="margin-bottom:0">Ve sbírce u této úlohy výsledek uveden není. Pokud by ve vaší verzi měl thiosíran jinou koncentraci, výsledek se změní úměrně: např. pro 0,05 mol/l vyjde 0,3745 g, a to už podmínku A nesplní.</div>
+  </div>
+</section>
+
+<!-- 6 LAB -->
+<section id="lab">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Laboratoř: co kdyby?</h2></div>
+  <p class="lead">Posouvej spotřebu a koncentraci thiosíranu. Uvidíš, jakou navážku by to chtělo a jestli v ní bude dost mědi.</p>
+  <div class="lab">
+    <div class="card">
+      <div class="sl"><label for="sV">Spotřeba thiosíranu <span class="m" id="oV"></span></label><input type="range" id="sV" min="10" max="50" step="0.1"></div>
+      <div class="sl"><label for="sc">Koncentrace thiosíranu <span class="m" id="oc"></span></label><input type="range" id="sc" min="0.03" max="0.15" step="0.001"></div>
+      <div class="btns"><button class="btn" id="labReset">Vrátit hodnoty ze zadání</button></div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;color:var(--ink)">Měď v navážce vs. požadované minimum 0,15 g</div>
+      <div class="cbar"><div class="fill" id="cfill"></div><div class="lim" style="left:50%"></div><span class="lt" id="clt"></span></div>
+      <div class="out">
+        <div><small>n(CuSO₄·5H₂O) = n(Na₂S₂O₃)</small><b id="rn"></b></div>
+        <div><small>m(Cu²⁺) v navážce</small><b id="rcu"></b></div>
+        <div class="main"><small>Navážka CuSO₄ · 5 H₂O</small><b id="rm"></b></div>
+      </div>
+      <div class="lab-msg" id="labMsg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 V KOSTCE -->
+<section id="kostka">
+  <div class="sec-head"><span class="sec-num">7</span><h2>Postup v kostce</h2></div>
+  <p class="lead">Čtyři kroky, které fungují na každé nepřímé jodometrické stanovení.</p>
+  <ol class="flow" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <li class="tile">
+      <div class="top"><span class="badge">1</span></div>
+      <h3>Rovnice a řetězec</h3>
+      <p>Analyt uvolní jód, jód spotřebuje thiosíran. Vynásob poměry.</p>
+      <div class="chip m">2 CuSO₄·5H₂O → I₂ → 2 Na₂S₂O₃</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">2</span></div>
+      <h3>Poměr analyt : titrant</h3>
+      <p>Prostředník I₂ vypadne.</p>
+      <div class="chip m">{nK} = {nS}</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">3</span></div>
+      <h3>Vzorec z písmen</h3>
+      <p>Z <i>c</i> · <i>V</i> titrantu na hmotnost navážky.</p>
+      <div class="chip m">{mK} = {cS} · {VS} · {MK}</div>
+    </li>
+    <li class="tile">
+      <div class="top"><span class="badge">4</span></div>
+      <h3>Čísla a kontrola</h3>
+      <p>Dosaď, pak ověř všechny podmínky ze zadání.</p>
+      <div class="chip m">0,749 g; Cu 0,191 g ✓</div>
+    </li>
+  </ol>
+  <style>@media (max-width:1000px){#kostka .flow{grid-template-columns:1fr!important}}</style>
+</section>
+
+<!-- 8 OTÁZKY -->
+<section id="otazky">
+  <div class="sec-head"><span class="sec-num">8</span><h2>Kontrolní otázky</h2></div>
+  <p class="lead">Pět otázek na pochopení, ne na počítání.</p>
+  <div id="quiz"></div>
+  <p class="score" id="score"></p>
+</section>
+
+</main>
+<footer class="u-foot">Úloha 7, nepřímé jodometrické stanovení mědi. Koncentrace thiosíranu 0,1 mol/l je předpoklad, v zadání chybí.</footer>
+
+<script>
+(function(){
+  var SYM = {
+    VS:'<i>V</i>(Na₂S₂O₃)', cS:'<i>c</i>(Na₂S₂O₃)', nS:'<i>n</i>(Na₂S₂O₃)',
+    nCu:'<i>n</i>(Cu²⁺)', mCu:'<i>m</i>(Cu²⁺)', MCu:'<i>M</i>(Cu)',
+    nK:'<i>n</i>(CuSO₄·5H₂O)', mK:'<i>m</i>(CuSO₄·5H₂O)', MK:'<i>M</i>(CuSO₄·5H₂O)'
+  };
+  document.querySelectorAll('.m, .eq, .sym').forEach(function(el){
+    el.innerHTML = el.innerHTML.replace(/\{(\w+)\}/g,function(s,k){return SYM[k]||s;});
+  });
+  function fix(x,d){ return Number(x).toFixed(d).replace('.',','); }
+
+  /* nav + progress */
+  var links=document.querySelectorAll('.topnav a'), prog=document.getElementById('progress');
+  function onScroll(){ var h=document.documentElement; var p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1); prog.style.width=(Math.min(1,Math.max(0,p))*100)+'%'; }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          var on=a.getAttribute('href')==='#'+e.target.id; a.classList.toggle('active',on);
+          if(on){ var p=a.parentNode; p.scrollTo({left:a.offsetLeft-p.clientWidth/2+a.clientWidth/2,behavior:'smooth'}); }
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s);});
+  }
+
+  /* 1: reactions with explanations */
+  var WHY = {
+    intro:{t:'Co se v baňce děje',
+      x:'Měď nejde titrovat thiosíranem přímo. Proto ji necháme vyloučit ekvivalentní množství jódu (reakce ①) a teprve ten ztitrujeme (reakce ②). Takovému postupu se říká <b>nepřímé (substituční) stanovení</b>. Klepni na kteroukoli látku v rovnicích.'},
+    cu:{t:'CuSO₄·5H₂O, modrá skalice: analyt',
+      x:'Přesně tohle navažujeme. Ve vodě se rozpustí na Cu²⁺ a SO₄²⁻ a krystalová voda přejde do roztoku. Reaguje jen Cu²⁺, to je měď, kterou stanovujeme. Každý Cu²⁺ přijme <b>jeden elektron</b> a zredukuje se na Cu⁺ (oxidační číslo +II → +I). Sama by to nedokázala: E°(Cu²⁺/Cu⁺) = +0,15 V je menší než E°(I₂/I⁻) = +0,54 V. Pomůže jí až sraženina CuI.'},
+    iod:{t:'4 KI, jodid draselný ve velkém nadbytku',
+      x:'Reaguje z něj jen jodid I⁻, draslík jen přihlíží. Jodid má tři role. Je <b>redukční činidlo</b>: 2 I⁻ odevzdají elektrony a vznikne I₂. Je <b>srážedlo</b>: další 2 I⁻ se navážou do CuI. A přebytek jodidu váže vyloučený jód na rozpustný trijodid I₃⁻, takže jód neuniká. Proto <b>4, a ne 2</b>: polovina jodidu se oxiduje, polovina skončí ve sraženině. KI přitom nemusíme odměřovat přesně, stačí ho dát v nadbytku.'},
+    cui:{t:'CuI↓, jodid měďný',
+      x:'Bílá, velmi málo rozpustná sraženina (v baňce vypadá béžově od jódu). Tím, že odstraňuje Cu⁺ z roztoku, posune potenciál páru Cu²⁺/CuI asi na <b>+0,86 V</b>, a reakce ① proto proběhne prakticky úplně. Nevýhoda: CuI na povrchu poutá jód. Ke konci titrace se proto přidává KSCN, povrch se převede na CuSCN a zachycený jód se uvolní, takže bod ekvivalence je ostrý.'},
+    i2a:{t:'I₂, prostředník',
+      x:'Vyloučený jód nevážíme ani neměříme objemem. Vznikne ho přesně tolik, kolik mědi zreagovalo: <b>2 Cu²⁺ → 1 I₂</b>. Roztok se zbarví hnědě.'},
+    i2b:{t:'I₂, tentýž jód z reakce ①',
+      x:'Teď ho titrujeme thiosíranem z byrety. Hnědá barva postupně bledne. Až je roztok slabě žlutý, přidá se škrob (modré zbarvení) a titruje se do jeho vymizení. Škrob se nepřidává hned na začátku, protože by jód pevně vázal.'},
+    thio:{t:'2 Na₂S₂O₃, thiosíran sodný: odměrný roztok v byretě',
+      x:'Reaguje thiosíranový anion S₂O₃²⁻, Na⁺ jen přihlíží. Thiosíran je jediná látka, jejíž množství v pokusu opravdu měříme: <b>spotřeba 30 ml</b>. Každý ion odevzdá jeden elektron, 2 S₂O₃²⁻ → S₄O₆²⁻ + 2 e⁻. Na jeden I₂ jsou potřeba dva.'},
+    iback:{t:'2 NaI, jód zpět na jodid',
+      x:'Thiosíran zredukuje jód zpátky na jodid, který zůstane v roztoku se sodnými ionty jako NaI. Pro výpočet nehraje roli.'},
+    tet:{t:'Na₂S₄O₆, tetrathionan sodný',
+      x:'Bezbarvý produkt oxidace thiosíranu (průměrné oxidační číslo síry stoupne z +II na +2,5). Pro výpočet ho nepotřebujeme.'},
+    spect:{t:'2 K₂SO₄, síran draselný',
+      x:'Síran ze skalice a draslík z KI se reakce neúčastní, jen zůstanou v roztoku. V molekulovém zápisu je píšeme, aby rovnice byla vyčíslená, v iontovém je vynecháme.'},
+    water:{t:'10 H₂O, krystalová voda',
+      x:'Pět molekul vody z každé vzorcové jednotky skalice. Při rozpuštění se z nich stane obyčejná voda roztoku, reakce se neúčastní. Pro výpočet jsou ale důležité: jsou v navážce, a proto je v M(CuSO₄·5H₂O) = 249,68 g/mol.'},
+    cond:{t:'Šipka: za jakých podmínek',
+      x:'Reakce ① probíhá ve <b>slabě kyselém</b> prostředí (kyselina octová nebo zředěná H₂SO₄). V neutrálním až zásaditém by se měď srážela jako hydroxid a jód by se rozkládal. V silně kyselém by vzdušný kyslík oxidoval jodid na další jód (měď to ještě urychluje) a vyšlo by mědi víc, než ve skutečnosti je.'}
+  };
+  function S(k,cls,html){ return '<button type="button" class="u-sp '+cls+'" data-k="'+k+'">'+html+'</button>'; }
+  function O(t){ return '<span class="op">'+t+'</span>'; }
+  var AR='<button type="button" class="u-sp" data-k="cond" style="color:var(--accent)">→</button>';
+  var ION = {
+    rx1: S('cu','cu','<span class="cf">2</span> Cu²⁺')+O('+')+S('iod','io','<span class="cf">4</span> I⁻')+' '+AR+' '+S('cui','','<span class="cf">2</span> CuI↓')+O('+')+S('i2a','io','I₂'),
+    rx2: S('i2b','io','I₂')+O('+')+S('thio','th','<span class="cf">2</span> S₂O₃²⁻')+O('→')+S('iback','io','2 I⁻')+O('+')+S('tet','th','S₄O₆²⁻')
+  };
+  var MOL = {
+    rx1: S('cu','cu','<span class="cf">2</span> CuSO₄·5H₂O')+O('+')+S('iod','io','<span class="cf">4</span> KI')+' '+AR+' '+S('cui','','<span class="cf">2</span> CuI↓')+O('+')+S('i2a','io','I₂')+O('+')+S('spect','','2 K₂SO₄')+O('+')+S('water','','10 H₂O'),
+    rx2: S('i2b','io','I₂')+O('+')+S('thio','th','<span class="cf">2</span> Na₂S₂O₃')+O('→')+S('iback','io','2 NaI')+O('+')+S('tet','th','Na₂S₄O₆')
+  };
+  var molMode=true, cur='intro', why=document.getElementById('why'), btn=document.getElementById('rxMode');
+  function drawRx(){
+    var R=molMode?MOL:ION;
+    document.getElementById('rx1').innerHTML=R.rx1; document.getElementById('rx2').innerHTML=R.rx2;
+    btn.textContent=molMode?'Zobrazit iontově':'Zobrazit molekulově';
+    document.querySelectorAll('.rxcard .sp').forEach(function(b){
+      b.classList.toggle('on',b.dataset.k===cur);
+      b.onclick=function(){ cur=(cur===b.dataset.k)?'intro':b.dataset.k; drawRx(); };
+    });
+    var w=WHY[cur]; why.innerHTML='<h3>'+w.t+'</h3><p>'+w.x+'</p>';
+  }
+  btn.onclick=function(){ molMode=!molMode; drawRx(); };
+  drawRx();
+
+  /* 5: calc */
+  var rows=document.querySelectorAll('#calc .crow'), cs=0, cn=document.getElementById('calcNext');
+  function drawCalc(){
+    rows.forEach(function(r,i){ r.classList.toggle('hidden',i>=cs); });
+    document.getElementById('result').classList.toggle('show',cs===rows.length);
+    cn.disabled=cs===rows.length; cn.classList.toggle('pulse',cs<rows.length);
+  }
+  cn.onclick=function(){ if(cs<rows.length){cs++;drawCalc();} };
+  document.getElementById('calcAll').onclick=function(){ cs=rows.length; drawCalc(); };
+  document.getElementById('calcReset').onclick=function(){ cs=0; drawCalc(); };
+  drawCalc();
+
+  /* 6: lab */
+  var MK=249.68, MCu=63.546, sV=document.getElementById('sV'), sc=document.getElementById('sc');
+  function labDefaults(){ sV.value=30; sc.value=0.1; }
+  function drawLab(){
+    var V=+sV.value/1000, c=+sc.value, n=c*V, m=n*MK, mcu=n*MCu, ok=mcu>0.15;
+    document.getElementById('oV').textContent=fix(+sV.value,1)+' ml';
+    document.getElementById('oc').textContent=fix(c,3)+' mol/l';
+    document.getElementById('rn').textContent=fix(n*1000,3)+' mmol';
+    var rcu=document.getElementById('rcu'); rcu.textContent=fix(mcu,4)+' g'; rcu.className=ok?'okc':'badc';
+    document.getElementById('rm').textContent=fix(m,4)+' g';
+    var f=document.getElementById('cfill'); f.style.width=Math.min(100,mcu/0.30*100)+'%'; f.style.background=ok?'var(--cu)':'var(--bad)';
+    document.getElementById('clt').textContent=fix(mcu,3)+' g Cu';
+    var msg=document.getElementById('labMsg'), def=Math.abs(+sV.value-30)<1e-6&&Math.abs(c-0.1)<1e-9;
+    msg.className=ok?'lab-msg':'lab-msg bad';
+    msg.textContent = !ok ? 'Mědi je méně než 0,15 g: podmínka A není splněná. Potřebuješ větší spotřebu nebo koncentrovanější thiosíran.'
+      : def ? 'Hodnoty ze zadání. Zkus snížit koncentraci thiosíranu na 0,05 mol/l: navážka se zmenší na polovinu a mědi bude málo.'
+      : 'Navážka roste přímo úměrně spotřebě i koncentraci: dvojnásobek čehokoli znamená dvojnásobnou navážku.';
+  }
+  [sV,sc].forEach(function(s){ s.addEventListener('input',drawLab); });
+  document.getElementById('labReset').onclick=function(){ labDefaults(); drawLab(); };
+  labDefaults(); drawLab();
+
+  /* 8: quiz */
+  var Q=[
+    {q:'Kolik molů Na₂S₂O₃ se spotřebuje na 1 mol CuSO₄·5H₂O?', o:['0,5 mol','1 mol','2 mol','4 mol'], a:1,
+     e:'2 CuSO₄·5H₂O uvolní 1 I₂ a ten spotřebuje 2 Na₂S₂O₃. Dvojky se zkrátí, poměr je 1 : 1. Častá chyba je 2, kdo vezme jen druhou rovnici.'},
+    {q:'Proč je v první rovnici 4 I⁻, a ne jen 2?', o:['Polovina jodidu se oxiduje na I₂, druhá polovina se váže do sraženiny CuI.','Jodid je ve dvojnásobném nadbytku.','Protože měď je dvojmocná.'], a:0,
+     e:'Na vznik I₂ stačí 2 I⁻, ale každý Cu⁺ si do sraženiny CuI vezme další jodid. 2 + 2 = 4.'},
+    {q:'Proč reakce ① proběhne, když E°(Cu²⁺/Cu⁺) je menší než E°(I₂/I⁻)?', o:['Protože je jodid v nadbytku, nic jiného nehraje roli.','Vznikající CuI je velmi málo rozpustný a odstraňuje Cu⁺ z roztoku, čímž posune potenciál mědi nahoru.','Protože se zahřívá.'], a:1,
+     e:'Odstranění produktu ve sraženině zvedne potenciál páru Cu²⁺/CuI asi na +0,86 V, tedy nad jód.'},
+    {q:'Proč do molární hmotnosti navážky počítáme i 5 H₂O?', o:['Voda se při titraci uvolní a reaguje.','Navažujeme sůl tak, jak je, i s krystalovou vodou.','Aby výsledek vyšel větší.'], a:1,
+     e:'Na váze leží CuSO₄ · 5 H₂O, takže na mol mědi navážíme 249,68 g, ne jen 159,61 g bezvodé soli.'},
+    {q:'Kolega navážil 0,55 g skalice. Splní podmínku „víc než 0,15 g Cu“?', o:['Ano.','Ne, obsahuje asi 0,14 g Cu.'], a:1,
+     e:'Měď tvoří 25,45 % skalice: 0,55 · 0,2545 = 0,140 g. Minimum je 0,589 g.'}
+  ];
+  var quiz=document.getElementById('quiz'), done=0, good=0;
+  Q.forEach(function(item,qi){
+    var box=document.createElement('div'); box.className='card q';
+    box.innerHTML='<h3>'+(qi+1)+'. '+item.q+'</h3><div class="opts"></div><div class="fb"></div>';
+    var opts=box.querySelector('.opts'), fb=box.querySelector('.fb'), answered=false;
+    item.o.forEach(function(t,oi){
+      var b=document.createElement('button'); b.type='button'; b.className='opt'; b.textContent=t;
+      b.onclick=function(){
+        if(answered) return; answered=true; done++;
+        var ok=oi===item.a; if(ok) good++;
+        b.classList.add(ok?'right':'wrong'); if(!ok) opts.children[item.a].classList.add('right');
+        fb.innerHTML=(ok?'<b class="ok">Správně.</b> ':'<b class="no">Ne tak docela.</b> ')+item.e; fb.classList.add('show');
+        if(done===Q.length) document.getElementById('score').textContent='Skóre: '+good+' z '+Q.length+'.';
+      };
+      opts.appendChild(b);
+    });
+    quiz.appendChild(box);
+  });
+})();
+</script>
+<footer class="foot"><div class="foot-in">
+  <span><lang-cs>Chemie — Interaktivní studijní materiály z chemie</lang-cs><lang-en lang="en">Chemistry — Interactive chemistry study materials</lang-en><lang-sk lang="sk">Chémia — Interaktívne študijné materiály z chémie</lang-sk></span>
+  <!--SL--><span class="author"><lang-cs>Autor: Ing. Marek Kurťák</lang-cs><lang-en lang="en">Author: Ing. Marek Kurťák</lang-en><lang-sk lang="sk">Autor: Ing. Marek Kurťák</lang-sk></span><!--/SL-->
+  <span class="sp"></span>
+  <span><lang-cs>Materiály fungují i bez připojení. Pokrok se ukládá ve vašem prohlížeči.</lang-cs><lang-en lang="en">The materials work offline too. Your progress is saved in your browser.</lang-en><lang-sk lang="sk">Materiály fungujú aj bez pripojenia. Pokrok sa ukladá vo vašom prehliadači.</lang-sk></span>
+</div></footer>
+<script>
+(function(){
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty", "vodik", "halogeny", "chalkogeny", "dusik", "uhlik", "kovy", "nekovy", "komplexy", "prechodne", "jodo", "abtitr"];
+  var SUN="<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4.4\" fill=\"currentColor\"/><g stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7\"/></g></svg>", MOON="<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z\" fill=\"currentColor\"/></svg>";
+  function cur(){var a=document.documentElement.getAttribute("data-theme");
+    if(a)return a;
+    try{var v=localStorage.getItem("site.theme");if(v)return JSON.parse(v);}catch(e){}
+    return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+  function save(t){try{localStorage.setItem("site.theme",JSON.stringify(t));
+    KEYS.forEach(function(k){localStorage.setItem(k+".theme",JSON.stringify(t));});}catch(e){}}
+  function paint(){var d=cur()==="dark";var b=document.getElementById("themeBtn");
+    if(b){b.innerHTML=d?SUN:MOON;
+      b.setAttribute("aria-label",d?"Přepnout na světlý režim":"Přepnout na tmavý režim");}}
+  try{var s=localStorage.getItem("site.theme");
+    if(s) document.documentElement.setAttribute("data-theme",JSON.parse(s));}catch(e){}
+  document.addEventListener("DOMContentLoaded",function(){
+    paint();
+    var b=document.getElementById("themeBtn");
+    if(b) b.addEventListener("click",function(){
+      var n=cur()==="dark"?"light":"dark";
+      document.documentElement.setAttribute("data-theme",n); save(n); paint();
+    });
+  });
+})();
+</script>
+</body>
+</html>

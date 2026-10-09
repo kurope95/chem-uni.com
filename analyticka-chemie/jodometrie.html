@@ -1108,6 +1108,40 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
   /* vysvětlivka mimo hover/fokus vůbec nezabírá místo (nesmí rozšířit stránku) */
   .jd-tip .jd-tt{display:none}
   .jd-tip:hover .jd-tt,.jd-tip:focus .jd-tt{display:block}
+  /* velká celá rovnice na příkladu (přímá / nepřímá) */
+  .jd-ex1{background:var(--surface);border:2px solid var(--jd-c-line);border-top:4px solid var(--jd-c);border-radius:16px;
+    box-shadow:var(--jd-shadow);padding:clamp(1rem,2.2vw,1.4rem);margin:1.3rem 0 1.5rem}
+  .jd-ex1 > .eyebrow{color:var(--jd-c)}
+  .jd-ex1 > h3{margin:.25rem 0 .9rem;color:var(--jd-c)}
+  .jd-bigeq{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:.7rem .55rem;
+    background:var(--jd-c-soft);border:2px solid var(--jd-c-line);border-radius:12px;padding:1rem .8rem}
+  .jd-bigeq .t{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:5.2rem}
+  .jd-bigeq .t b{font-family:var(--f-ui);font-weight:700;font-size:clamp(1.45rem,1.1rem + 1.3vw,2.1rem);line-height:1.15;
+    color:var(--ink);white-space:nowrap}
+  .jd-bigeq .t.ti b{color:var(--jd-c)}
+  .jd-bigeq .t.an b{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--jd-c-line)}
+  .jd-bigeq .t i{font-style:normal;font-family:var(--f-ui);font-size:.78rem;line-height:1.3;color:var(--ink-2);margin-top:.35rem}
+  .jd-bigeq .t i u{text-decoration:none;font-weight:700;color:var(--ink)}
+  .jd-bigeq .op{font-family:var(--f-ui);font-weight:700;font-size:clamp(1.45rem,1.1rem + 1.3vw,2.1rem);line-height:1.15;color:var(--ink-3)}
+  .jd-oxs{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 .2rem}
+  .jd-oxs span{font-family:var(--f-ui);font-size:.88rem;background:var(--surface-2);border:2px solid var(--line-strong);
+    border-radius:10px;padding:.35rem .65rem}
+  .jd-stepl{font-family:var(--f-ui);font-weight:700;color:var(--jd-c);margin:1rem 0 .45rem}
+  .jd-ex1 > .jd-stepl:first-of-type{margin-top:0}
+  .jd-concl{margin:.9rem 0 0;font-size:1rem}
+  .jd-ion{margin:.45rem 0 0;font-size:.88rem;color:var(--ink-2)}
+  /* odkaz do sbírky řešených úloh */
+  .jd-more-ulohy{background:var(--surface);border:2px solid var(--line-strong);border-top:4px solid var(--accent);
+    border-radius:16px;box-shadow:var(--jd-shadow);padding:1.1rem 1.2rem;margin:1.6rem 0}
+  .jd-more-ulohy > h3{margin:.25rem 0 .8rem}
+  .jd-ul{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:640px){ .jd-ul{grid-template-columns:minmax(0,1fr)} }
+  .jd-ul a{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;color:var(--ink);background:var(--surface-2);
+    border:2px solid var(--line-strong);border-radius:12px;padding:.8rem .95rem}
+  .jd-ul a:hover{border-color:var(--accent)}
+  .jd-ul b{font-family:var(--f-ui);font-size:.98rem}
+  .jd-ul span{font-size:.9rem;color:var(--ink-2)}
+  .jd-ul em{font-style:normal;font-family:var(--f-ui);font-size:.84rem;font-weight:600;color:var(--accent);margin-top:auto}
   </style>
 
   <header class="hero">
@@ -1240,6 +1274,28 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       <span class="eyebrow">II · stanovení redukovadel</span>
       <h2>Přímá jodometrie (jodimetrie)</h2>
       <p class="lead">Stanovovanou látku, která musí být <b>redukovadlo</b>, titrujeme přímo <b>odměrným roztokem jodu</b>.</p>
+
+      <div class="jd-ex1 jd-d">
+        <span class="eyebrow">Celá rovnice na příkladu</span>
+        <h3>Stanovení siřičitanu sodného jodem</h3>
+        <div class="jd-bigeq" role="math" aria-label="Na2SO3 + I2 + H2O → Na2SO4 + 2 HI">
+          <span class="t an"><b>Na₂SO₃</b><i>siřičitan sodný<br><u>analyt</u> (redukovadlo)</i></span>
+          <span class="op">+</span>
+          <span class="t ti"><b>I₂</b><i>jod z&nbsp;byrety<br><u>titrant</u> (oxidovadlo)</i></span>
+          <span class="op">+</span>
+          <span class="t"><b>H₂O</b><i>voda</i></span>
+          <span class="op">→</span>
+          <span class="t"><b>Na₂SO₄</b><i>síran sodný</i></span>
+          <span class="op">+</span>
+          <span class="t"><b>2&nbsp;HI</b><i>jodovodík<br>(jod jako jodid I⁻)</i></span>
+        </div>
+        <div class="jd-oxs">
+          <span><b>S:</b> +IV → +VI · oxiduje se, odevzdá 2&nbsp;e⁻</span>
+          <span><b>I:</b> 0 → −I · redukuje se, 2 atomy jodu přijmou 2&nbsp;e⁻</span>
+        </div>
+        <p class="jd-concl"><b>Poměr: 1&nbsp;mol Na₂SO₃ spotřebuje 1&nbsp;mol I₂.</b> Sodné ionty se reakce neúčastní: vstupují jako Na₂SO₃ a&nbsp;vystupují jako Na₂SO₄.</p>
+        <p class="jd-ion">Zkráceně iontově (bez diváckých iontů Na⁺): <span class="chem">SO₃²⁻ + I₂ + H₂O → SO₄²⁻ + 2I⁻ + 2H⁺</span></p>
+      </div>
 
       <div class="jd-key jd-d">
         <h3>Klíčový princip a postup přímé jodometrie</h3>
@@ -1419,6 +1475,39 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
       <span class="eyebrow">III · stanovení oxidovadel</span>
       <h2>Nepřímá jodometrie</h2>
       <p class="lead">Metoda na stanovení <b>oxidovadel</b>. Analyt (oxidovadlo) zreaguje s&nbsp;<b>nadbytkem jodidu draselného</b> v&nbsp;okyseleném roztoku a&nbsp;uvolní odpovídající (ekvivalentní) množství jodu. Ten se pak titruje odměrným roztokem <b>thiosíranu sodného</b>.</p>
+
+      <div class="jd-ex1 jd-i">
+        <span class="eyebrow">Celé rovnice na příkladu</span>
+        <h3>Stanovení síranu měďnatého (CuSO₄)</h3>
+        <p class="jd-stepl">Krok 1 · analyt uvolní z&nbsp;KI jod</p>
+        <div class="jd-bigeq" role="math" aria-label="2 CuSO4 + 4 KI → 2 CuI + I2 + 2 K2SO4">
+          <span class="t an"><b>2&nbsp;CuSO₄</b><i>síran měďnatý<br><u>analyt</u> (oxidovadlo)</i></span>
+          <span class="op">+</span>
+          <span class="t"><b>4&nbsp;KI</b><i>jodid draselný<br>v&nbsp;nadbytku (redukovadlo)</i></span>
+          <span class="op">→</span>
+          <span class="t"><b>2&nbsp;CuI</b><i>jodid měďný<br>(bílá sraženina)</i></span>
+          <span class="op">+</span>
+          <span class="t ti"><b>I₂</b><i>uvolněný jod<br>(ten budeme titrovat)</i></span>
+          <span class="op">+</span>
+          <span class="t"><b>2&nbsp;K₂SO₄</b><i>síran draselný</i></span>
+        </div>
+        <div class="jd-oxs">
+          <span><b>Cu:</b> +II → +I · redukuje se, každý Cu²⁺ přijme 1&nbsp;e⁻</span>
+          <span><b>I:</b> −I → 0 · 2 ze 4 jodidů se zoxidují na I₂</span>
+        </div>
+        <p class="jd-stepl">Krok 2 · uvolněný jod titrujeme thiosíranem</p>
+        <div class="jd-bigeq" role="math" aria-label="I2 + 2 Na2S2O3 → 2 NaI + Na2S4O6">
+          <span class="t"><b>I₂</b><i>jod z&nbsp;kroku 1</i></span>
+          <span class="op">+</span>
+          <span class="t ti"><b>2&nbsp;Na₂S₂O₃</b><i>thiosíran sodný<br><u>titrant</u> z&nbsp;byrety</i></span>
+          <span class="op">→</span>
+          <span class="t"><b>2&nbsp;NaI</b><i>jodid sodný</i></span>
+          <span class="op">+</span>
+          <span class="t"><b>Na₂S₄O₆</b><i>tetrathionan sodný</i></span>
+        </div>
+        <p class="jd-concl"><b>Řetízek: 2&nbsp;CuSO₄ → 1&nbsp;I₂ → 2&nbsp;Na₂S₂O₃, tedy n(CuSO₄) = n(Na₂S₂O₃) (poměr 1&nbsp;:&nbsp;1).</b> Síranové, draselné a&nbsp;sodné ionty jsou jen diváci, nic nepřenášejí.</p>
+        <p class="jd-ion">Zkráceně iontově: <span class="chem">2Cu²⁺ + 4I⁻ → 2CuI + I₂</span> &nbsp;a&nbsp; <span class="chem">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</span></p>
+      </div>
 
       <div class="jd-key jd-i">
         <h3>Klíčový princip a postup nepřímé jodometrie</h3>
@@ -1767,6 +1856,15 @@ html[data-lang="en"] .langsw-menu button[data-set-lang="en"]::after{content:"";m
           <p class="eq"><span class="q">m</span>(vzorek) = 5,00&nbsp;ml · 1,08&nbsp;g/ml = 5,40&nbsp;g<br><span class="q">w</span>(NaClO) = 0,5804 / 5,40 · 100&nbsp;% = <b>10,75&nbsp;%</b></p>
         </div></details>
         <div class="jd-ans">Obsah NaClO v komerčním bělidle je přibližně 10,8 % hmotnostních.</div>
+      </div>
+
+      <div class="jd-more-ulohy">
+        <span class="eyebrow">Sbírka řešených úloh</span>
+        <h3>Další úlohy z&nbsp;jodometrie, rozebrané krok za krokem</h3>
+        <div class="jd-ul">
+          <a href="ulohy/uloha-6-peroxid-vodiku.html"><b>Úloha 6: Peroxid vodíku zpětnou titrací</b><span>Jod v&nbsp;nadbytku, retitrace thiosíranem, ředění a&nbsp;vzorec odvozený jen z&nbsp;písmen.</span><em>Otevřít úlohu →</em></a>
+          <a href="ulohy/uloha-7-modra-skalice.html"><b>Úloha 7: Navážka modré skalice pro jodometrii mědi</b><span>Kolik CuSO₄·5H₂O navážit, aby spotřeba thiosíranu byla 30&nbsp;ml.</span><em>Otevřít úlohu →</em></a>
+        </div>
       </div>
     </div>
     <div class="chapter-done" data-done="k5"></div>
@@ -2794,7 +2892,7 @@ scrollspy();
 <script>
 /* SITE-NAV — sjednocení světlého a tmavého režimu napříč webem */
 (function(){
-  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty", "vodik", "halogeny", "chalkogeny", "dusik", "uhlik", "kovy", "nekovy", "komplexy", "prechodne", "jodo"];
+  var KEYS=["termo", "jadro", "obal", "vazba", "struktura", "kinetika", "rovnovaha", "elchem", "acidobaze", "vypocty", "vodik", "halogeny", "chalkogeny", "dusik", "uhlik", "kovy", "nekovy", "komplexy", "prechodne", "jodo", "abtitr"];
   function mirror(){
     try{
       var t=document.documentElement.getAttribute("data-theme");
